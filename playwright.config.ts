@@ -7,7 +7,11 @@ export default defineConfig({
   workers: 1,
   timeout: 60000,
   expect: { timeout: 10000 },
-  reporter: [["list"], ["html", { open: "never" }]],
+  reporter: [
+    ["list"],
+    ["html", { open: "never" }],
+    ["json", { outputFile: ".local/e2e-results.json" }],
+  ],
   use: {
     baseURL: url,
     screenshot: "only-on-failure",

@@ -8,6 +8,9 @@ interface Props {
   points: Point[];
   trace: Trace | null;
   position: number;
+  clock?: { current: number };
+  minimal?: boolean;
+  active?: boolean;
   edit?: boolean;
   tool?: string;
   selected?: number[];
@@ -31,6 +34,7 @@ export function Canvas(props: Props) {
     [fps, setFps] = useState(0);
   latest.current = props;
   useEffect(() => {
+    if (props.active === false) return;
     const canvas = ref.current!;
     let w = 1,
       h = 1,
@@ -52,12 +56,18 @@ export function Canvas(props: Props) {
     });
     observer.observe(canvas);
     const tick = (now: number) => {
-      if (w < 1 || h < 1 || document.hidden) {
+      if (
+        w < 1 ||
+        h < 1 ||
+        document.hidden ||
+        latest.current.active === false
+      ) {
         frame = requestAnimationFrame(tick);
         return;
       }
       const p = latest.current,
-        index = Math.floor(p.position);
+        position = p.clock?.current ?? p.position,
+        index = Math.floor(position);
       if (
         !cache ||
         cache.trace !== p.trace ||
@@ -75,12 +85,13 @@ export function Canvas(props: Props) {
       }
       const ctx = canvas.getContext("2d")!;
       ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-      draw(ctx, w, h, p.points, cache.from, cache.to, p.position - index, {
+      draw(ctx, w, h, p.points, cache.from, cache.to, position - index, {
         algorithm: p.algorithm,
         view: view.current,
         selected: p.selected ?? [],
         time: now,
         decision: true,
+        minimal: p.minimal,
       });
       frames++;
       if (now - last > 1000) {
@@ -104,7 +115,7 @@ export function Canvas(props: Props) {
       observer.disconnect();
       canvas.removeEventListener("wheel", wheel);
     };
-  }, []);
+  }, [props.active]);
   const pointer = (e: React.PointerEvent<HTMLCanvasElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     return {
@@ -217,18 +228,22 @@ export function Canvas(props: Props) {
           drag.current = null;
         }}
       />
-      <div className="canvas-corner">
-        <span className="live-dot" /> CANVAS 2D <span>{fps} FPS</span>
-      </div>
-      <button
-        className="view-reset"
-        onClick={() => {
-          view.current = { zoom: 1, panX: 0, panY: 0 };
-        }}
-        title="확대·이동 초기화"
-      >
-        좌표 초기화 ↺
-      </button>
+      {!props.minimal && (
+        <div className="canvas-corner">
+          <span className="live-dot" /> CANVAS 2D <span>{fps} FPS</span>
+        </div>
+      )}
+      {!props.minimal && (
+        <button
+          className="view-reset"
+          onClick={() => {
+            view.current = { zoom: 1, panX: 0, panY: 0 };
+          }}
+          title="확대·이동 초기화"
+        >
+          좌표 초기화 ↺
+        </button>
+      )}
     </div>
   );
 }

@@ -5,22 +5,44 @@ export function useExperiment(
   algorithm: Algorithm,
   points: Point[],
   params: Params,
+  options: { active?: boolean; uiInterval?: number } = {},
 ) {
+  const active = options.active ?? true,
+    uiInterval = options.uiInterval ?? 0;
   const [trace, setTrace] = useState<Trace | null>(null),
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false),
     [playing, setPlaying] = useState(false),
     [position, setPosition] = useState(0),
     [speed, setSpeed] = useState(50),
-    [fast, setFast] = useState(false),
     [loop, setLoop] = useState(false);
   const worker = useRef<Worker | null>(null),
     positionRef = useRef(0);
+  const completed = useRef<{
+    algorithm: Algorithm;
+    points: Point[];
+    params: Params;
+    trace: Trace;
+  } | null>(null);
   const seek = useCallback((value: number) => {
     positionRef.current = value;
     setPosition(value);
   }, []);
   useEffect(() => {
+    if (!active) {
+      setBusy(false);
+      return;
+    }
+    const cache = completed.current;
+    if (
+      cache &&
+      cache.algorithm === algorithm &&
+      cache.points === points &&
+      cache.params === params
+    ) {
+      setTrace(cache.trace);
+      return;
+    }
     setTrace(null);
     seek(0);
     setPlaying(false);
@@ -33,7 +55,10 @@ export function useExperiment(
     w.onmessage = (e) => {
       setBusy(false);
       if (e.data.error) setError(e.data.error);
-      else setTrace(e.data.trace);
+      else {
+        completed.current = { algorithm, points, params, trace: e.data.trace };
+        setTrace(e.data.trace);
+      }
     };
     w.onerror = (e) => {
       setError(e.message || "Worker 실행 오류");
@@ -47,16 +72,24 @@ export function useExperiment(
       clearTimeout(timer);
       w.terminate();
     };
-  }, [algorithm, points, params, seek]);
+  }, [algorithm, points, params, seek, active]);
   useEffect(() => {
-    if (!playing || !trace) return;
+    if (!playing || !trace || !active) return;
     let frame = 0,
-      last = 0;
+      last = 0,
+      shown = 0;
     const tick = (now: number) => {
       if (last) {
         const dt = document.hidden ? 0 : Math.min(100, now - last),
-          next = advance(positionRef.current, dt, speed, trace, fast);
-        seek(next);
+          next = advance(positionRef.current, dt, speed, trace);
+        positionRef.current = next;
+        if (
+          now - shown >= Math.max(uiInterval, speed >= 120 ? 33 : 0) ||
+          next >= trace.steps.length
+        ) {
+          setPosition(next);
+          shown = now;
+        }
         if (next >= trace.steps.length) {
           if (loop) seek(0);
           else {
@@ -69,8 +102,11 @@ export function useExperiment(
       frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [playing, trace, speed, fast, loop, seek]);
+    return () => {
+      cancelAnimationFrame(frame);
+      setPosition(positionRef.current);
+    };
+  }, [playing, trace, speed, loop, seek, active, uiInterval]);
   return {
     trace,
     error,
@@ -81,8 +117,7 @@ export function useExperiment(
     seek,
     speed,
     setSpeed,
-    fast,
-    setFast,
+    clock: positionRef,
     loop,
     setLoop,
     reset: () => {

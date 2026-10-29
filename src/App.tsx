@@ -49,6 +49,7 @@ import { Canvas } from "./components/Canvas";
 import { Playback } from "./components/Playback";
 import { Settings } from "./components/Settings";
 import { Analysis } from "./components/Analysis";
+import { HomeDemos } from "./components/HomeDemos";
 const pages = [
   { id: "home", label: "홈", icon: Home },
   { id: "lab", label: "알고리즘 실험실", icon: FlaskConical },
@@ -70,40 +71,6 @@ function download(name: string, content: string) {
   a.download = name;
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-function HomeDemo() {
-  const points = useMemo(
-      () => dataset("blobs", { ...dataDefaults, count: 60 }),
-      [],
-    ),
-    params = useMemo(() => ({ ...defaults, k: 3, iterations: 5 }), []),
-    lab = useExperiment("K-Means", points, params);
-  useEffect(() => {
-    if (lab.trace && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      lab.setLoop(true);
-      lab.setSpeed(76);
-      lab.setPlaying(true);
-    }
-  }, [lab.trace]);
-  return (
-    <div className="home-demo">
-      <div className="demo-header">
-        <span>
-          <i className="live-dot" /> 실제 알고리즘 · K-Means
-        </span>
-        <span className="pill">LIVE DEMO</span>
-      </div>
-      <Canvas
-        algorithm="K-Means"
-        points={points}
-        trace={lab.trace}
-        position={lab.position}
-      />
-      <div className="demo-footer">
-        <Playback lab={lab} compact />
-      </div>
-    </div>
-  );
 }
 function CompareCard({
   points,
@@ -173,6 +140,7 @@ function CompareCard({
           points={points}
           trace={lab.trace}
           position={lab.position}
+          clock={lab.clock}
         />
       )}
       <Playback lab={lab} compact />
@@ -219,7 +187,7 @@ export default function App() {
     [compareCount, setCompareCount] = useState(2),
     [compareStart, setCompareStart] = useState(0);
   const file = useRef<HTMLInputElement>(null),
-    lab = useExperiment(algorithm, points, params),
+    lab = useExperiment(algorithm, points, params, { active: page === "lab" }),
     stepIndex = Math.floor(lab.position),
     state = useMemo(
       () =>
@@ -299,12 +267,13 @@ export default function App() {
         </a>
         <button
           className="collapse"
-          aria-label="사이드바 접기"
+          aria-label={collapsed ? "사이드바 펼치기" : "사이드바 접기"}
+          aria-expanded={!collapsed}
           onClick={() => setCollapsed(!collapsed)}
         >
           {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
         </button>
-        <div className="nav-label">WORKSPACE</div>
+
         <nav aria-label="주 메뉴">
           {pages.map((p) => (
             <button
@@ -319,74 +288,24 @@ export default function App() {
             </button>
           ))}
         </nav>
-        {!collapsed && (
-          <div className="sidebar-bottom">
-            <div className="sidebar-note">
-              <FlaskConical size={19} />
-              <b>작은 점에서 시작하는 발견</b>
-              <p>
-                파라미터를 바꾸고,
-                <br />
-                알고리즘의 생각을 따라가세요.
-              </p>
-            </div>
-            <a
-              href="https://github.com/oyueo-mm/ClusterLab"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub ↗ <span>oyueo-mm</span>
-            </a>
-            <small>ClusterLab · Interactive ML Lab</small>
-          </div>
-        )}
       </aside>
       <div className="workspace">
-        <header className="topbar">
-          <div>
-            <button
-              className="mobile-menu"
-              aria-label="메뉴 열기"
-              onClick={() => setMobileNav(true)}
-            >
-              <Menu size={20} />
-            </button>
-            <span className="breadcrumb">
-              워크스페이스 <ChevronRight size={13} />
-            </span>
-            <strong>{pages.find((p) => p.id === page)?.label}</strong>
-          </div>
-          <div className="topbar-right">
-            <span className="local-badge">
-              <i className="live-dot" /> 브라우저에서 실행
-            </span>
-            <a
-              href="https://github.com/oyueo-mm/ClusterLab"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub ↗
-            </a>
-          </div>
+        <header className="mobile-header">
+          <button
+            className="mobile-menu"
+            aria-label="메뉴 열기"
+            onClick={() => setMobileNav(true)}
+          >
+            <Menu size={20} />
+          </button>
         </header>
         <main id="main">
           {page === "home" && (
             <div className="home-page">
               <div className="hero">
                 <section className="hero-copy">
-                  <span className="eyebrow">
-                    <span /> INTERACTIVE CLUSTERING LAB
-                  </span>
-                  <h1>
-                    점들이 모이는 순간,
-                    <br />
-                    <em>알고리즘이 보입니다.</em>
-                  </h1>
-                  <p>
-                    데이터를 직접 만들고, 알고리즘을 움직여 보세요.
-                    <br />
-                    흩어진 점들이 군집이 되는 과정을 한 단계씩 탐험합니다.
-                  </p>
+                  <h1>클러스터링 알고리즘</h1>
+                  <p className="hero-subtitle">시뮬레이터</p>
                   <div className="hero-actions">
                     <button className="primary" onClick={() => go("lab")}>
                       실험 시작하기 <ArrowRight size={18} />
@@ -395,116 +314,67 @@ export default function App() {
                       데이터셋 둘러보기
                     </button>
                   </div>
-                  <div className="hero-facts">
-                    <span>
-                      <Check size={14} /> 12가지 알고리즘
-                    </span>
-                    <span>
-                      <Check size={14} /> 실제 연산 시각화
-                    </span>
-                    <span>
-                      <Check size={14} /> 자유로운 되감기
-                    </span>
-                  </div>
                 </section>
-                <HomeDemo />
-              </div>
-              <section className="explore-section">
-                <div className="section-heading">
-                  <div>
-                    <span className="section-kicker">EXPLORE THE LAB</span>
-                    <h2>같은 데이터, 다른 발견</h2>
-                    <p>알고리즘마다 데이터를 바라보는 방식이 다릅니다.</p>
-                  </div>
-                  <button className="text-link" onClick={() => go("guide")}>
-                    알고리즘 모두 보기 <ArrowRight size={16} />
-                  </button>
-                </div>
-                <div className="feature-grid">
-                  {(["K-Means", "DBSCAN", "HDBSCAN", "SOM"] as Algorithm[]).map(
-                    (a, i) => (
-                      <button
-                        className="feature-card"
-                        key={a}
-                        onClick={() => {
-                          changeAlgorithm(a);
-                          go("lab");
-                        }}
-                      >
-                        <MiniPlot
-                          id={["blobs", "moons", "density", "grid"][i]}
-                        />
-                        <span className="feature-type">
-                          0{i + 1} / {guides[a].family}
-                        </span>
-                        <h3>
-                          {a}
-                          <ArrowRight size={18} />
-                        </h3>
-                        <p>{guides[a].intro.slice(0, 64)}…</p>
-                      </button>
-                    ),
-                  )}
-                </div>
-              </section>
-              <div className="home-bottom">
-                <span>
-                  <Activity size={17} /> 결과보다 과정을 탐구하세요.
-                </span>
-                <p>
-                  모든 애니메이션은 알고리즘이 생성한 실제 연산 기록에서
-                  시작합니다.
-                </p>
+                <HomeDemos
+                  onChoose={(a, p) => {
+                    changeAlgorithm(a);
+                    setPoints(p);
+                    setPreset("blobs");
+                    go("lab");
+                  }}
+                />
               </div>
             </div>
           )}
           <div hidden={page !== "lab"} className="lab-page">
-            <div className="page-heading">
-              <div>
-                <span className="section-kicker">ALGORITHM LAB</span>
-                <h1>알고리즘 실험실</h1>
-                <p>한 단계씩 따라가며, 군집이 만들어지는 원리를 발견하세요.</p>
-              </div>
-              <button
-                className="settings-toggle"
-                onClick={() => setSettingsOpen(!settingsOpen)}
-              >
-                <Settings2 size={17} />
-                설정
-              </button>
-            </div>
             <div className="lab-layout">
               <section className="stage">
                 <div className="stage-heading">
-                  <div className="algorithm-select">
-                    <span className="algorithm-icon">
-                      <FlaskConical size={19} />
-                    </span>
-                    <select
-                      aria-label="알고리즘 선택"
-                      value={algorithm}
-                      onChange={(e) =>
-                        changeAlgorithm(e.target.value as Algorithm)
-                      }
-                    >
-                      {algorithms.map((a) => (
-                        <option key={a}>{a}</option>
-                      ))}
-                    </select>
-                    <span className="family-tag">
-                      {guides[algorithm].family}
+                  <div className="stage-identity">
+                    <div className="algorithm-select">
+                      <span className="algorithm-icon">
+                        <FlaskConical size={19} />
+                      </span>
+                      <select
+                        aria-label="알고리즘 선택"
+                        value={algorithm}
+                        onChange={(e) =>
+                          changeAlgorithm(e.target.value as Algorithm)
+                        }
+                      >
+                        {algorithms.map((a) => (
+                          <option key={a}>{a}</option>
+                        ))}
+                      </select>
+                      <span className="family-tag">
+                        {guides[algorithm].family}
+                      </span>
+                    </div>
+                    <span className="visualization-description">
+                      {algorithm} 데이터 및 실제 연산 시각화
                     </span>
                   </div>
-                  <span className={`status ${lab.playing ? "running" : ""}`}>
-                    <i />
-                    {lab.busy
-                      ? "계산 중"
-                      : lab.playing
-                        ? "재생 중"
-                        : lab.position >= (lab.trace?.steps.length ?? Infinity)
-                          ? "완료"
-                          : "준비됨"}
-                  </span>
+                  <div className="stage-summary">
+                    <span className="point-count">{points.length} points</span>
+                    <span className={`status ${lab.playing ? "running" : ""}`}>
+                      <i />
+                      {lab.busy
+                        ? "계산 중"
+                        : lab.playing
+                          ? "재생 중"
+                          : lab.position >=
+                              (lab.trace?.steps.length ?? Infinity)
+                            ? "완료"
+                            : "준비됨"}
+                    </span>
+                    <button
+                      className="settings-toggle"
+                      aria-label="설정 열기"
+                      onClick={() => setSettingsOpen(!settingsOpen)}
+                    >
+                      <Settings2 size={17} />
+                    </button>
+                  </div>
                 </div>
                 <div className="stage-subbar">
                   <label>
@@ -521,7 +391,7 @@ export default function App() {
                       ))}
                     </select>
                   </label>
-                  <span>{points.length} points</span>
+
                   <button
                     title="시드로 데이터 재생성"
                     aria-label="데이터 재생성"
@@ -540,6 +410,7 @@ export default function App() {
                   points={points}
                   trace={lab.trace}
                   position={lab.position}
+                  clock={lab.clock}
                 />
                 <div className="canvas-legend">
                   {legendValues.map((value) => (
@@ -636,17 +507,6 @@ export default function App() {
                   value={params}
                   onChange={setParams}
                 />
-                <button
-                  className="guide-button"
-                  onClick={() => {
-                    setGuideAlgorithm(algorithm);
-                    go("guide");
-                  }}
-                >
-                  <BookOpen size={15} />
-                  {algorithm} 가이드
-                  <ArrowRight size={15} />
-                </button>
               </aside>
             </div>
           </div>
@@ -1007,8 +867,10 @@ export default function App() {
                   <p>{guide.complexity}</p>
                   <h3>적합한 데이터셋</h3>
                   <p>{guide.suitable}</p>
-                  <h3>다른 알고리즘과의 차이</h3>
+                  <h3>관찰 포인트와 다른 알고리즘의 차이</h3>
                   <p>{guide.difference}</p>
+                  <h3>정의·논문 및 공식 문서</h3>
+                  <h3>정의·논문 및 공식 문서</h3>
                   <a
                     className="text-link"
                     href={guide.source}
@@ -1017,6 +879,18 @@ export default function App() {
                   >
                     {guide.sourceName} ↗
                   </a>
+                  {guideAlgorithm === "Mean Shift" && (
+                    <p>
+                      <a
+                        className="text-link"
+                        href="https://doi.org/10.1109/34.1000236"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Comaniciu & Meer · Mean Shift (2002) ↗
+                      </a>
+                    </p>
+                  )}
                   <div className="guide-cta">
                     <button
                       className="primary"

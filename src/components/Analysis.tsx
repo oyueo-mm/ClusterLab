@@ -163,6 +163,20 @@ export function Analysis({
 }) {
   return (
     <div className="analysis-content">
+      {algorithm === "Mean Shift" && (
+        <div className="mode-summary">
+          <span>중심 후보 {state.centers.length}개</span>
+          <span>수렴 {state.centers.filter((c) => c.converged).length}개</span>
+          <span>
+            통합{" "}
+            {state.centers.filter((c) => c.mergedInto !== undefined).length}개
+          </span>
+          <p className="small muted">
+            이동 거리 그래프는 실제 후보별 갱신 순서입니다. 종료점 수렴과 반복
+            한도 종료를 구별합니다.
+          </p>
+        </div>
+      )}
       {state.metric.length > 0 && (
         <Spark values={state.metric} label={state.metricName} />
       )}{" "}

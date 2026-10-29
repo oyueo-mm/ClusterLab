@@ -12,6 +12,7 @@ import { som } from "./algorithms/som";
 import { lvq } from "./algorithms/lvq";
 import { rock } from "./algorithms/rock";
 import { birch } from "./algorithms/birch";
+import { meanshift } from "./algorithms/meanshift";
 const engines = {
   "K-Means": kmeans,
   DBSCAN: dbscan,
@@ -25,6 +26,7 @@ const engines = {
   ROCK: rock,
   GMM: gmm,
   BIRCH: birch,
+  "Mean Shift": meanshift,
 };
 export function run(algorithm: Algorithm, points: Point[], params: Params) {
   if (points.length < 2 || points.length > 600)
@@ -36,10 +38,11 @@ export function run(algorithm: Algorithm, points: Point[], params: Params) {
   if (algorithm === "HDBSCAN" && params.minPts > points.length)
     throw new Error("min_samples는 데이터 수 이하여야 합니다.");
   if (
-    params.k < 1 ||
-    params.minPts < 2 ||
-    params.branching < 2 ||
-    params.iterations < 1
+    algorithm !== "Mean Shift" &&
+    (params.k < 1 ||
+      params.minPts < 2 ||
+      params.branching < 2 ||
+      params.iterations < 1)
   )
     throw new Error("파라미터 범위를 확인하세요.");
   if (

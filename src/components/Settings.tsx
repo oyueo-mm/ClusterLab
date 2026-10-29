@@ -1,5 +1,4 @@
 import type { Algorithm, Params } from "../engine/types";
-import { guides } from "../data/guides";
 interface Field {
   key: keyof Params;
   label: string;
@@ -10,6 +9,23 @@ interface Field {
   hint: string;
 }
 const fields: Record<Algorithm, Field[]> = {
+  "Mean Shift": [
+    {
+      key: "bandwidth",
+      label: "Bandwidth",
+      min: 0.001,
+      max: 2,
+      step: 0.01,
+      hint: "Flat kernel의 반경. 0보다 큰 유한한 값",
+    },
+    {
+      key: "iterations",
+      label: "최대 반복 횟수",
+      min: 1,
+      max: 300,
+      hint: "sklearn과 같은 카운터: 최초 평균 갱신 후 최대 반복 수",
+    },
+  ],
   "K-Means": [
     { key: "k", label: "군집 수 K", min: 1, max: 12, hint: "찾을 중심점 수" },
     {
@@ -300,16 +316,12 @@ export function Settings({
 }) {
   return (
     <>
-      <div className="section-kicker">PARAMETERS</div>
-      <h3>실험 설정</h3>
-      <p className="muted small">
-        {guides[algorithm].family} · {algorithm}
-      </p>
       {fields[algorithm].map((f) => (
         <label className="field" key={f.key}>
           <span>{f.label}</span>
           {f.options ? (
             <select
+              aria-label={f.label}
               value={String(value[f.key])}
               onChange={(e) => onChange({ ...value, [f.key]: e.target.value })}
             >
@@ -319,15 +331,27 @@ export function Settings({
             </select>
           ) : (
             <input
+              aria-label={f.label}
               type="number"
               min={f.min}
               max={f.max}
               step={f.step ?? 1}
-              value={Number(value[f.key])}
+              value={
+                Number.isFinite(Number(value[f.key]))
+                  ? Number(value[f.key])
+                  : ""
+              }
               onChange={(e) => {
-                if (e.target.value === "") return;
+                if (e.target.value === "") {
+                  if (f.key === "bandwidth")
+                    onChange({ ...value, bandwidth: NaN });
+                  return;
+                }
                 const n = +e.target.value;
-                if (n >= (f.min ?? 0) && n <= (f.max ?? Infinity))
+                if (
+                  f.key === "bandwidth" ||
+                  (n >= (f.min ?? 0) && n <= (f.max ?? Infinity))
+                )
                   onChange({ ...value, [f.key]: n });
               }}
             />
@@ -347,29 +371,19 @@ export function Settings({
           최종 CF 가중 Ward 병합
         </label>
       )}
-      <details>
-        <summary>재현성 설정</summary>
-        <label className="field">
-          <span>알고리즘 난수 시드</span>
-          <input
-            type="number"
-            value={value.seed}
-            onChange={(e) => onChange({ ...value, seed: +e.target.value })}
-          />
-        </label>
-      </details>
-      <div className="note">
-        <b>관찰 포인트</b>
-        <p>{guides[algorithm].difference}</p>
-      </div>
-      <a
-        className="text-link small"
-        href={guides[algorithm].source}
-        target="_blank"
-        rel="noreferrer"
-      >
-        정의 및 참고 자료 ↗
-      </a>
+      {algorithm !== "Mean Shift" && (
+        <details>
+          <summary>재현성 설정</summary>
+          <label className="field">
+            <span>알고리즘 난수 시드</span>
+            <input
+              type="number"
+              value={value.seed}
+              onChange={(e) => onChange({ ...value, seed: +e.target.value })}
+            />
+          </label>
+        </details>
+      )}
     </>
   );
 }

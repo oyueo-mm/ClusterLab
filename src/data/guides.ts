@@ -13,6 +13,32 @@ export interface Guide {
   sourceName: string;
 }
 export const guides: Record<Algorithm, Guide> = {
+  "Mean Shift": {
+    family: "밀도 모드 탐색",
+    intro:
+      "각 원본 점에서 시작한 중심 후보가 Bandwidth 안의 데이터 평균으로 이동합니다. 수렴 후보를 밀도순으로 정리해 가까운 모드를 통합하고 최근접 모드에 데이터를 할당합니다. K는 필요하지 않습니다.",
+    steps: [
+      "모든 원본 데이터를 고유 ID의 중심 후보로 사용",
+      "Flat kernel 반경 안의 원본 데이터 탐색",
+      "이웃 평균과 이동 거리 계산",
+      "평균으로 이동하며 경로 기록",
+      "이동 거리 ≤ 0.001 × Bandwidth 또는 반복 한도에서 종료",
+      "밀도 내림차순·좌표 역순으로 정리하고 Bandwidth 이내 중복 모드 제거",
+      "최근접 유지 모드에 모든 점 할당 (cluster_all=true)",
+    ],
+    formula: "m_h(y) = (1 / |N_h(y)|) Σ_{xᵢ∈N_h(y)} xᵢ − y;  y ← y + m_h(y)",
+    pros: "K를 지정하지 않고 데이터의 밀도 봉우리를 찾습니다. 후보가 실제 이웃 평균으로 움직이는 과정을 관찰할 수 있습니다.",
+    cons: "Bandwidth에 민감하며 모든 점을 초기 후보로 쓰면 계산·이벤트 기록량이 큽니다. 반복 한도 도달은 수렴과 다르게 표시합니다.",
+    complexity:
+      "이 앱의 전수 이웃 탐색 O(n² T), bin seeding과 공간 인덱스 없음",
+    suitable: "Gaussian Blobs, Varying Density, Unequal Cluster Sizes",
+    difference:
+      "K-Means처럼 점을 중심에 할당해 그 군집 평균을 갱신하지 않습니다. 매번 고정된 원본 데이터의 반경 이웃을 사용합니다. 원과 평균 표식·경로를 함께 관찰하세요. DBSCAN의 밀도 연결 확장과도 다릅니다.",
+    source:
+      "https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MeanShift.html",
+    sourceName:
+      "scikit-learn · MeanShift / Comaniciu & Meer (2002) 원문 참고 문헌",
+  },
   "K-Means": {
     family: "중심 기반",
     intro:

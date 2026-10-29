@@ -4,8 +4,44 @@ test("home visual evidence and sustained animation frame timings", async ({
   page,
 }, info) => {
   await page.goto("");
-  await expect(page.locator(".home-demo .step-counter")).not.toHaveText(
-    "0 / 0",
+  await page.waitForFunction(
+    () =>
+      [...document.querySelectorAll(".home-demo")].length === 4 &&
+      [...document.querySelectorAll(".home-demo")].every(
+        (n) => Number(n.getAttribute("data-events")) > 0,
+      ),
+  );
+  const homeTimings = await page.evaluate(
+    () =>
+      new Promise<number[]>((resolve) => {
+        const values: number[] = [];
+        let last = performance.now();
+        const end = last + 2200;
+        const frame = (now: number) => {
+          values.push(now - last);
+          last = now;
+          if (now < end) requestAnimationFrame(frame);
+          else resolve(values.slice(1));
+        };
+        requestAnimationFrame(frame);
+      }),
+  );
+  const sortedHome = homeTimings.sort((a, b) => a - b);
+  writeFileSync(
+    `test-results/home-performance-${info.project.name}.json`,
+    JSON.stringify(
+      {
+        project: info.project.name,
+        viewport: page.viewportSize(),
+        points: 60,
+        algorithms: ["K-Means", "DBSCAN", "GMM", "Mean Shift"],
+        meanFrameMs: sortedHome.reduce((a, b) => a + b, 0) / sortedHome.length,
+        p95FrameMs: sortedHome[Math.floor(sortedHome.length * 0.95)],
+        maxFrameMs: sortedHome.at(-1),
+      },
+      null,
+      2,
+    ),
   );
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({
@@ -75,15 +111,13 @@ test("real data editing, CSV import, label preservation and JSON download", asyn
   await page.getByLabel("점 삭제", { exact: true }).click();
   await canvas.click({ position: { x: 120, y: 115 } });
   await expect(page.locator(".editor-bottom")).toContainText("1개 데이터");
-  await page
-    .locator("input[type=file]")
-    .setInputFiles({
-      name: "fixture.csv",
-      mimeType: "text/csv",
-      buffer: Buffer.from(
-        "x,y,label,features\n0.1,0.2,0,color=green;shape=round\n0.8,0.7,1,color=pink;shape=square",
-      ),
-    });
+  await page.locator("input[type=file]").setInputFiles({
+    name: "fixture.csv",
+    mimeType: "text/csv",
+    buffer: Buffer.from(
+      "x,y,label,features\n0.1,0.2,0,color=green;shape=round\n0.8,0.7,1,color=pink;shape=square",
+    ),
+  });
   await expect(page.locator(".editor-bottom")).toContainText("2개 데이터");
   const promise = page.waitForEvent("download");
   await page.getByRole("button", { name: "JSON", exact: true }).click();

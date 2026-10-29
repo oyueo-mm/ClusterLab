@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { run } from "./run";
 import { algorithms, defaults, type Algorithm, type Point } from "./types";
-import { stateAt, advance } from "./trace";
+import { stateAt, advance, applyStep } from "./trace";
 import {
   dataset,
   dataDefaults,
@@ -54,7 +54,7 @@ describe("algorithm invariants", () => {
       expect(final.labels.every((l) => l >= -1)).toBe(true);
       let state = final;
       for (const step of [...trace.steps].reverse())
-        state = { ...state, ...step.undo };
+        state = applyStep(state, step, true);
       expect(state).toEqual(trace.initial);
       expect(stateAt(trace, 0)).toEqual(trace.initial);
       for (const snapshot of trace.snapshots)
@@ -221,7 +221,7 @@ describe("playback and datasets", () => {
     expect(a).toBeCloseTo(b, 10);
     expect(advance(a, 0, 100, trace)).toBe(a);
     expect(advance(a, 20, 100, trace)).toBeGreaterThan(a);
-    expect(advance(0, 1e8, 100, trace, true)).toBe(trace.steps.length);
+    expect(advance(0, 1e8, 200, trace)).toBe(trace.steps.length);
   });
   it("32 presets are distinct, deterministic and finite", () => {
     expect(presets.length).toBeGreaterThanOrEqual(30);

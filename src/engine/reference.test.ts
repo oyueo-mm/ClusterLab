@@ -12,6 +12,7 @@ interface Fixture {
   heights?: number[];
   order?: number[];
   reach?: (number | null)[];
+  centers?: Point[];
 }
 const path = new URL("./fixtures/reference.json", import.meta.url);
 let fixtures: Fixture[] = [];
@@ -34,6 +35,13 @@ describe("independent sklearn / scipy reference", () => {
       const trace = run(f.algorithm, f.points, { ...defaults, ...f.params }),
         state = stateAt(trace, trace.steps.length);
       expect(equivalent(state.labels, f.labels)).toBe(true);
+      if (f.centers) {
+        expect(state.centers).toHaveLength(f.centers.length);
+        state.centers.forEach((c, i) => {
+          expect(c.x).toBeCloseTo(f.centers![i].x, 10);
+          expect(c.y).toBeCloseTo(f.centers![i].y, 10);
+        });
+      }
       if (f.heights)
         state.metric.forEach((height, i) =>
           expect(height).toBeCloseTo(f.heights![i], 9),

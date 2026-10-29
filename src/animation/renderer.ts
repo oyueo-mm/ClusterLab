@@ -4,10 +4,14 @@ export function interpolateCenters(
   from: Center[],
   to: Center[],
   progress: number,
+  stableIds = false,
 ): Center[] {
   const t = ease(progress);
   return to.map((c, i) => {
-    const a = from[i] ?? c;
+    const a =
+      (stableIds && c.id !== undefined
+        ? from.find((old) => old.id === c.id)
+        : from[i]) ?? c;
     return {
       ...c,
       x: a.x + (c.x - a.x) * t,
@@ -52,6 +56,7 @@ export interface DrawOptions {
   selected: number[];
   time: number;
   decision: boolean;
+  minimal?: boolean;
 }
 export function draw(
   ctx: CanvasRenderingContext2D,
@@ -74,7 +79,7 @@ export function draw(
   ctx.fillRect(0, 0, w, h);
   ctx.lineWidth = 1;
   ctx.font = "10px ui-monospace, monospace";
-  for (let i = -10; i <= 20; i++) {
+  for (let i = -10; !options.minimal && i <= 20; i++) {
     const v = i / 10,
       x = ox + v * scale,
       y = oy + v * scale;
@@ -97,7 +102,12 @@ export function draw(
       ctx.fillText((1 - v).toFixed(1), 8, y - 5);
     }
   }
-  const centers = interpolateCenters(from.centers, to.centers, t);
+  const centers = interpolateCenters(
+    from.centers,
+    to.centers,
+    t,
+    options.algorithm === "Mean Shift",
+  );
   if (options.algorithm === "LVQ" && options.decision && centers.length) {
     for (let x = 0; x < w; x += 12)
       for (let y = 0; y < h; y += 12) {
@@ -118,7 +128,11 @@ export function draw(
     ctx.globalAlpha = 1;
   }
   const focus = to.focus[0];
-  if (focus !== undefined && points[focus]) {
+  if (
+    options.algorithm !== "Mean Shift" &&
+    focus !== undefined &&
+    points[focus]
+  ) {
     const origin = points[from.focus[0]] ?? points[focus];
     const target = points[focus];
     const [x, y] = xy({
@@ -143,6 +157,47 @@ export function draw(
     ctx.stroke();
   }
   const neuron = options.algorithm === "SOM";
+  if (options.algorithm === "Mean Shift") {
+    for (const c of centers) {
+      const old = from.centers.find((a) => a.id === c.id) ?? c,
+        path = old.path ?? [];
+      if (path.length > 1) {
+        ctx.beginPath();
+        path.forEach((p, j) => {
+          const [x, y] = xy(p);
+          if (j) ctx.lineTo(x, y);
+          else ctx.moveTo(x, y);
+        });
+        const [x, y] = xy(c);
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = "#719e8b55";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+    const c = centers.find((c) => c.id === to.activeCenter);
+    if (c) {
+      const [x, y] = xy(c),
+        radius = (from.radius + (to.radius - from.radius) * e) * scale;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = "#78b2970c";
+      ctx.fill();
+      ctx.strokeStyle = "#75a48c";
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+      if (to.meanTarget) {
+        const [mx, my] = xy(to.meanTarget);
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + (mx - x) * t, y + (my - y) * t);
+        ctx.setLineDash([3, 3]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.strokeRect(mx - 4, my - 4, 8, 8);
+      }
+    }
+  }
   if (
     (neuron || options.algorithm === "LVQ") &&
     focus !== undefined &&
@@ -308,7 +363,13 @@ export function draw(
     }
   }
   centers.forEach((c, i) => {
-    ctx.globalAlpha = from.centers[i] ? 1 : e;
+    const previous =
+      options.algorithm === "Mean Shift"
+        ? from.centers.find((a) => a.id === c.id)
+        : from.centers[i];
+    ctx.globalAlpha = previous ? 1 : e;
+    if (c.mergedInto !== undefined)
+      ctx.globalAlpha = previous?.mergedInto === undefined ? 1 - e : 0;
     const [x, y] = xy(c);
     if (from.centers[i] && options.algorithm === "K-Means") {
       const [px, py] = xy(from.centers[i]);
@@ -320,11 +381,40 @@ export function draw(
       ctx.stroke();
       ctx.setLineDash([]);
     }
-    ctx.fillStyle = color(c.label ?? i);
+    ctx.fillStyle =
+      options.algorithm === "Mean Shift"
+        ? blend(
+            previous?.label !== undefined
+              ? color(previous.label)
+              : previous?.id === from.activeCenter
+                ? "#6b9e85"
+                : "#b8cbbf",
+            c.label !== undefined
+              ? color(c.label)
+              : c.id === to.activeCenter
+                ? "#6b9e85"
+                : "#b8cbbf",
+            e,
+          )
+        : color(c.label ?? i);
     ctx.strokeStyle = "#ffffff";
     ctx.lineWidth = 2;
     ctx.beginPath();
-    if (neuron) ctx.arc(x, y, 5, 0, Math.PI * 2);
+    if (options.algorithm === "Mean Shift")
+      ctx.arc(
+        x,
+        y,
+        c.id === to.activeCenter
+          ? 6
+          : c.label !== undefined
+            ? 7
+            : c.converged
+              ? 3.5
+              : 2.8,
+        0,
+        Math.PI * 2,
+      );
+    else if (neuron) ctx.arc(x, y, 5, 0, Math.PI * 2);
     else {
       ctx.moveTo(x, y - 9);
       ctx.lineTo(x + 9, y);
@@ -334,10 +424,20 @@ export function draw(
     }
     ctx.fill();
     ctx.stroke();
-    if (!neuron) {
+    if (
+      !neuron &&
+      !options.minimal &&
+      (options.algorithm !== "Mean Shift" ||
+        c.id === to.activeCenter ||
+        (to.activeCenter < 0 && centers.length < 15))
+    ) {
       ctx.fillStyle = "#3f5148";
       ctx.font = "10px ui-monospace, monospace";
-      ctx.fillText(`C${i + 1}`, x + 11, y + 3);
+      ctx.fillText(
+        `${options.algorithm === "Mean Shift" ? "M" : "C"}${(options.algorithm === "Mean Shift" ? (c.id ?? i) : i) + 1}`,
+        x + 11,
+        y + 3,
+      );
     }
     ctx.globalAlpha = 1;
   });

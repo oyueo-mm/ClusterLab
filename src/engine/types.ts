@@ -11,6 +11,7 @@ export const algorithms = [
   "ROCK",
   "GMM",
   "BIRCH",
+  "Mean Shift",
 ] as const;
 export type Algorithm = (typeof algorithms)[number];
 export interface Point {
@@ -26,6 +27,9 @@ export interface Center {
   id?: number;
   cov?: [number, number, number];
   weight?: number;
+  path?: Point[];
+  converged?: boolean;
+  mergedInto?: number;
 }
 export interface Edge {
   a: number;
@@ -50,6 +54,8 @@ export interface State {
   edges: Edge[];
   focus: number[];
   radius: number;
+  activeCenter: number;
+  meanTarget: Point | null;
   metric: number[];
   metricName: string;
   order: number[];
@@ -83,6 +89,7 @@ export type EventKind =
   | "swap"
   | "finish";
 export interface Step {
+  centerChanges?: { index: number; before: Center; after: Center }[];
   kind: EventKind;
   description: string;
   patch: Partial<State>;
@@ -118,6 +125,7 @@ export interface Params {
   xi: number;
   extraction?: string;
   finalClustering: boolean;
+  bandwidth: number;
 }
 export const defaults: Params = {
   k: 3,
@@ -140,6 +148,7 @@ export const defaults: Params = {
   xi: 0.05,
   extraction: "epsilon",
   finalClustering: false,
+  bandwidth: 0.16,
 };
 export function emptyState(n: number): State {
   return {
@@ -148,6 +157,8 @@ export function emptyState(n: number): State {
     edges: [],
     focus: [],
     radius: 0,
+    activeCenter: -1,
+    meanTarget: null,
     metric: [],
     metricName: "",
     order: [],

@@ -6,15 +6,11 @@ test("home demo, navigation, playback pause/resume/seek and mobile layout", asyn
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("");
   await expect(
-    page.getByRole("heading", { name: /점들이 모이는 순간/ }),
+    page.getByRole("heading", { name: /클러스터링 알고리즘/ }),
   ).toBeVisible();
-  await expect(page.locator(".home-demo .step-counter")).not.toHaveText(
-    "0 / 0",
-  );
+  await expect(page.locator(".home-demo")).toHaveCount(4);
   await page.getByRole("button", { name: "실험 시작하기" }).click();
-  await expect(
-    page.getByRole("heading", { name: "알고리즘 실험실", exact: true }),
-  ).toBeVisible();
+  await expect(page.locator(".visualization-description")).toBeVisible();
   await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
   await page.getByLabel("재생", { exact: true }).click();
   await page.waitForTimeout(700);
@@ -65,6 +61,7 @@ test("all algorithms run to completion in actual Workers with dedicated analyses
     "ROCK",
     "GMM",
     "BIRCH",
+    "Mean Shift",
   ]) {
     await page.getByLabel("알고리즘 선택").selectOption(name);
     if (name === "LVQ")
@@ -76,6 +73,9 @@ test("all algorithms run to completion in actual Workers with dedicated analyses
       timeout: 30000,
     });
     await expect(page.locator(".error")).toHaveCount(0);
+    await expect(page.locator(".visualization-description")).toHaveText(
+      `${name} 데이터 및 실제 연산 시각화`,
+    );
     if (name === "LVQ")
       await expect(page.locator(".canvas-legend")).toContainText("클래스 0");
     await page.getByLabel("재생 속도").fill("75");
@@ -90,11 +90,11 @@ test("all algorithms run to completion in actual Workers with dedicated analyses
     expect(
       await page.getByLabel("타임라인", { exact: true }).inputValue(),
     ).toBe(paused);
-    await page.getByRole("button", { name: "일반", exact: true }).click();
+    await page.getByLabel("재생 속도").fill("200");
     await page.getByLabel("재생", { exact: true }).click();
     await page.waitForTimeout(90);
     await page.getByLabel("마지막으로").click();
-    await page.getByRole("button", { name: "고속", exact: true }).click();
+    await page.getByLabel("재생 속도").fill("50");
     await page.getByLabel("마지막으로").click();
     await expect(page.locator(".status")).toHaveText("완료");
     await page.getByLabel("한 단계 뒤로").click();

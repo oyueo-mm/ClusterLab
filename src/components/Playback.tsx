@@ -6,7 +6,6 @@ import {
   ChevronLeft,
   ChevronRight,
   RotateCcw,
-  Zap,
   Repeat,
 } from "lucide-react";
 import type { Experiment } from "../animation/useExperiment";
@@ -93,21 +92,12 @@ export function Playback({
             aria-label="재생 속도"
             type="range"
             min="1"
-            max="100"
+            max="200"
             value={lab.speed}
             onChange={(e) => lab.setSpeed(+e.target.value)}
           />
           <b>{lab.speed}</b>
         </label>
-        <button
-          className={lab.fast ? "active" : ""}
-          aria-pressed={lab.fast}
-          onClick={() => lab.setFast(!lab.fast)}
-          title="모든 연산 이벤트를 보존하며 애니메이션 시간을 단축합니다."
-        >
-          <Zap size={14} />
-          {lab.fast ? "고속" : "일반"}
-        </button>
         <button
           className={lab.loop ? "active" : ""}
           aria-label="반복 재생"
