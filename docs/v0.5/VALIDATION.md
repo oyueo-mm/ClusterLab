@@ -34,6 +34,10 @@
 
 공개 사이트에서는 `CLUSTERLAB_BASE_URL=https://oyueo-mm.github.io/ClusterLab/`을 설정해 `tests/v05.spec.ts`의 동일한 레이아웃 검사를 실행할 수 있습니다. 배포는 기존 main push → validate → GitHub Pages 워크플로를 사용합니다. 로컬 전용 서버는 외부 URL 지정 시 시작하지 않습니다.
 
+`e24529357e5cd419d193c0876b2f1e423507b152`의 [Actions 검증·Pages 배포](https://github.com/oyueo-mm/ClusterLab/actions/runs/40874564390)는 모두 성공했습니다. 공개 HTML의 JS·CSS 자산명이 로컬 프로덕션 빌드와 일치합니다. 공개 사이트의 화면 크기·높이·사이드바 36개 조합, 폰트, 버튼·메뉴, 실제 Worker 공유 데이터·화면 밖 중단·카드 선택·재생 제어 검사는 **7개 통과, 1개 모바일 중복 검사 생략**입니다.
+
+공개 검증에서 테스트의 배경 중앙 클릭이 열린 사이드바에 가려질 수 있음을 확인했습니다. 제품 코드는 그대로 유지하고, 메뉴 닫기 검사가 화면 오른쪽의 노출된 배경을 클릭하도록 보완한 뒤 위 공개 검사를 다시 통과했습니다.
+
 브라우저 스크린샷·트레이스는 GitHub Actions의 `browser-evidence` 아티팩트에서도 확인할 수 있습니다.
 
 공개 사이트: https://oyueo-mm.github.io/ClusterLab/

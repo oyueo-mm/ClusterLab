@@ -29,7 +29,7 @@ test("home introduction centers beside the demos and stays compact when stacked"
           await expect(page.locator(".sidebar")).toHaveClass(/open/);
           await page
             .getByRole("button", { name: "메뉴 닫기", exact: true })
-            .click();
+            .click({ position: { x: width - 8, y: 8 } });
           await expect(page.locator(".sidebar")).not.toHaveClass(/open/);
         }
         await expect(page.locator(".app")).toHaveClass(
