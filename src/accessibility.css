@@ -1,0 +1,75 @@
+/* Keep secondary text legible while preserving the quiet laboratory palette. */
+.hero-copy > p,
+.page-heading p,
+.section-heading p,
+.feature-card p,
+.preset-card p,
+.guide-intro,
+.guide-article > p,
+.guide-columns p,
+.guide-steps li,
+.field small,
+.step-explanation p,
+.muted,
+.small.muted,
+.editor-bottom,
+.compare-stats,
+.sidebar-note p,
+.note p {
+  color: #68776b;
+}
+.section-kicker,
+.eyebrow,
+.feature-type,
+.hero-facts,
+.topbar-right,
+.breadcrumb,
+.canvas-legend,
+.playback-options,
+.status,
+.sidebar-bottom > small,
+.brand small,
+.preset-card span,
+.chart-title span {
+  color: #70816f;
+}
+.primary {
+  font-weight: 550;
+}
+.stage .playback-dock {
+  margin: 0 15px 14px;
+  border: 1px solid #e1e9df;
+  border-radius: 11px;
+  background: #fcfdfa;
+  box-shadow: 0 3px 10px #3a5c2e04;
+}
+@media (max-width: 520px) {
+  .playback button {
+    min-height: 34px;
+    min-width: 30px;
+  }
+  .editor-toolbar button,
+  .mobile-menu,
+  .settings-toggle {
+    min-height: 40px;
+  }
+  .sidebar nav button {
+    min-height: 44px;
+  }
+  input,
+  select {
+    font-size: 16px;
+  }
+  .field input,
+  .field select {
+    font-size: 16px;
+    height: 42px;
+  }
+  .settings-panel.sheet-open {
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+  .stage .playback-dock {
+    margin: 0 10px 12px;
+    padding: 12px;
+  }
+}
