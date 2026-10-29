@@ -155,7 +155,8 @@ summary:focus-visible {
   min-height: 0;
 }
 .hero-copy {
-  padding-top: 20px;
+  align-self: center;
+  padding-top: 0;
 }
 .hero h1 {
   font-family: var(--font-display);
@@ -182,6 +183,7 @@ summary:focus-visible {
   flex-wrap: nowrap;
   gap: 12px;
   margin-top: 35px;
+  margin-bottom: 0;
   max-width: 460px;
 }
 .hero-actions button {
@@ -594,6 +596,7 @@ summary:focus-visible {
     gap: 32px;
   }
   .hero-copy {
+    align-self: start;
     padding-top: 0;
   }
   .hero h1 {

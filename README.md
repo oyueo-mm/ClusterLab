@@ -1,4 +1,4 @@
-# ClusterLab v0.4
+# ClusterLab v0.5
 
 13가지 알고리즘의 실제 계산을 기록하고 재생하는 한국어 클러스터링 실험실입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다.
 
@@ -50,6 +50,12 @@ npm run build
 | GMM        | Log-sum-exp E-step, 평균/공분산/혼합비 M-step, 확률색·타원·로그우도                 |
 | BIRCH      | CF=(N,LS,SS), 반경 검사, 재귀 CF-Tree, 선택적 가중 Ward                             |
 | Mean Shift | Flat kernel 반경 탐색·이웃 평균·중심/원/경로 보간·수렴·밀도순 모드 통합·최근접 할당 |
+
+## v0.5 홈 레이아웃
+
+제목·부제목·버튼을 묶은 기존 `.hero-copy`를 Grid의 `align-self: center`로 오른쪽 시뮬레이션 영역 높이에 맞춰 중앙 정렬합니다. 상단 패딩과 버튼 그룹의 바깥쪽 하단 여백만 제거하고 내부 간격·글꼴·크기·색상은 유지합니다. 기존 800px 이하 단일 열에서는 `align-self: start`로 소개를 위에 두고 시뮬레이션을 바로 이어 배치합니다. 화면 높이에 따른 고정 오프셋은 사용하지 않습니다.
+
+검증 범위와 결과: [v0.5 검증 보고서](docs/v0.5/VALIDATION.md).
 
 ## v0.4 작업 UI와 교재
 
