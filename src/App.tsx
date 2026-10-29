@@ -18,6 +18,8 @@ import {
   Move,
   Plus,
   RefreshCw,
+  Undo2,
+  Redo2,
   Search,
   Settings2,
   Trash2,
@@ -53,6 +55,8 @@ import { Playback } from "./components/Playback";
 import { Settings } from "./components/Settings";
 import { Analysis } from "./components/Analysis";
 import { HomeDemos } from "./components/HomeDemos";
+import { useEditorHistory } from "./editor/useEditorHistory";
+import { historyShortcut, type EditorSnapshot } from "./editor/history";
 const pages = [
   { id: "home", label: "홈", icon: Home },
   { id: "lab", label: "알고리즘 실험실", icon: FlaskConical },
@@ -176,10 +180,6 @@ export default function App() {
     [algorithm, setAlgorithm] = useState<Algorithm>("K-Means"),
     [params, setParams] = useState<Params>(defaults),
     [dataOptions, setDataOptions] = useState<DataOptions>(dataDefaults),
-    [preset, setPreset] = useState("blobs"),
-    [points, setPoints] = useState<Point[]>(() =>
-      dataset("blobs", dataDefaults),
-    ),
     [tool, setTool] = useState("move"),
     [selection, setSelection] = useState<number[]>([]),
     [label, setLabel] = useState(0),
@@ -196,6 +196,42 @@ export default function App() {
     ]),
     [compareCount, setCompareCount] = useState(2),
     [compareStart, setCompareStart] = useState(0);
+  const editor = useEditorHistory(() => ({
+    points: dataset("blobs", dataDefaults),
+    preset: "blobs",
+    options: dataDefaults,
+  }));
+  const { points, preset } = editor.value;
+  const { undo, redo } = editor;
+  const restoreEditor = (snapshot: EditorSnapshot) => {
+    setDataOptions({ ...snapshot.options });
+    setSelection([]);
+  };
+  useEffect(() => {
+    if (page !== "data") return;
+    const handler = (e: KeyboardEvent) => {
+      const target = e.target;
+      if (
+        e.defaultPrevented ||
+        (target instanceof HTMLElement &&
+          (target.isContentEditable ||
+            target.closest("input, textarea, select")))
+      )
+        return;
+      const command = historyShortcut(e);
+      if (!command) return;
+      e.preventDefault();
+      const snapshot = command === "undo" ? undo() : redo();
+      setDataOptions({ ...snapshot.options });
+      setSelection([]);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [page, undo, redo]);
+  const setPoints = (next: Point[]) => {
+    editor.commit({ ...editor.value, points: next });
+    setSelection([]);
+  };
   const file = useRef<HTMLInputElement>(null),
     lab = useExperiment(algorithm, points, params, { active: page === "lab" }),
     stepIndex = Math.floor(lab.position),
@@ -219,8 +255,9 @@ export default function App() {
     setMobileNav(false);
   };
   const choose = (id: string, options = dataOptions) => {
-    setPreset(id);
-    setPoints(dataset(id, options));
+    if (!id) return;
+    editor.commit({ points: dataset(id, options), preset: id, options });
+    setDataOptions({ ...options });
     setSelection([]);
   };
   const changeAlgorithm = (a: Algorithm) => {
@@ -360,8 +397,12 @@ export default function App() {
                 <HomeDemos
                   onChoose={(selection) => {
                     changeAlgorithm(selection.algorithm);
-                    setPoints(selection.points);
-                    setPreset(selection.preset);
+                    editor.commit({
+                      points: selection.points,
+                      preset: selection.preset,
+                      options: selection.dataOptions,
+                    });
+                    setSelection([]);
                     setParams(selection.params);
                     setDataOptions(selection.dataOptions);
                     go("lab");
@@ -428,6 +469,11 @@ export default function App() {
                       value={preset}
                       onChange={(e) => choose(e.target.value)}
                     >
+                      {!preset && (
+                        <option value="" disabled>
+                          사용자 데이터
+                        </option>
+                      )}
                       {presets.map((p) => (
                         <option key={p[0]} value={p[0]}>
                           {p[1]}
@@ -439,6 +485,7 @@ export default function App() {
                   <button
                     title="시드로 데이터 재생성"
                     aria-label="데이터 재생성"
+                    disabled={!preset}
                     onClick={() => choose(preset)}
                   >
                     <RefreshCw size={14} />
@@ -565,7 +612,28 @@ export default function App() {
                     >
                       이 데이터로 실험 <ArrowRight size={16} />
                     </button>
-
+                    <div
+                      className="editor-history"
+                      role="group"
+                      aria-label="편집 기록"
+                    >
+                      <button
+                        aria-label="실행 취소"
+                        title="실행 취소 (Ctrl/Cmd+Z)"
+                        disabled={!editor.canUndo}
+                        onClick={() => restoreEditor(undo())}
+                      >
+                        <Undo2 size={17} />
+                      </button>
+                      <button
+                        aria-label="다시 실행"
+                        title="다시 실행 (Ctrl+Y / Ctrl/Cmd+Shift+Z)"
+                        disabled={!editor.canRedo}
+                        onClick={() => restoreEditor(redo())}
+                      >
+                        <Redo2 size={17} />
+                      </button>
+                    </div>
                     {[
                       { id: "move", label: "점 이동", icon: Move },
                       { id: "add", label: "점 추가", icon: Plus },
@@ -695,6 +763,7 @@ export default function App() {
                   ))}
                   <button
                     className="primary full"
+                    disabled={!preset}
                     onClick={() => choose(preset)}
                   >
                     <RefreshCw size={15} />
@@ -814,6 +883,11 @@ export default function App() {
                     value={preset}
                     onChange={(e) => choose(e.target.value)}
                   >
+                    {!preset && (
+                      <option value="" disabled>
+                        사용자 데이터
+                      </option>
+                    )}
                     {presets.map((p) => (
                       <option key={p[0]} value={p[0]}>
                         {p[1]}
@@ -872,7 +946,13 @@ export default function App() {
               const f = e.target.files?.[0];
               if (!f) return;
               try {
-                setPoints(importData(await f.text()));
+                editor.commit({
+                  points: importData(await f.text()),
+                  preset: "",
+                  options: editor.value.options,
+                });
+                setDataOptions({ ...editor.value.options });
+                setSelection([]);
                 setNotice("데이터를 가져왔습니다.");
               } catch (error) {
                 setNotice(

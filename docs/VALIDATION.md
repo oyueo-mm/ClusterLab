@@ -1,129 +1,82 @@
-# ClusterLab v0.4 검증 보고서
+# ClusterLab v0.6 검증 보고서
 
-검증일: 2026-10-29 (Asia/Seoul). 기준 main: `d2c13fa58aa992a8fff24a5316c945a52fb560f4` (v0.3). 작업 전 원격 fetch 후 로컬과 동일함을 확인했습니다. 과거 기록은 [v0.1](v0.1/VALIDATION.md), [v0.2](v0.2/VALIDATION.md), [v0.3](v0.3/VALIDATION.md)에 이미지와 함께 보존했습니다.
+검증일: 2026-10-29 (Asia/Seoul). 기준 v0.5 main: `bb7f9f9dffde5d638557a54fc3e92cb6443f4127`. 원격 fetch 후 로컬과 일치함을 확인했습니다. 기존 프로젝트·라이브러리를 사용하고 새 런타임 의존성은 추가하지 않았습니다.
 
-## UI와 데이터 호환
+이전 기록: [v0.1](v0.1/VALIDATION.md) · [v0.2](v0.2/VALIDATION.md) · [v0.3](v0.3/VALIDATION.md) · [v0.4](v0.4/VALIDATION.md) · [v0.5](v0.5/VALIDATION.md). 기존 v0.4 보고서는 별도 경로로 보존하고 이미지 링크만 새 상대 위치에 맞췄습니다.
 
-- 데이터셋의 DATA STUDIO·대형 제목·소개 문단과 상위 page-heading을 제거했습니다. `이 데이터로 실험`은 Canvas 편집 툴바에 있습니다. 모바일에서는 툴바 첫 행을 사용합니다.
-- 비교의 SIDE BY SIDE·대형 제목·소개 문단을 제거하고 `모두 처음부터 재생`을 비교 개수·공통 데이터셋 설정에 통합했습니다. 네 독립 Worker의 실행·공유 좌표·개별 제어는 그대로입니다.
-- 가이드의 LEARN THE MECHANISM·페이지 소개 제목·소개 문단을 제거했습니다. 사이드바 메뉴명과 본문의 개별 알고리즘 제목은 유지합니다.
-- 요청한 32개 한국어 이름을 presets의 표시 이름에 적용했습니다. 갤러리·실험실·비교·홈은 동일한 메타데이터를 사용합니다. 영어 이름은 검색 별칭으로만 남깁니다.
-- `src/data/preset-v03-hashes.json`은 **현재 코드에서 재생성한 값이 아니라** `git show d2c13fa:src/data/presets.ts`의 코드를 평가해 만든 기본 생성 결과 SHA-256입니다. 32개 ID·순서·좌표·label·features를 현재 생성값과 비교합니다. 생성 함수·옵션·시드·입출력 형식은 변경하지 않았습니다. JSON 왕복과 기존 CSV 테스트도 유지합니다.
+## 홈 타이포그래피
 
-## GMM: 재현한 실제 원인
+| 폭 | 메인 제목 전→후 | 부제목 전→후 | 버튼 전→후 |
+| --- | --- | --- | --- |
+| 1920px | 48→54px | 27→31px | 14→16px |
+| 1440px | 46.8→52.56px | 27→31px | 14→16px |
+| 1024px | 40→42px | 26→28px | 13→14px |
+| 800·768px | 44→48px | 27→30px | 14→15px |
+| 390px | 31.98→33.54px | 25→26px | 13→14px |
+| 320px | 28→28px | 24→24px | 12→12px |
 
-처음 blobs 라운드만 검사하면 정상 타원과 정상 Worker 응답이 관찰됩니다. 엔진의 initialize → expectation → maximization → finish, 정규화된 responsibility, 양의 정부호 공분산은 정상이었습니다. 첫 blobs Trace는 16개 이벤트이며 v0.3 홈은 최소 3배속으로 3.2초에 끝났습니다. 빠른 재생·옅은 선은 별도의 관찰 문제였습니다.
+데스크톱 기본 제목은 `clamp(42px, 3.65vw, 54px)`입니다. Black Han Sans·Pretendard·#34564D·검은 부제목·순백 배경·버튼 형태·높이·가로 배치를 보존했습니다. Grid의 `.hero-copy { align-self: center }`와 800px 이하의 `start`는 그대로입니다. 글꼴 크기에 따라 그룹 높이가 바뀌어도 오른쪽 `.home-cycle`에 맞춰 중심을 계산합니다.
 
-**전체 라운드를 실제로 순환시킨 브라우저에서 labeled 라운드의 GMM 카드가 빈 화면으로 중단되는 결함을 재현했습니다.** Canvas 초기 w=h=1, 렌더 scale=min(w−70,h−60)=−69, 초기 Σ=0.04I의 2σ 반경은 −27.6px였습니다. 실제 Canvas 호출 계측에서도 `ellipse(..., -27.6, -27.6, ...)`가 포착되었습니다.
+v0.5의 레이아웃 검사 36개 조합(1920·1440·1024·820·801·800·768·390·320px × 높이 600·1080px × 접힌/펼친 사이드바)을 그대로 사용합니다. 실제 텍스트 경계·버튼 내용·겹침·가로 넘침·두 버튼 정렬·중심 오차 1px 미만·모바일 상단 여백을 검사합니다. 340px 이하의 기존 카드 한 열 배치는 유지합니다.
 
-다음 라운드는 pending에서 Worker 계산을 끝낸 Trace를 새 Canvas에 바로 전달합니다. 첫 rAF가 ResizeObserver의 첫 측정 콜백보다 앞서면 위 음수 반경으로 ellipse가 예외를 던집니다. rAF 재예약은 draw 뒤에 있어 해당 Canvas 루프가 영구 중단됩니다. 홈 진행률은 별도의 HomeCycle이 갱신하므로 계산·진행률만 보면 결함을 놓칩니다. 실험실은 보통 이미 측정된 Canvas에 Trace가 나중에 도착해 이 순서가 드뭅니다.
+## Undo/Redo와 메타데이터
 
-수정:
+- `src/editor/history.ts`: 현재 값·past·future의 순수 상태 전이. 각 상태는 순서 있는 `points`(x/y/label/features), 기반 `preset`, 실제 생성에 적용한 `options`입니다. 스냅샷은 확정 시에만 좌표·features 배열·옵션을 복사하고 최대 100개 작업을 유지합니다.
+- `useEditorHistory.ts`: React 상태와 동기 참조를 연결합니다. 연속 명령은 최신 기록에 적용하며 빈 Undo/Redo·동일 내용의 작업은 같은 상태를 반환합니다. Undo 이후 새 변경만 future를 폐기합니다. 600개 초과 입력도 히스토리 경계에서 거부합니다.
+- App의 데이터 추가·이동·삭제·선택 삭제·전체 삭제·프리셋 변경·재생성·파일 가져오기가 같은 commit 경로를 사용합니다. 복원·데이터 교체 후 선택을 초기화하여 과거 인덱스를 재사용하지 않습니다.
+- 생성 입력창의 초안 옵션은 기록된 생성 옵션과 분리합니다. 입력만 수정하면 작업이 생기지 않습니다. 재생성을 확정한 뒤 Undo하면 이전 데이터와 이전 생성 옵션이 함께 복구되고 Redo하면 새 생성 옵션도 복구됩니다. 기반 프리셋은 수동 편집 중 유지하여 다시 생성할 수 있습니다.
+- 가져온 파일은 사용자 데이터(`preset=""`)로 표시합니다. 갤러리에 무관한 프리셋을 선택 표시하지 않고 실험실·비교 select에 `사용자 데이터`를 표시합니다. 프리셋 재생성은 비활성화합니다. Undo로 원래 프리셋·옵션·재생성 가능 상태를 복구합니다. CSV/JSON 형식은 변경하지 않았습니다.
+- Lucide Undo2·Redo2, aria-label·title·disabled 상태를 추가했습니다. Ctrl/Cmd+Z, Ctrl+Y, Ctrl/Cmd+Shift+Z는 데이터셋 페이지에서만 처리합니다. input(숫자 포함)·textarea·select·contenteditable은 기본 키 동작을 보존합니다.
 
-1. Canvas는 측정 전 0×0으로 시작합니다. 좌표 여백보다 작거나 같은 크기에서는 rAF를 계속 예약하되 draw를 기다립니다.
-2. renderer도 w≤70 또는 h≤60이면 그리기를 중단해 잘못된 타원 반경을 방어합니다. 정상 측정 이후에는 원래 평균·공분산 보간을 그대로 사용합니다.
-3. 홈 GMM은 E/M 이벤트마다 최소 450ms를 확보합니다. 600ms 기록은 약 1.333배속이며 blobs는 7.2초, 32이벤트 overlap은 14.4초입니다. 연산·이벤트·EM 결과는 바꾸지 않았습니다.
-4. 타원 외곽선 대비와 작은 카드의 선 두께를 높이고 E/M 단계 이름을 표시합니다. 타원의 위치·방향·크기는 실제 공분산에서 계산하며 화면에 맞추려고 분포를 왜곡하지 않습니다.
+## 포인터 트랜잭션과 성능
 
-GMM 엔진과 `src/engine/trace.ts`는 변경하지 않았습니다. 기존 log-sum-exp·정규화·최종 확률 재계산을 보존했습니다.
+Canvas는 `idle / moving-point / drawing-points / deleting-point / selecting / panning` 상태 중 하나만 수행합니다. 선택 도구·원본 데이터·뷰·시작 좌표·pointerId·버튼을 드래그 시작에 고정합니다.
 
-## GMM 회귀 검증과 화면 증거
+점 추가·이동·삭제는 Canvas Ref의 미리보기 버퍼만 갱신합니다. 기존 rAF 렌더러가 그 버퍼를 읽고 PointerUp에서 한 번만 부모에 전달해 한 작업을 확정합니다. 연속 추가는 배열에 추가된 점만 넣고 점 이동은 한 점만 교체하여 매 PointerMove에 부모 React 상태나 전체 히스토리를 복사하지 않습니다. 한 번의 드래그가 50개 점을 생성해도 Undo/Redo는 한 번입니다. 움직이지 않은 클릭 이동·원위치로 돌아온 이동·빈 곳 삭제·600개에서의 추가 시도는 기록을 만들지 않습니다.
 
-`src/animation/gmmHome.test.ts`의 6개 테스트는 측정 전·접힘 크기 차단과 다섯 데이터에서 이벤트 시간, 60Hz의 모든 이벤트 방문, 확률 합, SPD 보간, 1σ·2σ 축 길이, y축 반전에 따른 회전각을 검사합니다.
+Trace가 없는 편집 Canvas는 점 개수가 같은 데이터 교체에서도 points 참조가 바뀌면 표시 캐시를 갱신합니다. 같은 개수의 label 변경·가져오기·Undo/Redo가 이전 라벨 색상을 계속 표시하지 않도록 했습니다.
 
-`tests/v04.spec.ts`는 실제 Worker를 실행하고 **ResizeObserver 전달을 100ms 지연**해 문제가 있던 순서를 강제합니다. 홈 11개 라운드를 완주·첫 라운드로 복귀하며 다섯 GMM 라운드 각각의 초기/E/M/종료 화면과 실제 Canvas ellipse·transform 값을 캡처합니다. console 오류 유무뿐 아니라 매 화면의 6개 유한·양수 타원과 초기/갱신/종료 기하 차이를 검사합니다. JSON 기하 증거는 Playwright attachment에 있습니다. 실험실 GMM은 기존 13개 실제 Worker 완주·되감기·속도 검증과 가이드 단계 이동으로 회귀 검사합니다.
+PointerCancel·캡처 상실·리사이즈·포커스 상실·탭 숨김·도구/외부 데이터 변경·페이지 이동은 미확정 데이터 버퍼를 폐기합니다. Canvas 밖에서 정상 PointerUp하면 캡처를 통해 전체 경로를 한 번 확정합니다. 마우스 버튼 조합이 바뀌면 미확정 편집을 취소합니다. Pan/zoom은 데이터 히스토리에 들어가지 않으며 취소 후에도 마지막 보기 위치는 유지합니다.
 
-| 프리셋 | 초기 | E-step | M-step | 종료 |
-| --- | --- | --- | --- | --- |
-| 가우시안 군집 | [초기](screenshots/v04/gmm-blobs-initial.png) | [E](screenshots/v04/gmm-blobs-expectation.png) | [M](screenshots/v04/gmm-blobs-maximization.png) | [종료](screenshots/v04/gmm-blobs-final.png) |
-| 라벨이 있는 분류 데이터 | [초기](screenshots/v04/gmm-labeled-initial.png) | [E](screenshots/v04/gmm-labeled-expectation.png) | [M](screenshots/v04/gmm-labeled-maximization.png) | [종료](screenshots/v04/gmm-labeled-final.png) |
-| 비등방성 군집 | [초기](screenshots/v04/gmm-anisotropic-initial.png) | [E](screenshots/v04/gmm-anisotropic-expectation.png) | [M](screenshots/v04/gmm-anisotropic-maximization.png) | [종료](screenshots/v04/gmm-anisotropic-final.png) |
-| 크기가 다른 군집 | [초기](screenshots/v04/gmm-unequal-initial.png) | [E](screenshots/v04/gmm-unequal-expectation.png) | [M](screenshots/v04/gmm-unequal-maximization.png) | [종료](screenshots/v04/gmm-unequal-final.png) |
-| 겹치는 군집 | [초기](screenshots/v04/gmm-overlap-initial.png) | [E](screenshots/v04/gmm-overlap-expectation.png) | [M](screenshots/v04/gmm-overlap-maximization.png) | [종료](screenshots/v04/gmm-overlap-final.png) |
+## 우클릭 이동과 연속 추가
 
-v0.3 첫 blobs 라운드의 [초기](screenshots/v04/gmm-before-initial.png)·[중간](screenshots/v04/gmm-before-middle.png)·[종료](screenshots/v04/gmm-before-final.png)도 보존합니다. 첫 라운드의 정상 타원만으로 다음 라운드도 정상이라고 판단하지 않았습니다. 타원 일부가 캔버스 밖으로 나가는 것은 초기 2σ 분포가 데이터 표시 범위 밖에 있는 자연스러운 clipping이며, 음수 반경 예외와 구분합니다.
+- 우클릭 이동은 편집 Canvas에서만 `pointerType="mouse"`, `button=2`, `buttons=2`를 확인해 우선 처리합니다. 모든 도구에서 `view.current.panX/panY`를 사용하고 `grabbing` 커서를 표시합니다. 선택된 도구·원본 데이터·히스토리는 유지합니다. 기존 화면 이동 도구와 점 이동 도구의 빈 공간 이동도 유지합니다.
+- 컨텍스트 메뉴는 편집 Canvas의 onContextMenu에서만 막습니다. 툴바·실험실 Canvas 등 다른 영역에는 기본 메뉴를 유지합니다. 캡처 설정·해제·상실·취소를 명시적으로 정리합니다.
+- `PointStroke`는 누적 경로 거리를 이용해 12 CSS px마다 샘플을 생성합니다. 이벤트 사이 선분을 보간하고 코너의 남은 거리도 다음 선분으로 넘깁니다. 정지 상태에서는 추가하지 않고 빠른 드래그와 느린 드래그의 밀도가 같습니다. 부동소수점 경계의 중복 샘플도 방지합니다.
+- 데이터 좌표는 기존 `unproject()`를 사용합니다. zoom·pan을 반영하고 샘플 간격에 devicePixelRatio를 곱하지 않습니다. 드래그 시작 시 클래스 값을 고정합니다. 기존 점의 label·features·순서를 보존하고 새 점은 기존 단일 추가와 같은 좌표·선택 label만 가집니다.
+- 남은 수용량(600−현재 개수)까지만 보간합니다. 590개에서 한 드래그로 10개만 추가되고 이후 추가 시도는 데이터·Redo 기록을 바꾸지 않습니다. 화면을 가리는 반복 알림은 추가하지 않았습니다.
+- 두 번째 손가락이 들어오면 첫 손가락의 미확정 편집을 취소하고 기존 두 손가락 거리 비율 확대·축소로 전환합니다. 손가락을 뗀 뒤 새 터치는 별도 작업입니다.
 
-## 교재 구조와 실제 연산 연결
+## 테스트 결과
 
-13개 모두 개요 → 직관 → 연산 → 수학 → 손계산 → 파라미터 → 복잡도 → 장점·한계 → 비교 → 참고문헌의 10개 섹션입니다. 알고리즘 목록/학습 본문/현재 섹션 강조 목차, 좁은 화면의 접이식 목차, 기초/심화, 수식 유도 펼치기, 실제 실험과 비교 링크를 제공합니다.
+- ESLint·TypeScript: 통과.
+- Vitest: 11개 파일, 146개 테스트 통과. 기존 132개와 히스토리 9개·경로 보간 5개입니다.
+- 프로덕션 빌드: 통과. 알고리즘 Worker 번들은 v0.5와 같은 `worker-DyzJT8Zu.js`입니다.
+- 전체 프로덕션 Playwright: **34개 통과 / 12개 역할별 중복 검사 생략 / 실패·재시도 0** (8.3분). 데스크톱에서 마우스·폭 행렬·전체 라운드를 검증하고 모바일 프로젝트에서는 별도의 네이티브 터치·핀치 및 기존 모바일 기능을 검사합니다. [결과 요약](screenshots/v06/e2e-summary.json).
 
-`guides.ts`는 짧은 개요만 보존하고 상세 내용은 `src/data/lessons/`의 주제별 구조화 모듈, UI는 `GuidePage`·`Formula`·`TraceLesson`으로 분리했습니다. GuidePage와 KaTeX는 lazy chunk입니다. 빌드에서 초기 JS 약 288.6KB(gzip 93.9KB), 가이드 약 357KB(gzip 112.9KB)로 분리되었습니다. KaTeX CSS·폰트도 가이드에서 로드합니다.
+새 테스트는 실제 Canvas 입력과 JSON 내보내기 결과를 사용합니다. 단일 추가/이동/삭제·선택 삭제·전체 삭제·50점 드래그·Redo 분기 폐기·no-op·100개 기록 상한·label/features·프리셋/옵션·CSV/JSON·단축키 범위·기본 텍스트 Undo·다섯 도구 우클릭 이동·ContextMenu 범위·zoom/pan 좌표·600개 제한·캡처 취소·화면 밖 해제·리사이즈·페이지 이동·네이티브 CDP 터치/핀치를 검증합니다. DOM 테스트를 위해 추가한 textarea/select/contenteditable은 테스트 실행 중에만 생성되며 제품 UI에는 들어가지 않습니다.
 
-기초에는 직관·핵심 수식·수치·실험을 유지하고 심화에서 유도·가정·구현/Trace 공간·알려진 변형을 추가합니다. 수식은 KaTeX HTML+MathML, 긴 수식·표는 영역 내부 가로 스크롤, 키보드 포커스와 섹션 이동을 제공합니다. 포레스트 그린·검정·흰색·Pretendard·접이식 사이드바는 유지합니다.
+기존 테스트를 유지하여 13개 알고리즘·32개 프리셋의 해시·실제 Worker·재생/되감기·1~200 속도·비교·13개 교재·입출력·화면 밖 생명주기·홈 11개 데이터셋 자동 순환·13개 전체 노출·GMM 다섯 라운드의 초기/E/M/최종 타원 및 다음 라운드 전환을 검사합니다. 실패하는 테스트를 삭제하거나 기능 검증을 완화하지 않았습니다.
 
-각 가이드의 12점 미니 실험은 동일한 useExperiment·Web Worker·엔진·Canvas·Settings·Playback·Analysis입니다. 별도 가짜 군집 알고리즘은 없습니다. 실제 파라미터를 바꾸고 재생·되감기·속도·내부 구조를 확인합니다. GMM은 실제 responsibility 막대도 제공합니다. 이벤트가 존재할 때만 미니 실험 이벤트 버튼을 활성화합니다.
+## 화면·성능 증거
 
-`이 단계 실험에서 보기`는 권장 프리셋·현재 설정으로 새 실험실 Trace를 구한 뒤 실제 존재하는 첫 해당 kind를 찾습니다. 숫자 인덱스를 임의 생성하지 않고, 새 입력과 일치하는 Trace를 기다립니다. 실험실의 정수 위치 설명도 마지막 적용 이벤트와 일치하도록 off-by-one을 바로잡았습니다. 미니 실험과 실험실의 점 개수는 다르며 같은 중간 상태를 복사하는 기능이라고 표시하지 않습니다.
+[1920 홈](screenshots/v06/home-1920.png) · [1440 홈](screenshots/v06/home-1440.png) · [1024 홈](screenshots/v06/home-1024.png) · [800 홈](screenshots/v06/home-800.png) · [768 홈](screenshots/v06/home-768.png) · [390 홈](screenshots/v06/home-390.png) · [320 홈](screenshots/v06/home-320.png)
 
-## 13개 심화 내용 검토
+[1440 편집기](screenshots/v06/editor-1440.png) · [768 편집기](screenshots/v06/editor-768.png) · [390 편집기](screenshots/v06/editor-390.png) · [320 편집기](screenshots/v06/editor-320.png) · [터치 편집기](screenshots/v06/editor-touch.png)
 
-| 알고리즘 | 추가한 핵심 학습·검산 | 정의와 구현 경계 |
-| --- | --- | --- |
-| K-Means | WCSS, 평균 미분·분해 유도, 교대 비증가, D² 초기화, 빈 군집, 지역해 | Lloyd, 2D Euclidean, 빈 군집 중심 유지, 다중 재시작 없음 |
-| DBSCAN | core/border/noise 수치 예제, 직접/연쇄 도달·연결, 경계 순서 | 자기 포함 MinPts, 전수 검색, 서로 다른 밀도의 한계 |
-| HDBSCAN | core/mutual, MST, single linkage, condensed tree, λ 면적 안정도=10, EOM/leaf | α=1, 루트 제외, λ 상한 10¹², 확률 score 없음 |
-| AGNES | 동일 집합의 네 linkage 검산, Ward SSE 유도, Lance–Williams, 높이·절단·chaining | 거리 캐시 최적화 없음, Ward=√(2ΔSSE), Euclidean 제약 |
-| DIANA | 거리 행렬, 평균 비유사도, 양수 Δ splinter 이동 손계산 | 목표 K의 부분 계층, Euclidean, 보수적 O(n⁴) 최악 상한 |
-| SOM | BMU, Gaussian 격자 이웃 수치 갱신, 감소율, QE, U-Matrix | topology 목표와 보장 구분, 최종 BMU 색은 군집 추출 아님 |
-| LVQ | 지도 분류 명시, 정답/오답 승자의 이동·거리 검산, 결정영역 | LVQ1, 클래스별 K, 훈련 정확도≠일반화, GLVQ 아님 |
-| OPTICS | 방향성 reachability, predecessor 갱신, plot 골짜기, ε/Xi 구분 | 후보 Set 정렬, heap 없음, min_samples 자기 포함 |
-| PAM | medoid/centroid 손계산, BUILD/SWAP 비용·국소 최적 | 실제 관측 대표, 전수 비용 재계산, FastPAM 없음 |
-| ROCK | 토큰 Jaccard=1/3, 공통 이웃 Link, goodness 검산 | 좌표 미사용, θ≥ 이웃, 표본 추출 최적화 없음 |
-| GMM | Gaussian·잠재변수·우도, Bayes E-step, M-step 미분, EM 하한·단조성 조건, AIC/BIC | 고정 10⁻⁶ 정규화·소멸 성분 처리, BIC는 설명만, tied 없음 |
-| BIRCH | N/LS/SS 가법성·R 유도, CF 합 검산, 삽입·분할·가중 Ward | RMS 반경, 통계 트리≠덴드로그램, 원본 ID·Trace 비용, 외부 메모리 없음 |
-| Mean Shift | KDE shadow profile, flat 이웃 평균, 수렴·한도, 모드 억제 | 수동 h·전체 seed·cluster_all=true, uniform KDE 미분과 혼동 금지 |
+테스트 실행의 스트로크 rAF 간격 측정은 Playwright의 `stroke-frame-times` 첨부와 `browser-evidence` 아티팩트에 기록합니다. 홈·실험실 프레임 측정도 기존 quality 테스트를 유지합니다. 자동 브라우저 측정은 실제 모든 장치의 60FPS 보장을 의미하지 않습니다.
 
-## 수학·출처 검증 방식
+로컬 50점 스트로크 측정: 36개 프레임 간격, p95 16.7ms, 최대 16.8ms. [JSON 증거](screenshots/v06/e2e-summary.json)에 함께 보존합니다.
 
-앱의 관련 엔진 코드를 먼저 읽고 원논문·저자 설명·공식 라이브러리 문서와 대조했습니다. DBSCAN은 [AAAI 원문](https://cdn.aaai.org/KDD/1996/KDD96-037.pdf), ROCK은 [저자 원고](https://theory.stanford.edu/~sudipto/mypapers/categorical.pdf), BIRCH는 [원논문](https://doi.org/10.1145/233269.233324), linkage는 [SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html), DIANA/PAM은 R cluster 공식 매뉴얼, HDBSCAN은 저자 구현 문서, GMM은 Bishop PRML 9장·scikit-learn, SOM/LVQ는 Kohonen 자료·JMLR, Mean Shift는 원논문·scikit-learn 규약을 사용합니다. 각 가이드에 확인 목적을 붙인 문헌 메타데이터가 있습니다.
+## 배포와 공개 사이트 재검증
 
-인터넷 조회에서 구형 cis.hut.fi 일부 링크가 timeout/접근 실패해 새 가이드에는 저자 Scholarpedia·Aalto 공식 서지·JMLR·원문 DOI를 사용했습니다. DOI는 출판사 인증/구독이 필요할 수 있고 외부 링크의 영구 접근을 보장하지는 않습니다.
+기존 main push → Actions 검증 → GitHub Pages 경로를 사용합니다. 배포 후 `CLUSTERLAB_BASE_URL=https://oyueo-mm.github.io/ClusterLab/`로 같은 테스트를 실행할 수 있습니다. 공개 검증은 `tests/v06.spec.ts`의 편집·터치·글꼴 검사와 기존 `tests/v05.spec.ts`의 반응형 중앙 정렬 검사를 포함합니다. 배포 SHA·Actions 결과·공개 검사 결과는 최종 작업 보고에서 함께 제공합니다.
 
-`src/data/v04.test.ts`는 모든 수식의 KaTeX strict 파싱과 MathML, 기호/유도 필드, HTTPS 문헌 메타데이터, 권장 프리셋 실제 Trace를 검증합니다. 별도 계산으로 13개 수치 예제의 값과 일부 엔진 결과를 대조합니다. 문헌에서 정의를 확인하고 코드를 직접 분석해 복잡도·지원 변형을 검토했습니다. 테스트가 모든 설명이나 증명을 자동으로 증명한다는 주장은 하지 않습니다.
+공개 사이트: https://oyueo-mm.github.io/ClusterLab/
 
-## 검증 결과
+## 남아 있는 제한
 
-- ESLint: 통과.
-- TypeScript `tsc --noEmit`: 통과.
-- Vitest: **9개 파일, 132/132 통과**. 기존 7파일 111개 + 신규 `v04.test.ts` 15개 + 신규 `gmmHome.test.ts` 6개. 기존 독립 기준 43개를 포함한 reference 테스트와 13개 엔진 검증을 삭제하지 않았습니다.
-- 프로덕션 빌드: 통과. Worker 분리·가이드 지연 로딩 확인.
-- 신규 개발 브라우저 집중 검사: 5통과/1건 모바일 전체 라운드 의도적 제외. 데스크톱 전체 순환, 모바일 가이드·UI를 확인했습니다.
-- 프로덕션 전체 Playwright: **25 통과 / 3 의도적 제외 / 실패 0**. 기존 20통과/2제외 + 신규 5통과/1제외. 별도로 키보드 Enter 목차 이동을 추가한 가이드 검사 2개도 프로덕션에서 통과했습니다. [결과 요약](screenshots/v04/e2e-summary.json).
-
-기존 E2E의 소개 제목 기대값은 새 요구에 맞춰 **개별 알고리즘 제목과 실제 안정도 수식 검증**으로 바꿨습니다. 의미 있는 검증을 삭제하지 않았습니다. 신규 E2E는 13개 교재·기초/심화·수식·키보드 포커스·목차·이벤트 이동·비교·한국어 이름·GMM 다섯 라운드의 실제 시각화를 추가합니다.
-
-## 제한
-
-실물 모바일·고주사율·장시간 힙 측정은 하지 않았습니다. 자동화 모바일은 Chromium iPhone 13 에뮬레이션입니다. 전체 홈 라운드는 모든 카드가 보이는 데스크톱에서 검증하고, 모바일의 화면 밖 카드 중단 정책은 v0.3 방식 그대로입니다. 모든 카드가 완료되어야 다음 라운드로 넘어갑니다.
-
-교재의 손계산 예제는 별도 가정 데이터이며 미니 실험의 시드 프리셋과 동일 결과를 주장하지 않습니다. 심화 교재의 수학적 설명은 원문·코드와 대조한 것이며 외부 학술 동료 심사나 형식 증명은 아닙니다. AIC/BIC 자동 계산·모델 선택, 임의 occurrence 이벤트 선택, 12점 실험의 상태 그대로 실험실 복사는 구현하지 않았습니다.
-
-엔진의 기존 입력·성능·CSV 제한은 README에서 유지합니다. 수식·교재는 홈 초기 번들에서 분리되지만, 가이드 안에서는 13개 콘텐츠를 함께 로드합니다. 원논문의 모든 최적화와 변형을 지원하는 범용 라이브러리는 아닙니다.
-
-## 변경 파일
-
-| 영역 | 파일 |
-| --- | --- |
-| 페이지 UI·연결 | `src/App.tsx`, `src/main.tsx`, `src/v04.css` |
-| GMM Canvas·홈 표시 | `src/components/Canvas.tsx`, `src/components/HomeDemos.tsx`, `src/animation/renderer.ts`, `src/data/homeRounds.ts` |
-| 최신 입력 Trace 식별 | `src/animation/useExperiment.ts` |
-| 프리셋·이전 기준 | `src/data/presets.ts`, `src/data/preset-v03-hashes.json` |
-| 가이드 메타데이터 | `src/data/guides.ts`, `src/data/algorithmFamilies.ts` |
-| 구조화 교재 | `src/data/lessons/types.ts`, `index.ts`, `kmeans.ts`, `gmm.ts`, `density.ts`, `hierarchical.ts`, `competitive.ts`, `representatives.ts`, `modes.ts` |
-| 교재 UI | `src/components/guide/GuidePage.tsx`, `Formula.tsx`, `TraceLesson.tsx`, `guide.css` |
-| 테스트 | `src/data/v04.test.ts`, `src/animation/gmmHome.test.ts`, `tests/v04.spec.ts`, `tests/site.spec.ts` |
-| 버전·의존성·문서 | `package.json`, `package-lock.json`, `README.md`, `THIRD_PARTY_NOTICES.md`, `docs/VALIDATION.md` |
-| 증거·보존 | `docs/screenshots/v04/`, `docs/v0.3/VALIDATION.md`, `docs/v0.3/screenshots/` |
-
-`src/engine/algorithms/`와 `src/engine/trace.ts`에는 변경이 없습니다.
-
-## 데스크톱·모바일 화면과 성능
-
-[교재 데스크톱](screenshots/v04/guide-1440.png) · [교재 모바일](screenshots/v04/guide-390.png) · [데이터 편집 데스크톱](screenshots/v04/data-1440.png) · [데이터 편집 모바일](screenshots/v04/data-390.png). 320/390/768/1440px 범위에서 가로 overflow 없이 확인했습니다.
-
-| 환경 | 홈 평균 / p95 프레임(ms) | 실험실 평균 / p95 프레임(ms) |
-| --- | --- | --- |
-| chromium | 16.92 / 16.80 | 16.67 / 16.70 |
-| mobile | 16.67 / 16.70 | 16.67 / 16.70 |
-
-2.2초 rAF 표본이며 하드웨어 보장은 아닙니다. 원시 JSON을 같은 스크린샷 폴더에 보존합니다. 최종 main SHA·Actions 실행·Pages 공개 확인 결과는 최종 응답과 해당 GitHub 실행 기록을 확인하세요.
+- 히스토리는 현재 세션 메모리의 최대 100개 작업이며 새로고침 후에는 유지하지 않습니다. 기존 JSON 파일 형식에는 Undo 기록·화면 보기 상태를 추가하지 않습니다.
+- Canvas는 기존처럼 전체를 매 프레임 다시 그립니다. 공간 인덱스·부분 다시 그리기는 추가하지 않았습니다. 터치는 Chromium 모바일 에뮬레이션과 네이티브 터치 이벤트로 검증하며 실제 모바일 기기 실측은 별도입니다.
+- 드래그 미리보기 중에는 데이터 개수/부모 상태가 마지막 확정 값이고 마우스/손가락을 놓으면 갱신됩니다. 보기 이동/확대는 Undo 대상이 아닙니다.
+- 편집 중 0~1개 점은 허용하지만 기존 알고리즘 계산·파일 가져오기의 2~600개 입력 규칙은 그대로입니다. CSV는 기존 단순 헤더 규격이며 인용부호 안 쉼표 등 전체 RFC 문법 지원을 추가하지 않았습니다.

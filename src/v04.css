@@ -6,6 +6,14 @@
 .editor-toolbar {
   flex-wrap: wrap;
 }
+.editor-history {
+  display: flex;
+  flex-shrink: 0;
+  gap: 3px;
+  border-right: 1px solid var(--border);
+  padding-right: 7px;
+  margin-right: 4px;
+}
 .editor-toolbar .editor-experiment {
   margin-right: 8px;
 }

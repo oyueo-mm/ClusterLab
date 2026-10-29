@@ -1,4 +1,4 @@
-# ClusterLab v0.5
+# ClusterLab v0.6
 
 13가지 알고리즘의 실제 계산을 기록하고 재생하는 한국어 클러스터링 실험실입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다.
 
@@ -50,6 +50,17 @@ npm run build
 | GMM        | Log-sum-exp E-step, 평균/공분산/혼합비 M-step, 확률색·타원·로그우도                 |
 | BIRCH      | CF=(N,LS,SS), 반경 검사, 재귀 CF-Tree, 선택적 가중 Ward                             |
 | Mean Shift | Flat kernel 반경 탐색·이웃 평균·중심/원/경로 보간·수렴·밀도순 모드 통합·최근접 할당 |
+
+## v0.6 편집 경험과 홈 타이포그래피
+
+- 홈 제목 최대 48→54px, 부제목 27→31px, 버튼 14→16px. Black Han Sans·Pretendard, 기존 색상·버튼 형태·v0.5 중앙 정렬을 유지합니다. 좁은 화면은 별도 크기를 사용하며 320px는 기존 크기를 보존합니다.
+- 데이터 편집 툴바의 실행 취소·다시 실행과 Ctrl/Cmd+Z, Ctrl+Y, Ctrl/Cmd+Shift+Z. 데이터셋 페이지에서만 작동하고 입력·textarea·select·contenteditable의 기본 편집 동작은 유지합니다.
+- 좌표·순서·label·features·기반 프리셋·적용된 생성 옵션을 최대 100개 작업으로 보관합니다. 드래그는 Canvas 내부에서 미리 보고 놓을 때 한 번 확정합니다. Undo 후 새 작업은 Redo를 비우며 같은 내용의 작업은 기록하지 않습니다.
+- 어떤 도구에서도 마우스 우클릭 드래그로 즉시 화면을 이동합니다. 왼쪽 버튼의 기존 도구와 두 손가락 확대·축소는 유지합니다.
+- 점 추가 도구는 화면 기준 12 CSS px 간격으로 경로를 보간합니다. 클래스 값을 유지하며 600개에서 멈춥니다. 드래그 취소·캡처 상실·리사이즈·페이지 이동은 미확정 데이터 변경을 버립니다.
+- 가져온 데이터는 프리셋을 임의로 지정하지 않습니다. 실험실·비교에 `사용자 데이터`로 표시하고 프리셋 재생성을 비활성화합니다. Undo로 원래 프리셋과 생성 옵션을 함께 복구할 수 있습니다.
+
+구현·반응형 크기·테스트·제한·화면 증거는 [현재 검증 보고서](docs/VALIDATION.md)에 있습니다.
 
 ## v0.5 홈 레이아웃
 
@@ -110,7 +121,7 @@ Black Han Sans는 Google Fonts 공식 Regular의 제목용 글리프 subset 약 
 
 모든 알고리즘은 공통 10개 섹션을 갖습니다. 심화에는 현재 코드의 변형·최적화 부재·가정·비용을 구분합니다. HDBSCAN/DIANA 등 이전의 간략한 복잡도는 반복 재탐색을 반영한 보수적 상한으로 보정했습니다. CF-Tree·SOM·LVQ1·ROCK·flat Mean Shift를 일반 군집 분할과 혼동하지 않도록 범위를 명시합니다.
 
-이전 검증 기록: [v0.1](docs/v0.1/VALIDATION.md) · [v0.2](docs/v0.2/VALIDATION.md) · [v0.3](docs/v0.3/VALIDATION.md).
+이전 검증 기록: [v0.1](docs/v0.1/VALIDATION.md) · [v0.2](docs/v0.2/VALIDATION.md) · [v0.3](docs/v0.3/VALIDATION.md) · [v0.4](docs/v0.4/VALIDATION.md) · [v0.5](docs/v0.5/VALIDATION.md).
 
 ## 구조
 
@@ -119,6 +130,7 @@ src/engine/algorithms/  수치 알고리즘
 src/engine/trace.ts     패치·복원·스냅샷·재생 시간
 src/engine/worker.ts    계산 격리
 src/animation/         재생 시계 및 Canvas 보간
+src/editor/            편집 히스토리·Hook·경로 샘플러
 src/components/        Canvas·재생·설정·분석 UI
 src/data/              프리셋·입출력·가이드
 tests/                 Chromium 및 모바일 에뮬레이션
