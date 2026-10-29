@@ -11,6 +11,7 @@ test("home visual evidence and sustained animation frame timings", async ({
         (n) => Number(n.getAttribute("data-events")) > 0,
       ),
   );
+  await page.evaluate(() => document.fonts.ready);
   const homeTimings = await page.evaluate(
     () =>
       new Promise<number[]>((resolve) => {
@@ -33,7 +34,7 @@ test("home visual evidence and sustained animation frame timings", async ({
       {
         project: info.project.name,
         viewport: page.viewportSize(),
-        points: 60,
+        points: 36,
         algorithms: ["K-Means", "DBSCAN", "GMM", "Mean Shift"],
         meanFrameMs: sortedHome.reduce((a, b) => a + b, 0) / sortedHome.length,
         p95FrameMs: sortedHome[Math.floor(sortedHome.length * 0.95)],

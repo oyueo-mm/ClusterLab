@@ -18,6 +18,7 @@ export function useExperiment(
     [loop, setLoop] = useState(false);
   const worker = useRef<Worker | null>(null),
     positionRef = useRef(0);
+  const serial = useRef(0);
   const completed = useRef<{
     algorithm: Algorithm;
     points: Point[];
@@ -52,7 +53,10 @@ export function useExperiment(
       type: "module",
     });
     worker.current = w;
+    let cancelled = false;
+    const requestId = ++serial.current;
     w.onmessage = (e) => {
+      if (cancelled || e.data.id !== requestId) return;
       setBusy(false);
       if (e.data.error) setError(e.data.error);
       else {
@@ -61,14 +65,16 @@ export function useExperiment(
       }
     };
     w.onerror = (e) => {
+      if (cancelled) return;
       setError(e.message || "Worker 실행 오류");
       setBusy(false);
     };
     const timer = setTimeout(
-      () => w.postMessage({ id: 1, algorithm, points, params }),
+      () => w.postMessage({ id: requestId, algorithm, points, params }),
       140,
     );
     return () => {
+      cancelled = true;
       clearTimeout(timer);
       w.terminate();
     };

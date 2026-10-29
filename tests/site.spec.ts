@@ -117,8 +117,23 @@ test("dataset gallery, import/export UI, guide, compare and direct hash routing"
   });
   await page.goto("#compare");
   await expect(page.locator(".compare-card")).toHaveCount(2);
+  await page.getByLabel("비교 개수").selectOption("4");
+  await expect(page.locator(".compare-card")).toHaveCount(4);
+  await expect(page.locator(".compare-card .play:disabled")).toHaveCount(0);
   await page.getByRole("button", { name: /모두 처음부터 재생/ }).click();
-  await expect(page.getByLabel("일시정지", { exact: true })).toHaveCount(2);
+  await expect(page.getByLabel("일시정지", { exact: true })).toHaveCount(4);
+  const first = page.locator(".compare-card").first();
+  await first.getByLabel("일시정지", { exact: true }).click();
+  const paused = await first
+    .getByLabel("타임라인", { exact: true })
+    .inputValue();
+  await page.waitForTimeout(150);
+  expect(await first.getByLabel("타임라인", { exact: true }).inputValue()).toBe(
+    paused,
+  );
+  await expect(page.getByLabel("일시정지", { exact: true })).toHaveCount(3);
+  for (const card of await page.locator(".compare-card").all())
+    await card.getByLabel("마지막으로").click();
   await page.goto("#guide");
   await expect(
     page.getByRole("heading", { name: "알고리즘 가이드", exact: true }),

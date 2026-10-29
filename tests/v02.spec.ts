@@ -3,7 +3,11 @@ type Audit = {
   requests: { algorithm: string; points: string }[];
   terminated: string[];
 };
-declare global {interface Window {__audit:Audit}}
+declare global {
+  interface Window {
+    __audit: Audit;
+  }
+}
 test("four real home Workers share exactly the same source data and stop when not visible", async ({
   page,
 }) => {
@@ -61,8 +65,19 @@ test("four real home Workers share exactly the same source data and stop when no
   ).toBe(1);
   for (const a of names)
     await expect(
-      page.getByLabel(`${a} 데모 일시정지`, { exact: true }),
-    ).toHaveCount(1);
+      page.locator(`.home-demo[data-algorithm="${a}"]`),
+    ).toHaveAttribute("data-status", /ready|complete/);
+  await page.getByLabel("K-Means 데모 일시정지", { exact: true }).click();
+  const paused = await page
+    .locator('.home-demo[data-algorithm="K-Means"]')
+    .getAttribute("data-position");
+  await page.waitForTimeout(150);
+  expect(
+    await page
+      .locator('.home-demo[data-algorithm="K-Means"]')
+      .getAttribute("data-position"),
+  ).toBe(paused);
+  await page.getByLabel("K-Means 데모 재생", { exact: true }).click();
   await page.evaluate(() => {
     const spacer = document.createElement("div");
     spacer.id = "offscreen-test";
@@ -96,7 +111,7 @@ test("four real home Workers share exactly the same source data and stop when no
     .getByRole("button", { name: "Mean Shift 실험실 열기", exact: true })
     .click();
   await expect(page.getByLabel("알고리즘 선택")).toHaveValue("Mean Shift");
-  await expect(page.locator(".point-count")).toHaveText("60 points");
+  await expect(page.locator(".point-count")).toHaveText("36 points");
   await expect(page.locator(".visualization-description")).toHaveText(
     "Mean Shift 데이터 및 실제 연산 시각화",
   );

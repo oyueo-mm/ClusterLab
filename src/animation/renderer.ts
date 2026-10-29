@@ -78,7 +78,7 @@ export function draw(
   ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, w, h);
   ctx.lineWidth = 1;
-  ctx.font = "10px ui-monospace, monospace";
+  ctx.font = "11px Pretendard, sans-serif";
   for (let i = -10; !options.minimal && i <= 20; i++) {
     const v = i / 10,
       x = ox + v * scale,
@@ -358,7 +358,7 @@ export function draw(
     }
     if (points[i].label !== undefined && options.algorithm === "LVQ") {
       ctx.fillStyle = "#3d4e46";
-      ctx.font = "9px sans-serif";
+      ctx.font = "11px Pretendard, sans-serif";
       ctx.fillText(String(points[i].label), x + 6, y - 5);
     }
   }
@@ -432,7 +432,7 @@ export function draw(
         (to.activeCenter < 0 && centers.length < 15))
     ) {
       ctx.fillStyle = "#3f5148";
-      ctx.font = "10px ui-monospace, monospace";
+      ctx.font = "11px Pretendard, sans-serif";
       ctx.fillText(
         `${options.algorithm === "Mean Shift" ? "M" : "C"}${(options.algorithm === "Mean Shift" ? (c.id ?? i) : i) + 1}`,
         x + 11,

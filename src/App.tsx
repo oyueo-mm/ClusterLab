@@ -261,7 +261,6 @@ export default function App() {
           {!collapsed && (
             <span>
               Cluster<span className="brand-light">Lab</span>
-              <small>클러스터링을 이해하는 공간</small>
             </span>
           )}
         </a>
@@ -316,10 +315,12 @@ export default function App() {
                   </div>
                 </section>
                 <HomeDemos
-                  onChoose={(a, p) => {
-                    changeAlgorithm(a);
-                    setPoints(p);
-                    setPreset("blobs");
+                  onChoose={(selection) => {
+                    changeAlgorithm(selection.algorithm);
+                    setPoints(selection.points);
+                    setPreset(selection.preset);
+                    setParams(selection.params);
+                    setDataOptions(selection.dataOptions);
                     go("lab");
                   }}
                 />

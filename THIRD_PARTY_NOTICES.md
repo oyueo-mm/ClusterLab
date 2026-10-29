@@ -1,5 +1,7 @@
 # Third-party references and licenses
 
+Black Han Sans and Pretendard are self-hosted under the SIL Open Font License 1.1. Their complete notices, source links, and the Black Han Sans title subset description are included in [public/fonts](public/fonts/README.md). Pretendard's original variable font is distributed without modification.
+
 The Xi steep-area extraction in `src/engine/algorithms/xi.ts` was developed using the algorithm description and checked against scikit-learn's `_optics.py` reference. The following notice covers that reference and any adapted control-flow logic.
 
 Copyright (c) 2007–2026 The scikit-learn developers. All rights reserved.
