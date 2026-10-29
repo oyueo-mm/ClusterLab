@@ -104,6 +104,13 @@ export function roundParams(algorithm: Algorithm): Params {
 }
 /** Only playback time changes. Completion still requires every recorded event. */
 export function homeSpeed(trace: Trace) {
+  // GMM records one whole E/M step per event, unlike per-point algorithms.
+  // Preserve at least 450ms for each EM transition in the small home cards.
+  if (trace.algorithm === "GMM") {
+    const shortest = Math.min(...trace.steps.map((s) => s.duration));
+    const multiplier = Math.min(2, shortest / 450);
+    return Math.max(1, 50 + 18 * Math.log2(multiplier));
+  }
   const total = trace.steps.reduce((s, e) => s + e.duration, 0),
     target = 7500 + (algorithms.indexOf(trace.algorithm) % 4) * 900;
   const multiplier = Math.max(3, Math.min(250, total / target));

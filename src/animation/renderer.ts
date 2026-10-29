@@ -68,6 +68,8 @@ export function draw(
   t: number,
   options: DrawOptions,
 ) {
+  // Collapsed/hidden canvases have no drawable coordinate area.
+  if (w <= 70 || h <= 60) return;
   const e = ease(t),
     { zoom, panX, panY } = options.view;
   const scale = Math.min(w - 70, h - 60) * zoom,
@@ -282,6 +284,7 @@ export function draw(
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(-angle);
+      ctx.lineWidth = options.minimal ? 1.6 : 1.2;
       for (let level = 2; level >= 1; level--) {
         ctx.beginPath();
         ctx.ellipse(
@@ -295,7 +298,7 @@ export function draw(
         );
         ctx.fillStyle = palette[j % palette.length] + "0b";
         ctx.strokeStyle =
-          palette[j % palette.length] + (level === 1 ? "b0" : "60");
+          palette[j % palette.length] + (level === 1 ? "ff" : "a0");
         ctx.fill();
         ctx.stroke();
       }

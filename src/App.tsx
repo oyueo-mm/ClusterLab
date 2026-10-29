@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import {
   Activity,
   ArrowRight,
@@ -40,11 +40,14 @@ import {
   dataset,
   dataDefaults,
   presets,
+  presetAliases,
   exportData,
   importData,
   type DataOptions,
 } from "./data/presets";
-import { guides } from "./data/guides";
+import { algorithmFamilies } from "./data/algorithmFamilies";
+import type { EventKind } from "./engine/types";
+const GuidePage = lazy(() => import("./components/guide/GuidePage"));
 import { Canvas } from "./components/Canvas";
 import { Playback } from "./components/Playback";
 import { Settings } from "./components/Settings";
@@ -184,6 +187,13 @@ export default function App() {
     [notice, setNotice] = useState(""),
     [settingsOpen, setSettingsOpen] = useState(false),
     [guideAlgorithm, setGuideAlgorithm] = useState<Algorithm>("K-Means"),
+    [guideEvent, setGuideEvent] = useState<EventKind | null>(null),
+    [compareAlgorithms, setCompareAlgorithms] = useState<Algorithm[]>([
+      "K-Means",
+      "DBSCAN",
+      "GMM",
+      "AGNES",
+    ]),
     [compareCount, setCompareCount] = useState(2),
     [compareStart, setCompareStart] = useState(0);
   const file = useRef<HTMLInputElement>(null),
@@ -223,7 +233,10 @@ export default function App() {
   };
   const activeStep =
       lab.trace?.steps[
-        Math.min(Math.floor(lab.position), lab.trace.steps.length - 1)
+        Math.min(
+          Math.max(0, Math.ceil(lab.position) - 1),
+          lab.trace.steps.length - 1,
+        )
       ],
     clusters = new Set(state.labels.filter((x) => x >= 0)).size,
     noise = state.labels.filter((x) => x === -1).length;
@@ -240,7 +253,37 @@ export default function App() {
   )
     .sort((a, b) => a - b)
     .slice(0, 8);
-  const guide = guides[guideAlgorithm];
+  useEffect(() => {
+    if (
+      !guideEvent ||
+      !lab.trace ||
+      !lab.traceIsCurrent ||
+      lab.busy ||
+      page !== "lab"
+    )
+      return;
+    const index = lab.trace.steps.findIndex((step) => step.kind === guideEvent);
+    if (index >= 0) {
+      lab.setPlaying(false);
+      lab.seek(index + 1);
+      setNotice(
+        `${algorithm} · ${guideEvent} 실제 이벤트 ${index + 1}로 이동했습니다.`,
+      );
+    } else
+      setNotice(
+        `이 데이터에는 ${guideEvent} 이벤트가 없습니다. 가이드의 권장 프리셋을 사용하세요.`,
+      );
+    setGuideEvent(null);
+  }, [
+    guideEvent,
+    lab.trace,
+    lab.traceIsCurrent,
+    lab.busy,
+    page,
+    algorithm,
+    lab.seek,
+    lab.setPlaying,
+  ]);
   return (
     <div className={`app ${collapsed ? "nav-collapsed" : ""}`}>
       <a className="skip-link" href="#main">
@@ -348,7 +391,7 @@ export default function App() {
                         ))}
                       </select>
                       <span className="family-tag">
-                        {guides[algorithm].family}
+                        {algorithmFamilies[algorithm]}
                       </span>
                     </div>
                     <span className="visualization-description">
@@ -513,19 +556,16 @@ export default function App() {
           </div>
           {page === "data" && (
             <div className="data-page">
-              <div className="page-heading">
-                <div>
-                  <span className="section-kicker">DATA STUDIO</span>
-                  <h1>데이터에서 시작하세요.</h1>
-                  <p>32가지 프리셋을 탐색하거나 나만의 데이터를 그려보세요.</p>
-                </div>
-                <button className="primary" onClick={() => go("lab")}>
-                  이 데이터로 실험 <ArrowRight size={16} />
-                </button>
-              </div>
               <div className="data-editor-layout">
                 <section className="editor-stage panel">
                   <div className="editor-toolbar">
+                    <button
+                      className="primary editor-experiment"
+                      onClick={() => go("lab")}
+                    >
+                      이 데이터로 실험 <ArrowRight size={16} />
+                    </button>
+
                     {[
                       { id: "move", label: "점 이동", icon: Move },
                       { id: "add", label: "점 추가", icon: Plus },
@@ -717,7 +757,7 @@ export default function App() {
               <div className="preset-grid">
                 {presets
                   .filter((p) =>
-                    `${p[1]} ${p[2]}`
+                    `${p[1]} ${p[2]} ${presetAliases[p[0]]}`
                       .toLowerCase()
                       .includes(query.toLowerCase()),
                   )
@@ -749,23 +789,14 @@ export default function App() {
           )}
           {page === "compare" && (
             <div className="compare-page">
-              <div className="page-heading">
-                <div>
-                  <span className="section-kicker">SIDE BY SIDE</span>
-                  <h1>같은 데이터, 나란히 비교</h1>
-                  <p>
-                    공통 좌표계와 데이터로 실행합니다. 각 알고리즘은 자신의 연산
-                    속도로 진행합니다.
-                  </p>
-                </div>
+              <div className="compare-controls panel">
                 <button
                   className="primary"
                   onClick={() => setCompareStart((s) => s + 1)}
                 >
                   모두 처음부터 재생 <ArrowRight size={16} />
                 </button>
-              </div>
-              <div className="compare-controls panel">
+
                 <label>
                   비교 개수{" "}
                   <select
@@ -795,11 +826,9 @@ export default function App() {
               <div className="compare-grid">
                 {Array.from({ length: compareCount }, (_, i) => (
                   <CompareCard
-                    key={i}
+                    key={`${i}-${compareAlgorithms[i]}`}
                     points={points}
-                    initial={
-                      (["K-Means", "DBSCAN", "GMM", "AGNES"] as Algorithm[])[i]
-                    }
+                    initial={compareAlgorithms[i]}
                     start={compareStart}
                   />
                 ))}
@@ -812,102 +841,27 @@ export default function App() {
             </div>
           )}
           {page === "guide" && (
-            <div className="guide-page">
-              <div className="page-heading">
-                <div>
-                  <span className="section-kicker">LEARN THE MECHANISM</span>
-                  <h1>알고리즘 가이드</h1>
-                  <p>수식과 실제 연산을 연결해 이해하세요.</p>
-                </div>
-              </div>
-              <div className="guide-layout">
-                <nav className="guide-nav" aria-label="알고리즘 가이드 목록">
-                  {algorithms.map((a) => (
-                    <button
-                      className={guideAlgorithm === a ? "active" : ""}
-                      key={a}
-                      onClick={() => setGuideAlgorithm(a)}
-                    >
-                      {a}
-                      <ChevronRight size={14} />
-                    </button>
-                  ))}
-                </nav>
-                <article className="guide-article">
-                  <span className="family-tag">{guide.family}</span>
-                  <h2>{guideAlgorithm}</h2>
-                  <p className="guide-intro">{guide.intro}</p>
-                  <h3>작동 순서</h3>
-                  <ol className="guide-steps">
-                    {guide.steps.map((s, i) => (
-                      <li key={s}>
-                        <span>{String(i + 1).padStart(2, "0")}</span>
-                        {s}
-                      </li>
-                    ))}
-                  </ol>
-                  <h3>핵심 수식</h3>
-                  <div className="formula">{guide.formula}</div>
-                  <h3>파라미터와 실제 연산</h3>
-                  <Settings
-                    algorithm={guideAlgorithm}
-                    value={params}
-                    onChange={setParams}
-                  />
-                  <div className="guide-columns">
-                    <section>
-                      <h3>장점</h3>
-                      <p>{guide.pros}</p>
-                    </section>
-                    <section>
-                      <h3>주의할 점</h3>
-                      <p>{guide.cons}</p>
-                    </section>
-                  </div>
-                  <h3>시간 복잡도</h3>
-                  <p>{guide.complexity}</p>
-                  <h3>적합한 데이터셋</h3>
-                  <p>{guide.suitable}</p>
-                  <h3>관찰 포인트와 다른 알고리즘의 차이</h3>
-                  <p>{guide.difference}</p>
-                  <h3>정의·논문 및 공식 문서</h3>
-                  <h3>정의·논문 및 공식 문서</h3>
-                  <a
-                    className="text-link"
-                    href={guide.source}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {guide.sourceName} ↗
-                  </a>
-                  {guideAlgorithm === "Mean Shift" && (
-                    <p>
-                      <a
-                        className="text-link"
-                        href="https://doi.org/10.1109/34.1000236"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Comaniciu & Meer · Mean Shift (2002) ↗
-                      </a>
-                    </p>
-                  )}
-                  <div className="guide-cta">
-                    <button
-                      className="primary"
-                      onClick={() => {
-                        changeAlgorithm(guideAlgorithm);
-                        if (guideAlgorithm === "LVQ") choose("labeled");
-                        if (guideAlgorithm === "ROCK") choose("categorical");
-                        go("lab");
-                      }}
-                    >
-                      이 알고리즘으로 실험 <ArrowRight size={17} />
-                    </button>
-                  </div>
-                </article>
-              </div>
-            </div>
+            <Suspense
+              fallback={<p role="status">학습 자료를 불러오는 중입니다.</p>}
+            >
+              <GuidePage
+                algorithm={guideAlgorithm}
+                onSelect={setGuideAlgorithm}
+                onExperiment={(a, presetId, event, experimentParams) => {
+                  changeAlgorithm(a);
+                  if (experimentParams) setParams(experimentParams);
+                  if (presetId) choose(presetId);
+                  setGuideEvent(event ?? null);
+                  go("lab");
+                }}
+                onCompare={(pair, presetId) => {
+                  setCompareAlgorithms([...pair, "GMM", "AGNES"]);
+                  setCompareCount(2);
+                  choose(presetId);
+                  go("compare");
+                }}
+              />
+            </Suspense>
           )}
           <input
             ref={file}

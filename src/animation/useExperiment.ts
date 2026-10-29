@@ -115,6 +115,12 @@ export function useExperiment(
   }, [playing, trace, speed, loop, seek, active, uiInterval]);
   return {
     trace,
+    traceIsCurrent:
+      !!trace &&
+      completed.current?.trace === trace &&
+      completed.current.algorithm === algorithm &&
+      completed.current.points === points &&
+      completed.current.params === params,
     error,
     busy,
     playing,

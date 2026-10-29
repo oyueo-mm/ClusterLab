@@ -136,13 +136,15 @@ test("dataset gallery, import/export UI, guide, compare and direct hash routing"
     await card.getByLabel("마지막으로").click();
   await page.goto("#guide");
   await expect(
-    page.getByRole("heading", { name: "알고리즘 가이드", exact: true }),
+    page.getByRole("heading", { name: "K-Means", exact: true }),
   ).toBeVisible();
   await page
     .locator(".guide-nav")
     .getByRole("button", { name: "HDBSCAN" })
     .click();
-  await expect(page.locator(".formula")).toContainText("stability");
+  await expect(
+    page.locator(".equation-card").filter({ hasText: "안정도와 EOM" }),
+  ).toContainText("S(C)");
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth + 1,

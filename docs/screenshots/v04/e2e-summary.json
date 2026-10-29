@@ -1,0 +1,289 @@
+{
+  "stats": {
+    "startTime": "2026-10-29T11:12:36.128Z",
+    "duration": 451024.03400000004,
+    "expected": 25,
+    "skipped": 3,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "suites": [
+    {
+      "file": "quality.spec.ts",
+      "specs": [
+        {
+          "title": "home visual evidence and sustained animation frame timings",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "real data editing, CSV import, label preservation and JSON download",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "home visual evidence and sustained animation frame timings",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "real data editing, CSV import, label preservation and JSON download",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "site.spec.ts",
+      "specs": [
+        {
+          "title": "home demo, navigation, playback pause/resume/seek and mobile layout",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "all algorithms run to completion in actual Workers with dedicated analyses",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "dataset gallery, import/export UI, guide, compare and direct hash routing",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "home demo, navigation, playback pause/resume/seek and mobile layout",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "all algorithms run to completion in actual Workers with dedicated analyses",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "dataset gallery, import/export UI, guide, compare and direct hash routing",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "v02.spec.ts",
+      "specs": [
+        {
+          "title": "four real home Workers share exactly the same source data and stop when not visible",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "four real home Workers share exactly the same source data and stop when not visible",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "v03.spec.ts",
+      "specs": [
+        {
+          "title": "real bundled display/UI fonts, forest tokens and aligned responsive layout",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "font failure uses fallbacks without clipping or disabling navigation",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "automatic cycle holds real final results, changes every preset/combination and wraps after exposing all 13",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "labeled and categorical home cards transfer the exact original records into the lab",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "real bundled display/UI fonts, forest tokens and aligned responsive layout",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "font failure uses fallbacks without clipping or disabling navigation",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "automatic cycle holds real final results, changes every preset/combination and wraps after exposing all 13",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "skipped"
+            }
+          ]
+        },
+        {
+          "title": "labeled and categorical home cards transfer the exact original records into the lab",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "skipped"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "v04.spec.ts",
+      "specs": [
+        {
+          "title": "compact task pages retain controls and consistently show Korean preset names",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "13 textbooks render math and real events, switch levels, navigate sections and open lab/comparison",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "real Worker GMM renders initialization, E/M covariance motion and final ellipses in every home round",
+          "tests": [
+            {
+              "project": "chromium",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "compact task pages retain controls and consistently show Korean preset names",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "13 textbooks render math and real events, switch levels, navigate sections and open lab/comparison",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "expected"
+            }
+          ]
+        },
+        {
+          "title": "real Worker GMM renders initialization, E/M covariance motion and final ellipses in every home round",
+          "tests": [
+            {
+              "project": "mobile",
+              "status": "skipped"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

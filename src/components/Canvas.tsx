@@ -36,8 +36,10 @@ export function Canvas(props: Props) {
   useEffect(() => {
     if (props.active === false) return;
     const canvas = ref.current!;
-    let w = 1,
-      h = 1,
+    // A precomputed home trace can arrive before ResizeObserver's first callback.
+    // Never render its Gaussian with a placeholder 1x1 viewport (negative radii).
+    let w = 0,
+      h = 0,
       frame = 0,
       last = 0,
       frames = 0;
@@ -57,8 +59,8 @@ export function Canvas(props: Props) {
     observer.observe(canvas);
     const tick = (now: number) => {
       if (
-        w < 1 ||
-        h < 1 ||
+        w <= 70 ||
+        h <= 60 ||
         document.hidden ||
         latest.current.active === false
       ) {

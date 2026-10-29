@@ -1,7 +1,7 @@
 {
   "name": "clusterlab",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
@@ -13,6 +13,7 @@
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
+    "katex": "^0.19.1",
     "lucide-react": "^0.468.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.0",
     "@playwright/test": "^1.56.0",
+    "@types/katex": "^0.16.8",
     "@types/node": "^26.6.6",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",

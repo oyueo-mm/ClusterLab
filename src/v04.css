@@ -1,0 +1,40 @@
+.data-page,
+.compare-page,
+.guide-page {
+  padding-top: 24px;
+}
+.editor-toolbar {
+  flex-wrap: wrap;
+}
+.editor-toolbar .editor-experiment {
+  margin-right: 8px;
+}
+.compare-controls {
+  flex-wrap: wrap;
+}
+.demo-progress .demo-phase {
+  min-width: 0;
+  font-size: 10px;
+  color: var(--primary-green);
+}
+.home-demo[data-algorithm="GMM"] .demo-progress {
+  flex-wrap: wrap;
+  gap: 4px 8px;
+}
+.home-demo[data-algorithm="GMM"] .demo-progress progress {
+  min-width: 40px;
+}
+@media (max-width: 520px) {
+  .data-page,
+  .compare-page,
+  .guide-page {
+    padding-top: 16px;
+  }
+  .editor-toolbar .editor-experiment {
+    width: 100%;
+    margin: 0 0 4px;
+  }
+  .editor-toolbar .editor-experiment svg {
+    display: inline;
+  }
+}

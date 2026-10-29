@@ -5,6 +5,7 @@ import "./styles.css";
 import "./accessibility.css";
 import "./v02.css";
 import "./v03.css";
+import "./v04.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />

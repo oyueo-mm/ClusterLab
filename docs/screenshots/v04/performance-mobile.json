@@ -1,0 +1,13 @@
+{
+  "project": "mobile",
+  "viewport": {
+    "width": 390,
+    "height": 664
+  },
+  "points": 120,
+  "algorithm": "K-Means",
+  "frames": 132,
+  "meanFrameMs": 16.665151515151518,
+  "p95FrameMs": 16.700000000000728,
+  "maxFrameMs": 16.800000000000182
+}

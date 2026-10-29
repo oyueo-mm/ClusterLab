@@ -46,6 +46,11 @@ function Demo({
       }
       data-position={card.clock.current}
       data-events={card.trace?.steps.length ?? 0}
+      data-event={
+        card.trace?.steps[
+          Math.min(Math.floor(card.clock.current), card.trace.steps.length - 1)
+        ]?.kind ?? "loading"
+      }
     >
       <div className="demo-header">
         <span>{card.algorithm}</span>
@@ -93,6 +98,19 @@ function Demo({
               ? `${Math.floor(card.clock.current)} / ${card.trace.steps.length}`
               : "계산 중"}
         </span>
+        {card.algorithm === "GMM" && (
+          <span className="demo-phase" aria-label="GMM 연산 단계">
+            {done
+              ? "완료"
+              : card.trace?.steps[Math.floor(card.clock.current)]?.kind ===
+                  "expectation"
+                ? "E · 소속 확률"
+                : card.trace?.steps[Math.floor(card.clock.current)]?.kind ===
+                    "maximization"
+                  ? "M · 평균·공분산"
+                  : "초기화"}
+          </span>
+        )}
         <progress
           aria-label={`${card.algorithm} 데모 진행률`}
           max={card.trace?.steps.length || 1}
