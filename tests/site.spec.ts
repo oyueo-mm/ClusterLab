@@ -76,6 +76,8 @@ test("all algorithms run to completion in actual Workers with dedicated analyses
       timeout: 30000,
     });
     await expect(page.locator(".error")).toHaveCount(0);
+    if (name === "LVQ")
+      await expect(page.locator(".canvas-legend")).toContainText("클래스 0");
     await page.getByLabel("재생 속도").fill("75");
     await page.getByLabel("재생", { exact: true }).click();
     await page.waitForTimeout(90);

@@ -259,6 +259,19 @@ export default function App() {
       ],
     clusters = new Set(state.labels.filter((x) => x >= 0)).size,
     noise = state.labels.filter((x) => x === -1).length;
+  const legendValues = (
+    algorithm === "LVQ"
+      ? [
+          ...new Set(
+            points.flatMap((p) => (p.label === undefined ? [] : [p.label])),
+          ),
+        ]
+      : clusters
+        ? [...new Set(state.labels.filter((l) => l >= 0))]
+        : [0, 1, 2]
+  )
+    .sort((a, b) => a - b)
+    .slice(0, 8);
   const guide = guides[guideAlgorithm];
   return (
     <div className={`app ${collapsed ? "nav-collapsed" : ""}`}>
@@ -529,19 +542,19 @@ export default function App() {
                   position={lab.position}
                 />
                 <div className="canvas-legend">
-                  {palette
-                    .slice(0, Math.min(Math.max(clusters, 3), 8))
-                    .map((color, i) => (
-                      <span key={color}>
-                        <i style={{ background: color }} />
-                        {algorithm === "LVQ"
-                          ? "클래스"
-                          : algorithm === "SOM"
-                            ? "뉴런"
-                            : "군집"}{" "}
-                        {i + 1}
-                      </span>
-                    ))}
+                  {legendValues.map((value) => (
+                    <span key={value}>
+                      <i
+                        style={{ background: palette[value % palette.length] }}
+                      />
+                      {algorithm === "LVQ"
+                        ? "클래스"
+                        : algorithm === "SOM"
+                          ? "뉴런"
+                          : "군집"}{" "}
+                      {algorithm === "LVQ" ? value : value + 1}
+                    </span>
+                  ))}
                   <span className="legend-hint">
                     휠·핀치로 확대 / 드래그로 이동
                   </span>

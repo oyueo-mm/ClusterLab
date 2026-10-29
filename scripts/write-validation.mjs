@@ -56,7 +56,7 @@ writeFileSync(
 - ESLint 통과
 - TypeScript 통과
 - Vitest 70/70 통과 (독립 기준 27개 + 존재 확인 포함)
-- Playwright 프로덕션 빌드: 데스크톱 Chromium 및 iPhone 13 크기의 Chromium 터치 에뮬레이션
+- Playwright 프로덕션 빌드 10/10 통과: 데스크톱 Chromium 및 iPhone 13 크기의 Chromium 터치 에뮬레이션
 - 홈 실제 데모, 메뉴/직접 hash URL, 데이터 추가/이동/삭제, CSV 가져오기/JSON 내보내기, 프리셋, 가이드, 비교 실행 검사
 - 12개 각각 재생·정지·재개·속도·고속·처음/마지막·앞뒤 이동 검사
 - 프로덕션 빌드 통과
