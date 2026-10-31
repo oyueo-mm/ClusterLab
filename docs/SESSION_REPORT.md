@@ -22,7 +22,7 @@
 | 16. 기존 기능 회귀 | 홈 4실제 데모·11순환·GMM 타원, 데이터 전달, 재생/속도/되감기, 파라미터/CSV·JSON/100작업 Undo·Redo/우클릭·터치·반응형 테스트 유지. |
 | 17. 미완료·제한 | 후보 전수 조사/117엔진/다중 데이터/그래프·딥 학습/전용 편집·분석/Worker pool/계산 pause/파일 스트리밍/TypedArray/장시간·누수/Firefox·WebKit. |
 | 18. 주요 수정 파일 | engine/{types,parameters,registry,validation,resources,run,worker,trace}, algorithms/{kmeans,fuzzy,bisecting}, editor/history, animation/{useExperiment,homeCycle,renderer}, App, Catalog/Settings/Playback/Canvas/Analysis, data/lessons/candidates, tests, vite config, docs. |
-| 19. 커밋·브랜치 | 작업 브랜치 feat/platform-foundation, 기준 9ecf190. 안정 단위 커밋은 PROGRESS의 체크포인트 및 git log에 기록. 기존 히스토리 보존, 강제 push 없음. |
+| 19. 커밋·브랜치 | 작업 브랜치 feat/platform-foundation, 기준 9ecf190. 구현 커밋 `37bb7737fa3b7094c5663baf15c8a66b55e24503`, 후속 문서 SHA는 git log 참조. 기존 히스토리 보존, 강제 push 없음. |
 | 20. Actions·Pages | 기존 deploy.yml과 GitHub Pages 유지. 문서 작성 시 원격 최종 실행/배포 전. 원격 결과는 최종 응답과 해당 커밋 Actions를 확인하며, 로컬 빌드 성공을 배포 성공으로 표시하지 않음. |
 | 21. 후속·재개 | [CONTINUE](CONTINUE.md) → [MASTER_PLAN](MASTER_PLAN.md) → 후보 상태를 읽고 이어 진행. 사용자에게 마스터 명세 재요청 불필요. |
 

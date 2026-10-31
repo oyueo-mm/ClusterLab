@@ -39,3 +39,7 @@
 수정 파일: `src/engine/{types,parameters,registry,validation,resources,run,worker,trace}.ts`, `algorithms/{kmeans,fuzzy,bisecting}.ts`, `src/editor/history.ts`, `src/animation/{useExperiment,homeCycle,renderer}.ts`, `src/components/{Catalog,Settings,Playback,Canvas,Analysis}.tsx`, `src/App.tsx`, `src/data/{presets,guides,algorithmFamilies,candidates,lessons/*}`, 테스트/문서/README/vite config. 기존 알고리즘 12개 파일은 변경하지 않았고 K-Means는 기록 세분도만 추가했다.
 
 후속 세션은 CONTINUE.md의 명령과 검증 범위를 따른다. 사용자에게 세부 구현 지시나 마스터 명세를 다시 요청하지 않는다.
+
+## 안정 체크포인트
+
+구현 및 로컬 검증 커밋: `37bb7737fa3b7094c5663baf15c8a66b55e24503` (`feat/platform-foundation`). 다음 문서 커밋에서 이 SHA를 기록하며, 동일한 검증 소스를 main으로 fast-forward 반영해 기존 Pages workflow를 실행합니다. 원격 Actions는 실제 상태를 조회해야 하며 성공으로 추정하지 않습니다.
