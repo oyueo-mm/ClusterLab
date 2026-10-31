@@ -18,12 +18,14 @@
 | 12. 도감·가이드 | 132개 기존+후보 목록, 실행 15개를 구분. 한국어·영어 검색/계열/입력/구현 필터, 실행·수학 가이드 연결. 신규 가이드와 실제 미니 실험 2개. 고급 필터 미완료. |
 | 13. 단위 테스트 | 기준 146개, 최종 159개 통과. 타입·lint·build 통과. 단순 개수 증가로 정확성 보장을 주장하지 않음. |
 | 14. 독립 레퍼런스 | FCM 독립 NumPy 2.5.4의 중심/U/J를 소수 9자리 비교. Bisecting 손계산 partition/SSE=1. 기존 독립 fixture 유지. sklearn/skfuzzy 신규 패키지 실행 비교는 미완료. |
-| 15. Playwright | 기존 46개: 최초 32통과/12skip/2선택자 실패 → 수정 후 가이드2통과. 신규6통과. 중복 제외 40사례 통과/12조건부skip. Chromium desktop/mobile. [검증](expansion/VALIDATION.md). |
+| 15. Playwright | 로컬 최초 실패를 수정한 후 원격 CI에서 전체 52개 구성 실행: 40통과/12조건부skip/0실패. 공개 사이트 Chromium 추가 4개 통과. Chromium desktop/mobile. [검증](expansion/VALIDATION.md). |
 | 16. 기존 기능 회귀 | 홈 4실제 데모·11순환·GMM 타원, 데이터 전달, 재생/속도/되감기, 파라미터/CSV·JSON/100작업 Undo·Redo/우클릭·터치·반응형 테스트 유지. |
 | 17. 미완료·제한 | 후보 전수 조사/117엔진/다중 데이터/그래프·딥 학습/전용 편집·분석/Worker pool/계산 pause/파일 스트리밍/TypedArray/장시간·누수/Firefox·WebKit. |
 | 18. 주요 수정 파일 | engine/{types,parameters,registry,validation,resources,run,worker,trace}, algorithms/{kmeans,fuzzy,bisecting}, editor/history, animation/{useExperiment,homeCycle,renderer}, App, Catalog/Settings/Playback/Canvas/Analysis, data/lessons/candidates, tests, vite config, docs. |
 | 19. 커밋·브랜치 | 작업 브랜치 feat/platform-foundation, 기준 9ecf190. 구현 커밋 `37bb7737fa3b7094c5663baf15c8a66b55e24503`, 후속 문서 SHA는 git log 참조. 기존 히스토리 보존, 강제 push 없음. |
-| 20. Actions·Pages | 기존 deploy.yml과 GitHub Pages 유지. 문서 작성 시 원격 최종 실행/배포 전. 원격 결과는 최종 응답과 해당 커밋 Actions를 확인하며, 로컬 빌드 성공을 배포 성공으로 표시하지 않음. |
+| 20. Actions·Pages | 기존 deploy.yml과 GitHub Pages 유지. [Actions #9](https://github.com/oyueo-mm/ClusterLab/actions/runs/41165349024) validate/deploy 성공. 배포 소스 `8dd2d94`. [공개 Pages](https://oyueo-mm.github.io/ClusterLab/)에서 홈·도감·신규 엔진·100k 입력/취소 4개 검사 통과. 최종 문서 전용 커밋은 앱 소스 변경 없음. |
 | 21. 후속·재개 | [CONTINUE](CONTINUE.md) → [MASTER_PLAN](MASTER_PLAN.md) → 후보 상태를 읽고 이어 진행. 사용자에게 마스터 명세 재요청 불필요. |
 
 실험 재현 명령, 출처/버전, 실패 원인과 지원 범위는 [검증 보고서](expansion/VALIDATION.md)에 있다. 기존 v0.1~v0.6 검증 자료는 덮어쓰지 않았다.
+
+최종 원격 증거: [ci-summary.json](expansion/ci-summary.json), [공개 사이트 Playwright 결과](expansion/browser-public.json). 후속 원문 조사 메모: [RESEARCH_QUEUE.md](RESEARCH_QUEUE.md).

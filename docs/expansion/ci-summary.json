@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-31",
+  "sourceCommit": "8dd2d948338c8e8e210d6736a7c2f32ca043da09",
+  "implementationCommit": "37bb7737fa3b7094c5663baf15c8a66b55e24503",
+  "workflow": "https://github.com/oyueo-mm/ClusterLab/actions/runs/41165349024",
+  "validate": "success",
+  "deploy": "success",
+  "unitFilesPassed": 13,
+  "unitTestsPassed": 159,
+  "browserConfigured": 52,
+  "browserPassed": 40,
+  "browserSkipped": 12,
+  "browserFailed": 0,
+  "browserDuration": "8.4m",
+  "publicURL": "https://oyueo-mm.github.io/ClusterLab/",
+  "publicChromiumSmokePassed": 4,
+  "limitations": "Chromium desktop/mobile only; no Firefox/WebKit, no 1M browser performance guarantee. Final documentation-only checkpoint does not change deployed application source."
+}

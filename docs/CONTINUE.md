@@ -3,7 +3,7 @@
 이 저장소는 2026-10-31의 통합 마스터 요청을 계속 수행한다. 전체를 완료했다고 보고하지 않는다.
 
 1. `docs/MASTER_PLAN.md`, `PROGRESS.md`, `ALGORITHM_REGISTRY.md`, `ARCHITECTURE.md`, `PERFORMANCE.md`, `expansion/VALIDATION.md`, `SESSION_REPORT.md`를 읽는다.
-2. `git status --short`, `git log -5 --oneline`, `git branch -av`, `git fetch origin`으로 실제 상태를 확인한다. 사용자 변경을 덮어쓰지 않는다. `feat/platform-foundation`는 이번 세션 작업 브랜치이고 기준 main은 9ecf190이다.
+2. `git status --short`, `git log -5 --oneline`, `git branch -av`, `git fetch origin`으로 실제 상태를 확인한다. 사용자 변경을 덮어쓰지 않는다. `feat/platform-foundation`는 이번 세션 작업 브랜치이며 main에 반영되었다. 기준 v0.6은 9ecf190, 배포된 확장 소스는 8dd2d94다. 최종 문서 전용 커밋이 뒤따르므로 main에서 이어간다.
 3. 의존성 설치된 상태에서는 재설치하지 않는다. `npm run typecheck`, `npm run lint`, `npm test`, `npm run build`. Windows sandbox에서 esbuild spawn EPERM이면 필요한 프로세스 실행만 승인된 환경에서 재시도한다.
 4. 브라우저: PowerShell `$env:CLUSTERLAB_PRODUCTION='1'; npm run test:e2e`. production Worker dynamic import 검증에는 `worker: { format: "es" }`가 필요하다. Playwright Chromium·mobile 구성. 전체 홈 순환 테스트는 몇 분 소요된다.
 5. 신규 browser만: `npx playwright test tests/expansion.spec.ts`. 최종 코드 변경 시 production build를 다시 만든 후 실행한다. dev server와 production 테스트를 혼동하지 않는다.
@@ -24,3 +24,5 @@
 - 표시 LOD는 입력 배열 인덱스 stride이며 계산은 전체. 도감의 후보 132개가 132개 실행 가능한 엔진이라는 뜻이 아니다.
 - 원본 데이터는 여전히 2D다. 고차원·그래프·스트림 지원으로 표시하지 않는다.
 - 별도 작업 브랜치에서 검증하고 안정 변경만 main에 반영한다. 사용자 요청에 배포 권한이 포함되어 있으므로 통과한 안정 기능은 기존 GitHub Pages workflow로 배포할 수 있다. 강제 push 금지.
+
+원격 Actions #9 전체 검증/배포 및 공개 사이트 4개 검사는 성공했다. 후속 원문 메모는 `docs/RESEARCH_QUEUE.md`를 먼저 참고하되, 후보별 정의 조사 완료로 자동 상향하지 않는다.

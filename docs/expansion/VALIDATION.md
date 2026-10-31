@@ -44,3 +44,11 @@ K-Means 100/1k/10k/100k/1M 전체 계산과 정수 레이블 수 검증. 1만 �
 - Firefox/WebKit·백만 점 브라우저 전송/렌더링·장시간 누수는 미검증. 60FPS를 보장하지 않는다.
 
 시각 확인: [320px 도감](catalog-chromium.png), [이분할 결과와 실제 트리](bisecting-chromium.png). 표시 글꼴/그린/흰 배경/기존 홈 2×2 구조를 보존했다. 신규 도감은 1920/1440/1024/800/768/390/320px에서 가로 넘침을 검사했다.
+
+## 원격 CI 및 실제 공개 배포 최종 확인
+
+[Actions #9](https://github.com/oyueo-mm/ClusterLab/actions/runs/41165349024), 소스 커밋 `8dd2d948338c8e8e210d6736a7c2f32ca043da09`: lint/typecheck/단위159/build 성공. 브라우저 전체 52개 구성의 단일 실행은 **40통과 / 12조건부 생략 / 0실패**, 약 8.4분. validate와 deploy job 모두 success를 API로 확인했다. 위의 로컬 실패 및 분할 실행 기록을 보존하며 최종 원격 성공과 구분한다.
+
+공개 URL https://oyueo-mm.github.io/ClusterLab/ 에서 Chromium 4개 검사 통과: 홈 재생/탐색, 한·영 도감/필터/320~1920px, 신규 실제 엔진/역재생/분할 트리, 10만 점 입력 후 실제 Worker 계산 취소. [원격 요약](ci-summary.json), [공개 사이트 검사](browser-public.json), [공개 도감](public-catalog-chromium.png), [공개 이분할 결과](public-bisecting-chromium.png).
+
+최종 문서 전용 커밋은 배포된 앱 소스를 바꾸지 않으므로 CI 재실행 없이 이 증거를 기록한다. 전체 개발 완료를 뜻하지 않으며 완전 구현 집계/119개 조사/기타 데이터 유형은 계속 미완료다.
