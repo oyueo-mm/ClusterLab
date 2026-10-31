@@ -4,11 +4,11 @@
 
 ## 1. 개발 개요와 실제 엔진
 
-이번 신규 10개는 Spectral Clustering, Affinity Propagation, Density Peaks / CFSFDP, CURE, Neural Gas, Growing Neural Gas, K-Medians, Mini-Batch K-Means, CLARA, CLARANS다. 계산·Trace·전용 분석·파라미터·수학 가이드/실제 Worker 실험·독립 수치·브라우저 경로를 통합했다. 기존 13개와 이전 FCM/Bisecting을 포함해 **25개 실행 엔진**이다.
+이번 신규 10개는 Spectral Clustering, Affinity Propagation, Density Peaks / CFSFDP, CURE, Neural Gas, Growing Neural Gas, K-Medians, Mini-Batch K-Means, CLARA, CLARANS다. 계산·Trace·전용 분석·파라미터·수학 가이드/실제 Worker 실험·독립 수치·브라우저 경로를 통합했다. 기존 13개와 이전 FCM/Bisecting을 포함해 **25개 실행 엔진**이다. 신규10/관계8 외에 후속11개 후보의 원문 일부·접근 제한·검산 과제를 research/*_QUEUE.md에 보존했다. 후속 메모를 조사 완료나 실행 수에 더하지 않는다.
 
 ## 2. 아키텍처와 기존 기능
 
-동적 레지스트리/파라미터 스키마를 확장하고 Dataset union·런타임 검증·입출력·실행 호환성을 도입했다. Point[]는 보존했다. 기존 홈 네 데모·11라운드·13알고리즘, 32프리셋 해시, 편집 Undo/Redo/제스처, CSV/JSON, 최대 네 비교, 가이드·사이드바·폰트/디자인을 유지한다. 검증 결과는 아래와 VALIDATION을 따른다.
+동적 레지스트리/파라미터 스키마를 확장하고 Dataset union·런타임 검증·입출력·실행 호환성을 도입했다. Point[]는 보존했다. 기존 홈 네 데모·11라운드·13알고리즘, 32프리셋 해시, 편집 Undo/Redo/제스처, CSV/JSON, 최대 네 비교, 가이드·사이드바·폰트/디자인을 유지한다. 검증 결과는 아래와 VALIDATION을 따른다. platform/legacy-source-audit.json에서 원래 13개 엔진·프리셋·v03/v04 CSS·workflow·의존성이 Git 객체 기준으로 이전 f5777c1과 동일함을 확인했다. 소스 동일성과 런타임 회귀는 별도 증거다.
 
 ## 3. 119개 후보 상태와 분류
 
@@ -54,4 +54,15 @@ NumPy 2.5.4/SciPy 1.18.1/scikit-learn 1.7.2를 실제 검증용으로 실행했�
 
 ## 10. GitHub·Actions·Pages
 
-시작 main f5777c1, 작업 브랜치 feat/graph-and-prototype-engines. 안정 소스 커밋/main 반영/원격 검증/공개 동작은 최종 확인 후 여기에 기록한다. 기존 배포 workflow를 유지하고 검증 전 배포 성공으로 표시하지 않는다.
+시작 main f5777c1, 작업 브랜치 feat/graph-and-prototype-engines. 안정 구현 커밋 **732a410202ee9774777946a3cbe7a53e643a6f27**을 작업 브랜치와 main에 fast-forward/push했다. [Actions 실행](https://github.com/oyueo-mm/ClusterLab/actions/runs/41187164683)의 validate/deploy가 성공했다. 기존 workflow를 유지했으며 단일 전체 원격 회귀와 공개 검사는 아래에 기록한다.
+
+
+## 최종 원격 검증·배포 확인
+
+[Actions #10](https://github.com/oyueo-mm/ClusterLab/actions/runs/41187164683), source 732a410202ee9774777946a3cbe7a53e643a6f27, main push. Ubuntu/Node22에서 lint/typecheck/단위247개/production build, 전체 Playwright **46통과·12기존 조건부 skip·0실패**를 한 번의 원격 실행으로 확인했다. validate와 deploy 모두 success, 2026-10-31 09:15 UTC 완료. 원격 전체 실행과 앞서 분할 수행한 로컬 재검사를 구분한다.
+
+공개 https://oyueo-mm.github.io/ClusterLab/ 에서 Chromium/mobile **12/12 통과**(약 1.3분). 도감 검색/필터, 실제 신규10개 Worker/전용 분석/되감기, 전체 ND/표시 축 분리, 실제 간선 가중치/행렬 페이지, 지원 불가 오류/제약 모순, 100k 가져오기 무손실/실제 계산 취소, 기존 홈/재생을 확인했다. 공개 사이트의 모든 기기·모든 데이터 규모 검증이라는 뜻은 아니다.
+
+증거: platform/{ci-validation,deployment,browser-public,legacy-source-audit,environment}.json 및 public-*.png. 소스 커밋 732a410은 main과 feat/graph-and-prototype-engines에 반영됐다. 후속 문서 전용 체크포인트는 [skip ci]로 저장하며 제품/테스트/의존성은 변경하지 않는다. 최종 문서 SHA는 git log -1 --oneline을 따른다.
+
+전체 목표는 여전히 미완료다. 다음 세션은 CONTINUE.md와 현재 119개 표를 읽고, 107개 미구현과 추가 데이터/실행/성능 과제를 이어간다. 로컬 4273 preview는 종료했다. 타 프로젝트의 프로세스는 종료하지 않았다.

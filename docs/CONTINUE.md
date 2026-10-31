@@ -5,7 +5,7 @@
 1. MASTER_PLAN/PROGRESS/ALGORITHM_REGISTRY/ARCHITECTURE/DATA_FORMATS/PERFORMANCE/VALIDATION/SESSION_REPORT를 읽는다. 이전 기록은 sessions/foundation, expansion, v0.x에 있다.
 2. git status --short, git log -5 --oneline, git branch -av, git fetch origin으로 실제 커밋과 배포 상태를 확인한다. 현재 구현은 feat/graph-and-prototype-engines에서 시작했으며 SESSION_REPORT의 최종 반영 여부를 따른다. 사용자 변경을 덮어쓰지 않는다.
 3. 의존성이 설치돼 있으면 재설치하지 않는다. npm run typecheck, npm run lint, npm test, npm run build. Windows esbuild/브라우저 spawn EPERM은 필요한 프로세스 실행만 승인된 환경에서 재시도한다.
-4. 프로덕션 브라우저는 PowerShell $env:CLUSTERLAB_PRODUCTION='1'; npm run test:e2e. 현재 로컬 4173은 다른 VizLab 프로젝트가 점유했다. 타 프로젝트를 종료하지 않는다. 필요하면 npm run preview -- --port 4273 --strictPort를 별도 실행하고 $env:CLUSTERLAB_BASE_URL='http://127.0.0.1:4273/ClusterLab/'를 설정한다. 종료 후 남은 preview 프로세스 상태는 직접 확인한다.
+4. 프로덕션 브라우저는 PowerShell $env:CLUSTERLAB_PRODUCTION='1'; npm run test:e2e. 이번 세션 시작 시 로컬 4173은 다른 VizLab 프로젝트가 점유했다. 재개 시 실제 점유 상태를 확인한다. 타 프로젝트를 종료하지 않는다. 필요하면 npm run preview -- --port 4273 --strictPort를 별도 실행하고 $env:CLUSTERLAB_BASE_URL='http://127.0.0.1:4273/ClusterLab/'를 설정한다. 종료 후 남은 preview 프로세스 상태는 직접 확인한다.
 5. 전체 Chromium/mobile은 긴 홈 순환·GMM 검사를 포함해 약 10분이다. 신규만 npx playwright test tests/platform.spec.ts. Firefox/WebKit은 npx playwright install firefox webkit 후 $env:CLUSTERLAB_CROSS_BROWSER='1'; npx playwright test tests/platform.spec.ts --project=firefox --project=webkit. 전체 기존 기능의 cross-browser 검증이라고 확대하지 않는다.
 6. fixture 재생성: python scripts/{spectral,messages_density,prototypes,centroid_variants,medoid_variants}_reference.py를 각각 실행한다. NumPy 2.5.4, SciPy 1.18.1, sklearn 1.7.2의 검증 전용 환경 .local/spectral-reference-runtime이 있으면 스크립트가 사용한다. Windows 해당 pip 경로 권한으로 승인 실행이 필요할 수 있다. 새 세션에서는 fixture metadata와 패키지 버전을 확인한다. 제품에는 Python/ML 런타임이 추가되지 않았다.
 7. 규모: npm test -- src/engine/scale.test.ts src/engine/platform-scale.test.ts src/engine/benchmark.test.ts. .local 측정은 덮어써지므로 검토할 세션 증거는 docs/platform에 복사한다. heap delta/직렬화 크기를 peak RAM으로 설명하지 않는다.
@@ -24,3 +24,13 @@
 - Trace 메모리 초과를 빈 결과/가짜 성공으로 감추지 않는다. 분석 행렬 공유와 전후 checkpoint 동등성을 검증한다.
 - 별칭·최적화를 독립 알고리즘 개수로 부풀리지 않는다. 원문 접근 제한은 research에 명시한다.
 - 안정 변경만 main에 반영하고 기존 Pages workflow로 배포한다. 배포 권한은 사용자 마스터 요청에 포함돼 있다. 강제 push 금지.
+
+배포 검증 대기 중 후보3~6의 원문 일부/공식 정의를 확인한 MODEL_SELECTION_QUEUE.md를 research에 추가했다. 제품 상태는 올리지 않았으며 다음 X/G-Means 구현 시 읽는다. 특히 G-Means 원문 Eq.2와 일반 AD 패키지 보정식을 혼동하지 않는다.
+
+Louvain/Leiden의 원문 일부와 가중 간선·집약·refinement 계약 준비는 research/COMMUNITY_QUEUE.md에 있다. 둘 다 미구현이며 단순 후처리 연결 성분 분리를 Leiden으로 세지 않는다.
+
+우선순위 K-Modes/K-Prototypes/DenStream/CLIQUE/PROCLUS의 원문 일부·접근 제한·후속 수치 검산 포인트는 research/DATA_FAMILIES_QUEUE.md에 있다. 실행 엔진은 아직 없다.
+
+## 마지막 안정 상태
+
+구현 소스 732a410202ee9774777946a3cbe7a53e643a6f27이 main/원격 작업 브랜치에 반영됐다. Actions41187164683은 단위247·브라우저46통과/12기존 skip·배포 성공, 공개 Chromium/mobile12검사 통과다. 현재 main의 후속 문서 전용 [skip ci] 커밋에서 이어간다. 제품 소스는 배포된 732a410과 동일하다. 로컬 preview4273은 정리했으므로 필요하면 다시 시작한다.

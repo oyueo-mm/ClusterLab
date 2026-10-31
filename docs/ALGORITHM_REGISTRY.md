@@ -152,6 +152,6 @@
 - Bayesian GMM/DP-GMM, Bernoulli/LCA, MFA/MPPCA의 별칭·포함 관계는 research/TAXONOMY.md를 따른다. 정의 관계 조사만으로 구현 완료나 독립 엔진을 추가하지 않는다.
 - Density Peaks는 명시적 K와 gamma 중심 선택, Mini-Batch는 비복원 epoch라는 실행 변형이다. CLARA/CLARANS는 medoid 탐색 변형으로 등록한다. Neural Gas/GNG는 관련 프로토타입 학습이다.
 - CLARA 책 전체와 이전 FCM/Bisecting 원문 등 접근 제한은 해당 research 문서/이전 기록에 명시한다. 모든 원문을 직접 읽었다는 주장을 하지 않는다.
-- 신규 10개 원문·수식·독립 fixture·제한: research/{SPECTRAL,MESSAGES_DENSITY,PROTOTYPES,CENTROID_VARIANTS,MEDOID_VARIANTS}.md. 107개 미구현 후보 중 관계만 조사한 8개를 제외한 항목은 계속 미조사다.
+- 신규 10개 원문·수식·독립 fixture·제한: research/{SPECTRAL,MESSAGES_DENSITY,PROTOTYPES,CENTROID_VARIANTS,MEDOID_VARIANTS}.md. 107개 미구현 후보 중 관계를 조사한 8개 외의 항목은 정식 조사 완료로 상향하지 않았다. 추가 11개 후보의 원문 일부·서지·남은 검산은 research/*_QUEUE.md에 보존했다. 부분 메모는 전수 조사 완료가 아니다.
 
 실행 레지스트리: src/engine/registry.ts / algorithmDetails.ts. 후보 원본: src/data/candidates.json. 변경 시 이 문서와 구현/미구현 수를 함께 갱신한다.

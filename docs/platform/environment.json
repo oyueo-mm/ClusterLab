@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-31T09:10:41.057Z",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "architecture": "x64",
+  "cpu": "Intel(R) Core(TM) Ultra 7 256V",
+  "logicalCpus": 8,
+  "totalMemoryBytes": 16687738880,
+  "note": "Environment identity for local Node observations. Browser mobile configuration is emulation; heap delta is not peak. No device-wide performance guarantee."
+}

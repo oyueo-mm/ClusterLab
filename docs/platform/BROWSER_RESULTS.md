@@ -13,3 +13,5 @@
 중복 실행을 제외한 Chromium/mobile 고유 검증은 46통과/12기존 조건부 skip, Firefox/WebKit 신규 플랫폼은 추가6통과다. 단일 전체 재실행이나 모든 기존 기능의 Firefox/WebKit 검증으로 확대하지 않는다. 원격 CI는 전체 단일 실행 결과를 SESSION_REPORT에 별도 기록한다. 다른 browser-*.json은 개발 중 이전 단계의 관측이다.
 
 platform/structured/catalog 스크린샷은 실제 Worker 결과를 기록한다. quality의 performance JSON은 짧은 rAF 관측이며 대형 입력·실제 모바일 기기 보장이 아니다.
+
+원격 전체 단일 실행 확정: Actions41187164683에서 46통과/12기존 skip/0실패, 단위247통과 및 Pages 배포 성공. 공개 사이트12/12는 browser-public.json에 보존했다. 원격 확인 시간/소스 SHA는 deployment.json과 SESSION_REPORT를 따른다.

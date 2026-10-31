@@ -1,0 +1,102 @@
+{
+  "baseline": "f5777c1d3d9f4fcbcb73c8fc7b2246c1ee0f26a5",
+  "source": "732a410202ee9774777946a3cbe7a53e643a6f27",
+  "note": "Source identity only; runtime regression is recorded separately.",
+  "files": [
+    {
+      "path": "src/engine/algorithms/kmeans.ts",
+      "unchanged": true,
+      "sha256": "897dc5219e019c1b1491c6d206667821d97624180852845905c83c10c847b335"
+    },
+    {
+      "path": "src/engine/algorithms/dbscan.ts",
+      "unchanged": true,
+      "sha256": "ee172927f02f9a48e8dbf78714070a48c717ebf1a6a6c9a876385ea5c4d893a6"
+    },
+    {
+      "path": "src/engine/algorithms/hdbscan.ts",
+      "unchanged": true,
+      "sha256": "ed71c7991ae1aa91536d42786c6065b78f7cc58369c6e136035d9d702f1d3ee2"
+    },
+    {
+      "path": "src/engine/algorithms/agnes.ts",
+      "unchanged": true,
+      "sha256": "d950ea0de60a8da5c373cfddd1c585abd59851deba6f25b66b3b116fae80ee13"
+    },
+    {
+      "path": "src/engine/algorithms/diana.ts",
+      "unchanged": true,
+      "sha256": "fd5a241628f47fd8a086df0fa9b82d0cf17023d1b7fe5d20480d9c78095fff91"
+    },
+    {
+      "path": "src/engine/algorithms/som.ts",
+      "unchanged": true,
+      "sha256": "254d006180a2992fe16c3704d6e779393c0b8b4e39ae0319f46e1af4f889152c"
+    },
+    {
+      "path": "src/engine/algorithms/lvq.ts",
+      "unchanged": true,
+      "sha256": "f47adb8fdc1540a5266cb9b9a8c9d906cef4affbd07b7b8fa1648c05e980c1c8"
+    },
+    {
+      "path": "src/engine/algorithms/optics.ts",
+      "unchanged": true,
+      "sha256": "520abb41958f06dc4ff712d58d344dbe04bce8ce711a2826ce67d5295b55d6f7"
+    },
+    {
+      "path": "src/engine/algorithms/pam.ts",
+      "unchanged": true,
+      "sha256": "51861744cc323c489d0ca7c9db40dc81ab030b2f97d2cef4d87553c3c5145f91"
+    },
+    {
+      "path": "src/engine/algorithms/rock.ts",
+      "unchanged": true,
+      "sha256": "753e62189ae3b1ce4a7d3c750d27f1d14bce7f06c46f570e2a885bf586fc6492"
+    },
+    {
+      "path": "src/engine/algorithms/gmm.ts",
+      "unchanged": true,
+      "sha256": "8435db9ed6d396333208e1d584769ec81748adfeb10a2e2a9edfb412ce34fa44"
+    },
+    {
+      "path": "src/engine/algorithms/birch.ts",
+      "unchanged": true,
+      "sha256": "ca6c42090148a72f4ae00d3d24cc678a5d47c4000b5666d182da43dc60e73fec"
+    },
+    {
+      "path": "src/engine/algorithms/meanshift.ts",
+      "unchanged": true,
+      "sha256": "c2b579b6f20b098b1fde3037d87cc4f32a2fb79aabe248cf3847a5565d8a3e09"
+    },
+    {
+      "path": "src/data/presets.ts",
+      "unchanged": true,
+      "sha256": "37e9f01670f41169be8bf69c6f39e802dfbb482b6162497112b284b54e4540d8"
+    },
+    {
+      "path": "src/v03.css",
+      "unchanged": true,
+      "sha256": "f10909c86ca938e81c72feb5f08d27eda6003f63d26fd7242a90905808493f13"
+    },
+    {
+      "path": "src/v04.css",
+      "unchanged": true,
+      "sha256": "af20d135b06aee602e2a1b7a2cb2c42157f3aa93405fad4e3bf316144b995450"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "unchanged": true,
+      "sha256": "6ffb29bc1bd1e3467de4ec0df26a78b9b288b6d426de4786f961a3afb6c8ec4f"
+    },
+    {
+      "path": "package.json",
+      "unchanged": true,
+      "sha256": "11dc6716d7c18989e022be6b7b078cccfe76d237c6ab3023b2c5adbc0aadd9d2"
+    },
+    {
+      "path": "package-lock.json",
+      "unchanged": true,
+      "sha256": "1755de0b2a65f58e35b9291243e0a85d308fc00a6b0a0373aecccc700d4f1505"
+    }
+  ]
+}

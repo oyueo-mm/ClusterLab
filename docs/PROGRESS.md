@@ -1,6 +1,6 @@
 # 진행 기록 — 2026-10-31
 
-전체 마스터 목표는 **미완료**다. 현재 작업 브랜치는 feat/graph-and-prototype-engines, 시작 main은 f5777c1이다. 이전 세션 기록은 sessions/foundation/에 보존했다.
+전체 마스터 목표는 **미완료**다. 작업 브랜치는 feat/graph-and-prototype-engines, 시작 main은 f5777c1이다. 구현 732a410을 main/원격 작업 브랜치에 fast-forward/push했고 현재 브랜치는 main이다. 이전 세션 기록은 sessions/foundation/에 보존했다.
 
 ## 실제 완료 범위
 
@@ -15,7 +15,7 @@
 
 ## 검증 상태
 
-타입 검사·ESLint·프로덕션 빌드 통과. 단위 테스트 **247/247, 21파일** 통과. 신규 플랫폼 Chromium/mobile 6/6, Firefox/WebKit 6/6 통과. 전체 회귀 최초 44통과/12조건부 생략/2선택자 실패 후, 정확한 도감 검색 선택자와 option 접근을 수정했다. 최종 도감·플랫폼 18/18 통과(Chromium/mobile 12, Firefox/WebKit 6). 중복 실행을 제외한 Chromium/mobile 고유 검사는 46통과/12조건부 생략이다. 원격 배포 상태는 SESSION_REPORT에서 확정한다.
+타입 검사·ESLint·프로덕션 빌드 통과. 단위 테스트 **247/247, 21파일** 통과. 신규 플랫폼 Chromium/mobile 6/6, Firefox/WebKit 6/6 통과. 전체 회귀 최초 44통과/12조건부 생략/2선택자 실패 후, 정확한 도감 검색 선택자와 option 접근을 수정했다. 최종 도감·플랫폼 18/18 통과(Chromium/mobile 12, Firefox/WebKit 6). 중복 실행을 제외한 Chromium/mobile 고유 검사는 46통과/12조건부 생략이다. 원격 Actions #10 전체 단일 실행은 46통과/12기존 조건부 skip/0실패, validate/deploy 성공이다. 공개 Pages 12/12도 통과했다.
 
 NumPy 2.5.4/SciPy 1.18.1/scikit-learn 1.7.2는 검증 전용으로 실제 실행했다. 제품 의존성은 추가하지 않았다. Node 전체 입력 100~100만 K-Means/Mini-Batch 관측을 platform에 보존했다. 메모리 peak나 브라우저 60FPS를 보장하지 않는다.
 
@@ -30,3 +30,7 @@ NumPy 2.5.4/SciPy 1.18.1/scikit-learn 1.7.2는 검증 전용으로 실제 실행
 ## 작업 파일과 커밋
 
 engine/{dataset*,algorithmDetails,linalg,registry,resources,trace,types,parameters,worker,run}, algorithms 신규 10개, fixtures/독립 Python 5개, lessons 신규 5개, AlgorithmAnalysis/StructuredLab/Catalog/App/renderer/useExperiment, tests/platform 및 기존 회귀, docs를 수정했다. 기존 문서·검증 증거는 삭제하지 않았다. 최종 SHA는 SESSION_REPORT와 git log를 따른다. 안정 커밋 후 main fast-forward 및 기존 Pages workflow로 배포한다. 강제 push는 사용하지 않는다.
+
+배포 대기 중 원문 일부/서지·검산 과제를 후속11개 후보에 추가 기록했다. research/{MODEL_SELECTION,COMMUNITY,DATA_FAMILIES}_QUEUE.md를 읽는다. 정식 조사·구현 단계는 상향하지 않았다.
+
+최종 배포 소스 732a410, 원격 실행41187164683 및 공개 동작 증거를 platform에 보존했다. 현재 main에서 문서 전용 [skip ci] 체크포인트를 남긴다. 상세 SHA/후속 명령은 SESSION_REPORT·CONTINUE와 git log를 따른다. 로컬 preview4273은 종료했다.

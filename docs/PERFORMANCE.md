@@ -45,3 +45,5 @@ quality.spec.ts는 홈 36점 네 Worker와 실험실 120점 재생의 rAF 평균
 | 실험실 120점 | mobile | 16.67 | 16.70 | 16.80 |
 
 약 2.2초 rAF 간격 관측이며 장시간/대규모 신규 엔진 FPS나 실제 모바일 하드웨어 측정이 아니다. mobile은 Chromium 기기 에뮬레이션이다.
+
+측정 환경: Intel Core Ultra 7 256V, 논리 CPU 8, 물리 메모리 약 15.54GiB, Windows x64/Node v24.19.0. 원본 환경 메타데이터는 platform/environment.json이다. 다른 작업이 함께 실행되는 사용자 장치의 단일 관측이며 원격 Ubuntu/Node22 CI와 분리한다.

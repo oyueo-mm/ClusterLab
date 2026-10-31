@@ -63,3 +63,5 @@ K-Means 100/1k/10k/100k/1M 전체 계산과 정수 레이블 수 검증. 1만 �
 자료: platform/*.json 및 스크린샷, research의 원문 열람 범위·한계, ALGORITHM_REGISTRY 전체 후보 표, DATA_FORMATS 실제 지원, PERFORMANCE 관측. 이전 expansion 증거와 버전 검증 문서를 덮어쓰지 않았다. 100만 Node 성공을 브라우저 FPS/메모리 peak 보장으로 사용하지 않는다. 전체 마스터 목표는 미완료다.
 
 최종 로컬 보완: 도감·플랫폼 18/18 통과. 중복 제외 Chromium/mobile 46통과/12기존 조건부 skip, Firefox/WebKit 신규6통과. 최초 오류는 테스트 검색/option 선택자 가정이며 수정 후 검증했다. 전체 단일 원격 결과는 SESSION_REPORT에서 별도로 기록한다.
+
+원격 확정: Actions41187164683/source732a410에서 단위247개 및 전체 브라우저46통과/12기존 조건부 skip/0실패, validate/deploy 모두 success. 공개 Pages Chromium/mobile12검사도 통과했다. 증거와 실제 범위는 현재 SESSION_REPORT 및 platform/browser-public.json을 따른다.
