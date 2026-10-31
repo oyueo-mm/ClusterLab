@@ -50,6 +50,7 @@ import {
 import { algorithmFamilies } from "./data/algorithmFamilies";
 import type { EventKind } from "./engine/types";
 const GuidePage = lazy(() => import("./components/guide/GuidePage"));
+const Catalog = lazy(() => import("./components/Catalog"));
 import { Canvas } from "./components/Canvas";
 import { Playback } from "./components/Playback";
 import { Settings } from "./components/Settings";
@@ -63,6 +64,7 @@ const pages = [
   { id: "data", label: "데이터셋", icon: Database },
   { id: "compare", label: "알고리즘 비교", icon: GitCompareArrows },
   { id: "guide", label: "알고리즘 가이드", icon: BookOpen },
+  { id: "catalog", label: "알고리즘 도감", icon: Search },
 ] as const;
 type Page = (typeof pages)[number]["id"];
 function download(name: string, content: string) {
@@ -106,7 +108,10 @@ function CompareCard({
       : emptyState(points.length),
     score = useMemo(
       () =>
-        algorithm === "ROCK" || algorithm === "SOM" || algorithm === "LVQ"
+        points.length ** 2 > 2_000_000 ||
+        algorithm === "ROCK" ||
+        algorithm === "SOM" ||
+        algorithm === "LVQ"
           ? null
           : silhouette(points, state.labels),
       [points, state.labels, algorithm],
@@ -164,7 +169,11 @@ function CompareCard({
           ).toFixed(1)}
           %
         </span>
-        <span>Silhouette {score?.toFixed(3) ?? "해당 없음"}</span>
+        <span>
+          Silhouette{" "}
+          {score?.toFixed(3) ??
+            (points.length ** 2 > 2_000_000 ? "연산량으로 생략" : "해당 없음")}
+        </span>
       </div>
     </article>
   );
@@ -256,7 +265,12 @@ export default function App() {
   };
   const choose = (id: string, options = dataOptions) => {
     if (!id) return;
-    editor.commit({ points: dataset(id, options), preset: id, options });
+    try {
+      editor.commit({ points: dataset(id, options), preset: id, options });
+    } catch (e) {
+      setNotice(e instanceof Error ? e.message : String(e));
+      return;
+    }
     setDataOptions({ ...options });
     setSelection([]);
   };
@@ -379,6 +393,20 @@ export default function App() {
           </button>
         </header>
         <main id="main">
+          {page === "catalog" && (
+            <Suspense fallback={<p role="status">도감을 불러오는 중입니다.</p>}>
+              <Catalog
+                onRun={(a) => {
+                  changeAlgorithm(a);
+                  go("lab");
+                }}
+                onGuide={(a) => {
+                  setGuideAlgorithm(a);
+                  go("guide");
+                }}
+              />
+            </Suspense>
+          )}
           {page === "home" && (
             <div className="home-page">
               <div className="hero">
@@ -491,6 +519,13 @@ export default function App() {
                     <RefreshCw size={14} />
                   </button>
                 </div>
+                {lab.trace?.recording && (
+                  <p className="small muted" role="status">
+                    기록: {lab.trace.recording.policy} · 추정 저장량{" "}
+                    {(lab.trace.recording.estimatedBytes / 1048576).toFixed(2)}{" "}
+                    MiB
+                  </p>
+                )}
                 {lab.error && (
                   <div className="error" role="alert">
                     {lab.error}
@@ -531,7 +566,7 @@ export default function App() {
                   <div>
                     <b>
                       {lab.busy
-                        ? "Web Worker에서 실제 연산 중입니다."
+                        ? lab.progress
                         : activeStep?.kind === "finish"
                           ? "실험 완료"
                           : `${algorithm} · ${activeStep?.kind ?? "초기 상태"}`}
@@ -679,7 +714,7 @@ export default function App() {
                     selected={selection}
                     onSelect={setSelection}
                     onChange={(p) => {
-                      if (p.length <= 600) setPoints(p);
+                      setPoints(p);
                     }}
                     label={label}
                   />
@@ -712,7 +747,7 @@ export default function App() {
                         key: "count",
                         label: "데이터 수",
                         min: 10,
-                        max: 600,
+                        max: undefined,
                         step: 10,
                       },
                       {
@@ -755,7 +790,11 @@ export default function App() {
                         value={dataOptions[f.key]}
                         onChange={(e) => {
                           const n = +e.target.value;
-                          if (n >= f.min && n <= f.max)
+                          if (
+                            Number.isFinite(n) &&
+                            n >= f.min &&
+                            n <= (f.max ?? Infinity)
+                          )
                             setDataOptions({ ...dataOptions, [f.key]: n });
                         }}
                       />

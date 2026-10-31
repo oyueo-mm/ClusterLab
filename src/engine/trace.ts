@@ -7,12 +7,20 @@ import {
   type EventKind,
   type Center,
 } from "./types";
+import { DEFAULT_TRACE_BYTES, retainedBytes } from "./resources";
 /** Immutable field patches, not a full copy of the complete state at every event. */
 export class Recorder {
   state: State;
   trace: Trace;
   private sourceCenters: Center[] = [];
-  constructor(n: number, algorithm: Algorithm) {
+  private bytes = 0;
+  private lastProgress = 0;
+  constructor(
+    n: number,
+    algorithm: Algorithm,
+    private budgetBytes = DEFAULT_TRACE_BYTES,
+    private onProgress?: (events: number) => void,
+  ) {
     this.state = emptyState(n);
     this.trace = {
       algorithm,
@@ -20,7 +28,14 @@ export class Recorder {
       steps: [],
       snapshots: [],
       elapsed: 0,
+      recording: {
+        policy: "상세 실제 이벤트 · 예산 초과 시 명시적 실패 (표본 계산 없음)",
+        estimatedBytes: 0,
+      },
     };
+    this.bytes = retainedBytes(this.state);
+    if (this.bytes > this.budgetBytes)
+      throw new Error("Trace 초기 상태가 메모리 예산을 초과했습니다.");
   }
   emit(
     kind: EventKind,
@@ -29,6 +44,21 @@ export class Recorder {
     result?: Step["result"],
     duration = 600,
   ) {
+    let labelChanges: Step["labelChanges"];
+    const sourceLabels = patch.labels;
+    if (sourceLabels && sourceLabels.length === this.state.labels.length) {
+      const changes = sourceLabels.flatMap((after, index) =>
+        after === this.state.labels[index]
+          ? []
+          : [{ index, before: this.state.labels[index], after }],
+      );
+      if (changes.length * 8 < sourceLabels.length) {
+        labelChanges = changes;
+        const rest = { ...patch };
+        delete rest.labels;
+        patch = rest;
+      }
+    }
     const source = patch.centers;
     let centerChanges: Step["centerChanges"];
     if (
@@ -56,8 +86,22 @@ export class Recorder {
     const undo: Partial<State> = {};
     for (const key of Object.keys(patch) as (keyof State)[])
       Object.assign(undo, { [key]: this.state[key] });
+    const cost =
+      retainedBytes(patch) +
+      retainedBytes(centerChanges) +
+      retainedBytes(labelChanges) +
+      description.length * 2 +
+      retainedBytes(result) +
+      160;
+    if (this.bytes + cost > this.budgetBytes)
+      throw new Error(
+        `Trace 메모리 예산 초과: ${(this.budgetBytes / 1048576).toFixed(1)} MiB. 상세 기록을 중단했습니다. 완료 결과가 아닙니다.`,
+      );
+    this.bytes += cost;
     const frozen = structuredClone(patch);
     this.state = { ...this.state, ...frozen };
+    if (labelChanges?.length)
+      this.state = { ...this.state, labels: [...sourceLabels!] };
     if (centerChanges) {
       const centers = [...this.state.centers];
       centerChanges.forEach((c) => (centers[c.index] = c.after));
@@ -71,16 +115,36 @@ export class Recorder {
       duration,
       result,
       ...(centerChanges ? { centerChanges } : {}),
+      ...(labelChanges ? { labelChanges } : {}),
     });
-    if (this.trace.steps.length % 48 === 0)
+    if (this.trace.steps.length % 48 === 0) {
+      const checkpointBytes = retainedBytes(this.state);
+      if (this.bytes + checkpointBytes > this.budgetBytes)
+        throw new Error(
+          "Trace 체크포인트 메모리 예산 초과. 완료 결과가 아닙니다.",
+        );
+      this.bytes += checkpointBytes;
       this.trace.snapshots.push({
         index: this.trace.steps.length,
         state: this.state,
       });
+    }
+    this.trace.recording!.estimatedBytes = this.bytes;
+    const now = performance.now();
+    if (this.onProgress && now - this.lastProgress > 100) {
+      this.lastProgress = now;
+      this.onProgress(this.trace.steps.length);
+    }
   }
 }
 export function applyStep(state: State, step: Step, reverse = false): State {
   const next = { ...state, ...(reverse ? step.undo : step.patch) };
+  if (step.labelChanges?.length) {
+    next.labels = [...next.labels];
+    step.labelChanges.forEach((c) => {
+      next.labels[c.index] = reverse ? c.before : c.after;
+    });
+  }
   if (step.centerChanges) {
     const centers = [...next.centers];
     step.centerChanges.forEach(

@@ -1,4 +1,4 @@
-export const algorithms = [
+export const legacyAlgorithms = [
   "K-Means",
   "DBSCAN",
   "HDBSCAN",
@@ -12,6 +12,11 @@ export const algorithms = [
   "GMM",
   "BIRCH",
   "Mean Shift",
+] as const;
+export const algorithms = [
+  ...legacyAlgorithms,
+  "Fuzzy C-Means",
+  "Bisecting K-Means",
 ] as const;
 export type Algorithm = (typeof algorithms)[number];
 export interface Point {
@@ -89,6 +94,7 @@ export type EventKind =
   | "swap"
   | "finish";
 export interface Step {
+  labelChanges?: { index: number; before: number; after: number }[];
   centerChanges?: { index: number; before: Center; after: Center }[];
   kind: EventKind;
   description: string;
@@ -98,6 +104,7 @@ export interface Step {
   result?: Record<string, number | string>;
 }
 export interface Trace {
+  recording?: { policy: string; estimatedBytes: number };
   initial: State;
   steps: Step[];
   snapshots: { index: number; state: State }[];
@@ -105,6 +112,8 @@ export interface Trace {
   algorithm: Algorithm;
 }
 export interface Params {
+  fuzziness: number;
+  tolerance: number;
   k: number;
   iterations: number;
   epsilon: number;
@@ -128,6 +137,8 @@ export interface Params {
   bandwidth: number;
 }
 export const defaults: Params = {
+  fuzziness: 2,
+  tolerance: 0.00001,
   k: 3,
   iterations: 20,
   epsilon: 0.11,

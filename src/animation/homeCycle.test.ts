@@ -14,7 +14,7 @@ import {
 } from "../data/homeRounds";
 import { run } from "../engine/run";
 import {
-  algorithms,
+  legacyAlgorithms as algorithms,
   type Algorithm,
   type Params,
   type Point,

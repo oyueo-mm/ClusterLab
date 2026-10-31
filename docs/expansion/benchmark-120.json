@@ -1,0 +1,107 @@
+[
+  {
+    "algorithm": "K-Means",
+    "points": 120,
+    "events": 969,
+    "computationMs": 14.46,
+    "traceBytes": 234108
+  },
+  {
+    "algorithm": "DBSCAN",
+    "points": 120,
+    "events": 358,
+    "computationMs": 8.87,
+    "traceBytes": 626664
+  },
+  {
+    "algorithm": "HDBSCAN",
+    "points": 120,
+    "events": 250,
+    "computationMs": 27.12,
+    "traceBytes": 1337937
+  },
+  {
+    "algorithm": "AGNES",
+    "points": 120,
+    "events": 240,
+    "computationMs": 172.98,
+    "traceBytes": 3187483
+  },
+  {
+    "algorithm": "DIANA",
+    "points": 120,
+    "events": 84,
+    "computationMs": 40.89,
+    "traceBytes": 35117
+  },
+  {
+    "algorithm": "SOM",
+    "points": 120,
+    "events": 1930,
+    "computationMs": 60.95,
+    "traceBytes": 3003483
+  },
+  {
+    "algorithm": "LVQ",
+    "points": 120,
+    "events": 1930,
+    "computationMs": 17.28,
+    "traceBytes": 1503325
+  },
+  {
+    "algorithm": "OPTICS",
+    "points": 120,
+    "events": 789,
+    "computationMs": 11.79,
+    "traceBytes": 2578795
+  },
+  {
+    "algorithm": "PAM",
+    "points": 120,
+    "events": 708,
+    "computationMs": 31.82,
+    "traceBytes": 189820
+  },
+  {
+    "algorithm": "ROCK",
+    "points": 120,
+    "events": 237,
+    "computationMs": 90,
+    "traceBytes": 697495
+  },
+  {
+    "algorithm": "GMM",
+    "points": 120,
+    "events": 32,
+    "computationMs": 6.22,
+    "traceBytes": 267232
+  },
+  {
+    "algorithm": "BIRCH",
+    "points": 120,
+    "events": 525,
+    "computationMs": 18.54,
+    "traceBytes": 988747
+  },
+  {
+    "algorithm": "Mean Shift",
+    "points": 120,
+    "events": 1637,
+    "computationMs": 50.61,
+    "traceBytes": 4801152
+  },
+  {
+    "algorithm": "Fuzzy C-Means",
+    "points": 120,
+    "events": 28,
+    "computationMs": 14.92,
+    "traceBytes": 214825
+  },
+  {
+    "algorithm": "Bisecting K-Means",
+    "points": 120,
+    "events": 16,
+    "computationMs": 3.66,
+    "traceBytes": 14895
+  }
+]

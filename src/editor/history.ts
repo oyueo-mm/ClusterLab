@@ -1,7 +1,6 @@
 import type { Point } from "../engine/types";
 import type { DataOptions } from "../data/presets";
 
-export const MAX_POINTS = 600;
 export const HISTORY_LIMIT = 100;
 export interface EditorSnapshot {
   points: Point[];
@@ -10,8 +9,41 @@ export interface EditorSnapshot {
 }
 export interface EditorHistory {
   present: EditorSnapshot;
-  past: EditorSnapshot[];
-  future: EditorSnapshot[];
+  past: EditorChange[];
+  future: EditorChange[];
+}
+
+interface EditorChange {
+  index: number;
+  removed: Point[];
+  added: Point[];
+  before: Omit<EditorSnapshot, "points">;
+  after: Omit<EditorSnapshot, "points">;
+}
+function equalPoint(p: Point, q: Point) {
+  return (
+    p.x === q.x &&
+    p.y === q.y &&
+    p.label === q.label &&
+    (p.features === undefined
+      ? q.features === undefined
+      : q.features !== undefined &&
+        p.features.length === q.features.length &&
+        p.features.every((v, i) => v === q.features![i]))
+  );
+}
+function restore(
+  snapshot: EditorSnapshot,
+  change: EditorChange,
+  reverse: boolean,
+): EditorSnapshot {
+  const remove = reverse ? change.added : change.removed;
+  const insert = reverse ? change.removed : change.added;
+  // Avoid spread argument limits on large imports.
+  const points = snapshot.points
+    .slice(0, change.index)
+    .concat(insert, snapshot.points.slice(change.index + remove.length));
+  return { points, ...(reverse ? change.before : change.after) };
 }
 
 function copy(value: EditorSnapshot): EditorSnapshot {
@@ -53,30 +85,59 @@ export function commitHistory(
   history: EditorHistory,
   value: EditorSnapshot,
 ): EditorHistory {
-  if (value.points.length > MAX_POINTS || sameSnapshot(history.present, value))
-    return history;
+  if (sameSnapshot(history.present, value)) return history;
+  let prefix = 0;
+  const old = history.present.points,
+    next = value.points;
+  while (
+    prefix < old.length &&
+    prefix < next.length &&
+    equalPoint(old[prefix], next[prefix])
+  )
+    prefix++;
+  let suffix = 0;
+  while (
+    suffix < old.length - prefix &&
+    suffix < next.length - prefix &&
+    equalPoint(old[old.length - 1 - suffix], next[next.length - 1 - suffix])
+  )
+    suffix++;
+  const added = copy({
+    ...value,
+    points: next.slice(prefix, next.length - suffix),
+  }).points;
+  const change: EditorChange = {
+    index: prefix,
+    removed: old.slice(prefix, old.length - suffix),
+    added,
+    before: {
+      preset: history.present.preset,
+      options: { ...history.present.options },
+    },
+    after: { preset: value.preset, options: { ...value.options } },
+  };
   return {
-    present: copy(value),
-    past: [...history.past, history.present].slice(-HISTORY_LIMIT),
+    present: restore(history.present, change, false),
+    past: [...history.past, change].slice(-HISTORY_LIMIT),
     future: [],
   };
 }
 export function undoHistory(history: EditorHistory): EditorHistory {
-  const present = history.past.at(-1);
-  return present
+  const change = history.past.at(-1);
+  return change
     ? {
-        present,
+        present: restore(history.present, change, true),
         past: history.past.slice(0, -1),
-        future: [history.present, ...history.future],
+        future: [change, ...history.future],
       }
     : history;
 }
 export function redoHistory(history: EditorHistory): EditorHistory {
-  const present = history.future[0];
-  return present
+  const change = history.future[0];
+  return change
     ? {
-        present,
-        past: [...history.past, history.present].slice(-HISTORY_LIMIT),
+        present: restore(history.present, change, false),
+        past: [...history.past, change].slice(-HISTORY_LIMIT),
         future: history.future.slice(1),
       }
     : history;

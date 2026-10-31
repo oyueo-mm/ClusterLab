@@ -106,7 +106,7 @@ export const kmeans: Lesson = {
       "Lloyd 한 반복 O(nKd); T회 O(TnKd). 전역 최적화 문제와 이 반복법의 비용은 다릅니다.",
     implementation:
       "d=2에서 O(TnK), K-Means++ 누적 중심 전수 비교 초기화 O(nK²).",
-    space: "수치 상태 O(n+K). Trace는 점별 labels 복사 때문에 최악 O(Tn²+TK).",
+    space: "수치 상태 O(n+K). 점별 Trace는 희소 레이블 Delta를 사용하며 체크포인트 비용이 있습니다. 예상 기록량이 크면 전체 할당·중심을 반복별로 기록합니다. 모든 기록은 바이트 예산을 적용합니다.",
     cost: "n, K, 반복 수 증가와 정밀 이벤트 저장이 비용을 키웁니다. Elkan 가속·mini-batch 없음.",
   },
   implementation: [

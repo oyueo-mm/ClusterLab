@@ -1,6 +1,8 @@
 import type { Algorithm } from "../engine/types";
 /** Small metadata used by the lab; textbook and KaTeX stay in the guide chunk. */
 export const algorithmFamilies: Record<Algorithm, string> = {
+  "Fuzzy C-Means": "퍼지 중심 기반",
+  "Bisecting K-Means": "하향식 중심 기반",
   "K-Means": "중심 기반",
   DBSCAN: "밀도 기반",
   HDBSCAN: "계층적 밀도",

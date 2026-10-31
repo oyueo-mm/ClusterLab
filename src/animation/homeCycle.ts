@@ -141,6 +141,7 @@ export class HomeCycle {
       worker.onmessage = (event) => {
         if (!this.live(round, card, worker, ticket) || event.data.id !== ticket)
           return;
+        if (event.data.progress) return;
         const message = event.data as {
           id: number;
           trace?: Trace;

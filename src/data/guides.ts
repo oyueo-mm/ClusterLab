@@ -8,6 +8,27 @@ export interface Guide {
   cons: string;
 }
 export const guides: Record<Algorithm, Guide> = {
+  "Fuzzy C-Means": {
+    family: "퍼지 중심 기반",
+    intro:
+      "각 점의 소속도 합을 1로 유지하며 소속도 갱신과 가중평균을 교대 최적화합니다. 소속도는 사후확률이 아닙니다.",
+    steps: [
+      "시드 소속도 초기화",
+      "u의 m승으로 가중평균",
+      "거리로 소속도 갱신",
+      "소속도 변화로 수렴 판정",
+    ],
+    pros: "경계의 모호함을 표현합니다.",
+    cons: "K와 m에 민감하고 구형 군집을 선호합니다.",
+  },
+  "Bisecting K-Means": {
+    family: "하향식 중심 기반",
+    intro:
+      "SSE가 가장 큰 잎을 선택하고 실제 2-Means를 수행해 K개의 잎까지 분할합니다.",
+    steps: ["전체 평균", "최대 SSE 잎 선택", "2-Means 반복", "분할 확정"],
+    pros: "분할 계층을 관찰할 수 있습니다.",
+    cons: "초기값과 분할 순서에 민감합니다. 구분 불가능한 중복점은 분할하지 않습니다.",
+  },
   "Mean Shift": {
     family: "밀도 모드 탐색",
     intro:

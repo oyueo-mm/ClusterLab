@@ -270,7 +270,7 @@ export default function GuidePage({
             <p className="small">
               일반 알고리즘의 작업 메모리와 학습용 Trace의 저장량은 다릅니다.
               앱은 연산 후 전체 Trace를 Worker에서 전달하며 입력은
-              2~600점입니다.
+              2점 이상이며 실행별 메모리 예산을 검사합니다.
             </p>
           </section>
           <section id="lesson-limitations" tabIndex={-1}>

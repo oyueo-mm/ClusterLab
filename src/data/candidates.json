@@ -1,0 +1,1073 @@
+[
+  {
+    "number": 1,
+    "name": "Mini-Batch K-Means",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 2,
+    "name": "Bisecting K-Means",
+    "family": "A 중심·대표점 기반",
+    "status": "테스트 완료 · 독립 수치 검산",
+    "classification": "변형",
+    "input": "points2d",
+    "engine": "Bisecting K-Means"
+  },
+  {
+    "number": 3,
+    "name": "X-Means",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 4,
+    "name": "G-Means",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 5,
+    "name": "Dip-Means",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 6,
+    "name": "DP-Means",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 7,
+    "name": "K-Medians",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 8,
+    "name": "K-Modes",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 9,
+    "name": "K-Prototypes",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 10,
+    "name": "Spherical K-Means",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 11,
+    "name": "Kernel K-Means",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 12,
+    "name": "Balanced K-Means",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 13,
+    "name": "K-Means--",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 14,
+    "name": "CLARA",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 15,
+    "name": "CLARANS",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 16,
+    "name": "K-Center",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 17,
+    "name": "Hartigan–Wong K-Means",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 18,
+    "name": "PAMSIL",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 19,
+    "name": "PAMMEDSIL",
+    "family": "A 중심·대표점 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 20,
+    "name": "Fuzzy C-Means",
+    "family": "B 퍼지·제약 기반",
+    "status": "테스트 완료 · 독립 수치 검산",
+    "classification": "독립 알고리즘",
+    "input": "points2d",
+    "engine": "Fuzzy C-Means"
+  },
+  {
+    "number": 21,
+    "name": "Possibilistic C-Means",
+    "family": "B 퍼지·제약 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 22,
+    "name": "Fuzzy Possibilistic C-Means",
+    "family": "B 퍼지·제약 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 23,
+    "name": "COP-KMeans",
+    "family": "B 퍼지·제약 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 24,
+    "name": "PCKMeans",
+    "family": "B 퍼지·제약 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 25,
+    "name": "MPCKMeans",
+    "family": "B 퍼지·제약 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 26,
+    "name": "Constrained Spectral Clustering",
+    "family": "B 퍼지·제약 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 27,
+    "name": "Density Peaks / CFSFDP",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 28,
+    "name": "SNN Clustering",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 29,
+    "name": "DENCLUE",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 30,
+    "name": "LSDBC",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 31,
+    "name": "DeLiClu",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 32,
+    "name": "Generalized DBSCAN",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 33,
+    "name": "GriDBSCAN",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 34,
+    "name": "ST-DBSCAN",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 35,
+    "name": "DenStream",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 36,
+    "name": "D-Stream",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 37,
+    "name": "CluStream",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 38,
+    "name": "Support Vector Clustering",
+    "family": "C 밀도·온라인 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 39,
+    "name": "CURE",
+    "family": "D 계층·혼합 접근",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 40,
+    "name": "CHAMELEON",
+    "family": "D 계층·혼합 접근",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 41,
+    "name": "FINCH",
+    "family": "D 계층·혼합 접근",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 42,
+    "name": "HACAM",
+    "family": "D 계층·혼합 접근",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 43,
+    "name": "COBWEB",
+    "family": "D 계층·혼합 접근",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 44,
+    "name": "SLINK",
+    "family": "D 계층·혼합 접근",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 45,
+    "name": "CLINK",
+    "family": "D 계층·혼합 접근",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 46,
+    "name": "NN-Chain HAC",
+    "family": "D 계층·혼합 접근",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 47,
+    "name": "Evidence Accumulation Clustering",
+    "family": "D 계층·혼합 접근",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 48,
+    "name": "Spectral Clustering",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 49,
+    "name": "Affinity Propagation",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 50,
+    "name": "Louvain",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 51,
+    "name": "Leiden",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 52,
+    "name": "Label Propagation",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 53,
+    "name": "Chinese Whispers",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 54,
+    "name": "Girvan–Newman",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 55,
+    "name": "Walktrap",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 56,
+    "name": "Infomap",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 57,
+    "name": "Markov Clustering (MCL)",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 58,
+    "name": "Greedy Modularity (CNM)",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 59,
+    "name": "Fluid Communities",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 60,
+    "name": "Clique Percolation",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 61,
+    "name": "BigCLAM",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 62,
+    "name": "Stochastic Block Model",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 63,
+    "name": "OSLOM",
+    "family": "E 그래프·네트워크 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 64,
+    "name": "CLIQUE",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 65,
+    "name": "STING",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 66,
+    "name": "WaveCluster",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 67,
+    "name": "BANG",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 68,
+    "name": "PROCLUS",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 69,
+    "name": "ORCLUS",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 70,
+    "name": "SUBCLU",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 71,
+    "name": "PreDeCon",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 72,
+    "name": "DiSH",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 73,
+    "name": "HiSC",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 74,
+    "name": "4C",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 75,
+    "name": "CASH",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 76,
+    "name": "LMCLUS",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 77,
+    "name": "DOC",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 78,
+    "name": "P3C",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 79,
+    "name": "COPAC",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 80,
+    "name": "ERiC",
+    "family": "F 격자·고차원 부분공간 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 81,
+    "name": "Bayesian GMM / DP-GMM",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 82,
+    "name": "Student-t Mixture",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 83,
+    "name": "Mixture of Factor Analyzers",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 84,
+    "name": "von Mises–Fisher Mixture",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 85,
+    "name": "Multinomial Mixture",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 86,
+    "name": "Bernoulli Mixture",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 87,
+    "name": "Latent Class Analysis",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 88,
+    "name": "Gaussian–Uniform Mixture",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 89,
+    "name": "Poisson Mixture",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 90,
+    "name": "Beta Mixture",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 91,
+    "name": "Mixture of Probabilistic PCA",
+    "family": "G 확률·혼합모델",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 92,
+    "name": "Neural Gas",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 93,
+    "name": "Growing Neural Gas",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 94,
+    "name": "ART1",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 95,
+    "name": "Fuzzy ART",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 96,
+    "name": "SOM-SC",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 97,
+    "name": "SyncNet",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 98,
+    "name": "HSyncNet",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 99,
+    "name": "Sync-SOM",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 100,
+    "name": "DEC",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 101,
+    "name": "IDEC",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 102,
+    "name": "VaDE",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 103,
+    "name": "DeepCluster",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 104,
+    "name": "Deep K-Means (DKM)",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 105,
+    "name": "N2D",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 106,
+    "name": "DipDECK",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 107,
+    "name": "DeepECT",
+    "family": "H 신경망·딥러닝 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 108,
+    "name": "BSAS",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 109,
+    "name": "MBSAS",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 110,
+    "name": "TTSAS",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 111,
+    "name": "Leader",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 112,
+    "name": "Canopy",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 113,
+    "name": "Spectral Co-Clustering",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 114,
+    "name": "Spectral Biclustering",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 115,
+    "name": "Cheng–Church Biclustering",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 116,
+    "name": "Plaid Model",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 117,
+    "name": "Bimax",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 118,
+    "name": "StreamKM++",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  },
+  {
+    "number": 119,
+    "name": "K-Shape",
+    "family": "I 순차·이중군집·특수 데이터 기반",
+    "status": "미조사",
+    "classification": "분류 검토 필요",
+    "input": "입력 계약 조사 필요",
+    "engine": null
+  }
+]

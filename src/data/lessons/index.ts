@@ -8,6 +8,8 @@ import { som, lvq } from "./competitive";
 import { pam, rock } from "./representatives";
 import { birch, meanshift } from "./modes";
 export const lessons: Record<Algorithm, Lesson> = {
+  "Fuzzy C-Means": fuzzy,
+  "Bisecting K-Means": bisecting,
   "K-Means": kmeans,
   DBSCAN: dbscan,
   HDBSCAN: hdbscan,
@@ -22,3 +24,4 @@ export const lessons: Record<Algorithm, Lesson> = {
   BIRCH: birch,
   "Mean Shift": meanshift,
 };
+import { fuzzy, bisecting } from "./expansion";

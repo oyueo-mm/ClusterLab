@@ -1,5 +1,6 @@
 import type { Point } from "../engine/types";
 import { random } from "../engine/math";
+import { DEFAULT_WORKING_BYTES } from "../engine/resources";
 export const presets = [
   ["blobs", "가우시안 군집", "균형 잡힌 세 개의 구형 군집"],
   ["moons", "두 개의 초승달", "굽은 두 개의 비선형 군집"],
@@ -88,6 +89,12 @@ export const dataDefaults: DataOptions = {
   seed: 42,
 };
 export function dataset(id: string, o: DataOptions): Point[] {
+  if (!Number.isSafeInteger(o.count) || o.count < 2)
+    throw new Error("데이터 수는 2 이상의 안전한 정수여야 합니다.");
+  if ((id === "tiny" ? 12 : o.count) * 192 > DEFAULT_WORKING_BYTES)
+    throw new Error(
+      "데이터 생성의 추정 작업 공간이 메모리 예산을 초과합니다. 생성 개수를 줄이세요.",
+    );
   const rng = random(o.seed),
     normal = () =>
       Math.sqrt(-2 * Math.log(Math.max(1e-10, rng()))) *
@@ -268,8 +275,8 @@ export function importData(text: string): Point[] {
       };
     });
   }
-  if (!Array.isArray(raw) || raw.length < 2 || raw.length > 600)
-    throw new Error("2~600개의 데이터가 필요합니다.");
+  if (!Array.isArray(raw) || raw.length < 2)
+    throw new Error("2개 이상의 데이터가 필요합니다.");
   return raw.map((v: unknown) => {
     if (!v || typeof v !== "object")
       throw new Error("데이터 객체가 필요합니다.");

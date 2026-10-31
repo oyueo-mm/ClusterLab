@@ -75,7 +75,7 @@ describe("bounded editor history", () => {
     expect(branched.future).toHaveLength(0);
     expect(redoHistory(branched)).toBe(branched);
   });
-  it("retains at most 100 operations and rejects more than 600 points", () => {
+  it("retains at most 100 operations and accepts more than 600 points", () => {
     let h = createHistory({ ...initial(), points: [] });
     for (let i = 0; i < 130; i++)
       h = commitHistory(h, {
@@ -90,7 +90,7 @@ describe("bounded editor history", () => {
       ...h.present,
       points: Array.from({ length: 601 }, () => ({ x: 0, y: 0 })),
     };
-    expect(commitHistory(h, tooMany)).toBe(h);
+    expect(commitHistory(h, tooMany).present.points).toHaveLength(601);
   });
   it("stores imported custom data and can restore the original categorical preset", () => {
     const h = createHistory(initial());

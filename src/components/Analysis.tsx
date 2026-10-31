@@ -163,6 +163,42 @@ export function Analysis({
 }) {
   return (
     <div className="analysis-content">
+      {algorithm === "Fuzzy C-Means" && state.responsibilities.length > 0 && (
+        <div className="chart">
+          <h3>퍼지 소속도 U · 확률 아님</h3>
+          <p>
+            실제 소속도 중 처음 {Math.min(20, state.responsibilities.length)}개
+            행 표시 · 전체 {state.responsibilities.length}개
+          </p>
+          <div style={{ overflowX: "auto" }}>
+            <table>
+              <thead>
+                <tr>
+                  <th>점</th>
+                  {state.centers.map((_, j) => (
+                    <th key={j}>C{j + 1}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {state.responsibilities.slice(0, 20).map((row, i) => (
+                  <tr key={i}>
+                    <th>{i + 1}</th>
+                    {row.map((u, j) => (
+                      <td
+                        key={j}
+                        style={{ background: `rgba(52,86,77,${u * 0.35})` }}
+                      >
+                        {u.toFixed(3)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
       {algorithm === "Mean Shift" && (
         <div className="mode-summary">
           <span>중심 후보 {state.centers.length}개</span>
@@ -223,9 +259,11 @@ export function Analysis({
           title={
             algorithm === "BIRCH"
               ? "CF-Tree · N / LS / SS"
-              : algorithm === "HDBSCAN"
-                ? "Condensed Tree · λ / 안정도"
-                : "군집 계층 · 덴드로그램"
+              : algorithm === "Bisecting K-Means"
+                ? "이분할 트리 · 높이 = 분할 시점 RMS 반경"
+                : algorithm === "HDBSCAN"
+                  ? "Condensed Tree · λ / 안정도"
+                  : "군집 계층 · 덴드로그램"
           }
         />
       )}{" "}

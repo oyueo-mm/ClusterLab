@@ -1,6 +1,7 @@
 import type { Point, Params } from "../types";
 import { Recorder } from "../trace";
 import { random, sq, argmin, sum, mean } from "../math";
+import { DEFAULT_TRACE_BYTES } from "../resources";
 export function initialize(
   p: Point[],
   k: number,
@@ -39,6 +40,12 @@ export function initialize(
   return chosen.map((i) => ({ ...p[i], id: i }));
 }
 export function kmeans(p: Point[], o: Params, r: Recorder) {
+  // Choose recording granularity from projected trace storage, never sample input.
+  const detailed =
+    p.length * p.length * o.iterations * 8 < DEFAULT_TRACE_BYTES / 4;
+  r.trace.recording!.policy = detailed
+    ? "점별 실제 거리·할당 이벤트"
+    : "반복별 전체 할당·평균 갱신 요약 · 모든 점 계산 (표본 계산 없음)";
   let centers = initialize(
     p,
     Math.min(o.k, p.length),
@@ -51,25 +58,33 @@ export function kmeans(p: Point[], o: Params, r: Recorder) {
     const prev = [...labels];
     for (let i = 0; i < p.length; i++) {
       const distances = centers.map((c) => sq(p[i], c));
-      r.emit(
-        "distance",
-        `점 ${i + 1}의 중심점별 거리 제곱을 계산합니다.`,
-        { focus: [i], edges: [] },
-        {
-          minimum: Math.min(...distances),
-          distances: distances.map((v) => v.toFixed(6)).join(", "),
-        },
-        220,
-      );
+      if (detailed)
+        r.emit(
+          "distance",
+          `점 ${i + 1}의 중심점별 거리 제곱을 계산합니다.`,
+          { focus: [i], edges: [] },
+          {
+            minimum: Math.min(...distances),
+            distances: distances.map((v) => v.toFixed(6)).join(", "),
+          },
+          220,
+        );
       labels[i] = argmin(distances);
+      if (detailed)
+        r.emit(
+          "assign",
+          `점 ${i + 1} → 군집 ${labels[i] + 1}`,
+          { labels: [...labels], focus: [i], edges: [] },
+          undefined,
+          180,
+        );
+    }
+    if (!detailed)
       r.emit(
         "assign",
-        `점 ${i + 1} → 군집 ${labels[i] + 1}`,
-        { labels: [...labels], focus: [i], edges: [] },
-        undefined,
-        180,
+        `${it + 1}회: 전체 ${p.length}개 점의 최근접 중심 할당 완료 (반복 요약)`,
+        { labels, focus: [], edges: [] },
       );
-    }
     const next = centers.map((c, k) => {
       const ids = labels
         .map((l, i) => (l === k ? i : -1))

@@ -16,6 +16,8 @@ export function useExperiment(
     [position, setPosition] = useState(0),
     [speed, setSpeed] = useState(50),
     [loop, setLoop] = useState(false);
+  const [progress, setProgress] = useState("");
+  const [attempt, setAttempt] = useState(0);
   const worker = useRef<Worker | null>(null),
     positionRef = useRef(0);
   const serial = useRef(0);
@@ -48,6 +50,7 @@ export function useExperiment(
     seek(0);
     setPlaying(false);
     setError("");
+    setProgress("입력 검사 대기");
     setBusy(true);
     const w = new Worker(new URL("../engine/worker.ts", import.meta.url), {
       type: "module",
@@ -57,12 +60,19 @@ export function useExperiment(
     const requestId = ++serial.current;
     w.onmessage = (e) => {
       if (cancelled || e.data.id !== requestId) return;
+      if (e.data.progress) {
+        setProgress(
+          `전체 데이터 계산 중 · 실제 이벤트 ${e.data.progress.events ?? 0}개 기록`,
+        );
+        return;
+      }
       setBusy(false);
       if (e.data.error) setError(e.data.error);
       else {
         completed.current = { algorithm, points, params, trace: e.data.trace };
         setTrace(e.data.trace);
       }
+      w.terminate();
     };
     w.onerror = (e) => {
       if (cancelled) return;
@@ -78,7 +88,7 @@ export function useExperiment(
       clearTimeout(timer);
       w.terminate();
     };
-  }, [algorithm, points, params, seek, active]);
+  }, [algorithm, points, params, seek, active, attempt]);
   useEffect(() => {
     if (!playing || !trace || !active) return;
     let frame = 0,
@@ -123,6 +133,16 @@ export function useExperiment(
       completed.current.params === params,
     error,
     busy,
+    progress,
+    cancel: () => {
+      ++serial.current;
+      worker.current?.terminate();
+      worker.current = null;
+      setBusy(false);
+      setPlaying(false);
+      setError("실행 취소: Worker 계산을 종료했습니다.");
+    },
+    retry: () => setAttempt((n) => n + 1),
     playing,
     setPlaying,
     position,

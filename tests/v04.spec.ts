@@ -50,14 +50,14 @@ test("compact task pages retain controls and consistently show Korean preset nam
     fullPage: true,
   });
 });
-test("13 textbooks render math and real events, switch levels, navigate sections and open lab/comparison", async ({
+test("all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison", async ({
   page,
 }, info) => {
   await page.goto("#guide");
   await expect(
     page.getByRole("heading", { name: "알고리즘 가이드", exact: true }),
   ).toHaveCount(0);
-  await expect(page.locator(".guide-nav button")).toHaveCount(13);
+  await expect(page.locator(".guide-nav button")).toHaveCount(algorithms.length);
   for (const algorithm of algorithms) {
     await page
       .locator(".guide-nav")
@@ -126,7 +126,7 @@ test("13 textbooks render math and real events, switch levels, navigate sections
     .click();
   await expect(page.getByLabel("알고리즘 선택")).toHaveValue("GMM");
   await expect(page.locator(".event-tag")).toHaveText("maximization");
-  await expect(page.getByRole("status")).toContainText("실제 이벤트");
+  await expect(page.locator(".toast[role=status]")).toContainText("실제 이벤트");
   await page.reload();
   await expect(page.getByLabel("알고리즘 선택")).toBeVisible();
   await page.goto("#guide");

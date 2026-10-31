@@ -304,8 +304,16 @@ export function draw(
       }
       ctx.restore();
     });
-  for (let i = 0; i < points.length; i++) {
+  // Display sampling depends on viewport pixel density, not engine input size.
+  const stride = Math.max(
+    1,
+    Math.ceil(points.length / Math.max(1, Math.floor((w * h) / 32))),
+  );
+  const focusedPoints = new Set(to.focus),
+    selectedPoints = new Set(options.selected);
+  for (let i = 0; i < points.length; i += stride) {
     const [x, y] = xy(points[i]);
+    if (x < -8 || x > w + 8 || y < -8 || y > h + 8) continue;
     let a = color(from.labels[i]),
       b = color(to.labels[i]);
     if (to.responsibilities[i]?.length) {
@@ -331,7 +339,7 @@ export function draw(
       b = mix(to.responsibilities[i]);
     }
     ctx.fillStyle = blend(a, b, e);
-    const highlighted = to.focus.includes(i),
+    const highlighted = focusedPoints.has(i),
       r = highlighted ? 4.5 + Math.sin(t * Math.PI) * 1.5 : 3.7;
     ctx.beginPath();
     ctx.arc(x, y, r, 0, Math.PI * 2);
@@ -354,7 +362,7 @@ export function draw(
       ctx.lineTo(x - 2, y + 2);
       ctx.stroke();
     }
-    if (options.selected.includes(i)) {
+    if (selectedPoints.has(i)) {
       ctx.strokeStyle = "#1d4435";
       ctx.lineWidth = 2;
       ctx.strokeRect(x - 8, y - 8, 16, 16);
@@ -364,6 +372,14 @@ export function draw(
       ctx.font = "11px Pretendard, sans-serif";
       ctx.fillText(String(points[i].label), x + 6, y - 5);
     }
+  }
+  if (stride > 1) {
+    ctx.fillStyle = "#34564D";
+    ctx.fillText(
+      `화면 표본 표시 1/${stride} · 계산 입력 ${points.length}개 (전체)`,
+      14,
+      20,
+    );
   }
   centers.forEach((c, i) => {
     const previous =

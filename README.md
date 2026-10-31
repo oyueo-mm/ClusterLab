@@ -1,8 +1,10 @@
-# ClusterLab v0.6
+# ClusterLab — 플랫폼 확장 진행 중
 
-13가지 알고리즘의 실제 계산을 기록하고 재생하는 한국어 클러스터링 실험실입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다.
+기존 13개와 신규 Fuzzy C-Means·Bisecting K-Means, 총 15개 엔진의 실제 계산을 기록하고 재생합니다. 신규 119개 후보 중 117개는 미구현이며 전체 마스터 목표는 진행 중입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다.
 
 배포 대상: https://oyueo-mm.github.io/ClusterLab/
+
+진행 현황: [마스터 계획](docs/MASTER_PLAN.md) · [진행 기록](docs/PROGRESS.md) · [119개 후보 상태](docs/ALGORITHM_REGISTRY.md) · [재개 절차](docs/CONTINUE.md). 아래 v0.6 기능 설명과 과거 검증 기록을 보존합니다.
 
 ## 실행 및 검증
 
@@ -17,7 +19,7 @@ npm run test:e2e
 npm run build
 ```
 
-개발 URL: `http://127.0.0.1:5173/ClusterLab/`. GitHub Pages base path는 `/ClusterLab/`, 라우팅은 `#lab`, `#data`, `#compare`, `#guide`입니다.
+개발 URL: `http://127.0.0.1:5173/ClusterLab/`. GitHub Pages base path는 `/ClusterLab/`, 라우팅은 `#lab`, `#data`, `#compare`, `#guide`, `#catalog`입니다.
 
 ## 기능
 
@@ -57,7 +59,7 @@ npm run build
 - 데이터 편집 툴바의 실행 취소·다시 실행과 Ctrl/Cmd+Z, Ctrl+Y, Ctrl/Cmd+Shift+Z. 데이터셋 페이지에서만 작동하고 입력·textarea·select·contenteditable의 기본 편집 동작은 유지합니다.
 - 좌표·순서·label·features·기반 프리셋·적용된 생성 옵션을 최대 100개 작업으로 보관합니다. 드래그는 Canvas 내부에서 미리 보고 놓을 때 한 번 확정합니다. Undo 후 새 작업은 Redo를 비우며 같은 내용의 작업은 기록하지 않습니다.
 - 어떤 도구에서도 마우스 우클릭 드래그로 즉시 화면을 이동합니다. 왼쪽 버튼의 기존 도구와 두 손가락 확대·축소는 유지합니다.
-- 점 추가 도구는 화면 기준 12 CSS px 간격으로 경로를 보간합니다. 클래스 값을 유지하며 600개에서 멈춥니다. 드래그 취소·캡처 상실·리사이즈·페이지 이동은 미확정 데이터 변경을 버립니다.
+- 점 추가 도구는 화면 기준 12 CSS px 간격으로 경로를 보간합니다. 클래스 값을 유지하며 고정 점 개수 상한 없이 추가합니다. 드래그 취소·캡처 상실·리사이즈·페이지 이동은 미확정 데이터 변경을 버립니다.
 - 가져온 데이터는 프리셋을 임의로 지정하지 않습니다. 실험실·비교에 `사용자 데이터`로 표시하고 프리셋 재생성을 비활성화합니다. Undo로 원래 프리셋과 생성 옵션을 함께 복구할 수 있습니다.
 
 구현·반응형 크기·테스트·제한·화면 증거는 [현재 검증 보고서](docs/VALIDATION.md)에 있습니다.
@@ -104,7 +106,7 @@ Black Han Sans는 Google Fonts 공식 Regular의 제목용 글리프 subset 약 
 
 ## 범위 및 제한
 
-- 교육용 정밀 기록을 위해 입력은 2~600개입니다. 계산은 Worker에서 완료한 뒤 실제 이벤트 기록을 전달합니다. 점진적 Worker 스트리밍은 없습니다.
+- 입력은 2개 이상이며 고정 점 수 상한이 없습니다. 실행별 작업 공간/Trace 바이트 예산을 적용합니다. K-Means는 예상 기록량에 따라 전체 데이터의 반복별 연산을 요약합니다. 계산은 Worker에서 수행하고 진행 이벤트 후 완료 Trace를 전달합니다. 계산 취소는 Worker를 종료합니다. 자세한 성능 범위는 docs/PERFORMANCE.md를 보세요.
 - 속도는 `2^((speed−50)/18)`의 연속 배율입니다. 상위 구간에서는 한 프레임에 여러 이벤트를 진행하지만 실제 연산과 기록을 생략하지 않습니다. Canvas는 실시간 시계를 읽고, 높은 속도의 전체 UI 갱신은 약 30Hz로 제한합니다.
 - Canvas 전체를 매 프레임 다시 그립니다. 공간 인덱스·dirty region 최적화는 없습니다.
 - SOM은 위상 학습과 BMU 할당으로 별도 군집 추출은 없습니다. LVQ는 라벨이 필요한 지도학습입니다.

@@ -3,7 +3,6 @@ import type { Algorithm, Point, Trace } from "../engine/types";
 import { emptyState } from "../engine/types";
 import { stateAt } from "../engine/trace";
 import { draw, unproject, type View } from "../animation/renderer";
-import { MAX_POINTS } from "../editor/history";
 import { PointStroke } from "../editor/stroke";
 interface Gesture {
   mode:
@@ -88,6 +87,7 @@ export function Canvas(props: Props) {
   useEffect(() => {
     if (props.active === false) return;
     const canvas = ref.current!;
+    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
     // A precomputed home trace can arrive before ResizeObserver's first callback.
     // Never render its Gaussian with a placeholder 1x1 viewport (negative radii).
     let w = 0,
@@ -143,14 +143,23 @@ export function Canvas(props: Props) {
       }
       const ctx = canvas.getContext("2d")!;
       ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-      draw(ctx, w, h, points, cache.from, cache.to, position - index, {
-        algorithm: p.algorithm,
-        view: view.current,
-        selected: p.selected ?? [],
-        time: now,
-        decision: true,
-        minimal: p.minimal,
-      });
+      draw(
+        ctx,
+        w,
+        h,
+        points,
+        cache.from,
+        reducedMotion.matches ? cache.from : cache.to,
+        reducedMotion.matches ? 0 : position - index,
+        {
+          algorithm: p.algorithm,
+          view: view.current,
+          selected: p.selected ?? [],
+          time: now,
+          decision: true,
+          minimal: p.minimal,
+        },
+      );
       frames++;
       if (now - last > 1000) {
         setFps(Math.round((frames * 1000) / (now - last)));
@@ -252,7 +261,7 @@ export function Canvas(props: Props) {
           if (mode === "drawing-points") {
             gesture.stroke = new PointStroke(q);
             gesture.label = props.label;
-            if (props.points.length < MAX_POINTS) {
+            {
               gesture.data = [
                 ...props.points,
                 {
@@ -292,8 +301,7 @@ export function Canvas(props: Props) {
             return;
           }
           if (d.mode === "drawing-points") {
-            const data = d.data ?? d.original;
-            const samples = d.stroke!.advance(q, MAX_POINTS - data.length);
+            const samples = d.stroke!.advance(q, Infinity);
             if (samples.length) {
               d.data ??= [...d.original];
               for (const sample of samples)

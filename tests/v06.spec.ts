@@ -144,7 +144,7 @@ test.describe("v0.6 desktop editing", () => {
     await expect(page.getByLabel("다시 실행", { exact: true })).toBeDisabled();
   });
 
-  test("50 points from one stroke form one transaction; slow/fast density and 600 cap", async ({
+  test("50 points from one stroke form one transaction; slow/fast density and no 600 cap", async ({
     page,
   }, info) => {
     await loadPoints(page);
@@ -218,12 +218,14 @@ test.describe("v0.6 desktop editing", () => {
     }));
     await loadPoints(page, many);
     await drag(page, start, { x: start.x + 588, y: start.y });
-    await count(page, 600);
+    await count(page, 640);
     const full = await readPoints(page);
     expect(full.slice(0, 590)).toEqual(many);
     expect(full.slice(590).every((p) => p.label === 7)).toBe(true);
     await canvas(page).click({ position: { x: 180, y: 160 } });
-    await count(page, 600);
+    await count(page, 641);
+    await undo(page);
+    expect(await readPoints(page)).toEqual(full);
     await undo(page);
     expect(await readPoints(page)).toEqual(many);
     await redo(page);

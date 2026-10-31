@@ -25,6 +25,14 @@ export function Playback({
   return (
     <div className={`playback ${compact ? "compact" : ""}`}>
       <div className="transport">
+        {lab.busy && (
+          <button aria-label="계산 취소" onClick={lab.cancel}>
+            계산 취소
+          </button>
+        )}
+        {!lab.busy && lab.error && (
+          <button onClick={lab.retry}>다시 실행</button>
+        )}
         <button
           title="처음으로"
           aria-label="처음으로"
