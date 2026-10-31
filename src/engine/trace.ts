@@ -6,6 +6,7 @@ import {
   type Trace,
   type EventKind,
   type Center,
+  type AlgorithmAnalysis,
 } from "./types";
 import { DEFAULT_TRACE_BYTES, retainedBytes } from "./resources";
 /** Immutable field patches, not a full copy of the complete state at every event. */
@@ -44,15 +45,93 @@ export class Recorder {
     result?: Step["result"],
     duration = 600,
   ) {
+    let analysisDelta: Step["analysisDelta"];
+    let nextAnalysis: AlgorithmAnalysis | undefined;
+    let analysisBytes = 0;
+    if (Object.hasOwn(patch, "analysis")) {
+      const source = patch.analysis as unknown as
+        Record<string, unknown> | undefined;
+      const previous = this.state.analysis as unknown as
+        Record<string, unknown> | undefined;
+      const keys = new Set([
+        ...Object.keys(previous ?? {}),
+        ...Object.keys(source ?? {}),
+      ]);
+      const changes: NonNullable<Step["analysisDelta"]>["changes"] = [];
+      const matrixKeys = new Set([
+        "adjacency",
+        "laplacian",
+        "similarities",
+        "responsibility",
+        "availability",
+        "eigenvectors",
+        "embedding",
+        "embeddingCenters",
+      ]);
+      const sameMatrix = (a: unknown, b: unknown) =>
+        Array.isArray(a) &&
+        Array.isArray(b) &&
+        a.length === b.length &&
+        a.every(
+          (row, i) =>
+            Array.isArray(row) &&
+            Array.isArray(b[i]) &&
+            row.length === b[i].length &&
+            row.every((v, j) => Object.is(v, b[i][j])),
+        );
+      const result = { ...previous };
+      for (const key of keys) {
+        const before = previous?.[key],
+          incoming = source?.[key];
+        if (
+          Object.is(before, incoming) ||
+          (matrixKeys.has(key) && sameMatrix(before, incoming))
+        )
+          continue;
+        analysisBytes += retainedBytes(incoming) + 96 + key.length * 2;
+        if (this.bytes + analysisBytes > this.budgetBytes)
+          throw new Error(
+            "Trace 분석 상태의 메모리 예산 초과. 완료 결과가 아닙니다.",
+          );
+        const after = structuredClone(incoming);
+        changes.push({ key, before, after });
+        if (incoming === undefined) delete result[key];
+        else result[key] = after;
+      }
+      analysisDelta = {
+        beforeExists: previous !== undefined,
+        afterExists: source !== undefined,
+        changes,
+      };
+      nextAnalysis =
+        source === undefined
+          ? undefined
+          : (result as unknown as AlgorithmAnalysis);
+      const rest = { ...patch };
+      delete rest.analysis;
+      patch = rest;
+    }
     let labelChanges: Step["labelChanges"];
     const sourceLabels = patch.labels;
     if (sourceLabels && sourceLabels.length === this.state.labels.length) {
-      const changes = sourceLabels.flatMap((after, index) =>
-        after === this.state.labels[index]
-          ? []
-          : [{ index, before: this.state.labels[index], after }],
-      );
-      if (changes.length * 8 < sourceLabels.length) {
+      // Decide density before allocating per-point objects: initial million-row
+      // assignments should not transiently create a million discarded deltas.
+      let changed = 0;
+      for (let i = 0; i < sourceLabels.length; i++)
+        if (
+          sourceLabels[i] !== this.state.labels[i] &&
+          ++changed * 8 >= sourceLabels.length
+        )
+          break;
+      if (changed * 8 < sourceLabels.length) {
+        const changes: NonNullable<Step["labelChanges"]> = [];
+        for (let index = 0; index < sourceLabels.length; index++)
+          if (sourceLabels[index] !== this.state.labels[index])
+            changes.push({
+              index,
+              before: this.state.labels[index],
+              after: sourceLabels[index],
+            });
         labelChanges = changes;
         const rest = { ...patch };
         delete rest.labels;
@@ -87,6 +166,7 @@ export class Recorder {
     for (const key of Object.keys(patch) as (keyof State)[])
       Object.assign(undo, { [key]: this.state[key] });
     const cost =
+      analysisBytes +
       retainedBytes(patch) +
       retainedBytes(centerChanges) +
       retainedBytes(labelChanges) +
@@ -100,6 +180,11 @@ export class Recorder {
     this.bytes += cost;
     const frozen = structuredClone(patch);
     this.state = { ...this.state, ...frozen };
+    if (analysisDelta) {
+      this.state = { ...this.state };
+      if (nextAnalysis) this.state.analysis = nextAnalysis;
+      else delete this.state.analysis;
+    }
     if (labelChanges?.length)
       this.state = { ...this.state, labels: [...sourceLabels!] };
     if (centerChanges) {
@@ -116,6 +201,7 @@ export class Recorder {
       result,
       ...(centerChanges ? { centerChanges } : {}),
       ...(labelChanges ? { labelChanges } : {}),
+      ...(analysisDelta ? { analysisDelta } : {}),
     });
     if (this.trace.steps.length % 48 === 0) {
       const checkpointBytes = retainedBytes(this.state);
@@ -139,6 +225,18 @@ export class Recorder {
 }
 export function applyStep(state: State, step: Step, reverse = false): State {
   const next = { ...state, ...(reverse ? step.undo : step.patch) };
+  if (step.analysisDelta) {
+    const delta = step.analysisDelta;
+    if (reverse ? delta.beforeExists : delta.afterExists) {
+      const analysis = { ...next.analysis } as Record<string, unknown>;
+      for (const c of delta.changes) {
+        const value = reverse ? c.before : c.after;
+        if (value === undefined) delete analysis[c.key];
+        else analysis[c.key] = value;
+      }
+      next.analysis = analysis as unknown as AlgorithmAnalysis;
+    } else delete next.analysis;
+  }
   if (step.labelChanges?.length) {
     next.labels = [...next.labels];
     step.labelChanges.forEach((c) => {

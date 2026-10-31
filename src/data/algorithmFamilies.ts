@@ -1,6 +1,17 @@
 import type { Algorithm } from "../engine/types";
 /** Small metadata used by the lab; textbook and KaTeX stay in the guide chunk. */
 export const algorithmFamilies: Record<Algorithm, string> = {
+  "K-Medians": "중앙값·L1",
+  "Mini-Batch K-Means": "미니배치 중심",
+  CLARA: "표본 메도이드",
+  CLARANS: "무작위 메도이드",
+
+  "Spectral Clustering": "그래프·스펙트럴",
+  "Affinity Propagation": "메시지·대표점",
+  "Density Peaks / CFSFDP": "밀도 봉우리",
+  CURE: "대표점 계층",
+  "Neural Gas": "경쟁 프로토타입",
+  "Growing Neural Gas": "성장 프로토타입",
   "Fuzzy C-Means": "퍼지 중심 기반",
   "Bisecting K-Means": "하향식 중심 기반",
   "K-Means": "중심 기반",

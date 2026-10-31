@@ -1,0 +1,61 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "seed": 42,
+  "k": 3,
+  "epochs": 2,
+  "batchSize": 256,
+  "note": "Single Node observation, generation/Worker transfer/rendering excluded; heap delta is not peak memory.",
+  "observations": [
+    {
+      "n": 100,
+      "status": "complete",
+      "milliseconds": 2.78,
+      "heapDeltaBytes": 599608,
+      "events": 8,
+      "traceEstimatedBytes": 22306,
+      "visited": 200,
+      "recording": "실제 미니배치별 고정 할당·누적 방문수·중심 갱신 (모든 점은 epoch마다 방문)"
+    },
+    {
+      "n": 1000,
+      "status": "complete",
+      "milliseconds": 5.67,
+      "heapDeltaBytes": 1865664,
+      "events": 20,
+      "traceEstimatedBytes": 169594,
+      "visited": 2000,
+      "recording": "실제 미니배치별 고정 할당·누적 방문수·중심 갱신 (모든 점은 epoch마다 방문)"
+    },
+    {
+      "n": 10000,
+      "status": "complete",
+      "milliseconds": 107.32,
+      "heapDeltaBytes": 9555376,
+      "events": 164,
+      "traceEstimatedBytes": 3875476,
+      "visited": 20000,
+      "recording": "실제 미니배치별 고정 할당·누적 방문수·중심 갱신 (모든 점은 epoch마다 방문)"
+    },
+    {
+      "n": 100000,
+      "status": "complete",
+      "milliseconds": 157.87,
+      "heapDeltaBytes": -1493896,
+      "events": 6,
+      "traceEstimatedBytes": 5842524,
+      "visited": 200000,
+      "recording": "실제 첫 미니배치와 epoch별 전체 평가 요약 · 전체 점을 epoch마다 학습"
+    },
+    {
+      "n": 1000000,
+      "status": "complete",
+      "milliseconds": 1955.03,
+      "heapDeltaBytes": 47652312,
+      "events": 6,
+      "traceEstimatedBytes": 58260824,
+      "visited": 2000000,
+      "recording": "실제 첫 미니배치와 epoch별 전체 평가 요약 · 전체 점을 epoch마다 학습"
+    }
+  ]
+}

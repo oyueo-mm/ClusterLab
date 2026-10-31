@@ -6,6 +6,45 @@ export const DEFAULT_TRACE_BYTES = 64 * 1024 * 1024;
 export function estimateResources(algorithm: Algorithm, n: number, o: Params) {
   let workingBytes = n * 192;
   let work = n * Math.min(n, o.k) * o.iterations;
+  if (
+    [
+      "Spectral Clustering",
+      "Affinity Propagation",
+      "Density Peaks / CFSFDP",
+    ].includes(algorithm)
+  ) {
+    workingBytes +=
+      n *
+      n *
+      (algorithm === "Spectral Clustering"
+        ? 160
+        : algorithm === "Affinity Propagation"
+          ? 112
+          : 24);
+    work =
+      algorithm === "Spectral Clustering"
+        ? n ** 3
+        : n * n * (algorithm === "Affinity Propagation" ? o.iterations : 1);
+  }
+  if (algorithm === "CURE") {
+    workingBytes += n * Math.min(n, o.representatives) * 128;
+    work = n ** 3 * Math.max(1, o.representatives ** 2);
+  }
+  if (algorithm === "CLARA") {
+    const s = Math.min(n, o.sampleSize);
+    workingBytes += s * s * 32;
+    work = o.numLocal * (s ** 3 * o.iterations + n * o.k);
+  }
+  if (algorithm === "CLARANS") {
+    workingBytes += n * 32;
+    work = n * o.k * o.maxNeighbors * o.numLocal;
+  }
+  if (algorithm === "Mini-Batch K-Means") work = n * o.k * o.epochs;
+  if (algorithm === "Neural Gas" || algorithm === "Growing Neural Gas") {
+    const neurons = algorithm === "Neural Gas" ? o.k : o.maxNeurons;
+    workingBytes += neurons ** 2 * 64;
+    work = n * o.epochs * neurons * Math.log2(Math.max(2, neurons));
+  }
   if (["HDBSCAN", "ROCK", "OPTICS", "PAM"].includes(algorithm)) {
     // Conservative JS arrays/number slots + concurrent row copies.
     workingBytes += n * n * (algorithm === "HDBSCAN" ? 64 : 40);

@@ -1,29 +1,39 @@
-# 아키텍처 — 2026-10-31 확장 기반
+# 현재 아키텍처
 
-## 기존 구조 감사
+2026-10-31. [직전 구조](sessions/foundation/ARCHITECTURE.md)와 기존 버전 문서를 보존했다.
 
-React App.tsx가 홈/실험실/편집/비교/가이드를 전환한다. engine/types.ts는 Point, Params, State, Trace 계약, run.ts는 동기 테스트 API, worker.ts는 제품 계산 경계다. algorithms/에 기존 13개 수치 구현이 있다. animation/renderer.ts는 Canvas, useExperiment.ts는 Worker 생명주기와 재생, homeCycle.ts는 4개 Worker의 11개 데이터셋 순환을 맡는다. data/presets.ts의 32개 데이터셋은 해시 회귀 검증 대상이다. editor/는 히스토리/제스처이며 v03/v04 CSS와 기존 디자인을 유지한다. .github/workflows/deploy.yml의 기존 배포 workflow를 유지한다.
+## 앱과 데이터
 
-## 현재 구현
+App은 기존 홈/실험실/데이터/비교/가이드/도감을 유지하며 lazy `#structured`를 추가한다. 홈은 legacyAlgorithms 13개와 11개 데이터셋, 프리셋 32개·디자인·폰트·편집 제스처를 유지한다.
 
-- algorithms/의 엔진 함수 계약: Point[], Params, Recorder → 실제 State 변화. 신규 fuzzy.ts, bisecting.ts.
-- registry.ts: 실행 가능한 15개만 loader와 메타데이터 등록. Worker에서는 import()로 선택한 엔진만 로드. run.ts는 기존 테스트/독립 검증을 위한 정적 동기 API이므로 제품 Worker가 import하지 않는다.
-- parameters.ts: 기존 Settings의 스키마를 엔진 계층으로 이동. UI/검증/등록에 공유. 공통 기본값과 기존 API를 보존. PAM의 기존 kmeans++ 기본값은 BUILD 별칭으로 유지.
-- validation.ts: 입력·알고리즘별 활성 파라미터 검증. UI 상한과 수학적 입력 도메인은 동일하지 않으므로 max는 엔진 전체 제한으로 강제하지 않는다.
-- resources.ts: 알고리즘별 작업 공간/연산량 추정. 기본 작업 공간 256MiB, 상세 Trace 64MiB 예산. 이는 기기 가용 RAM 측정이 아닌 실행 정책이며 정확한 peak 예측은 아니다. 점 수 고정 상한은 없다. 예산 초과는 명시적 실패다.
-- worker.ts: 입력 검사→바이트 예산→동적 import→실제 계산→Trace. phase 및 실제 기록 이벤트 수 진행 메시지. 부분 Trace를 완료로 반환하지 않는다.
-- useExperiment.ts: 요청 ID로 stale 응답 무시. 취소는 Worker.terminate()로 실제 계산 중단, 완료/페이지 변경 시 해제, 재시도. 계산 pause/resume 및 Worker pool은 아직 미구현. 재생 pause와 계산 pause를 혼동하지 않는다.
-- trace.ts: immutable field patch + undo + 48개 이벤트마다 checkpoint. 희소 레이블 변경은 labelChanges delta, Mean Shift 기존 중심 delta 유지. 상태 복원 applyStep/stateAt로 앞뒤 동일. 예산을 검사하고 넘으면 실패. 원본 이벤트별 대형 배열 생성 비용은 모든 기존 엔진에서 해결되지 않았다.
-- K-Means: 예상 기록량에 따라 점별 또는 반복별 실제 할당/중심 갱신 기록. 전체 계산 동일, 기록 세분도만 다름. FCM은 실제 U/목적함수/중심, Bisecting은 실제 분할/할당/평균/트리/SSE를 기록한다.
-- editor/history.ts: 공통 prefix/suffix를 제외한 splice delta와 메타데이터 저장, 최대 100작업. 전체 데이터 교체는 실제 전체 변경만큼 저장한다. 복원 때 현재 배열 생성은 O(n), 데이터 객체는 공통 구간을 공유한다.
-- renderer.ts: viewport 픽셀 밀도로 표시 stride 선택, 가시 영역 밖 점 culling. 계산 입력은 바꾸지 않음. 표시 표본 비율과 전체 입력 수를 Canvas에 표시. 인덱스 기반 균일 화면 표본이므로 편향 없는 통계 표본을 보장하지 않는다.
-- Compare: 이차 연산량이 큰 실루엣은 연산량 정책으로 생략하고 UI 표시. 전체 비교 계산은 Worker에 남는다.
-- Catalog.tsx: lazy 페이지. 실행 15개와 미조사 117개를 구분. 신규 후보 전체 119개는 candidates.json. 기본 검색/계열/입력/구현 필터만 구현. 고급 필터/즐겨찾기/최종 검증 배지 미완료.
+`dataset.ts`는 numeric/categorical/mixed/graph/matrix/timeseries/stream/constrained union이다. numeric은 모든 원본 특성, graph는 노드 ID와 실제 가중 간선이다. displayPoints의 축 투영/원형 배치는 표시 전용이며 계산은 numericRows의 모든 차원 또는 원래 간선을 사용한다. 표시 변경으로 수학적 입력이 달라지지 않는다.
 
-## 아직 바꾸지 않은 계약과 한계
+`datasetValidation.ts`는 unknown JSON의 직사각형·유한 값·차원/이름·노드 고유성·간선 끝점·시간 순서·제약 모순을 검사한다. 스키마 유효성과 실행 호환성은 구분한다. [형식과 지원 범위](DATA_FORMATS.md)를 따른다.
 
-Point는 x/y 및 optional label/features를 유지한다. N차원·원본 그래프·행렬·시계열·스트림·제약은 아직 미지원이며 프로젝트 목표로 남는다. Worker 메시지는 object clone이며 TypedArray transferable은 아직 없다. 파일 가져오기는 전체 문자열 방식이며 스트리밍 파서가 아니다. 100만 점 Node 실행 성공을 브라우저 전체 파이프라인 보장으로 사용하지 않는다.
+`datasetExecution.ts`는 지원 여부→입력/파라미터/자원 검사→동적 로더→계산을 연결한다. runDataset은 partition/computedRows/sourceDimensions/trace를 반환한다. 제품 Worker도 같은 준비 단계와 원본 Dataset을 엔진 네 번째 인수로 전달한다. 기존 Point[] 계약을 유지한다.
 
-## 다음 공통 인터페이스
+## 실행
 
-Discriminated Dataset union 및 ExecutionResult union을 추가하되 legacy Point adapter를 유지한다. 데이터 유형별 엔진 호환성/시각화 계약을 registry에 선언한다. Trace event payload를 숫자/그래프/행렬/학습용으로 확장하고 렌더러를 family plugin으로 나눈다. 원본 N차원 배열은 투영 좌표와 분리하고, 그래프 간선은 좌표 거리 대신 입력 관계를 유지한다. pause 가능한 generator/청크 엔진과 기기 자원 기반 Worker pool은 별도 회귀 기준 후 도입한다.
+registry의 25개 loader는 선택 모듈만 import한다. parameters 스키마는 UI/검증 공통이다. algorithmDetails에 신규 논문·검증·복잡도·Trace·시각화·한계가 있다. 기존 메타데이터 전수 감사는 남아 있다. run.ts는 정적 동기 테스트 API이며 제품 Worker가 import하지 않는다.
+
+algorithmDefaults는 AP 반복 200회와 PAM/ROCK 기존 기본값을 관리한다. 신경 가스의 결과는 BMU 양자화이며 자동 커뮤니티 추출로 설명하지 않는다. 관련 학습법 분류와 프로토타입 지표 적용 조건을 표시한다.
+
+resources는 실제 알고리즘별 비용을 예측한다. 작업 공간 256MiB·Trace 64MiB는 실행 정책이며 가용 RAM 측정이나 peak 보장이 아니다. ND 원본과 JSON 파싱 공간도 추정한다. 새 전역 점 수 상한은 없다. O(n²) 엔진은 위험한 할당 전에 오류를 반환한다.
+
+useExperiment는 Dataset을 캐시 키에 포함하고 세대 ID로 stale 결과를 거부한다. 취소/페이지 이동은 Worker.terminate()로 실제 중단한다. 진행 메시지는 단계·실제 기록 수다. 계산 pause/resume·청크 실행·Worker pool은 미구현이며 재생 일시정지와 구별한다.
+
+## Trace와 렌더링
+
+immutable patch/undo·희소 label delta·중심 delta·48이벤트 checkpoint를 유지한다. 조밀한 레이블 변경은 먼저 개수를 세어 버려질 대량 delta 객체 생성을 피한다.
+
+analysisDelta는 바뀐 필드 before/after만 저장한다. 동일 W/S/L/고유벡터는 공유하며 내용 비교·복사로 호출자의 mutation으로 과거 상태가 바뀌지 않게 한다. kind 전환의 필드 제거와 역복원을 검증한다. 예산 초과는 명시적 실패다. JSON 직렬화는 공유 참조를 풀기 때문에 retained heap과 다르다.
+
+AlgorithmAnalysis는 W/L/고유벡터·AP S/R/A·rho/delta/parent/halo·축소 대표점·뉴런 순위/오차/간선 나이·배치 방문수·medoid 표본/제안/전체 비용을 표시한다. 행렬은 접힌 상태로 시작하고 펼친 부분만 10×10 페이지로 표시한다. 계산은 전체 행렬이다. Spectral은 전체 K축으로 학습하고 화면은 첫 두 축만 보여준다. 실제 임베딩 중심 이동을 보간한다.
+
+Canvas는 안정 뉴런 ID와 실제 간선·CURE 대표점을 그린다. 점/간선은 viewport LOD를 적용하고 표시/전체 수를 알린다. 관측점 exemplar는 표시 축으로 재투영한다. 보간은 실제 중간 계산과 구분하며 reduced-motion을 따른다.
+
+## 남은 병목
+
+기존 최대 100작업 splice delta Undo/Redo와 CSV/JSON을 유지한다. 전체 교체/복원은 O(n)일 수 있다. 새 구조형 편집은 JSON 원문·파일 입출력·축 선택이며 그래프 드래그/3D 회전/속성 표/구조형 Undo/비교는 아직 없다.
+
+Worker 메시지는 object clone이다. TypedArray transferable·스트리밍 파서·희소 고유해·GPU/WASM은 미도입이다. 모든 기존 엔진의 대형 배열·거리 연산을 해결한 상태가 아니다. 장시간 누수·peak·대규모 브라우저 전송/렌더링은 추가 과제다.

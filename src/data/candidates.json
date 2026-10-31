@@ -3,10 +3,11 @@
     "number": 1,
     "name": "Mini-Batch K-Means",
     "family": "A 중심·대표점 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·브라우저 검증 완료 (제한 범위)",
+    "classification": "변형 (비복원 epoch)",
+    "input": "points2d",
+    "engine": "Mini-Batch K-Means",
+    "research": "정의·구현 자료 확인, 원문 접근 범위는 docs/research 참고"
   },
   {
     "number": 2,
@@ -57,10 +58,11 @@
     "number": 7,
     "name": "K-Medians",
     "family": "A 중심·대표점 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·브라우저 검증 완료 (제한 범위)",
+    "classification": "주요 변형 (L1 중앙값)",
+    "input": "points2d",
+    "engine": "K-Medians",
+    "research": "정의·구현 자료 확인, 원문 접근 범위는 docs/research 참고"
   },
   {
     "number": 8,
@@ -120,19 +122,21 @@
     "number": 14,
     "name": "CLARA",
     "family": "A 중심·대표점 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·브라우저 검증 완료 (제한 범위)",
+    "classification": "표본 탐색 변형",
+    "input": "points2d",
+    "engine": "CLARA",
+    "research": "정의·구현 자료 확인, 원문 접근 범위는 docs/research 참고"
   },
   {
     "number": 15,
     "name": "CLARANS",
     "family": "A 중심·대표점 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·브라우저 검증 완료 (제한 범위)",
+    "classification": "주요 변형 (무작위 medoid 탐색)",
+    "input": "points2d",
+    "engine": "CLARANS",
+    "research": "정의·구현 자료 확인, 원문 접근 범위는 docs/research 참고"
   },
   {
     "number": 16,
@@ -237,10 +241,11 @@
     "number": 27,
     "name": "Density Peaks / CFSFDP",
     "family": "C 밀도·온라인 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·브라우저 검증 완료 (제한 범위)",
+    "classification": "중심 선택 변형 (명시적 K)",
+    "input": "numeric-nd",
+    "engine": "Density Peaks / CFSFDP",
+    "research": "정의·구현 자료 확인, 원문 접근 범위는 docs/research 참고"
   },
   {
     "number": 28,
@@ -345,10 +350,11 @@
     "number": 39,
     "name": "CURE",
     "family": "D 계층·혼합 접근",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·브라우저 검증 완료 (제한 범위)",
+    "classification": "독립 알고리즘 (전체 데이터 절차)",
+    "input": "points2d",
+    "engine": "CURE",
+    "research": "정의·구현 자료 확인, 원문 접근 범위는 docs/research 참고"
   },
   {
     "number": 40,
@@ -390,28 +396,31 @@
     "number": 44,
     "name": "SLINK",
     "family": "D 계층·혼합 접근",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
+    "status": "정의·관계 조사 · 미구현",
+    "classification": "최적화 (single linkage)",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/TAXONOMY.md: 원문/공식 문서 접근 여부 구분"
   },
   {
     "number": 45,
     "name": "CLINK",
     "family": "D 계층·혼합 접근",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
+    "status": "정의·관계 조사 · 미구현",
+    "classification": "구현 기법 (complete 유사, 순서 의존성 주의)",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/TAXONOMY.md: 원문/공식 문서 접근 여부 구분"
   },
   {
     "number": 46,
     "name": "NN-Chain HAC",
     "family": "D 계층·혼합 접근",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
+    "status": "정의·관계 조사 · 미구현",
+    "classification": "최적화 (linkage별 조건)",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/TAXONOMY.md: 원문/공식 문서 접근 여부 구분"
   },
   {
     "number": 47,
@@ -426,19 +435,21 @@
     "number": 48,
     "name": "Spectral Clustering",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·브라우저 검증 완료 (제한 범위)",
+    "classification": "독립 알고리즘·정규화 변형",
+    "input": "numeric-or-graph",
+    "engine": "Spectral Clustering",
+    "research": "정의·구현 자료 확인, 원문 접근 범위는 docs/research 참고"
   },
   {
     "number": 49,
     "name": "Affinity Propagation",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·브라우저 검증 완료 (제한 범위)",
+    "classification": "독립 알고리즘",
+    "input": "numeric-nd",
+    "engine": "Affinity Propagation",
+    "research": "정의·구현 자료 확인, 원문 접근 범위는 docs/research 참고"
   },
   {
     "number": 50,
@@ -723,10 +734,11 @@
     "number": 81,
     "name": "Bayesian GMM / DP-GMM",
     "family": "G 확률·혼합모델",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
+    "status": "정의·관계 조사 · 미구현",
+    "classification": "분리 검토 필요 (finite Bayesian/DP)",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/TAXONOMY.md: 원문/공식 문서 접근 여부 구분"
   },
   {
     "number": 82,
@@ -741,10 +753,11 @@
     "number": 83,
     "name": "Mixture of Factor Analyzers",
     "family": "G 확률·혼합모델",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
+    "status": "정의·관계 조사 · 미구현",
+    "classification": "모형 (요인분석 혼합)",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/TAXONOMY.md: 원문/공식 문서 접근 여부 구분"
   },
   {
     "number": 84,
@@ -768,19 +781,21 @@
     "number": 86,
     "name": "Bernoulli Mixture",
     "family": "G 확률·혼합모델",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
+    "status": "정의·관계 조사 · 미구현",
+    "classification": "모델 (binary LCA와 동등 조건)",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/TAXONOMY.md: 원문/공식 문서 접근 여부 구분"
   },
   {
     "number": 87,
     "name": "Latent Class Analysis",
     "family": "G 확률·혼합모델",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
+    "status": "정의·관계 조사 · 미구현",
+    "classification": "모델 (binary 경우 Bernoulli와 중복)",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/TAXONOMY.md: 원문/공식 문서 접근 여부 구분"
   },
   {
     "number": 88,
@@ -813,28 +828,31 @@
     "number": 91,
     "name": "Mixture of Probabilistic PCA",
     "family": "G 확률·혼합모델",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
+    "status": "정의·관계 조사 · 미구현",
+    "classification": "모형 변형 (PPCA 혼합)",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/TAXONOMY.md: 원문/공식 문서 접근 여부 구분"
   },
   {
     "number": 92,
     "name": "Neural Gas",
     "family": "H 신경망·딥러닝 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·브라우저 검증 완료 (제한 범위)",
+    "classification": "관련 학습법 (경쟁 양자화)",
+    "input": "points2d",
+    "engine": "Neural Gas",
+    "research": "정의·구현 자료 확인, 원문 접근 범위는 docs/research 참고"
   },
   {
     "number": 93,
     "name": "Growing Neural Gas",
     "family": "H 신경망·딥러닝 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·브라우저 검증 완료 (제한 범위)",
+    "classification": "관련 학습법 (성장 양자화)",
+    "input": "points2d",
+    "engine": "Growing Neural Gas",
+    "research": "정의·구현 자료 확인, 원문 접근 범위는 docs/research 참고"
   },
   {
     "number": 94,

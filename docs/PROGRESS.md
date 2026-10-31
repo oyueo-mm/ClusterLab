@@ -1,47 +1,32 @@
 # 진행 기록 — 2026-10-31
 
-전체 목표는 **미완료**. 이번 안정 단위는 플랫폼 확장 기반과 실제 신규 2개 엔진이다. 작업 브랜치 `feat/platform-foundation`, 현재 브랜치 `main`, 기준 main `9ecf190`. 최종 커밋은 `git log -1 --oneline` 및 세션 보고서 참조.
+전체 마스터 목표는 **미완료**다. 현재 작업 브랜치는 feat/graph-and-prototype-engines, 시작 main은 f5777c1이다. 이전 세션 기록은 sessions/foundation/에 보존했다.
 
-## 완료한 구현
+## 실제 완료 범위
 
-- 기존 구조/테스트/프리셋/가이드/홈 순환/배포 workflow 조사. 기준 146개 단위 테스트 통과.
-- 600점 제한을 실행·편집·드래그·히스토리·생성 UI·가져오기에서 제거. 새 전역 점 개수 상한 없음.
-- 작업 공간/Trace 바이트 예산과 명시적 자원 실패. K-Means 전체 데이터 반복별 Trace와 점별 Trace 구분 표시.
-- 희소 label delta, 기존 Mean Shift center delta, checkpoint/역재생 보존.
-- 편집 히스토리 splice delta, 최대 100작업. 공통 구간의 점 객체 재사용.
-- Worker 실행 가능 엔진 15개의 동적 import, ES module production chunk. 진행 단계/실제 기록 수, Worker 종료 기반 취소/재시도/해제.
-- Fuzzy C-Means: 실제 소속도·가중평균·목적함수·수렴·실제 색 혼합 및 U표, 수학 가이드/미니 실험.
-- Bisecting K-Means: largest-SSE 잎, 단일 시드 2-Means, 내부 할당/중심 갱신/분할 트리, SSE/수학 가이드/미니 실험.
-- 신규 후보 119개 전체 목록을 JSON과 문서에 보존. 2개 실행 가능, 117개 미조사·미구현.
-- 도감 검색/계열/입력/구현 필터, 실제 엔진으로 이동/가이드. Canvas 표시 표본·culling, reduced-motion 시 이산 상태 표시.
-- 100~1M K-Means Node 측정, 신규 FCM 독립 NumPy 수치 oracle와 Bisecting 손계산 검증. 런타임 의존성 추가 없음.
+- 신규 10개: Spectral Clustering, Affinity Propagation, Density Peaks / CFSFDP, CURE, Neural Gas, Growing Neural Gas, K-Medians, Mini-Batch K-Means, CLARA, CLARANS.
+- 각 엔진의 실제 계산·상태 변화 Trace·전용 분석 화면·스키마 파라미터·수학 가이드/실제 Worker 미니 실험·독립 수치 fixture·시드/복원 검증을 연결했다. 제한은 research 문서에 명시했다.
+- 기존 13개와 이전 2개를 포함한 실제 엔진 25개. 후보 119개 중 실제 12개, 미구현 107개. 원문 전수 조사와 엄격한 마스터 완전 구현 인증은 아직 미완료다.
+- Dataset union·런타임 스키마 검증·JSON 입출력·지원 호환성. ND 원본 전체 계산은 Spectral/AP/Density Peaks, 실제 그래프는 Spectral에 연결했다. 다른 데이터 유형은 계약/검증만 있다.
+- 실제 W/L/임베딩 중심·S/R/A·밀도 결정 그래프·대표점·뉴런 간선·배치 counts·medoid 제안 화면. 행렬을 접고 페이지 표시하며 계산 데이터를 줄이지 않는다.
+- analysis field delta·불변 행렬 공유·조밀한 label delta 임시 객체 제거. 원본과 표시 좌표 분리, 그래프 간선 LOD/개수 표시, reduced-motion 반영.
+- 실험실 검색·도감 기능/검증 필터·신규 기본값. 홈 원래 13개/11라운드, 기존 디자인/32프리셋/편집/비교를 보존한다.
+- SLINK/CLINK/NN-chain 및 혼합모델 별칭 관계 8개 조사 기록. 명칭 등록만으로 구현 수에 추가하지 않는다.
 
-## 검증 결과
+## 검증 상태
 
-타입 검사·lint·production build·단위 159개 통과. 기존 브라우저 최초 실행은 32통과/12조건부 생략/2실패(toast 선택자 중복)였으며, 수정 후 가이드 2개 모두 통과. 신규 도감·실제 엔진·100k 입력·실제 계산 취소 6개도 최종 통과. 즉 중복 재실행을 제외한 40개 브라우저 사례 통과, 12개 기존 조건부 skip. 이 수치는 로컬 분할 실행 결과이며, 이후 원격 CI가 52개 구성 전체를 한 번에 실행해 40통과/12조건부 skip/0실패로 성공했다. 새 후보 전수 조사와 전체 개발은 미완료다.
+타입 검사·ESLint·프로덕션 빌드 통과. 단위 테스트 **247/247, 21파일** 통과. 신규 플랫폼 Chromium/mobile 6/6, Firefox/WebKit 6/6 통과. 전체 회귀 최초 44통과/12조건부 생략/2선택자 실패 후, 정확한 도감 검색 선택자와 option 접근을 수정했다. 최종 도감·플랫폼 18/18 통과(Chromium/mobile 12, Firefox/WebKit 6). 중복 실행을 제외한 Chromium/mobile 고유 검사는 46통과/12조건부 생략이다. 원격 배포 상태는 SESSION_REPORT에서 확정한다.
 
-검증 증거: `docs/expansion/VALIDATION.md`, 브라우저 JSON, 스크린샷 및 규모 측정. 변경 소스에 대한 타입·lint·build는 최종 확인했고, 실제 수치 소스 변경 뒤 전체 단위 159개를 재확인했다. 원격 Actions/배포 결과는 아래 세션 보고서와 최종 응답의 실행 링크를 확인한다.
+NumPy 2.5.4/SciPy 1.18.1/scikit-learn 1.7.2는 검증 전용으로 실제 실행했다. 제품 의존성은 추가하지 않았다. Node 전체 입력 100~100만 K-Means/Mini-Batch 관측을 platform에 보존했다. 메모리 peak나 브라우저 60FPS를 보장하지 않는다.
 
-## 미완료 / 다음 작업
+## 미완료와 다음 단위
 
-1. 117개 미구현 후보 포함 전수 원논문/수식/중복/최종 분류/독립 구현 조사. 특히 SLINK/CLINK/NN-chain의 linkage 관계와 혼합 모델 별칭을 정리.
-2. Spectral/FCM 다음 우선순위에서 Spectral·Affinity Propagation·Density Peaks·CURE·X/G-Means·Neural Gas 등을 하나씩 종단 통합.
-3. N차원/3D/범주·혼합/그래프/행렬/시계열/스트림/제약 데이터 계약·편집·입출력. 현재 x/y Point 엔진은 그대로 2D 한정.
-4. 레지스트리 원문/복잡도/거리/입출력/이벤트·시각화/검증/제약의 메타데이터 완성 및 버전 추적. 모든 실행 분기를 제거하는 작업은 동기 API 포함 미완료.
-5. Worker pool/실제 계산 pause 가능한 chunk engine, typed error/timeout/partial trace 및 전송 버퍼. 현재 terminate 취소는 진짜 중단이지만 재개 가능한 계산 일시정지는 아니다.
-6. 대형 파일 스트리밍, TypedArray/transferable, 엔진별 공간 인덱스와 저메모리 정확 구현, Trace 청크/지속 저장 및 peak 메모리 검증.
-7. 고급 도감 필터/검색 가능한 실험실/즐겨찾기/다중 형식 비교/추가 분석 지표.
-8. 장시간/메모리 누수/대형 브라우저 FPS 및 Firefox/WebKit. 100만 점 Node 결과를 브라우저 성능으로 확대 해석하지 말 것.
-9. 신경망·딥러닝은 실제 학습 런타임 선정/라이선스·용량·호환성 검증부터 필요.
+1. 107개 후보의 원문/수식/정확한 분류·실제 엔진. X/G-Means 및 Louvain/Leiden/Label Propagation, K-Modes/PROCLUS/CLIQUE/DenStream을 우선 진행한다.
+2. 범주/혼합/제약/행렬/시계열/스트림/딥 학습 실제 실행과 전용 편집·시각화. JSON 스키마 존재를 실행 완료로 표시하지 않는다.
+3. Worker pool·계산 pause/resume·증분 엔진·TypedArray transferable·청크 파서·희소 고유해·장시간 메모리/브라우저 대규모 측정.
+4. 구조형 데이터 비교·Undo/Redo·3D 회전·노드/간선 시각 편집·PCA, 적용 조건이 맞는 추가 지표.
+5. 기존 메타데이터 원문 전수 감사와 119개 조사 완료. 접근 불가 원문은 근거 한계를 유지한다.
 
-## 작업 단위 기록
+## 작업 파일과 커밋
 
-수정 파일: `src/engine/{types,parameters,registry,validation,resources,run,worker,trace}.ts`, `algorithms/{kmeans,fuzzy,bisecting}.ts`, `src/editor/history.ts`, `src/animation/{useExperiment,homeCycle,renderer}.ts`, `src/components/{Catalog,Settings,Playback,Canvas,Analysis}.tsx`, `src/App.tsx`, `src/data/{presets,guides,algorithmFamilies,candidates,lessons/*}`, 테스트/문서/README/vite config. 기존 알고리즘 12개 파일은 변경하지 않았고 K-Means는 기록 세분도만 추가했다.
-
-후속 세션은 CONTINUE.md의 명령과 검증 범위를 따른다. 사용자에게 세부 구현 지시나 마스터 명세를 다시 요청하지 않는다.
-
-## 안정 체크포인트
-
-구현 및 로컬 검증 커밋: `37bb7737fa3b7094c5663baf15c8a66b55e24503` (`feat/platform-foundation`). 진행 기록 커밋 `8dd2d948338c8e8e210d6736a7c2f32ca043da09`까지 main/원격 작업 브랜치로 fast-forward 반영했다. [Actions #9](https://github.com/oyueo-mm/ClusterLab/actions/runs/41165349024)의 validate/deploy 모두 성공했다. 공개 Pages에서 홈·도감·신규 엔진·100k 입력/실제 취소 4개 검사를 통과했다.
-
-최종 문서 전용 체크포인트는 `[skip ci]`로 기록한다. 배포된 애플리케이션 소스 `8dd2d94`에는 변경이 없으며, 문서·원격 검증 증거와 후속 조사 메모만 추가한다. 재개 시 main을 기준으로 진행한다.
+engine/{dataset*,algorithmDetails,linalg,registry,resources,trace,types,parameters,worker,run}, algorithms 신규 10개, fixtures/독립 Python 5개, lessons 신규 5개, AlgorithmAnalysis/StructuredLab/Catalog/App/renderer/useExperiment, tests/platform 및 기존 회귀, docs를 수정했다. 기존 문서·검증 증거는 삭제하지 않았다. 최종 SHA는 SESSION_REPORT와 git log를 따른다. 안정 커밋 후 main fast-forward 및 기존 Pages workflow로 배포한다. 강제 push는 사용하지 않는다.

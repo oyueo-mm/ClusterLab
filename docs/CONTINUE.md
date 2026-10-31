@@ -1,28 +1,26 @@
 # 재개 절차
 
-이 저장소는 2026-10-31의 통합 마스터 요청을 계속 수행한다. 전체를 완료했다고 보고하지 않는다.
+이 저장소는 하나의 통합 마스터 요청을 계속 수행한다. 전체 완료로 오인하지 않는다. [정확한 후속 지시문](requests/2026-10-31-CONTINUATION.md)을 보존했다. 사용자에게 지시문을 반복 요청하지 않는다.
 
-1. `docs/MASTER_PLAN.md`, `PROGRESS.md`, `ALGORITHM_REGISTRY.md`, `ARCHITECTURE.md`, `PERFORMANCE.md`, `expansion/VALIDATION.md`, `SESSION_REPORT.md`를 읽는다.
-2. `git status --short`, `git log -5 --oneline`, `git branch -av`, `git fetch origin`으로 실제 상태를 확인한다. 사용자 변경을 덮어쓰지 않는다. `feat/platform-foundation`는 이번 세션 작업 브랜치이며 main에 반영되었다. 기준 v0.6은 9ecf190, 배포된 확장 소스는 8dd2d94다. 최종 문서 전용 커밋이 뒤따르므로 main에서 이어간다.
-3. 의존성 설치된 상태에서는 재설치하지 않는다. `npm run typecheck`, `npm run lint`, `npm test`, `npm run build`. Windows sandbox에서 esbuild spawn EPERM이면 필요한 프로세스 실행만 승인된 환경에서 재시도한다.
-4. 브라우저: PowerShell `$env:CLUSTERLAB_PRODUCTION='1'; npm run test:e2e`. production Worker dynamic import 검증에는 `worker: { format: "es" }`가 필요하다. Playwright Chromium·mobile 구성. 전체 홈 순환 테스트는 몇 분 소요된다.
-5. 신규 browser만: `npx playwright test tests/expansion.spec.ts`. 최종 코드 변경 시 production build를 다시 만든 후 실행한다. dev server와 production 테스트를 혼동하지 않는다.
-6. 수치 fixture 재생성: `python scripts/expansion_reference.py` (NumPy 필요). 제품에는 Python 의존성이 없다. 기존 fixture `scripts/generate-reference.py`는 기존 독립 비교 기록을 보존한다.
-7. 규모 측정: `npm test -- src/engine/scale.test.ts`. `.local/scale-results.json`은 재실행마다 덮어써지는 로컬 측정이며 docs/expansion의 기록은 해당 날짜 증거로 보존한다. CPU·GC/peak·브라우저 미포함 한계를 유지한다.
+1. MASTER_PLAN/PROGRESS/ALGORITHM_REGISTRY/ARCHITECTURE/DATA_FORMATS/PERFORMANCE/VALIDATION/SESSION_REPORT를 읽는다. 이전 기록은 sessions/foundation, expansion, v0.x에 있다.
+2. git status --short, git log -5 --oneline, git branch -av, git fetch origin으로 실제 커밋과 배포 상태를 확인한다. 현재 구현은 feat/graph-and-prototype-engines에서 시작했으며 SESSION_REPORT의 최종 반영 여부를 따른다. 사용자 변경을 덮어쓰지 않는다.
+3. 의존성이 설치돼 있으면 재설치하지 않는다. npm run typecheck, npm run lint, npm test, npm run build. Windows esbuild/브라우저 spawn EPERM은 필요한 프로세스 실행만 승인된 환경에서 재시도한다.
+4. 프로덕션 브라우저는 PowerShell $env:CLUSTERLAB_PRODUCTION='1'; npm run test:e2e. 현재 로컬 4173은 다른 VizLab 프로젝트가 점유했다. 타 프로젝트를 종료하지 않는다. 필요하면 npm run preview -- --port 4273 --strictPort를 별도 실행하고 $env:CLUSTERLAB_BASE_URL='http://127.0.0.1:4273/ClusterLab/'를 설정한다. 종료 후 남은 preview 프로세스 상태는 직접 확인한다.
+5. 전체 Chromium/mobile은 긴 홈 순환·GMM 검사를 포함해 약 10분이다. 신규만 npx playwright test tests/platform.spec.ts. Firefox/WebKit은 npx playwright install firefox webkit 후 $env:CLUSTERLAB_CROSS_BROWSER='1'; npx playwright test tests/platform.spec.ts --project=firefox --project=webkit. 전체 기존 기능의 cross-browser 검증이라고 확대하지 않는다.
+6. fixture 재생성: python scripts/{spectral,messages_density,prototypes,centroid_variants,medoid_variants}_reference.py를 각각 실행한다. NumPy 2.5.4, SciPy 1.18.1, sklearn 1.7.2의 검증 전용 환경 .local/spectral-reference-runtime이 있으면 스크립트가 사용한다. Windows 해당 pip 경로 권한으로 승인 실행이 필요할 수 있다. 새 세션에서는 fixture metadata와 패키지 버전을 확인한다. 제품에는 Python/ML 런타임이 추가되지 않았다.
+7. 규모: npm test -- src/engine/scale.test.ts src/engine/platform-scale.test.ts src/engine/benchmark.test.ts. .local 측정은 덮어써지므로 검토할 세션 증거는 docs/platform에 복사한다. heap delta/직렬화 크기를 peak RAM으로 설명하지 않는다.
 
-## 다음 실제 구현 단위
+## 다음 구현
 
-공통 Dataset union/algorithm capability 계약을 설계한 뒤 Spectral Clustering부터 진행하는 것이 적절하다. 좌표→유사도 그래프 생성, 라플라시안 정의, 고유해 수치 안정성, 임베딩의 실제 Trace, K-Means 후단, 행렬 메모리 예측, 전용 시각화/가이드/독립 NumPy 또는 sklearn 검증을 함께 끝낸다. 기존 모든 군집화 문제를 단순 K-Means 래퍼로 처리하지 않는다.
+실제 25개 엔진, 신규 후보 12개 실행/107개 미구현이다. 먼저 현재 미완료 검증/배포가 있는지 SESSION_REPORT를 확인한다. 이후 X-Means/G-Means 또는 GraphDataset을 활용하는 Louvain/Leiden/Label Propagation의 독립 세로 단위가 적절하다. 공통 계약을 먼저 확정하고, 실제 목적함수·이동/정제·연결성 Trace·전용 UI·원문·독립 구현 비교까지 연결한다. 나머지 후보를 목록에서 제거하지 않는다.
 
-119개 후보 조사도 병행해서 각 번호별 원문·정의·입출력·분류·중복·라이선스·검증 출처를 기록한다. candidates.json의 미조사 상태를 실제 조사 없이 상향하지 않는다. FCM 원문 DOI는 이번 환경에서 403, Bisecting 원문 PDF도 열람 제한이었다. scikit-learn/scikit-fuzzy 공식 수식·문서와 독립 수치 코드를 사용했고 원문 직접 열람은 추가 과제다.
+## 유지할 불변조건
 
-## 유지해야 하는 주의점
-
-- 기존 homes는 legacyAlgorithms의 13개만 11개 순환. 신규 엔진이 algorithms 목록에 들어가더라도 홈 회전을 자동 확대하지 않는다.
-- run.ts는 정적 동기 검증용 API. 제품 Worker에서는 registry loaders로 실행한다. 제품 코드가 run.ts를 import하면 전체 엔진 eager load가 되므로 피한다.
-- Trace 메모리 예산은 기록을 조용히 버리지 않는다. 초과 시 오류이고 결과 완료로 표시하면 안 된다.
-- 표시 LOD는 입력 배열 인덱스 stride이며 계산은 전체. 도감의 후보 132개가 132개 실행 가능한 엔진이라는 뜻이 아니다.
-- 원본 데이터는 여전히 2D다. 고차원·그래프·스트림 지원으로 표시하지 않는다.
-- 별도 작업 브랜치에서 검증하고 안정 변경만 main에 반영한다. 사용자 요청에 배포 권한이 포함되어 있으므로 통과한 안정 기능은 기존 GitHub Pages workflow로 배포할 수 있다. 강제 push 금지.
-
-원격 Actions #9 전체 검증/배포 및 공개 사이트 4개 검사는 성공했다. 후속 원문 메모는 `docs/RESEARCH_QUEUE.md`를 먼저 참고하되, 후보별 정의 조사 완료로 자동 상향하지 않는다.
+- 홈은 legacyAlgorithms 13개·11라운드·실시간 네 Worker. 신규 25개 목록을 홈 전체에 자동 적용하지 않는다.
+- 제품은 registry 동적 로딩; run.ts 정적 API를 Worker/UI에 import하지 않는다. Vite worker format es를 유지한다.
+- 모든 원본 차원/간선으로 계산한다. 표시 LOD/축 선택과 계산 데이터는 분리한다. 지원하지 않는 Dataset은 명시적 오류다.
+- 스키마만 있는 categorical/mixed/matrix/timeseries/stream/constrained를 실제 엔진 지원으로 표시하지 않는다.
+- AP 200회 기본값·미수렴/대표점 실패, DPC K/gamma 변형·halo와 label 구분, GNG 1995 순서·BMU 한계, Mini-Batch epoch 변형·counts, CLARA 표본 탐색·전체 평가를 유지한다.
+- Trace 메모리 초과를 빈 결과/가짜 성공으로 감추지 않는다. 분석 행렬 공유와 전후 checkpoint 동등성을 검증한다.
+- 별칭·최적화를 독립 알고리즘 개수로 부풀리지 않는다. 원문 접근 제한은 research에 명시한다.
+- 안정 변경만 main에 반영하고 기존 Pages workflow로 배포한다. 배포 권한은 사용자 마스터 요청에 포함돼 있다. 강제 push 금지.

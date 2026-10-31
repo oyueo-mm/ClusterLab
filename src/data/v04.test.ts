@@ -55,6 +55,7 @@ describe("v0.4 content and v0.3 compatibility", () => {
         minSize: 3,
         threshold: algorithm === "ROCK" ? 0.5 : defaults.threshold,
         initialization: algorithm === "PAM" ? "build" : "kmeans++",
+        ...lesson.experimentParams,
       });
       // Some conditional events (e.g. a PAM move) may legitimately be absent.
       expect(

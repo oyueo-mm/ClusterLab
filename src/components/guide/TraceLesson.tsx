@@ -32,6 +32,7 @@ export function TraceLesson({
     grid: 3,
     minPts: 3,
     minSize: 3,
+    ...lesson.experimentParams,
   }));
   const points = useMemo(
     () => dataset(lesson.preset, { ...dataDefaults, count: 12 }),

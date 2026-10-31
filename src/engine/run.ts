@@ -17,7 +17,29 @@ import { fuzzy } from "./algorithms/fuzzy";
 import { bisecting } from "./algorithms/bisecting";
 import { validateRun } from "./validation";
 import { assertResources } from "./resources";
+import { spectral } from "./algorithms/spectral";
+import { affinity } from "./algorithms/affinity";
+import { densitypeaks } from "./algorithms/densitypeaks";
+import { cure } from "./algorithms/cure";
+import { neuralgas } from "./algorithms/neuralgas";
+import { growingneuralgas } from "./algorithms/growingneuralgas";
+import { kmedians } from "./algorithms/kmedians";
+import { minibatch } from "./algorithms/minibatch";
+import { clara } from "./algorithms/clara";
+import { clarans } from "./algorithms/clarans";
 const engines = {
+  "K-Medians": kmedians,
+  "Mini-Batch K-Means": minibatch,
+  CLARA: clara,
+  CLARANS: clarans,
+
+  "Spectral Clustering": spectral,
+  "Affinity Propagation": affinity,
+  "Density Peaks / CFSFDP": densitypeaks,
+  CURE: cure,
+  "Neural Gas": neuralgas,
+  "Growing Neural Gas": growingneuralgas,
+
   "Fuzzy C-Means": fuzzy,
   "Bisecting K-Means": bisecting,
   "K-Means": kmeans,

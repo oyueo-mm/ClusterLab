@@ -8,6 +8,16 @@ import { som, lvq } from "./competitive";
 import { pam, rock } from "./representatives";
 import { birch, meanshift } from "./modes";
 export const lessons: Record<Algorithm, Lesson> = {
+  "K-Medians": kmedians,
+  "Mini-Batch K-Means": minibatch,
+  CLARA: clara,
+  CLARANS: clarans,
+  "Spectral Clustering": spectral,
+  "Affinity Propagation": affinity,
+  "Density Peaks / CFSFDP": densitypeaks,
+  CURE: cure,
+  "Neural Gas": neuralgas,
+  "Growing Neural Gas": growingneuralgas,
   "Fuzzy C-Means": fuzzy,
   "Bisecting K-Means": bisecting,
   "K-Means": kmeans,
@@ -25,3 +35,10 @@ export const lessons: Record<Algorithm, Lesson> = {
   "Mean Shift": meanshift,
 };
 import { fuzzy, bisecting } from "./expansion";
+
+import { spectral } from "./spectral";
+import { affinity, densitypeaks } from "./messagesDensity";
+import { cure, neuralgas, growingneuralgas } from "./prototypes";
+
+import { kmedians, minibatch } from "./centroidVariants";
+import { clara, clarans } from "./medoidVariants";

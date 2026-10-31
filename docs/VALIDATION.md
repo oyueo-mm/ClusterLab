@@ -85,3 +85,14 @@ PointerCancel·캡처 상실·리사이즈·포커스 상실·탭 숨김·도구
 ---
 
 2026-10-31 플랫폼 확장 기반의 새 검증 기록은 [expansion/VALIDATION.md](expansion/VALIDATION.md)에 추가했습니다. 위 v0.6 검증 기록은 보존합니다.
+
+
+## 2026-10-31 플랫폼 확장 검증 (기존 기록 보존)
+
+실행 엔진 25개, 신규 후보 119개 중 12개 실제 실행/107개 미구현이다. 신규 10개 계산·Trace·전용 분석·파라미터·가이드와 독립 수치를 통합했다. 타입/ESLint/production build 및 Vitest 247/247(21파일) 통과. NumPy 2.5.4/SciPy 1.18.1/sklearn 1.7.2는 검증 전용으로 실제 실행했고 제품 의존성은 추가하지 않았다.
+
+신규 플랫폼 Playwright Chromium/mobile 6/6과 Firefox/WebKit 6/6이 통과했다. 실제 Worker, 모든 원본 ND 차원, 실제 가중 간선, 표시 변경과 계산 분리, 전후 탐색, 행렬 페이지, 오류·제약 모순·7개 폭을 확인했다. 전체 기존 회귀/원격 Actions/Pages 결과는 [현재 세션 보고서](SESSION_REPORT.md)를 따른다. 초기 테스트 선택자 실패를 실제 알고리즘 실패와 구별하고 증거를 보존했다.
+
+자료: platform/*.json 및 스크린샷, research의 원문 열람 범위·한계, ALGORITHM_REGISTRY 전체 후보 표, DATA_FORMATS 실제 지원, PERFORMANCE 관측. 이전 expansion 증거와 버전 검증 문서를 덮어쓰지 않았다. 100만 Node 성공을 브라우저 FPS/메모리 peak 보장으로 사용하지 않는다. 전체 마스터 목표는 미완료다.
+
+최종 로컬 보완: 도감·플랫폼 18/18 통과. 중복 제외 Chromium/mobile 46통과/12기존 조건부 skip, Firefox/WebKit 신규6통과. 최초 오류는 테스트 검색/option 선택자 가정이며 수정 후 검증했다. 전체 단일 원격 결과는 SESSION_REPORT에서 별도로 기록한다.

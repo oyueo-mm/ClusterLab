@@ -1,0 +1,17 @@
+{
+  "project": "mobile",
+  "viewport": {
+    "width": 390,
+    "height": 664
+  },
+  "points": 36,
+  "algorithms": [
+    "K-Means",
+    "DBSCAN",
+    "GMM",
+    "Mean Shift"
+  ],
+  "meanFrameMs": 16.665909090909096,
+  "p95FrameMs": 16.799999999999727,
+  "maxFrameMs": 16.800000000000182
+}

@@ -42,7 +42,7 @@ describe("algorithm invariants", () => {
         minSize: 3,
         minPts: 3,
         epochs: 2,
-        iterations: 5,
+        iterations: algorithm === "Affinity Propagation" ? 200 : 5,
         threshold: algorithm === "ROCK" ? 0.5 : 0.06,
       };
       const trace = run(algorithm, points, o),

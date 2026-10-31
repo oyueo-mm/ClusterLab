@@ -1,0 +1,24 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "seed": 42,
+  "observations": [
+    {
+      "name": "CLARA",
+      "n": 10000,
+      "milliseconds": 6.82,
+      "heapDeltaBytes": -3081768,
+      "events": 17,
+      "traceEstimatedBytes": 681700
+    },
+    {
+      "name": "CLARANS",
+      "n": 1000,
+      "milliseconds": 4.86,
+      "heapDeltaBytes": -1443864,
+      "events": 93,
+      "traceEstimatedBytes": 294336
+    }
+  ],
+  "note": "One Node observation. Heap delta is not peak; browser transfer/rendering excluded."
+}

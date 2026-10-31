@@ -1,14 +1,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Algorithm, Point, Params, Trace } from "../engine/types";
 import { advance } from "../engine/trace";
+import type { Dataset } from "../engine/dataset";
 export function useExperiment(
   algorithm: Algorithm,
   points: Point[],
   params: Params,
-  options: { active?: boolean; uiInterval?: number } = {},
+  options: { active?: boolean; uiInterval?: number; dataset?: Dataset } = {},
 ) {
   const active = options.active ?? true,
     uiInterval = options.uiInterval ?? 0;
+  const input = options.dataset;
   const [trace, setTrace] = useState<Trace | null>(null),
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false),
@@ -26,6 +28,7 @@ export function useExperiment(
     points: Point[];
     params: Params;
     trace: Trace;
+    input?: Dataset;
   } | null>(null);
   const seek = useCallback((value: number) => {
     positionRef.current = value;
@@ -41,7 +44,8 @@ export function useExperiment(
       cache &&
       cache.algorithm === algorithm &&
       cache.points === points &&
-      cache.params === params
+      cache.params === params &&
+      cache.input === input
     ) {
       setTrace(cache.trace);
       return;
@@ -69,7 +73,13 @@ export function useExperiment(
       setBusy(false);
       if (e.data.error) setError(e.data.error);
       else {
-        completed.current = { algorithm, points, params, trace: e.data.trace };
+        completed.current = {
+          algorithm,
+          points,
+          params,
+          trace: e.data.trace,
+          input,
+        };
         setTrace(e.data.trace);
       }
       w.terminate();
@@ -80,7 +90,14 @@ export function useExperiment(
       setBusy(false);
     };
     const timer = setTimeout(
-      () => w.postMessage({ id: requestId, algorithm, points, params }),
+      () =>
+        w.postMessage({
+          id: requestId,
+          algorithm,
+          points,
+          params,
+          ...(input ? { dataset: input } : {}),
+        }),
       140,
     );
     return () => {
@@ -88,7 +105,7 @@ export function useExperiment(
       clearTimeout(timer);
       w.terminate();
     };
-  }, [algorithm, points, params, seek, active, attempt]);
+  }, [algorithm, points, params, seek, active, attempt, input]);
   useEffect(() => {
     if (!playing || !trace || !active) return;
     let frame = 0,
@@ -130,7 +147,8 @@ export function useExperiment(
       completed.current?.trace === trace &&
       completed.current.algorithm === algorithm &&
       completed.current.points === points &&
-      completed.current.params === params,
+      completed.current.params === params &&
+      completed.current.input === input,
     error,
     busy,
     progress,

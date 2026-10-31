@@ -1,0 +1,58 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "seed": 42,
+  "note": "Single Node observation; heap delta is not peak, no browser transfer/rendering included.",
+  "measurements": [
+    {
+      "name": "CURE",
+      "n": 100,
+      "dimensions": 2,
+      "epochs": null,
+      "elapsedMs": 47.42,
+      "heapDeltaBytes": -1664248,
+      "events": 287,
+      "traceEstimatedBytes": 4029228
+    },
+    {
+      "name": "Neural Gas",
+      "n": 100,
+      "dimensions": 2,
+      "epochs": 1,
+      "elapsedMs": 1.8,
+      "heapDeltaBytes": 1580304,
+      "events": 203,
+      "traceEstimatedBytes": 216416
+    },
+    {
+      "name": "Neural Gas",
+      "n": 1000,
+      "dimensions": 2,
+      "epochs": 1,
+      "elapsedMs": 13.34,
+      "heapDeltaBytes": 33112,
+      "events": 2003,
+      "traceEstimatedBytes": 3989452
+    },
+    {
+      "name": "Growing Neural Gas",
+      "n": 100,
+      "dimensions": 2,
+      "epochs": 1,
+      "elapsedMs": 5.32,
+      "heapDeltaBytes": 6059752,
+      "events": 406,
+      "traceEstimatedBytes": 771604
+    },
+    {
+      "name": "Growing Neural Gas",
+      "n": 1000,
+      "dimensions": 2,
+      "epochs": 1,
+      "elapsedMs": 143.67,
+      "heapDeltaBytes": 24238096,
+      "events": 4021,
+      "traceEstimatedBytes": 28768988
+    }
+  ]
+}

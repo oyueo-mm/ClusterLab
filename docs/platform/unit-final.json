@@ -1,0 +1,114 @@
+{
+  "numTotalTests": 247,
+  "numPassedTests": 247,
+  "numFailedTests": 0,
+  "success": true,
+  "startTime": 1793437244630,
+  "files": [
+    {
+      "path": "src/animation/animation.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "path": "src/animation/gmmHome.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "path": "src/animation/homeCycle.test.ts",
+      "status": "passed",
+      "tests": 10
+    },
+    {
+      "path": "src/engine/analysis-delta.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "path": "src/engine/analytical.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "path": "src/engine/benchmark.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "path": "src/engine/centroid-variants.test.ts",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "path": "src/engine/dataset.test.ts",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "path": "src/engine/engine.test.ts",
+      "status": "passed",
+      "tests": 47
+    },
+    {
+      "path": "src/engine/expansion.test.ts",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "path": "src/engine/meanshift.test.ts",
+      "status": "passed",
+      "tests": 13
+    },
+    {
+      "path": "src/engine/medoid-variants.test.ts",
+      "status": "passed",
+      "tests": 10
+    },
+    {
+      "path": "src/engine/messages-density.test.ts",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "path": "src/engine/platform-scale.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "path": "src/engine/prototypes.test.ts",
+      "status": "passed",
+      "tests": 14
+    },
+    {
+      "path": "src/engine/reference.test.ts",
+      "status": "passed",
+      "tests": 44
+    },
+    {
+      "path": "src/engine/scale.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "path": "src/engine/spectral.test.ts",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "path": "src/editor/history.test.ts",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "path": "src/editor/stroke.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "path": "src/data/v04.test.ts",
+      "status": "passed",
+      "tests": 27
+    }
+  ]
+}

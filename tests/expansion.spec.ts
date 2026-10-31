@@ -1,3 +1,4 @@
+import { algorithms } from "../src/engine/types";
 import { test, expect } from "@playwright/test";
 
 test("catalog distinguishes all candidates from executable engines and filters without overflow", async ({
@@ -9,12 +10,27 @@ test("catalog distinguishes all candidates from executable engines and filters w
   await page.goto("#catalog");
   await expect(page.locator(".catalog-grid article")).toHaveCount(132);
   await page.getByLabel("도감 구현 상태").selectOption("실행 가능");
-  await expect(page.locator(".catalog-grid article")).toHaveCount(15);
-  await page.getByLabel("알고리즘 검색").fill("이분할");
+  await expect(page.locator(".catalog-grid article")).toHaveCount(
+    algorithms.length,
+  );
+  await page.getByLabel("도감 입력 유형").selectOption("numeric-or-graph");
+  await expect(page.locator(".catalog-grid article h2")).toHaveText(
+    "Spectral Clustering",
+  );
+  await page.getByLabel("도감 검증 상태").selectOption("independent-sklearn");
+  await page.getByLabel("도감 입력 유형").selectOption("");
+  await expect(page.locator(".catalog-grid article")).toHaveCount(2);
+  await page.getByLabel("도감 검증 상태").selectOption("");
+  await page.getByLabel("도감 기능").selectOption("hierarchical");
+  await expect(page.locator(".catalog-grid article h2")).toContainText([
+    "CURE",
+  ]);
+  await page.getByLabel("도감 기능").selectOption("");
+  await page.getByLabel("알고리즘 검색", { exact: true }).fill("이분할");
   await expect(page.locator(".catalog-grid article h2")).toHaveText(
     "Bisecting K-Means",
   );
-  await page.getByLabel("알고리즘 검색").fill("Fuzzy C-Means");
+  await page.getByLabel("알고리즘 검색", { exact: true }).fill("Fuzzy C-Means");
   await expect(page.locator(".catalog-grid article")).toHaveCount(1);
   for (const width of [1920, 1440, 1024, 800, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });

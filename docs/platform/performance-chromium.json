@@ -1,0 +1,13 @@
+{
+  "project": "chromium",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "points": 120,
+  "algorithm": "K-Means",
+  "frames": 125,
+  "meanFrameMs": 17.600000000000005,
+  "p95FrameMs": 16.700000000000728,
+  "maxFrameMs": 100.10000000000036
+}

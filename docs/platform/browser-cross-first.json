@@ -1,0 +1,504 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/platform.spec.ts",
+      "--project",
+      "firefox",
+      "--project",
+      "webkit"
+    ],
+    "configFile": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\playwright.config.ts",
+    "rootDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "platform.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "platform.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "firefox",
+        "testDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "snapshotDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "testIgnore": [],
+        "testMatch": "platform.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4273/ClusterLab/",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:157.0) Gecko/20100101 Firefox/157.0",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "firefox"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "webkit",
+        "testDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "snapshotDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "testIgnore": [],
+        "testMatch": "platform.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4273/ClusterLab/",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1792,
+            "height": 1120
+          },
+          "deviceScaleFactor": 2,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "webkit"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": ".local/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "platform.spec.ts",
+      "file": "platform.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "ten new engines expose real events, dedicated analysis and reversible production traces",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 8571,
+                  "error": {
+                    "message": "Error: locator.click: Error: strict mode violation: locator('.analysis-panel').locator('summary') resolved to 4 elements:\n    1) <summary>…</summary> aka getByText('분석 및 내부 구조연산 3.0 ms')\n    2) <summary>유사도 인접 행렬 W · 12×12</summary> aka getByText('유사도 인접 행렬 W · 12×')\n    ...\n\nCall log:\n\u001b[2m  - waiting for locator('.analysis-panel').locator('summary')\u001b[22m\n",
+                    "stack": "Error: locator.click: Error: strict mode violation: locator('.analysis-panel').locator('summary') resolved to 4 elements:\n    1) <summary>…</summary> aka getByText('분석 및 내부 구조연산 3.0 ms')\n    2) <summary>유사도 인접 행렬 W · 12×12</summary> aka getByText('유사도 인접 행렬 W · 12×')\n    ...\n\nCall log:\n\u001b[2m  - waiting for locator('.analysis-panel').locator('summary')\u001b[22m\n\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts:69:38",
+                    "location": {
+                      "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts",
+                      "column": 38,
+                      "line": 69
+                    },
+                    "snippet": "  67 |     const panel = page.locator(\".analysis-panel\");\n  68 |     if ((await panel.getAttribute(\"open\")) === null)\n> 69 |       await panel.locator(\"summary\").click();\n     |                                      ^\n  70 |     await expect(panel.getByText(title, { exact: true }).first()).toBeVisible();\n  71 |     await page.getByLabel(\"한 단계 뒤로\", { exact: true }).click();\n  72 |     await page.getByLabel(\"한 단계 앞으로\", { exact: true }).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts",
+                        "column": 38,
+                        "line": 69
+                      },
+                      "message": "Error: locator.click: Error: strict mode violation: locator('.analysis-panel').locator('summary') resolved to 4 elements:\n    1) <summary>…</summary> aka getByText('분석 및 내부 구조연산 3.0 ms')\n    2) <summary>유사도 인접 행렬 W · 12×12</summary> aka getByText('유사도 인접 행렬 W · 12×')\n    ...\n\nCall log:\n\u001b[2m  - waiting for locator('.analysis-panel').locator('summary')\u001b[22m\n\n\n  67 |     const panel = page.locator(\".analysis-panel\");\n  68 |     if ((await panel.getAttribute(\"open\")) === null)\n> 69 |       await panel.locator(\"summary\").click();\n     |                                      ^\n  70 |     await expect(panel.getByText(title, { exact: true }).first()).toBeVisible();\n  71 |     await page.getByLabel(\"한 단계 뒤로\", { exact: true }).click();\n  72 |     await page.getByLabel(\"한 단계 앞으로\", { exact: true }).click();\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts:69:38"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T08:41:08.671Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\platform-ten-new-engines-e-c711a-eversible-production-traces-firefox\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\platform-ten-new-engines-e-c711a-eversible-production-traces-firefox\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\platform-ten-new-engines-e-c711a-eversible-production-traces-firefox\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts",
+                    "column": 38,
+                    "line": 69
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-b99533a2285b7e306922",
+          "file": "platform.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "ND raw computation survives projection changes; weighted graph ignores display positions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4226,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T08:41:25.952Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-fdf062d1669310daa459",
+          "file": "platform.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "unsupported structured data and contradictory constraints fail explicitly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1125,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T08:41:30.554Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-ddac46b23589b509a2d6",
+          "file": "platform.spec.ts",
+          "line": 172,
+          "column": 1
+        },
+        {
+          "title": "ten new engines expose real events, dedicated analysis and reversible production traces",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2778,
+                  "error": {
+                    "message": "Error: locator.click: Error: strict mode violation: locator('.analysis-panel').locator('summary') resolved to 4 elements:\n    1) <summary>…</summary> aka getByText('분석 및 내부 구조연산 10.0 ms')\n    2) <summary>유사도 인접 행렬 W · 12×12</summary> aka getByText('유사도 인접 행렬 W · 12×')\n    3) <summary>그래프 라플라시안 L · 12×12</summary> aka getByText('그래프 라플라시안 L · 12×')\n    4) <summary>선택한 고유벡터 · 12×3</summary> aka getByText('선택한 고유벡터 · 12×')\n\nCall log:\n\u001b[2m  - waiting for locator('.analysis-panel').locator('summary')\u001b[22m\n",
+                    "stack": "Error: locator.click: Error: strict mode violation: locator('.analysis-panel').locator('summary') resolved to 4 elements:\n    1) <summary>…</summary> aka getByText('분석 및 내부 구조연산 10.0 ms')\n    2) <summary>유사도 인접 행렬 W · 12×12</summary> aka getByText('유사도 인접 행렬 W · 12×')\n    3) <summary>그래프 라플라시안 L · 12×12</summary> aka getByText('그래프 라플라시안 L · 12×')\n    4) <summary>선택한 고유벡터 · 12×3</summary> aka getByText('선택한 고유벡터 · 12×')\n\nCall log:\n\u001b[2m  - waiting for locator('.analysis-panel').locator('summary')\u001b[22m\n\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts:69:38",
+                    "location": {
+                      "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts",
+                      "column": 38,
+                      "line": 69
+                    },
+                    "snippet": "  67 |     const panel = page.locator(\".analysis-panel\");\n  68 |     if ((await panel.getAttribute(\"open\")) === null)\n> 69 |       await panel.locator(\"summary\").click();\n     |                                      ^\n  70 |     await expect(panel.getByText(title, { exact: true }).first()).toBeVisible();\n  71 |     await page.getByLabel(\"한 단계 뒤로\", { exact: true }).click();\n  72 |     await page.getByLabel(\"한 단계 앞으로\", { exact: true }).click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts",
+                        "column": 38,
+                        "line": 69
+                      },
+                      "message": "Error: locator.click: Error: strict mode violation: locator('.analysis-panel').locator('summary') resolved to 4 elements:\n    1) <summary>…</summary> aka getByText('분석 및 내부 구조연산 10.0 ms')\n    2) <summary>유사도 인접 행렬 W · 12×12</summary> aka getByText('유사도 인접 행렬 W · 12×')\n    3) <summary>그래프 라플라시안 L · 12×12</summary> aka getByText('그래프 라플라시안 L · 12×')\n    4) <summary>선택한 고유벡터 · 12×3</summary> aka getByText('선택한 고유벡터 · 12×')\n\nCall log:\n\u001b[2m  - waiting for locator('.analysis-panel').locator('summary')\u001b[22m\n\n\n  67 |     const panel = page.locator(\".analysis-panel\");\n  68 |     if ((await panel.getAttribute(\"open\")) === null)\n> 69 |       await panel.locator(\"summary\").click();\n     |                                      ^\n  70 |     await expect(panel.getByText(title, { exact: true }).first()).toBeVisible();\n  71 |     await page.getByLabel(\"한 단계 뒤로\", { exact: true }).click();\n  72 |     await page.getByLabel(\"한 단계 앞으로\", { exact: true }).click();\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts:69:38"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T08:41:32.446Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\platform-ten-new-engines-e-c711a-eversible-production-traces-webkit\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\platform-ten-new-engines-e-c711a-eversible-production-traces-webkit\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\platform-ten-new-engines-e-c711a-eversible-production-traces-webkit\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts",
+                    "column": 38,
+                    "line": 69
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-1ed3b9a05b8aea6a1f3e",
+          "file": "platform.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "ND raw computation survives projection changes; weighted graph ignores display positions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5226,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T08:41:43.550Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-57c6f7dbc5778ec36ae1",
+          "file": "platform.spec.ts",
+          "line": 83,
+          "column": 1
+        },
+        {
+          "title": "unsupported structured data and contradictory constraints fail explicitly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1458,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-31T08:41:48.855Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-c9d7b264be4713635611",
+          "file": "platform.spec.ts",
+          "line": 172,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-31T08:41:08.288Z",
+    "duration": 42098.599,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

@@ -104,12 +104,24 @@ export function draw(
       ctx.fillText((1 - v).toFixed(1), 8, y - 5);
     }
   }
-  const centers = interpolateCenters(
+  let centers = interpolateCenters(
     from.centers,
     to.centers,
     t,
-    options.algorithm === "Mean Shift",
+    ["Mean Shift", "Neural Gas", "Growing Neural Gas"].includes(
+      options.algorithm,
+    ),
   );
+  if (
+    ["Affinity Propagation", "Density Peaks / CFSFDP"].includes(
+      options.algorithm,
+    )
+  )
+    centers = centers.map((c) =>
+      c.id !== undefined && points[c.id]
+        ? { ...c, x: points[c.id].x, y: points[c.id].y }
+        : c,
+    );
   if (options.algorithm === "LVQ" && options.decision && centers.length) {
     for (let x = 0; x < w; x += 12)
       for (let y = 0; y < h; y += 12) {
@@ -159,6 +171,10 @@ export function draw(
     ctx.stroke();
   }
   const neuron = options.algorithm === "SOM";
+  const networkNeuron =
+    neuron ||
+    options.algorithm === "Neural Gas" ||
+    options.algorithm === "Growing Neural Gas";
   if (options.algorithm === "Mean Shift") {
     for (const c of centers) {
       const old = from.centers.find((a) => a.id === c.id) ?? c,
@@ -201,7 +217,7 @@ export function draw(
     }
   }
   if (
-    (neuron || options.algorithm === "LVQ") &&
+    (networkNeuron || options.algorithm === "LVQ") &&
     focus !== undefined &&
     centers[to.learning.winner]
   ) {
@@ -235,13 +251,32 @@ export function draw(
     ctx.strokeStyle = "#446f55";
     ctx.stroke();
   }
-  for (const edge of to.edges) {
-    const a = neuron ? centers[edge.a] : points[edge.a],
-      b = neuron ? centers[edge.b] : points[edge.b];
+  const edgeKey = (a: number, b: number, source = from.centers) =>
+    networkNeuron ? `${source[a]?.id ?? a}:${source[b]?.id ?? b}` : `${a}:${b}`;
+  const unchangedEdges = from.edges === to.edges;
+  const previousEdges = unchangedEdges
+    ? null
+    : new Set(from.edges.map((f) => edgeKey(f.a, f.b)));
+  const edgeStride = networkNeuron
+    ? 1
+    : Math.max(
+        1,
+        Math.ceil(to.edges.length / Math.max(1, Math.floor((w * h) / 200))),
+      );
+  for (
+    let edgeIndex = 0;
+    edgeIndex < to.edges.length;
+    edgeIndex += edgeStride
+  ) {
+    const edge = to.edges[edgeIndex];
+    const a = networkNeuron ? centers[edge.a] : points[edge.a],
+      b = networkNeuron ? centers[edge.b] : points[edge.b];
     if (!a || !b) continue;
     const [x, y] = xy(a),
       [bx, by] = xy(b);
-    const existed = from.edges.some((f) => f.a === edge.a && f.b === edge.b),
+    const existed =
+        unchangedEdges ||
+        previousEdges!.has(edgeKey(edge.a, edge.b, to.centers)),
       progress = existed ? 1 : t;
     ctx.beginPath();
     ctx.moveTo(x, y);
@@ -256,6 +291,29 @@ export function draw(
     ctx.stroke();
   }
   ctx.globalAlpha = 1;
+  if (edgeStride > 1) {
+    ctx.fillStyle = "#34564D";
+    ctx.fillText(
+      `간선 표시 ${Math.ceil(to.edges.length / edgeStride)}/${to.edges.length} · 계산은 전체 그래프`,
+      14,
+      36,
+    );
+  }
+  if (to.analysis?.kind === "cure") {
+    ctx.strokeStyle = "#34564D";
+    ctx.lineWidth = 1.5;
+    for (const point of to.analysis.selected ?? []) {
+      const [x, y] = xy(point);
+      ctx.beginPath();
+      ctx.arc(x, y, 7, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    for (const point of to.analysis.representatives) {
+      const [x, y] = xy(point);
+      ctx.fillStyle = palette[point.label % palette.length];
+      ctx.fillRect(x - 3, y - 3, 6, 6);
+    }
+  }
   if (
     options.algorithm === "K-Means" &&
     centers.length &&
@@ -433,7 +491,7 @@ export function draw(
         0,
         Math.PI * 2,
       );
-    else if (neuron) ctx.arc(x, y, 5, 0, Math.PI * 2);
+    else if (networkNeuron) ctx.arc(x, y, 5, 0, Math.PI * 2);
     else {
       ctx.moveTo(x, y - 9);
       ctx.lineTo(x + 9, y);

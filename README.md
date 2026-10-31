@@ -1,6 +1,6 @@
 # ClusterLab — 플랫폼 확장 진행 중
 
-기존 13개와 신규 Fuzzy C-Means·Bisecting K-Means, 총 15개 엔진의 실제 계산을 기록하고 재생합니다. 신규 119개 후보 중 117개는 미구현이며 전체 마스터 목표는 진행 중입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다.
+기존 13개와 신규 12개, 총 25개 엔진의 실제 계산을 기록하고 재생합니다. 신규 119개 후보 중 107개는 미구현이며 전체 마스터 목표는 진행 중입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다.
 
 배포 대상: https://oyueo-mm.github.io/ClusterLab/
 
@@ -19,7 +19,15 @@ npm run test:e2e
 npm run build
 ```
 
-개발 URL: `http://127.0.0.1:5173/ClusterLab/`. GitHub Pages base path는 `/ClusterLab/`, 라우팅은 `#lab`, `#data`, `#compare`, `#guide`, `#catalog`입니다.
+개발 URL: `http://127.0.0.1:5173/ClusterLab/`. GitHub Pages base path는 `/ClusterLab/`, 라우팅은 `#lab`, `#data`, `#compare`, `#guide`, `#catalog`, `#structured`입니다.
+
+## 이번 확장
+
+Spectral Clustering · Affinity Propagation · Density Peaks · CURE · Neural Gas · Growing Neural Gas · K-Medians · Mini-Batch K-Means · CLARA · CLARANS를 실제 계산/Trace/전용 분석/수학 가이드와 함께 추가했습니다. 이전 Fuzzy C-Means/Bisecting K-Means도 유지합니다.
+
+다중 데이터 실험은 Spectral/AP/Density Peaks의 전체 N차원 수치형 계산과 Spectral의 실제 가중 무방향 그래프를 지원합니다. 표시 좌표는 계산과 분리합니다. 다른 데이터 유형은 스키마 검증 단계이며 실행 지원으로 세지 않습니다. 새 전역 점 수 상한 없이 바이트 자원 검사를 적용합니다.
+
+검증 범위·알고리즘별 한계·후속 작업: [세션 보고서](docs/SESSION_REPORT.md), [데이터 형식](docs/DATA_FORMATS.md), [성능](docs/PERFORMANCE.md). 아래 기존 버전 설명과 과거 증거를 보존합니다.
 
 ## 기능
 

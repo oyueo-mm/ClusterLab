@@ -1,33 +1,47 @@
-# 성능 측정 — 확장 기반 (2026-10-31)
+# 성능 측정 — 2026-10-31 플랫폼 확장
 
-## 재현 조건
+이전 기록은 sessions/foundation/PERFORMANCE.md와 expansion/에 보존했다. 아래는 Windows, Node v24.19.0, seed 42의 단일 관측이다. 전체 테스트 동시 부하/GC에 영향을 받는다. 생성·Worker 복사·브라우저 렌더링은 제외하며 heap delta는 peak가 아니다. 음수는 GC 영향이다.
 
-Windows x64, Node v24.19.0, 로컬 Vitest. CPU·GC·동시 테스트 부하에 영향받는 단일 측정이며 벤치마크 보장 수치가 아니다. 실제 2D blobs, seed=42, K=3, 최대 5회 Lloyd 반복. 데이터 생성·Worker 구조화 복사·브라우저 렌더링은 표 시간에서 제외. heap delta는 전후 관측값이며 peak memory가 아니다. 음수는 GC 영향이다. 런타임 의존성 추가 없음.
+## 전체 데이터 계산
 
-명령: `npm test -- src/engine/scale.test.ts` → `.local/scale-results.json`. 이 세션 원본: [scale-results.json](expansion/scale-results.json). 기존 13개와 신규 2개의 120점 Trace 측정: [benchmark-120.json](expansion/benchmark-120.json).
+| 엔진 | 입력 수 | ms | 이벤트 | Trace 추정 bytes | 상태 |
+|---|---:|---:|---:|---:|---|
+| K-Means | 100 | 9.34 | 608 | 364376 | complete |
+| K-Means | 1,000 | 3.49 | 9 | 63734 | complete |
+| K-Means | 10,000 | 37.34 | 11 | 588140 | complete |
+| K-Means | 100,000 | 257.66 | 13 | 5857882 | complete |
+| K-Means | 1,000,000 | 2378.62 | 15 | 58782080 | complete |
+| Mini-Batch K-Means | 100 | 2.78 | 8 | 22306 | complete |
+| Mini-Batch K-Means | 1,000 | 5.67 | 20 | 169594 | complete |
+| Mini-Batch K-Means | 10,000 | 107.32 | 164 | 3875476 | complete |
+| Mini-Batch K-Means | 100,000 | 157.87 | 6 | 5842524 | complete |
+| Mini-Batch K-Means | 1,000,000 | 1955.03 | 6 | 58260824 | complete |
 
-## 전체 데이터 K-Means 측정
+K-Means: K=3, 최대 5회 Lloyd. Mini-Batch: K=3, 2 epochs, batch=256.
 
-| 점 수 | 시간 ms | heap 변화 bytes | 이벤트 | Trace 추정 bytes | 결과 |
-|---:|---:|---:|---:|---:|---|
-| 100 | 5.92 | 4275528 | 608 | 364376 | complete |
-| 1,000 | 2.28 | -3637304 | 9 | 63734 | complete |
-| 10,000 | 13.63 | -603136 | 11 | 588140 | complete |
-| 100,000 | 153.11 | 28048688 | 13 | 5857882 | complete |
-| 1,000,000 | 1701.28 | 285768792 | 15 | 58782080 | complete |
+Mini-Batch의 counts 합계는 모든 입력을 매 epoch 방문한 2n임을 확인했다. 학습과 최종 평가는 전체 입력이며 표본만 계산하지 않는다. 큰 입력의 Trace는 실제 첫 배치와 epoch 요약임을 표시한다. K-Means도 전체 입력 계산과 반복 요약을 구분한다. 이 결과는 전역 최적이나 임의 기기의 성공을 보장하지 않는다.
 
-작은 입력은 점별 거리/할당, 큰 입력은 반복별 전체 할당/중심 갱신 기록. 표본을 뽑아 계산하지 않는다. 최종 레이블 수와 유효성을 검증했다. 1만 점에서는 각 점이 최종 중심 중 실제 최근접 중심에 할당되는지도 검증했다. 100만 점 전부의 최적 SSE나 전역 수렴을 보장하는 테스트가 아니다.
+원본: [K-Means](platform/kmeans-scale.json), [Mini-Batch](platform/minibatch-scale.json), [25엔진 120점](platform/benchmark-120.json), [medoid](platform/medoid-performance.json), [CURE/NG/GNG](research/prototypes-performance.json). 재현: npm test -- src/engine/scale.test.ts src/engine/platform-scale.test.ts src/engine/benchmark.test.ts.
 
-## 예산과 한계
+## 기록 저장과 자원 한계
 
-기본 작업 공간 256MiB와 Trace 64MiB는 실행 정책이다. 브라우저 가용 메모리 자동 탐지나 정확한 peak 예측이 아니다. 100만 점의 Node heap 증가가 256MiB를 넘은 점은 추정의 한계이며, 현재 예측값이 객체/임시 배열·GC peak를 완전히 반영하지 않음을 보여준다. 메모리 재사용·TypedArray 전송 및 실제 브라우저 peak 측정이 후속 과제다. 100만 점 성공은 Node에서 위 설정에 한정한다.
+analysis delta는 바뀐 행렬 필드만 저장하고 동일 행렬을 공유한다. label delta는 조밀한 변경의 임시 객체를 만들지 않는다. JSON.stringify 크기에는 공유 객체가 중복되므로 retained heap과 다르다. benchmark의 traceBytes는 과거 호환 JSON code units이고 traceUtf8Bytes가 UTF-8 직렬화 크기다. 둘 다 peak RAM이 아니다.
 
-HDBSCAN/ROCK/OPTICS/PAM은 현재 구현의 n² 배열에 대해 사전 검사한다. AGNES/DIANA도 군집 간 중간 배열을 보수적으로 추정하며 계산은 매우 느릴 수 있다. 연산량 숫자는 안내용이며 timeout 정책/추가 승인이 아직 연결되지 않았다. 모든 엔진에 모든 규모를 실행하지 않았다.
+작업 공간 256MiB/Trace 64MiB는 명시적 바이트 정책이다. ND 원본/입력 문자열 추정을 포함하지만 모든 객체·GC peak를 완전히 예측하지 못한다. Spectral 10만 입력의 밀집 행렬은 할당 전 거부하는 테스트를 통과했다. O(n²)/O(n³) 엔진에 백만 입력을 강제하거나 새 전역 점 수 상한을 두지 않는다.
 
-K-Means 120점 JSON Trace 크기는 기준 실행 약 476KB에서 약 234KB로 감소했다. 실행 환경/GC 차이 때문에 서로 다른 실행의 소요시간으로 보편적인 속도 향상을 주장하지 않는다. 다른 엔진의 배열 생성 비용은 남아 있다. 렌더러는 픽셀 밀도에 따른 표시 stride와 viewport culling을 사용하지만 백만 점 60FPS는 검증하지 않았다.
+## 브라우저 측정과 남은 검증
 
-## 후속 측정
+quality.spec.ts는 홈 36점 네 Worker와 실험실 120점 재생의 rAF 평균/p95/max를 기록한다. 이는 제한된 짧은 관측으로 60FPS 보장이 아니다. Chromium/mobile 결과 JSON을 platform에 보존한다. 신규 플랫폼 Firefox/WebKit은 기능 검증이며 백만 점 렌더링 측정이 아니다.
 
-브라우저 대형 파일/100k·1M Worker 전송/첫 화면 지연/장시간 메모리·취소 응답/최소 기기별 FPS, 데이터 생성/CSV 청크 파싱/Undo peak와 그래프·고차원 데이터 측정이 필요하다. Chromium 외 Firefox/WebKit은 이번 세션에서 미측정이다.
+추가 과제: 브라우저 100k/1M 전송·파일 스트리밍·첫 화면 지연·취소 지연 정량화·Undo peak·장시간 누수·대규모 그래프·기기별 FPS·WASM/GPU 병목 비교.
 
-브라우저 회귀와 동시에 재측정한 결과는 [scale-results-concurrent.json](expansion/scale-results-concurrent.json)에 보존했습니다. 100만 점은 약 4.06초로 측정되어 부하에 따른 변동을 확인했습니다. 단일 1.70초 결과를 상시 성능으로 제시하지 않습니다.
+## 짧은 rAF 관측
+
+| 장면 | 구성 | 평균 ms | p95 ms | 최대 ms |
+|---|---|---:|---:|---:|
+| 홈 36점 네 Worker | chromium | 16.67 | 16.80 | 16.80 |
+| 실험실 120점 | chromium | 17.60 | 16.70 | 100.10 |
+| 홈 36점 네 Worker | mobile | 16.67 | 16.80 | 16.80 |
+| 실험실 120점 | mobile | 16.67 | 16.70 | 16.80 |
+
+약 2.2초 rAF 간격 관측이며 장시간/대규모 신규 엔진 FPS나 실제 모바일 하드웨어 측정이 아니다. mobile은 Chromium 기기 에뮬레이션이다.

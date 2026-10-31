@@ -1,7 +1,7 @@
 import { it, expect } from "vitest";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { run } from "./run";
-import { algorithms, defaults } from "./types";
+import { algorithms, algorithmDefaults } from "./types";
 import { dataset, dataDefaults } from "../data/presets";
 it("records reproducible computation / trace sizes at 120 points without timing assertions", () => {
   const results = algorithms.map((algorithm) => {
@@ -13,15 +13,21 @@ it("records reproducible computation / trace sizes at 120 points without timing 
             : "blobs",
         dataDefaults,
       ),
-      params = { ...defaults, threshold: algorithm === "ROCK" ? 0.5 : 0.055 },
+      params = {
+        ...algorithmDefaults(algorithm),
+        threshold: algorithm === "ROCK" ? 0.5 : 0.055,
+      },
       trace = run(algorithm, points, params);
     expect(trace.steps.length).toBeGreaterThan(1);
+    const serialized = JSON.stringify(trace);
     return {
       algorithm,
       points: points.length,
       events: trace.steps.length,
       computationMs: +trace.elapsed.toFixed(2),
-      traceBytes: JSON.stringify(trace).length,
+      traceBytes: serialized.length,
+      traceMeasure: "JSON string code units (legacy field), not retained heap",
+      traceUtf8Bytes: Buffer.byteLength(serialized, "utf8"),
     };
   });
   mkdirSync(".local", { recursive: true });

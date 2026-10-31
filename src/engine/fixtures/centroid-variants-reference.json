@@ -1,0 +1,147 @@
+{
+  "provenance": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "method": "independent NumPy coordinate-wise np.median and grouped weighted means; common declared PRNG for initialization/order only",
+    "sources": [
+      "https://elki-project.github.io/releases/current/doc/elki/clustering/kmeans/KMediansLloyd.html",
+      "https://www.eecs.tufts.edu/~dsculley/papers/fastkmeans.pdf"
+    ]
+  },
+  "points": [
+    {
+      "x": 0.0,
+      "y": 0.0
+    },
+    {
+      "x": 0.0,
+      "y": 2.0
+    },
+    {
+      "x": 1.0,
+      "y": 1.0
+    },
+    {
+      "x": 9.0,
+      "y": 8.0
+    },
+    {
+      "x": 10.0,
+      "y": 10.0
+    },
+    {
+      "x": 11.0,
+      "y": 9.0
+    }
+  ],
+  "seed": 42,
+  "k": 2,
+  "initialCenters": [
+    [0.0, 2.0],
+    [0.0, 0.0]
+  ],
+  "initialIDs": [1, 0],
+  "kmedians": {
+    "centers": [
+      [10.0, 9.0],
+      [0.0, 1.0]
+    ],
+    "labels": [1, 1, 1, 0, 0, 0],
+    "objective": 7.0,
+    "history": [36.0, 7.0, 7.0]
+  },
+  "minibatch": {
+    "centers": [
+      [10.0, 9.0],
+      [0.3333333333333333, 1.0]
+    ],
+    "counts": [9, 9],
+    "labels": [1, 1, 1, 0, 0, 0],
+    "objective": 6.666666666666667,
+    "history": [
+      {
+        "batch": [0, 3],
+        "centers": [
+          [9.0, 8.0],
+          [0.0, 0.0]
+        ],
+        "counts": [1, 1],
+        "assignments": [1, 0]
+      },
+      {
+        "batch": [1, 5],
+        "centers": [
+          [10.0, 8.5],
+          [0.0, 1.0]
+        ],
+        "counts": [2, 2],
+        "assignments": [1, 0]
+      },
+      {
+        "batch": [4, 2],
+        "centers": [
+          [10.0, 9.0],
+          [0.3333333333333333, 1.0]
+        ],
+        "counts": [3, 3],
+        "assignments": [0, 1]
+      },
+      {
+        "batch": [0, 1],
+        "centers": [
+          [10.0, 9.0],
+          [0.2, 1.0]
+        ],
+        "counts": [3, 5],
+        "assignments": [1, 1]
+      },
+      {
+        "batch": [3, 4],
+        "centers": [
+          [9.8, 9.0],
+          [0.2, 1.0]
+        ],
+        "counts": [5, 5],
+        "assignments": [0, 0]
+      },
+      {
+        "batch": [2, 5],
+        "centers": [
+          [10.0, 9.0],
+          [0.3333333333333333, 1.0]
+        ],
+        "counts": [6, 6],
+        "assignments": [1, 0]
+      },
+      {
+        "batch": [0, 1],
+        "centers": [
+          [10.0, 9.0],
+          [0.25, 1.0]
+        ],
+        "counts": [6, 8],
+        "assignments": [1, 1]
+      },
+      {
+        "batch": [5, 2],
+        "centers": [
+          [10.142857142857142, 9.0],
+          [0.3333333333333333, 1.0]
+        ],
+        "counts": [7, 9],
+        "assignments": [0, 1]
+      },
+      {
+        "batch": [4, 3],
+        "centers": [
+          [10.0, 9.0],
+          [0.3333333333333333, 1.0]
+        ],
+        "counts": [9, 9],
+        "assignments": [0, 0]
+      }
+    ],
+    "batchSize": 2,
+    "epochs": 3
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "architecture": "x64",
+  "seed": 42,
+  "iterations": 5,
+  "reports": [
+    {
+      "n": 100,
+      "dimensions": 2,
+      "status": "complete",
+      "elapsedMs": 9.34,
+      "heapDeltaBytes": 3561400,
+      "events": 608,
+      "traceEstimatedBytes": 364376,
+      "recording": "점별 실제 거리·할당 이벤트"
+    },
+    {
+      "n": 1000,
+      "dimensions": 2,
+      "status": "complete",
+      "elapsedMs": 3.49,
+      "heapDeltaBytes": 2474744,
+      "events": 9,
+      "traceEstimatedBytes": 63734,
+      "recording": "반복별 전체 할당·평균 갱신 요약 · 모든 점 계산 (표본 계산 없음)"
+    },
+    {
+      "n": 10000,
+      "dimensions": 2,
+      "status": "complete",
+      "elapsedMs": 37.34,
+      "heapDeltaBytes": -2842776,
+      "events": 11,
+      "traceEstimatedBytes": 588140,
+      "recording": "반복별 전체 할당·평균 갱신 요약 · 모든 점 계산 (표본 계산 없음)"
+    },
+    {
+      "n": 100000,
+      "dimensions": 2,
+      "status": "complete",
+      "elapsedMs": 257.66,
+      "heapDeltaBytes": 13403328,
+      "events": 13,
+      "traceEstimatedBytes": 5857882,
+      "recording": "반복별 전체 할당·평균 갱신 요약 · 모든 점 계산 (표본 계산 없음)"
+    },
+    {
+      "n": 1000000,
+      "dimensions": 2,
+      "status": "complete",
+      "elapsedMs": 2378.62,
+      "heapDeltaBytes": 155624816,
+      "events": 15,
+      "traceEstimatedBytes": 58782080,
+      "recording": "반복별 전체 할당·평균 갱신 요약 · 모든 점 계산 (표본 계산 없음)"
+    }
+  ]
+}

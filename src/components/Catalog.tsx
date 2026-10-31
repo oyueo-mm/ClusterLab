@@ -7,12 +7,20 @@ const inputNames: Record<string, string> = {
   points2d: "2D 수치형",
   "categorical-tokens": "범주형 속성",
   "labeled-points2d": "정답 라벨이 있는 2D 수치형",
+  "numeric-nd": "N차원 수치형",
+  "numeric-or-graph": "N차원 수치형·가중 그래프",
   "입력 계약 조사 필요": "입력 유형 조사 중",
 };
 const classificationNames: Record<string, string> = {
   algorithm: "독립 알고리즘",
   variant: "변형",
   "related-learning": "관련 학습법",
+};
+const validationNames: Record<string, string> = {
+  "v0.6-regression": "기준 버전 회귀",
+  "analytical-tests": "독립 수치 검산",
+  "independent-sklearn": "NumPy·scikit-learn 비교",
+  "independent-numpy": "독립 NumPy 비교",
 };
 export default function Catalog({
   onRun,
@@ -25,6 +33,8 @@ export default function Catalog({
   const [family, setFamily] = useState("");
   const [status, setStatus] = useState("");
   const [input, setInput] = useState("");
+  const [feature, setFeature] = useState("");
+  const [validation, setValidation] = useState("");
   const entries = useMemo(
     () => [
       ...Object.values(registry).map((a) => ({
@@ -35,10 +45,17 @@ export default function Catalog({
         classification: a.classification,
         engine: a.id,
         search: a.koreanName,
+        validation: a.validation,
+        capabilities: a.capabilities,
       })),
       ...candidates
         .filter((a) => !a.engine)
-        .map((a) => ({ ...a, search: a.family })),
+        .map((a) => ({
+          ...a,
+          search: a.family,
+          validation: "미검증",
+          capabilities: undefined,
+        })),
     ],
     [],
   );
@@ -47,14 +64,20 @@ export default function Catalog({
       `${a.name} ${a.search}`.toLowerCase().includes(query.toLowerCase()) &&
       (!family || a.family === family) &&
       (!status || a.status === status) &&
-      (!input || a.input === input),
+      (!input || a.input === input) &&
+      (!validation || a.validation === validation) &&
+      (!feature ||
+        a.capabilities?.[
+          feature as "autoK" | "noiseLabels" | "hierarchical" | "overlap"
+        ] === true),
   );
   return (
     <div className="catalog-page">
       <h1>알고리즘 도감</h1>
       <p>
-        실행 가능 15개 · 신규 후보 119개 중 117개 미구현. 후보 등록과 실제
-        구현을 구분합니다.
+        실행 가능 {Object.keys(registry).length}개 · 신규 후보{" "}
+        {candidates.length}개 중 {candidates.filter((c) => !c.engine).length}개
+        미구현. 후보 등록과 실제 구현을 구분합니다.
       </p>
       <div className="catalog-filters">
         <label>
@@ -86,8 +109,38 @@ export default function Catalog({
             onChange={(e) => setStatus(e.target.value)}
           >
             <option value="">전체</option>
-            <option>실행 가능</option>
-            <option>미조사</option>
+            {[...new Set(entries.map((a) => a.status))].map((s) => (
+              <option key={s}>{s}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          확인된 기능
+          <select
+            aria-label="도감 기능"
+            value={feature}
+            onChange={(e) => setFeature(e.target.value)}
+          >
+            <option value="">전체</option>
+            <option value="autoK">사전 K 불필요</option>
+            <option value="noiseLabels">노이즈 레이블</option>
+            <option value="hierarchical">계층 결과</option>
+            <option value="overlap">중첩 군집</option>
+          </select>
+        </label>
+        <label>
+          검증 상태
+          <select
+            aria-label="도감 검증 상태"
+            value={validation}
+            onChange={(e) => setValidation(e.target.value)}
+          >
+            <option value="">전체</option>
+            {[...new Set(entries.map((a) => a.validation))].map((s) => (
+              <option key={s} value={s}>
+                {validationNames[s] ?? s}
+              </option>
+            ))}
           </select>
         </label>
         <label>
@@ -117,6 +170,9 @@ export default function Catalog({
               {classificationNames[a.classification] ?? a.classification}
             </p>
             <p>입력: {inputNames[a.input] ?? a.input}</p>
+            <p className="small">
+              검증: {validationNames[a.validation] ?? a.validation}
+            </p>
             {a.engine && (
               <>
                 <button

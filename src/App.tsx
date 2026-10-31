@@ -29,6 +29,8 @@ import {
 import {
   algorithms,
   defaults,
+  algorithmDefaults,
+  isPrototypeAlgorithm,
   emptyState,
   type Algorithm,
   type Params,
@@ -48,9 +50,11 @@ import {
   type DataOptions,
 } from "./data/presets";
 import { algorithmFamilies } from "./data/algorithmFamilies";
+import { registry } from "./engine/registry";
 import type { EventKind } from "./engine/types";
 const GuidePage = lazy(() => import("./components/guide/GuidePage"));
 const Catalog = lazy(() => import("./components/Catalog"));
+const StructuredLab = lazy(() => import("./components/StructuredLab"));
 import { Canvas } from "./components/Canvas";
 import { Playback } from "./components/Playback";
 import { Settings } from "./components/Settings";
@@ -65,6 +69,7 @@ const pages = [
   { id: "compare", label: "알고리즘 비교", icon: GitCompareArrows },
   { id: "guide", label: "알고리즘 가이드", icon: BookOpen },
   { id: "catalog", label: "알고리즘 도감", icon: Search },
+  { id: "structured", label: "다중 데이터 실험", icon: Layers },
 ] as const;
 type Page = (typeof pages)[number]["id"];
 function download(name: string, content: string) {
@@ -92,7 +97,7 @@ function CompareCard({
 }) {
   const [algorithm, setAlgorithm] = useState(initial),
     [params, setParams] = useState<Params>({
-      ...defaults,
+      ...algorithmDefaults(initial),
       threshold: initial === "ROCK" ? 0.5 : defaults.threshold,
     }),
     [settings, setSettings] = useState(false),
@@ -110,7 +115,7 @@ function CompareCard({
       () =>
         points.length ** 2 > 2_000_000 ||
         algorithm === "ROCK" ||
-        algorithm === "SOM" ||
+        isPrototypeAlgorithm(algorithm) ||
         algorithm === "LVQ"
           ? null
           : silhouette(points, state.labels),
@@ -159,7 +164,7 @@ function CompareCard({
       <div className="compare-stats">
         <span>
           {new Set(state.labels.filter((x) => x >= 0)).size}{" "}
-          {algorithm === "SOM" ? "BMU" : "군집"}
+          {isPrototypeAlgorithm(algorithm) ? "BMU" : "군집"}
         </span>
         <span>
           노이즈{" "}
@@ -193,6 +198,7 @@ export default function App() {
     [selection, setSelection] = useState<number[]>([]),
     [label, setLabel] = useState(0),
     [query, setQuery] = useState(""),
+    [algorithmQuery, setAlgorithmQuery] = useState(""),
     [notice, setNotice] = useState(""),
     [settingsOpen, setSettingsOpen] = useState(false),
     [guideAlgorithm, setGuideAlgorithm] = useState<Algorithm>("K-Means"),
@@ -276,6 +282,23 @@ export default function App() {
   };
   const changeAlgorithm = (a: Algorithm) => {
     setAlgorithm(a);
+    if (
+      [
+        "Spectral Clustering",
+        "Affinity Propagation",
+        "Density Peaks / CFSFDP",
+        "CURE",
+        "Neural Gas",
+        "Growing Neural Gas",
+        "K-Medians",
+        "Mini-Batch K-Means",
+        "CLARA",
+        "CLARANS",
+      ].includes(a)
+    ) {
+      setParams(algorithmDefaults(a));
+      return;
+    }
     setParams((o) => ({
       ...o,
       threshold: a === "ROCK" ? 0.5 : a === "OPTICS" ? 0.09 : 0.055,
@@ -393,6 +416,15 @@ export default function App() {
           </button>
         </header>
         <main id="main">
+          {page === "structured" && (
+            <Suspense
+              fallback={
+                <p role="status">다중 데이터 실험을 불러오는 중입니다.</p>
+              }
+            >
+              <StructuredLab />
+            </Suspense>
+          )}
           {page === "catalog" && (
             <Suspense fallback={<p role="status">도감을 불러오는 중입니다.</p>}>
               <Catalog
@@ -455,9 +487,17 @@ export default function App() {
                           changeAlgorithm(e.target.value as Algorithm)
                         }
                       >
-                        {algorithms.map((a) => (
-                          <option key={a}>{a}</option>
-                        ))}
+                        {algorithms
+                          .filter(
+                            (a) =>
+                              a === algorithm ||
+                              `${a} ${registry[a].koreanName} ${algorithmFamilies[a]}`
+                                .toLowerCase()
+                                .includes(algorithmQuery.toLowerCase()),
+                          )
+                          .map((a) => (
+                            <option key={a}>{a}</option>
+                          ))}
                       </select>
                       <span className="family-tag">
                         {algorithmFamilies[algorithm]}
@@ -490,6 +530,16 @@ export default function App() {
                   </div>
                 </div>
                 <div className="stage-subbar">
+                  <label>
+                    <Search size={14} />
+                    <input
+                      aria-label="실험실 알고리즘 검색"
+                      placeholder="알고리즘 검색"
+                      value={algorithmQuery}
+                      onChange={(e) => setAlgorithmQuery(e.target.value)}
+                      style={{ minWidth: 0, width: 130, border: 0 }}
+                    />
+                  </label>
                   <label>
                     <Database size={14} />
                     <select
@@ -546,7 +596,7 @@ export default function App() {
                       />
                       {algorithm === "LVQ"
                         ? "클래스"
-                        : algorithm === "SOM"
+                        : isPrototypeAlgorithm(algorithm)
                           ? "뉴런"
                           : "군집"}{" "}
                       {algorithm === "LVQ" ? value : value + 1}
@@ -594,7 +644,9 @@ export default function App() {
                   <div className="stat-row">
                     <div>
                       <small>
-                        {algorithm === "SOM" ? "사용된 BMU" : "현재 군집"}
+                        {isPrototypeAlgorithm(algorithm)
+                          ? "사용된 BMU"
+                          : "현재 군집"}
                       </small>
                       <b>{clusters}</b>
                     </div>
@@ -947,9 +999,9 @@ export default function App() {
                 ))}
               </div>
               <p className="muted small">
-                Silhouette는 수치형 군집에만 표시하며 노이즈를 제외합니다. SOM은
-                뉴런 할당, LVQ는 지도 분류이므로 공통 군집 지표를 적용하지
-                않습니다.
+                Euclidean Silhouette는 수치형 군집에 표시하며 노이즈를
+                제외합니다. SOM·Neural Gas·Growing Neural Gas는 뉴런 BMU, LVQ는
+                지도 분류이므로 공통 군집 지표를 적용하지 않습니다.
               </p>
             </div>
           )}

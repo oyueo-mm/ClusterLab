@@ -2,6 +2,7 @@ import type { Algorithm, Point, State, TreeNode } from "../engine/types";
 import { palette } from "../animation/renderer";
 import { distance } from "../engine/math";
 import { ease } from "../engine/trace";
+import { AlgorithmAnalysis } from "./AlgorithmAnalysis";
 function Spark({ values, label }: { values: number[]; label: string }) {
   const finite = values.filter(Number.isFinite),
     lo = Math.min(0, ...finite),
@@ -163,6 +164,7 @@ export function Analysis({
 }) {
   return (
     <div className="analysis-content">
+      <AlgorithmAnalysis state={state} next={next} progress={progress} />
       {algorithm === "Fuzzy C-Means" && state.responsibilities.length > 0 && (
         <div className="chart">
           <h3>퍼지 소속도 U · 확률 아님</h3>
