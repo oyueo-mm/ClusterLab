@@ -1,0 +1,858 @@
+{
+  "baseline": "c4d6a7d",
+  "entries": [
+    {
+      "path": "src/animation/homeCycle.ts",
+      "before": "8b7544cb116b52cb607cf1ac762a40309e15ce65",
+      "after": "8b7544cb116b52cb607cf1ac762a40309e15ce65",
+      "identical": true
+    },
+    {
+      "path": "src/components/HomeDemos.tsx",
+      "before": "69a5d1e196f462d2a249b4cec01a51201c6650d1",
+      "after": "69a5d1e196f462d2a249b4cec01a51201c6650d1",
+      "identical": true
+    },
+    {
+      "path": "src/data/homeRounds.ts",
+      "before": "d963bc4218e95943ec0eedc7a71b7716ac57f380",
+      "after": "d963bc4218e95943ec0eedc7a71b7716ac57f380",
+      "identical": true
+    },
+    {
+      "path": "src/data/presets.ts",
+      "before": "88d19af147f072e4a50674e31a781468e1516b47",
+      "after": "88d19af147f072e4a50674e31a781468e1516b47",
+      "identical": true
+    },
+    {
+      "path": "src/editor/datasetHistory.ts",
+      "before": "9ee7be252a1e936198f84d8e8579e68c932f617f",
+      "after": "9ee7be252a1e936198f84d8e8579e68c932f617f",
+      "identical": true
+    },
+    {
+      "path": "src/editor/history.ts",
+      "before": "e9df26d2c61302eeda5e96dabf9577b9a3963897",
+      "after": "e9df26d2c61302eeda5e96dabf9577b9a3963897",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithmDetails.ts",
+      "before": "4f9306606990706c923f1aa0a11e8c355a9c88b2",
+      "after": "4f9306606990706c923f1aa0a11e8c355a9c88b2",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/affinity.ts",
+      "before": "158b9b2c20ac3a6a52b5c55012590a511f10b743",
+      "after": "158b9b2c20ac3a6a52b5c55012590a511f10b743",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/agnes.ts",
+      "before": "8e9b63559238eef86eb747ac71a8f438b1e84aa5",
+      "after": "8e9b63559238eef86eb747ac71a8f438b1e84aa5",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/autoCommon.ts",
+      "before": "34c0ebc2118fbd5871597660fdfe674df3044fb7",
+      "after": "34c0ebc2118fbd5871597660fdfe674df3044fb7",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/bernoulli.ts",
+      "before": "eda6300026e7e089df6c9acaf786a08ab2c3959e",
+      "after": "eda6300026e7e089df6c9acaf786a08ab2c3959e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/bimax.ts",
+      "before": "0ac877388218d1ff91168d0e4e190efc9c54ce52",
+      "after": "0ac877388218d1ff91168d0e4e190efc9c54ce52",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/birch.ts",
+      "before": "4e6bfc2196bbb8013bb12c5caa1b524c7e78a589",
+      "after": "4e6bfc2196bbb8013bb12c5caa1b524c7e78a589",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/bisecting.ts",
+      "before": "864c30dda5129ad67988d8608692248671529f27",
+      "after": "864c30dda5129ad67988d8608692248671529f27",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/bsas.ts",
+      "before": "de9355070681432b3ed713deea04794c948befa9",
+      "after": "de9355070681432b3ed713deea04794c948befa9",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/chengchurch.ts",
+      "before": "4c9cd8e19fc58d602b65659b4484dbf7ec4f64fc",
+      "after": "4c9cd8e19fc58d602b65659b4484dbf7ec4f64fc",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/clara.ts",
+      "before": "e7e2491f4a6cffc83a5a38d33901d314a4c8bf64",
+      "after": "e7e2491f4a6cffc83a5a38d33901d314a4c8bf64",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/clarans.ts",
+      "before": "7211a88ff8d31102a757ef96691b1151b7ecb0fb",
+      "after": "7211a88ff8d31102a757ef96691b1151b7ecb0fb",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/clique.ts",
+      "before": "a43d6685defebdb36a4088b51a608df288871d4a",
+      "after": "a43d6685defebdb36a4088b51a608df288871d4a",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/cliquepercolation.ts",
+      "before": "7ad2dce74ec56b194943a13791f87b70f0f333dd",
+      "after": "7ad2dce74ec56b194943a13791f87b70f0f333dd",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/cnm.ts",
+      "before": "a5c768edcc8ab676ab120965a931f71143e9d0bc",
+      "after": "a5c768edcc8ab676ab120965a931f71143e9d0bc",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/communityCommon.ts",
+      "before": "076aa365088a2b4cd1ee6800adf568b4acf7a05d",
+      "after": "076aa365088a2b4cd1ee6800adf568b4acf7a05d",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/copkmeans.ts",
+      "before": "6d20694f09220f94af7b3ba7379c95c264053f31",
+      "after": "6d20694f09220f94af7b3ba7379c95c264053f31",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/cure.ts",
+      "before": "2730efd1921ef02d353fdc7a35851445c584375a",
+      "after": "2730efd1921ef02d353fdc7a35851445c584375a",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/dataCommon.ts",
+      "before": "aff469ad6072071b22109610bf12368bf5f9d8fb",
+      "after": "aff469ad6072071b22109610bf12368bf5f9d8fb",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/dbscan.ts",
+      "before": "0bc13942afa57fdb203cc82fed03c904e0d86a91",
+      "after": "0bc13942afa57fdb203cc82fed03c904e0d86a91",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/densitypeaks.ts",
+      "before": "8af4ffcacf1954fa3a42ee37e5d662d71fda8125",
+      "after": "8af4ffcacf1954fa3a42ee37e5d662d71fda8125",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/denstream.ts",
+      "before": "c1c2be0538282088d612714c3a420f31cb174eca",
+      "after": "c1c2be0538282088d612714c3a420f31cb174eca",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/diana.ts",
+      "before": "0c2e819503c1e8aba834e0cf95ca6046e826e3f0",
+      "after": "0c2e819503c1e8aba834e0cf95ca6046e826e3f0",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/dipmeans.ts",
+      "before": "81a49651b654c1b3b24bcd45e874099e9b019dc2",
+      "after": "81a49651b654c1b3b24bcd45e874099e9b019dc2",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/discreteMixtureCommon.ts",
+      "before": "8b22137d7687699ec6ea1419888bf362801487db",
+      "after": "8b22137d7687699ec6ea1419888bf362801487db",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/dpmeans.ts",
+      "before": "475d8d9037bd82a78777f079af498eb06dd8aa00",
+      "after": "475d8d9037bd82a78777f079af498eb06dd8aa00",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/fluid.ts",
+      "before": "8b6fb8b02174fd8257919572e32f3ff45527db21",
+      "after": "8b6fb8b02174fd8257919572e32f3ff45527db21",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/fuzzy.ts",
+      "before": "18715e6e26bf14527c4f2cde558abb318589d576",
+      "after": "18715e6e26bf14527c4f2cde558abb318589d576",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/girvannewman.ts",
+      "before": "8233ef0d0fe595f485b420917964d24d6d86ffc9",
+      "after": "8233ef0d0fe595f485b420917964d24d6d86ffc9",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/gmeans.ts",
+      "before": "7c9f1b0222984f5c380b5a486e566926a68efa67",
+      "after": "7c9f1b0222984f5c380b5a486e566926a68efa67",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/gmm.ts",
+      "before": "6b9577115e1a83ee5f556bde7c998be42b219955",
+      "after": "6b9577115e1a83ee5f556bde7c998be42b219955",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/growingneuralgas.ts",
+      "before": "79d0a098298e597857aa25db7ce8146ab85abfe5",
+      "after": "79d0a098298e597857aa25db7ce8146ab85abfe5",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/hdbscan.ts",
+      "before": "56e37cb393d3ce2ef0818b55ae4b0ac2277830c4",
+      "after": "56e37cb393d3ce2ef0818b55ae4b0ac2277830c4",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/kmeans.ts",
+      "before": "4f22a418ba9b7e58e582ed4bacaa95765f3a0737",
+      "after": "4f22a418ba9b7e58e582ed4bacaa95765f3a0737",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/kmedians.ts",
+      "before": "abca896f2721da979e442b0123c59d0ee7f99e34",
+      "after": "abca896f2721da979e442b0123c59d0ee7f99e34",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/kmodes.ts",
+      "before": "9e8605fbba5124ef971628cf53525f728196fb83",
+      "after": "9e8605fbba5124ef971628cf53525f728196fb83",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/kprototypes.ts",
+      "before": "83961e27d92869316f0c7e8ae135ba0da7257f9c",
+      "after": "83961e27d92869316f0c7e8ae135ba0da7257f9c",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/kshape.ts",
+      "before": "6e5f14c3b7a0d67556a7f8e07b094525ff87d9e8",
+      "after": "6e5f14c3b7a0d67556a7f8e07b094525ff87d9e8",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/labelpropagation.ts",
+      "before": "199f0fe1b377cc786aaa1c4f6c496cac413f8136",
+      "after": "199f0fe1b377cc786aaa1c4f6c496cac413f8136",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/leiden.ts",
+      "before": "9f125a3ed65423b2370ab7574239bcaa15de12be",
+      "after": "9f125a3ed65423b2370ab7574239bcaa15de12be",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/louvain.ts",
+      "before": "56e06144e87d88563b03652f18ef058415f7af4d",
+      "after": "56e06144e87d88563b03652f18ef058415f7af4d",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/lvq.ts",
+      "before": "f651f0fddd06759419dc23f6b262035c9de279d9",
+      "after": "f651f0fddd06759419dc23f6b262035c9de279d9",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/matrixCommon.ts",
+      "before": "41f7c90f33af0f8c318d523d4a8fda7e2e630e22",
+      "after": "41f7c90f33af0f8c318d523d4a8fda7e2e630e22",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/mbsas.ts",
+      "before": "b568e889be50be463d491a96bbf2a10259054fff",
+      "after": "b568e889be50be463d491a96bbf2a10259054fff",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/mcl.ts",
+      "before": "7694280cce8d0c9563c576890ca9b74b1c31d6d7",
+      "after": "7694280cce8d0c9563c576890ca9b74b1c31d6d7",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/meanshift.ts",
+      "before": "be45bae7841a9608abd7d85219ef62205e9c4e5a",
+      "after": "be45bae7841a9608abd7d85219ef62205e9c4e5a",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/minibatch.ts",
+      "before": "733a8c802a3585104249cf22e1eabcb9e33229e4",
+      "after": "733a8c802a3585104249cf22e1eabcb9e33229e4",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/multinomial.ts",
+      "before": "1f4807ea20668d766adbba4f5c875f41b0ef409c",
+      "after": "1f4807ea20668d766adbba4f5c875f41b0ef409c",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/neuralgas.ts",
+      "before": "ebc2f6e568d9780a3115714e79f71444b80610a2",
+      "after": "ebc2f6e568d9780a3115714e79f71444b80610a2",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/optics.ts",
+      "before": "c072acfddd2264262cd5ac0d8ef43fa305f80b69",
+      "after": "c072acfddd2264262cd5ac0d8ef43fa305f80b69",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/pam.ts",
+      "before": "4f2fe07ec68c940c67834aabedf503e98ed317aa",
+      "after": "4f2fe07ec68c940c67834aabedf503e98ed317aa",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/poisson.ts",
+      "before": "7f21c5e8d98dc82a197068f1eb23892505810f03",
+      "after": "7f21c5e8d98dc82a197068f1eb23892505810f03",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/proclus.ts",
+      "before": "d160b513ff54e807b245f1ff64084d916e134d4e",
+      "after": "d160b513ff54e807b245f1ff64084d916e134d4e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/rock.ts",
+      "before": "9462cb45ff796d1b547de810690f2d2934d2face",
+      "after": "9462cb45ff796d1b547de810690f2d2934d2face",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/sequentialCommon.ts",
+      "before": "1c2509b4a3746cf70032013b9d078cdd92bac70c",
+      "after": "1c2509b4a3746cf70032013b9d078cdd92bac70c",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/som.ts",
+      "before": "0dabccc532d504e0b12efe4eb5dfe2cc222ab67f",
+      "after": "0dabccc532d504e0b12efe4eb5dfe2cc222ab67f",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/spectral.ts",
+      "before": "ca2bd98132ca5ddbcddd689d05db5974c6c18c0b",
+      "after": "ca2bd98132ca5ddbcddd689d05db5974c6c18c0b",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/ttsas.ts",
+      "before": "e5d57afc541a83a4d1f1846b8916c25caeea182e",
+      "after": "e5d57afc541a83a4d1f1846b8916c25caeea182e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/walktrap.ts",
+      "before": "27ce29075e712537531ed63d453ce2065935a2f7",
+      "after": "27ce29075e712537531ed63d453ce2065935a2f7",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/xi.ts",
+      "before": "b74fed69090a70f60c8ed0b40d9936810f11dc38",
+      "after": "b74fed69090a70f60c8ed0b40d9936810f11dc38",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/xmeans.ts",
+      "before": "29974fdbd897f81510d57eb980a6c886340bc99d",
+      "after": "29974fdbd897f81510d57eb980a6c886340bc99d",
+      "identical": true
+    },
+    {
+      "path": "src/engine/analysis-delta.test.ts",
+      "before": "fd42ec71e928193972b4d6ea54e359f17bb4f4bf",
+      "after": "fd42ec71e928193972b4d6ea54e359f17bb4f4bf",
+      "identical": true
+    },
+    {
+      "path": "src/engine/analytical.test.ts",
+      "before": "4744cd83ac75cac9123d711492d5f7020e8f4108",
+      "after": "4744cd83ac75cac9123d711492d5f7020e8f4108",
+      "identical": true
+    },
+    {
+      "path": "src/engine/auto-models.test.ts",
+      "before": "7f1f22776253e964bead3a4f5c0bddab333006cc",
+      "after": "7f1f22776253e964bead3a4f5c0bddab333006cc",
+      "identical": true
+    },
+    {
+      "path": "src/engine/autoTypes.ts",
+      "before": "2da6859d9ffb6aaa52377d907c7ed16f65cb70cd",
+      "after": "2da6859d9ffb6aaa52377d907c7ed16f65cb70cd",
+      "identical": true
+    },
+    {
+      "path": "src/engine/benchmark.test.ts",
+      "before": "f4a60df677c8726644ddd18a75cfda049cf4d28f",
+      "after": "f4a60df677c8726644ddd18a75cfda049cf4d28f",
+      "identical": true
+    },
+    {
+      "path": "src/engine/centroid-variants.test.ts",
+      "before": "c2a499afc4f35a63961b31ae76942dab5bf158c8",
+      "after": "c2a499afc4f35a63961b31ae76942dab5bf158c8",
+      "identical": true
+    },
+    {
+      "path": "src/engine/community.test.ts",
+      "before": "dcefbb15ed31d7ea319a8f8786f750d9c851ea24",
+      "after": "dcefbb15ed31d7ea319a8f8786f750d9c851ea24",
+      "identical": true
+    },
+    {
+      "path": "src/engine/communityTypes.ts",
+      "before": "fe7cab6e41f9495cc3eaffe69d61d8cf2c085f0e",
+      "after": "fe7cab6e41f9495cc3eaffe69d61d8cf2c085f0e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/constrained.test.ts",
+      "before": "cad03244e9d2241cda7d8d4f11918f86afd760b2",
+      "after": "cad03244e9d2241cda7d8d4f11918f86afd760b2",
+      "identical": true
+    },
+    {
+      "path": "src/engine/constraintTypes.ts",
+      "before": "665bf59f782dc876b461f035b5fc5b594896529c",
+      "after": "665bf59f782dc876b461f035b5fc5b594896529c",
+      "identical": true
+    },
+    {
+      "path": "src/engine/data-clustering.test.ts",
+      "before": "4893265dafad330c4ddccd49d45dc130351ddf1f",
+      "after": "4893265dafad330c4ddccd49d45dc130351ddf1f",
+      "identical": true
+    },
+    {
+      "path": "src/engine/dataTypes.ts",
+      "before": "3265ffcbb26204d3ca81b228d584ecc681832425",
+      "after": "3265ffcbb26204d3ca81b228d584ecc681832425",
+      "identical": true
+    },
+    {
+      "path": "src/engine/dataset.test.ts",
+      "before": "589860c91ee35b924615323951686c257c58bf4d",
+      "after": "589860c91ee35b924615323951686c257c58bf4d",
+      "identical": true
+    },
+    {
+      "path": "src/engine/dataset.ts",
+      "before": "8acf777dcbe286455b95f1257f4305a68d95a5b7",
+      "after": "8acf777dcbe286455b95f1257f4305a68d95a5b7",
+      "identical": true
+    },
+    {
+      "path": "src/engine/datasetExecution.ts",
+      "before": "d5e8203cd6c29ad0e3f288156f4a5055bde3e5db",
+      "after": "d5e8203cd6c29ad0e3f288156f4a5055bde3e5db",
+      "identical": true
+    },
+    {
+      "path": "src/engine/datasetValidation.ts",
+      "before": "399c74080d008004e08d387a73b66c4cc722952b",
+      "after": "399c74080d008004e08d387a73b66c4cc722952b",
+      "identical": true
+    },
+    {
+      "path": "src/engine/denstream-audit.test.ts",
+      "before": "0553113f14f3095b2795a8c4256615285017c481",
+      "after": "0553113f14f3095b2795a8c4256615285017c481",
+      "identical": true
+    },
+    {
+      "path": "src/engine/denstream.test.ts",
+      "before": "0413d041f92c0c9bda42e7b48848848eaac50c9f",
+      "after": "0413d041f92c0c9bda42e7b48848848eaac50c9f",
+      "identical": true
+    },
+    {
+      "path": "src/engine/discrete-mixtures.test.ts",
+      "before": "6c52d3331aceae92b453dd1a2a6749746876c468",
+      "after": "6c52d3331aceae92b453dd1a2a6749746876c468",
+      "identical": true
+    },
+    {
+      "path": "src/engine/engine.test.ts",
+      "before": "9e3eb2a90870e31776d671c34f325ca21c513680",
+      "after": "9e3eb2a90870e31776d671c34f325ca21c513680",
+      "identical": true
+    },
+    {
+      "path": "src/engine/expansion.test.ts",
+      "before": "53ec3b990e424bad7e8100e4b25d7873ea5ae5f4",
+      "after": "53ec3b990e424bad7e8100e4b25d7873ea5ae5f4",
+      "identical": true
+    },
+    {
+      "path": "src/engine/extension-integration.test.ts",
+      "before": "9df43d9bee7b935ea5d618659f2dcb39f6493403",
+      "after": "9df43d9bee7b935ea5d618659f2dcb39f6493403",
+      "identical": true
+    },
+    {
+      "path": "src/engine/extensionDetails.ts",
+      "before": "5176ce5312165e05f524fba9a144060bf27112e4",
+      "after": "5176ce5312165e05f524fba9a144060bf27112e4",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/auto-models-reference.json",
+      "before": "44c6b021ceb0ed8ad712385e7dda1134fce0bcd8",
+      "after": "44c6b021ceb0ed8ad712385e7dda1134fce0bcd8",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/centroid-variants-reference.json",
+      "before": "8cfb7e47870ab241f467041362e56fe5050a5afe",
+      "after": "8cfb7e47870ab241f467041362e56fe5050a5afe",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/community-reference.json",
+      "before": "fe264f4bc921a3b182f48751d1c984dc5e490150",
+      "after": "fe264f4bc921a3b182f48751d1c984dc5e490150",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/constrained-reference.json",
+      "before": "ca4879e19addde01babd3f4714f3b0518a4791b1",
+      "after": "ca4879e19addde01babd3f4714f3b0518a4791b1",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/data-clustering-reference.json",
+      "before": "78a83fae3921ef4f159b555787abf52ba9e906ac",
+      "after": "78a83fae3921ef4f159b555787abf52ba9e906ac",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/denstream-reference.json",
+      "before": "ac456f3539add1e47364d921d940a623d343c548",
+      "after": "ac456f3539add1e47364d921d940a623d343c548",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/discrete-mixtures-reference.json",
+      "before": "091351917afc7cdb0bb5d0240da87083942d0214",
+      "after": "091351917afc7cdb0bb5d0240da87083942d0214",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/expansion-reference.json",
+      "before": "1c2b0d8ef7bc652516e6c5195f11d7d5d607fba3",
+      "after": "1c2b0d8ef7bc652516e6c5195f11d7d5d607fba3",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/graph-extra-reference.json",
+      "before": "5b57630fa88b64abdfa0f0e62ce3e9ad58fca0ed",
+      "after": "5b57630fa88b64abdfa0f0e62ce3e9ad58fca0ed",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/graph-followup-reference.json",
+      "before": "bb5c609f27bd947e7485c08c2ac8d2f5c7a48769",
+      "after": "bb5c609f27bd947e7485c08c2ac8d2f5c7a48769",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/matrix-reference.json",
+      "before": "6d67610824393ad8499caa63e616f90e73085b88",
+      "after": "6d67610824393ad8499caa63e616f90e73085b88",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/medoid-variants-reference.json",
+      "before": "06dc1da84d45a296b71e5e9a19ebed0288b72707",
+      "after": "06dc1da84d45a296b71e5e9a19ebed0288b72707",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/messages-density-reference.json",
+      "before": "2f88585f9f22b91c59a9e9c3e5002655a41d8416",
+      "after": "2f88585f9f22b91c59a9e9c3e5002655a41d8416",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/prototypes-reference.json",
+      "before": "dd29269548458b0db6fb48d68f39682e09baedf8",
+      "after": "dd29269548458b0db6fb48d68f39682e09baedf8",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/reference.json",
+      "before": "68f3c753410b8a93c47d509bdf353ab9263460f3",
+      "after": "68f3c753410b8a93c47d509bdf353ab9263460f3",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/sequential-reference.json",
+      "before": "006ccdd82e44694c95b57c73a476f95d213be2a9",
+      "after": "006ccdd82e44694c95b57c73a476f95d213be2a9",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/spectral-reference.json",
+      "before": "8e63b5e39bbad501ff98f2d3ccd0f35f435ed539",
+      "after": "8e63b5e39bbad501ff98f2d3ccd0f35f435ed539",
+      "identical": true
+    },
+    {
+      "path": "src/engine/fixtures/timeseries-reference.json",
+      "before": "ada80c90806b16004cdfc3069539222ca858244d",
+      "after": "ada80c90806b16004cdfc3069539222ca858244d",
+      "identical": true
+    },
+    {
+      "path": "src/engine/graph-extra.test.ts",
+      "before": "6c4516f234818dabc58dd564fe8021013c0e12ae",
+      "after": "6c4516f234818dabc58dd564fe8021013c0e12ae",
+      "identical": true
+    },
+    {
+      "path": "src/engine/graph-followup.test.ts",
+      "before": "f84230783a54ce6c039530f1f36574098b2785b7",
+      "after": "f84230783a54ce6c039530f1f36574098b2785b7",
+      "identical": true
+    },
+    {
+      "path": "src/engine/linalg.ts",
+      "before": "f6d43d742f97ec4259d8a4f87e18abd81cba0830",
+      "after": "f6d43d742f97ec4259d8a4f87e18abd81cba0830",
+      "identical": true
+    },
+    {
+      "path": "src/engine/math.ts",
+      "before": "35a2b09c29e6bd18dc58f2d05b9cfbcece38ef27",
+      "after": "35a2b09c29e6bd18dc58f2d05b9cfbcece38ef27",
+      "identical": true
+    },
+    {
+      "path": "src/engine/matrix-clustering.test.ts",
+      "before": "88c2a3b017d146f2c26f5a02619c902528179aa1",
+      "after": "88c2a3b017d146f2c26f5a02619c902528179aa1",
+      "identical": true
+    },
+    {
+      "path": "src/engine/matrixTypes.ts",
+      "before": "466e6a9f976c9533cd617e5c1908cad57051e14c",
+      "after": "466e6a9f976c9533cd617e5c1908cad57051e14c",
+      "identical": true
+    },
+    {
+      "path": "src/engine/meanshift.test.ts",
+      "before": "460879a54b8417b0eaf2e9bc7d984819be7a4f5a",
+      "after": "460879a54b8417b0eaf2e9bc7d984819be7a4f5a",
+      "identical": true
+    },
+    {
+      "path": "src/engine/medoid-variants.test.ts",
+      "before": "17d0e18cf18d4d39611b7652dbbe65a431f5bcc9",
+      "after": "17d0e18cf18d4d39611b7652dbbe65a431f5bcc9",
+      "identical": true
+    },
+    {
+      "path": "src/engine/messages-density.test.ts",
+      "before": "e547ca3a45e7ca40aa159086183dbb2ac8c09b4a",
+      "after": "e547ca3a45e7ca40aa159086183dbb2ac8c09b4a",
+      "identical": true
+    },
+    {
+      "path": "src/engine/mixtureTypes.ts",
+      "before": "a7264c14b8174a7933e74975cf9791f98abc1a4e",
+      "after": "a7264c14b8174a7933e74975cf9791f98abc1a4e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/nextDetails.ts",
+      "before": "8764107d601020a2e2974cccf46309cebee218cc",
+      "after": "8764107d601020a2e2974cccf46309cebee218cc",
+      "identical": true
+    },
+    {
+      "path": "src/engine/nextEngines.ts",
+      "before": "7a77623aa71239497a55c58bc55f3615dd187321",
+      "after": "7a77623aa71239497a55c58bc55f3615dd187321",
+      "identical": true
+    },
+    {
+      "path": "src/engine/nextParameters.ts",
+      "before": "6c84175b98913af8244418036dc4e21a97ca696e",
+      "after": "6c84175b98913af8244418036dc4e21a97ca696e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/parameters.ts",
+      "before": "eb5e709025d23d9f1b036e4cca384157dc4d0894",
+      "after": "eb5e709025d23d9f1b036e4cca384157dc4d0894",
+      "identical": true
+    },
+    {
+      "path": "src/engine/platform-scale.test.ts",
+      "before": "ced976f1b5be13bf7d7348ea86e6031808a407bc",
+      "after": "ced976f1b5be13bf7d7348ea86e6031808a407bc",
+      "identical": true
+    },
+    {
+      "path": "src/engine/prototypes.test.ts",
+      "before": "f7781b5c43b5f6e22886a9845d503229c92b1411",
+      "after": "f7781b5c43b5f6e22886a9845d503229c92b1411",
+      "identical": true
+    },
+    {
+      "path": "src/engine/reference.test.ts",
+      "before": "5054ef472592c6069deaa6187d7de8054738f28e",
+      "after": "5054ef472592c6069deaa6187d7de8054738f28e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/registry.ts",
+      "before": "8b964371e2aa8247c007651c8833044e0d259ad1",
+      "after": "8b964371e2aa8247c007651c8833044e0d259ad1",
+      "identical": true
+    },
+    {
+      "path": "src/engine/resources.ts",
+      "before": "44d34a0aaf071e0014e986cbff7f0b4ccd20ce9d",
+      "after": "44d34a0aaf071e0014e986cbff7f0b4ccd20ce9d",
+      "identical": true
+    },
+    {
+      "path": "src/engine/run.ts",
+      "before": "55d91789d318e6db1477c297d4fae5e5bc1b6b6a",
+      "after": "55d91789d318e6db1477c297d4fae5e5bc1b6b6a",
+      "identical": true
+    },
+    {
+      "path": "src/engine/scale.test.ts",
+      "before": "52682c1cfdfc33a3781dad83c577ce0fe2af6799",
+      "after": "52682c1cfdfc33a3781dad83c577ce0fe2af6799",
+      "identical": true
+    },
+    {
+      "path": "src/engine/sequential-integration.test.ts",
+      "before": "843a8c33ab4364055d7051a9be6ce8d9e2caa248",
+      "after": "843a8c33ab4364055d7051a9be6ce8d9e2caa248",
+      "identical": true
+    },
+    {
+      "path": "src/engine/sequential.test.ts",
+      "before": "5d266ba341af3ea75f1d9aae17b985be7e64176e",
+      "after": "5d266ba341af3ea75f1d9aae17b985be7e64176e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/sequentialDetails.ts",
+      "before": "d554bc1487e8df533c176dcfb3ba59e9eb14401b",
+      "after": "d554bc1487e8df533c176dcfb3ba59e9eb14401b",
+      "identical": true
+    },
+    {
+      "path": "src/engine/sequentialTypes.ts",
+      "before": "d63c5ce07e7d49ee13fd7656b14141ab881c7920",
+      "after": "d63c5ce07e7d49ee13fd7656b14141ab881c7920",
+      "identical": true
+    },
+    {
+      "path": "src/engine/spectral.test.ts",
+      "before": "74dc01d5b9b8d05f9bbf60deaa8f14be7113a10d",
+      "after": "74dc01d5b9b8d05f9bbf60deaa8f14be7113a10d",
+      "identical": true
+    },
+    {
+      "path": "src/engine/streamTypes.ts",
+      "before": "7434373fa0c3c07a22090121fafba68d0e41a0e6",
+      "after": "7434373fa0c3c07a22090121fafba68d0e41a0e6",
+      "identical": true
+    },
+    {
+      "path": "src/engine/timeseries-clustering.test.ts",
+      "before": "3895248508d5101310ea1c0bd85b06dc403d694b",
+      "after": "3895248508d5101310ea1c0bd85b06dc403d694b",
+      "identical": true
+    },
+    {
+      "path": "src/engine/timeseriesTypes.ts",
+      "before": "7a3d475709798b34fb9d8a241419e7162cf7e5e5",
+      "after": "7a3d475709798b34fb9d8a241419e7162cf7e5e5",
+      "identical": true
+    },
+    {
+      "path": "src/engine/trace.ts",
+      "before": "726b737a251a195e586e2622b548f89ac242ad25",
+      "after": "726b737a251a195e586e2622b548f89ac242ad25",
+      "identical": true
+    },
+    {
+      "path": "src/engine/typed-integration.test.ts",
+      "before": "465becb31de7c30f0796dec94a1a1bc0f65f82d6",
+      "after": "465becb31de7c30f0796dec94a1a1bc0f65f82d6",
+      "identical": true
+    },
+    {
+      "path": "src/engine/types.ts",
+      "before": "10d98e431db9c0144b097281fa7a6d20b86fcdfe",
+      "after": "10d98e431db9c0144b097281fa7a6d20b86fcdfe",
+      "identical": true
+    },
+    {
+      "path": "src/engine/validation.ts",
+      "before": "a0501ff4c885236233edb0025f7f14e3347ea785",
+      "after": "a0501ff4c885236233edb0025f7f14e3347ea785",
+      "identical": true
+    },
+    {
+      "path": "src/engine/worker.ts",
+      "before": "c27b3ae385823bd52780a09c3c8da5a711fbb210",
+      "after": "c27b3ae385823bd52780a09c3c8da5a711fbb210",
+      "identical": true
+    }
+  ],
+  "identical": true
+}

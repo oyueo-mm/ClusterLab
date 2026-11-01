@@ -4,6 +4,8 @@
 
 배포 대상: https://oyueo-mm.github.io/ClusterLab/
 
+VizLab 기반 백과사전 UI 개편을 진행 중입니다. [개편 범위·검증 상태](docs/UI_DATASET_PLAN.md) · [53개 알고리즘별 맞춤 데이터셋](docs/DATASET_RECOMMENDATIONS.md). UI 개편 완료와 알고리즘 마스터 개발 완료는 별개입니다.
+
 진행 현황: [마스터 계획](docs/MASTER_PLAN.md) · [진행 기록](docs/PROGRESS.md) · [119개 후보 상태](docs/ALGORITHM_REGISTRY.md) · [재개 절차](docs/CONTINUE.md) · [최종 세션 보고서](docs/SESSION_REPORT.md). 실행 가능 수와 완전 인증 수를 구분하며 아래 기존 버전·이전25개 검증 기록을 보존합니다.
 
 ## 실행 및 검증

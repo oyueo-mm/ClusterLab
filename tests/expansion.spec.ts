@@ -16,7 +16,9 @@ test("catalog distinguishes all candidates from executable engines and filters w
   );
   await page.getByLabel("도감 입력 유형").selectOption("numeric-or-graph");
   await expect(page.locator(".catalog-grid article h2")).toHaveText(
-    algorithms.filter((a) => registry[a].input === "numeric-or-graph"),
+    algorithms
+      .filter((a) => registry[a].input === "numeric-or-graph")
+      .map((a) => registry[a].koreanName),
   );
   await page.getByLabel("도감 검증 상태").selectOption("independent-sklearn");
   await page.getByLabel("도감 입력 유형").selectOption("");
@@ -24,12 +26,12 @@ test("catalog distinguishes all candidates from executable engines and filters w
   await page.getByLabel("도감 검증 상태").selectOption("");
   await page.getByLabel("도감 기능").selectOption("hierarchical");
   await expect(page.locator(".catalog-grid article h2")).toContainText([
-    "CURE",
+    registry.CURE.koreanName,
   ]);
   await page.getByLabel("도감 기능").selectOption("");
   await page.getByLabel("알고리즘 검색", { exact: true }).fill("이분할");
   await expect(page.locator(".catalog-grid article h2")).toHaveText(
-    "Bisecting K-Means",
+    registry["Bisecting K-Means"].koreanName,
   );
   await page.getByLabel("알고리즘 검색", { exact: true }).fill("Fuzzy C-Means");
   await expect(page.locator(".catalog-grid article")).toHaveCount(1);

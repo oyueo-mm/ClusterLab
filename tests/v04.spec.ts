@@ -57,7 +57,9 @@ test("all executable textbooks render math and real events, switch levels, navig
   await expect(
     page.getByRole("heading", { name: "알고리즘 가이드", exact: true }),
   ).toHaveCount(0);
-  await expect(page.locator(".guide-nav button")).toHaveCount(algorithms.length);
+  await expect(page.locator(".guide-nav button")).toHaveCount(
+    algorithms.length,
+  );
   for (const algorithm of algorithms) {
     await page
       .locator(".guide-nav")
@@ -126,7 +128,9 @@ test("all executable textbooks render math and real events, switch levels, navig
     .click();
   await expect(page.getByLabel("알고리즘 선택")).toHaveValue("GMM");
   await expect(page.locator(".event-tag")).toHaveText("maximization");
-  await expect(page.locator(".toast[role=status]")).toContainText("실제 이벤트");
+  await expect(page.locator(".toast[role=status]")).toContainText(
+    "실제 이벤트",
+  );
   await page.reload();
   await expect(page.getByLabel("알고리즘 선택")).toBeVisible();
   await page.goto("#guide");
@@ -179,6 +183,8 @@ test("real Worker GMM renders initialization, E/M covariance motion and final el
     };
     const post = Worker.prototype.postMessage;
     Worker.prototype.postMessage = function (message: unknown) {
+      if ((message as { purpose?: string }).purpose === "thumbnail")
+        return post.call(this, message);
       this.addEventListener("message", (e) => {
         if (e.data.trace)
           window.v04Traces[e.data.trace.algorithm] = e.data.trace;
@@ -225,6 +231,8 @@ test("real Worker GMM renders initialization, E/M covariance motion and final el
       await card.screenshot({
         path: `test-results/gmm-${homeRounds[i].preset}-${name}.png`,
       });
+      // The longer encyclopedia home can scroll; keep all four real demos visible.
+      await page.evaluate(() => window.scrollTo(0, 0));
       await card
         .getByRole("button", { name: "GMM 데모 재생", exact: true })
         .click();
@@ -236,6 +244,7 @@ test("real Worker GMM renders initialization, E/M covariance motion and final el
     await card.screenshot({
       path: `test-results/gmm-${homeRounds[i].preset}-final.png`,
     });
+    await page.evaluate(() => window.scrollTo(0, 0));
     const final = await page.evaluate(() => ({
       trace: window.v04Traces.GMM,
       ellipses: window.v04Frames["GMM 데이터 및 실제 연산 시각화"],

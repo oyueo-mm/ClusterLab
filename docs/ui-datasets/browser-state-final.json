@@ -1,0 +1,1207 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/lab-state.spec.ts",
+      "tests/lab-shell.spec.ts"
+    ],
+    "configFile": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\playwright.config.ts",
+    "rootDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "platform.spec.ts",
+          "next-platform.spec.ts",
+          "constraints-models.spec.ts",
+          "model-guides.spec.ts",
+          "sequential-platform.spec.ts",
+          "encyclopedia.spec.ts",
+          "lab-state.spec.ts",
+          "lab-shell.spec.ts"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "platform.spec.ts",
+          "next-platform.spec.ts",
+          "constraints-models.spec.ts",
+          "model-guides.spec.ts",
+          "sequential-platform.spec.ts",
+          "encyclopedia.spec.ts",
+          "lab-state.spec.ts",
+          "lab-shell.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "snapshotDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4473/ClusterLab/",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "snapshotDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4473/ClusterLab/",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E148 Safari/604.1",
+          "viewport": {
+            "width": 390,
+            "height": 664
+          },
+          "screen": {
+            "width": 390,
+            "height": 844
+          },
+          "deviceScaleFactor": 3,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "firefox",
+        "testDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "snapshotDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "testIgnore": [],
+        "testMatch": [
+          "platform.spec.ts",
+          "next-platform.spec.ts",
+          "constraints-models.spec.ts",
+          "model-guides.spec.ts",
+          "sequential-platform.spec.ts",
+          "encyclopedia.spec.ts",
+          "lab-state.spec.ts",
+          "lab-shell.spec.ts"
+        ],
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4473/ClusterLab/",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:157.0) Gecko/20100101 Firefox/157.0",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "firefox"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "firefox"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "webkit",
+        "testDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "snapshotDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "testIgnore": [],
+        "testMatch": [
+          "platform.spec.ts",
+          "next-platform.spec.ts",
+          "constraints-models.spec.ts",
+          "model-guides.spec.ts",
+          "sequential-platform.spec.ts",
+          "encyclopedia.spec.ts",
+          "lab-state.spec.ts",
+          "lab-shell.spec.ts"
+        ],
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4473/ClusterLab/",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1792,
+            "height": 1120
+          },
+          "deviceScaleFactor": 2,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "webkit"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "webkit"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": ".local/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "lab-shell.spec.ts",
+      "file": "lab-shell.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1862,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:21.614Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-2d4f64351b22a81f37d3",
+          "file": "lab-shell.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4572,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:23.898Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-926d675356b5b0175437",
+          "file": "lab-shell.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "unavailable persistent storage reports the failure while real computation works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 628,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:28.478Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-087826c6996ac4370212",
+          "file": "lab-shell.spec.ts",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1702,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:42.530Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-12027af462ae4dd3fdfc",
+          "file": "lab-shell.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "The explicit viewport matrix includes mobile widths.",
+                  "location": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\lab-shell.spec.ts",
+                    "line": 36,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 116,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:44.341Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "The explicit viewport matrix includes mobile widths.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\lab-shell.spec.ts",
+                        "line": 36,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-c2f3b9df3447f70dec4b",
+          "file": "lab-shell.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "unavailable persistent storage reports the failure while real computation works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 644,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:44.465Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-767289f6d31eb4bc887e",
+          "file": "lab-shell.spec.ts",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3390,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:49.865Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-0d1afe33746712b59146",
+          "file": "lab-shell.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "The explicit viewport matrix includes mobile widths.",
+                  "location": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\lab-shell.spec.ts",
+                    "line": 36,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 319,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:53.866Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "The explicit viewport matrix includes mobile widths.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\lab-shell.spec.ts",
+                        "line": 36,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-9c545f4d6f2cff2e8afb",
+          "file": "lab-shell.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "unavailable persistent storage reports the failure while real computation works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 807,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:54.197Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-7bb52088a49159ff3022",
+          "file": "lab-shell.spec.ts",
+          "line": 80,
+          "column": 1
+        },
+        {
+          "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2704,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:09:00.963Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-265753f30caa454dbea0",
+          "file": "lab-shell.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "The explicit viewport matrix includes mobile widths.",
+                  "location": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\lab-shell.spec.ts",
+                    "line": 36,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 237,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:09:03.850Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "The explicit viewport matrix includes mobile widths.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\lab-shell.spec.ts",
+                        "line": 36,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-6329bf281ad1c930a240",
+          "file": "lab-shell.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "unavailable persistent storage reports the failure while real computation works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1054,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:09:04.099Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-004c6a4249eecd9bed2e",
+          "file": "lab-shell.spec.ts",
+          "line": 80,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "lab-state.spec.ts",
+      "file": "lab-state.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "an alternate recommendation keeps its seed when regenerated",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1702,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:29.136Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-bc392c143b6ad0b363de",
+          "file": "lab-state.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1540,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:30.847Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-870b9d93f4c75146eb78",
+          "file": "lab-state.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "native comparison uses shared graph input with independent real results",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1322,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:32.393Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-25e422cabef4a84dd830",
+          "file": "lab-state.spec.ts",
+          "line": 120,
+          "column": 1
+        },
+        {
+          "title": "an alternate recommendation keeps its seed when regenerated",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1682,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:45.134Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-8067d1e85129fb393918",
+          "file": "lab-state.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1676,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:46.823Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-bd3435b4c98807fe8a3c",
+          "file": "lab-state.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "native comparison uses shared graph input with independent real results",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 926,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:48.508Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-408ed0698772965e0a75",
+          "file": "lab-state.spec.ts",
+          "line": 120,
+          "column": 1
+        },
+        {
+          "title": "an alternate recommendation keeps its seed when regenerated",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1911,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:55.024Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-ed61fa796992cb0b40aa",
+          "file": "lab-state.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1889,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:56.945Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-0a122f396be499fd3361",
+          "file": "lab-state.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "native comparison uses shared graph input with independent real results",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1326,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:08:58.847Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-726fc412f3f554e80648",
+          "file": "lab-state.spec.ts",
+          "line": 120,
+          "column": 1
+        },
+        {
+          "title": "an alternate recommendation keeps its seed when regenerated",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2894,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:09:05.187Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-86a09583052311cad396",
+          "file": "lab-state.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2731,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:09:08.092Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-50060b260339e0f50e43",
+          "file": "lab-state.spec.ts",
+          "line": 59,
+          "column": 1
+        },
+        {
+          "title": "native comparison uses shared graph input with independent real results",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1818,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T16:09:10.841Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-9c6b2292054644d7695c",
+          "file": "lab-state.spec.ts",
+          "line": 120,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-01T16:08:21.155Z",
+    "duration": 51596.664000000004,
+    "expected": 21,
+    "skipped": 3,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

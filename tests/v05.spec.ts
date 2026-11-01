@@ -60,8 +60,7 @@ test("home introduction centers beside the demos and stays compact when stacked"
             range.selectNodeContents(document.querySelector(".hero h1")!);
             return {
               centerDelta: Math.abs(
-                (title.top + actions.bottom) / 2 -
-                  (cycle.top + cycle.bottom) / 2,
+                (copy.top + copy.bottom) / 2 - (cycle.top + cycle.bottom) / 2,
               ),
               titleFits: range.getBoundingClientRect().right <= copy.right + 1,
               ordered:
@@ -78,7 +77,7 @@ test("home introduction centers beside the demos and stays compact when stacked"
               navHidden: innerWidth > 520 || box(".sidebar").right <= 1,
               noOverlap: copy.right <= cycle.left,
               stacked: cycle.top >= copy.bottom,
-              topGap: title.top - hero.top,
+              topGap: copy.top - hero.top,
               stackGap: cycle.top - actions.bottom,
               gridFits: grid.right <= innerWidth,
               twoByTwo:

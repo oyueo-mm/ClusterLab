@@ -66,7 +66,7 @@ test("real bundled display/UI fonts, forest tokens and aligned responsive layout
   expect(result.heightDiff).toBeLessThan(1);
   expect(result.overflow).toBe(false);
   expect(result.titleFits).toBe(true);
-  expect(result.sections).toEqual(["H1", "P", "DIV"]);
+  expect(result.sections).toEqual(["P", "H1", "P", "P", "DIV"]);
   await expect(page.getByText("클러스터링을 이해하는 공간")).toHaveCount(0);
   expect(palette).toEqual([
     "#61ad95",
@@ -89,12 +89,10 @@ test("real bundled display/UI fonts, forest tokens and aligned responsive layout
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBe(true);
-    const bounds = await page
-      .locator(".hero h1")
-      .evaluate((n) => ({
-        right: n.getBoundingClientRect().right,
-        parent: n.parentElement!.getBoundingClientRect().right,
-      }));
+    const bounds = await page.locator(".hero h1").evaluate((n) => ({
+      right: n.getBoundingClientRect().right,
+      parent: n.parentElement!.getBoundingClientRect().right,
+    }));
     expect(bounds.right).toBeLessThanOrEqual(bounds.parent + 1);
   }
 });
@@ -104,7 +102,7 @@ test("font failure uses fallbacks without clipping or disabling navigation", asy
   await page.route("**/fonts/*", (route) => route.abort());
   await page.goto("");
   await expect(
-    page.getByRole("heading", { name: "클러스터링 알고리즘", exact: true }),
+    page.getByRole("heading", { name: "ClusterLab", exact: true }),
   ).toBeVisible();
   expect(
     await page.evaluate(

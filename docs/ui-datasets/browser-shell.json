@@ -1,0 +1,991 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "tests/encyclopedia.spec.ts",
+      "tests/lab-state.spec.ts",
+      "tests/lab-shell.spec.ts",
+      "tests/v02.spec.ts"
+    ],
+    "configFile": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\playwright.config.ts",
+    "rootDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "snapshotDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4473/ClusterLab/",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "snapshotDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4473/ClusterLab/",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E148 Safari/604.1",
+          "viewport": {
+            "width": 390,
+            "height": 664
+          },
+          "screen": {
+            "width": 390,
+            "height": 844
+          },
+          "deviceScaleFactor": 3,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": ".local/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "encyclopedia.spec.ts",
+      "file": "encyclopedia.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "home, category sidebar and shareable independent catalog filters",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11274,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.catalog-grid .algorithm-card')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m3\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.catalog-grid .algorithm-card') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.catalog-grid .algorithm-card')\u001b[22m\n\u001b[2m    24 × locator resolved to 3 elements\u001b[22m\n\u001b[2m       - unexpected value \"3\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.catalog-grid .algorithm-card')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m3\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.catalog-grid .algorithm-card') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.catalog-grid .algorithm-card')\u001b[22m\n\u001b[2m    24 × locator resolved to 3 elements\u001b[22m\n\u001b[2m       - unexpected value \"3\"\u001b[22m\n\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\encyclopedia.spec.ts:15:63",
+                    "location": {
+                      "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\encyclopedia.spec.ts",
+                      "column": 63,
+                      "line": 15
+                    },
+                    "snippet": "  13 |   await page.getByLabel(\"노이즈 지원\", { exact: true }).check();\n  14 |   await page.getByLabel(\"알고리즘 검색\", { exact: true }).fill(\"DBSCAN\");\n> 15 |   await expect(page.locator(\".catalog-grid .algorithm-card\")).toHaveCount(2);\n     |                                                               ^\n  16 |   await expect(page).toHaveURL(/category=density.*noiseLabels=1.*q=DBSCAN/);\n  17 |   await page.reload();\n  18 |   await expect(page.getByLabel(\"알고리즘 검색\", { exact: true })).toHaveValue("
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\encyclopedia.spec.ts",
+                        "column": 63,
+                        "line": 15
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.catalog-grid .algorithm-card')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m3\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.catalog-grid .algorithm-card') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.catalog-grid .algorithm-card')\u001b[22m\n\u001b[2m    24 × locator resolved to 3 elements\u001b[22m\n\u001b[2m       - unexpected value \"3\"\u001b[22m\n\n\n  13 |   await page.getByLabel(\"노이즈 지원\", { exact: true }).check();\n  14 |   await page.getByLabel(\"알고리즘 검색\", { exact: true }).fill(\"DBSCAN\");\n> 15 |   await expect(page.locator(\".catalog-grid .algorithm-card\")).toHaveCount(2);\n     |                                                               ^\n  16 |   await expect(page).toHaveURL(/category=density.*noiseLabels=1.*q=DBSCAN/);\n  17 |   await page.reload();\n  18 |   await expect(page.getByLabel(\"알고리즘 검색\", { exact: true })).toHaveValue(\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\encyclopedia.spec.ts:15:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:03:56.617Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\encyclopedia-home-category-29028-independent-catalog-filters-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\encyclopedia-home-category-29028-independent-catalog-filters-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\encyclopedia-home-category-29028-independent-catalog-filters-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\encyclopedia.spec.ts",
+                    "column": 63,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "f34a35ef4e043d92ceb7-43373dc4f486a5e2b81a",
+          "file": "encyclopedia.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "each engine opens by ID and runs its actual recommended original data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31252,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:04:08.600Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f34a35ef4e043d92ceb7-bb0b3a91a15b6ab02c16",
+          "file": "encyclopedia.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "sidebar state, viewport layouts and screenshots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2184,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:04:39.951Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f34a35ef4e043d92ceb7-52272f028ccc48e268e6",
+          "file": "encyclopedia.spec.ts",
+          "line": 62,
+          "column": 1
+        },
+        {
+          "title": "home, category sidebar and shareable independent catalog filters",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11325,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.catalog-grid .algorithm-card')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m3\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.catalog-grid .algorithm-card') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.catalog-grid .algorithm-card')\u001b[22m\n\u001b[2m    24 × locator resolved to 3 elements\u001b[22m\n\u001b[2m       - unexpected value \"3\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.catalog-grid .algorithm-card')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m3\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.catalog-grid .algorithm-card') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.catalog-grid .algorithm-card')\u001b[22m\n\u001b[2m    24 × locator resolved to 3 elements\u001b[22m\n\u001b[2m       - unexpected value \"3\"\u001b[22m\n\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\encyclopedia.spec.ts:15:63",
+                    "location": {
+                      "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\encyclopedia.spec.ts",
+                      "column": 63,
+                      "line": 15
+                    },
+                    "snippet": "  13 |   await page.getByLabel(\"노이즈 지원\", { exact: true }).check();\n  14 |   await page.getByLabel(\"알고리즘 검색\", { exact: true }).fill(\"DBSCAN\");\n> 15 |   // DenStream's textbook summary also explicitly discusses static DBSCAN.\n     |                                                               ^\n  16 |   await expect(page.locator(\".catalog-grid .algorithm-card\")).toHaveCount(3);\n  17 |   await expect(page).toHaveURL(/category=density.*noiseLabels=1.*q=DBSCAN/);\n  18 |   await page.reload();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\encyclopedia.spec.ts",
+                        "column": 63,
+                        "line": 15
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.catalog-grid .algorithm-card')\nExpected: \u001b[32m2\u001b[39m\nReceived: \u001b[31m3\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" locator('.catalog-grid .algorithm-card') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.catalog-grid .algorithm-card')\u001b[22m\n\u001b[2m    24 × locator resolved to 3 elements\u001b[22m\n\u001b[2m       - unexpected value \"3\"\u001b[22m\n\n\n  13 |   await page.getByLabel(\"노이즈 지원\", { exact: true }).check();\n  14 |   await page.getByLabel(\"알고리즘 검색\", { exact: true }).fill(\"DBSCAN\");\n> 15 |   // DenStream's textbook summary also explicitly discusses static DBSCAN.\n     |                                                               ^\n  16 |   await expect(page.locator(\".catalog-grid .algorithm-card\")).toHaveCount(3);\n  17 |   await expect(page).toHaveURL(/category=density.*noiseLabels=1.*q=DBSCAN/);\n  18 |   await page.reload();\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\encyclopedia.spec.ts:15:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:04:53.587Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\encyclopedia-home-category-29028-independent-catalog-filters-mobile\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\encyclopedia-home-category-29028-independent-catalog-filters-mobile\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results\\encyclopedia-home-category-29028-independent-catalog-filters-mobile\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\encyclopedia.spec.ts",
+                    "column": 63,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "f34a35ef4e043d92ceb7-2e8f0deaa3d3033460df",
+          "file": "encyclopedia.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "each engine opens by ID and runs its actual recommended original data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 37613,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:05:05.784Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f34a35ef4e043d92ceb7-6ef4a729fcb8e6fa4959",
+          "file": "encyclopedia.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "sidebar state, viewport layouts and screenshots",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6746,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:05:43.524Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f34a35ef4e043d92ceb7-93478a62edd9961843f8",
+          "file": "encyclopedia.spec.ts",
+          "line": 62,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "lab-shell.spec.ts",
+      "file": "lab-shell.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1313,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:04:42.149Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-2d4f64351b22a81f37d3",
+          "file": "lab-shell.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3825,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:04:43.467Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-926d675356b5b0175437",
+          "file": "lab-shell.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "unavailable persistent storage reports the failure while real computation works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 625,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:04:47.300Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-087826c6996ac4370212",
+          "file": "lab-shell.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1430,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:05:50.289Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-12027af462ae4dd3fdfc",
+          "file": "lab-shell.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "The explicit viewport matrix includes mobile widths.",
+                  "location": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\lab-shell.spec.ts",
+                    "line": 20,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 114,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:05:51.725Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "The explicit viewport matrix includes mobile widths.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\lab-shell.spec.ts",
+                        "line": 20,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-c2f3b9df3447f70dec4b",
+          "file": "lab-shell.spec.ts",
+          "line": 19,
+          "column": 1
+        },
+        {
+          "title": "unavailable persistent storage reports the failure while real computation works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 649,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:05:51.844Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "3a834c0c564949034a8d-767289f6d31eb4bc887e",
+          "file": "lab-shell.spec.ts",
+          "line": 39,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "lab-state.spec.ts",
+      "file": "lab-state.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:04:47.944Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-870b9d93f4c75146eb78",
+          "file": "lab-state.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "native comparison uses shared graph input with independent real results",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 940,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:04:49.479Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-25e422cabef4a84dd830",
+          "file": "lab-state.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1548,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:05:52.507Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-bd3435b4c98807fe8a3c",
+          "file": "lab-state.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "native comparison uses shared graph input with independent real results",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1042,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:05:54.061Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d5dd1ee5bbd84a18c739-408ed0698772965e0a75",
+          "file": "lab-state.spec.ts",
+          "line": 65,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v02.spec.ts",
+      "file": "v02.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "four real home Workers share exactly the same source data and stop when not visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1202,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:04:50.440Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7abbfe996b02718659a-218a8e99acddfa3e45e5",
+          "file": "v02.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1241,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:04:51.647Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7abbfe996b02718659a-fe426db1f518d77faaf3",
+          "file": "v02.spec.ts",
+          "line": 120,
+          "column": 1
+        },
+        {
+          "title": "four real home Workers share exactly the same source data and stop when not visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1306,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:05:55.134Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7abbfe996b02718659a-1d38b612cb096f99b8e0",
+          "file": "v02.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1809,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T14:05:56.445Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7abbfe996b02718659a-d9093f860c96682f6835",
+          "file": "v02.spec.ts",
+          "line": 120,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-01T14:03:56.129Z",
+    "duration": 122464.8,
+    "expected": 17,
+    "skipped": 1,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

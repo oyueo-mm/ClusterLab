@@ -6,7 +6,7 @@ test("home demo, navigation, playback pause/resume/seek and mobile layout", asyn
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("");
   await expect(
-    page.getByRole("heading", { name: /클러스터링 알고리즘/ }),
+    page.getByRole("heading", { name: "ClusterLab", exact: true }),
   ).toBeVisible();
   await expect(page.locator(".home-demo")).toHaveCount(4);
   await page.getByRole("button", { name: "실험 시작하기" }).click();

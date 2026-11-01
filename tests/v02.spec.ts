@@ -20,9 +20,9 @@ test("four real home Workers share exactly the same source data and stop when no
     Object.defineProperty(Worker.prototype, "postMessage", {
       value: function (
         this: Worker,
-        message: { algorithm: string; points: unknown },
+        message: { algorithm: string; points: unknown; purpose?: string },
       ) {
-        if (message.algorithm) {
+        if (message.algorithm && message.purpose !== "thumbnail") {
           owners.set(this, message.algorithm);
           w.__audit.requests.push({
             algorithm: message.algorithm,
@@ -40,9 +40,12 @@ test("four real home Workers share exactly the same source data and stop when no
   });
   await page.goto("");
   await expect(
-    page.getByRole("heading", { name: "클러스터링 알고리즘", exact: true }),
+    page.getByRole("heading", { name: "ClusterLab", exact: true }),
   ).toBeVisible();
-  await expect(page.locator(".hero-subtitle")).toHaveText("시뮬레이터");
+  await expect(page.locator(".hero-subtitle")).toHaveText(
+    "군집을 발견하고, 계산을 이해하다.",
+  );
+  await page.locator(".home-cycle").scrollIntoViewIfNeeded();
   await page.waitForFunction(
     () =>
       [...document.querySelectorAll(".home-demo")].length === 4 &&
@@ -141,8 +144,9 @@ test("simplified chrome, white surfaces, mobile menu and dynamic parameters", as
     await page.getByLabel("메뉴 열기").click();
     await page
       .locator(".sidebar")
-      .getByRole("button", { name: "알고리즘 실험실", exact: true })
+      .getByRole("button", { name: "알고리즘 도감", exact: true })
       .click();
+    await page.goto("#/lab/K-Means");
   } else {
     await page.getByLabel("사이드바 접기").click();
     await expect(page.locator(".app")).toHaveClass(/nav-collapsed/);

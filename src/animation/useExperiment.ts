@@ -140,15 +140,16 @@ export function useExperiment(
       setPosition(positionRef.current);
     };
   }, [playing, trace, speed, loop, seek, active, uiInterval]);
-  return {
-    trace,
-    traceIsCurrent:
+  const traceIsCurrent =
       !!trace &&
       completed.current?.trace === trace &&
       completed.current.algorithm === algorithm &&
       completed.current.points === points &&
       completed.current.params === params &&
-      completed.current.input === input,
+      completed.current.input === input;
+  return {
+    trace: traceIsCurrent ? trace : null,
+    traceIsCurrent,
     error,
     busy,
     progress,

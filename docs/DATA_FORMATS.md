@@ -1,5 +1,7 @@
 # 데이터 형식과 실행 범위 — 53개 개발 트리
 
+UI 개편의 추천 목록은 [DATASET_RECOMMENDATIONS](DATASET_RECOMMENDATIONS.md)와 [기계 판독 목록](ui-datasets/dataset-inventory.json)에 있다. **기존 원본 Dataset/v1 및 Point[]의 계산 의미는 변경하지 않았다.** ROCK의 Point.features와 LVQ의 정답 label도 보존한다. 53개 각각에 기본1·추가2·한계1, 시드/생성 크기/유형/관찰 목적/추천 파라미터를 연결한다. 추천 설정은 명시적 opt-in이다. 사용자 편집은 추천보다 우선하며, 호환되는 점 입력은 ID 경로의 `?input=points`로 계산 의미를 유지한다. 원본 입력과 호환되지 않는 엔진 전환은 기존 원본을 지우지 않고 대체 추천을 안내한다. 큰 원본은 localStorage에 직렬화하지 않고 IndexedDB에 저장한다.
+
 > 최종 공개 체크포인트:53개(기존13+후보40), 미구현79개, 완전 인증0. 제품main fc5cc15·Actions41305149245 validate/Pages 성공. 원격532/39파일·전체브라우저78통과/12기존생략, 로컬 다섯 spec cross38/38, 공개4브라우저8/8. 아래 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
 
 현재 소스53개(기존13+후보40), 미구현79개, 완전 인증0개다. 공개 안정50개 형식 원문은 [sessions/platform50/DATA_FORMATS.md](sessions/platform50/DATA_FORMATS.md)에 보존했다. 새3개의 최종 브라우저·배포는 SESSION_REPORT를 따른다.

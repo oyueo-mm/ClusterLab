@@ -1,18 +1,14 @@
+import { FullscreenButton } from "./lab/FullscreenButton";
+import { LabTabs } from "./lab/LabTabs";
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import {
   Activity,
   ArrowRight,
-  BookOpen,
   Check,
   ChevronDown,
-  ChevronLeft,
-  ChevronRight,
   Database,
   Download,
   FlaskConical,
-  GitCompareArrows,
-  Home,
-  Layers,
   Menu,
   MousePointer2,
   Move,
@@ -28,10 +24,8 @@ import {
 } from "lucide-react";
 import {
   algorithms,
-  defaults,
   algorithmDefaults,
   isPrototypeAlgorithm,
-  supportsEuclideanSilhouette,
   clusterCount,
   emptyState,
   type Algorithm,
@@ -39,10 +33,9 @@ import {
   type Point,
 } from "./engine/types";
 import { stateAt } from "./engine/trace";
-import { silhouette } from "./engine/math";
 import { useExperiment } from "./animation/useExperiment";
 import { palette } from "./animation/renderer";
-import type { Dataset } from "./engine/dataset";
+import { legacyDataset, type Dataset } from "./engine/dataset";
 import {
   dataset,
   dataDefaults,
@@ -53,28 +46,36 @@ import {
   type DataOptions,
 } from "./data/presets";
 import { algorithmFamilies } from "./data/algorithmFamilies";
-import { registry, supportsLegacyPoints } from "./engine/registry";
+import {
+  registry,
+  supportsLegacyPoints,
+  supportsDataset,
+  structuredAlgorithms,
+} from "./engine/registry";
 import type { EventKind } from "./engine/types";
 const GuidePage = lazy(() => import("./components/guide/GuidePage"));
 const Catalog = lazy(() => import("./components/Catalog"));
 const StructuredLab = lazy(() => import("./components/StructuredLab"));
+const CompareWorkbench = lazy(() => import("./compare/CompareWorkbench"));
 import { Canvas } from "./components/Canvas";
 import { Playback } from "./components/Playback";
 import { Settings } from "./components/Settings";
 import { Analysis } from "./components/Analysis";
-import { HomeDemos } from "./components/HomeDemos";
+import { Home } from "./pages/Home";
+import { CompareCard } from "./compare/LegacyCompareCard";
 import { useEditorHistory } from "./editor/useEditorHistory";
 import { historyShortcut, type EditorSnapshot } from "./editor/history";
-const pages = [
-  { id: "home", label: "홈", icon: Home },
-  { id: "lab", label: "알고리즘 실험실", icon: FlaskConical },
-  { id: "data", label: "데이터셋", icon: Database },
-  { id: "compare", label: "알고리즘 비교", icon: GitCompareArrows },
-  { id: "guide", label: "알고리즘 가이드", icon: BookOpen },
-  { id: "catalog", label: "알고리즘 도감", icon: Search },
-  { id: "structured", label: "다중 데이터 실험", icon: Layers },
-] as const;
-type Page = (typeof pages)[number]["id"];
+import { Sidebar } from "./components/Sidebar";
+import { Recommendations } from "./components/Recommendations";
+import { LabDetails } from "./components/LabDetails";
+import { parseHash, useRoute, labHref, type Page } from "./router";
+import {
+  datasetRegistry,
+  generateRecommended,
+  recommendations,
+} from "./data/recommendations";
+import { readPreference, writePreference } from "./lab/storage";
+import { restoreParams } from "./lab/parameters";
 function download(name: string, content: string) {
   const url = URL.createObjectURL(
       new Blob([content], {
@@ -89,117 +90,24 @@ function download(name: string, content: string) {
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-function CompareCard({
-  points,
-  initial,
-  start,
-}: {
-  points: Point[];
-  initial: Algorithm;
-  start: number;
-}) {
-  const [algorithm, setAlgorithm] = useState(initial),
-    [params, setParams] = useState<Params>({
-      ...algorithmDefaults(initial),
-      threshold: initial === "ROCK" ? 0.5 : defaults.threshold,
-    }),
-    [settings, setSettings] = useState(false),
-    lab = useExperiment(algorithm, points, params);
-  useEffect(() => {
-    if (start > 0 && lab.trace) {
-      lab.seek(0);
-      lab.setPlaying(true);
-    }
-  }, [start, lab.trace]);
-  const state = lab.trace
-      ? stateAt(lab.trace, Math.floor(lab.position))
-      : emptyState(points.length),
-    score = useMemo(
-      () =>
-        points.length ** 2 > 2_000_000 ||
-        !supportsEuclideanSilhouette(algorithm)
-          ? null
-          : silhouette(points, state.labels),
-      [points, state.labels, algorithm],
-    );
-  return (
-    <article className="compare-card">
-      <div className="compare-heading">
-        <select
-          aria-label="비교 알고리즘"
-          value={algorithm}
-          onChange={(e) => {
-            const a = e.target.value as Algorithm;
-            setAlgorithm(a);
-            setParams(algorithmDefaults(a));
-          }}
-        >
-          {algorithms.map((a) => (
-            <option key={a} disabled={!supportsLegacyPoints(a)}>
-              {a}
-            </option>
-          ))}
-        </select>
-        <button
-          title="개별 설정"
-          aria-label="개별 설정"
-          aria-expanded={settings}
-          onClick={() => setSettings(!settings)}
-        >
-          <Settings2 size={16} />
-        </button>
-      </div>
-      {settings && (
-        <div className="compare-settings">
-          <Settings algorithm={algorithm} value={params} onChange={setParams} />
-        </div>
-      )}
-      {lab.error ? (
-        <p role="alert" className="error">
-          {lab.error}
-        </p>
-      ) : (
-        <Canvas
-          algorithm={algorithm}
-          points={points}
-          trace={lab.trace}
-          position={lab.position}
-          clock={lab.clock}
-        />
-      )}
-      <Playback lab={lab} compact />
-      <div className="compare-stats">
-        <span>
-          {clusterCount(state)}{" "}
-          {isPrototypeAlgorithm(algorithm) ? "BMU" : "군집"}
-        </span>
-        <span>
-          {registry[algorithm].unassignedLabel}{" "}
-          {(
-            (state.labels.filter((x) => x === -1).length / points.length) *
-            100
-          ).toFixed(1)}
-          %
-        </span>
-        <span>
-          Silhouette{" "}
-          {score?.toFixed(3) ??
-            (points.length ** 2 > 2_000_000 ? "연산량으로 생략" : "해당 없음")}
-        </span>
-      </div>
-    </article>
-  );
-}
 export default function App() {
-  const initialPage = () => {
-    const value = location.hash.slice(1);
-    return pages.some((p) => p.id === value) ? (value as Page) : "home";
-  };
+  const route = useRoute();
+  const initialPage = () => parseHash(location.hash).page;
   const [page, setPage] = useState<Page>(initialPage),
-    [collapsed, setCollapsed] = useState(false),
+    [collapsed, setCollapsed] = useState(() => {
+      try {
+        return localStorage.getItem("clusterlab:sidebar") === "true";
+      } catch {
+        return false;
+      }
+    }),
     [mobileNav, setMobileNav] = useState(false),
-    [algorithm, setAlgorithm] = useState<Algorithm>("K-Means"),
-    [params, setParams] = useState<Params>(defaults),
+    [algorithm, setAlgorithm] = useState<Algorithm>(
+      route.algorithm ?? "K-Means",
+    ),
+    [params, setParams] = useState<Params>(() =>
+      restoreParams(route.algorithm ?? "K-Means"),
+    ),
     [dataOptions, setDataOptions] = useState<DataOptions>(dataDefaults),
     [tool, setTool] = useState("move"),
     [selection, setSelection] = useState<number[]>([]),
@@ -218,6 +126,48 @@ export default function App() {
     ]),
     [compareCount, setCompareCount] = useState(2),
     [compareStart, setCompareStart] = useState(0);
+  const algorithmRef = useRef(algorithm);
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+    document.title =
+      page === "home"
+        ? "ClusterLab · 인터랙티브 군집화 알고리즘 백과사전"
+        : `${page === "lab" || page === "structured" ? algorithm : page === "guide" ? `${guideAlgorithm} 가이드` : page === "catalog" ? "알고리즘 도감" : page === "compare" ? "알고리즘 비교" : "데이터 편집"} · ClusterLab`;
+  }, [page, algorithm, guideAlgorithm]);
+  useEffect(() => {
+    writePreference(`params:${algorithm}`, params);
+  }, [algorithm, params]);
+  const [labTab, setLabTab] = useState(() =>
+      readPreference("panel-tab", "settings"),
+    ),
+    [panelOpen, setPanelOpen] = useState(() =>
+      readPreference("panel-open", true),
+    );
+  const [modernCompare, setModernCompare] = useState(
+    () => location.hash !== "#compare",
+  );
+  const [compareRequest, setCompareRequest] = useState<{
+    algorithms: Algorithm[];
+    data: Dataset;
+  }>();
+  useEffect(() => {
+    writePreference("panel-tab", labTab);
+    writePreference("panel-open", panelOpen);
+  }, [labTab, panelOpen]);
+  useEffect(() => {
+    try {
+      localStorage.setItem("clusterlab:sidebar", String(collapsed));
+    } catch {
+      /* Private browsing can disable storage. */
+    }
+  }, [collapsed]);
+  useEffect(() => {
+    const key = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileNav(false);
+    };
+    window.addEventListener("keydown", key);
+    return () => window.removeEventListener("keydown", key);
+  }, []);
   const [structuredRequest, setStructuredRequest] = useState<{
     algorithm: Algorithm;
     data?: Dataset;
@@ -225,18 +175,29 @@ export default function App() {
     event?: EventKind;
   }>();
   const editor = useEditorHistory(() => ({
-    points: dataset("blobs", dataDefaults),
-    preset: "blobs",
+    points: (() => {
+      const data = generateRecommended(recommendations[algorithm][0].datasetId);
+      return data.kind === "numeric" && data.display
+        ? data.display
+        : dataset("blobs", dataDefaults);
+    })(),
+    preset:
+      recommendations[algorithm][0].datasetId in presetAliases
+        ? recommendations[algorithm][0].datasetId
+        : "blobs",
     options: dataDefaults,
   }));
   const { points, preset } = editor.value;
+  useEffect(() => {
+    if (editor.ready) setDataOptions({ ...editor.value.options });
+  }, [editor.ready, editor.value.options]);
   const { undo, redo } = editor;
   const restoreEditor = (snapshot: EditorSnapshot) => {
     setDataOptions({ ...snapshot.options });
     setSelection([]);
   };
   useEffect(() => {
-    if (page !== "data") return;
+    if (page !== "data" && !(page === "lab" && labTab === "data")) return;
     const handler = (e: KeyboardEvent) => {
       const target = e.target;
       if (
@@ -255,13 +216,15 @@ export default function App() {
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [page, undo, redo]);
+  }, [page, labTab, undo, redo]);
   const setPoints = (next: Point[]) => {
-    editor.commit({ ...editor.value, points: next });
+    editor.commit({ ...editor.value, points: next, preset: "" });
     setSelection([]);
   };
   const file = useRef<HTMLInputElement>(null),
-    lab = useExperiment(algorithm, points, params, { active: page === "lab" }),
+    lab = useExperiment(algorithm, points, params, {
+      active: page === "lab" && editor.ready,
+    }),
     stepIndex = Math.floor(lab.position),
     state = useMemo(
       () =>
@@ -273,19 +236,49 @@ export default function App() {
       [lab.trace, stepIndex, state],
     );
   useEffect(() => {
-    const handler = () => setPage(initialPage());
-    window.addEventListener("hashchange", handler);
-    return () => window.removeEventListener("hashchange", handler);
-  }, []);
+    setPage(route.page);
+    setMobileNav(false);
+    if (route.page === "compare")
+      setModernCompare(location.hash !== "#compare");
+    if (route.algorithm && algorithmRef.current !== route.algorithm) {
+      if (
+        (page === "lab" || page === "data") &&
+        !editor.value.preset &&
+        supportsDataset(route.algorithm, "numeric")
+      ) {
+        setStructuredRequest({
+          algorithm: route.algorithm,
+          data: legacyDataset(points),
+        });
+      }
+      algorithmRef.current = route.algorithm;
+      setAlgorithm(route.algorithm);
+      setParams(restoreParams(route.algorithm));
+    }
+  }, [route]);
   const go = (next: Page) => {
-    location.hash = next;
+    location.hash =
+      next === "lab" || next === "structured"
+        ? labHref(algorithmRef.current) +
+          (next === "lab" &&
+          structuredAlgorithms.some((a) => a === algorithmRef.current)
+            ? "?input=points"
+            : "")
+        : `#/${next === "home" ? "" : next}`;
     setPage(next);
     setMobileNav(false);
   };
   const choose = (id: string, options = dataOptions) => {
     if (!id) return;
     try {
-      editor.commit({ points: dataset(id, options), preset: id, options });
+      const recommended = presetAliases[id]
+        ? undefined
+        : generateRecommended(id, { seed: options.seed, count: options.count });
+      const nextPoints =
+        recommended?.kind === "numeric" && recommended.display
+          ? recommended.display
+          : dataset(id, options);
+      editor.commit({ points: nextPoints, preset: id, options });
     } catch (e) {
       setNotice(e instanceof Error ? e.message : String(e));
       return;
@@ -294,15 +287,22 @@ export default function App() {
     setSelection([]);
   };
   const changeAlgorithm = (a: Algorithm) => {
+    algorithmRef.current = a;
     setAlgorithm(a);
-    if (!supportsLegacyPoints(a)) {
-      setParams(algorithmDefaults(a));
-      setStructuredRequest(undefined);
+    const retainPoints = page === "lab" && supportsLegacyPoints(a);
+    location.hash = labHref(a) + (retainPoints ? "?input=points" : "");
+    if (!retainPoints && structuredAlgorithms.some((id) => id === a)) {
+      setParams(restoreParams(a));
+      setStructuredRequest(
+        !editor.value.preset && supportsDataset(a, "numeric")
+          ? { algorithm: a, data: legacyDataset(points) }
+          : undefined,
+      );
       go("structured");
       return;
     }
     if (registry[a].resetParametersOnSelect) {
-      setParams(algorithmDefaults(a));
+      setParams(restoreParams(a));
       return;
     }
     setParams((o) => ({
@@ -366,51 +366,25 @@ export default function App() {
   ]);
   return (
     <div className={`app ${collapsed ? "nav-collapsed" : ""}`}>
-      <a className="skip-link" href="#main">
+      <a
+        className="skip-link"
+        href="#main"
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById("main")?.focus();
+        }}
+      >
         본문으로 이동
       </a>
-      {mobileNav && (
-        <button
-          className="nav-backdrop"
-          aria-label="메뉴 닫기"
-          onClick={() => setMobileNav(false)}
-        />
-      )}
-      <aside className={`sidebar ${mobileNav ? "open" : ""}`}>
-        <a className="brand" href="#home" onClick={() => go("home")}>
-          <span className="brand-mark">
-            <Layers size={22} />
-          </span>
-          {!collapsed && (
-            <span>
-              Cluster<span className="brand-light">Lab</span>
-            </span>
-          )}
-        </a>
-        <button
-          className="collapse"
-          aria-label={collapsed ? "사이드바 펼치기" : "사이드바 접기"}
-          aria-expanded={!collapsed}
-          onClick={() => setCollapsed(!collapsed)}
-        >
-          {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
-        </button>
-
-        <nav aria-label="주 메뉴">
-          {pages.map((p) => (
-            <button
-              key={p.id}
-              title={p.label}
-              className={page === p.id ? "active" : ""}
-              aria-current={page === p.id ? "page" : undefined}
-              onClick={() => go(p.id)}
-            >
-              <p.icon size={19} />
-              {!collapsed && <span>{p.label}</span>}
-            </button>
-          ))}
-        </nav>
-      </aside>
+      <Sidebar
+        page={page}
+        category={route.filters.category}
+        collapsed={collapsed}
+        mobileNav={mobileNav}
+        onToggle={() => setCollapsed(!collapsed)}
+        onClose={() => setMobileNav(false)}
+        go={go}
+      />
       <div className="workspace">
         <header className="mobile-header">
           <button
@@ -421,7 +395,14 @@ export default function App() {
             <Menu size={20} />
           </button>
         </header>
-        <main id="main">
+        <main id="main" tabIndex={-1} inert={mobileNav}>
+          {editor.storageError && <p role="status">{editor.storageError}</p>}
+          {route.unknown && (
+            <p role="alert">
+              알고리즘 ‘{route.unknown}’을 찾을 수 없습니다. 도감에서 선택해
+              주세요.
+            </p>
+          )}
           {page === "structured" && (
             <Suspense
               fallback={
@@ -429,6 +410,11 @@ export default function App() {
               }
             >
               <StructuredLab
+                onAlgorithmChange={changeAlgorithm}
+                onCompare={(pair, data) => {
+                  setCompareRequest({ algorithms: pair, data });
+                  go("compare");
+                }}
                 initialAlgorithm={algorithm}
                 initialData={
                   structuredRequest?.algorithm === algorithm
@@ -451,22 +437,21 @@ export default function App() {
           {page === "catalog" && (
             <Suspense fallback={<p role="status">도감을 불러오는 중입니다.</p>}>
               <Catalog
-                onRun={(a) => {
-                  changeAlgorithm(a);
-                  go(
-                    !supportsLegacyPoints(a) ||
-                      [
-                        "categorical",
-                        "mixed",
-                        "stream",
-                        "matrix",
-                        "timeseries",
-                        "constrained",
-                      ].includes(registry[a].input)
-                      ? "structured"
-                      : "lab",
+                filters={route.filters}
+                onFilter={(filters, replace) => {
+                  const query = new URLSearchParams(
+                    Object.entries(filters).filter(([, value]) => value),
                   );
+                  const href = `#/catalog${query.size ? `?${query}` : ""}`;
+                  if (replace) {
+                    history.replaceState(null, "", href);
+                    window.dispatchEvent(new HashChangeEvent("hashchange"));
+                  } else {
+                    history.pushState(null, "", href);
+                    window.dispatchEvent(new HashChangeEvent("hashchange"));
+                  }
                 }}
+                onRun={changeAlgorithm}
                 onGuide={(a) => {
                   setGuideAlgorithm(a);
                   go("guide");
@@ -475,38 +460,64 @@ export default function App() {
             </Suspense>
           )}
           {page === "home" && (
-            <div className="home-page">
-              <div className="hero">
-                <section className="hero-copy">
-                  <h1>클러스터링 알고리즘</h1>
-                  <p className="hero-subtitle">시뮬레이터</p>
-                  <div className="hero-actions">
-                    <button className="primary" onClick={() => go("lab")}>
-                      실험 시작하기 <ArrowRight size={18} />
-                    </button>
-                    <button onClick={() => go("data")}>
-                      데이터셋 둘러보기
-                    </button>
-                  </div>
-                </section>
-                <HomeDemos
-                  onChoose={(selection) => {
-                    changeAlgorithm(selection.algorithm);
-                    editor.commit({
-                      points: selection.points,
-                      preset: selection.preset,
-                      options: selection.dataOptions,
-                    });
-                    setSelection([]);
-                    setParams(selection.params);
-                    setDataOptions(selection.dataOptions);
-                    go("lab");
-                  }}
-                />
-              </div>
-            </div>
+            <Home
+              navigate={go}
+              onChoose={(selection) => {
+                changeAlgorithm(selection.algorithm);
+                editor.commit({
+                  points: selection.points,
+                  preset: selection.preset,
+                  options: selection.dataOptions,
+                });
+                setSelection([]);
+                setParams(selection.params);
+                setDataOptions(selection.dataOptions);
+                go("lab");
+              }}
+            />
           )}
-          <div hidden={page !== "lab"} className="lab-page">
+          <div
+            hidden={page !== "lab"}
+            className={`lab-page ${panelOpen ? "" : "panel-hidden"}`}
+          >
+            <header className="lab-header">
+              <div>
+                <small>{algorithmFamilies[algorithm]}</small>
+                <h1>
+                  {registry[algorithm].koreanName} <small>{algorithm}</small>
+                </h1>
+                <p>실제 계산과 Trace를 재생하며 원리를 관찰하세요.</p>
+              </div>
+              <div className="lab-actions">
+                <button
+                  aria-label="실험실 실행 취소"
+                  disabled={!editor.canUndo}
+                  onClick={() => restoreEditor(undo())}
+                >
+                  <Undo2 size={16} />
+                </button>
+                <button
+                  aria-label="실험실 다시 실행"
+                  disabled={!editor.canRedo}
+                  onClick={() => restoreEditor(redo())}
+                >
+                  <Redo2 size={16} />
+                </button>
+                <button onClick={() => setParams(algorithmDefaults(algorithm))}>
+                  알고리즘 초기화
+                </button>
+                <FullscreenButton />
+                <button
+                  aria-expanded={panelOpen}
+                  onClick={() => {
+                    setPanelOpen(!panelOpen);
+                    setSettingsOpen(!panelOpen);
+                  }}
+                >
+                  설정 패널 {panelOpen ? "접기" : "펼치기"}
+                </button>
+              </div>
+            </header>
             <div className="lab-layout">
               <section className="stage">
                 <div className="stage-heading">
@@ -587,6 +598,11 @@ export default function App() {
                           사용자 데이터
                         </option>
                       )}
+                      {preset && !presetAliases[preset] && (
+                        <option value={preset}>
+                          {datasetRegistry[preset]?.name ?? preset}
+                        </option>
+                      )}
                       {presets.map((p) => (
                         <option key={p[0]} value={p[0]}>
                           {p[1]}
@@ -619,9 +635,15 @@ export default function App() {
                 <Canvas
                   algorithm={algorithm}
                   points={points}
-                  trace={lab.trace}
+                  trace={lab.traceIsCurrent ? lab.trace : null}
                   position={lab.position}
                   clock={lab.clock}
+                  edit={labTab === "data"}
+                  tool={tool}
+                  selected={selection}
+                  onSelect={setSelection}
+                  onChange={setPoints}
+                  label={label}
                 />
                 <div className="canvas-legend">
                   {legendValues.map((value) => (
@@ -715,13 +737,125 @@ export default function App() {
                 >
                   <X size={18} />
                 </button>
-                <Settings
-                  algorithm={algorithm}
-                  value={params}
-                  onChange={setParams}
-                />
+                <LabTabs value={labTab} onChange={setLabTab} />
+                <div hidden={labTab !== "data"}>
+                  <div className="lab-panel-links">
+                    <button onClick={() => go("data")}>고급 데이터 편집</button>
+                    <button onClick={() => file.current?.click()}>
+                      CSV/JSON 가져오기
+                    </button>
+                    <button
+                      onClick={() =>
+                        download(
+                          "clusterlab-data.json",
+                          exportData(points, "json"),
+                        )
+                      }
+                    >
+                      JSON 내보내기
+                    </button>
+                  </div>
+                  <p className="small">
+                    캔버스에서 편집합니다. 드래그·연속 추가·영역
+                    선택·확대·우클릭 이동을 지원합니다.
+                  </p>
+                  <div className="lab-panel-links">
+                    {[
+                      ["move", "점 이동"],
+                      ["add", "점 추가"],
+                      ["delete", "점 삭제"],
+                      ["select", "영역 선택"],
+                      ["pan", "화면 이동"],
+                    ].map(([id, name]) => (
+                      <button
+                        key={id}
+                        aria-pressed={tool === id}
+                        onClick={() => setTool(id)}
+                      >
+                        {name}
+                      </button>
+                    ))}
+                    <button
+                      disabled={!selection.length}
+                      onClick={() =>
+                        setPoints(
+                          points.filter((_, i) => !selection.includes(i)),
+                        )
+                      }
+                    >
+                      선택 삭제
+                    </button>
+                  </div>
+                  <Recommendations
+                    key={algorithm}
+                    algorithm={algorithm}
+                    onApply={(id, data, suggested) => {
+                      if (data.kind !== "numeric" || !data.display) return;
+                      const options = {
+                        ...dataDefaults,
+                        seed: datasetRegistry[id].seed,
+                        count: data.display.length,
+                      };
+                      editor.commit({
+                        points: data.display,
+                        preset: id,
+                        options,
+                      });
+                      setDataOptions(options);
+                      if (suggested) setParams(suggested);
+                      setNotice(
+                        `${id} 데이터셋을 적용했습니다. 데이터 편집에서 실행 취소할 수 있습니다.`,
+                      );
+                    }}
+                  />
+                </div>
+                <div hidden={labTab !== "settings"}>
+                  <Settings
+                    algorithm={algorithm}
+                    value={params}
+                    onChange={setParams}
+                  />
+                </div>
+                {labTab === "analysis" && (
+                  <Analysis
+                    algorithm={algorithm}
+                    state={state}
+                    points={points}
+                    next={nextState}
+                    progress={lab.position - stepIndex}
+                  />
+                )}
               </aside>
             </div>
+            {page === "lab" && (
+              <LabDetails
+                algorithm={algorithm}
+                onSelect={changeAlgorithm}
+                onExperiment={(a, presetId, event, experimentParams, input) => {
+                  changeAlgorithm(a);
+                  if (input) {
+                    setStructuredRequest({
+                      algorithm: a,
+                      data: input,
+                      params: experimentParams,
+                      event,
+                    });
+                    go("structured");
+                    return;
+                  }
+                  if (experimentParams) setParams(experimentParams);
+                  if (presetId) choose(presetId);
+                  setGuideEvent(event ?? null);
+                }}
+                onCompare={(pair, presetId) => {
+                  setCompareAlgorithms([...pair, "GMM", "AGNES"]);
+                  setCompareCount(2);
+                  choose(presetId);
+                  location.hash = "#compare";
+                  setPage("compare");
+                }}
+              />
+            )}
           </div>
           {page === "data" && (
             <div className="data-page">
@@ -984,60 +1118,95 @@ export default function App() {
           )}
           {page === "compare" && (
             <div className="compare-page">
-              <div className="compare-controls panel">
+              <h1>알고리즘 비교</h1>
+              <div className="lab-panel-links">
                 <button
-                  className="primary"
-                  onClick={() => setCompareStart((s) => s + 1)}
+                  aria-pressed={modernCompare}
+                  onClick={() => setModernCompare(true)}
                 >
-                  모두 처음부터 재생 <ArrowRight size={16} />
+                  추천 조합 · 원본 데이터 비교
                 </button>
-
-                <label>
-                  비교 개수{" "}
-                  <select
-                    value={compareCount}
-                    onChange={(e) => setCompareCount(+e.target.value)}
-                  >
-                    {[2, 3, 4].map((n) => (
-                      <option key={n}>{n}</option>
-                    ))}
-                  </select>
-                </label>
-                <label>
-                  공통 데이터셋{" "}
-                  <select
-                    value={preset}
-                    onChange={(e) => choose(e.target.value)}
-                  >
-                    {!preset && (
-                      <option value="" disabled>
-                        사용자 데이터
-                      </option>
-                    )}
-                    {presets.map((p) => (
-                      <option key={p[0]} value={p[0]}>
-                        {p[1]}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <span>{points.length} points · 실험실과 데이터 공유</span>
+                <button
+                  aria-pressed={!modernCompare}
+                  onClick={() => setModernCompare(false)}
+                >
+                  2D 공통 데이터 비교
+                </button>
               </div>
-              <div className="compare-grid">
-                {Array.from({ length: compareCount }, (_, i) => (
-                  <CompareCard
-                    key={`${i}-${compareAlgorithms[i]}`}
-                    points={points}
-                    initial={compareAlgorithms[i]}
-                    start={compareStart}
+              {modernCompare ? (
+                <Suspense
+                  fallback={
+                    <p role="status">비교 실험실을 불러오는 중입니다.</p>
+                  }
+                >
+                  <CompareWorkbench
+                    initialAlgorithms={compareRequest?.algorithms}
+                    initialData={compareRequest?.data}
                   />
-                ))}
-              </div>
-              <p className="muted small">
-                Euclidean Silhouette는 수치형 군집에 표시하며 노이즈를
-                제외합니다. SOM·Neural Gas·Growing Neural Gas는 뉴런 BMU, LVQ는
-                지도 분류이므로 공통 군집 지표를 적용하지 않습니다.
-              </p>
+                </Suspense>
+              ) : (
+                <>
+                  <div className="compare-controls panel">
+                    <button
+                      className="primary"
+                      onClick={() => setCompareStart((s) => s + 1)}
+                    >
+                      모두 처음부터 재생 <ArrowRight size={16} />
+                    </button>
+
+                    <label>
+                      비교 개수{" "}
+                      <select
+                        value={compareCount}
+                        onChange={(e) => setCompareCount(+e.target.value)}
+                      >
+                        {[2, 3, 4].map((n) => (
+                          <option key={n}>{n}</option>
+                        ))}
+                      </select>
+                    </label>
+                    <label>
+                      공통 데이터셋{" "}
+                      <select
+                        value={preset}
+                        onChange={(e) => choose(e.target.value)}
+                      >
+                        {!preset && (
+                          <option value="" disabled>
+                            사용자 데이터
+                          </option>
+                        )}
+                        {preset && !presetAliases[preset] && (
+                          <option value={preset}>
+                            {datasetRegistry[preset]?.name ?? preset}
+                          </option>
+                        )}
+                        {presets.map((p) => (
+                          <option key={p[0]} value={p[0]}>
+                            {p[1]}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+                    <span>{points.length} points · 실험실과 데이터 공유</span>
+                  </div>
+                  <div className="compare-grid">
+                    {Array.from({ length: compareCount }, (_, i) => (
+                      <CompareCard
+                        key={`${i}-${compareAlgorithms[i]}`}
+                        points={points}
+                        initial={compareAlgorithms[i]}
+                        start={compareStart}
+                      />
+                    ))}
+                  </div>
+                  <p className="muted small">
+                    Euclidean Silhouette는 수치형 군집에 표시하며 노이즈를
+                    제외합니다. SOM·Neural Gas·Growing Neural Gas는 뉴런 BMU,
+                    LVQ는 지도 분류이므로 공통 군집 지표를 적용하지 않습니다.
+                  </p>
+                </>
+              )}
             </div>
           )}
           {page === "guide" && (
@@ -1068,7 +1237,8 @@ export default function App() {
                   setCompareAlgorithms([...pair, "GMM", "AGNES"]);
                   setCompareCount(2);
                   choose(presetId);
-                  go("compare");
+                  location.hash = "#compare";
+                  setPage("compare");
                 }}
               />
             </Suspense>

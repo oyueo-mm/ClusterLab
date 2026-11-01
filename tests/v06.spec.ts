@@ -618,13 +618,13 @@ test("larger home typography and editor toolbar fit requested viewport widths", 
     "Explicit viewport matrix; mobile behavior is covered separately.",
   );
   const sizes = [
-    [1920, 54, 31, 16],
-    [1440, 52.56, 31, 16],
-    [1024, 42, 28, 14],
-    [800, 48, 30, 15],
-    [768, 48, 30, 15],
-    [390, 33.54, 26, 14],
-    [320, 28, 24, 12],
+    [1920, 66, 24, 12],
+    [1440, 57.6, 23.04, 12],
+    [1024, 40.96, 18, 12],
+    [800, 40, 18, 12],
+    [768, 40, 18, 12],
+    [390, 44, 18, 12],
+    [320, 44, 18, 12],
   ];
   for (const [width, title, subtitle, button] of sizes) {
     await page.setViewportSize({ width, height: 900 });

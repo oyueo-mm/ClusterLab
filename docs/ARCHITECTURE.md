@@ -1,5 +1,13 @@
 # 현재 아키텍처 — 53개 소스 개발 트리
 
+## UI·추천 데이터셋 개편 구조 (2026-11-01, 검증 중)
+
+최신 UI 작업은 [UI_DATASET_PLAN](UI_DATASET_PLAN.md)을 따른다. `router.ts`의 ID 해시와 기존 페이지 별칭, `Sidebar`, `pages/Home`, lazy `Catalog`, 기존 점/원본 실험실, 공통 `lab/LabTabs`·`FullscreenButton`·`LabDetails`, `compare/CompareWorkbench`로 역할을 나눈다. 원본 비교는 유형별 공통 Dataset과 독립 파라미터/Trace를 사용하며, 기존 2D 비교는 호환 경로에 보존한다. 아래 과거의 “typed 비교 UI 미구현”은 이번 개편 전 체크포인트 설명이다. 유형별 공통 품질 지표/3D/PCA 등 마스터 후속은 여전히 별도 미완료다.
+
+`data/recommendations.ts`는 엔진53개를 명시적으로 연결하고 기존32프리셋/원본 생성기를 재사용한다. 교재의 요약·실제 관련 알고리즘만 `catalogMetadata.json`으로 추출해 전체 수학 교재가 초기 로드되지 않게 한다. 신규 엔진은 추천 등록 및 메타데이터 동기화 검사를 통과해야 한다. `DatasetPreview`는 형식별 원본 표현을 공유하고 `AlgorithmPreview`는 최대2 Worker·화면 밖 취소·최종 요약 캐시를 사용한다. 썸네일 예산48행은 사용자 실행 데이터 상한이 아니다。
+
+자동 저장은 원본을 IndexedDB로, 작은 파라미터/탭/추천 선택만 localStorage로 분리한다. 데이터 편집 이력 코어는 변경하지 않았다. `useExperiment`는 입력·알고리즘·파라미터와 일치하는 완료 Trace만 UI에 노출해 전환 직후 잘못된 이전 결과가 표시되지 않게 한다. 수치 엔진/Recorder/기존 프리셋/홈 데모/이력142파일의 Git blob이 기준 c4d6a7d와 동일함을 `ui-datasets/source-preservation.json`에 기록했다.
+
 > 최종 공개 체크포인트:53개(기존13+후보40), 미구현79개, 완전 인증0. 제품main fc5cc15·Actions41305149245 validate/Pages 성공. 원격532/39파일·전체브라우저78통과/12기존생략, 로컬 다섯 spec cross38/38, 공개4브라우저8/8. 아래 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
 
 현재 소스는 기존13개와 신규 후보40개를 합한53개 실행 경로다. 후보119개 중79개는 미구현이며 엄격한 마스터 완전 인증은0개다. 직전50개(제품da10d21/문서d6e4e0d)의 원문은 [sessions/platform50](sessions/platform50/ARCHITECTURE.md)에 보존했다. 새3개의 전체 검증·배포는 SESSION_REPORT 마지막 확정 결과를 따른다.
