@@ -13,6 +13,7 @@ import { lessons } from "../../data/lessons";
 import { Formula } from "./Formula";
 import { TraceLesson } from "./TraceLesson";
 import type { Dataset } from "../../engine/dataset";
+import { supportsLegacyPoints } from "../../engine/registry";
 import "./guide.css";
 const sections = [
   ["overview", "개요"],
@@ -320,12 +321,23 @@ export default function GuidePage({
                     {c.other} 가이드 읽기
                   </button>
                   <button
+                    disabled={
+                      !supportsLegacyPoints(algorithm) ||
+                      !supportsLegacyPoints(c.other)
+                    }
                     onClick={() =>
                       onCompare([algorithm, c.other], lesson.preset)
                     }
                   >
                     두 알고리즘 비교 ↗
                   </button>
+                  {(!supportsLegacyPoints(algorithm) ||
+                    !supportsLegacyPoints(c.other)) && (
+                    <p className="small">
+                      행렬·시계열 원본의 동시 비교는 준비 중입니다. 각 가이드의
+                      원본 실험에서 실행할 수 있습니다.
+                    </p>
+                  )}
                 </div>
               </div>
             ))}

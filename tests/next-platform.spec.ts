@@ -605,10 +605,17 @@ test("the raw K-Shape guide preserves its dataset, changed parameters and select
 }) => {
   await page.goto("#guide");
   const guide = page.locator(".guide-page");
-  await guide
-    .getByRole("navigation", { name: "알고리즘 가이드 목록", exact: true })
-    .getByRole("button", { name: "K-Shape", exact: true })
-    .click();
+  for (const name of ["Bimax", "Cheng–Church Biclustering", "K-Shape"]) {
+    await guide
+      .getByRole("navigation", { name: "알고리즘 가이드 목록", exact: true })
+      .getByRole("button", { name, exact: true })
+      .click();
+    await expect(
+      guide
+        .getByRole("button", { name: "두 알고리즘 비교 ↗", exact: true })
+        .first(),
+    ).toBeDisabled();
+  }
   const mini = guide.locator(".trace-lesson");
   await expect(mini.getByLabel("재생", { exact: true })).toBeEnabled();
   await mini.locator(".lesson-settings > summary").click();

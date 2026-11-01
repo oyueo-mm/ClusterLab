@@ -52,7 +52,7 @@ import {
   type DataOptions,
 } from "./data/presets";
 import { algorithmFamilies } from "./data/algorithmFamilies";
-import { registry } from "./engine/registry";
+import { registry, supportsLegacyPoints } from "./engine/registry";
 import type { EventKind } from "./engine/types";
 const GuidePage = lazy(() => import("./components/guide/GuidePage"));
 const Catalog = lazy(() => import("./components/Catalog"));
@@ -134,14 +134,7 @@ function CompareCard({
           }}
         >
           {algorithms.map((a) => (
-            <option
-              key={a}
-              disabled={[
-                "Bimax",
-                "Cheng–Church Biclustering",
-                "K-Shape",
-              ].includes(a)}
-            >
+            <option key={a} disabled={!supportsLegacyPoints(a)}>
               {a}
             </option>
           ))}

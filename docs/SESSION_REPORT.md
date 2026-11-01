@@ -83,3 +83,11 @@ X-Means는 출판된 BIC heuristic, G-Means는 원문 보정/검증α, Dip은 �
 최종 두 플랫폼 spec의 Firefox/WebKit24/24가 통과했다. 범위는 실제 이번19개+직전10개 엔진과 raw 입력·편집·전용 결과·가이드 이동이며 기존 전 기능을 cross-browser 인증한 것은 아니다. platform44/{browser-local-first,browser-guides-final,browser-cross-final}.json 및 로그에 기록했다. 로컬 전체는 분할 검증이며 원격에서 단일 전체 실행을 별도로 확인할 예정이다.
 
 추가 제약4개 원문 일부·접근 제한과 hard/soft 계약·독립oracle 과제는 research/CONSTRAINT_QUEUE.md에 남겼다. 구현수·정식 후보 상태를 상향하지 않았다. 아래 원격 배포 기록이 확정되기 전까지 이번 공개 배포 성공을 주장하지 않는다.
+
+## 11. 원격 반영
+
+구현 커밋 **a81a931d7b8f0e698989fcc85bdf988f8ef3aebf**을 `feat/model-community-data-engines`와 `main`에 fast-forward/push했다. [기존 Actions41256051227](https://github.com/oyueo-mm/ClusterLab/actions/runs/41256051227)이 새 소스를 검증 중이다. 이 시점의 공개 배포 성공은 아직 미확정이며 아래에 실제 validate/deploy/public 결과를 기록한다.
+
+### 비교 입력 호환성 보완
+
+최종 경로 감사에서 행렬·시계열 가이드의 비교 버튼이 Point[] 비교로 연결되는 것을 확인했다. native-only 엔진의 공통 supportsLegacyPoints 계약으로 비교 선택기와 가이드 버튼을 함께 막고, 원본 개별 실험 경로를 안내한다. Bimax/Cheng–Church/K-Shape 세 가이드의 비활성 상태와 실제 K-Shape raw 실험 전달을 Chromium/mobile/Firefox/WebKit4/4로 확인했다. 타입·lint·build·전체428개도 다시 통과했다. 초기 a81a931의 CI validate/deploy는 성공했으며 이 UI 보완 소스는 후속 정상 커밋과 새 CI로 검증한다.

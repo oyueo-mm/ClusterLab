@@ -72,3 +72,9 @@ npm test -- src/engine/scale.test.ts src/engine/platform-scale.test.ts src/engin
 세션 한계 시 검증된 변경을 커밋하고 PROGRESS/CONTINUE/ALGORITHM_REGISTRY/SESSION_REPORT에 정확한 상태와 다음 명령을 남긴다. 마스터 지시문을 다시 요구하지 않는다.
 
 현재 다음 제약4개를 이어갈 때는 [research/CONSTRAINT_QUEUE.md](research/CONSTRAINT_QUEUE.md)를 읽는다. hard COP와 soft PCK/MPCK의 충돌/가중치 정책을 구분해야 하며, 현재 constrained 스키마가 soft 입력까지 실행 지원한다는 뜻이 아니다. 부분 조사로 후보 상태/구현 수를 올리지 않았다.
+
+현재 안정 구현 소스는 `a81a931d7b8f0e698989fcc85bdf988f8ef3aebf`이며 main/작업 브랜치에 반영됐다. Actions41256051227의 원격 검증·배포를 확인 중이다. 아래보다 최신 SESSION_REPORT 최종 기록이 있으면 우선한다. 현재 로컬 preview4273을 사용 중이며 세션 종료 시 자신의 서버만 정리한다.
+
+혼합모델을 이어갈 때 [research/MIXTURE_FOLLOWUP_QUEUE.md](research/MIXTURE_FOLLOWUP_QUEUE.md)도 읽는다. 분포별 실제 입력 범위와 EM/ECM·변분추론을 구분하고, 미실행 oracle을 검증 완료로 표시하지 않는다. 기존2D GMM은 보존한 채 ND 분포 엔진을 독립 검증한다.
+
+그래프 후속은 [research/GRAPH_FOLLOWUP_QUEUE.md](research/GRAPH_FOLLOWUP_QUEUE.md)를 읽는다. CW와 현재 LPA의 tie 규약·별칭 여부, Walktrap의 self-loop 전이 규약, Infomap description length, 중첩 CPM/BigCLAM, SBM 추론법·OSLOM 근거를 각각 구분한다. 공식 구현 smoke를 제품 엔진 구현으로 세지 않는다.

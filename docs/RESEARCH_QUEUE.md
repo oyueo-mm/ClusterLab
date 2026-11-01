@@ -61,3 +61,7 @@ Ng, Jordan & Weiss, _On Spectral Clustering: Analysis and an algorithm_, NIPS 14
 Rodriguez & Laio, _Clustering by fast search-and-find of density peaks_, Science 344 (2014), 1492–1496, DOI 10.1126/science.1242072. [저자 소속기관 기록](https://iris.sissa.it/handle/20.500.11767/14183)에서 서지·초록 확인. 원문 PDF는 기관 기록에서 비공개로 표시된다. ρ/δ 정의·cutoff/Gaussian kernel 선택·density 동률·가장 높은 밀도점·중심 선택·halo 처리를 원문 또는 저자 구현으로 확인해야 한다. 아직 엔진 없음.
 
 2026-11-01 후속 준비: [CONSTRAINT_QUEUE](research/CONSTRAINT_QUEUE.md)에 COP/PCK/MPCK/Constrained Spectral의 실제 열람 범위와 원문 접근 제한·수식/오류/독립oracle 계약을 남겼다. 엔진을 추가하거나 정식 조사 완료로 상태를 올리지 않았다.
+
+배포 검증 대기 중 [MIXTURE_FOLLOWUP_QUEUE](research/MIXTURE_FOLLOWUP_QUEUE.md)에 후보81–91의 분포별 EM/입력/수치 경계·실제 원문 열람·공식 oracle 확보 여부를 정리했다. TAXONOMY의 관계 조사와 새 부분 열람을 구분하며 구현·정식 조사 완료 수에 합산하지 않는다.
+
+[GRAPH_FOLLOWUP_QUEUE](research/GRAPH_FOLLOWUP_QUEUE.md)에 다음7개 그래프 후보의 원문·방향/가중/중첩·전이/목적함수·현재 계약 차이와 접근 제한을 기록했다. Walktrap/Infomap/CPM 공식 구현 smoke는 다음 oracle 준비이며 신규 제품 엔진 검증이나 구현 수로 세지 않았다.

@@ -148,6 +148,10 @@ export const communityAlgorithms: readonly Algorithm[] = [
   "Greedy Modularity (CNM)",
   "Fluid Communities",
 ];
+/** Native matrix/time-series engines cannot consume the point editor input. */
+export function supportsLegacyPoints(algorithm: Algorithm) {
+  return !["Bimax", "Cheng–Church Biclustering", "K-Shape"].includes(algorithm);
+}
 export function supportsDataset(algorithm: Algorithm, kind: Dataset["kind"]) {
   if (kind === "categorical") return algorithm === "K-Modes";
   if (kind === "mixed") return algorithm === "K-Prototypes";
