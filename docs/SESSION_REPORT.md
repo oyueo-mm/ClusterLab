@@ -1,6 +1,6 @@
 # 통합 확장 보고서 — 50개 엔진 개발 단위
 
-> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
+> 최신 확정: 공개50개(기존13+후보37), 미구현82개, 완전 인증0. 제품main da10d21·Actions41299520759 validate/Pages 성공. 원격509/37파일·전체브라우저74통과/12기존생략, 공개4브라우저20/20. 다음순차3개는 .local/sequential-worktree에서 별도 개발 중이며 아직 공개 집계에 포함하지 않는다. 이하 중간 기록보다 SESSION_REPORT 마지막 절을 우선한다.
 
 전체 마스터 목표는 **미완료**다. 직전 안정44개/후보31개 구현 기록은 [sessions/platform44/SESSION_REPORT.md](sessions/platform44/SESSION_REPORT.md)에 원문 보존했다. 현재 브랜치는 `feat/constraints-mixtures-and-overlap`, 기준 main826001d/제품fd78886이다. 아래 진행 중 표시와 마지막 확정 절을 구분한다.
 
@@ -64,3 +64,13 @@ browser-full.json/log, browser-guides.json/log, browser-cross.json/log, catalog-
 별도 다음 개발 트리의 공통 인터페이스 점검에서 COP-KMeans가 structuredAlgorithms 배열에 두 번 들어가 제약 선택 항목이 중복되는 것을 발견했다. 첫 중복만 제거하고 목록 고유성 단위 단언과 실제 COP option 개수1 브라우저 단언을 추가했다. 알고리즘의 수학·Trace·원본 데이터는 변경하지 않았다. lint/build(타입 포함), 전체509/37파일, 실제 COP 편집·실패복구 Chromium/mobile2/2가 다시 통과했다(unit-registry-final, browser-registry-final). 원격 최종 제품은 이 보완 커밋의 후속 Actions를 따른다. 앞선 f98629a의 검증/배포와 혼동하지 않는다.
 
 다음 BSAS/MBSAS/TTSAS 개발은 .local/sequential-worktree의 feat/sequential-clustering에 격리해 진행 중이며, 이50개 구현·배포 수에는 더하지 않는다.
+
+## 최종 50개 배포 확정
+
+최종 제품 소스 **da10d2168ad1de4bd9ff9cfe8f9bb64f4549a641**, main. 최초 개발 커밋f98629a 뒤 COP 선택기 중복 보완da10d21을 반영했다. [Actions41299520759](https://github.com/oyueo-mm/ClusterLab/actions/runs/41299520759)의 Ubuntu/Node22 validate(job124827437786)와 Pages deploy(job124830638184)가 모두 성공했다. 원격 lint/type/build, 전체 **Vitest509/509·37파일**, 한 번의 전체 Chromium/mobile **74통과·12기존 조건부 생략·0실패**가 확정됐다. 앞선41298783510은 후속 소스로 교체되어 취소됐으며 성공으로 세지 않는다.
+
+공개 https://oyueo-mm.github.io/ClusterLab/ 에서 신규6개 실제 Worker·원본 편집/제약 실패복구·분포별 EM·Walktrap/중첩 cover·native 출력·1,000행/7폭·실제 mini/파라미터/이벤트 전달을 검사했다. Chromium/mobile10/10, Firefox/WebKit10/10으로 **공개20개 구성 모두 성공**이다. 공개 COP option 하나 검사는 중복 제거된 최신 제품의 동작도 확인한다. 이20개는 전체 legacy 공개 회귀 또는 모든 알고리즘의 성능 검증이 아니다. 전체 최신 회귀는 위 원격74개, 로컬 네 spec의 cross 범위는34개로 구분한다.
+
+원자료 ci-validation.log/json, deployment.json, browser-public.json/log, browser-public-cross.json/log 및 실제 공개 Bernoulli desktop/Walktrap mobile PNG를 platform50에 보존한다. 소스50개=기존13+후보37,119후보 중82미구현, 엄격한 완전 인증0이다. 전체 마스터는 미완료다.
+
+다음 actual BSAS/MBSAS/TTSAS 개발은 `feat/sequential-clustering`의 `.local/sequential-worktree`에 격리돼 있다. 실제 모듈/ND분석/교재·독립180결과 검산·단위13개까지 진행했으며 전체/브라우저 검증 전이라 이 공개50개에 보태지 않는다. root stable와 다음 tree의 WIP를 혼동하지 않는다. 문서 전용 후속 [skip ci] 커밋은 제품 소스/테스트/의존성을 바꾸지 않는다.

@@ -1,0 +1,19 @@
+{
+  "sourceSha": "da10d2168ad1de4bd9ff9cfe8f9bb64f4549a641",
+  "runId": 41299520759,
+  "validateJob": 124827437786,
+  "deployJob": 124830638184,
+  "status": "success",
+  "page": "https://oyueo-mm.github.io/ClusterLab/",
+  "publicChecks": {
+    "chromiumAndMobile": 10,
+    "firefoxAndWebkit": 10,
+    "failed": 0,
+    "scope": "New six engines real Workers, data editing/errors/native export, all six guide event transfers; not full legacy public regression."
+  },
+  "priorRun": {
+    "id": 41298783510,
+    "status": "cancelled",
+    "reason": "Superseded by registry uniqueness fix"
+  }
+}

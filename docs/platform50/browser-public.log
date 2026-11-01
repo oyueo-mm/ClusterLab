@@ -1,0 +1,25 @@
+
+Running 10 tests using 1 worker
+
+node.exe : (node:33588) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:33588) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success (9.1s)
+  ok  2 [chromium] › tests\constraints-models.spec.ts:421:1 › three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery (11.3s)
+  ok  3 [chromium] › tests\constraints-models.spec.ts:542:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes (5.5s)
+  ok  4 [chromium] › tests\constraints-models.spec.ts:665:1 › 1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths (4.1s)
+  ok  5 [chromium] › tests\model-guides.spec.ts:100:1 › six model guides preserve actual mini source, changed parameters and selected real event into the structured Worker experiment (13.4s)
+(node:35424) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  6 [mobile] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success (9.4s)
+  ok  7 [mobile] › tests\constraints-models.spec.ts:421:1 › three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery (8.6s)
+  ok  8 [mobile] › tests\constraints-models.spec.ts:542:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes (6.3s)
+  ok  9 [mobile] › tests\constraints-models.spec.ts:665:1 › 1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths (5.1s)
+  ok 10 [mobile] › tests\model-guides.spec.ts:100:1 › six model guides preserve actual mini source, changed parameters and selected real event into the structured Worker experiment (14.8s)
+
+  10 passed (1.5m)

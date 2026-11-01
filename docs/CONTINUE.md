@@ -1,6 +1,6 @@
 # 재개 절차 — 제약·혼합·중첩 커뮤니티
 
-> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
+> 최신 확정: 공개50개(기존13+후보37), 미구현82개, 완전 인증0. 제품main da10d21·Actions41299520759 validate/Pages 성공. 원격509/37파일·전체브라우저74통과/12기존생략, 공개4브라우저20/20. 다음순차3개는 .local/sequential-worktree에서 별도 개발 중이며 아직 공개 집계에 포함하지 않는다. 이하 중간 기록보다 SESSION_REPORT 마지막 절을 우선한다.
 
 MASTER_PLAN、PROGRESS、ALGORITHM_REGISTRY、SESSION_REPORT、ARCHITECTURE、DATA_FORMATS、PERFORMANCE、VALIDATION、RESEARCH_QUEUE와 research 자료를 먼저 읽는다. 마스터 전체를 다시 요청하지 않는다. 직전 안정44개 문서는 sessions/platform44, 이전25개는 sessions/platform25에 보존했다.
 
@@ -43,3 +43,18 @@ npx playwright test tests/platform.spec.ts tests/next-platform.spec.ts tests/con
 ## 다음 순서
 
 검증 중인 전체 브라우저/cross→안정 커밋→main ff/push→Actions/Pages→공개 실 Worker 확인→문서 최종 SHA를 완료한다. 이미 완료됐다면 SESSION_REPORT 마지막 절을 우선한다. 다음 실제 엔진은 research/NEXT_50_QUEUE.md와 RESEARCH_QUEUE의 조사 상태에서 이어간다. 각 알고리즘은 계산부터 UI/가이드/독립 수치/브라우저까지 연결한다. 전체 마스터는 여전히 진행 중이다.
+
+## 50개 공개 체크포인트에서 계속
+
+제품main da10d21, Actions41299520759 validate/deploy 성공. 전체509/37파일·원격74통과/12기존생략·공개4브라우저20/20가 확정됐다. CI로그와실제공개PNG는platform50,상세범위는SESSION_REPORT마지막절이다.
+
+다음순차3개 작업트리:
+```powershell
+git -C .local/sequential-worktree status --short
+git -C .local/sequential-worktree branch --show-current
+cd .local/sequential-worktree
+npm run typecheck
+npm test -- src/engine/sequential.test.ts src/engine/sequential-integration.test.ts
+```
+
+현재feat/sequential-clustering에서BSAS/MBSAS/TTSAS엔진/전용분석/mini·oracle·단위통과를연결중이다.원래root는50개안정소스이므로새3개의전체브라우저·배포미확정을완료로집계하지않는다. worktree의ACTIVE_WORK와SEQUENTIAL연구자료를읽고미완료검사부터이어간다.체크포인트없이worktree를삭제하지않는다.
