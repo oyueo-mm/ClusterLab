@@ -47,3 +47,9 @@ Node24/Windows x64의100/1000/10000/100000 원본·3차원·두 분리 군집에
 주요 파일은 sequentialCommon/bsas/mbsas/ttsas, sequentialTypes/Details, native datasetExecution·registry/params/resources/types, SequentialAnalysis/CSS, 순차 교재·독립 Python/fixture·수치/통합/브라우저 검사다. 전체 수정은 git show --stat를 따른다. 안정 단위로 커밋하고 main은 검증 후 fast-forward하며 강제 푸시/히스토리 재작성을 하지 않는다. 현재 새53개 CI/Pages는 아직 미확정이다. 당시50개 배포 성공을53개 성공으로 전용하지 않는다.
 
 후보79개·119개 전수 원문 조사·완전 마스터 검수, typed 비교/지표·3D/PCA·시각 그래프/행열/시간 편집·청크/transferable·적응 Worker pool/계산 pause·무한 스트림·더 큰/장시간 peak/FPS가 남아 있다. 다음 연구 큐와 CONTINUE를 읽고 현재3개를 중복 구현하지 않는다. 새 실행 수53을 완전 인증 수로 표시하지 않는다.
+
+## 안정50개 main 병합과 최종 로컬 확인
+
+순차 소스 체크포인트는297eb31이다. main d6e4e0d를 히스토리 재작성 없이 병합했다. 소스 충돌은 없었고 현재 문서11개는53개 내용을 유지했다. 50개 원문은 이미 정확한 Git 객체로 sessions/platform50에 보존했으며, 원래 main의 CI/공개 증거와 COP 고유성 단언도 함께 보존했다.
+
+병합 후 lint/build(타입 포함)·전체532/39파일과 실제 순차 Chromium/mobile4/4가 다시 통과했다. 이4개는 전체78개 중 같은 구성의 재검사다. 후보 거리의 실제 계산값과 assign 전후 상태를 추가 감사했고, 유효한1e308 배율에서도 유한한 동일 그래프 폭을 확인했다. 실제 TTSAS pass2 유보 화면(desktop/mobile PNG)을 보존하고 desktop을 직접 확인했다. 거리0.6, 하한0.4, 상한1, 실제 미배정1행의 상태다. 아직 새53개 원격/공개 결과로 표시하지 않는다.
