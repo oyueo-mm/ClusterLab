@@ -95,3 +95,5 @@ Canvas는 안정 뉴런 ID와 실제 간선·CURE 대표점을 그린다. 점/�
 기존 최대 100작업 splice delta Undo/Redo와 CSV/JSON을 유지한다. 전체 교체/복원은 O(n)일 수 있다. 새 구조형 편집은 JSON 원문·파일 입출력·축 선택이며 그래프 드래그/3D 회전/속성 표/구조형 Undo/비교는 아직 없다.
 
 Worker 메시지는 object clone이다. TypedArray transferable·스트리밍 파서·희소 고유해·GPU/WASM은 미도입이다. 모든 기존 엔진의 대형 배열·거리 연산을 해결한 상태가 아니다. 장시간 누수·peak·대규모 브라우저 전송/렌더링은 추가 과제다.
+
+마지막 기본값 분기를 레지스트리의 resetParametersOnSelect로 옮겼다. 기존13개와 FCM/Bisecting의 공유 파라미터 정책은 유지하고, 이후 신규 엔진은 App 이름 목록을 반복 수정하지 않고 기본값 정책을 적용한다. native 입력 라우팅도 supportsLegacyPoints를 재사용한다. 타입/lint/build/전체428개와 기존10엔진·raw 가이드 경로를 최종 빌드에서 재확인했다. 계산 엔진 소스는 a81a931과 동일하다.

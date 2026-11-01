@@ -1,5 +1,5 @@
 import type { Algorithm, Params, Point } from "./types";
-import { algorithmDefaults } from "./types";
+import { algorithmDefaults, legacyAlgorithms } from "./types";
 import type { Dataset } from "./dataset";
 import type { Recorder } from "./trace";
 import { algorithmDetails, type AlgorithmDetail } from "./algorithmDetails";
@@ -298,6 +298,11 @@ export const registry = Object.fromEntries(
         details: algorithmDetails[id],
         parameters: fields[id],
         defaults: algorithmDefaults(id),
+        resetParametersOnSelect: ![
+          ...legacyAlgorithms,
+          "Fuzzy C-Means",
+          "Bisecting K-Means",
+        ].some((a) => a === id),
         seeded: ![
           "DBSCAN",
           "AGNES",
@@ -363,6 +368,7 @@ export const registry = Object.fromEntries(
     output: string;
     parameters: (typeof fields)[Algorithm];
     defaults: Params;
+    resetParametersOnSelect: boolean;
     seeded: boolean;
     backend: string;
     parallelism: string;

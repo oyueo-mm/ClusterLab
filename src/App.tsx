@@ -294,42 +294,13 @@ export default function App() {
   };
   const changeAlgorithm = (a: Algorithm) => {
     setAlgorithm(a);
-    if (["Bimax", "Cheng–Church Biclustering", "K-Shape"].includes(a)) {
+    if (!supportsLegacyPoints(a)) {
       setParams(algorithmDefaults(a));
       setStructuredRequest(undefined);
       go("structured");
       return;
     }
-    if (
-      [
-        "Spectral Clustering",
-        "Affinity Propagation",
-        "Density Peaks / CFSFDP",
-        "CURE",
-        "Neural Gas",
-        "Growing Neural Gas",
-        "K-Medians",
-        "Mini-Batch K-Means",
-        "CLARA",
-        "CLARANS",
-        "X-Means",
-        "G-Means",
-        "Dip-Means",
-        "DP-Means",
-        "Louvain",
-        "Leiden",
-        "Label Propagation",
-        "Girvan–Newman",
-        "Markov Clustering (MCL)",
-        "K-Modes",
-        "K-Prototypes",
-        "CLIQUE",
-        "PROCLUS",
-        "DenStream",
-        "Greedy Modularity (CNM)",
-        "Fluid Communities",
-      ].includes(a)
-    ) {
+    if (registry[a].resetParametersOnSelect) {
       setParams(algorithmDefaults(a));
       return;
     }
