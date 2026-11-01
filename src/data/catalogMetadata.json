@@ -1,0 +1,359 @@
+{
+  "K-Means": {
+    "summary": "여러 관측값을 K개의 대표 위치로 요약하는 벡터 양자화 문제입니다. Lloyd의 교대 최적화는 중심과 할당을 한꺼번에 찾기 어려운 문제를 두 개의 쉬운 부분 문제로 나눕니다. 비슷한 분산의 볼록한 군집에 적합합니다.",
+    "related": [
+      "PAM",
+      "GMM"
+    ]
+  },
+  "DBSCAN": {
+    "summary": "구형 중심 하나로 설명할 수 없는 연결된 밀집 영역을 찾습니다. Ester 등의 DBSCAN은 군집 수 K 대신 국소 이웃 수로 밀도를 정의하고 희박한 점을 노이즈로 남깁니다.",
+    "related": [
+      "HDBSCAN",
+      "OPTICS"
+    ]
+  },
+  "HDBSCAN": {
+    "summary": "하나의 반경을 고르지 않고 밀도 수준을 변화시켜 지속되는 집단을 찾습니다. HDBSCAN*의 핵심은 DBSCAN을 여러 번 임의 실행하는 대신 거리 변환·MST·축약 계층·안정도 선택을 연결하는 것입니다.",
+    "related": [
+      "DBSCAN",
+      "OPTICS"
+    ]
+  },
+  "AGNES": {
+    "summary": "개별 점에서 전체 집단까지 여러 해상도의 구조를 만들기 위한 상향식 계층 군집화입니다. AGNES는 agglomerative nesting을 뜻합니다. 처음부터 K를 고정해 학습하기보다 전체 병합 기록을 만든 후 절단합니다.",
+    "related": [
+      "DIANA",
+      "BIRCH"
+    ]
+  },
+  "DIANA": {
+    "summary": "큰 집단의 가장 큰 차이부터 나누는 divisive analysis입니다. 모든 점을 함께 놓고 내부의 이질성을 줄이므로 세부 유사성부터 합치는 AGNES와 다른 탐욕 경로를 따릅니다.",
+    "related": [
+      "AGNES"
+    ]
+  },
+  "SOM": {
+    "summary": "Kohonen의 Self-Organizing Map은 고정 격자 뉴런의 가중치를 데이터 공간에 배치해 이웃 관계를 학습합니다. 직접 K개의 일반 군집을 추출하는 알고리즘보다는 위상과 대표값을 시각화하는 경쟁학습입니다.",
+    "related": [
+      "LVQ",
+      "K-Means"
+    ]
+  },
+  "LVQ": {
+    "summary": "Learning Vector Quantization은 정답 클래스가 있는 지도 분류 알고리즘입니다. 비지도 클러스터링과 달리 좋은 그룹을 스스로 정의하는 것이 아니라 클래스 경계를 학습합니다. 이 앱은 가장 기본적인 LVQ1을 사용합니다.",
+    "related": [
+      "SOM"
+    ]
+  },
+  "OPTICS": {
+    "summary": "여러 밀도의 군집을 한 번의 탐색 순서에 담기 위해 Ankerst 등이 제안한 방법입니다. 점의 순서와 도달 거리 곡선을 보존한 다음 원하는 수준에서 군집을 추출합니다.",
+    "related": [
+      "DBSCAN",
+      "HDBSCAN"
+    ]
+  },
+  "PAM": {
+    "summary": "평균이 실제 관측을 대표하기 어렵거나 이상치의 제곱거리 영향을 줄이고 싶을 때 K개의 실제 관측점 medoid를 고릅니다. PAM은 K-medoids 문제를 BUILD와 SWAP으로 탐욕 최적화하는 방법입니다.",
+    "related": [
+      "K-Means"
+    ]
+  },
+  "ROCK": {
+    "summary": "범주형 값에는 자연스러운 Euclidean 평균이 없으므로, ROCK은 값이 겹치는 정도와 공통 이웃 연결로 집단을 만듭니다. 2D 좌표는 시각화용이며 실제 계산에는 attribute=value 토큰이 들어갑니다.",
+    "related": [
+      "PAM"
+    ]
+  },
+  "GMM": {
+    "summary": "겹치는 집단의 소속을 단일 번호로 단정하지 않고 확률로 표현하기 위한 생성 모델입니다. 각 관측값이 숨은 성분 z에서 발생한 뒤 그 성분의 정규분포에서 생성되었다고 가정합니다. 길쭉하거나 회전한 분포도 공분산으로 표현합니다.",
+    "related": [
+      "K-Means"
+    ]
+  },
+  "BIRCH": {
+    "summary": "대용량 데이터의 모든 점 쌍을 유지하는 대신 작은 충분통계 CF로 국소 부분 군집을 압축합니다. 균형 CF-Tree에서 가까운 요약을 찾아 삽입한 뒤 선택적으로 최종 군집화를 수행합니다.",
+    "related": [
+      "AGNES"
+    ]
+  },
+  "Mean Shift": {
+    "summary": "군집 수를 먼저 정하지 않고 밀도 모드로 점을 모으는 비모수적 탐색입니다. 일반 Mean Shift는 KDE의 기울기와 연결되며, 앱은 반경 안 원본 점에 동일한 가중치를 주는 flat-kernel 이웃 평균 구현입니다.",
+    "related": [
+      "K-Means",
+      "DBSCAN"
+    ]
+  },
+  "Fuzzy C-Means": {
+    "summary": "고정 K에서 퍼지 목적함수 J_m을 교대 최소화합니다.",
+    "related": [
+      "GMM"
+    ]
+  },
+  "Bisecting K-Means": {
+    "summary": "큰 SSE를 갖는 잎을 반복 이분할하는 K-Means 변형입니다.",
+    "related": [
+      "K-Means"
+    ]
+  },
+  "Spectral Clustering": {
+    "summary": "수치형 원본 특성 또는 실제 무방향 가중 그래프에서 유사 관계를 만들고, 그래프 라플라시안의 고유벡터 공간에서 분할합니다. 정규화 옵션은 Ng–Jordan–Weiss 계열, 비정규화 옵션은 L=D−W를 사용하는 별도 변형입니다.",
+    "related": [
+      "K-Means",
+      "DBSCAN"
+    ]
+  },
+  "Affinity Propagation": {
+    "summary": "유사도 행렬에서 대표 관측점 exemplar를 찾는 메시지 전달 군집화입니다. 군집 수 대신 각 점의 preference를 지정합니다.",
+    "related": [
+      "PAM"
+    ]
+  },
+  "Density Peaks / CFSFDP": {
+    "summary": "국소 밀도 ρ와 앞선 밀도 순위 점까지의 거리 δ로 군집 중심 후보를 구별합니다. 이 엔진은 명시적인 상위 γ=ρδ 중심 선택 변형을 사용합니다.",
+    "related": [
+      "DBSCAN"
+    ]
+  },
+  "CURE": {
+    "summary": "여러 축소 대표점 사이의 최소 거리를 기준으로 군집을 병합하는 계층 방법입니다. 전체 점을 사용하는 기본 절차를 구현하며 SSE 최소화를 목적함수로 주장하지 않습니다.",
+    "related": [
+      "AGNES",
+      "K-Means"
+    ]
+  },
+  "Neural Gas": {
+    "summary": "거리 순위로 여러 뉴런을 동시에 적응시키는 비지도 벡터 양자화 방법입니다. 고정 격자는 없으며 표시 색은 최근접 뉴런 BMU입니다.",
+    "related": [
+      "SOM",
+      "Growing Neural Gas"
+    ]
+  },
+  "Growing Neural Gas": {
+    "summary": "고정 크기 격자 없이 두 뉴런에서 시작해 국소 오차가 큰 영역에 뉴런을 삽입하는 경쟁 학습법입니다. 간선은 학습된 위상이며 입력 그래프를 군집화한 결과가 아닙니다.",
+    "related": [
+      "Neural Gas",
+      "SOM"
+    ]
+  },
+  "K-Medians": {
+    "summary": "L1 거리합을 줄이는 Lloyd형 K-Medians입니다. 좌표별 중앙값을 갱신하며 산술평균이나 Euclidean 기하중앙값을 사용하지 않습니다.",
+    "related": [
+      "K-Means"
+    ]
+  },
+  "Mini-Batch K-Means": {
+    "summary": "작은 배치에서 할당을 고정한 뒤 누적 방문수에 따른 학습률로 중심을 갱신하는 Mini-Batch K-Means입니다. 이 엔진은 재현 가능한 비복원 epoch 변형을 사용합니다.",
+    "related": [
+      "K-Means"
+    ]
+  },
+  "CLARA": {
+    "summary": "작은 표본에서 PAM으로 실제 관측점 medoid를 찾고, 모든 입력에서 계산한 거리 비용으로 표본 해들을 비교하는 방법입니다. 탐색은 표본 기반이며 전체 PAM의 전수 탐색과 같지 않습니다.",
+    "related": [
+      "PAM",
+      "CLARANS"
+    ]
+  },
+  "CLARANS": {
+    "summary": "전체 medoid 집합 공간에서 무작위 단일 교환 이웃을 탐색하는 방법입니다. 각 이웃의 비용은 전체 데이터로 정확히 계산하지만 모든 이웃을 조사하지는 않습니다.",
+    "related": [
+      "PAM",
+      "CLARA"
+    ]
+  },
+  "X-Means": {
+    "summary": "X-Means는 부모 군집과 실제 두 자식 군집의 모델 점수를 비교하여 군집 수를 늘립니다. 여기서는 Pelleg–Moore 원문의 X-Means BIC 공식을 사용하는 제한 범위를 명시합니다.",
+    "related": [
+      "G-Means",
+      "Bisecting K-Means"
+    ]
+  },
+  "G-Means": {
+    "summary": "G-Means는 두 후보 중심이 제안하는 방향에 원본 점을 투영하고 Anderson–Darling 정규성 검정으로 분할을 수용합니다. 실제 가설검정과 전체 K-Means 정제를 수행합니다.",
+    "related": [
+      "X-Means",
+      "Dip-Means"
+    ]
+  },
+  "Dip-Means": {
+    "summary": "Dip-Means는 모든 군집 구성원을 viewer로 삼아 군집 내 거리분포의 Hartigan dip를 계산하고, Uniform bootstrap으로 단봉성을 검정합니다. 실제 convex/concave envelope 계산을 사용합니다.",
+    "related": [
+      "G-Means",
+      "Bisecting K-Means"
+    ]
+  },
+  "DP-Means": {
+    "summary": "DP-Means는 제곱거리와 군집 수 벌점의 합을 줄이는 순차 hard-clustering입니다. 새 점이 모든 현재 중심에서 λ보다 큰 제곱거리에 있으면 즉시 새 중심을 만듭니다.",
+    "related": [
+      "K-Means",
+      "X-Means"
+    ]
+  },
+  "Louvain": {
+    "summary": "실제 간선의 가중 모듈성을 높이는 노드 이동과 메타 그래프 집약을 반복해 커뮤니티를 찾습니다.",
+    "related": [
+      "Leiden"
+    ]
+  },
+  "Leiden": {
+    "summary": "노드 이동, 원래 커뮤니티 내부의 확률적 제약 refinement, refined 메타 그래프 집약을 실제 수행하는 Leiden입니다.",
+    "related": [
+      "Louvain"
+    ]
+  },
+  "Label Propagation": {
+    "summary": "각 노드가 이웃의 현재 레이블을 실제로 받아 가중 최다 레이블로 갱신하는 비동기 Label Propagation입니다.",
+    "related": [
+      "Louvain"
+    ]
+  },
+  "Girvan–Newman": {
+    "summary": "현재 그래프의 실제 edge betweenness가 가장 큰 간선을 제거하고 최단 경로를 다시 계산하는 분할형 커뮤니티 방법입니다.",
+    "related": [
+      "Louvain"
+    ]
+  },
+  "Markov Clustering (MCL)": {
+    "summary": "실제 확률 전이 행렬의 거듭제곱 expansion과 원소별 inflation·열 정규화를 반복해 흐름의 attractor 지지를 찾습니다.",
+    "related": [
+      "Label Propagation"
+    ]
+  },
+  "K-Modes": {
+    "summary": "실제 범주형 문자열의 불일치 개수를 최소화하도록 군집 최빈값 벡터를 학습합니다. 범주를 순서 있는 수로 인코딩하지 않습니다.",
+    "related": [
+      "K-Means",
+      "K-Prototypes"
+    ]
+  },
+  "K-Prototypes": {
+    "summary": "원본의 모든 수치 열과 범주 열을 함께 사용해 실제 평균·최빈값 프로토타입을 학습합니다. 두 데이터 형식을 화면 좌표와 분리합니다.",
+    "related": [
+      "K-Modes",
+      "K-Means"
+    ]
+  },
+  "CLIQUE": {
+    "summary": "고차원 원본의 서로 다른 부분공간에서 밀집 격자를 찾고, 면으로 연결된 격자를 실제 부분공간 군집으로 반환합니다. 한 관측은 여러 부분공간 군집에 속할 수 있습니다.",
+    "related": [
+      "DBSCAN",
+      "PROCLUS"
+    ]
+  },
+  "PROCLUS": {
+    "summary": "실제 고차원 관측 medoid와 군집별 선택 축을 함께 탐색하고, 전체 입력의 segmental 거리로 할당한 뒤 차원을 정제하는 projected clustering입니다.",
+    "related": [
+      "CLIQUE",
+      "PAM"
+    ]
+  },
+  "DenStream": {
+    "summary": "시각이 있는 전체 스트림에서 감쇠 CF 요약과 밀도 연결을 유지하는 DenStream입니다. 정적 DBSCAN과 다른 현재 시간의 요약 결과를 반환합니다.",
+    "related": [
+      "DBSCAN",
+      "BIRCH"
+    ]
+  },
+  "Bimax": {
+    "summary": "실제 이진 행렬에서 모든 셀이 1이고 더 확장할 행·열이 없는 inclusion-maximal 부분행렬을 찾습니다. 결과는 행 집합과 열 집합의 쌍이며 서로 중첩될 수 있습니다.",
+    "related": [
+      "Cheng–Church Biclustering",
+      "CLIQUE"
+    ]
+  },
+  "Cheng–Church Biclustering": {
+    "summary": "실제 실수 행렬의 행·열을 함께 선택해 낮은 평균 제곱 잔차(MSR)를 갖는 패턴을 찾습니다. 행마다 다른 기준값과 열마다 다른 효과를 제거한 뒤 남는 오차를 계산합니다.",
+    "related": [
+      "Bimax",
+      "K-Means"
+    ]
+  },
+  "K-Shape": {
+    "summary": "K-Shape는 실제 시계열을 zero-padded cross-correlation으로 정렬하고, 정렬된 시계열의 고유벡터로 대표 형태를 추출하는 군집화입니다. 2D 좌표나 평균 중심 K-Means로 대체하지 않습니다.",
+    "related": [
+      "K-Means",
+      "Spectral Clustering"
+    ]
+  },
+  "Greedy Modularity (CNM)": {
+    "summary": "각 노드를 하나의 커뮤니티로 시작해 실제 모듈성 증가가 가장 큰 군집 쌍을 순서대로 병합하는 greedy modularity 방법입니다.",
+    "related": [
+      "Louvain",
+      "Girvan–Newman"
+    ]
+  },
+  "Fluid Communities": {
+    "summary": "미리 지정한 K개의 유체가 크기에 반비례하는 밀도로 자신과 이웃에 영향을 주는 실제 비동기 Fluid Communities입니다.",
+    "related": [
+      "Label Propagation",
+      "Louvain"
+    ]
+  },
+  "COP-KMeans": {
+    "summary": "원본 수치 데이터에서 Must-Link·Cannot-Link를 반드시 만족하는 분할을 순차적으로 찾는 COP-KMeans입니다. 가까운 중심이 관계를 위반하면 다음 후보를 실제로 검사합니다.",
+    "related": [
+      "K-Means",
+      "DP-Means"
+    ]
+  },
+  "Bernoulli Mixture": {
+    "summary": "조건부 독립 이진 특성의 product-Bernoulli 혼합을 실제 최대우도 EM으로 학습합니다. 원본 모든 차원에서 성분별 성공 확률과 혼합 가중치, Bayes 사후소속을 추정합니다.",
+    "related": [
+      "K-Modes",
+      "Fuzzy C-Means",
+      "Multinomial Mixture"
+    ]
+  },
+  "Poisson Mixture": {
+    "summary": "성분 안에서 조건부 독립인 비음수 정수 count의 product-Poisson 혼합을 실제 무prior 최대우도 EM으로 학습합니다. 성분별 강도 λ와 혼합 가중치·사후확률을 추정합니다.",
+    "related": [
+      "Bernoulli Mixture",
+      "Multinomial Mixture",
+      "GMM"
+    ]
+  },
+  "Multinomial Mixture": {
+    "summary": "각 행의 실제 총 count를 조건으로 하는 유한 Multinomial mixture를 무prior 최대우도 EM으로 학습합니다. 행 길이가 달라도 같은 범주 확률 profile로 계산합니다.",
+    "related": [
+      "Poisson Mixture",
+      "Bernoulli Mixture",
+      "K-Modes"
+    ]
+  },
+  "Walktrap": {
+    "summary": "실제 짧은 무작위 보행의 도착 분포로 노드 유사도를 정의하고, 인접 군집의 Ward 증가가 최소인 쌍을 병합하는 계층적 Walktrap입니다. 전체 계층 중 원본 모듈성이 가장 높은 cut을 반환합니다.",
+    "related": [
+      "Greedy Modularity (CNM)",
+      "Markov Clustering (MCL)"
+    ]
+  },
+  "Clique Percolation": {
+    "summary": "실제로 존재하는 모든 k-clique를 찾고, k−1개 원본 노드를 공유하는 clique들의 연결 성분으로 겹치는 커뮤니티를 추출합니다. 군집 수를 미리 정하거나 점수를 최대화하는 알고리즘이 아닙니다.",
+    "related": [
+      "Markov Clustering (MCL)",
+      "Louvain"
+    ]
+  },
+  "BSAS": {
+    "summary": "원본 행을 입력 순서대로 한 번 방문하며 최근접 대표까지의 실제 거리와 최대 군집 수 q로 생성 또는 할당을 결정합니다. 기존 행의 최근접 재배치는 하지 않습니다.",
+    "related": [
+      "K-Means",
+      "MBSAS"
+    ]
+  },
+  "MBSAS": {
+    "summary": "첫 pass는 군집 대표가 될 원본 행만 고르고, 두 번째 pass에서 유보한 행을 순서대로 배정하며 평균을 갱신합니다. BSAS와 대표 갱신 시점이 다릅니다.",
+    "related": [
+      "K-Means",
+      "BSAS"
+    ]
+  },
+  "TTSAS": {
+    "summary": "두 임계값 사이의 원본 행을 유보하고 실제 다음 pass에서 다시 검사하는 순차 군집화입니다. 직전 pass에서 배정 진전이 없으면 첫 pending 행으로 새 군집을 생성합니다.",
+    "related": [
+      "K-Means",
+      "BSAS"
+    ]
+  }
+}

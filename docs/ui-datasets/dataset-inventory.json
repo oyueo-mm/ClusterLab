@@ -1,0 +1,4401 @@
+{
+  "datasets": [
+    {
+      "id": "blobs",
+      "name": "가우시안 군집",
+      "nameEn": "Gaussian Blobs",
+      "description": "균형 잡힌 세 개의 구형 군집",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "K-Means",
+        "AGNES",
+        "DIANA",
+        "PAM",
+        "CLARA",
+        "CLARANS",
+        "Fuzzy C-Means",
+        "K-Medians",
+        "Mini-Batch K-Means",
+        "Mean Shift",
+        "BIRCH",
+        "SOM",
+        "Neural Gas",
+        "Affinity Propagation"
+      ]
+    },
+    {
+      "id": "moons",
+      "name": "두 개의 초승달",
+      "nameEn": "Two Moons",
+      "description": "굽은 두 개의 비선형 군집",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "DBSCAN",
+        "OPTICS",
+        "Growing Neural Gas",
+        "Spectral Clustering",
+        "Density Peaks / CFSFDP"
+      ]
+    },
+    {
+      "id": "circles",
+      "name": "동심원",
+      "nameEn": "Concentric Circles",
+      "description": "중심이 같은 두 원",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "K-Means",
+        "PAM",
+        "Bisecting K-Means",
+        "K-Medians",
+        "Spectral Clustering"
+      ]
+    },
+    {
+      "id": "anisotropic",
+      "name": "비등방성 군집",
+      "nameEn": "Anisotropic Clusters",
+      "description": "기울어진 타원형 군집",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "K-Means",
+        "GMM"
+      ]
+    },
+    {
+      "id": "density",
+      "name": "서로 다른 밀도의 군집",
+      "nameEn": "Varying Density",
+      "description": "서로 다른 밀도",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "DBSCAN",
+        "HDBSCAN",
+        "OPTICS",
+        "Mean Shift",
+        "Density Peaks / CFSFDP"
+      ]
+    },
+    {
+      "id": "outliers",
+      "name": "노이즈와 이상치",
+      "nameEn": "Noise and Outliers",
+      "description": "군집 주변의 이상치",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "DBSCAN",
+        "PAM",
+        "CLARA",
+        "Fuzzy C-Means",
+        "K-Medians",
+        "SOM",
+        "Neural Gas",
+        "Growing Neural Gas"
+      ]
+    },
+    {
+      "id": "overlap",
+      "name": "겹치는 군집",
+      "nameEn": "Overlapping Clusters",
+      "description": "경계가 겹치는 Gaussian",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "DIANA",
+        "GMM",
+        "Fuzzy C-Means",
+        "Mini-Batch K-Means",
+        "Affinity Propagation"
+      ]
+    },
+    {
+      "id": "unequal",
+      "name": "크기가 다른 군집",
+      "nameEn": "Unequal Cluster Sizes",
+      "description": "균형이 다른 표본 크기",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "HDBSCAN",
+        "DIANA",
+        "CLARANS",
+        "Bisecting K-Means",
+        "Mini-Batch K-Means",
+        "BIRCH",
+        "CURE",
+        "Affinity Propagation"
+      ]
+    },
+    {
+      "id": "uniform",
+      "name": "균일 무작위 분포",
+      "nameEn": "Uniform Random",
+      "description": "구조 없는 균일 분포",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "Density Peaks / CFSFDP"
+      ]
+    },
+    {
+      "id": "spiral",
+      "name": "나선형 군집",
+      "nameEn": "Spiral",
+      "description": "맞물린 두 나선",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "rings",
+      "name": "고리형 군집",
+      "nameEn": "Rings",
+      "description": "세 개의 고리",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "GMM",
+        "Neural Gas",
+        "Growing Neural Gas"
+      ]
+    },
+    {
+      "id": "grid",
+      "name": "격자형 데이터",
+      "nameEn": "Grid",
+      "description": "규칙적인 격자",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "SOM"
+      ]
+    },
+    {
+      "id": "bridge",
+      "name": "연결된 군집",
+      "nameEn": "Bridge",
+      "description": "군집 사이 연결 다리",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "HDBSCAN",
+        "AGNES",
+        "Mean Shift",
+        "CURE",
+        "Spectral Clustering"
+      ]
+    },
+    {
+      "id": "nested",
+      "name": "중첩 군집",
+      "nameEn": "Nested Clusters",
+      "description": "큰 군집 안의 작은 군집",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "categorical",
+      "name": "범주형 군집",
+      "nameEn": "Categorical Groups",
+      "description": "실제 범주형 attribute=value 토큰",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "ROCK"
+      ]
+    },
+    {
+      "id": "labeled",
+      "name": "라벨이 있는 분류 데이터",
+      "nameEn": "Labeled Classification",
+      "description": "LVQ용 정답 라벨 데이터",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "LVQ"
+      ]
+    },
+    {
+      "id": "elongated",
+      "name": "길쭉한 군집",
+      "nameEn": "Elongated Clouds",
+      "description": "가로로 길게 늘어난 군집",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "AGNES",
+        "BIRCH",
+        "CURE"
+      ]
+    },
+    {
+      "id": "diagonal",
+      "name": "대각선 띠",
+      "nameEn": "Diagonal Bands",
+      "description": "대각선 띠",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "four",
+      "name": "네 모서리 군집",
+      "nameEn": "Four Corners",
+      "description": "네 모서리의 Gaussian",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "Bisecting K-Means"
+      ]
+    },
+    {
+      "id": "five",
+      "name": "다섯 개의 섬",
+      "nameEn": "Five Islands",
+      "description": "다섯 개의 작은 섬",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "tiny",
+      "name": "소규모 검증 데이터",
+      "nameEn": "Small Reference",
+      "description": "손으로 검산할 작은 데이터",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "line",
+      "name": "직선형 군집",
+      "nameEn": "Line",
+      "description": "직선 위의 두 덩어리",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "cross",
+      "name": "십자형 데이터",
+      "nameEn": "Cross",
+      "description": "교차하는 두 띠",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "checker",
+      "name": "체커보드",
+      "nameEn": "Checkerboard",
+      "description": "체커보드 패턴",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "crescent",
+      "name": "초승달과 원형 군집",
+      "nameEn": "Crescent & Blob",
+      "description": "초승달과 원형 군집",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "satellite",
+      "name": "위성형 군집",
+      "nameEn": "Satellite",
+      "description": "큰 군집 주변 작은 위성",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "CLARA",
+        "CLARANS"
+      ]
+    },
+    {
+      "id": "sparse",
+      "name": "드문드문 떨어진 군집",
+      "nameEn": "Sparse Islands",
+      "description": "드문드문 떨어진 섬",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "duplicates",
+      "name": "중복 좌표",
+      "nameEn": "Duplicates",
+      "description": "동일 좌표가 중복된 데이터",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "gradient",
+      "name": "밀도 기울기",
+      "nameEn": "Density Gradient",
+      "description": "연속적으로 변하는 밀도",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "OPTICS"
+      ]
+    },
+    {
+      "id": "categorical-noisy",
+      "name": "노이즈가 있는 범주형 데이터",
+      "nameEn": "Noisy Categories",
+      "description": "속성이 일부 섞인 범주형 데이터",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "ROCK"
+      ]
+    },
+    {
+      "id": "labeled-overlap",
+      "name": "겹치는 클래스",
+      "nameEn": "Overlapping Classes",
+      "description": "정답은 있지만 경계가 겹친 클래스",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "LVQ"
+      ]
+    },
+    {
+      "id": "three-rings",
+      "name": "중심이 다른 고리",
+      "nameEn": "Offset Rings",
+      "description": "중심이 다른 고리",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": []
+    },
+    {
+      "id": "numeric-base",
+      "name": "다차원 분리 군집",
+      "nameEn": "Multidimensional groups",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-numeric-base",
+      "algorithms": [
+        "X-Means",
+        "G-Means",
+        "Dip-Means",
+        "DP-Means",
+        "CLIQUE",
+        "PROCLUS",
+        "BSAS",
+        "MBSAS",
+        "TTSAS"
+      ]
+    },
+    {
+      "id": "numeric-ambiguous",
+      "name": "다차원 분리 군집 · 모호한 구조",
+      "nameEn": "Multidimensional groups",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-numeric-ambiguous",
+      "algorithms": [
+        "X-Means",
+        "G-Means",
+        "Dip-Means",
+        "DP-Means",
+        "CLIQUE",
+        "PROCLUS",
+        "BSAS",
+        "MBSAS",
+        "TTSAS"
+      ]
+    },
+    {
+      "id": "numeric-boundary",
+      "name": "다차원 분리 군집 · 경계 실험",
+      "nameEn": "Multidimensional groups",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-numeric-boundary",
+      "algorithms": [
+        "X-Means",
+        "G-Means",
+        "Dip-Means",
+        "DP-Means"
+      ]
+    },
+    {
+      "id": "categorical-base",
+      "name": "범주형 속성 집단",
+      "nameEn": "Categorical profiles",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "categorical",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-categorical-base",
+      "algorithms": [
+        "K-Modes"
+      ]
+    },
+    {
+      "id": "categorical-ambiguous",
+      "name": "범주형 속성 집단 · 모호한 구조",
+      "nameEn": "Categorical profiles",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "categorical",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-categorical-ambiguous",
+      "algorithms": [
+        "K-Modes"
+      ]
+    },
+    {
+      "id": "categorical-boundary",
+      "name": "범주형 속성 집단 · 경계 실험",
+      "nameEn": "Categorical profiles",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "categorical",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-categorical-boundary",
+      "algorithms": [
+        "K-Modes"
+      ]
+    },
+    {
+      "id": "mixed-base",
+      "name": "수치·범주 혼합 집단",
+      "nameEn": "Mixed profiles",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "mixed",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-mixed-base",
+      "algorithms": [
+        "K-Prototypes"
+      ]
+    },
+    {
+      "id": "mixed-ambiguous",
+      "name": "수치·범주 혼합 집단 · 모호한 구조",
+      "nameEn": "Mixed profiles",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "mixed",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-mixed-ambiguous",
+      "algorithms": [
+        "K-Prototypes"
+      ]
+    },
+    {
+      "id": "mixed-boundary",
+      "name": "수치·범주 혼합 집단 · 경계 실험",
+      "nameEn": "Mixed profiles",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "mixed",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-mixed-boundary",
+      "algorithms": [
+        "K-Prototypes"
+      ]
+    },
+    {
+      "id": "graph-base",
+      "name": "연결 커뮤니티",
+      "nameEn": "Linked communities",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "graph",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-graph-base",
+      "algorithms": [
+        "Louvain",
+        "Leiden",
+        "Label Propagation",
+        "Girvan–Newman",
+        "Markov Clustering (MCL)",
+        "Greedy Modularity (CNM)",
+        "Fluid Communities",
+        "Walktrap",
+        "Clique Percolation"
+      ]
+    },
+    {
+      "id": "graph-ambiguous",
+      "name": "연결 커뮤니티 · 모호한 구조",
+      "nameEn": "Linked communities",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "graph",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-graph-ambiguous",
+      "algorithms": [
+        "Louvain",
+        "Leiden",
+        "Label Propagation",
+        "Girvan–Newman",
+        "Markov Clustering (MCL)",
+        "Greedy Modularity (CNM)",
+        "Fluid Communities",
+        "Walktrap",
+        "Clique Percolation"
+      ]
+    },
+    {
+      "id": "graph-boundary",
+      "name": "연결 커뮤니티 · 경계 실험",
+      "nameEn": "Linked communities",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "graph",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-graph-boundary",
+      "algorithms": [
+        "Louvain",
+        "Leiden",
+        "Label Propagation",
+        "Girvan–Newman",
+        "Markov Clustering (MCL)",
+        "Greedy Modularity (CNM)",
+        "Walktrap"
+      ]
+    },
+    {
+      "id": "matrix-base",
+      "name": "이진 블록 행렬",
+      "nameEn": "Binary blocks",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "matrix",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 8,
+      "generator": "structured-matrix-base",
+      "algorithms": [
+        "Bimax",
+        "Cheng–Church Biclustering"
+      ]
+    },
+    {
+      "id": "matrix-ambiguous",
+      "name": "이진 블록 행렬 · 모호한 구조",
+      "nameEn": "Binary blocks",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "matrix",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 8,
+      "generator": "structured-matrix-ambiguous",
+      "algorithms": [
+        "Bimax",
+        "Cheng–Church Biclustering"
+      ]
+    },
+    {
+      "id": "matrix-boundary",
+      "name": "이진 블록 행렬 · 경계 실험",
+      "nameEn": "Binary blocks",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "matrix",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 8,
+      "generator": "structured-matrix-boundary",
+      "algorithms": [
+        "Bimax",
+        "Cheng–Church Biclustering"
+      ]
+    },
+    {
+      "id": "timeseries-base",
+      "name": "위상·스케일 파형",
+      "nameEn": "Shifted waveforms",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "timeseries",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-timeseries-base",
+      "algorithms": [
+        "K-Shape"
+      ]
+    },
+    {
+      "id": "timeseries-ambiguous",
+      "name": "위상·스케일 파형 · 모호한 구조",
+      "nameEn": "Shifted waveforms",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "timeseries",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-timeseries-ambiguous",
+      "algorithms": [
+        "K-Shape"
+      ]
+    },
+    {
+      "id": "timeseries-boundary",
+      "name": "위상·스케일 파형 · 경계 실험",
+      "nameEn": "Shifted waveforms",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "timeseries",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-timeseries-boundary",
+      "algorithms": [
+        "K-Shape"
+      ]
+    },
+    {
+      "id": "stream-base",
+      "name": "등장·소멸 스트림",
+      "nameEn": "Emerging streams",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "stream",
+      "seed": 42,
+      "count": 48,
+      "dimensions": 4,
+      "generator": "structured-stream-base",
+      "algorithms": [
+        "DenStream"
+      ]
+    },
+    {
+      "id": "stream-ambiguous",
+      "name": "등장·소멸 스트림 · 모호한 구조",
+      "nameEn": "Emerging streams",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "stream",
+      "seed": 42,
+      "count": 48,
+      "dimensions": 4,
+      "generator": "structured-stream-ambiguous",
+      "algorithms": [
+        "DenStream"
+      ]
+    },
+    {
+      "id": "stream-boundary",
+      "name": "등장·소멸 스트림 · 경계 실험",
+      "nameEn": "Emerging streams",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "stream",
+      "seed": 42,
+      "count": 48,
+      "dimensions": 4,
+      "generator": "structured-stream-boundary",
+      "algorithms": [
+        "DenStream"
+      ]
+    },
+    {
+      "id": "constrained-base",
+      "name": "연결·분리 제약",
+      "nameEn": "Pairwise constraints",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "constrained",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-constrained-base",
+      "algorithms": [
+        "COP-KMeans"
+      ]
+    },
+    {
+      "id": "constrained-ambiguous",
+      "name": "연결·분리 제약 · 모호한 구조",
+      "nameEn": "Pairwise constraints",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "constrained",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-constrained-ambiguous",
+      "algorithms": [
+        "COP-KMeans"
+      ]
+    },
+    {
+      "id": "constrained-boundary",
+      "name": "연결·분리 제약 · 경계 실험",
+      "nameEn": "Pairwise constraints",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "constrained",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-constrained-boundary",
+      "algorithms": [
+        "COP-KMeans"
+      ]
+    },
+    {
+      "id": "bernoulli-base",
+      "name": "이진 응답 집단",
+      "nameEn": "Binary responses",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-bernoulli-base",
+      "algorithms": [
+        "Bernoulli Mixture"
+      ]
+    },
+    {
+      "id": "bernoulli-ambiguous",
+      "name": "이진 응답 집단 · 모호한 구조",
+      "nameEn": "Binary responses",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-bernoulli-ambiguous",
+      "algorithms": [
+        "Bernoulli Mixture"
+      ]
+    },
+    {
+      "id": "bernoulli-boundary",
+      "name": "이진 응답 집단 · 경계 실험",
+      "nameEn": "Binary responses",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-bernoulli-boundary",
+      "algorithms": [
+        "Bernoulli Mixture"
+      ]
+    },
+    {
+      "id": "poisson-base",
+      "name": "발생 빈도 집단",
+      "nameEn": "Poisson counts",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-poisson-base",
+      "algorithms": [
+        "Poisson Mixture"
+      ]
+    },
+    {
+      "id": "poisson-ambiguous",
+      "name": "발생 빈도 집단 · 모호한 구조",
+      "nameEn": "Poisson counts",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-poisson-ambiguous",
+      "algorithms": [
+        "Poisson Mixture"
+      ]
+    },
+    {
+      "id": "poisson-boundary",
+      "name": "발생 빈도 집단 · 경계 실험",
+      "nameEn": "Poisson counts",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-poisson-boundary",
+      "algorithms": [
+        "Poisson Mixture"
+      ]
+    },
+    {
+      "id": "multinomial-base",
+      "name": "문서 구성 카운트",
+      "nameEn": "Multinomial profiles",
+      "description": "원본 형식과 전체 특성을 사용하는 시드 기반 예제",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-multinomial-base",
+      "algorithms": [
+        "Multinomial Mixture"
+      ]
+    },
+    {
+      "id": "multinomial-ambiguous",
+      "name": "문서 구성 카운트 · 모호한 구조",
+      "nameEn": "Multinomial profiles",
+      "description": "구조를 약화했을 때의 배정과 파라미터 민감도를 관찰합니다.",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-multinomial-ambiguous",
+      "algorithms": [
+        "Multinomial Mixture"
+      ]
+    },
+    {
+      "id": "multinomial-boundary",
+      "name": "문서 구성 카운트 · 경계 실험",
+      "nameEn": "Multinomial profiles",
+      "description": "중복·연결·순서·잡음의 영향을 확인합니다.",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-multinomial-boundary",
+      "algorithms": [
+        "Multinomial Mixture"
+      ]
+    },
+    {
+      "id": "subspaces",
+      "name": "관련 차원이 다른 부분공간",
+      "nameEn": "Cluster-specific subspaces",
+      "description": "앞쪽 또는 뒤쪽 축에서만 조밀한 두 집단과 무관 차원",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 48,
+      "dimensions": 6,
+      "generator": "subspaces-v1",
+      "algorithms": [
+        "CLIQUE",
+        "PROCLUS"
+      ]
+    },
+    {
+      "id": "ordered",
+      "name": "순서와 두 임계값",
+      "nameEn": "Ordered threshold bridge",
+      "description": "먼저 본 대표점에 따라 배정·유보·재방문이 달라지는 원본 순서",
+      "kind": "numeric",
+      "seed": 42,
+      "count": 12,
+      "dimensions": 3,
+      "generator": "ordered-threshold-v1",
+      "algorithms": [
+        "BSAS",
+        "MBSAS",
+        "TTSAS"
+      ]
+    },
+    {
+      "id": "blobs-alternate",
+      "name": "가우시안 군집 · 다른 표본",
+      "nameEn": "Gaussian Blobs",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "K-Means",
+        "AGNES",
+        "CLARA",
+        "CLARANS",
+        "Mini-Batch K-Means",
+        "Mean Shift",
+        "BIRCH",
+        "Affinity Propagation"
+      ]
+    },
+    {
+      "id": "moons-alternate",
+      "name": "두 개의 초승달 · 다른 표본",
+      "nameEn": "Two Moons",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "DBSCAN",
+        "Growing Neural Gas"
+      ]
+    },
+    {
+      "id": "density-alternate",
+      "name": "서로 다른 밀도의 군집 · 다른 표본",
+      "nameEn": "Varying Density",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "HDBSCAN",
+        "OPTICS",
+        "Density Peaks / CFSFDP"
+      ]
+    },
+    {
+      "id": "unequal-alternate",
+      "name": "크기가 다른 군집 · 다른 표본",
+      "nameEn": "Unequal Cluster Sizes",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "DIANA",
+        "Bisecting K-Means"
+      ]
+    },
+    {
+      "id": "outliers-alternate",
+      "name": "노이즈와 이상치 · 다른 표본",
+      "nameEn": "Noise and Outliers",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "PAM",
+        "K-Medians"
+      ]
+    },
+    {
+      "id": "anisotropic-alternate",
+      "name": "비등방성 군집 · 다른 표본",
+      "nameEn": "Anisotropic Clusters",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "GMM"
+      ]
+    },
+    {
+      "id": "overlap-alternate",
+      "name": "겹치는 군집 · 다른 표본",
+      "nameEn": "Overlapping Clusters",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "Fuzzy C-Means"
+      ]
+    },
+    {
+      "id": "categorical-alternate",
+      "name": "범주형 군집 · 다른 표본",
+      "nameEn": "Categorical Groups",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "ROCK"
+      ]
+    },
+    {
+      "id": "elongated-alternate",
+      "name": "길쭉한 군집 · 다른 표본",
+      "nameEn": "Elongated Clouds",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "CURE"
+      ]
+    },
+    {
+      "id": "grid-alternate",
+      "name": "격자형 데이터 · 다른 표본",
+      "nameEn": "Grid",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "SOM"
+      ]
+    },
+    {
+      "id": "labeled-alternate",
+      "name": "라벨이 있는 분류 데이터 · 다른 표본",
+      "nameEn": "Labeled Classification",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "LVQ"
+      ]
+    },
+    {
+      "id": "rings-alternate",
+      "name": "고리형 군집 · 다른 표본",
+      "nameEn": "Rings",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "Neural Gas"
+      ]
+    },
+    {
+      "id": "circles-alternate",
+      "name": "동심원 · 다른 표본",
+      "nameEn": "Concentric Circles",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 120,
+      "dimensions": 2,
+      "generator": "legacy-preset",
+      "algorithms": [
+        "Spectral Clustering"
+      ]
+    },
+    {
+      "id": "numeric-base-alternate",
+      "name": "다차원 분리 군집 · 다른 표본",
+      "nameEn": "Multidimensional groups",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-numeric-base",
+      "algorithms": [
+        "X-Means",
+        "G-Means",
+        "Dip-Means",
+        "DP-Means"
+      ]
+    },
+    {
+      "id": "graph-base-alternate",
+      "name": "연결 커뮤니티 · 다른 표본",
+      "nameEn": "Linked communities",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "graph",
+      "seed": 137,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-graph-base",
+      "algorithms": [
+        "Louvain",
+        "Leiden",
+        "Label Propagation",
+        "Girvan–Newman",
+        "Markov Clustering (MCL)",
+        "Greedy Modularity (CNM)",
+        "Fluid Communities",
+        "Walktrap",
+        "Clique Percolation"
+      ]
+    },
+    {
+      "id": "categorical-base-alternate",
+      "name": "범주형 속성 집단 · 다른 표본",
+      "nameEn": "Categorical profiles",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "categorical",
+      "seed": 137,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-categorical-base",
+      "algorithms": [
+        "K-Modes"
+      ]
+    },
+    {
+      "id": "mixed-base-alternate",
+      "name": "수치·범주 혼합 집단 · 다른 표본",
+      "nameEn": "Mixed profiles",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "mixed",
+      "seed": 137,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-mixed-base",
+      "algorithms": [
+        "K-Prototypes"
+      ]
+    },
+    {
+      "id": "subspaces-alternate",
+      "name": "관련 차원이 다른 부분공간 · 다른 표본",
+      "nameEn": "Cluster-specific subspaces",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 48,
+      "dimensions": 6,
+      "generator": "subspaces-v1",
+      "algorithms": [
+        "CLIQUE",
+        "PROCLUS"
+      ]
+    },
+    {
+      "id": "matrix-base-alternate",
+      "name": "이진 블록 행렬 · 다른 표본",
+      "nameEn": "Binary blocks",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "matrix",
+      "seed": 137,
+      "count": 24,
+      "dimensions": 8,
+      "generator": "structured-matrix-base",
+      "algorithms": [
+        "Bimax",
+        "Cheng–Church Biclustering"
+      ]
+    },
+    {
+      "id": "timeseries-base-alternate",
+      "name": "위상·스케일 파형 · 다른 표본",
+      "nameEn": "Shifted waveforms",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "timeseries",
+      "seed": 137,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-timeseries-base",
+      "algorithms": [
+        "K-Shape"
+      ]
+    },
+    {
+      "id": "stream-base-alternate",
+      "name": "등장·소멸 스트림 · 다른 표본",
+      "nameEn": "Emerging streams",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "stream",
+      "seed": 137,
+      "count": 48,
+      "dimensions": 4,
+      "generator": "structured-stream-base",
+      "algorithms": [
+        "DenStream"
+      ]
+    },
+    {
+      "id": "constrained-base-alternate",
+      "name": "연결·분리 제약 · 다른 표본",
+      "nameEn": "Pairwise constraints",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "constrained",
+      "seed": 137,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-constrained-base",
+      "algorithms": [
+        "COP-KMeans"
+      ]
+    },
+    {
+      "id": "bernoulli-base-alternate",
+      "name": "이진 응답 집단 · 다른 표본",
+      "nameEn": "Binary responses",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-bernoulli-base",
+      "algorithms": [
+        "Bernoulli Mixture"
+      ]
+    },
+    {
+      "id": "poisson-base-alternate",
+      "name": "발생 빈도 집단 · 다른 표본",
+      "nameEn": "Poisson counts",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-poisson-base",
+      "algorithms": [
+        "Poisson Mixture"
+      ]
+    },
+    {
+      "id": "multinomial-base-alternate",
+      "name": "문서 구성 카운트 · 다른 표본",
+      "nameEn": "Multinomial profiles",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 24,
+      "dimensions": 4,
+      "generator": "structured-multinomial-base",
+      "algorithms": [
+        "Multinomial Mixture"
+      ]
+    },
+    {
+      "id": "ordered-alternate",
+      "name": "순서와 두 임계값 · 다른 표본",
+      "nameEn": "Ordered threshold bridge",
+      "description": "같은 가정에서 시드와 표본이 바뀔 때 결과의 안정성을 비교합니다.",
+      "kind": "numeric",
+      "seed": 137,
+      "count": 12,
+      "dimensions": 3,
+      "generator": "ordered-threshold-v1",
+      "algorithms": [
+        "BSAS",
+        "MBSAS",
+        "TTSAS"
+      ]
+    }
+  ],
+  "algorithms": [
+    {
+      "id": "K-Means",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "blobs",
+          "role": "default",
+          "purpose": "평균 중심과 SSE 감소",
+          "observe": "동심원은 중심까지의 거리만으로 분리하기 어렵습니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "initialization": "kmeans++",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "anisotropic",
+          "role": "additional",
+          "purpose": "평균 중심과 SSE 감소 · 다른 구조 비교",
+          "observe": "동심원은 중심까지의 거리만으로 분리하기 어렵습니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "initialization": "kmeans++",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "blobs-alternate",
+          "role": "additional",
+          "purpose": "평균 중심과 SSE 감소 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "initialization": "kmeans++",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "circles",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "동심원은 중심까지의 거리만으로 분리하기 어렵습니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "initialization": "kmeans++",
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "DBSCAN",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "moons",
+          "role": "default",
+          "purpose": "ε 이웃과 핵심점 연결",
+          "observe": "고정 ε로 밀도가 다른 집단을 동시에 분리하기 어렵습니다.",
+          "params": {
+            "epsilon": 0.075,
+            "minPts": 4
+          },
+          "parameters": {
+            "epsilon": 0.075,
+            "minPts": 4
+          }
+        },
+        {
+          "datasetId": "outliers",
+          "role": "additional",
+          "purpose": "ε 이웃과 핵심점 연결 · 다른 구조 비교",
+          "observe": "고정 ε로 밀도가 다른 집단을 동시에 분리하기 어렵습니다.",
+          "params": {
+            "epsilon": 0.075,
+            "minPts": 4
+          },
+          "parameters": {
+            "epsilon": 0.075,
+            "minPts": 4
+          }
+        },
+        {
+          "datasetId": "moons-alternate",
+          "role": "additional",
+          "purpose": "ε 이웃과 핵심점 연결 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {
+            "epsilon": 0.075,
+            "minPts": 4
+          },
+          "parameters": {
+            "epsilon": 0.075,
+            "minPts": 4
+          }
+        },
+        {
+          "datasetId": "density",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "고정 ε로 밀도가 다른 집단을 동시에 분리하기 어렵습니다.",
+          "params": {
+            "epsilon": 0.075,
+            "minPts": 4
+          },
+          "parameters": {
+            "epsilon": 0.075,
+            "minPts": 4
+          }
+        }
+      ]
+    },
+    {
+      "id": "HDBSCAN",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "density",
+          "role": "default",
+          "purpose": "상호 도달 거리와 밀도 계층",
+          "observe": "연결 다리가 계층과 안정성 선택에 주는 영향을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "minSize": 8,
+            "minPts": 5,
+            "selection": "eom"
+          }
+        },
+        {
+          "datasetId": "unequal",
+          "role": "additional",
+          "purpose": "상호 도달 거리와 밀도 계층 · 다른 구조 비교",
+          "observe": "연결 다리가 계층과 안정성 선택에 주는 영향을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "minSize": 8,
+            "minPts": 5,
+            "selection": "eom"
+          }
+        },
+        {
+          "datasetId": "density-alternate",
+          "role": "additional",
+          "purpose": "상호 도달 거리와 밀도 계층 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "minSize": 8,
+            "minPts": 5,
+            "selection": "eom"
+          }
+        },
+        {
+          "datasetId": "bridge",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "연결 다리가 계층과 안정성 선택에 주는 영향을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "minSize": 8,
+            "minPts": 5,
+            "selection": "eom"
+          }
+        }
+      ]
+    },
+    {
+      "id": "AGNES",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "blobs",
+          "role": "default",
+          "purpose": "거리와 linkage에 따른 병합",
+          "observe": "다리 데이터에서 chaining과 linkage 차이를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "linkage": "average",
+            "metric": "euclidean",
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "elongated",
+          "role": "additional",
+          "purpose": "거리와 linkage에 따른 병합 · 다른 구조 비교",
+          "observe": "다리 데이터에서 chaining과 linkage 차이를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "linkage": "average",
+            "metric": "euclidean",
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "blobs-alternate",
+          "role": "additional",
+          "purpose": "거리와 linkage에 따른 병합 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "linkage": "average",
+            "metric": "euclidean",
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "bridge",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "다리 데이터에서 chaining과 linkage 차이를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "linkage": "average",
+            "metric": "euclidean",
+            "k": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "DIANA",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "unequal",
+          "role": "default",
+          "purpose": "최대 직경과 분리 집합",
+          "observe": "겹치는 집단에서 분할 경계가 모호해집니다.",
+          "params": {},
+          "parameters": {
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "blobs",
+          "role": "additional",
+          "purpose": "최대 직경과 분리 집합 · 다른 구조 비교",
+          "observe": "겹치는 집단에서 분할 경계가 모호해집니다.",
+          "params": {},
+          "parameters": {
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "unequal-alternate",
+          "role": "additional",
+          "purpose": "최대 직경과 분리 집합 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "overlap",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "겹치는 집단에서 분할 경계가 모호해집니다.",
+          "params": {},
+          "parameters": {
+            "k": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "SOM",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "grid",
+          "role": "default",
+          "purpose": "격자 위상과 이웃 뉴런 이동",
+          "observe": "외딴 관측에서 위상과 양자화 오차를 살펴봅니다.",
+          "params": {},
+          "parameters": {
+            "grid": 5,
+            "learningRate": 0.2,
+            "radius": 2,
+            "epochs": 8
+          }
+        },
+        {
+          "datasetId": "blobs",
+          "role": "additional",
+          "purpose": "격자 위상과 이웃 뉴런 이동 · 다른 구조 비교",
+          "observe": "외딴 관측에서 위상과 양자화 오차를 살펴봅니다.",
+          "params": {},
+          "parameters": {
+            "grid": 5,
+            "learningRate": 0.2,
+            "radius": 2,
+            "epochs": 8
+          }
+        },
+        {
+          "datasetId": "grid-alternate",
+          "role": "additional",
+          "purpose": "격자 위상과 이웃 뉴런 이동 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "grid": 5,
+            "learningRate": 0.2,
+            "radius": 2,
+            "epochs": 8
+          }
+        },
+        {
+          "datasetId": "outliers",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "외딴 관측에서 위상과 양자화 오차를 살펴봅니다.",
+          "params": {},
+          "parameters": {
+            "grid": 5,
+            "learningRate": 0.2,
+            "radius": 2,
+            "epochs": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "LVQ",
+      "input": "labeled-points2d",
+      "recommendations": [
+        {
+          "datasetId": "labeled",
+          "role": "default",
+          "purpose": "정답 클래스에 따른 대표점 학습",
+          "observe": "겹치는 클래스의 지도 분류 경계를 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "learningRate": 0.2,
+            "k": 3,
+            "epochs": 8
+          }
+        },
+        {
+          "datasetId": "labeled-overlap",
+          "role": "additional",
+          "purpose": "정답 클래스에 따른 대표점 학습 · 다른 구조 비교",
+          "observe": "겹치는 클래스의 지도 분류 경계를 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "learningRate": 0.2,
+            "k": 3,
+            "epochs": 8
+          }
+        },
+        {
+          "datasetId": "labeled-alternate",
+          "role": "additional",
+          "purpose": "정답 클래스에 따른 대표점 학습 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "learningRate": 0.2,
+            "k": 3,
+            "epochs": 8
+          }
+        },
+        {
+          "datasetId": "labeled-overlap",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "겹치는 클래스의 지도 분류 경계를 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "learningRate": 0.2,
+            "k": 3,
+            "epochs": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "OPTICS",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "density",
+          "role": "default",
+          "purpose": "도달 가능 거리와 군집 추출",
+          "observe": "연속 밀도에서 추출 임계값의 영향을 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "minPts": 5,
+            "epsilon": 0.11,
+            "extraction": "epsilon",
+            "threshold": 0.055,
+            "xi": 0.05,
+            "minSize": 8
+          }
+        },
+        {
+          "datasetId": "moons",
+          "role": "additional",
+          "purpose": "도달 가능 거리와 군집 추출 · 다른 구조 비교",
+          "observe": "연속 밀도에서 추출 임계값의 영향을 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "minPts": 5,
+            "epsilon": 0.11,
+            "extraction": "epsilon",
+            "threshold": 0.055,
+            "xi": 0.05,
+            "minSize": 8
+          }
+        },
+        {
+          "datasetId": "density-alternate",
+          "role": "additional",
+          "purpose": "도달 가능 거리와 군집 추출 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "minPts": 5,
+            "epsilon": 0.11,
+            "extraction": "epsilon",
+            "threshold": 0.055,
+            "xi": 0.05,
+            "minSize": 8
+          }
+        },
+        {
+          "datasetId": "gradient",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "연속 밀도에서 추출 임계값의 영향을 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "minPts": 5,
+            "epsilon": 0.11,
+            "extraction": "epsilon",
+            "threshold": 0.055,
+            "xi": 0.05,
+            "minSize": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "PAM",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "outliers",
+          "role": "default",
+          "purpose": "실제 관측 medoid와 swap",
+          "observe": "메도이드 기반 볼록 분할의 한계를 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "initialization": "build",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "blobs",
+          "role": "additional",
+          "purpose": "실제 관측 medoid와 swap · 다른 구조 비교",
+          "observe": "메도이드 기반 볼록 분할의 한계를 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "initialization": "build",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "outliers-alternate",
+          "role": "additional",
+          "purpose": "실제 관측 medoid와 swap · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "initialization": "build",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "circles",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "메도이드 기반 볼록 분할의 한계를 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "initialization": "build",
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "ROCK",
+      "input": "categorical-tokens",
+      "recommendations": [
+        {
+          "datasetId": "categorical",
+          "role": "default",
+          "purpose": "범주 토큰의 공통 이웃 링크",
+          "observe": "범주 잡음이 많아질 때 링크가 약해집니다.",
+          "params": {
+            "threshold": 0.5
+          },
+          "parameters": {
+            "threshold": 0.5,
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "categorical-noisy",
+          "role": "additional",
+          "purpose": "범주 토큰의 공통 이웃 링크 · 다른 구조 비교",
+          "observe": "범주 잡음이 많아질 때 링크가 약해집니다.",
+          "params": {
+            "threshold": 0.5
+          },
+          "parameters": {
+            "threshold": 0.5,
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "categorical-alternate",
+          "role": "additional",
+          "purpose": "범주 토큰의 공통 이웃 링크 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {
+            "threshold": 0.5
+          },
+          "parameters": {
+            "threshold": 0.5,
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "categorical-noisy",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "범주 잡음이 많아질 때 링크가 약해집니다.",
+          "params": {
+            "threshold": 0.5
+          },
+          "parameters": {
+            "threshold": 0.5,
+            "k": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "GMM",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "anisotropic",
+          "role": "default",
+          "purpose": "공분산·혼합비·E/M 단계",
+          "observe": "고리 구조는 타원 정규분포 가정과 맞지 않습니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "covariance": "full",
+            "initialization": "kmeans++",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "overlap",
+          "role": "additional",
+          "purpose": "공분산·혼합비·E/M 단계 · 다른 구조 비교",
+          "observe": "고리 구조는 타원 정규분포 가정과 맞지 않습니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "covariance": "full",
+            "initialization": "kmeans++",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "anisotropic-alternate",
+          "role": "additional",
+          "purpose": "공분산·혼합비·E/M 단계 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "covariance": "full",
+            "initialization": "kmeans++",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "rings",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "고리 구조는 타원 정규분포 가정과 맞지 않습니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "covariance": "full",
+            "initialization": "kmeans++",
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "BIRCH",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "blobs",
+          "role": "default",
+          "purpose": "CF 요약과 임계 반경",
+          "observe": "구형 요약이 길쭉한 집단에 주는 영향을 봅니다.",
+          "params": {},
+          "parameters": {
+            "threshold": 0.055,
+            "branching": 4,
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "unequal",
+          "role": "additional",
+          "purpose": "CF 요약과 임계 반경 · 다른 구조 비교",
+          "observe": "구형 요약이 길쭉한 집단에 주는 영향을 봅니다.",
+          "params": {},
+          "parameters": {
+            "threshold": 0.055,
+            "branching": 4,
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "blobs-alternate",
+          "role": "additional",
+          "purpose": "CF 요약과 임계 반경 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "threshold": 0.055,
+            "branching": 4,
+            "k": 3
+          }
+        },
+        {
+          "datasetId": "elongated",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "구형 요약이 길쭉한 집단에 주는 영향을 봅니다.",
+          "params": {},
+          "parameters": {
+            "threshold": 0.055,
+            "branching": 4,
+            "k": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "Mean Shift",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "blobs",
+          "role": "default",
+          "purpose": "대역폭 내 밀도 모드 이동",
+          "observe": "대역폭에 따라 서로 다른 모드가 합쳐집니다.",
+          "params": {},
+          "parameters": {
+            "bandwidth": 0.16,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "density",
+          "role": "additional",
+          "purpose": "대역폭 내 밀도 모드 이동 · 다른 구조 비교",
+          "observe": "대역폭에 따라 서로 다른 모드가 합쳐집니다.",
+          "params": {},
+          "parameters": {
+            "bandwidth": 0.16,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "blobs-alternate",
+          "role": "additional",
+          "purpose": "대역폭 내 밀도 모드 이동 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "bandwidth": 0.16,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "bridge",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "대역폭에 따라 서로 다른 모드가 합쳐집니다.",
+          "params": {},
+          "parameters": {
+            "bandwidth": 0.16,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Fuzzy C-Means",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "overlap",
+          "role": "default",
+          "purpose": "경계점의 연속적인 소속도",
+          "observe": "이상치와 퍼지 지수가 중심에 미치는 영향을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "fuzziness": 2,
+            "tolerance": 0.00001,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "blobs",
+          "role": "additional",
+          "purpose": "경계점의 연속적인 소속도 · 다른 구조 비교",
+          "observe": "이상치와 퍼지 지수가 중심에 미치는 영향을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "fuzziness": 2,
+            "tolerance": 0.00001,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "overlap-alternate",
+          "role": "additional",
+          "purpose": "경계점의 연속적인 소속도 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "fuzziness": 2,
+            "tolerance": 0.00001,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "outliers",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "이상치와 퍼지 지수가 중심에 미치는 영향을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "fuzziness": 2,
+            "tolerance": 0.00001,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Bisecting K-Means",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "unequal",
+          "role": "default",
+          "purpose": "SSE 기준 반복 이분할",
+          "observe": "국소적인 이분할이 비볼록 구조를 분리하지 못할 수 있습니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "four",
+          "role": "additional",
+          "purpose": "SSE 기준 반복 이분할 · 다른 구조 비교",
+          "observe": "국소적인 이분할이 비볼록 구조를 분리하지 못할 수 있습니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "unequal-alternate",
+          "role": "additional",
+          "purpose": "SSE 기준 반복 이분할 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "circles",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "국소적인 이분할이 비볼록 구조를 분리하지 못할 수 있습니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Spectral Clustering",
+      "input": "numeric-or-graph",
+      "recommendations": [
+        {
+          "datasetId": "circles",
+          "role": "default",
+          "purpose": "유사도 그래프와 고유벡터 임베딩",
+          "observe": "연결 척도와 이웃 수에 따라 그래프 분할이 달라집니다.",
+          "params": {
+            "k": 2
+          },
+          "parameters": {
+            "k": 2,
+            "affinity": "rbf",
+            "gamma": 50,
+            "neighbors": 8,
+            "laplacian": "normalized",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "moons",
+          "role": "additional",
+          "purpose": "유사도 그래프와 고유벡터 임베딩 · 다른 구조 비교",
+          "observe": "연결 척도와 이웃 수에 따라 그래프 분할이 달라집니다.",
+          "params": {
+            "k": 2
+          },
+          "parameters": {
+            "k": 2,
+            "affinity": "rbf",
+            "gamma": 50,
+            "neighbors": 8,
+            "laplacian": "normalized",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "circles-alternate",
+          "role": "additional",
+          "purpose": "유사도 그래프와 고유벡터 임베딩 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {
+            "k": 2
+          },
+          "parameters": {
+            "k": 2,
+            "affinity": "rbf",
+            "gamma": 50,
+            "neighbors": 8,
+            "laplacian": "normalized",
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "bridge",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "연결 척도와 이웃 수에 따라 그래프 분할이 달라집니다.",
+          "params": {
+            "k": 2
+          },
+          "parameters": {
+            "k": 2,
+            "affinity": "rbf",
+            "gamma": 50,
+            "neighbors": 8,
+            "laplacian": "normalized",
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Affinity Propagation",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "blobs",
+          "role": "default",
+          "purpose": "책임·가용성 메시지와 대표점 선택",
+          "observe": "선호도·감쇠에 따른 대표점 수와 수렴 상태를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "preference": -0.1,
+            "damping": 0.7,
+            "convergenceWindow": 10,
+            "iterations": 200
+          }
+        },
+        {
+          "datasetId": "unequal",
+          "role": "additional",
+          "purpose": "책임·가용성 메시지와 대표점 선택 · 다른 구조 비교",
+          "observe": "선호도·감쇠에 따른 대표점 수와 수렴 상태를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "preference": -0.1,
+            "damping": 0.7,
+            "convergenceWindow": 10,
+            "iterations": 200
+          }
+        },
+        {
+          "datasetId": "blobs-alternate",
+          "role": "additional",
+          "purpose": "책임·가용성 메시지와 대표점 선택 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "preference": -0.1,
+            "damping": 0.7,
+            "convergenceWindow": 10,
+            "iterations": 200
+          }
+        },
+        {
+          "datasetId": "overlap",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "선호도·감쇠에 따른 대표점 수와 수렴 상태를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "preference": -0.1,
+            "damping": 0.7,
+            "convergenceWindow": 10,
+            "iterations": 200
+          }
+        }
+      ]
+    },
+    {
+      "id": "Density Peaks / CFSFDP",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "density",
+          "role": "default",
+          "purpose": "ρ–δ 결정 그래프와 상위 밀도 부모",
+          "observe": "뚜렷한 밀도 봉우리가 없을 때 중심 선택을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "epsilon": 0.11,
+            "densityKernel": "gaussian"
+          }
+        },
+        {
+          "datasetId": "moons",
+          "role": "additional",
+          "purpose": "ρ–δ 결정 그래프와 상위 밀도 부모 · 다른 구조 비교",
+          "observe": "뚜렷한 밀도 봉우리가 없을 때 중심 선택을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "epsilon": 0.11,
+            "densityKernel": "gaussian"
+          }
+        },
+        {
+          "datasetId": "density-alternate",
+          "role": "additional",
+          "purpose": "ρ–δ 결정 그래프와 상위 밀도 부모 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "epsilon": 0.11,
+            "densityKernel": "gaussian"
+          }
+        },
+        {
+          "datasetId": "uniform",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "뚜렷한 밀도 봉우리가 없을 때 중심 선택을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "epsilon": 0.11,
+            "densityKernel": "gaussian"
+          }
+        }
+      ]
+    },
+    {
+      "id": "CURE",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "elongated",
+          "role": "default",
+          "purpose": "다중 대표점과 축소·병합",
+          "observe": "근접 집단과 다리에서 대표점 수·축소율을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "representatives": 5,
+            "shrink": 0.3
+          }
+        },
+        {
+          "datasetId": "unequal",
+          "role": "additional",
+          "purpose": "다중 대표점과 축소·병합 · 다른 구조 비교",
+          "observe": "근접 집단과 다리에서 대표점 수·축소율을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "representatives": 5,
+            "shrink": 0.3
+          }
+        },
+        {
+          "datasetId": "elongated-alternate",
+          "role": "additional",
+          "purpose": "다중 대표점과 축소·병합 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "representatives": 5,
+            "shrink": 0.3
+          }
+        },
+        {
+          "datasetId": "bridge",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "근접 집단과 다리에서 대표점 수·축소율을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "representatives": 5,
+            "shrink": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "Neural Gas",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "rings",
+          "role": "default",
+          "purpose": "거리 순위에 따른 뉴런 갱신",
+          "observe": "BMU 분할과 군집 추출을 구분하고 이상치 영향을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "epochs": 8,
+            "learningRate": 0.2,
+            "lambda": 3
+          }
+        },
+        {
+          "datasetId": "blobs",
+          "role": "additional",
+          "purpose": "거리 순위에 따른 뉴런 갱신 · 다른 구조 비교",
+          "observe": "BMU 분할과 군집 추출을 구분하고 이상치 영향을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "epochs": 8,
+            "learningRate": 0.2,
+            "lambda": 3
+          }
+        },
+        {
+          "datasetId": "rings-alternate",
+          "role": "additional",
+          "purpose": "거리 순위에 따른 뉴런 갱신 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "epochs": 8,
+            "learningRate": 0.2,
+            "lambda": 3
+          }
+        },
+        {
+          "datasetId": "outliers",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "BMU 분할과 군집 추출을 구분하고 이상치 영향을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "epochs": 8,
+            "learningRate": 0.2,
+            "lambda": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "Growing Neural Gas",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "moons",
+          "role": "default",
+          "purpose": "오차 기반 뉴런 삽입과 간선 노화",
+          "observe": "이상치에서 뉴런 예산과 간선 제거를 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "epochs": 8,
+            "learningRate": 0.2,
+            "maxNeurons": 20,
+            "insertionInterval": 30,
+            "maxAge": 30
+          }
+        },
+        {
+          "datasetId": "rings",
+          "role": "additional",
+          "purpose": "오차 기반 뉴런 삽입과 간선 노화 · 다른 구조 비교",
+          "observe": "이상치에서 뉴런 예산과 간선 제거를 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "epochs": 8,
+            "learningRate": 0.2,
+            "maxNeurons": 20,
+            "insertionInterval": 30,
+            "maxAge": 30
+          }
+        },
+        {
+          "datasetId": "moons-alternate",
+          "role": "additional",
+          "purpose": "오차 기반 뉴런 삽입과 간선 노화 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "epochs": 8,
+            "learningRate": 0.2,
+            "maxNeurons": 20,
+            "insertionInterval": 30,
+            "maxAge": 30
+          }
+        },
+        {
+          "datasetId": "outliers",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "이상치에서 뉴런 예산과 간선 제거를 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "epochs": 8,
+            "learningRate": 0.2,
+            "maxNeurons": 20,
+            "insertionInterval": 30,
+            "maxAge": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "K-Medians",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "outliers",
+          "role": "default",
+          "purpose": "L1 거리와 좌표별 중앙값",
+          "observe": "좌표 축과 비볼록 구조의 영향을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "blobs",
+          "role": "additional",
+          "purpose": "L1 거리와 좌표별 중앙값 · 다른 구조 비교",
+          "observe": "좌표 축과 비볼록 구조의 영향을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "outliers-alternate",
+          "role": "additional",
+          "purpose": "L1 거리와 좌표별 중앙값 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "circles",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "좌표 축과 비볼록 구조의 영향을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Mini-Batch K-Means",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "blobs",
+          "role": "default",
+          "purpose": "배치별 중심의 증분 변화",
+          "observe": "배치 크기와 겹치는 집단의 오차를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "batchSize": 32,
+            "epochs": 8
+          }
+        },
+        {
+          "datasetId": "unequal",
+          "role": "additional",
+          "purpose": "배치별 중심의 증분 변화 · 다른 구조 비교",
+          "observe": "배치 크기와 겹치는 집단의 오차를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "batchSize": 32,
+            "epochs": 8
+          }
+        },
+        {
+          "datasetId": "blobs-alternate",
+          "role": "additional",
+          "purpose": "배치별 중심의 증분 변화 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "batchSize": 32,
+            "epochs": 8
+          }
+        },
+        {
+          "datasetId": "overlap",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "배치 크기와 겹치는 집단의 오차를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "batchSize": 32,
+            "epochs": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "CLARA",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "blobs",
+          "role": "default",
+          "purpose": "표본 medoid와 전체 비용 평가",
+          "observe": "작은 위성 집단이 표본에 포함되는지 시드로 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "sampleSize": 40,
+            "numLocal": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "outliers",
+          "role": "additional",
+          "purpose": "표본 medoid와 전체 비용 평가 · 다른 구조 비교",
+          "observe": "작은 위성 집단이 표본에 포함되는지 시드로 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "sampleSize": 40,
+            "numLocal": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "blobs-alternate",
+          "role": "additional",
+          "purpose": "표본 medoid와 전체 비용 평가 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "sampleSize": 40,
+            "numLocal": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "satellite",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "작은 위성 집단이 표본에 포함되는지 시드로 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "sampleSize": 40,
+            "numLocal": 3,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "CLARANS",
+      "input": "points2d",
+      "recommendations": [
+        {
+          "datasetId": "blobs",
+          "role": "default",
+          "purpose": "무작위 이웃 탐색과 medoid 비용",
+          "observe": "작은 집단과 제한된 탐색 예산의 영향을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "numLocal": 3,
+            "maxNeighbors": 20
+          }
+        },
+        {
+          "datasetId": "unequal",
+          "role": "additional",
+          "purpose": "무작위 이웃 탐색과 medoid 비용 · 다른 구조 비교",
+          "observe": "작은 집단과 제한된 탐색 예산의 영향을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "numLocal": 3,
+            "maxNeighbors": 20
+          }
+        },
+        {
+          "datasetId": "blobs-alternate",
+          "role": "additional",
+          "purpose": "무작위 이웃 탐색과 medoid 비용 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "numLocal": 3,
+            "maxNeighbors": 20
+          }
+        },
+        {
+          "datasetId": "satellite",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "작은 집단과 제한된 탐색 예산의 영향을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "numLocal": 3,
+            "maxNeighbors": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "X-Means",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "numeric-base",
+          "role": "default",
+          "purpose": "BIC에 따른 분할 후보 수용",
+          "observe": "중복 관측에서 분산 바닥과 모델 선택을 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-ambiguous",
+          "role": "additional",
+          "purpose": "BIC에 따른 분할 후보 수용 · 다른 구조 비교",
+          "observe": "중복 관측에서 분산 바닥과 모델 선택을 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-base-alternate",
+          "role": "additional",
+          "purpose": "BIC에 따른 분할 후보 수용 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "중복 관측에서 분산 바닥과 모델 선택을 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "G-Means",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "numeric-base",
+          "role": "default",
+          "purpose": "정규성 검정과 분할",
+          "observe": "작은 분산·중복에서 검정 가능성과 분할 정지를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "minSamples": 8,
+            "significance": 0.0001,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-ambiguous",
+          "role": "additional",
+          "purpose": "정규성 검정과 분할 · 다른 구조 비교",
+          "observe": "작은 분산·중복에서 검정 가능성과 분할 정지를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "minSamples": 8,
+            "significance": 0.0001,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-base-alternate",
+          "role": "additional",
+          "purpose": "정규성 검정과 분할 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "minSamples": 8,
+            "significance": 0.0001,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "작은 분산·중복에서 검정 가능성과 분할 정지를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "minSamples": 8,
+            "significance": 0.0001,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "Dip-Means",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "numeric-base",
+          "role": "default",
+          "purpose": "단봉성 검정과 분할",
+          "observe": "동률과 중복 거리에서 검정의 한계를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "minSamples": 8,
+            "significance": 0.0001,
+            "splitViewFraction": 0.01,
+            "bootstrapSamples": 200,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-ambiguous",
+          "role": "additional",
+          "purpose": "단봉성 검정과 분할 · 다른 구조 비교",
+          "observe": "동률과 중복 거리에서 검정의 한계를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "minSamples": 8,
+            "significance": 0.0001,
+            "splitViewFraction": 0.01,
+            "bootstrapSamples": 200,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-base-alternate",
+          "role": "additional",
+          "purpose": "단봉성 검정과 분할 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "minSamples": 8,
+            "significance": 0.0001,
+            "splitViewFraction": 0.01,
+            "bootstrapSamples": 200,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "동률과 중복 거리에서 검정의 한계를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 1,
+            "maxClusters": 16,
+            "iterations": 20,
+            "minSamples": 8,
+            "significance": 0.0001,
+            "splitViewFraction": 0.01,
+            "bootstrapSamples": 200,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "DP-Means",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "numeric-base",
+          "role": "default",
+          "purpose": "거리 벌점과 새 중심 생성",
+          "observe": "λ와 데이터 척도를 바꿔 중심 수를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "lambda": 0.04,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-ambiguous",
+          "role": "additional",
+          "purpose": "거리 벌점과 새 중심 생성 · 다른 구조 비교",
+          "observe": "λ와 데이터 척도를 바꿔 중심 수를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "lambda": 0.04,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-base-alternate",
+          "role": "additional",
+          "purpose": "거리 벌점과 새 중심 생성 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "lambda": 0.04,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "numeric-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "λ와 데이터 척도를 바꿔 중심 수를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "lambda": 0.04,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "Louvain",
+      "input": "numeric-or-graph",
+      "recommendations": [
+        {
+          "datasetId": "graph-base",
+          "role": "default",
+          "purpose": "모듈성 이득과 커뮤니티 축약",
+          "observe": "강한 교차 간선이 분할과 해상도에 미치는 영향을 봅니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "additional",
+          "purpose": "모듈성 이득과 커뮤니티 축약 · 다른 구조 비교",
+          "observe": "강한 교차 간선이 분할과 해상도에 미치는 영향을 봅니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-base-alternate",
+          "role": "additional",
+          "purpose": "모듈성 이득과 커뮤니티 축약 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "강한 교차 간선이 분할과 해상도에 미치는 영향을 봅니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Leiden",
+      "input": "numeric-or-graph",
+      "recommendations": [
+        {
+          "datasetId": "graph-base",
+          "role": "default",
+          "purpose": "국소 이동·정제·축약",
+          "observe": "약한 커뮤니티에서 정제 과정과 목적값을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8,
+            "refinementRandomness": 0.01,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "additional",
+          "purpose": "국소 이동·정제·축약 · 다른 구조 비교",
+          "observe": "약한 커뮤니티에서 정제 과정과 목적값을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8,
+            "refinementRandomness": 0.01,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-base-alternate",
+          "role": "additional",
+          "purpose": "국소 이동·정제·축약 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8,
+            "refinementRandomness": 0.01,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "약한 커뮤니티에서 정제 과정과 목적값을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8,
+            "refinementRandomness": 0.01,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Label Propagation",
+      "input": "numeric-or-graph",
+      "recommendations": [
+        {
+          "datasetId": "graph-base",
+          "role": "default",
+          "purpose": "이웃 레이블의 전파",
+          "observe": "교차 연결과 순서에 따른 레이블 합쳐짐을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "neighbors": 8,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "additional",
+          "purpose": "이웃 레이블의 전파 · 다른 구조 비교",
+          "observe": "교차 연결과 순서에 따른 레이블 합쳐짐을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "neighbors": 8,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-base-alternate",
+          "role": "additional",
+          "purpose": "이웃 레이블의 전파 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "neighbors": 8,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "교차 연결과 순서에 따른 레이블 합쳐짐을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "neighbors": 8,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Girvan–Newman",
+      "input": "numeric-or-graph",
+      "recommendations": [
+        {
+          "datasetId": "graph-base",
+          "role": "default",
+          "purpose": "간선 매개중심성 재계산과 제거",
+          "observe": "교차 간선 가중치가 최단 경로에 주는 영향을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "neighbors": 8,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "additional",
+          "purpose": "간선 매개중심성 재계산과 제거 · 다른 구조 비교",
+          "observe": "교차 간선 가중치가 최단 경로에 주는 영향을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "neighbors": 8,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-base-alternate",
+          "role": "additional",
+          "purpose": "간선 매개중심성 재계산과 제거 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "neighbors": 8,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "graph-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "교차 간선 가중치가 최단 경로에 주는 영향을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "neighbors": 8,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Markov Clustering (MCL)",
+      "input": "numeric-or-graph",
+      "recommendations": [
+        {
+          "datasetId": "graph-base",
+          "role": "default",
+          "purpose": "전이 행렬 확장과 팽창",
+          "observe": "팽창 지수와 약한 커뮤니티에서 흐름 집중을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "neighbors": 8,
+            "expansion": 2,
+            "inflation": 2,
+            "iterations": 100,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "additional",
+          "purpose": "전이 행렬 확장과 팽창 · 다른 구조 비교",
+          "observe": "팽창 지수와 약한 커뮤니티에서 흐름 집중을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "neighbors": 8,
+            "expansion": 2,
+            "inflation": 2,
+            "iterations": 100,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "graph-base-alternate",
+          "role": "additional",
+          "purpose": "전이 행렬 확장과 팽창 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "neighbors": 8,
+            "expansion": 2,
+            "inflation": 2,
+            "iterations": 100,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "graph-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "팽창 지수와 약한 커뮤니티에서 흐름 집중을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "neighbors": 8,
+            "expansion": 2,
+            "inflation": 2,
+            "iterations": 100,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "K-Modes",
+      "input": "categorical",
+      "recommendations": [
+        {
+          "datasetId": "categorical-base",
+          "role": "default",
+          "purpose": "불일치 거리와 속성 최빈값",
+          "observe": "공유 속성과 범주 잡음에서 중심 토큰을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "categorical-ambiguous",
+          "role": "additional",
+          "purpose": "불일치 거리와 속성 최빈값 · 다른 구조 비교",
+          "observe": "공유 속성과 범주 잡음에서 중심 토큰을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "categorical-base-alternate",
+          "role": "additional",
+          "purpose": "불일치 거리와 속성 최빈값 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "categorical-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "공유 속성과 범주 잡음에서 중심 토큰을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "K-Prototypes",
+      "input": "mixed",
+      "recommendations": [
+        {
+          "datasetId": "mixed-base",
+          "role": "default",
+          "purpose": "수치 거리와 범주 불일치의 균형",
+          "observe": "수치 척도와 γ의 상대 크기가 배정을 바꿉니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "gamma": 1,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "mixed-ambiguous",
+          "role": "additional",
+          "purpose": "수치 거리와 범주 불일치의 균형 · 다른 구조 비교",
+          "observe": "수치 척도와 γ의 상대 크기가 배정을 바꿉니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "gamma": 1,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "mixed-base-alternate",
+          "role": "additional",
+          "purpose": "수치 거리와 범주 불일치의 균형 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "gamma": 1,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "mixed-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "수치 척도와 γ의 상대 크기가 배정을 바꿉니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "gamma": 1,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "CLIQUE",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "subspaces",
+          "role": "default",
+          "purpose": "차원별 조밀한 격자와 부분공간",
+          "observe": "무관 차원·격자 해상도·밀도 문턱을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "gridBins": 8,
+            "densityThreshold": 0.1,
+            "subspaceDimensions": 2
+          }
+        },
+        {
+          "datasetId": "numeric-base",
+          "role": "additional",
+          "purpose": "차원별 조밀한 격자와 부분공간 · 다른 구조 비교",
+          "observe": "무관 차원·격자 해상도·밀도 문턱을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "gridBins": 8,
+            "densityThreshold": 0.1,
+            "subspaceDimensions": 2
+          }
+        },
+        {
+          "datasetId": "subspaces-alternate",
+          "role": "additional",
+          "purpose": "차원별 조밀한 격자와 부분공간 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "gridBins": 8,
+            "densityThreshold": 0.1,
+            "subspaceDimensions": 2
+          }
+        },
+        {
+          "datasetId": "numeric-ambiguous",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "무관 차원·격자 해상도·밀도 문턱을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "gridBins": 8,
+            "densityThreshold": 0.1,
+            "subspaceDimensions": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "PROCLUS",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "subspaces",
+          "role": "default",
+          "purpose": "대표점별 관련 차원 선택",
+          "observe": "목표 차원 수와 잡음에서 선택 차원을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "subspaceDimensions": 2,
+            "samplingFactor": 10,
+            "medoidFactor": 10,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "numeric-base",
+          "role": "additional",
+          "purpose": "대표점별 관련 차원 선택 · 다른 구조 비교",
+          "observe": "목표 차원 수와 잡음에서 선택 차원을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "subspaceDimensions": 2,
+            "samplingFactor": 10,
+            "medoidFactor": 10,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "subspaces-alternate",
+          "role": "additional",
+          "purpose": "대표점별 관련 차원 선택 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "subspaceDimensions": 2,
+            "samplingFactor": 10,
+            "medoidFactor": 10,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "numeric-ambiguous",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "목표 차원 수와 잡음에서 선택 차원을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "subspaceDimensions": 2,
+            "samplingFactor": 10,
+            "medoidFactor": 10,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "DenStream",
+      "input": "stream",
+      "recommendations": [
+        {
+          "datasetId": "stream-base",
+          "role": "default",
+          "purpose": "시간 감쇠·잠재/이상 미소군집",
+          "observe": "긴 공백과 드리프트에서 미소군집 소멸을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "epsilon": 0.11,
+            "decayRate": 0.01,
+            "beta": 0.6,
+            "minWeight": 3,
+            "streamInitSize": 12
+          }
+        },
+        {
+          "datasetId": "stream-ambiguous",
+          "role": "additional",
+          "purpose": "시간 감쇠·잠재/이상 미소군집 · 다른 구조 비교",
+          "observe": "긴 공백과 드리프트에서 미소군집 소멸을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "epsilon": 0.11,
+            "decayRate": 0.01,
+            "beta": 0.6,
+            "minWeight": 3,
+            "streamInitSize": 12
+          }
+        },
+        {
+          "datasetId": "stream-base-alternate",
+          "role": "additional",
+          "purpose": "시간 감쇠·잠재/이상 미소군집 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "epsilon": 0.11,
+            "decayRate": 0.01,
+            "beta": 0.6,
+            "minWeight": 3,
+            "streamInitSize": 12
+          }
+        },
+        {
+          "datasetId": "stream-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "긴 공백과 드리프트에서 미소군집 소멸을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "epsilon": 0.11,
+            "decayRate": 0.01,
+            "beta": 0.6,
+            "minWeight": 3,
+            "streamInitSize": 12
+          }
+        }
+      ]
+    },
+    {
+      "id": "Bimax",
+      "input": "matrix",
+      "recommendations": [
+        {
+          "datasetId": "matrix-base",
+          "role": "default",
+          "purpose": "모든 셀이 1인 이중군집",
+          "observe": "불완전 블록과 체커보드에서 조합 폭증·최소 크기를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "minSize": 2,
+            "minPts": 2
+          }
+        },
+        {
+          "datasetId": "matrix-ambiguous",
+          "role": "additional",
+          "purpose": "모든 셀이 1인 이중군집 · 다른 구조 비교",
+          "observe": "불완전 블록과 체커보드에서 조합 폭증·최소 크기를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "minSize": 2,
+            "minPts": 2
+          }
+        },
+        {
+          "datasetId": "matrix-base-alternate",
+          "role": "additional",
+          "purpose": "모든 셀이 1인 이중군집 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "minSize": 2,
+            "minPts": 2
+          }
+        },
+        {
+          "datasetId": "matrix-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "불완전 블록과 체커보드에서 조합 폭증·최소 크기를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "minSize": 2,
+            "minPts": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": "Cheng–Church Biclustering",
+      "input": "matrix",
+      "recommendations": [
+        {
+          "datasetId": "matrix-base",
+          "role": "default",
+          "purpose": "행·열 평균과 평균제곱잔차",
+          "observe": "잔차 문턱과 행·열 제거가 블록에 주는 영향을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "residueThreshold": 0.01,
+            "biclusterCount": 2,
+            "deletionThreshold": 1.2,
+            "inversion": "allow"
+          }
+        },
+        {
+          "datasetId": "matrix-ambiguous",
+          "role": "additional",
+          "purpose": "행·열 평균과 평균제곱잔차 · 다른 구조 비교",
+          "observe": "잔차 문턱과 행·열 제거가 블록에 주는 영향을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "residueThreshold": 0.01,
+            "biclusterCount": 2,
+            "deletionThreshold": 1.2,
+            "inversion": "allow"
+          }
+        },
+        {
+          "datasetId": "matrix-base-alternate",
+          "role": "additional",
+          "purpose": "행·열 평균과 평균제곱잔차 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "residueThreshold": 0.01,
+            "biclusterCount": 2,
+            "deletionThreshold": 1.2,
+            "inversion": "allow"
+          }
+        },
+        {
+          "datasetId": "matrix-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "잔차 문턱과 행·열 제거가 블록에 주는 영향을 확인합니다.",
+          "params": {},
+          "parameters": {
+            "residueThreshold": 0.01,
+            "biclusterCount": 2,
+            "deletionThreshold": 1.2,
+            "inversion": "allow"
+          }
+        }
+      ]
+    },
+    {
+      "id": "K-Shape",
+      "input": "timeseries",
+      "recommendations": [
+        {
+          "datasetId": "timeseries-base",
+          "role": "default",
+          "purpose": "z 정규화·위상 정렬·형태 중심",
+          "observe": "잡음·충격 파형에서 상관 거리와 정렬을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "timeseries-ambiguous",
+          "role": "additional",
+          "purpose": "z 정규화·위상 정렬·형태 중심 · 다른 구조 비교",
+          "observe": "잡음·충격 파형에서 상관 거리와 정렬을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "timeseries-base-alternate",
+          "role": "additional",
+          "purpose": "z 정규화·위상 정렬·형태 중심 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        },
+        {
+          "datasetId": "timeseries-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "잡음·충격 파형에서 상관 거리와 정렬을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "iterations": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Greedy Modularity (CNM)",
+      "input": "numeric-or-graph",
+      "recommendations": [
+        {
+          "datasetId": "graph-base",
+          "role": "default",
+          "purpose": "최대 모듈성 이득의 탐욕 병합",
+          "observe": "강한 교차 연결에서 탐욕 경로와 선택 계층을 봅니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "additional",
+          "purpose": "최대 모듈성 이득의 탐욕 병합 · 다른 구조 비교",
+          "observe": "강한 교차 연결에서 탐욕 경로와 선택 계층을 봅니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8
+          }
+        },
+        {
+          "datasetId": "graph-base-alternate",
+          "role": "additional",
+          "purpose": "최대 모듈성 이득의 탐욕 병합 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8
+          }
+        },
+        {
+          "datasetId": "graph-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "강한 교차 연결에서 탐욕 경로와 선택 계층을 봅니다.",
+          "params": {},
+          "parameters": {
+            "resolution": 1,
+            "neighbors": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "Fluid Communities",
+      "input": "numeric-or-graph",
+      "recommendations": [
+        {
+          "datasetId": "graph-base",
+          "role": "default",
+          "purpose": "커뮤니티 밀도와 국소 경쟁",
+          "observe": "연결이 모호할 때 지정 K와 순서의 영향을 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "neighbors": 8,
+            "iterations": 100
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "additional",
+          "purpose": "커뮤니티 밀도와 국소 경쟁 · 다른 구조 비교",
+          "observe": "연결이 모호할 때 지정 K와 순서의 영향을 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "neighbors": 8,
+            "iterations": 100
+          }
+        },
+        {
+          "datasetId": "graph-base-alternate",
+          "role": "additional",
+          "purpose": "커뮤니티 밀도와 국소 경쟁 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "neighbors": 8,
+            "iterations": 100
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "연결이 모호할 때 지정 K와 순서의 영향을 관찰합니다.",
+          "params": {},
+          "parameters": {
+            "k": 3,
+            "neighbors": 8,
+            "iterations": 100
+          }
+        }
+      ]
+    },
+    {
+      "id": "COP-KMeans",
+      "input": "constrained",
+      "recommendations": [
+        {
+          "datasetId": "constrained-base",
+          "role": "default",
+          "purpose": "must-link 성분과 cannot-link 배정",
+          "observe": "가까운 점의 분리 제약과 greedy 배정 가능성을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "constrained-ambiguous",
+          "role": "additional",
+          "purpose": "must-link 성분과 cannot-link 배정 · 다른 구조 비교",
+          "observe": "가까운 점의 분리 제약과 greedy 배정 가능성을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "constrained-base-alternate",
+          "role": "additional",
+          "purpose": "must-link 성분과 cannot-link 배정 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "constrained-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "가까운 점의 분리 제약과 greedy 배정 가능성을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "Bernoulli Mixture",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "bernoulli-base",
+          "role": "default",
+          "purpose": "이진 응답의 모수와 사후확률",
+          "observe": "모두 0인 관측에서 확률 경계와 성분 구분을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "bernoulli-ambiguous",
+          "role": "additional",
+          "purpose": "이진 응답의 모수와 사후확률 · 다른 구조 비교",
+          "observe": "모두 0인 관측에서 확률 경계와 성분 구분을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "bernoulli-base-alternate",
+          "role": "additional",
+          "purpose": "이진 응답의 모수와 사후확률 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "bernoulli-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "모두 0인 관측에서 확률 경계와 성분 구분을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "Poisson Mixture",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "poisson-base",
+          "role": "default",
+          "purpose": "발생률과 로그우도의 EM",
+          "observe": "0 카운트에서 발생률 경계와 성분 소실을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "poisson-ambiguous",
+          "role": "additional",
+          "purpose": "발생률과 로그우도의 EM · 다른 구조 비교",
+          "observe": "0 카운트에서 발생률 경계와 성분 소실을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "poisson-base-alternate",
+          "role": "additional",
+          "purpose": "발생률과 로그우도의 EM · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "poisson-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "0 카운트에서 발생률 경계와 성분 소실을 봅니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "Multinomial Mixture",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "multinomial-base",
+          "role": "default",
+          "purpose": "행합 조건부 구성 확률",
+          "observe": "빈 문서에서 정보량과 사후확률의 의미를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "multinomial-ambiguous",
+          "role": "additional",
+          "purpose": "행합 조건부 구성 확률 · 다른 구조 비교",
+          "observe": "빈 문서에서 정보량과 사후확률의 의미를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "multinomial-base-alternate",
+          "role": "additional",
+          "purpose": "행합 조건부 구성 확률 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        },
+        {
+          "datasetId": "multinomial-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "빈 문서에서 정보량과 사후확률의 의미를 확인합니다.",
+          "params": {},
+          "parameters": {
+            "k": 2,
+            "iterations": 20,
+            "tolerance": 0.00001
+          }
+        }
+      ]
+    },
+    {
+      "id": "Walktrap",
+      "input": "numeric-or-graph",
+      "recommendations": [
+        {
+          "datasetId": "graph-base",
+          "role": "default",
+          "purpose": "확률보행 거리와 계층 병합",
+          "observe": "보행 길이와 교차 가중치에 따른 계층을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "walkSteps": 4,
+            "neighbors": 8
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "additional",
+          "purpose": "확률보행 거리와 계층 병합 · 다른 구조 비교",
+          "observe": "보행 길이와 교차 가중치에 따른 계층을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "walkSteps": 4,
+            "neighbors": 8
+          }
+        },
+        {
+          "datasetId": "graph-base-alternate",
+          "role": "additional",
+          "purpose": "확률보행 거리와 계층 병합 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "walkSteps": 4,
+            "neighbors": 8
+          }
+        },
+        {
+          "datasetId": "graph-boundary",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "보행 길이와 교차 가중치에 따른 계층을 비교합니다.",
+          "params": {},
+          "parameters": {
+            "walkSteps": 4,
+            "neighbors": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "Clique Percolation",
+      "input": "numeric-or-graph",
+      "recommendations": [
+        {
+          "datasetId": "graph-base",
+          "role": "default",
+          "purpose": "완전 부분그래프의 인접과 중첩",
+          "observe": "연결이 있어도 k-clique가 없으면 미소속일 수 있습니다.",
+          "params": {},
+          "parameters": {
+            "cliqueSize": 3,
+            "neighbors": 8
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "additional",
+          "purpose": "완전 부분그래프의 인접과 중첩 · 다른 구조 비교",
+          "observe": "연결이 있어도 k-clique가 없으면 미소속일 수 있습니다.",
+          "params": {},
+          "parameters": {
+            "cliqueSize": 3,
+            "neighbors": 8
+          }
+        },
+        {
+          "datasetId": "graph-base-alternate",
+          "role": "additional",
+          "purpose": "완전 부분그래프의 인접과 중첩 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {},
+          "parameters": {
+            "cliqueSize": 3,
+            "neighbors": 8
+          }
+        },
+        {
+          "datasetId": "graph-ambiguous",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "연결이 있어도 k-clique가 없으면 미소속일 수 있습니다.",
+          "params": {},
+          "parameters": {
+            "cliqueSize": 3,
+            "neighbors": 8
+          }
+        }
+      ]
+    },
+    {
+      "id": "BSAS",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "ordered",
+          "role": "default",
+          "purpose": "한 번의 순회와 배정 즉시 대표 이동",
+          "observe": "입력 순서를 바꾸면 결과가 달라질 수 있습니다.",
+          "params": {
+            "threshold": 1,
+            "maxClusters": 5
+          },
+          "parameters": {
+            "threshold": 1,
+            "maxClusters": 5
+          }
+        },
+        {
+          "datasetId": "numeric-base",
+          "role": "additional",
+          "purpose": "한 번의 순회와 배정 즉시 대표 이동 · 다른 구조 비교",
+          "observe": "입력 순서를 바꾸면 결과가 달라질 수 있습니다.",
+          "params": {
+            "threshold": 1,
+            "maxClusters": 5
+          },
+          "parameters": {
+            "threshold": 1,
+            "maxClusters": 5
+          }
+        },
+        {
+          "datasetId": "ordered-alternate",
+          "role": "additional",
+          "purpose": "한 번의 순회와 배정 즉시 대표 이동 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {
+            "threshold": 1,
+            "maxClusters": 5
+          },
+          "parameters": {
+            "threshold": 1,
+            "maxClusters": 5
+          }
+        },
+        {
+          "datasetId": "numeric-ambiguous",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "입력 순서를 바꾸면 결과가 달라질 수 있습니다.",
+          "params": {
+            "threshold": 1,
+            "maxClusters": 5
+          },
+          "parameters": {
+            "threshold": 1,
+            "maxClusters": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "MBSAS",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "ordered",
+          "role": "default",
+          "purpose": "seed 선택과 두 번째 pass 배정",
+          "observe": "첫 pass의 유보와 seed 중복 계산 여부를 확인합니다.",
+          "params": {
+            "threshold": 1,
+            "maxClusters": 5
+          },
+          "parameters": {
+            "threshold": 1,
+            "maxClusters": 5
+          }
+        },
+        {
+          "datasetId": "numeric-base",
+          "role": "additional",
+          "purpose": "seed 선택과 두 번째 pass 배정 · 다른 구조 비교",
+          "observe": "첫 pass의 유보와 seed 중복 계산 여부를 확인합니다.",
+          "params": {
+            "threshold": 1,
+            "maxClusters": 5
+          },
+          "parameters": {
+            "threshold": 1,
+            "maxClusters": 5
+          }
+        },
+        {
+          "datasetId": "ordered-alternate",
+          "role": "additional",
+          "purpose": "seed 선택과 두 번째 pass 배정 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {
+            "threshold": 1,
+            "maxClusters": 5
+          },
+          "parameters": {
+            "threshold": 1,
+            "maxClusters": 5
+          }
+        },
+        {
+          "datasetId": "numeric-ambiguous",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "첫 pass의 유보와 seed 중복 계산 여부를 확인합니다.",
+          "params": {
+            "threshold": 1,
+            "maxClusters": 5
+          },
+          "parameters": {
+            "threshold": 1,
+            "maxClusters": 5
+          }
+        }
+      ]
+    },
+    {
+      "id": "TTSAS",
+      "input": "numeric-nd",
+      "recommendations": [
+        {
+          "datasetId": "ordered",
+          "role": "default",
+          "purpose": "두 경계 사이의 유보와 재방문",
+          "observe": "무진전 뒤 다음 pass에서 대표를 생성하는 시점을 봅니다.",
+          "params": {
+            "threshold": 0.4,
+            "upperThreshold": 1
+          },
+          "parameters": {
+            "threshold": 0.4,
+            "upperThreshold": 1
+          }
+        },
+        {
+          "datasetId": "numeric-base",
+          "role": "additional",
+          "purpose": "두 경계 사이의 유보와 재방문 · 다른 구조 비교",
+          "observe": "무진전 뒤 다음 pass에서 대표를 생성하는 시점을 봅니다.",
+          "params": {
+            "threshold": 0.4,
+            "upperThreshold": 1
+          },
+          "parameters": {
+            "threshold": 0.4,
+            "upperThreshold": 1
+          }
+        },
+        {
+          "datasetId": "ordered-alternate",
+          "role": "additional",
+          "purpose": "두 경계 사이의 유보와 재방문 · 표본 안정성",
+          "observe": "시드 42와 137에서 실제 결과·목적값·Trace를 비교합니다.",
+          "params": {
+            "threshold": 0.4,
+            "upperThreshold": 1
+          },
+          "parameters": {
+            "threshold": 0.4,
+            "upperThreshold": 1
+          }
+        },
+        {
+          "datasetId": "numeric-ambiguous",
+          "role": "limit",
+          "purpose": "가정과 한계 실험",
+          "observe": "무진전 뒤 다음 pass에서 대표를 생성하는 시점을 봅니다.",
+          "params": {
+            "threshold": 0.4,
+            "upperThreshold": 1
+          },
+          "parameters": {
+            "threshold": 0.4,
+            "upperThreshold": 1
+          }
+        }
+      ]
+    }
+  ]
+}
