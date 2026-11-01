@@ -4,6 +4,7 @@ test("home visual evidence and sustained animation frame timings", async ({
   page,
 }, info) => {
   await page.goto("");
+  await page.locator(".home-cycle").scrollIntoViewIfNeeded();
   await page.waitForFunction(
     () =>
       [...document.querySelectorAll(".home-demo")].length === 4 &&

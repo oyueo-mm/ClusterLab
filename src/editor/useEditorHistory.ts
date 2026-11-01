@@ -9,14 +9,19 @@ import {
   type EditorHistory,
 } from "./history";
 
-export function useEditorHistory(initial: () => EditorSnapshot) {
+export function useEditorHistory(
+  initial: () => EditorSnapshot,
+  ownership?: { current: boolean },
+) {
   const [history, setHistory] = useState(() => createHistory(initial()));
   const current = useRef(history);
   const [ready, setReady] = useState(false),
     [storageError, setStorageError] = useState("");
   useEffect(() => {
     let active = true;
-    readDatasetState<EditorSnapshot>("points-v1")
+    readDatasetState<EditorSnapshot & { ownership?: "user" | "default" }>(
+      "points-v1",
+    )
       .then((saved) => {
         if (!active || !saved) return;
         if (
@@ -26,7 +31,9 @@ export function useEditorHistory(initial: () => EditorSnapshot) {
           )
         )
           throw new Error("저장된 데이터 형식이 올바르지 않습니다.");
-        const next = createHistory(saved);
+        if (ownership) ownership.current = saved.ownership !== "default";
+        const { ownership: _ownership, ...snapshot } = saved;
+        const next = createHistory(snapshot);
         current.current = next;
         setHistory(next);
       })
@@ -46,7 +53,12 @@ export function useEditorHistory(initial: () => EditorSnapshot) {
   useEffect(() => {
     if (!ready) return;
     const timer = setTimeout(() => {
-      void writeDatasetState("points-v1", history.present).catch(() =>
+      void writeDatasetState("points-v1", {
+        ...current.current.present,
+        ...(ownership
+          ? { ownership: ownership.current ? "user" : "default" }
+          : {}),
+      }).catch(() =>
         setStorageError(
           "데이터 자동 저장에 실패했습니다. JSON으로 내보내 주세요.",
         ),

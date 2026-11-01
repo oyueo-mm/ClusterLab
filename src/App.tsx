@@ -127,6 +127,11 @@ export default function App() {
     [compareCount, setCompareCount] = useState(2),
     [compareStart, setCompareStart] = useState(0);
   const algorithmRef = useRef(algorithm);
+  const pointsOwned = useRef(readPreference("points-owned", false));
+  const ownPoints = () => {
+    pointsOwned.current = true;
+    writePreference("points-owned", true);
+  };
   useEffect(() => {
     window.scrollTo({ top: 0 });
     document.title =
@@ -174,25 +179,36 @@ export default function App() {
     params?: Params;
     event?: EventKind;
   }>();
-  const editor = useEditorHistory(() => ({
-    points: (() => {
-      const data = generateRecommended(recommendations[algorithm][0].datasetId);
-      return data.kind === "numeric" && data.display
-        ? data.display
-        : dataset("blobs", dataDefaults);
-    })(),
-    preset:
-      recommendations[algorithm][0].datasetId in presetAliases
-        ? recommendations[algorithm][0].datasetId
-        : "blobs",
-    options: dataDefaults,
-  }));
+  const editor = useEditorHistory(
+    () => ({
+      points: (() => {
+        const data = generateRecommended(
+          recommendations[algorithm][0].datasetId,
+        );
+        return data.kind === "numeric" && data.display
+          ? data.display
+          : dataset("blobs", dataDefaults);
+      })(),
+      preset:
+        recommendations[algorithm][0].datasetId in presetAliases
+          ? recommendations[algorithm][0].datasetId
+          : "blobs",
+      options: dataDefaults,
+    }),
+    pointsOwned,
+  );
   const { points, preset } = editor.value;
+  useEffect(() => {
+    if (!editor.ready) return;
+    if (!editor.value.preset) ownPoints();
+    else if (!pointsOwned.current) initializePoints(algorithmRef.current);
+  }, [editor.ready]);
   useEffect(() => {
     if (editor.ready) setDataOptions({ ...editor.value.options });
   }, [editor.ready, editor.value.options]);
   const { undo, redo } = editor;
   const restoreEditor = (snapshot: EditorSnapshot) => {
+    ownPoints();
     setDataOptions({ ...snapshot.options });
     setSelection([]);
   };
@@ -210,6 +226,7 @@ export default function App() {
       const command = historyShortcut(e);
       if (!command) return;
       e.preventDefault();
+      ownPoints();
       const snapshot = command === "undo" ? undo() : redo();
       setDataOptions({ ...snapshot.options });
       setSelection([]);
@@ -218,6 +235,7 @@ export default function App() {
     return () => window.removeEventListener("keydown", handler);
   }, [page, labTab, undo, redo]);
   const setPoints = (next: Point[]) => {
+    ownPoints();
     editor.commit({ ...editor.value, points: next, preset: "" });
     setSelection([]);
   };
@@ -243,7 +261,7 @@ export default function App() {
     if (route.algorithm && algorithmRef.current !== route.algorithm) {
       if (
         (page === "lab" || page === "data") &&
-        !editor.value.preset &&
+        (pointsOwned.current || !editor.value.preset) &&
         supportsDataset(route.algorithm, "numeric")
       ) {
         setStructuredRequest({
@@ -252,6 +270,7 @@ export default function App() {
         });
       }
       algorithmRef.current = route.algorithm;
+      initializePoints(route.algorithm);
       setAlgorithm(route.algorithm);
       setParams(restoreParams(route.algorithm));
     }
@@ -279,6 +298,7 @@ export default function App() {
           ? recommended.display
           : dataset(id, options);
       editor.commit({ points: nextPoints, preset: id, options });
+      ownPoints();
     } catch (e) {
       setNotice(e instanceof Error ? e.message : String(e));
       return;
@@ -286,7 +306,23 @@ export default function App() {
     setDataOptions({ ...options });
     setSelection([]);
   };
+  function initializePoints(a: Algorithm) {
+    if (pointsOwned.current) return false;
+    const id = recommendations[a][0].datasetId,
+      data = generateRecommended(id);
+    if (data.kind !== "numeric" || !data.display) return false;
+    const options = {
+      ...dataDefaults,
+      seed: datasetRegistry[id].seed,
+      count: data.display.length,
+    };
+    editor.commit({ points: data.display, preset: id, options });
+    setDataOptions(options);
+    setSelection([]);
+    return true;
+  }
   const changeAlgorithm = (a: Algorithm) => {
+    const initialRecommendation = initializePoints(a);
     algorithmRef.current = a;
     setAlgorithm(a);
     const retainPoints = page === "lab" && supportsLegacyPoints(a);
@@ -294,14 +330,16 @@ export default function App() {
     if (!retainPoints && structuredAlgorithms.some((id) => id === a)) {
       setParams(restoreParams(a));
       setStructuredRequest(
-        !editor.value.preset && supportsDataset(a, "numeric")
+        page !== "structured" &&
+          pointsOwned.current &&
+          supportsDataset(a, "numeric")
           ? { algorithm: a, data: legacyDataset(points) }
           : undefined,
       );
       go("structured");
       return;
     }
-    if (registry[a].resetParametersOnSelect) {
+    if (initialRecommendation || registry[a].resetParametersOnSelect) {
       setParams(restoreParams(a));
       return;
     }
@@ -463,6 +501,7 @@ export default function App() {
             <Home
               navigate={go}
               onChoose={(selection) => {
+                ownPoints();
                 changeAlgorithm(selection.algorithm);
                 editor.commit({
                   points: selection.points,
@@ -791,6 +830,7 @@ export default function App() {
                     algorithm={algorithm}
                     onApply={(id, data, suggested) => {
                       if (data.kind !== "numeric" || !data.display) return;
+                      ownPoints();
                       const options = {
                         ...dataDefaults,
                         seed: datasetRegistry[id].seed,
@@ -1252,8 +1292,10 @@ export default function App() {
               const f = e.target.files?.[0];
               if (!f) return;
               try {
+                const imported = importData(await f.text());
+                ownPoints();
                 editor.commit({
-                  points: importData(await f.text()),
+                  points: imported,
                   preset: "",
                   options: editor.value.options,
                 });

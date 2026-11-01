@@ -1,0 +1,66 @@
+[
+  {
+    "url": "http://127.0.0.1:4473/ClusterLab/",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "homeEvents": [
+      {
+        "algorithm": "K-Means",
+        "events": 151
+      },
+      {
+        "algorithm": "DBSCAN",
+        "events": 106
+      },
+      {
+        "algorithm": "GMM",
+        "events": 16
+      },
+      {
+        "algorithm": "Mean Shift",
+        "events": 411
+      }
+    ],
+    "dbscanEvents": 359,
+    "originalGraph": {
+      "nodes": 24,
+      "edges": 49
+    },
+    "graphEvents": 31,
+    "errors": []
+  },
+  {
+    "url": "http://127.0.0.1:4473/ClusterLab/",
+    "viewport": {
+      "width": 390,
+      "height": 1000
+    },
+    "homeEvents": [
+      {
+        "algorithm": "K-Means",
+        "events": 151
+      },
+      {
+        "algorithm": "DBSCAN",
+        "events": 106
+      },
+      {
+        "algorithm": "GMM",
+        "events": 16
+      },
+      {
+        "algorithm": "Mean Shift",
+        "events": 411
+      }
+    ],
+    "dbscanEvents": 359,
+    "originalGraph": {
+      "nodes": 24,
+      "edges": 49
+    },
+    "graphEvents": 31,
+    "errors": []
+  }
+]

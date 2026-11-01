@@ -185,6 +185,15 @@
   color: #64766a;
   padding: 0 12px 8px;
 }
+.native-stage {
+  min-width: 0;
+  padding: 16px;
+  background: #fafcf9;
+}
+.native-stage .dataset-preview svg {
+  height: clamp(180px, 40vw, 400px);
+  max-height: 400px;
+}
 .preview-status {
   position: absolute;
   right: 8px;

@@ -21,10 +21,16 @@ export function DatasetPreview({
         ? "#a3ada7"
         : palette[labels[i] % palette.length]
       : "#57856a";
-  const points = displayPoints(data);
+  const points = ["matrix", "timeseries", "categorical"].includes(data.kind)
+    ? []
+    : displayPoints(data);
+  const categoricalGroups =
+    data.kind === "categorical" && labels
+      ? [...new Set(labels.filter((label) => label >= 0))].slice(0, 4)
+      : [];
   let view;
   if (data.kind === "matrix") {
-    const rows = data.values.slice(0, 24),
+    const rows = data.values.slice(0, 24).map((row) => row.slice(0, 32)),
       cols = rows[0].length;
     const max = Math.max(1, ...rows.flat().map(Math.abs));
     view = rows.flatMap((row, i) =>
@@ -72,13 +78,26 @@ export function DatasetPreview({
     ));
   } else if (data.kind === "categorical") {
     const columns = data.values[0].length;
+    const sample = data.values.slice(0, 1000);
     view = Array.from({ length: Math.min(6, columns) }, (_, j) => {
-      const values = [...new Set(data.values.map((row) => row[j]))];
+      const frequencies = new Map<string, number>();
+      sample.forEach((row) =>
+        frequencies.set(row[j], (frequencies.get(row[j]) ?? 0) + 1),
+      );
+      const entries = [...frequencies.entries()];
+      const values =
+        entries.length <= 12
+          ? entries
+          : [
+              ...entries.slice(0, 11),
+              [
+                "나머지",
+                entries.slice(11).reduce((sum, [, count]) => sum + count, 0),
+              ] as [string, number],
+            ];
       let y = 140;
-      return values.map((token, k) => {
-        const h =
-          (125 * data.values.filter((row) => row[j] === token).length) /
-          data.values.length;
+      return values.map(([token, count], k) => {
+        const h = (125 * count) / sample.length;
         y -= h;
         return (
           <rect
@@ -158,6 +177,18 @@ export function DatasetPreview({
     <figure className="dataset-preview">
       <svg viewBox="0 0 300 150" role="img" aria-label={description}>
         {view}
+        {categoricalGroups.map((label, i) => (
+          <text
+            key={label}
+            x={10 + i * 72}
+            y="10"
+            fontSize="8"
+            fill={palette[label % palette.length]}
+          >
+            군집 {label + 1}:{" "}
+            {labels!.filter((value) => value === label).length}행
+          </text>
+        ))}
         {data.kind === "numeric" &&
           data.display &&
           centers
@@ -185,7 +216,16 @@ export function DatasetPreview({
               );
             })}
       </svg>
-      <figcaption>{description}</figcaption>
+      <figcaption>
+        {description}
+        {data.kind === "matrix"
+          ? ` · 표시 ${Math.min(24, data.values.length)}행×${Math.min(32, data.values[0].length)}열`
+          : data.kind === "timeseries"
+            ? ` · 표시 ${Math.min(16, data.series.length)}개 파형`
+            : data.kind === "categorical"
+              ? ` · 표시 표본 ${Math.min(1000, data.values.length)}행`
+              : ""}
+      </figcaption>
     </figure>
   );
 }

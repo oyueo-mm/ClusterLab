@@ -27,6 +27,7 @@ import { estimateResources, DEFAULT_WORKING_BYTES } from "../engine/resources";
 import { useExperiment } from "../animation/useExperiment";
 import { stateAt } from "../engine/trace";
 import { Canvas } from "./Canvas";
+import { DatasetPreview } from "./DatasetPreview";
 import { Playback } from "./Playback";
 import { Settings } from "./Settings";
 import { Analysis } from "./Analysis";
@@ -57,6 +58,7 @@ import {
 import { restoreParams } from "../lab/parameters";
 import type { DatasetHistory } from "../editor/datasetHistory";
 let sessionHistory: DatasetHistory | undefined;
+let sessionOwned = false;
 import { nativeResult } from "../engine/datasetExecution";
 
 const numericExample: NumericDataset = {
@@ -110,6 +112,14 @@ export default function StructuredLab({
     initialAlgorithm && structuredAlgorithms.some((a) => a === initialAlgorithm)
       ? initialAlgorithm
       : undefined;
+  const rawOwned = useRef(
+    !!initialData || sessionOwned || readPreference("structured-owned", false),
+  );
+  const ownRaw = () => {
+    rawOwned.current = true;
+    sessionOwned = true;
+    writePreference("structured-owned", true);
+  };
   const [legacyLayout] = useState(() =>
     /^#structured(?:$|\?)/.test(location.hash),
   );
@@ -119,7 +129,7 @@ export default function StructuredLab({
   const [history, setHistory] = useState(() =>
     initialData
       ? createDatasetHistory(initialData)
-      : (sessionHistory ??
+      : ((rawOwned.current ? sessionHistory : undefined) ??
         createDatasetHistory(
           requestedAlgorithm
             ? generateRecommended(
@@ -128,7 +138,9 @@ export default function StructuredLab({
             : numericExample,
         )),
   );
-  const [restored, setRestored] = useState(!!sessionHistory || !!initialData),
+  const [restored, setRestored] = useState(
+      (rawOwned.current && !!sessionHistory) || !!initialData,
+    ),
     [storageError, setStorageError] = useState("");
   const [tab, setTab] = useState(() =>
     initialEvent ? "analysis" : readPreference("structured-tab", "settings"),
@@ -140,17 +152,25 @@ export default function StructuredLab({
   const [requestedEvent, setRequestedEvent] = useState(initialEvent);
   const dataRequest = useRef(initialData);
   useEffect(() => {
-    if (sessionHistory || initialData) {
+    if ((rawOwned.current && sessionHistory) || initialData) {
       setRestored(true);
       return;
     }
     let active = true;
-    readDatasetState<Dataset>("structured-v1")
+    readDatasetState<Dataset | { version: 2; data: Dataset; owned: boolean }>(
+      "structured-v1",
+    )
       .then((saved) => {
         if (active && saved) {
-          validateDataset(saved);
-          setHistory(createDatasetHistory(saved));
-          setText(exportDataset(saved));
+          // Records written before ownership metadata are treated as user data.
+          const source = "kind" in saved ? saved : saved.data;
+          const owned = "kind" in saved || saved.owned;
+          validateDataset(source);
+          if (owned) {
+            ownRaw();
+            setHistory(createDatasetHistory(source));
+            setText(exportDataset(source));
+          }
         }
       })
       .catch(() => {
@@ -169,8 +189,14 @@ export default function StructuredLab({
   useEffect(() => {
     if (!restored) return;
     sessionHistory = history;
+    sessionOwned = rawOwned.current;
+    writePreference("structured-owned", rawOwned.current);
     const timer = setTimeout(() => {
-      void writeDatasetState("structured-v1", history.present).catch(() =>
+      void writeDatasetState("structured-v1", {
+        version: 2,
+        data: history.present,
+        owned: rawOwned.current,
+      }).catch(() =>
         setStorageError(
           "원본 데이터 저장에 실패했습니다. JSON으로 내보내 주세요.",
         ),
@@ -239,10 +265,12 @@ export default function StructuredLab({
   }, [requestedEvent, lab.trace, lab.traceIsCurrent, lab.seek]);
   useEffect(() => {
     if (requestedAlgorithm && requestedAlgorithm !== algorithm) {
+      initializeRaw(requestedAlgorithm);
       setAlgorithm(requestedAlgorithm);
       setParams(restoreParams(requestedAlgorithm));
     }
     if (initialData && dataRequest.current !== initialData) {
+      ownRaw();
       validateDataset(initialData);
       setHistory((h) => commitDatasetHistory(h, initialData));
       setText(exportDataset(initialData));
@@ -280,6 +308,7 @@ export default function StructuredLab({
       throw new Error(
         "현재 실행은 무방향 그래프만 지원합니다. 방향성은 자동으로 제거하지 않습니다.",
       );
+    ownRaw();
     if (!supportsDataset(algorithm, value.kind)) {
       onAlgorithmChange?.(compatible[0]);
       setAlgorithm(compatible[0]);
@@ -293,7 +322,15 @@ export default function StructuredLab({
     if (value.kind !== data.kind) setAxes([0, 1]);
     setError("");
   };
+  function initializeRaw(a: Algorithm) {
+    if (rawOwned.current || legacyLayout) return;
+    const next = generateRecommended(recommendations[a][0].datasetId);
+    setHistory((h) => commitDatasetHistory(h, next));
+    setText(exportDataset(next));
+    setAxes([0, 1]);
+  }
   const choose = (a: Algorithm) => {
+    initializeRaw(a);
     onAlgorithmChange?.(a);
     setAlgorithm(a);
     setParams({
@@ -302,6 +339,7 @@ export default function StructuredLab({
     });
   };
   const restore = (reverse: boolean) => {
+    ownRaw();
     const next = reverse
       ? undoDatasetHistory(history)
       : redoDatasetHistory(history);
@@ -471,13 +509,32 @@ export default function StructuredLab({
               {error || lab.error}
             </p>
           )}
-          <Canvas
-            algorithm={algorithm}
-            points={points}
-            trace={lab.traceIsCurrent ? lab.trace : null}
-            position={lab.position}
-            clock={lab.clock}
-          />
+          {!legacyLayout &&
+          ["matrix", "timeseries", "categorical"].includes(data.kind) ? (
+            <div className="native-stage">
+              <DatasetPreview
+                data={data}
+                labels={state.labels}
+                biclusters={
+                  state.analysis?.kind === "biclustering"
+                    ? state.analysis.biclusters
+                    : undefined
+                }
+              />
+              <p className="small">
+                전체 {points.length}개 원본으로 계산합니다. 화면 표시 예산과
+                계산 데이터는 별개입니다.
+              </p>
+            </div>
+          ) : (
+            <Canvas
+              algorithm={algorithm}
+              points={points}
+              trace={lab.traceIsCurrent ? lab.trace : null}
+              position={lab.position}
+              clock={lab.clock}
+            />
+          )}
           <Playback lab={lab} />
           <p className="step-explanation">
             {lab.busy

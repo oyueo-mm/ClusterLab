@@ -1,5 +1,181 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+test("legacy saved original data migrates without being replaced by a recommendation", async ({
+  page,
+}) => {
+  await page.goto("");
+  const source = {
+    kind: "numeric",
+    values: [
+      [0, 0, 0],
+      [0, 0, 0.2],
+      [0, 0, 4],
+      [0, 0, 4.2],
+    ],
+  };
+  await page.evaluate(
+    (value) =>
+      new Promise<void>((resolve, reject) => {
+        const request = indexedDB.open("clusterlab-labs", 1);
+        request.onupgradeneeded = () => {
+          if (!request.result.objectStoreNames.contains("datasets"))
+            request.result.createObjectStore("datasets");
+        };
+        request.onsuccess = () => {
+          const db = request.result,
+            tx = db.transaction("datasets", "readwrite");
+          tx.objectStore("datasets").put(value, "structured-v1");
+          tx.oncomplete = () => {
+            db.close();
+            resolve();
+          };
+          tx.onerror = () => reject(tx.error);
+        };
+      }),
+    source,
+  );
+  await page.goto("#/lab/X-Means");
+  const lab = page.locator(".structured-page");
+  await expect
+    .poll(
+      async () =>
+        JSON.parse(
+          await lab
+            .getByLabel("원본 데이터 JSON", { exact: true })
+            .inputValue(),
+        ).data,
+    )
+    .toEqual(source);
+  await page.reload();
+  await expect
+    .poll(
+      async () =>
+        JSON.parse(
+          await lab
+            .getByLabel("원본 데이터 JSON", { exact: true })
+            .inputValue(),
+        ).data,
+    )
+    .toEqual(source);
+});
+test("user points restore from IndexedDB even when preference storage is blocked", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    for (const name of ["getItem", "setItem"])
+      Object.defineProperty(Storage.prototype, name, {
+        value() {
+          throw new DOMException("Blocked preferences", "SecurityError");
+        },
+      });
+  });
+  await page.goto("#/lab/K-Means");
+  await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
+  await page.locator('input[type="file"]').setInputFiles({
+    name: "owned.csv",
+    mimeType: "text/csv",
+    buffer: Buffer.from("x,y\n0.1,0.2\n0.3,0.4\n0.7,0.8\n0.8,0.9"),
+  });
+  await expect(page.locator(".point-count")).toHaveText("4 points");
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          new Promise<string>((resolve) => {
+            const open = indexedDB.open("clusterlab-labs", 1);
+            open.onsuccess = () => {
+              const db = open.result;
+              const get = db
+                .transaction("datasets")
+                .objectStore("datasets")
+                .get("points-v1");
+              get.onsuccess = () => {
+                resolve(
+                  get.result?.points.length === 4 ? get.result.ownership : "",
+                );
+                db.close();
+              };
+            };
+          }),
+      ),
+    )
+    .toBe("user");
+  await page.reload();
+  await expect(page.locator(".point-count")).toHaveText("4 points");
+});
+test("catalog entry selects the algorithm default until a user owns the point data", async ({
+  page,
+}) => {
+  await page.goto("");
+  await page
+    .getByRole("button", { name: "알고리즘 둘러보기", exact: true })
+    .click();
+  await page.getByLabel("알고리즘 검색", { exact: true }).fill("DBSCAN");
+  await page
+    .locator(".catalog-grid article")
+    .filter({ has: page.getByText("DBSCAN", { exact: true }) })
+    .getByRole("button", { name: "실험실에서 실행", exact: true })
+    .click();
+  await expect(page.getByLabel("실험 프리셋", { exact: true })).toHaveValue(
+    "moons",
+  );
+  await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
+  await page.locator('input[type="file"]').setInputFiles({
+    name: "owned.csv",
+    mimeType: "text/csv",
+    buffer: Buffer.from("x,y\n0.1,0.2\n0.3,0.4\n0.7,0.8\n0.8,0.9"),
+  });
+  await expect(page.locator(".point-count")).toHaveText("4 points");
+  await page.goto("#/catalog?q=GMM");
+  await page
+    .locator(".catalog-grid article")
+    .filter({ has: page.getByText("GMM", { exact: true }) })
+    .getByRole("button", { name: "실험실에서 실행", exact: true })
+    .click();
+  await expect(page.locator(".point-count")).toHaveText("4 points");
+});
+test("untouched native defaults follow each algorithm while explicit source data survives incompatible navigation", async ({
+  page,
+}) => {
+  await page.goto("#/lab/Spectral%20Clustering");
+  const lab = page.locator(".structured-page");
+  await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
+  await page.goto("#/lab/Louvain");
+  await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
+  await expect
+    .poll(
+      async () =>
+        JSON.parse(
+          await lab
+            .getByLabel("원본 데이터 JSON", { exact: true })
+            .inputValue(),
+        ).data.kind,
+    )
+    .toBe("graph");
+  const narrow = (page.viewportSize()?.width ?? 1440) <= 800;
+  if (narrow)
+    await lab
+      .getByRole("button", { name: "설정·데이터·분석 열기", exact: true })
+      .click();
+  await lab.getByRole("tab", { name: "데이터", exact: true }).click();
+  await lab
+    .getByRole("button", { name: "이 데이터셋 적용", exact: true })
+    .click();
+  const before = JSON.parse(
+    await lab.getByLabel("원본 데이터 JSON", { exact: true }).inputValue(),
+  ).data;
+  if (narrow) await lab.getByLabel("설정 닫기", { exact: true }).click();
+  await page.goto("#/lab/Bimax");
+  await expect(lab.getByRole("alert")).toContainText(
+    "현재 graph 원본은 Bimax에서 지원하지 않습니다",
+  );
+  expect(
+    JSON.parse(
+      await lab.getByLabel("원본 데이터 JSON", { exact: true }).inputValue(),
+    ).data,
+  ).toEqual(before);
+  await expect(lab.getByLabel("재생", { exact: true })).toBeDisabled();
+});
 test("an alternate recommendation keeps its seed when regenerated", async ({
   page,
 }) => {
