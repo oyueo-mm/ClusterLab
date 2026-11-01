@@ -1,6 +1,6 @@
 ﻿# ClusterLab — 플랫폼 확장 진행 중
 
-**44개 실행 엔진**(기존13 + 신규 후보31)의 실제 연산을 계산·기록·재생합니다. 신규119개 후보 중 **88개는 미구현**이며 전체 마스터 목표는 진행 중입니다. 엄격한 전체 기준의 **완전 구현 인증은0개(아직 미인증)**입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다.
+현재 소스는 **50개 실행 엔진**(기존13 + 신규 후보37)의 실제 연산을 계산·기록·재생합니다. 신규119개 후보 중 **82개는 미구현**이며 전체 마스터 목표는 진행 중입니다. 엄격한 전체 기준의 **완전 구현 인증은0개(아직 미인증)**입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다. 공개 배포와 검증의 최종 상태는 [세션 보고서](docs/SESSION_REPORT.md)를 따릅니다.
 
 배포 대상: https://oyueo-mm.github.io/ClusterLab/
 
@@ -21,7 +21,11 @@ npm run build
 
 개발 URL: `http://127.0.0.1:5173/ClusterLab/`. GitHub Pages base path는 `/ClusterLab/`, 라우팅은 `#lab`, `#data`, `#compare`, `#guide`, `#catalog`, `#structured`입니다.
 
-## 이번19개 확장
+## 제약·이산 혼합·중첩 커뮤니티 추가
+
+직전44개에서 COP-KMeans, Bernoulli/Poisson/Multinomial Mixture, Walktrap, Clique Percolation의 실제 계산·Trace·전용 분석·교재·독립 oracle를 추가했습니다. 하드 제약 관계 편집, 원본 이진/카운트/제약 생성기, native constrained-partition/mixture/중첩 communities 결과를 제공합니다. [연구·검증 기록](docs/SESSION_REPORT.md)에서 입력 가정·greedy 실패·미수렴·자원 한계를 확인할 수 있습니다.
+
+## 직전19개 확장
 
 후속 우선14개와 추가5개를 실제 계산·내부 Trace·전용 분석 시각화·파라미터·수학 가이드/수치 예제·실제 미니 실험·독립 수치 검증까지 연결했습니다. 구현별 지원 범위와 남은 가속·수학적 제한을 공개하며 전체 마스터 완료로 표시하지 않습니다.
 

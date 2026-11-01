@@ -1,30 +1,35 @@
 # 후속 원문 조사·구현 큐
 
-2026-11-01 현재 **44개 실행 엔진 / 신규 후보119개 중31개 구현·88개 미구현 / 마스터 완전 구현 인증0개**다. 이전25개/107개 상태와 아래117개/엔진 없음 표현은 과거 조사 당시 기록으로 보존하며 현재 구현 상태를 뜻하지 않는다. [등록 현황](ALGORITHM_REGISTRY.md)과 [전체 계획](MASTER_PLAN.md)이 현재 집계 기준이다. 후보 목록을 축소하지 않는다.
+> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
 
-## 이번 조사에서 실제 엔진으로 이어진19개
+2026-11-01 현재 소스는 **50개 실행 엔진 / 신규 후보119개 중37개 구현·82개 미구현 / 마스터 완전 구현 인증0개**다. 안정44개 이후6개는 로컬 통합 중이며 새 배포가 확정되지 않았다. 이전25개/107개·44개/88개와 아래117개/엔진 없음 표현은 과거 조사 당시 기록으로 보존한다. [안정44개 조사 문서](sessions/platform44/RESEARCH_QUEUE.md), [등록 현황](ALGORITHM_REGISTRY.md), [전체 계획](MASTER_PLAN.md)을 구분하고 후보 목록을 축소하지 않는다.
 
-| 범위                                | 현재 근거·구현 기록                                                                                                                 |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| X/G/Dip/DP-Means                    | [AUTO_MODELS](research/AUTO_MODELS.md): 실제 BIC·AD·dip/Uniform bootstrap·비모수 hard 목적함수, 원문 직접 접근 범위와 dip 원전 제한 |
-| Louvain/Leiden/LPA/GN/MCL           | [COMMUNITIES](research/COMMUNITIES.md): 이동/정제/집약·투표·중심성·전이 행렬, 실제 NetworkX/원저자 비교                             |
-| K-Modes/K-Prototypes/CLIQUE/PROCLUS | [DATA_CLUSTERING](research/DATA_CLUSTERING.md): 실제 범주·혼합·부분공간, Huang 본문 구독 제한과 공식 수식 대체 확인                 |
-| DenStream                           | [DENSTREAM](research/DENSTREAM.md): CF·시계·승격/pruning 경계 감사와 실제100k 전체 입력 측정                                        |
-| Bimax/Cheng–Church                  | [BICLUSTERING](research/BICLUSTERING.md): 원문 분할과 실제 MSR·행열 중첩, 독립 전수/수치 검산                                       |
-| K-Shape                             | [TIMESERIES](research/TIMESERIES.md): 실제 시계열 NCC/정렬·고유 형태, 직접 합산과 FFT 미구현 구분                                   |
-| CNM/Fluid                           | [GRAPH_EXTRA](research/GRAPH_EXTRA.md): 실제 ΔQ 병합·유체 투표, 원문 heap 부재·연결/단위 가중치 계약                                |
+## 안정44개에서 이어진19개와 현재 소스의 추가6개
 
-이19개는 후속 우선14개와 추가5개다. 전체 통합 타입·lint·build·Vitest426개는 통과했으며 브라우저·배포는 검증 중이다. 최종 결과는 SESSION_REPORT를 따른다. 이 상태로 전체 마스터 완전 구현이라고 하지 않는다.
+| 범위                                | 현재 근거·구현 기록                                                                                                                                                     |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| X/G/Dip/DP-Means                    | [AUTO_MODELS](research/AUTO_MODELS.md): 실제 BIC·AD·dip/Uniform bootstrap·비모수 hard 목적함수, 원문 직접 접근 범위와 dip 원전 제한                                     |
+| Louvain/Leiden/LPA/GN/MCL           | [COMMUNITIES](research/COMMUNITIES.md): 이동/정제/집약·투표·중심성·전이 행렬, 실제 NetworkX/원저자 비교                                                                 |
+| K-Modes/K-Prototypes/CLIQUE/PROCLUS | [DATA_CLUSTERING](research/DATA_CLUSTERING.md): 실제 범주·혼합·부분공간, Huang 본문 구독 제한과 공식 수식 대체 확인                                                     |
+| DenStream                           | [DENSTREAM](research/DENSTREAM.md): CF·시계·승격/pruning 경계 감사와 실제100k 전체 입력 측정                                                                            |
+| Bimax/Cheng–Church                  | [BICLUSTERING](research/BICLUSTERING.md): 원문 분할과 실제 MSR·행열 중첩, 독립 전수/수치 검산                                                                           |
+| K-Shape                             | [TIMESERIES](research/TIMESERIES.md): 실제 시계열 NCC/정렬·고유 형태, 직접 합산과 FFT 미구현 구분                                                                       |
+| CNM/Fluid                           | [GRAPH_EXTRA](research/GRAPH_EXTRA.md): 실제 ΔQ 병합·유체 투표, 원문 heap 부재·연결/단위 가중치 계약                                                                    |
+| COP-KMeans                          | [CONSTRAINED](research/CONSTRAINED.md): 원저자2001 pointwise greedy·ML폐쇄/CL·실제 ND SSE, feasible 입력에서도 greedy 실패 가능, 독립 closure/완전탐색·손검산           |
+| Bernoulli/Poisson/Multinomial       | [DISCRETE_MIXTURES](research/DISCRETE_MIXTURES.md): 무prior ML EM·support/0경계·상수 포함 sumLL·전체 posterior, 실제 NumPy/SciPy full EM 및 실제 bit/count/profile 입력 |
+| Walktrap/CPM                        | [GRAPH_FOLLOWUP](research/GRAPH_FOLLOWUP.md): 실제 전이/Ward/최고Q cut·모든clique/공유face/중첩, NumPy/NetworkX/저자igraph 검산·가속 부재/목적함수 없음                 |
 
-## 미구현88개 조사 순서
+앞19개는 안정44개에서 구현한 우선14개와 추가5개이고, 마지막6개가 현재50개 소스의 신규 개발이다. 마지막 전체 타입·lint·build·Vitest509개/37파일과 신규 Python reference3개 재생성은 통과했다. 새 브라우저 첫 실행은4통과/4실패로 테스트 가정·접힌 분석 접근을 보완 중이며 전체 회귀·배포는 미확정이다. 최종 결과는 SESSION_REPORT를 따른다. 이 상태로 전체 마스터 완전 구현이라고 하지 않는다.
 
-- **입력/관계 계약부터:** COP/PCK/MPCKMeans·Constrained Spectral의 원본 제약 편집·실제 위반 처리, 남은 퍼지·범주/혼합·부분공간 관계를 정의한다. 스키마만 있는 constrained를 실행 가능으로 세지 않는다.
+## 미구현82개 조사 순서
+
+- **입력/관계 계약부터:** COP의 실제 hard 준수·원본 관계 편집·greedy 오류를 보존하고 PCK/MPCKMeans·Constrained Spectral의 서로 다른 penalty/metric/graph 최적화를 정의한다. COP 이름만 바꿔 대체하지 않는다. 남은 퍼지·범주/혼합·부분공간의 입력 관계도 구분한다.
 - **중심·밀도·계층·그래프 잔여:** 각각 원논문/공식 정의·수식·입출력·중복 여부를 확인하고 실제 엔진·Trace·전용 시각화·독립 reference까지 연결한다. 후보 이름만으로 분류 완료로 올리지 않는다.
-- **확률·혼합11개:** 분포·추론법·초깃값·수렴·책임도 의미를 구분한다. [TAXONOMY](research/TAXONOMY.md)의 Bayesian/DP·Bernoulli/LCA·MFA/MPPCA 관계 조사와 최초 원문/실제 추정 구현을 혼동하지 않는다.
+- **확률·혼합11개 중 잔여8개:** 현재 이산3개를 보존하면서 Beta·Student-t·vMF·Gaussian–Uniform·Bayesian/DP·MFA/LCA/MPPCA를 해당 분포/추론법대로 구현한다. [MIXTURE_FOLLOWUP_QUEUE](research/MIXTURE_FOLLOWUP_QUEUE.md)의 실제 원문 열람·접근 실패·oracle 준비 범위, [TAXONOMY](research/TAXONOMY.md)의 Bayesian/DP·Bernoulli/LCA·MFA/MPPCA 관계를 따른다. 이진 LCA를 Bernoulli와 중복 집계하지 않는다.
 - **신경망·딥 계열 잔여:** ART·동기화·실제 임베딩/가중치 학습을 조사하고 적합한 런타임의 라이선스/용량/브라우저/Pages를 측정한다. K-Means 래퍼·고정 결과는 구현이 아니다.
-- **스트림·순차·행렬 잔여:** 실제 시각·유입·행×열 출력·부분 실행을 유지하며 무한 스트림 공급/청크 처리와 현재 prefix 재계산을 구별한다. 표/JSON 편집 외 실제 시간축·행열 구조·3D/고차원·제약 편집은 후속 UX다.
+- **스트림·순차·행렬 잔여:** 실제 시각·유입·행×열 출력·부분 실행을 유지하며 무한 스트림 공급/청크 처리와 현재 prefix 재계산을 구별한다. 현재 속성 표/JSON·hard 관계 편집과 별도로 시간축·행열 구조·3D/고차원의 추가 UX가 남아 있다.
 
-미구현88개 중80개는 미조사 상태이고,8개(SLINK/CLINK/NN-chain/Bayesian-GMM-DP/MFA/Bernoulli/LCA/MPPCA)는 정의·관계 조사 기록만 있다. 이8개도 엔진 없음·원문 전체 전수 확인 미완료다. 각 *_QUEUE.md의 부분 자료는 연구 시작점이며 현재19개 완료 기록이 있는 경우 해당 본문 연구 문서로 넘어간다. 모든119행의 실제 상태는 candidates.json/ALGORITHM_REGISTRY.md를 함께 갱신한다.
+미구현82개는 원문 전수 조사·실행·전용 시각화·독립 검증의 완료를 뜻하지 않는다. TAXONOMY와 각 *_QUEUE.md의 관계/부분 열람은 연구 시작점이며 실제 구현 기록이 있는 후보는 위 본문 연구 문서로 넘어간다. Bernoulli의 이전 정의·관계 조사 상태를 현재 구현 상태로 재사용하지 않는다. 모든119행의 세부 상태는 candidates.json/ALGORITHM_REGISTRY.md를 기준으로 함께 유지한다.
 
 ## 아래는 기반 세션의 원본 조사 메모
 
@@ -59,6 +64,10 @@ Ng, Jordan & Weiss, _On Spectral Clustering: Analysis and an algorithm_, NIPS 14
 ## 후보 27 Density Peaks / CFSFDP
 
 Rodriguez & Laio, _Clustering by fast search-and-find of density peaks_, Science 344 (2014), 1492–1496, DOI 10.1126/science.1242072. [저자 소속기관 기록](https://iris.sissa.it/handle/20.500.11767/14183)에서 서지·초록 확인. 원문 PDF는 기관 기록에서 비공개로 표시된다. ρ/δ 정의·cutoff/Gaussian kernel 선택·density 동률·가장 높은 밀도점·중심 선택·halo 처리를 원문 또는 저자 구현으로 확인해야 한다. 아직 엔진 없음.
+
+## 안정44개 배포 대기 중 후속 준비 기록 (보존)
+
+아래는 신규6개를 구현하기 전의 문헌 준비 기록이다. 현재 구현은 위 CONSTRAINED/DISCRETE_MIXTURES/GRAPH_FOLLOWUP을 따른다.
 
 2026-11-01 후속 준비: [CONSTRAINT_QUEUE](research/CONSTRAINT_QUEUE.md)에 COP/PCK/MPCK/Constrained Spectral의 실제 열람 범위와 원문 접근 제한·수식/오류/독립oracle 계약을 남겼다. 엔진을 추가하거나 정식 조사 완료로 상태를 올리지 않았다.
 

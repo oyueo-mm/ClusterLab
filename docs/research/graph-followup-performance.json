@@ -1,0 +1,93 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "observations": [
+    {
+      "name": "Walktrap",
+      "n": 100,
+      "status": "complete",
+      "m": 99,
+      "walkSteps": 4,
+      "cliqueSize": 3,
+      "milliseconds": 13.48,
+      "heapDeltaBytes": -1871864,
+      "events": 20,
+      "traceEstimatedBytes": 826336
+    },
+    {
+      "name": "Walktrap",
+      "n": 300,
+      "status": "complete",
+      "m": 299,
+      "walkSteps": 4,
+      "cliqueSize": 3,
+      "milliseconds": 86.98,
+      "heapDeltaBytes": 15173800,
+      "events": 24,
+      "traceEstimatedBytes": 6805734
+    },
+    {
+      "name": "Walktrap",
+      "n": 1000,
+      "status": "complete",
+      "m": 999,
+      "walkSteps": 4,
+      "cliqueSize": 3,
+      "milliseconds": 952.84,
+      "heapDeltaBytes": 97442768,
+      "events": 26,
+      "traceEstimatedBytes": 58705918
+    },
+    {
+      "name": "Clique Percolation",
+      "n": 100,
+      "status": "complete",
+      "m": 99,
+      "walkSteps": 4,
+      "cliqueSize": 3,
+      "milliseconds": 0.61,
+      "heapDeltaBytes": 510280,
+      "events": 3,
+      "traceEstimatedBytes": 29704,
+      "cliques": 0
+    },
+    {
+      "name": "Clique Percolation",
+      "n": 1000,
+      "status": "complete",
+      "m": 999,
+      "walkSteps": 4,
+      "cliqueSize": 3,
+      "milliseconds": 2.32,
+      "heapDeltaBytes": 4540288,
+      "events": 3,
+      "traceEstimatedBytes": 240304,
+      "cliques": 0
+    },
+    {
+      "name": "Clique Percolation",
+      "n": 10000,
+      "status": "complete",
+      "m": 9999,
+      "walkSteps": 4,
+      "cliqueSize": 3,
+      "milliseconds": 20.16,
+      "heapDeltaBytes": -4713160,
+      "events": 3,
+      "traceEstimatedBytes": 2346304,
+      "cliques": 0
+    },
+    {
+      "name": "Clique Percolation",
+      "n": 18,
+      "m": 153,
+      "status": "complete",
+      "milliseconds": 3.83,
+      "heapDeltaBytes": 5276232,
+      "events": 25,
+      "traceEstimatedBytes": 695994,
+      "cliques": 816
+    }
+  ],
+  "note": "Single engine-only observation. Graph generation, Worker transfer, rendering excluded. Heap delta is not peak. Full-scan exact Walktrap, complete CPM."
+}

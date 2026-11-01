@@ -9,6 +9,8 @@ import CommunityAnalysis from "./CommunityAnalysis";
 import DataClusteringAnalysis from "./DataClusteringAnalysis";
 import BiclusterAnalysis from "./BiclusterAnalysis";
 import { TimeSeriesAnalysisView } from "./TimeSeriesAnalysis";
+import ConstraintAnalysisView from "./ConstraintAnalysis";
+import { DiscreteMixtureAnalysisView } from "./DiscreteMixtureAnalysis";
 
 function MatrixViewer({
   title,
@@ -416,6 +418,23 @@ export function AlgorithmAnalysis({
       <AutoAnalysisView
         analysis={a}
         next={target?.kind === "model-selection" ? target : a}
+        progress={visualProgress}
+      />
+    );
+  if (a.kind === "constraints")
+    return (
+      <ConstraintAnalysisView
+        analysis={a}
+        next={target?.kind === "constraints" ? target : a}
+        progress={visualProgress}
+      />
+    );
+  if (a.kind === "discrete-mixture")
+    return (
+      <DiscreteMixtureAnalysisView
+        analysis={a}
+        responsibilities={state.responsibilities}
+        next={next}
         progress={visualProgress}
       />
     );

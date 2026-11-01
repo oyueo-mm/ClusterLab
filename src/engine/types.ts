@@ -46,6 +46,12 @@ export const algorithms = [
   "K-Shape",
   "Greedy Modularity (CNM)",
   "Fluid Communities",
+  "COP-KMeans",
+  "Bernoulli Mixture",
+  "Poisson Mixture",
+  "Multinomial Mixture",
+  "Walktrap",
+  "Clique Percolation",
 ] as const;
 export type Algorithm = (typeof algorithms)[number];
 export interface Point {
@@ -109,6 +115,8 @@ export type AlgorithmAnalysis =
   | import("./streamTypes").StreamAnalysis
   | import("./matrixTypes").MatrixAnalysis
   | import("./timeseriesTypes").TimeSeriesAnalysis
+  | import("./constraintTypes").ConstraintAnalysis
+  | import("./mixtureTypes").DiscreteMixtureAnalysis
   | {
       kind: "centroid-variant";
       phase: string;
@@ -175,6 +183,9 @@ export type AlgorithmAnalysis =
       edgeAges?: { a: number; b: number; age: number }[];
     };
 export type EventKind =
+  | "walk"
+  | "clique"
+  | "percolate"
   | "residue"
   | "mask"
   | "align"
@@ -241,6 +252,8 @@ export interface Trace {
   algorithm: Algorithm;
 }
 export interface Params {
+  walkSteps: number;
+  cliqueSize: number;
   residueThreshold: number;
   biclusterCount: number;
   deletionThreshold: number;
@@ -306,6 +319,8 @@ export interface Params {
   bandwidth: number;
 }
 export const defaults: Params = {
+  walkSteps: 4,
+  cliqueSize: 3,
   residueThreshold: 0.01,
   biclusterCount: 2,
   deletionThreshold: 1.2,
@@ -383,6 +398,14 @@ export function algorithmDefaults(algorithm: Algorithm): Params {
     ...(algorithm === "K-Prototypes" ? { gamma: 1 } : {}),
     ...(algorithm === "Markov Clustering (MCL)" ? { iterations: 100 } : {}),
     ...(algorithm === "Fluid Communities" ? { iterations: 100 } : {}),
+    ...([
+      "COP-KMeans",
+      "Bernoulli Mixture",
+      "Poisson Mixture",
+      "Multinomial Mixture",
+    ].includes(algorithm)
+      ? { k: 2 }
+      : {}),
     ...(algorithm === "Bimax" || algorithm === "Cheng–Church Biclustering"
       ? { minSize: 2, minPts: 2 }
       : {}),
@@ -410,7 +433,17 @@ export const supportsEuclideanSilhouette = (algorithm: Algorithm) =>
     "K-Shape",
     "Greedy Modularity (CNM)",
     "Fluid Communities",
+    "Bernoulli Mixture",
+    "Poisson Mixture",
+    "Multinomial Mixture",
+    "Walktrap",
+    "Clique Percolation",
   ].includes(algorithm);
+export function clusterCount(state: State) {
+  if (state.analysis?.kind === "community" && state.analysis.communities)
+    return state.analysis.communities.length;
+  return new Set(state.labels.filter((label) => label >= 0)).size;
+}
 export function emptyState(n: number): State {
   return {
     labels: Array(n).fill(-2),

@@ -101,10 +101,13 @@ describe("typed execution preserves mathematical input and native outputs", () =
         a.output.kind !== "communities"
       )
         throw new Error("native community state missing");
-      expect(a.output.objective).toBeCloseTo(
-        originalModularity(barbell, a.labels, p.resolution),
-        12,
-      );
+      if (state.analysis.objectiveName === "목적함수 없음")
+        expect(a.output.objective).toBe(0);
+      else
+        expect(a.output.objective).toBeCloseTo(
+          originalModularity(barbell, a.labels, p.resolution),
+          12,
+        );
       expect(state.analysis.inputEdges).toHaveLength(barbell.edges.length);
       expect(a.trace.steps.length).toBeGreaterThan(1);
       let reverse = state;
@@ -167,7 +170,13 @@ describe("typed execution preserves mathematical input and native outputs", () =
       [2, 3, 0.01],
     ]);
     for (const algorithm of communityAlgorithms.filter(
-      (a) => a !== "Girvan–Newman" && a !== "Fluid Communities",
+      (a) =>
+        ![
+          "Girvan–Newman",
+          "Fluid Communities",
+          "Walktrap",
+          "Clique Percolation",
+        ].includes(a),
     )) {
       const p = options(algorithm),
         result = await runDataset(algorithm, data, p);

@@ -1,14 +1,12 @@
-﻿# 재개 절차 — 2026-11-01
+# 재개 절차 — 제약·혼합·중첩 커뮤니티
 
-하나의 통합 마스터 요청을 계속 수행한다. MASTER_PLAN/PROGRESS/ALGORITHM_REGISTRY/SESSION_REPORT/ARCHITECTURE/DATA_FORMATS/PERFORMANCE/VALIDATION, RESEARCH_QUEUE 및 research 자료를 먼저 읽는다. 직전25개 기록은 sessions/platform25, 이전15개는 sessions/foundation에 보존했다.
+> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
 
-## 현재 상태
+MASTER_PLAN、PROGRESS、ALGORITHM_REGISTRY、SESSION_REPORT、ARCHITECTURE、DATA_FORMATS、PERFORMANCE、VALIDATION、RESEARCH_QUEUE와 research 자료를 먼저 읽는다. 마스터 전체를 다시 요청하지 않는다. 직전 안정44개 문서는 sessions/platform44, 이전25개는 sessions/platform25에 보존했다.
 
-소스 실행44개 = 기존13 + 후보31. 후보119개 중88개 미구현, 마스터 완전 구현 인증0개다. 우선14개와 추가5개(Bimax/Cheng–Church/K-Shape/CNM/Fluid)는 이미 구현했다. 다시 처음부터 개발하지 않는다. 기준 main4ac46eb에서 feat/model-community-data-engines를 시작했다. 최종 SHA/배포는 SESSION_REPORT와 git log를 따른다.
+현재 브랜치 `feat/constraints-mixtures-and-overlap`, 기준 main826001d/제품fd78886. 소스50엔진/후보37연결·82미구현/완전인증0. 새COP/3이산혼합/Walktrap/CPM을 중복 개발하지 않는다. 최신 커밋·배포 결과는 SESSION_REPORT 마지막 절과 git log를 따른다.
 
-타입/lint/build, 최종 전체428개 단위/통합, 독립 Python7종, 신규 Chromium/mobile18검사가 통과했다. 마지막 전체 회귀/cross/원격 결과가 아래 문서에 추가됐으면 그 기록을 우선한다.
-
-## 명령
+## 검증 명령
 
 ```powershell
 git status --short
@@ -18,67 +16,30 @@ npm run typecheck
 npm run lint
 npm test
 npm run build
-```
-
-의존성이 있으면 재설치하지 않는다. Windows sandbox의 esbuild/브라우저 spawn 또는 검증용 pip 디렉터리 접근 거부는 해당 실행만 정식 승인 환경에서 재시도한다. 오류를 성공으로 대체하거나 sandbox를 우회하지 않는다.
-
-4173은 다른 프로젝트가 사용했으므로 타 프로젝트를 종료하지 않는다. 포트 상태를 확인하고 자신의 preview만 관리한다.
-
-```powershell
+python -B scripts/constrained_reference.py
+python -B scripts/discrete_mixtures_reference.py
+python -B scripts/graph_followup_reference.py
 npm run preview -- --port 4273 --strictPort
 # 별도 터미널
 $env:CLUSTERLAB_BASE_URL='http://127.0.0.1:4273/ClusterLab/'
 npx playwright test
-npx playwright test tests/next-platform.spec.ts
 $env:CLUSTERLAB_CROSS_BROWSER='1'
-npx playwright test tests/platform.spec.ts tests/next-platform.spec.ts --project=firefox --project=webkit
+npx playwright test tests/platform.spec.ts tests/next-platform.spec.ts tests/constraints-models.spec.ts --project=firefox --project=webkit
 ```
 
-cross는 두 플랫폼 spec 범위다. 모든 기존 기능의 Firefox/WebKit 검증으로 확대하지 않는다. 전체 Chromium/mobile은 홈11순환/GMM·44가이드 때문에 수분 이상 걸린다. 필요한 브라우저만 Playwright로 설치한다.
+타 프로젝트4173을 종료하지 않는다. 브라우저는 공유 test-results/.local 결과를 쓰므로 **하나씩 실행하고 종료코드를 확인한 다음 원자료를 복사**한다. exec session_id는 완료가 아니다. 브라우저 실행 중 dist를 다시 빌드하지 않는다. Windows spawn/네트워크/검증 패키지 접근 거부는 해당 실행만 정식 escalation으로 재시도한다. 실패를 성공으로 숨기거나 sandbox를 우회하지 않는다.
 
-```powershell
-python scripts/auto_models_reference.py
-python scripts/community_reference.py
-python scripts/graph_extra_reference.py
-python scripts/data_clustering_reference.py
-python scripts/matrix_reference.py
-python scripts/timeseries_reference.py
-python scripts/denstream_reference.py
-npm test -- src/engine/typed-integration.test.ts src/engine/denstream-audit.test.ts
-npm test -- src/engine/scale.test.ts src/engine/platform-scale.test.ts src/engine/benchmark.test.ts
-```
+검증 전용 .local/{spectral,auto,community}-reference-runtime 버전은 각 research를 따른다. 제품에 GPL oracle/외부 코드를 복사하거나 의존성을 추가하지 않았다. 기존7종/기반 oracle도 그대로 보존한다. NumPy/NetworkX/igraph fixture 입력 수는 Vitest 함수 수와 다르다.
 
-기존5종 레퍼런스도 보존한다. fixture 버전과 research 재현 설명을 확인한다. .local/{spectral,auto,community}-reference-runtime은 검증 전용/Git 제외다. 없는 환경은 정확한 버전으로 재구성한다. GPL 등 검증 패키지를 제품에 넣거나 외부 코드를 복사하지 않는다.
+## 이번 입력·출력과 주의점
 
-성능 테스트의 .local 파일은 덮어써진다. 단일 Node 시간/heap delta/JSON 크기는 peak RAM이나 브라우저FPS가 아니다. DenStream100k는 두 live CF 입력이다. 전체44 benchmark의 행 수는 엔진별로 다르다. 원자료를 보고 비교한다.
+- COP는 native constrained만 지원한다. 원본행 순서 greedy/시드 정책과 hard 실패를 지킨다. ML closure는 희소 성분이며 원본행을 성분 평균으로 대체하지 않는다. soft PCK/MPCK와 다르다. 입력 관계 추가는 유효한 기존 쌍을 복제할 수 있으므로 테스트에서 기본쌍을 가정하지 않는다.
+- 이산3모델은 숫자 ND를 사용하되 Bernoulli0/1, Poisson/Multinomial은 비음 안전 정수 카운트다. Multinomial 행합 조건화·정규화계수, Poisson λ0, Bernoulli θ0/1, 무prior MLE를 보존한다. 정답 labels나 표시2D로 계산하지 않는다.
+- Walktrap walkIteration은 현재 P의 지수, walkSteps는 목표다. Ward Δσ는 병합 기준, 원본 Q는 최종 cut 선택용이다. 트리 SVG는 접힌 상세 영역이며 높이는 병합 순서다.
+- CPM 모든 clique/중첩 소속을 반환한다. −1은 미소속이고 목적함수 없음이다. 그래프 커뮤니티 수를 Canvas 첫 소속 labels의 고유 개수만으로 세지 않는다.
+- native constrained-partition/mixture/communities 출력과 computedRows/sourceDimensions 전체 원본을 유지한다. 표시 창만 제한한다. 기존13·홈11순환·32프리셋·v03/v04를 보존한다.
+- Worker는 lazy registry를 사용한다. cache.points 실제 표시 참조·generation ID 유지, 취소 terminate, Recorder 불변 metadata/행렬 공유·48 checkpoint·delta 이력 최대100. 새 고정 데이터 상한을 만들지 않는다.
 
-## 유지할 계약
+## 다음 순서
 
-- 홈은 legacy13·11라운드·실시간4Worker. 기존32프리셋·13엔진·디자인·편집 UX 보존.
-- 제품 Worker는 registry 동적 import. 정적 run.ts를 UI/Worker에 넣지 않는다. raw 메시지의 points만[]로 생략하고 **완료 cache.points는 실제 표시 참조를 보존**해야 traceIsCurrent가 정상이다.
-- 표시 축·LOD와 전체 원본 계산 분리. 범주 토큰/혼합 모든 열/실제 간선·가중치/선택 부분공간/행열 중첩/시간축·시각 보존. 지원 불가·미수렴·자원 실패를 빈 성공으로 바꾸지 않는다.
-- native 결과: CLIQUE subspaces, PROCLUS projected-partition, community communities, Bimax/CC biclustering, KShape timeseries-partition, DenStream stream-summary. 화면용 레이블을 전용 결과 대신 반환하지 않는다.
-- G-Means 원문 AD 보정과 검증α, X-Means 출판 BIC heuristic, 실제 Hartigan dip/bootstrap, Leiden 정제·집약, Fluid 단순 연결 단위 그래프, KShape surrogate/ΣSBD² 차이, CLIQUE MDL 생략, CC 원본 MSR safeguard를 명시한다.
-- DenStream은 anchored CF·실제 Tp pruning·엄격 promotion·시간 진행 검사·역사 owner/noise를 유지한다. UI prefix 재계산을 무한 증분 세션이라고 표시하지 않는다.
-- Trace delta/불변 행렬 공유/checkpoint/역진과 최대100 희소 편집 이력 검증. 새 고정 개수 상한·조용한 입력/출력 잘라내기 금지.
-
-## 다음 작업
-
-1. SESSION_REPORT에 pending 검증·배포가 있으면 먼저 안정화한다. 실제 원격 main을 확인하고 사용자 변경을 덮어쓰지 않는다.
-2. 후보88개를 그대로 유지하고 원문·수식·실제 엔진·Trace·전용 UI·파라미터·가이드·독립 oracle·브라우저를 세로 단위로 계속한다. 제약 COP/PCK/MPCK·Constrained Spectral, 남은 그래프, 적절한 분포의 혼합모델, 추가 부분공간/스트림/신경망의 의존성을 판단한다. 이 제안으로 전체 범위를 축소하지 않는다.
-3. typed 비교/추가 지표, 실제 딥 학습 런타임의 라이선스·용량·브라우저 검증, 대형파일 청크/transferable/persistent Worker·장시간 peak/FPS를 이어간다.
-4. 안정 단위는 검증→커밋→main fast-forward→기존 Pages workflow→공개 실제 Worker 확인. 강제 push 금지. 배포는 기존 사용자 요청에 포함돼 있다.
-
-세션 한계 시 검증된 변경을 커밋하고 PROGRESS/CONTINUE/ALGORITHM_REGISTRY/SESSION_REPORT에 정확한 상태와 다음 명령을 남긴다. 마스터 지시문을 다시 요구하지 않는다.
-
-현재 다음 제약4개를 이어갈 때는 [research/CONSTRAINT_QUEUE.md](research/CONSTRAINT_QUEUE.md)를 읽는다. hard COP와 soft PCK/MPCK의 충돌/가중치 정책을 구분해야 하며, 현재 constrained 스키마가 soft 입력까지 실행 지원한다는 뜻이 아니다. 부분 조사로 후보 상태/구현 수를 올리지 않았다.
-
-현재 안정 구현 소스는 `a81a931d7b8f0e698989fcc85bdf988f8ef3aebf`이며 main/작업 브랜치에 반영됐다. Actions41256051227의 원격 검증·배포를 확인 중이다. 아래보다 최신 SESSION_REPORT 최종 기록이 있으면 우선한다. 현재 로컬 preview4273을 사용 중이며 세션 종료 시 자신의 서버만 정리한다.
-
-혼합모델을 이어갈 때 [research/MIXTURE_FOLLOWUP_QUEUE.md](research/MIXTURE_FOLLOWUP_QUEUE.md)도 읽는다. 분포별 실제 입력 범위와 EM/ECM·변분추론을 구분하고, 미실행 oracle을 검증 완료로 표시하지 않는다. 기존2D GMM은 보존한 채 ND 분포 엔진을 독립 검증한다.
-
-그래프 후속은 [research/GRAPH_FOLLOWUP_QUEUE.md](research/GRAPH_FOLLOWUP_QUEUE.md)를 읽는다. CW와 현재 LPA의 tie 규약·별칭 여부, Walktrap의 self-loop 전이 규약, Infomap description length, 중첩 CPM/BigCLAM, SBM 추론법·OSLOM 근거를 각각 구분한다. 공식 구현 smoke를 제품 엔진 구현으로 세지 않는다.
-
-## 최종 확정 상태
-
-현재 안정 제품 소스는 **fd7888690c82606af7f55863a898b8fb25a2ca2d**다. Actions41257323667의428단위·통합/단일 전체브라우저64성공·12기존조건부생략/배포가 성공했다. 공개 검증은 SESSION_REPORT와 platform44/deployment.json을 따른다. 그 뒤 문서 [skip ci] 커밋은 앱을 바꾸지 않는다. 앞의 a81a931/진행중 문구는 이전 체크포인트 기록이다. 4273 preview는 종료했다. 새 작업 브랜치에서 이 안정 버전과 문서부터 읽고 미구현88개를 이어간다.
+검증 중인 전체 브라우저/cross→안정 커밋→main ff/push→Actions/Pages→공개 실 Worker 확인→문서 최종 SHA를 완료한다. 이미 완료됐다면 SESSION_REPORT 마지막 절을 우선한다. 다음 실제 엔진은 research/NEXT_50_QUEUE.md와 RESEARCH_QUEUE의 조사 상태에서 이어간다. 각 알고리즘은 계산부터 UI/가이드/독립 수치/브라우저까지 연결한다. 전체 마스터는 여전히 진행 중이다.

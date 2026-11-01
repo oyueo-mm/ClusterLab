@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "number": 1,
     "name": "Mini-Batch K-Means",
@@ -199,55 +199,62 @@
     "number": 21,
     "name": "Possibilistic C-Means",
     "family": "B 퍼지·제약 기반",
-    "status": "미조사",
+    "status": "원문·정의 예비 검토 · 엔진 미구현",
     "classification": "분류 검토 필요",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/NEXT_50_QUEUE.md: 부분 열람·정의 비교, oracle 미실행"
   },
   {
     "number": 22,
     "name": "Fuzzy Possibilistic C-Means",
     "family": "B 퍼지·제약 기반",
-    "status": "미조사",
+    "status": "원문·정의 예비 검토 · 엔진 미구현",
     "classification": "분류 검토 필요",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/NEXT_50_QUEUE.md: 부분 열람·정의 비교, oracle 미실행"
   },
   {
     "number": 23,
     "name": "COP-KMeans",
     "family": "B 퍼지·제약 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)",
+    "classification": "variant",
+    "input": "constrained",
+    "engine": "COP-KMeans",
+    "research": "docs/research/CONSTRAINED.md · Wagstaff et al.2001 원문 §3.1–3.2/Table1 확인; 저자 저장소는 실행 코드 미제공 · https://wkiri.com/research/papers/wagstaff-kmeans-01.pdf",
+    "limitations": "hard Must-Link/Cannot-Link의 pointwise greedy 변형; 모든 원본 차원 사용, feasible해도 현재 순서/초기값에서 실패 가능; PCK/MPCK·전역 feasible solver 아님"
   },
   {
     "number": 24,
     "name": "PCKMeans",
     "family": "B 퍼지·제약 기반",
-    "status": "미조사",
+    "status": "원문·정의 예비 검토 · 엔진 미구현",
     "classification": "분류 검토 필요",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/NEXT_50_QUEUE.md: 부분 열람·정의 비교, oracle 미실행"
   },
   {
     "number": 25,
     "name": "MPCKMeans",
     "family": "B 퍼지·제약 기반",
-    "status": "미조사",
+    "status": "원문·정의 예비 검토 · 엔진 미구현",
     "classification": "분류 검토 필요",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/NEXT_50_QUEUE.md: 부분 열람·정의 비교, oracle 미실행"
   },
   {
     "number": 26,
     "name": "Constrained Spectral Clustering",
     "family": "B 퍼지·제약 기반",
-    "status": "미조사",
+    "status": "원문·정의 예비 검토 · 엔진 미구현",
     "classification": "분류 검토 필요",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/NEXT_50_QUEUE.md: 부분 열람·정의 비교, oracle 미실행"
   },
   {
     "number": 27,
@@ -522,10 +529,12 @@
     "number": 55,
     "name": "Walktrap",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)",
+    "classification": "독립 알고리즘 (확률보행 Ward 계층·최고Q cut)",
+    "input": "numeric-or-graph",
+    "engine": "Walktrap",
+    "research": "docs/research/GRAPH_FOLLOWUP.md · Pons–Latapy2005 원문 §1–4·저자 igraph 가중 loop 계약 및 실제 igraph1.0.0/독립 NumPy 확인 · https://arxiv.org/html/physics/0512106v1",
+    "limitations": "실제 전체 t-step 확률·인접 최소 Ward 계층 후 최고 원본Q cut; 가중 parallel 합산 뒤 incident 평균 인공 loop, 원본 양의 loop·방향 거부; 밀집/전체 스캔 구현, 전역 최적Q 보장 없음"
   },
   {
     "number": 56,
@@ -573,10 +582,12 @@
     "number": 60,
     "name": "Clique Percolation",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)",
+    "classification": "중첩 군집화 기법 (k-clique 연결 성분 cover)",
+    "input": "numeric-or-graph",
+    "engine": "Clique Percolation",
+    "research": "docs/research/GRAPH_FOLLOWUP.md · Palla et al.2005 k-clique·k−1 인접 정의와 NetworkX3.6.1/독립 전수 cover 검산 · https://arxiv.org/html/physics/0506133v1",
+    "limitations": "단순·비가중·loop 없는 무방향 입력의 모든 k-clique와 중첩 cover; k는 군집 수 아님, 목적함수/Q 최적화 없음, 미소속−1은 통계적 noise 아님; CPMw·방향 확장 미지원"
   },
   {
     "number": 61,
@@ -804,20 +815,23 @@
     "number": 85,
     "name": "Multinomial Mixture",
     "family": "G 확률·혼합모델",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)",
+    "classification": "model-family",
+    "input": "numeric-nd",
+    "engine": "Multinomial Mixture",
+    "research": "docs/research/DISCRETE_MIXTURES.md · Rigouste–Cappé–Yvon2006 저자 원문 v1의 관측 모형·EM·초기화·smoothing 범위와 SciPy 공식 정의 확인 · https://arxiv.org/pdf/cs/0606069",
+    "limitations": "모형·무prior ML EM; 비음수 안전 정수 count와 각 행 총수 조건부 Multinomial, 정규화 항 포함; smoothing·Gibbs/Bayesian·어휘감축 없음, 지역해/성분 비식별 가능"
   },
   {
     "number": 86,
     "name": "Bernoulli Mixture",
     "family": "G 확률·혼합모델",
-    "status": "정의·관계 조사 · 미구현",
-    "classification": "모델 (binary LCA와 동등 조건)",
-    "input": "입력 계약 조사 필요",
-    "engine": null,
-    "research": "docs/research/TAXONOMY.md: 원문/공식 문서 접근 여부 구분"
+    "status": "독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)",
+    "classification": "model-family",
+    "input": "numeric-nd",
+    "engine": "Bernoulli Mixture",
+    "research": "docs/research/DISCRETE_MIXTURES.md 및 docs/research/TAXONOMY.md · Liang2015 저자 EM 노트 §1.1·3.1과 SciPy Bernoulli 정의 확인; 최초 논문 우선권 주장 안 함 · https://www.ee.columbia.edu/~dliang/files/em.pdf",
+    "limitations": "모형·무prior ML EM; 정확한0/1의 조건부 독립 product-Bernoulli, 경계MLE 보존; 일반 LCA 전부·prior·smoothing 아님, 단일 binary 변수의 혼합 성분 비식별 가능"
   },
   {
     "number": 87,
@@ -842,10 +856,12 @@
     "number": 89,
     "name": "Poisson Mixture",
     "family": "G 확률·혼합모델",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)",
+    "classification": "model-family",
+    "input": "numeric-nd",
+    "engine": "Poisson Mixture",
+    "research": "docs/research/DISCRETE_MIXTURES.md · Grün–Leisch2008 JSS 서지·저자 vignette EM/Poisson driver와 SciPy 공식 PMF 확인; FlexMix 전체 실행 미실시 · https://stat.ethz.ch/CRAN/web/packages/flexmix/vignettes/mixture-regressions.pdf",
+    "limitations": "모형·무prior ML EM; 비음수 안전 정수의 조건부 독립 product-Poisson·동일 노출 단위, factorial 정규화/λ0 경계 보존; regression·zero-inflation·노출량 보정·prior 없음"
   },
   {
     "number": 90,
@@ -1016,10 +1032,11 @@
     "number": 108,
     "name": "BSAS",
     "family": "I 순차·이중군집·특수 데이터 기반",
-    "status": "미조사",
+    "status": "원문·정의 예비 검토 · 엔진 미구현",
     "classification": "분류 검토 필요",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/NEXT_50_QUEUE.md: 부분 열람·정의 비교, oracle 미실행"
   },
   {
     "number": 109,
@@ -1043,10 +1060,11 @@
     "number": 111,
     "name": "Leader",
     "family": "I 순차·이중군집·특수 데이터 기반",
-    "status": "미조사",
+    "status": "원문·정의 예비 검토 · 엔진 미구현",
     "classification": "분류 검토 필요",
     "input": "입력 계약 조사 필요",
-    "engine": null
+    "engine": null,
+    "research": "docs/research/NEXT_50_QUEUE.md: 부분 열람·정의 비교, oracle 미실행"
   },
   {
     "number": 112,

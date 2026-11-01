@@ -1,6 +1,12 @@
 import type { Algorithm } from "../engine/types";
 /** Small metadata used by the lab; textbook and KaTeX stay in the guide chunk. */
 export const algorithmFamilies: Record<Algorithm, string> = {
+  "COP-KMeans": "하드 제약·중심",
+  "Bernoulli Mixture": "이진 확률·혼합모델",
+  "Poisson Mixture": "카운트 확률·혼합모델",
+  "Multinomial Mixture": "구성 카운트·혼합모델",
+  Walktrap: "확률보행·계층 커뮤니티",
+  "Clique Percolation": "완전 부분그래프·중첩 커뮤니티",
   "X-Means": "정보 기준·자동 K",
   "G-Means": "정규성·자동 K",
   "Dip-Means": "단봉성·자동 K",

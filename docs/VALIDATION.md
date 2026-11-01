@@ -1,5 +1,7 @@
 # ClusterLab v0.6 검증 보고서
 
+> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
+
 현재 2026-11-01 재개 변경의 검증 범위는 이 문서 마지막 절을 따른다. 아래 v0.6의 600개 제한·스냅샷 히스토리 설명과 2026-10-31의 25엔진/107개 미구현 수치는 당시 기록으로 보존한다. 현재 입력 고정 상한은 제거됐으며 실행 엔진은 44개다. 과거 Pages 성공을 이번 변경의 배포 성공으로 재사용하지 않는다.
 
 검증일: 2026-10-29 (Asia/Seoul). 기준 v0.5 main: `bb7f9f9dffde5d638557a54fc3e92cb6443f4127`. 원격 fetch 후 로컬과 일치함을 확인했습니다. 기존 프로젝트·라이브러리를 사용하고 새 런타임 의존성은 추가하지 않았습니다.
@@ -181,3 +183,13 @@ Chromium/mobile 전체 최초 실행은 **62통과·12기존 조건부 생략·2
 최종 제품 소스fd78886, [Actions41257323667](https://github.com/oyueo-mm/ClusterLab/actions/runs/41257323667). Ubuntu/Node22 타입·lint·428개/32파일·build와 전체 Chromium/mobile **64통과·12기존 조건부 생략·0실패**, validate/deploy 모두 성공했다. 공개 a81a931 고유34구성(33+환경 충돌 후1재검사)과 계산 코드가 같은 최종fd78886 raw 가이드4구성을 구분해 확인했다. 최종공개4는 Chromium/mobile/Firefox/WebKit 모두 통과했다. 중복/재시도 수를 합산해 부풀리지 않는다. 근거는 platform44/{ci-validation,deployment,browser-public-first,browser-public-retry,browser-public-final}.json과 공개화면이다.
 
 추가 로컬 Worker 시작 오류1회는 원인 미확정이고, 단독 진단10개·단독 해당검사·최종원격 전체에서는 재현되지 않았다. 별도 공개 기록 정리 실패는 동시 Playwright가 같은 결과 폴더를 사용한 ENOENT였으며 단독 재실행이 통과했다. 테스트 결과를 확인하기 전의 문서 성공 표현은 SESSION_REPORT와 ARCHITECTURE에서 정정했다. 해결된 수학 오류나 항상 성공 보장으로 설명하지 않는다.
+
+## 50개 소스 통합 검증 — 진행 중
+
+직전44개 검증 원문은 sessions/platform44에 보존했다. 이번 신규COP/3이산혼합/Walktrap/CPM은 타입·ESLint·build·전체Vitest509/509(37파일)와 독립oracle3스크립트 재생성 성공을 확인했다. 신규 Chromium/mobile8/8이 실제 원본 Worker·Trace/되감기·수치/실패/편집·native 출력·1000행·7폭을 검사한다. 최초4성공/4실패와 수정 후8성공을 platform50/browser-{first,targeted}.json/log에 구분해 보존한다. 첫 실패는 추가CL 기본쌍 가정과 접힌 트리 접근을 수정한 것이며 수학 oracle 실패가 아니다.
+
+원본13모듈/프리셋/홈/디자인/workflow/의존성20파일의 Git clean-filter blob이4ac46eb와 동일하다(platform50/legacy-source-audit.json). 새 전역 데이터 상한은 없고 실제 byte 예산과 표시 창을 구분한다. 전체 회귀/cross/CI/Pages는 아직 검증 중이며 최종 결과는 SESSION_REPORT 마지막 절을 따른다. 소스50·후보37구현/82미구현·엄격한 전체 인증0이다.
+
+## 로컬 검증 완료 체크포인트
+
+전체509/37파일·type/lint/build·독립oracle3종, 전체브라우저72성공/12기존생략+새가이드2(고유74), 네 플랫폼spec의Firefox/WebKit34/34, 최종도감2/2가 통과했다. 후속10/10은 기존8을 포함해 중복 집계하지 않는다. 이번 원자료는 platform50, 상세/진단·배포는 SESSION_REPORT 마지막 절이다. 공개50개 배포는 아직 대기다.

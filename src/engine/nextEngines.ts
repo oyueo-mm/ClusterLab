@@ -17,6 +17,12 @@ import { chengchurch } from "./algorithms/chengchurch";
 import { kshape } from "./algorithms/kshape";
 import { cnm } from "./algorithms/cnm";
 import { fluid } from "./algorithms/fluid";
+import { copkmeans } from "./algorithms/copkmeans";
+import { bernoulli } from "./algorithms/bernoulli";
+import { poisson } from "./algorithms/poisson";
+import { multinomial } from "./algorithms/multinomial";
+import { walktrap } from "./algorithms/walktrap";
+import { cliquepercolation } from "./algorithms/cliquepercolation";
 /** Static validation API only. Product Workers use registry lazy loaders. */
 export const nextEngines = {
   "X-Means": xmeans,
@@ -38,4 +44,10 @@ export const nextEngines = {
   "K-Shape": kshape,
   "Greedy Modularity (CNM)": cnm,
   "Fluid Communities": fluid,
+  "COP-KMeans": copkmeans,
+  "Bernoulli Mixture": bernoulli,
+  "Poisson Mixture": poisson,
+  "Multinomial Mixture": multinomial,
+  Walktrap: walktrap,
+  "Clique Percolation": cliquepercolation,
 };

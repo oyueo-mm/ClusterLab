@@ -1,6 +1,8 @@
-﻿# 성능 측정 — 2026-10-31 플랫폼 확장
+# 성능 측정 — 2026-10-31 플랫폼 확장
 
-2026-11-01의 추가 19개 엔진·실제 형식·희소 그래프/스트림 관측은 이 문서 마지막의 새 절을 따른다. 아래 기존 수치와 브라우저 관측은 당시 증거로 보존하며, 이번 변경의 브라우저·전체 회귀·배포가 완료됐다는 의미가 아니다.
+> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
+
+현재50개 소스(후보37개 구현/82개 미구현, 완전 인증0)의 신규6개 관측은 마지막 절을 따른다. 이전44개 성능·배포 증거와 [당시 문서](sessions/platform44/PERFORMANCE.md)를 보존한다. 새 전체 타입/lint/build·단위509개/37파일·신규 Python reference3개는 통과했지만 로컬 브라우저 통합은 첫4통과/4실패 이후 수정 중이다. 새50개의 전체 회귀·공개 배포·정량 브라우저 성능 성공을 주장하지 않는다.
 
 이전 기록은 sessions/foundation/PERFORMANCE.md와 expansion/에 보존했다. 아래는 Windows, Node v24.19.0, seed 42의 단일 관측이다. 전체 테스트 동시 부하/GC에 영향을 받는다. 생성·Worker 복사·브라우저 렌더링은 제외하며 heap delta는 peak가 아니다. 음수는 GC 영향이다.
 
@@ -50,9 +52,9 @@ quality.spec.ts는 홈 36점 네 Worker와 실험실 120점 재생의 rAF 평균
 
 측정 환경: Intel Core Ultra 7 256V, 논리 CPU 8, 물리 메모리 약 15.54GiB, Windows x64/Node v24.19.0. 원본 환경 메타데이터는 platform/environment.json이다. 다른 작업이 함께 실행되는 사용자 장치의 단일 관측이며 원격 Ubuntu/Node22 CI와 분리한다.
 
-## 2026-11-01 추가 19개 엔진 — 원본 관측
+## 2026-11-01 안정44개에서 추가한19개 — 원본 관측 보존
 
-현재 44개 실행 엔진 중 이번 재개 작업의 추가 19개를 측정했다. 각 행은 해당 JSON의 단일 관측을 발췌한 것이며 서로 다른 입력/파라미터/상세 기록을 사용한다. 엔진 간 순위를 매기는 동일 조건 비교가 아니다. Node v24.19.0/Windows이며 생성·파일 파싱·Worker 전달·브라우저 렌더링·취소 지연은 제외한다. traceEstimatedBytes는 Recorder의 바이트 추정으로 실제 heap peak와 다르다. heapDeltaBytes가 음수인 것은 GC 영향이며 peak 또는 누수 부재의 증거가 아니다.
+당시44개 실행 엔진 중 추가19개를 측정했다. 각 행은 해당 JSON의 단일 관측을 발췌한 것이며 서로 다른 입력/파라미터/상세 기록을 사용한다. 엔진 간 순위를 매기는 동일 조건 비교가 아니다. Node v24.19.0/Windows이며 생성·파일 파싱·Worker 전달·브라우저 렌더링·취소 지연은 제외한다. traceEstimatedBytes는 Recorder의 바이트 추정으로 실제 heap peak와 다르다. heapDeltaBytes가 음수인 것은 GC 영향이며 peak 또는 누수 부재의 증거가 아니다.
 
 | 엔진                 | 실제 입력 규모                           |     ms | 기록 이벤트 | Trace 추정 bytes | 원본                                                     |
 | -------------------- | ---------------------------------------- | -----: | ----------: | ---------------: | -------------------------------------------------------- |
@@ -107,12 +109,47 @@ npx vitest run src/engine/typed-integration.test.ts src/editor/datasetHistory.te
 
 원본 reference 스크립트 7개 재생성이 모두 성공했다. 전체 단위 426/426 통과와 PROCLUS native output 추가 테스트 1개 개별 통과 후 최종 전체 재실행은 대기 중이다. 신규 브라우저 8시나리오×Chromium/mobile는 16/16 통과했으며 실제 추가 19개 Worker와 1,000행×12열 원본을 7개 폭에서 검사했다. 이는 입력 보존·편집·실제 계산·응답 기능 검사이며 1,000×12 모든 엔진의 정량 FPS/peak 또는 실제 모바일 하드웨어 측정이 아니다. raw graph의 화면 자원 추정에도 실제 m을 전달하도록 수정해 Worker 사전 검사와 맞췄다. 추가 가이드 사례는 검증 중이며 전체 기존 회귀·Firefox/WebKit·Actions/Pages는 아직 미실행이다.
 
-## 2026-11-01 최종 수치 회귀·추가 관측
+## 2026-11-01 안정44개 최종 수치 회귀·추가 관측 (보존)
 
-현재 소스의 전체 단위/통합은428/428·32파일 통과했다. 원자료와 환경은 [platform44](platform44/)에 보존했다. 신규19개 계열별 관측은 앞 절의 research JSON을 유지하며, 전체44 benchmark는 실제 입력 행 수가 엔진별로 다르다.
+당시44개 소스의 전체 단위/통합은428/428·32파일 통과했다. 원자료와 환경은 [platform44](platform44/)에 보존했다. 신규19개 계열별 관측은 앞 절의 research JSON을 유지하며, 전체44 benchmark는 실제 입력 행 수가 엔진별로 다르다.
 
 이번 scale 실행에서100만 전체 입력 K-Means는3774.96ms·15이벤트·Trace 추정58,782,080바이트, Mini-Batch는3627.56ms·6이벤트·전체200만 방문(2epoch)·Trace 추정58,260,824바이트였다. 생성·전송·렌더링을 제외한 단일 Node 관측이며 heap delta는 peak가 아니다. 기존25개 증거와 혼합하지 않는다. 이 관측을 신규44개 전체의100만 지원 보장으로 확대하지 않는다.
 
 최종 빌드의 홈36점/4Worker 및 실험실120점 K-Means rAF 관측도 Chromium/mobile2검사에서 통과했다. 원자료는 platform44/{home-performance-chromium,home-performance-mobile,performance-chromium,performance-mobile}.json이다. 약2.2초 관측과 기기 에뮬레이션이며 신규 대형 데이터/실제 휴대전화/장시간60FPS 보장으로 해석하지 않는다.
 
-최종 소스fd78886의 원격64전체 회귀·428단위·통합과 Pages 배포가 성공했다. 공개/교차 브라우저의 실제 범위는 SESSION_REPORT를 따른다. 본 문서의 중간426/427/16/대기 표현은 개발 중 관측이며 마지막428/공개 확인 기록이 현재 기준이다. 장시간·대규모 브라우저 peak/FPS는 계속 미검증이다.
+안정44개 소스fd78886의 원격64전체 회귀·428단위·통합과 Pages 배포가 성공했다. 공개/교차 브라우저의 당시 범위는 보존된 SESSION_REPORT를 따른다. 위 중간426/427/16/대기 표현은44개 개발 중 관측이며 해당 체크포인트의 최종428/공개 확인과 구분한다. 장시간·대규모 브라우저 peak/FPS는 계속 미검증이다.
+
+## 2026-11-01 현재50개 소스 — 신규6개 단일 Node 관측
+
+COP-KMeans·이산 혼합3개·Walktrap·CPM의 실제 원본 전체 계산과 Trace를 추가 측정했다. 아래는 Node24.19.0/Windows x64의 보존 JSON에서 발췌한 **케이스당 단일 관측**이다. 서로 다른 입력·종료·기록 정책이므로 공정한 엔진 순위나 모든 기기 성능 보장이 아니다. 생성·입력/표시 점 변환·Worker 전송·브라우저 렌더링·취소 지연은 제외한다. heapBefore/heapAfter/heapDelta는 강제 GC 없는 관측이고 peak/누수 인증이 아니다.
+
+| 실제 엔진           | 원본/설정                        |     ms | 이벤트 | Trace 추정 bytes | 원자료                                                     |
+| ------------------- | -------------------------------- | -----: | -----: | ---------------: | ---------------------------------------------------------- |
+| COP-KMeans          | n100000,d3,K2,한도10·희소ML/CL   | 135.78 |      7 |          7411866 | [constrained](research/constrained-performance.json)       |
+| Bernoulli Mixture   | n10000,d3,K2,한도4·미수렴        |  76.64 |     10 |          6848354 | [discrete](research/discrete-mixtures-performance.json)    |
+| Poisson Mixture     | n10000,d3,K2,한도4·미수렴        |  90.73 |     10 |          6840930 | [discrete](research/discrete-mixtures-performance.json)    |
+| Multinomial Mixture | n10000,d3,K2,한도4·허용오차 종료 |  99.32 |     10 |          6772432 | [discrete](research/discrete-mixtures-performance.json)    |
+| Poisson Mixture     | n100000,d3,K2,한도4·미수렴       | 752.88 |      6 |         45767928 | [discrete](research/discrete-mixtures-performance.json)    |
+| Walktrap            | path n1000,m999,t4               | 952.84 |     26 |         58705918 | [graph-followup](research/graph-followup-performance.json) |
+| Clique Percolation  | path n10000,m9999,k3,C0          |  20.16 |      3 |          2346304 | [graph-followup](research/graph-followup-performance.json) |
+| Clique Percolation  | complete n18,m153,k3,C816        |   3.83 |     25 |           695994 | [graph-followup](research/graph-followup-performance.json) |
+
+COP 원본은 파일의 명시한3D 교대 그룹·ML0–2/1–3·CL0–1이며 모든 행을 처리한다.100행은407이벤트·1000/10000/100000행은7이벤트로 기록 상세가 다르므로 시간 차이를 동일 상세 실행의 선형 개선이라고 해석하지 않는다. COP은 제약 최적 분할/불가능성 증명 엔진이 아니며 seed/행순서 greedy 실패가 가능하다. [실제 수학·기록 정책](research/CONSTRAINED.md)
+
+이산 혼합은 Bernoulli p.15/.85,Poisson λ1/7,Multinomial profile [.8,.1,.1]/[.1,.1,.8]·실제 trials10/20의 시드42 원본이다. 실제 무prior ML이고 관측 경계0·정규화 상수·빈 성분·0길이 행의 수학적 의미를 유지한다. M 직후 전체 posterior/로그우도 재평가 비용도 포함한다.10만 Poisson은 모든 n×K 확률을 보존하고 상세 반복만 요약했으며 **미수렴**을 완료 수렴으로 보고하지 않는다. 이 단일 관측은100만 처리나 임의 큰 정수의 임의정밀도 보장이 아니다. [계약·수치 한계](research/DISCRETE_MIXTURES.md)
+
+Walktrap은 원본 graph에 대한 정확한 전체 보행·직접 인접 Ward 탐색이며 원문 heap/거리 가속의 성능을 주장하지 않는다. n² 확률·전체 수준/계층 때문에1000노드 Trace는 약58.7MB 추정으로64MiB 예산에 가깝다. CPM path는 clique가 없는 쉬운 경우다. 모든 노드를 처리하고 비소속을 보존했지만 지수적인 조밀 clique/face 출력이나 대형 중첩의 보편 성능을 뜻하지 않는다. complete18의816개는 별도 작은 출력 사례다. CPM에는 최적화 목적함수·통계적 noise 판정이 없다. [정의·복잡도·제한](research/GRAPH_FOLLOWUP.md)
+
+[동적 API 통합](../src/engine/extension-integration.test.ts)은 같은2048노드 빈 sparse graph에서 Walktrap dense byte 사전 거부와 CPM 전체 노드의 정상0-clique 완료를 구분한다. [생성기 회귀](../src/data/model-presets.test.ts)는10000행 분포 통계·전체 차원·25행ML성분/CL·1201행 보존과 allocation 전 byte 거부를 검사한다. 이는 수학/구조 검증이며 브라우저 FPS·peak 측정이 아니다.
+
+재현 명령:
+
+```powershell
+python -B scripts/constrained_reference.py
+python -B scripts/discrete_mixtures_reference.py
+python -B scripts/graph_followup_reference.py
+npx vitest run src/engine/constrained.test.ts src/engine/discrete-mixtures.test.ts src/engine/graph-followup.test.ts
+npx vitest run src/engine/extension-integration.test.ts src/data/model-presets.test.ts
+```
+
+실행 시 `.local/` 성능 자료는 JIT/GC/부하로 보존 JSON과 달라질 수 있다. 속도에 pass/fail 문턱을 만들지 않는다. 새50개 소스의 로컬 브라우저 통합·전체 기존 회귀·cross-browser·Actions/Pages·장시간 메모리/실제 모바일/대규모 전송과 취소 지연은 아직 성공으로 확정하지 않았다.

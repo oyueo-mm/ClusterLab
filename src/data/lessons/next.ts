@@ -11,6 +11,9 @@ import { denstream } from "./stream";
 import { bimax, chengchurch } from "./biclustering";
 import { kshape } from "./timeseries";
 import { cnm, fluid } from "./graphExtra";
+import { copkmeans } from "./constrained";
+import { bernoulli, poisson, multinomial } from "./discreteMixtures";
+import { walktrap, cliquepercolation } from "./graphFollowup";
 export const nextLessons = {
   "X-Means": xmeans,
   "G-Means": gmeans,
@@ -31,4 +34,10 @@ export const nextLessons = {
   "K-Shape": kshape,
   "Greedy Modularity (CNM)": cnm,
   "Fluid Communities": fluid,
+  "COP-KMeans": copkmeans,
+  "Bernoulli Mixture": bernoulli,
+  "Poisson Mixture": poisson,
+  "Multinomial Mixture": multinomial,
+  Walktrap: walktrap,
+  "Clique Percolation": cliquepercolation,
 };

@@ -1,0 +1,100 @@
+
+Running 84 tests using 1 worker
+
+node.exe : (node:21652) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:21652) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success (7.7s)
+  ok  2 [chromium] › tests\constraints-models.spec.ts:414:1 › three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery (6.9s)
+  ok  3 [chromium] › tests\constraints-models.spec.ts:535:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes (2.7s)
+  ok  4 [chromium] › tests\constraints-models.spec.ts:658:1 › 1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths (2.6s)
+  ok  5 [chromium] › tests\expansion.spec.ts:5:1 › catalog distinguishes all candidates from executable engines and filters without overflow (1.3s)
+  ok  6 [chromium] › tests\expansion.spec.ts:61:1 › new algorithms compute actual events in production workers and reversible playback (1.2s)
+  ok  7 [chromium] › tests\expansion.spec.ts:93:1 › 100k import has no truncation and cancellation actually terminates its worker (2.5s)
+  ok  8 [chromium] › tests\next-platform.spec.ts:171:1 › six numeric engines run real split, penalty and subspace operations with reversible analysis (4.7s)
+  ok  9 [chromium] › tests\next-platform.spec.ts:209:1 › seven graph engines consume actual connected edges and expose their distinct operations (6.7s)
+  ok 10 [chromium] › tests\next-platform.spec.ts:260:1 › six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes (4.9s)
+  ok 11 [chromium] › tests\next-platform.spec.ts:341:1 › category and mixed table edits alter actual model statistics and Undo/Redo restores original input (2.9s)
+  ok 12 [chromium] › tests\next-platform.spec.ts:394:1 › graph weights, matrix cells and time series values are editable mathematical inputs (3.3s)
+  ok 13 [chromium] › tests\next-platform.spec.ts:472:1 › stream arrivals increase the computed prefix and actual CF time; automatic input can pause (3.4s)
+  ok 14 [chromium] › tests\next-platform.spec.ts:505:1 › typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success (2.2s)
+  ok 15 [chromium] › tests\next-platform.spec.ts:539:1 › a thousand raw rows remain computed and editable through a bounded table at seven viewport widths (5.1s)
+  ok 16 [chromium] › tests\next-platform.spec.ts:603:1 › the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab (2.4s)
+  ok 17 [chromium] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces (6.5s)
+  ok 18 [chromium] › tests\platform.spec.ts:93:1 › ND raw computation survives projection changes; weighted graph ignores display positions (3.3s)
+  ok 19 [chromium] › tests\platform.spec.ts:186:1 › unsupported structured data and contradictory constraints fail explicitly (753ms)
+  ok 20 [chromium] › tests\quality.spec.ts:3:1 › home visual evidence and sustained animation frame timings (5.3s)
+  ok 21 [chromium] › tests\quality.spec.ts:96:1 › real data editing, CSV import, label preservation and JSON download (1.1s)
+  ok 22 [chromium] › tests\site.spec.ts:2:1 › home demo, navigation, playback pause/resume/seek and mobile layout (1.9s)
+  ok 23 [chromium] › tests\site.spec.ts:46:1 › all algorithms run to completion in actual Workers with dedicated analyses (11.4s)
+  ok 24 [chromium] › tests\site.spec.ts:105:1 › dataset gallery, import/export UI, guide, compare and direct hash routing (2.0s)
+  ok 25 [chromium] › tests\v02.spec.ts:11:1 › four real home Workers share exactly the same source data and stop when not visible (1.0s)
+  ok 26 [chromium] › tests\v02.spec.ts:119:1 › simplified chrome, white surfaces, mobile menu and dynamic parameters (1.2s)
+  ok 27 [chromium] › tests\v03.spec.ts:4:1 › real bundled display/UI fonts, forest tokens and aligned responsive layout (570ms)
+  ok 28 [chromium] › tests\v03.spec.ts:101:1 › font failure uses fallbacks without clipping or disabling navigation (594ms)
+  ok 29 [chromium] › tests\v03.spec.ts:118:1 › automatic cycle holds real final results, changes every preset/combination and wraps after exposing all 13 (2.4m)
+  ok 30 [chromium] › tests\v03.spec.ts:231:1 › labeled and categorical home cards transfer the exact original records into the lab (1.4m)
+  ok 31 [chromium] › tests\v04.spec.ts:16:1 › compact task pages retain controls and consistently show Korean preset names (941ms)
+  ok 32 [chromium] › tests\v04.spec.ts:53:1 › all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison (24.0s)
+  ok 33 [chromium] › tests\v04.spec.ts:141:1 › real Worker GMM renders initialization, E/M covariance motion and final ellipses in every home round (2.4m)
+  ok 34 [chromium] › tests\v05.spec.ts:3:1 › home introduction centers beside the demos and stays compact when stacked (9.2s)
+  ok 35 [chromium] › tests\v06.spec.ts:70:3 › v0.6 desktop editing › single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo (4.2s)
+  ok 36 [chromium] › tests\v06.spec.ts:147:3 › v0.6 desktop editing › 50 points from one stroke form one transaction; slow/fast density and no 600 cap (5.9s)
+  ok 37 [chromium] › tests\v06.spec.ts:235:3 › v0.6 desktop editing › right drag pans every tool without edits/history and zoom/pan coordinates stay correct (2.9s)
+  ok 38 [chromium] › tests\v06.spec.ts:316:3 › v0.6 desktop editing › preset, regeneration options and CSV/JSON replacements restore matching metadata (2.8s)
+  ok 39 [chromium] › tests\v06.spec.ts:401:3 › v0.6 desktop editing › shortcuts are page-scoped, skip editable controls and preserve native text undo (1.7s)
+  ok 40 [chromium] › tests\v06.spec.ts:461:3 › v0.6 desktop editing › cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once (1.7s)
+  -  41 [chromium] › tests\v06.spec.ts:534:1 › native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit
+  ok 42 [chromium] › tests\v06.spec.ts:613:1 › larger home typography and editor toolbar fit requested viewport widths (2.5s)
+(node:24468) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 43 [mobile] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success (7.4s)
+  ok 44 [mobile] › tests\constraints-models.spec.ts:414:1 › three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery (6.4s)
+  ok 45 [mobile] › tests\constraints-models.spec.ts:535:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes (2.5s)
+  ok 46 [mobile] › tests\constraints-models.spec.ts:658:1 › 1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths (3.9s)
+  ok 47 [mobile] › tests\expansion.spec.ts:5:1 › catalog distinguishes all candidates from executable engines and filters without overflow (1.3s)
+  ok 48 [mobile] › tests\expansion.spec.ts:61:1 › new algorithms compute actual events in production workers and reversible playback (1.3s)
+  ok 49 [mobile] › tests\expansion.spec.ts:93:1 › 100k import has no truncation and cancellation actually terminates its worker (3.3s)
+  ok 50 [mobile] › tests\next-platform.spec.ts:171:1 › six numeric engines run real split, penalty and subspace operations with reversible analysis (4.7s)
+  ok 51 [mobile] › tests\next-platform.spec.ts:209:1 › seven graph engines consume actual connected edges and expose their distinct operations (6.0s)
+  ok 52 [mobile] › tests\next-platform.spec.ts:260:1 › six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes (4.7s)
+  ok 53 [mobile] › tests\next-platform.spec.ts:341:1 › category and mixed table edits alter actual model statistics and Undo/Redo restores original input (3.1s)
+  ok 54 [mobile] › tests\next-platform.spec.ts:394:1 › graph weights, matrix cells and time series values are editable mathematical inputs (3.8s)
+  ok 55 [mobile] › tests\next-platform.spec.ts:472:1 › stream arrivals increase the computed prefix and actual CF time; automatic input can pause (3.8s)
+  ok 56 [mobile] › tests\next-platform.spec.ts:505:1 › typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success (2.9s)
+  ok 57 [mobile] › tests\next-platform.spec.ts:539:1 › a thousand raw rows remain computed and editable through a bounded table at seven viewport widths (10.0s)
+  ok 58 [mobile] › tests\next-platform.spec.ts:603:1 › the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab (2.7s)
+  ok 59 [mobile] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces (7.1s)
+  ok 60 [mobile] › tests\platform.spec.ts:93:1 › ND raw computation survives projection changes; weighted graph ignores display positions (4.7s)
+  ok 61 [mobile] › tests\platform.spec.ts:186:1 › unsupported structured data and contradictory constraints fail explicitly (752ms)
+  ok 62 [mobile] › tests\quality.spec.ts:3:1 › home visual evidence and sustained animation frame timings (5.5s)
+  ok 63 [mobile] › tests\quality.spec.ts:96:1 › real data editing, CSV import, label preservation and JSON download (1.3s)
+  ok 64 [mobile] › tests\site.spec.ts:2:1 › home demo, navigation, playback pause/resume/seek and mobile layout (2.2s)
+  ok 65 [mobile] › tests\site.spec.ts:46:1 › all algorithms run to completion in actual Workers with dedicated analyses (12.5s)
+  ok 66 [mobile] › tests\site.spec.ts:105:1 › dataset gallery, import/export UI, guide, compare and direct hash routing (2.4s)
+  ok 67 [mobile] › tests\v02.spec.ts:11:1 › four real home Workers share exactly the same source data and stop when not visible (1.1s)
+  ok 68 [mobile] › tests\v02.spec.ts:119:1 › simplified chrome, white surfaces, mobile menu and dynamic parameters (1.6s)
+  ok 69 [mobile] › tests\v03.spec.ts:4:1 › real bundled display/UI fonts, forest tokens and aligned responsive layout (927ms)
+  ok 70 [mobile] › tests\v03.spec.ts:101:1 › font failure uses fallbacks without clipping or disabling navigation (682ms)
+  -  71 [mobile] › tests\v03.spec.ts:118:1 › automatic cycle holds real final results, changes every preset/combination and wraps after exposing all 13
+  -  72 [mobile] › tests\v03.spec.ts:231:1 › labeled and categorical home cards transfer the exact original records into the lab
+  ok 73 [mobile] › tests\v04.spec.ts:16:1 › compact task pages retain controls and consistently show Korean preset names (983ms)
+  ok 74 [mobile] › tests\v04.spec.ts:53:1 › all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison (26.0s)
+  -  75 [mobile] › tests\v04.spec.ts:141:1 › real Worker GMM renders initialization, E/M covariance motion and final ellipses in every home round
+  -  76 [mobile] › tests\v05.spec.ts:3:1 › home introduction centers beside the demos and stays compact when stacked
+  -  77 [mobile] › tests\v06.spec.ts:70:3 › v0.6 desktop editing › single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo
+  -  78 [mobile] › tests\v06.spec.ts:147:3 › v0.6 desktop editing › 50 points from one stroke form one transaction; slow/fast density and no 600 cap
+  -  79 [mobile] › tests\v06.spec.ts:235:3 › v0.6 desktop editing › right drag pans every tool without edits/history and zoom/pan coordinates stay correct
+  -  80 [mobile] › tests\v06.spec.ts:316:3 › v0.6 desktop editing › preset, regeneration options and CSV/JSON replacements restore matching metadata
+  -  81 [mobile] › tests\v06.spec.ts:401:3 › v0.6 desktop editing › shortcuts are page-scoped, skip editable controls and preserve native text undo
+  -  82 [mobile] › tests\v06.spec.ts:461:3 › v0.6 desktop editing › cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once
+  ok 83 [mobile] › tests\v06.spec.ts:534:1 › native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit (1.3s)
+  -  84 [mobile] › tests\v06.spec.ts:613:1 › larger home typography and editor toolbar fit requested viewport widths
+
+  12 skipped
+  72 passed (11.1m)

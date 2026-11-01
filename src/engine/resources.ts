@@ -58,6 +58,8 @@ export function estimateResources(
       "Girvan–Newman",
       "Greedy Modularity (CNM)",
       "Fluid Communities",
+      "Walktrap",
+      "Clique Percolation",
     ].includes(algorithm)
   ) {
     // Exact raw sparse edge memory is added by Dataset preflight. This base
@@ -77,6 +79,18 @@ export function estimateResources(
     workingBytes += n * n * 112;
     work = o.iterations * o.expansion * n ** 3;
   }
+  if (algorithm === "Walktrap") {
+    workingBytes += n * n * 192 + n * 320;
+    work +=
+      o.walkSteps * n * (n + (graphEdges ?? n * o.neighbors)) +
+      n * n * (graphEdges ?? n * o.neighbors);
+  }
+  if (
+    ["Bernoulli Mixture", "Poisson Mixture", "Multinomial Mixture"].includes(
+      algorithm,
+    )
+  )
+    workingBytes += n * Math.min(n, o.k) * 96;
   if (algorithm === "K-Modes" || algorithm === "K-Prototypes")
     workingBytes += n * 32 + Math.min(n, o.k) * 256;
   if (algorithm === "PROCLUS") workingBytes += n * Math.min(n, o.k) * 32;

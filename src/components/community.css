@@ -67,3 +67,11 @@
   padding-left: 18px;
   font-size: 11px;
 }
+.community-selected-level {
+  background: #e2eee8;
+  font-weight: 600;
+}
+.walktrap-analysis,
+.clique-analysis {
+  min-width: 0;
+}

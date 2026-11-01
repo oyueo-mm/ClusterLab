@@ -1,10 +1,12 @@
-﻿# 알고리즘 전체 등록 현황
+# 알고리즘 전체 등록 현황
 
-2026-11-01 통합 작업 기준. **실제 실행 엔진 44개 = 기존 13개 + 신규 후보 중31개**, 신규 후보119개 중 **88개 미구현**이다. 이번 확장에서는 기존25개에 실제 엔진19개를 추가했다. 후보 번호·이름119개를 모두 보존하며 미조사 항목을 이름 등록만으로 조사·구현 완료 처리하지 않는다.
+> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
 
-전체 마스터 검수 기준의 **완전 구현 인증은0개(아직 미인증)**다. 제한과 검증 범위를 공개한 실행 엔진44개와 구분한다. 신규19개는 실제 계산·내부 Trace·전용 분석 시각화·가이드/미니 실험·독립 수치 검증을 갖췄다. 최종 fd78886의 전체 원격 회귀와 Pages 배포가 성공했으며 실제 범위·초기 실패/재검사는 SESSION_REPORT를 따른다. 브라우저/배포 성공으로 상향하려면 `docs/VALIDATION.md`와 `docs/SESSION_REPORT.md`의 최종 증거를 확인한다. 이전12개 후보의 브라우저 문구는 이전 세션의 검증 범위이며 새44개 통합 배포 성공을 뜻하지 않는다.
+2026-11-01 개발 브랜치 `feat/constraints-mixtures-and-overlap` 기준. **현재 소스의 실행 엔진50개 = 기존13개 + 신규 후보37개**, 신규 후보119개 중 **82개 미구현**이다. 이번 브랜치에서 직전44개에 실제 모듈6개를 추가했다. 후보 번호·이름119개를 모두 보존하며 이름 등록만으로 조사·구현 완료 처리하지 않는다. COP-KMeans는 원래 번호23, PCKMeans는24로 유지한다.
 
-이전25개 상태는 `docs/sessions/platform25/`에, 더 이전 기반 상태는 `docs/sessions/foundation/`에 보존했다. 기존 검증 자료를 삭제하거나 덮어써서 과거 실적을 바꾸지 않는다.
+전체 마스터 검수 기준의 **완전 구현 인증은0개(아직 미인증)**다. 새6개는 실제 계산 모듈·내부 Trace·전용 분석 UI·교재/실제 미니 실험·독립 수치 검증을 갖췄으므로 소스의 engine 연결 수에는 포함한다. 그러나 **전체 브라우저·배포는 검증 중**이며 이번6개를 안정 공개판의 검증/배포 완료 수에 보태지 않는다. 최종 상태는 `docs/VALIDATION.md`와 `docs/SESSION_REPORT.md`의 해당 커밋 증거로 확정한다.
+
+**안정 공개판은 아직44개 = 기존13개 + 후보31개**다. 기준 main `826001d`, 제품 소스 `fd78886`의 원격 회귀/Pages 성공은 직전44개 범위이며 현재 개발 브랜치50개의 배포 성공이 아니다. 그 원문은 [sessions/platform44](sessions/platform44/ALGORITHM_REGISTRY.md)에 보존했다. 이전25개는 `docs/sessions/platform25/`, 더 이전 기반은 `docs/sessions/foundation/`에 보존한다. 기존 검증 자료를 덮어써서 과거 실적을 바꾸지 않는다.
 
 ## 기존 13개
 
@@ -26,7 +28,7 @@
 
 ## 신규 후보 119개
 
-엔진 연결31개, 미구현88개. 입력은 실제 제품 계약이며 미구현 후보는 확인 전까지 조사 필요로 둔다.
+현재 개발 브랜치의 엔진 연결37개, 미구현82개. 공개44개 판의 후보 연결은31개다. 입력은 실제 소스 계약이며 새6개의 행은 전체 브라우저·배포 검증 중임을 표시한다. 미구현 후보는 확인 전까지 조사 필요로 둔다.
 
 | 번호 | 후보                             | 분류                                                     | 입력                | 실제 엔진 / 상태                                                                                                        |
 | ---: | -------------------------------- | -------------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -50,12 +52,12 @@
 |   18 | PAMSIL                           | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |   19 | PAMMEDSIL                        | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |   20 | Fuzzy C-Means                    | 독립 알고리즘                                            | points2d            | Fuzzy C-Means · 기존 실제 계산·Trace·가이드·수치 검증, 제한 범위                                                        |
-|   21 | Possibilistic C-Means            | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
-|   22 | Fuzzy Possibilistic C-Means      | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
-|   23 | COP-KMeans                       | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
-|   24 | PCKMeans                         | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
-|   25 | MPCKMeans                        | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
-|   26 | Constrained Spectral Clustering  | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
+|   21 | Possibilistic C-Means            | 분류 검토 필요                                           | 입력 계약 조사 필요 | 원문·정의 예비 검토 · [자료/접근 한계](research/NEXT_50_QUEUE.md) · 엔진 없음                                           |
+|   22 | Fuzzy Possibilistic C-Means      | 분류 검토 필요                                           | 입력 계약 조사 필요 | 원문·정의 예비 검토 · [자료/접근 한계](research/NEXT_50_QUEUE.md) · 엔진 없음                                           |
+|   23 | COP-KMeans                       | 주요 변형 (hard ML/CL 제약 K-Means)                      | constrained         | COP-KMeans · 실제 계산·Trace·전용 UI·교재·독립 수치 검증; 개발 브랜치 제한 범위, 전체 브라우저·배포 검증 중             |
+|   24 | PCKMeans                         | 분류 검토 필요                                           | 입력 계약 조사 필요 | 원문·정의 예비 검토 · [자료/접근 한계](research/NEXT_50_QUEUE.md) · 엔진 없음                                           |
+|   25 | MPCKMeans                        | 분류 검토 필요                                           | 입력 계약 조사 필요 | 원문·정의 예비 검토 · [자료/접근 한계](research/NEXT_50_QUEUE.md) · 엔진 없음                                           |
+|   26 | Constrained Spectral Clustering  | 분류 검토 필요                                           | 입력 계약 조사 필요 | 원문·정의 예비 검토 · [자료/접근 한계](research/NEXT_50_QUEUE.md) · 엔진 없음                                           |
 |   27 | Density Peaks / CFSFDP           | 중심 선택 변형 (명시적 K)                                | numeric-nd          | Density Peaks / CFSFDP · 기존 실제 계산·Trace·가이드·수치 검증, 제한 범위                                               |
 |   28 | SNN Clustering                   | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |   29 | DENCLUE                          | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
@@ -84,12 +86,12 @@
 |   52 | Label Propagation                | 독립 알고리즘 (비동기 가중 이웃 레이블 전파)             | numeric-or-graph    | Label Propagation · 실제 계산·Trace·전용 분석·가이드·독립 수치 검증; 제한 범위, 통합 검증 이력은 SESSION_REPORT         |
 |   53 | Chinese Whispers                 | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |   54 | Girvan–Newman                    | 독립 알고리즘 (간선 betweenness 제거; 가중 확장)         | numeric-or-graph    | Girvan–Newman · 실제 계산·Trace·전용 분석·가이드·독립 수치 검증; 제한 범위, 통합 검증 이력은 SESSION_REPORT             |
-|   55 | Walktrap                         | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
+|   55 | Walktrap                         | 독립 알고리즘 (확률보행 Ward 계층·최고Q cut)             | numeric-or-graph    | Walktrap · 실제 계산·Trace·전용 UI·교재·독립 수치 검증; 개발 브랜치 제한 범위, 전체 브라우저·배포 검증 중               |
 |   56 | Infomap                          | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |   57 | Markov Clustering (MCL)          | 독립 알고리즘 (전이 흐름 expansion·inflation)            | numeric-or-graph    | Markov Clustering (MCL) · 실제 계산·Trace·전용 분석·가이드·독립 수치 검증; 제한 범위, 통합 검증 이력은 SESSION_REPORT   |
 |   58 | Greedy Modularity (CNM)          | 독립 greedy modularity 알고리즘의 전수 스캔 구현 변형    | numeric-or-graph    | Greedy Modularity (CNM) · 실제 계산·Trace·전용 분석·가이드·독립 수치 검증; 제한 범위, 통합 검증 이력은 SESSION_REPORT   |
 |   59 | Fluid Communities                | 독립 알고리즘 (경쟁 유체 밀도 전파)                      | numeric-or-graph    | Fluid Communities · 실제 계산·Trace·전용 분석·가이드·독립 수치 검증; 제한 범위, 통합 검증 이력은 SESSION_REPORT         |
-|   60 | Clique Percolation               | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
+|   60 | Clique Percolation               | 중첩 군집화 기법 (k-clique 연결 성분 cover)              | numeric-or-graph    | Clique Percolation · 실제 계산·Trace·전용 UI·교재·독립 수치 검증; 개발 브랜치 제한 범위, 전체 브라우저·배포 검증 중     |
 |   61 | BigCLAM                          | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |   62 | Stochastic Block Model           | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |   63 | OSLOM                            | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
@@ -114,11 +116,11 @@
 |   82 | Student-t Mixture                | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |   83 | Mixture of Factor Analyzers      | 모형 (요인분석 혼합)                                     | 입력 계약 조사 필요 | 정의·관계 조사 · 미구현                                                                                                 |
 |   84 | von Mises–Fisher Mixture         | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
-|   85 | Multinomial Mixture              | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
-|   86 | Bernoulli Mixture                | 모델 (binary LCA와 동등 조건)                            | 입력 계약 조사 필요 | 정의·관계 조사 · 미구현                                                                                                 |
+|   85 | Multinomial Mixture              | model-family (모형·무prior ML EM)                        | numeric-nd          | Multinomial Mixture · 실제 계산·Trace·전용 UI·교재·독립 수치 검증; 개발 브랜치 제한 범위, 전체 브라우저·배포 검증 중    |
+|   86 | Bernoulli Mixture                | model-family (모형·무prior ML EM)                        | numeric-nd          | Bernoulli Mixture · 실제 계산·Trace·전용 UI·교재·독립 수치 검증; 개발 브랜치 제한 범위, 전체 브라우저·배포 검증 중      |
 |   87 | Latent Class Analysis            | 모델 (binary 경우 Bernoulli와 중복)                      | 입력 계약 조사 필요 | 정의·관계 조사 · 미구현                                                                                                 |
 |   88 | Gaussian–Uniform Mixture         | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
-|   89 | Poisson Mixture                  | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
+|   89 | Poisson Mixture                  | model-family (모형·무prior ML EM)                        | numeric-nd          | Poisson Mixture · 실제 계산·Trace·전용 UI·교재·독립 수치 검증; 개발 브랜치 제한 범위, 전체 브라우저·배포 검증 중        |
 |   90 | Beta Mixture                     | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |   91 | Mixture of Probabilistic PCA     | 모형 변형 (PPCA 혼합)                                    | 입력 계약 조사 필요 | 정의·관계 조사 · 미구현                                                                                                 |
 |   92 | Neural Gas                       | 관련 학습법 (경쟁 양자화)                                | points2d            | Neural Gas · 기존 실제 계산·Trace·가이드·수치 검증, 제한 범위                                                           |
@@ -137,10 +139,10 @@
 |  105 | N2D                              | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |  106 | DipDECK                          | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |  107 | DeepECT                          | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
-|  108 | BSAS                             | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
+|  108 | BSAS                             | 분류 검토 필요                                           | 입력 계약 조사 필요 | 원문·정의 예비 검토 · [자료/접근 한계](research/NEXT_50_QUEUE.md) · 엔진 없음                                           |
 |  109 | MBSAS                            | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |  110 | TTSAS                            | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
-|  111 | Leader                           | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
+|  111 | Leader                           | 분류 검토 필요                                           | 입력 계약 조사 필요 | 원문·정의 예비 검토 · [자료/접근 한계](research/NEXT_50_QUEUE.md) · 엔진 없음                                           |
 |  112 | Canopy                           | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |  113 | Spectral Co-Clustering           | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |  114 | Spectral Biclustering            | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
@@ -150,9 +152,22 @@
 |  118 | StreamKM++                       | 분류 검토 필요                                           | 입력 계약 조사 필요 | 미조사                                                                                                                  |
 |  119 | K-Shape                          | 독립 알고리즘 (shape-based 시계열 군집화; 직접 NCC 구현) | timeseries          | K-Shape · 실제 계산·Trace·전용 분석·가이드·독립 수치 검증; 제한 범위, 통합 검증 이력은 SESSION_REPORT                   |
 
-## 이번19개 실행 범위와 근거
+## 이번 브랜치6개 실행 범위와 근거 (전체 브라우저·배포 검증 중)
 
-모두 제한 범위의 실제 엔진이다. 다음 한계와 원문 접근 범위를 포함해 해석한다. 브라우저/배포는 이 문서 갱신 시점에 검증 중이다.
+다음6개는 실제 engine 연결이며 완전 구현 인증이나 안정 공개판 추가 완료 수가 아니다. `model-family`인 세 이산 혼합은 해당 모형의 무prior ML EM으로 분류한다. 공통 EM 프레임을 쓴다고 서로 다른 관측 likelihood를 가우시안/K-Means 대체로 계산하지 않는다.
+
+| 번호 | 엔진                | 분류·실제 범위/한계                                                                                                                                                        | 연구·원문 접근 및 독립 검증 범위                                                                                                                                                                                                  |
+| ---: | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   23 | COP-KMeans          | hard ML/CL 제약 K-Means 변형; 원본 pointwise greedy, feasible해도 현재 순서/초기값에서 실패할 수 있음; PCK/MPCK·전역 feasible solver 아님                                  | [CONSTRAINED](research/CONSTRAINED.md) · [Wagstaff et al.2001 원문](https://wkiri.com/research/papers/wagstaff-kmeans-01.pdf) §3.1–3.2/Table1; 저자 저장소는 실행 코드 미제공, 독립 NumPy/Floyd closure·모든 행 pair·SSE 검산     |
+|   55 | Walktrap            | 독립 확률보행 계층 알고리즘; 실제 Pᵗ/최소 인접 Ward 병합 뒤 최고 원본Q cut; parallel canonical 합산·incident 평균 인공 loop, 원본 양의 loop/방향 거부; 밀집/전체 스캔 한계 | [GRAPH_FOLLOWUP](research/GRAPH_FOLLOWUP.md) · [Pons–Latapy 원문](https://arxiv.org/html/physics/0512106v1) §1–4 및 저자 igraph 가중 계약; 실제 igraph1.0.0 계층/cut과 독립 NumPy 전체 전이·원본 SSE/Q 비교                       |
+|   60 | Clique Percolation  | k-clique 연결 성분의 중첩 cover 기법; 단순·비가중·loop 없는 무방향 원본, 모든 clique/소속 유지; Q 목적함수 없음, 미소속−1은 통계적 noise 아님                              | [GRAPH_FOLLOWUP](research/GRAPH_FOLLOWUP.md) · [Palla et al.2005 원문](https://arxiv.org/html/physics/0506133v1)의 k−1 인접 정의; NetworkX3.6.1 및 독립 모든 clique/교집합 성분 비교                                              |
+|   85 | Multinomial Mixture | model-family·무prior ML EM; 비음수 안전 정수 count·행별 실제 총수 조건부 likelihood, factorial 포함; smoothing/Gibbs/Bayesian 없음                                         | [DISCRETE_MIXTURES](research/DISCRETE_MIXTURES.md) · [Rigouste–Cappé–Yvon2006 원문](https://arxiv.org/pdf/cs/0606069)의 관측/EM·초기화·smoothing 범위 확인, NumPy/SciPy PMF·전체 EM 비교                                          |
+|   86 | Bernoulli Mixture   | model-family·무prior ML EM; 정확한0/1 조건부 독립 product-Bernoulli, 경계MLE 유지; 일반 LCA 전부·prior 아님, 단일 binary 변수 성분 비식별 가능                             | [DISCRETE_MIXTURES](research/DISCRETE_MIXTURES.md) · [Liang2015 저자 EM 노트](https://www.ee.columbia.edu/~dliang/files/em.pdf) §1.1·3.1과 SciPy 정의 확인; 최초 논문 우선권 주장 안 함, binary LCA 관계는 TAXONOMY 보존          |
+|   89 | Poisson Mixture     | model-family·무prior ML EM; 비음수 안전 정수의 조건부 독립 product-Poisson·동일 노출 단위·정규화 포함; regression/zero-inflation/노출량 보정 없음                          | [DISCRETE_MIXTURES](research/DISCRETE_MIXTURES.md) · [저자 FlexMix vignette](https://stat.ethz.ch/CRAN/web/packages/flexmix/vignettes/mixture-regressions.pdf) EM/Poisson 및 JSS 서지·SciPy 정의 확인; FlexMix 실행 비교는 미실시 |
+
+## 직전44개 공개판에서 추가한19개 실행 범위와 근거
+
+아래19개는 직전25→44 확장에 속한다. 기존44개 판의 회귀/배포 이력과 다음 한계·원문 접근 범위를 함께 해석한다. 이 과거 통과 이력으로 이번6개의 브라우저/배포 완료를 대신하지 않는다.
 
 | 엔진                      | 실제 범위·한계                                                                            | 연구 문서·출처 확인 범위                                                                                                                                                                                                               |
 | ------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -178,13 +193,14 @@
 
 ## 집계·분류·조사 범위
 
-- 신규19개: 자동 K 결정4(X/G/Dip/DP), 그래프7(Louvain/Leiden/LPA/GN/MCL/CNM/Fluid), 범주·혼합2(K-Modes/K-Prototypes), 부분공간2(CLIQUE/PROCLUS), 스트림1(DenStream), 행렬2(Bimax/Cheng–Church), 시계열1(K-Shape).
-- 기존 후보12개: Mini-Batch/Bisecting/K-Medians/CLARA/CLARANS/FCM/Density Peaks/CURE/Spectral/AP/Neural Gas/GNG. 합계 후보31개이며 기존13개와 중복 집계하지 않는다. Neural Gas/GNG, SOM/LVQ는 관련 프로토타입 학습법이다. 후보31개를 모두 수학적으로 독립된 군집화 목적함수31개라고 주장하지 않는다.
+- 이번 브랜치 신규6개: hard 제약 변형1(COP-KMeans), 이산 확률 모형3(Bernoulli/Poisson/Multinomial 무prior ML EM), 그래프 계층1(Walktrap), 중첩 clique cover 기법1(Clique Percolation). 모두 실제 엔진이지만 전체 브라우저·배포 완료는 아직 확정 전이다.
+- 직전25→44 확장19개: 자동 K 결정4(X/G/Dip/DP), 그래프7(Louvain/Leiden/LPA/GN/MCL/CNM/Fluid), 범주·혼합2(K-Modes/K-Prototypes), 부분공간2(CLIQUE/PROCLUS), 스트림1(DenStream), 행렬2(Bimax/Cheng–Church), 시계열1(K-Shape).
+- 이전 후보12개: Mini-Batch/Bisecting/K-Medians/CLARA/CLARANS/FCM/Density Peaks/CURE/Spectral/AP/Neural Gas/GNG. 직전 공개판의 후보31개에 이번6개를 더한 현재 후보 engine 연결은37개이며 기존13개와 중복 집계하지 않는다. Neural Gas/GNG, SOM/LVQ는 관련 프로토타입 학습법이다. 후보37개를 모두 독립 목적함수의 알고리즘37개라고 주장하지 않는다.
 - SLINK/CLINK/NN-chain은 linkage 계산 기법·최적화 관계를 조사했으나 새 엔진으로 세지 않는다. CLINK를 표준 AGNES complete와 동등한 정확 고속 구현으로 인증하지 않는다.
-- Bayesian GMM/DP-GMM, Bernoulli/LCA, MFA/MPPCA는 [TAXONOMY](research/TAXONOMY.md)의 모델·별칭·제약 조건을 따른다. 미구현88개 중 이8개 후보의 정의·관계 조사 기록은 보존하되 전수 원문 확인이나 실행 완료로 올리지 않았다. 나머지80개는 미조사 상태다. `*_QUEUE.md`의 부분 메모만으로 정식 조사 완료가 되지 않는다.
+- Bayesian GMM/DP-GMM, Bernoulli/LCA, MFA/MPPCA는 [TAXONOMY](research/TAXONOMY.md)의 모델·별칭·제약 조건을 따른다. Bernoulli는 이번에 명시적 이진 모형의 실제 엔진이 됐지만 일반 LCA 후보를 중복 실행으로 세지 않는다. 미구현82개 중 SLINK/CLINK/NN-chain·Bayesian GMM/DP-GMM·MFA·LCA·MPPCA의7개는 기존 정의·관계 조사 기록을 보존하고, 이번 예비 검토7개(PCK/PCM/BSAS/FPCM/MPCK/Constrained Spectral/Leader)는 [NEXT_50_QUEUE](research/NEXT_50_QUEUE.md)에 부분 열람·정의 비교와 oracle 미실행을 기록했다. 그 외68개도 정식 정의·분류 조사가 완료되지 않았다. `*_QUEUE.md`의 부분 메모만으로 정식 조사 완료가 되지 않는다.
 - Huang 원문 구독 제한, Dip 원전 접근 제한, CLARA 책 전체·기존 FCM/Bisecting 자료의 열람 범위는 각각 연구 문서에 명시한다. 구현 저자의 공식 설명·공식 독립 구현으로 정의를 확인한 경우와 원문 직접 열람을 구별한다.
 - 기존 후보 연구: [SPECTRAL](research/SPECTRAL.md), [MESSAGES_DENSITY](research/MESSAGES_DENSITY.md), [PROTOTYPES](research/PROTOTYPES.md), [CENTROID_VARIANTS](research/CENTROID_VARIANTS.md), [MEDOID_VARIANTS](research/MEDOID_VARIANTS.md). 이번19개 자료와 수치 검증·성능·한계는 위 표의 연구 파일을 따른다.
 - 수치형 원본의 모든 차원을 사용한다. 그래프 엔진은 실제 원본 간선 또는 명시적 union-kNN 변환을 사용하며 그래프를 몰래 표시 좌표로 대체하지 않는다. Fluid의 연결·비가중 조건과 Bimax의 binary 조건 등은 별도 엄격히 검증한다.
 - 미구현 후보에는 `engine:null`을 유지한다. 원문 접근·분류·구현·Trace·시각화·단위/독립 검증·브라우저·배포 단계를 같은 완료 상태로 합치지 않는다.
 
-실행 레지스트리는 `src/engine/registry.ts`, 상세는 `algorithmDetails.ts`/`nextDetails.ts`, 후보 원본은 `src/data/candidates.json`이다. 변경 시 engine 연결 개수31·미연결88·전체119와 실제 실행 레지스트리44를 함께 확인한다. 이 문서의 개발 상태는 향후 완료를 약속하는 수치가 아니라 현재 파일과 검증 증거의 집계다.
+실행 레지스트리는 `src/engine/registry.ts`, 상세는 `algorithmDetails.ts`/`nextDetails.ts`, 후보 원본은 `src/data/candidates.json`이다. 현재 소스 변경에서는 engine 연결37·미연결82·전체119와 실행 레지스트리50을 함께 확인한다. 안정 공개44와 개발 브랜치50, 실제 모듈 연결과 전체 브라우저/배포 완료, 완전 구현 인증0을 각각 구분한다. 이 문서의 개발 상태는 향후 완료를 약속하는 수치가 아니라 현재 파일과 검증 증거의 집계다.

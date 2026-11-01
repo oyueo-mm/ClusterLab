@@ -299,6 +299,37 @@ export function draw(
       36,
     );
   }
+  if (to.analysis?.kind === "constraints") {
+    const a = to.analysis,
+      total = a.mustLink.length + a.cannotLink.length,
+      budget = Math.max(1, Math.floor((w * h) / 200)),
+      stride = Math.max(1, Math.ceil(total / budget));
+    ctx.lineWidth = 1.5;
+    ctx.globalAlpha = 0.6;
+    for (let i = 0; i < total; i += stride) {
+      const must = i < a.mustLink.length,
+        pair = must ? a.mustLink[i] : a.cannotLink[i - a.mustLink.length];
+      if (!points[pair[0]] || !points[pair[1]]) continue;
+      const [x, y] = xy(points[pair[0]]),
+        [bx, by] = xy(points[pair[1]]);
+      ctx.setLineDash(must ? [] : [5, 4]);
+      ctx.strokeStyle = must ? "#34564D" : "#b65a72";
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(bx, by);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+    if (!options.minimal) {
+      ctx.fillStyle = "#34564D";
+      ctx.fillText(
+        `ML 실선 · CL 점선${stride > 1 ? ` · 선 표시 대상 ${Math.ceil(total / stride)}/${total} (계산은 전체 제약)` : ""}`,
+        14,
+        36,
+      );
+    }
+  }
   if (to.analysis?.kind === "cure") {
     ctx.strokeStyle = "#34564D";
     ctx.lineWidth = 1.5;

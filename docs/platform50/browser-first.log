@@ -1,0 +1,169 @@
+
+Running 8 tests using 1 worker
+
+node.exe : (node:40196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:40196) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [chromium] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success (11.3s)
+(node:47144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [chromium] › tests\constraints-models.spec.ts:394:1 › three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery (9.4s)
+  x  3 [chromium] › tests\constraints-models.spec.ts:515:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes (12.8s)
+(node:41156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 4 [chromium] › tests\constraints-models.spec.ts:633:1 › 1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths (3.4s)
+(node:41500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  5 [mobile] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success (6.0s)
+(node:41400) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 6 [mobile] › tests\constraints-models.spec.ts:394:1 › three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery (9.1s)
+  x  7 [mobile] › tests\constraints-models.spec.ts:515:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes (13.3s)
+(node:13628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 8 [mobile] › tests\constraints-models.spec.ts:633:1 › 1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths (7.0s)
+
+
+  1) [chromium] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success
+
+    Error: expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not 1
+
+      259 |   changed = await completed(page, before, "COP-KMeans", 4, 2);
+      260 |   changedEnd = stateAt(changed.trace, changed.trace.steps.length);
+    > 261 |   expect(changedEnd.labels[0]).not.toBe(changedEnd.labels[1]);
+          |                                    ^
+      262 |   before = await count(page);
+      263 |   await box.getByLabel("Cannot-Link 2 삭제", { exact: true }).click();
+      264 |   await completed(page, before, "COP-KMeans", 4, 2);
+        at C:\Users\hihi9\Desktop\Projects\ClusterLab\tests\constraints-models.spec.ts:261:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\constraints-models-COP-rea-7b459-ecover-without-fake-success-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\constraints-models-COP-rea-7b459-ecover-without-fake-success-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\constraints-models-COP-rea-7b459-ecover-without-fake-success-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\constraints-models-COP-rea-7b459-ecover-without-fake-success-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests\constraints-models.spec.ts:515:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.structured-page').getByRole('img', { name: '실제 Walktrap 병합 트리', exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.structured-page').getByRole('img', { name: '실제 Walktrap 병합 트리', exact: true }) with timeout 10000ms
+      - waiting for locator('.structured-page').getByRole('img', { name: '실제 Walktrap 병합 트리', exact: true })
+
+
+      586 |   await expect(
+      587 |     box.getByRole("img", { name: "실제 Walktrap 병합 트리", exact: true }),
+    > 588 |   ).toBeVisible();
+          |     ^
+      589 |   const wn = await exported(page);
+      590 |   expect(wn.output.dendrogram).toEqual(wa.dendrogram);
+      591 |   expect(wn.output.selectedLevel).toBe(wa.selectedLevel);
+        at C:\Users\hihi9\Desktop\Projects\ClusterLab\tests\constraints-models.spec.ts:588:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\constraints-models-Walktra-f8389-unities-and-uncovered-nodes-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\constraints-models-Walktra-f8389-unities-and-uncovered-nodes-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\constraints-models-Walktra-f8389-unities-and-uncovered-nodes-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\constraints-models-Walktra-f8389-unities-and-uncovered-nodes-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [mobile] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success
+
+    Error: expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not 1
+
+      259 |   changed = await completed(page, before, "COP-KMeans", 4, 2);
+      260 |   changedEnd = stateAt(changed.trace, changed.trace.steps.length);
+    > 261 |   expect(changedEnd.labels[0]).not.toBe(changedEnd.labels[1]);
+          |                                    ^
+      262 |   before = await count(page);
+      263 |   await box.getByLabel("Cannot-Link 2 삭제", { exact: true }).click();
+      264 |   await completed(page, before, "COP-KMeans", 4, 2);
+        at C:\Users\hihi9\Desktop\Projects\ClusterLab\tests\constraints-models.spec.ts:261:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\constraints-models-COP-rea-7b459-ecover-without-fake-success-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\constraints-models-COP-rea-7b459-ecover-without-fake-success-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\constraints-models-COP-rea-7b459-ecover-without-fake-success-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\constraints-models-COP-rea-7b459-ecover-without-fake-success-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [mobile] › tests\constraints-models.spec.ts:515:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.structured-page').getByRole('img', { name: '실제 Walktrap 병합 트리', exact: true })
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.structured-page').getByRole('img', { name: '실제 Walktrap 병합 트리', exact: true }) with timeout 10000ms
+      - waiting for locator('.structured-page').getByRole('img', { name: '실제 Walktrap 병합 트리', exact: true })
+
+
+      586 |   await expect(
+      587 |     box.getByRole("img", { name: "실제 Walktrap 병합 트리", exact: true }),
+    > 588 |   ).toBeVisible();
+          |     ^
+      589 |   const wn = await exported(page);
+      590 |   expect(wn.output.dendrogram).toEqual(wa.dendrogram);
+      591 |   expect(wn.output.selectedLevel).toBe(wa.selectedLevel);
+        at C:\Users\hihi9\Desktop\Projects\ClusterLab\tests\constraints-models.spec.ts:588:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\constraints-models-Walktra-f8389-unities-and-uncovered-nodes-mobile\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\constraints-models-Walktra-f8389-unities-and-uncovered-nodes-mobile\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\constraints-models-Walktra-f8389-unities-and-uncovered-nodes-mobile\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\constraints-models-Walktra-f8389-unities-and-uncovered-nodes-mobile\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [chromium] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success
+    [chromium] › tests\constraints-models.spec.ts:515:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes
+    [mobile] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success
+    [mobile] › tests\constraints-models.spec.ts:515:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes
+  4 passed (1.5m)

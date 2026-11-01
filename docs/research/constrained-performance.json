@@ -1,0 +1,68 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "recordedAt": "2026-11-01T05:05:19.901Z",
+  "architecture": "x64",
+  "system": {
+    "cpu": "Intel(R) Core(TM) Ultra 7 256V",
+    "logicalProcessors": 8,
+    "osRelease": "10.0.26200",
+    "totalMemoryBytes": 16687738880
+  },
+  "seed": 42,
+  "k": 2,
+  "iterations": 10,
+  "tolerance": 1e-9,
+  "input": "row i: [i%2*5+(i%7)/100,(i%11)/100,i%2*3]; ML0-2/1-3 CL0-1",
+  "note": "Single Node engine+Trace observations; generation/Worker/browser excluded; heap delta is not peak; actual all-row/ND computation.",
+  "observations": [
+    {
+      "n": 100,
+      "dimensions": 3,
+      "milliseconds": 7.809000000000026,
+      "heapDeltaBytes": 290472,
+      "events": 407,
+      "traceEstimatedBytes": 656966,
+      "sourceRows": 100,
+      "activeK": 2,
+      "objective": 0.14192399999999997,
+      "componentIdWrites": 1
+    },
+    {
+      "n": 1000,
+      "dimensions": 3,
+      "milliseconds": 4.098099999999988,
+      "heapDeltaBytes": -1233192,
+      "events": 7,
+      "traceEstimatedBytes": 85858,
+      "sourceRows": 1000,
+      "activeK": 2,
+      "objective": 1.3979931999999988,
+      "componentIdWrites": 1
+    },
+    {
+      "n": 10000,
+      "dimensions": 3,
+      "milliseconds": 23.05619999999999,
+      "heapDeltaBytes": 12143072,
+      "events": 7,
+      "traceEstimatedBytes": 751862,
+      "sourceRows": 10000,
+      "activeK": 2,
+      "objective": 14.00129910000013,
+      "componentIdWrites": 1
+    },
+    {
+      "n": 100000,
+      "dimensions": 3,
+      "milliseconds": 135.77799999999996,
+      "heapDeltaBytes": 35380416,
+      "events": 7,
+      "traceEstimatedBytes": 7411866,
+      "sourceRows": 100000,
+      "activeK": 2,
+      "objective": 139.9979999239467,
+      "componentIdWrites": 1
+    }
+  ]
+}

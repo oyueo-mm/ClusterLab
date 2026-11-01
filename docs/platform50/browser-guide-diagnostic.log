@@ -1,0 +1,15 @@
+
+Running 10 tests using 1 worker
+
+node.exe : (node:30784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:30784) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success (7.5s)
+  ok  2 [chromium] › tests\constraints-models.spec.ts:416:1 › three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery (7.1s)
+  ok  3 [chromium] › tests\constraints-models.spec.ts:537:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes (2.6s)
+  ok  4 [chromium] › tests\constraints-models.spec.ts:660:1 › 1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths (2.6s)

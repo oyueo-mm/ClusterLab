@@ -32,6 +32,7 @@ import {
   algorithmDefaults,
   isPrototypeAlgorithm,
   supportsEuclideanSilhouette,
+  clusterCount,
   emptyState,
   type Algorithm,
   type Params,
@@ -169,11 +170,11 @@ function CompareCard({
       <Playback lab={lab} compact />
       <div className="compare-stats">
         <span>
-          {new Set(state.labels.filter((x) => x >= 0)).size}{" "}
+          {clusterCount(state)}{" "}
           {isPrototypeAlgorithm(algorithm) ? "BMU" : "군집"}
         </span>
         <span>
-          노이즈{" "}
+          {registry[algorithm].unassignedLabel}{" "}
           {(
             (state.labels.filter((x) => x === -1).length / points.length) *
             100
@@ -317,7 +318,7 @@ export default function App() {
           lab.trace.steps.length - 1,
         )
       ],
-    clusters = new Set(state.labels.filter((x) => x >= 0)).size,
+    clusters = clusterCount(state),
     noise = state.labels.filter((x) => x === -1).length;
   const legendValues = (
     algorithm === "LVQ"
@@ -453,14 +454,15 @@ export default function App() {
                 onRun={(a) => {
                   changeAlgorithm(a);
                   go(
-                    [
-                      "K-Modes",
-                      "K-Prototypes",
-                      "DenStream",
-                      "Bimax",
-                      "Cheng–Church Biclustering",
-                      "K-Shape",
-                    ].includes(a)
+                    !supportsLegacyPoints(a) ||
+                      [
+                        "categorical",
+                        "mixed",
+                        "stream",
+                        "matrix",
+                        "timeseries",
+                        "constrained",
+                      ].includes(registry[a].input)
                       ? "structured"
                       : "lab",
                   );
@@ -684,7 +686,7 @@ export default function App() {
                       <b>{clusters}</b>
                     </div>
                     <div>
-                      <small>노이즈</small>
+                      <small>{registry[algorithm].unassignedLabel}</small>
                       <b>
                         {noise} <em>/{points.length}</em>
                       </b>

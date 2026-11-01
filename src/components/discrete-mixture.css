@@ -1,0 +1,25 @@
+.discrete-mixture-analysis {
+  min-width: 0;
+}
+.discrete-mixture-analysis figure {
+  margin-inline: 0;
+}
+.discrete-mixture-analysis svg {
+  width: 100%;
+  max-height: 280px;
+  display: block;
+}
+.discrete-mixture-analysis input {
+  max-width: 110px;
+}
+.discrete-mixture-analysis td {
+  overflow-wrap: anywhere;
+}
+.discrete-mixture-analysis rect {
+  transition: fill 0.18s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .discrete-mixture-analysis rect {
+    transition: none;
+  }
+}

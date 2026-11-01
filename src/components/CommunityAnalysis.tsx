@@ -191,6 +191,445 @@ function MetaGraph({ state }: { state: GraphState }) {
   );
 }
 
+function WalktrapDetail({
+  state,
+  next,
+  progress,
+}: {
+  state: GraphState;
+  next?: GraphState;
+  progress: number;
+}) {
+  const [row, setRow] = useState(0),
+    [column, setColumn] = useState(0),
+    [mergeStart, setMergeStart] = useState(0),
+    [candidateStart, setCandidateStart] = useState(0);
+  const matrix = state.walkProbabilities;
+  if (!matrix?.length) return null;
+  const n = matrix.length,
+    r = Math.min(row, n - 1),
+    c = Math.min(column, n - 1);
+  const merges = state.dendrogram ?? [],
+    start = Math.min(mergeStart, Math.max(0, merges.length - 1));
+  const visible = merges.slice(start, start + 12);
+  const candidateOffset = Math.min(
+    candidateStart,
+    Math.max(0, (state.walkMergeCandidates?.length ?? 0) - 1),
+  );
+  // Show actual parent-child links; layout height is merge order, not Ward distance.
+  const shownIds = new Set(visible.flatMap((m) => [m.a, m.b, m.id])),
+    ids = [...shownIds].sort((a, b) => a - b);
+  const position = new Map(
+    ids.map((id, i) => [
+      id,
+      {
+        x: 25 + (i * 550) / Math.max(1, ids.length - 1),
+        y: 145 - ((id < n ? 0 : id - n + 1) / Math.max(1, merges.length)) * 120,
+      },
+    ]),
+  );
+  return (
+    <div className="walktrap-analysis">
+      <p className="small">
+        보행 길이 {state.walkIteration ?? 0}/{state.walkSteps}. 병합은 최소 Ward
+        Δσ, 최종 cut은 방문한 계층의 최고 원본 Q입니다. 두 점수를 구분합니다.
+      </p>
+      <details className="community-detail">
+        <summary>
+          실제 P^{state.walkIteration ?? 0} · {n}×{n} 행 확률
+        </summary>
+        <p className="small">
+          행 i에서 시작해 열 j에 도착하는 실제 확률입니다. 인공 평균 loop는
+          보행에만 사용합니다. 숫자는 현재 연산 상태이며 색만 보간합니다. 계산은
+          전체 행렬, 표는 10×10 표시 창입니다.
+        </p>
+        <div className="community-pages">
+          <label>
+            행 시작{" "}
+            <input
+              aria-label="Walktrap 행 시작"
+              type="number"
+              min={1}
+              max={n}
+              value={r + 1}
+              onChange={(e) =>
+                setRow(Math.max(0, Math.trunc(+e.target.value || 1) - 1))
+              }
+            />
+          </label>
+          <label>
+            열 시작{" "}
+            <input
+              aria-label="Walktrap 열 시작"
+              type="number"
+              min={1}
+              max={n}
+              value={c + 1}
+              onChange={(e) =>
+                setColumn(Math.max(0, Math.trunc(+e.target.value || 1) - 1))
+              }
+            />
+          </label>
+        </div>
+        <div className="community-table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>시작 / 도착</th>
+                {matrix[0].slice(c, c + 10).map((_, j) => (
+                  <th key={j}>{c + j + 1}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {matrix.slice(r, r + 10).map((values, i) => (
+                <tr key={i}>
+                  <th>{r + i + 1}</th>
+                  {values.slice(c, c + 10).map((value, j) => {
+                    const target =
+                      next?.walkProbabilities?.length === n
+                        ? next.walkProbabilities[r + i][c + j]
+                        : value;
+                    return (
+                      <td
+                        key={j}
+                        style={{
+                          background: `rgba(52,86,77,${0.06 + 0.65 * Math.max(0, Math.min(1, value + (target - value) * progress))})`,
+                        }}
+                      >
+                        {value.toPrecision(5)}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+      {!!state.walkMergeCandidates?.length && (
+        <details className="community-detail" open>
+          <summary>실제 인접 Ward 후보</summary>
+          <p className="small">
+            거리 r={state.walkDistance?.toPrecision(6)}, 선택 Δσ=
+            {state.wardIncrease?.toPrecision(6)}. 최소 증가를 선택하며 Q 최대
+            병합이 아닙니다.
+          </p>
+          <label>
+            후보 시작{" "}
+            <input
+              aria-label="Walktrap 후보 시작"
+              type="number"
+              min={1}
+              max={state.walkMergeCandidates.length}
+              value={candidateOffset + 1}
+              onChange={(e) =>
+                setCandidateStart(
+                  Math.max(0, Math.trunc(+e.target.value || 1) - 1),
+                )
+              }
+            />
+          </label>
+          <div className="community-table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>현재 계층 노드</th>
+                  <th>거리 r</th>
+                  <th>Δσ</th>
+                </tr>
+              </thead>
+              <tbody>
+                {state.walkMergeCandidates
+                  .slice(candidateOffset, candidateOffset + 12)
+                  .map((v) => (
+                    <tr key={`${v.a},${v.b}`}>
+                      <td>
+                        {v.a + 1}–{v.b + 1}
+                      </td>
+                      <td>{v.distance.toPrecision(6)}</td>
+                      <td>{v.increase.toPrecision(6)}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="small">
+            최소 증가 순 {candidateOffset + 1}번째부터 최대12쌍 표시 / 전체{" "}
+            {state.walkMergeCandidates.length}쌍을 페이지로 확인할 수 있습니다.
+          </p>
+        </details>
+      )}
+      <details className="community-detail">
+        <summary>
+          실제 병합 덴드로그램 · {merges.length}회 · 선택 수준{" "}
+          {state.selectedLevel ?? 0}
+        </summary>
+        <p className="small">
+          세로 위치는 실제 병합 순서이며 거리 축이 아닙니다. 원본 잎 ID와 실제
+          부모 ID를 연결합니다. 표시 창의 병합만 그리며 전체 계층을 아래 시작
+          값으로 탐색할 수 있습니다.
+        </p>
+        <label>
+          병합 시작{" "}
+          <input
+            aria-label="Walktrap 병합 시작"
+            type="number"
+            min={1}
+            max={Math.max(1, merges.length)}
+            value={start + 1}
+            onChange={(e) =>
+              setMergeStart(Math.max(0, Math.trunc(+e.target.value || 1) - 1))
+            }
+          />
+        </label>
+        {!!visible.length && (
+          <svg
+            role="img"
+            aria-label="실제 Walktrap 병합 트리"
+            viewBox="0 0 600 170"
+          >
+            {visible.map((m) => {
+              const p = position.get(m.id)!;
+              return [m.a, m.b].map((child) => {
+                const q = position.get(child)!;
+                return (
+                  <path
+                    key={`${m.id}-${child}`}
+                    d={`M${q.x},${q.y} V${p.y} H${p.x}`}
+                    fill="none"
+                    stroke="#8ca39b"
+                  >
+                    <title>
+                      병합 {m.id - n + 1}, Δσ={m.increase}, Q={m.modularity}
+                    </title>
+                  </path>
+                );
+              });
+            })}
+            {ids.map((id) => {
+              const p = position.get(id)!;
+              return (
+                <g key={id}>
+                  <circle cx={p.x} cy={p.y} r={3} fill="#34564d" />
+                  <text x={p.x} y={p.y + 11} textAnchor="middle">
+                    {id + 1}
+                  </text>
+                </g>
+              );
+            })}
+          </svg>
+        )}
+        <div className="community-table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>병합</th>
+                <th>자식→부모</th>
+                <th>구성원 수</th>
+                <th>Δσ</th>
+                <th>원본 Q</th>
+              </tr>
+            </thead>
+            <tbody>
+              {visible.map((m, i) => (
+                <tr
+                  key={m.id}
+                  className={
+                    start + i + 1 === state.selectedLevel
+                      ? "community-selected-level"
+                      : undefined
+                  }
+                >
+                  <td>{start + i + 1}</td>
+                  <td>
+                    {m.a + 1},{m.b + 1}→{m.id + 1}
+                  </td>
+                  <td>{m.members.length}</td>
+                  <td>{m.increase.toPrecision(6)}</td>
+                  <td>{m.modularity.toFixed(6)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  );
+}
+
+function CliqueDetail({ state }: { state: GraphState }) {
+  const [offset, setOffset] = useState(0),
+    [nodeStart, setNodeStart] = useState(0),
+    [communityStart, setCommunityStart] = useState(0);
+  const cliques = state.cliques ?? [],
+    start = Math.min(offset, Math.max(0, cliques.length - 1)),
+    column = Math.min(nodeStart, Math.max(0, (state.cliqueSize ?? 2) - 1));
+  const shown = cliques.slice(start, start + 16),
+    ids = new Set(shown.map((_, i) => start + i)),
+    links = (state.cliqueLinks ?? []).filter(
+      (e) => ids.has(e.a) && ids.has(e.b),
+    );
+  const p = (i: number) => ({
+    x: 30 + ((i - start) % 8) * 65,
+    y: 35 + Math.floor((i - start) / 8) * 60,
+  });
+  return (
+    <div className="clique-analysis">
+      <p className="small">
+        k={state.cliqueSize}는 완전 부분그래프 크기이며 군집 수가 아닙니다. 실제
+        clique {state.enumeratedCliques ?? 0}개, 미소속{" "}
+        {state.unassignedCount ?? 0}개. −1은 k-clique 소속 없음이며 통계적
+        noise가 아닙니다.
+      </p>
+      <details className="community-detail" open>
+        <summary>실제 clique와 공유 face 연결</summary>
+        <p className="small">
+          두 clique가 k−1개 노드를 공유할 때 연결합니다. 같은 face의 대표와 잇는
+          실제 간선만 저장해 동일 연결 성분을 계산합니다. 아래 그림은 표시 창
+          내부 연결만 보여줍니다.
+        </p>
+        <div className="community-pages">
+          <label>
+            Clique 시작{" "}
+            <input
+              aria-label="Clique 표 시작"
+              type="number"
+              min={1}
+              max={Math.max(1, cliques.length)}
+              value={start + 1}
+              onChange={(e) =>
+                setOffset(Math.max(0, Math.trunc(+e.target.value || 1) - 1))
+              }
+            />
+          </label>
+          <label>
+            구성원 열 시작{" "}
+            <input
+              aria-label="Clique 구성원 시작"
+              type="number"
+              min={1}
+              max={Math.max(1, state.cliqueSize ?? 2)}
+              value={column + 1}
+              onChange={(e) =>
+                setNodeStart(Math.max(0, Math.trunc(+e.target.value || 1) - 1))
+              }
+            />
+          </label>
+        </div>
+        <svg
+          role="img"
+          aria-label="실제 clique percolation 연결"
+          viewBox="0 0 560 130"
+        >
+          {links.map((e, i) => {
+            const a = p(e.a),
+              b = p(e.b);
+            return (
+              <line
+                key={i}
+                x1={a.x}
+                y1={a.y}
+                x2={b.x}
+                y2={b.y}
+                stroke="#8ca39b"
+              />
+            );
+          })}
+          {shown.map((members, j) => {
+            const i = start + j,
+              q = p(i);
+            return (
+              <g key={i}>
+                <circle
+                  cx={q.x}
+                  cy={q.y}
+                  r={9}
+                  fill={
+                    palette[(state.cliqueComponents?.[i] ?? i) % palette.length]
+                  }
+                />
+                <text x={q.x} y={q.y + 22} textAnchor="middle">
+                  clique {i + 1}
+                </text>
+                <title>{members.map((v) => v + 1).join(",")}</title>
+              </g>
+            );
+          })}
+        </svg>
+        <div className="community-table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Clique</th>
+                <th>원본 노드 (최대8열 표시)</th>
+                <th>현재 성분</th>
+              </tr>
+            </thead>
+            <tbody>
+              {shown.map((members, j) => (
+                <tr key={j}>
+                  <td>{start + j + 1}</td>
+                  <td>
+                    {members
+                      .slice(column, column + 8)
+                      .map((v) => v + 1)
+                      .join(", ")}
+                  </td>
+                  <td>
+                    {state.cliqueComponents?.[start + j] === undefined
+                      ? "아직 연결 전"
+                      : state.cliqueComponents[start + j] + 1}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+      {!!state.communities?.length && (
+        <details className="community-detail" open>
+          <summary>원본 중첩 커뮤니티 · {state.communities.length}개</summary>
+          <p className="small">
+            모든 소속을 보존합니다. Canvas 색은 첫 소속이고 원본 한 노드가 여러
+            행에 나타날 수 있습니다. 전체 노드 목록은 결과 JSON에도 있습니다.
+          </p>
+          <label>
+            커뮤니티 시작{" "}
+            <input
+              aria-label="Clique 커뮤니티 시작"
+              type="number"
+              min={1}
+              max={state.communities.length}
+              value={Math.min(communityStart, state.communities.length - 1) + 1}
+              onChange={(e) =>
+                setCommunityStart(
+                  Math.max(0, Math.trunc(+e.target.value || 1) - 1),
+                )
+              }
+            />
+          </label>
+          <ul>
+            {state.communities
+              .slice(communityStart, communityStart + 12)
+              .map((members, i) => (
+                <li key={i}>
+                  커뮤니티 {communityStart + i + 1}: 원본 {members.length}개 ·
+                  앞 20개{" "}
+                  {members
+                    .slice(0, 20)
+                    .map((v) => v + 1)
+                    .join(", ")}
+                  {members.length > 20 ? " … (전체는 결과 JSON)" : ""}
+                </li>
+              ))}
+          </ul>
+        </details>
+      )}
+    </div>
+  );
+}
+
 export default function CommunityAnalysis({
   analysis,
   next,
@@ -210,6 +649,7 @@ export default function CommunityAnalysis({
       [],
     start = Math.max(0, Math.min(offset, Math.max(0, rows.length - 1)));
   const isMcl = analysis.method === "Markov Clustering (MCL)",
+    isClique = analysis.method === "Clique Percolation",
     tween =
       typeof matchMedia === "function" &&
       matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -226,6 +666,10 @@ export default function CommunityAnalysis({
         <p className="small">
           실제 최대 행렬 변화:{" "}
           {analysis.residual?.toExponential(4) ?? "초기 상태"}
+        </p>
+      ) : isClique ? (
+        <p className="small">
+          목적함수 없음 · clique percolation 연결 성분을 정확히 추출합니다.
         </p>
       ) : (
         <p className="small">
@@ -314,6 +758,10 @@ export default function CommunityAnalysis({
       )}
       <MetaGraph state={analysis} />
       <Transition state={analysis} next={next} progress={tween} />
+      {analysis.method === "Walktrap" && (
+        <WalktrapDetail state={analysis} next={next} progress={tween} />
+      )}
+      {isClique && <CliqueDetail state={analysis} />}
       {analysis.counts && analysis.densities && (
         <details className="community-detail">
           <summary>실제 유체 크기·밀도 · {analysis.counts.length}개</summary>
@@ -395,7 +843,7 @@ export default function CommunityAnalysis({
           커뮤니티 안에서만 병합합니다.
         </p>
       )}
-      {analysis.memberships && (
+      {analysis.memberships && !isClique && (
         <details className="community-detail">
           <summary>
             MCL 전체 attractor 지지 · {analysis.memberships.length}개

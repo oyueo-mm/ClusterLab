@@ -296,4 +296,28 @@ export const nextFields = {
   "K-Shape": [k, iterations],
   "Greedy Modularity (CNM)": [resolution, neighbors],
   "Fluid Communities": [k, neighbors, iterations],
+  "COP-KMeans": [k, iterations, tolerance],
+  "Bernoulli Mixture": [k, iterations, tolerance],
+  "Poisson Mixture": [k, iterations, tolerance],
+  "Multinomial Mixture": [k, iterations, tolerance],
+  Walktrap: [
+    number(
+      "walkSteps",
+      "확률보행 길이",
+      1,
+      32,
+      "실제 P^t 확률 분포로 Ward 거리를 계산",
+    ),
+    neighbors,
+  ],
+  "Clique Percolation": [
+    number(
+      "cliqueSize",
+      "Clique 크기 k",
+      2,
+      16,
+      "k−1개 노드를 공유하는 완전 k-부분그래프의 연결 성분",
+    ),
+    neighbors,
+  ],
 } satisfies Record<string, Field[]>;

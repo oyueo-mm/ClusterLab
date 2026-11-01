@@ -30,6 +30,7 @@ import { Settings } from "./Settings";
 import { Analysis } from "./Analysis";
 import "./structured.css";
 import { DatasetEditor } from "./DatasetEditor";
+import { ConstraintEditor } from "./ConstraintEditor";
 import {
   createDatasetHistory,
   commitDatasetHistory,
@@ -39,7 +40,8 @@ import {
 import { historyShortcut } from "../editor/history";
 import {
   makeStructuredPreset,
-  type StructuredPreset,
+  makeExperimentPreset,
+  type ExperimentPreset,
 } from "../data/structuredPresets";
 import { nativeResult } from "../engine/datasetExecution";
 
@@ -86,25 +88,15 @@ export default function StructuredLab({
   initialParams?: ReturnType<typeof algorithmDefaults>;
   initialEvent?: EventKind;
 }) {
-  const initialKind: StructuredPreset =
-    initialAlgorithm === "K-Modes"
-      ? "categorical"
-      : initialAlgorithm === "K-Prototypes"
-        ? "mixed"
-        : initialAlgorithm === "DenStream"
-          ? "stream"
-          : initialAlgorithm === "Bimax" ||
-              initialAlgorithm === "Cheng–Church Biclustering"
-            ? "matrix"
-            : initialAlgorithm === "K-Shape"
-              ? "timeseries"
-              : "numeric";
+  const initialKind: ExperimentPreset = initialAlgorithm
+    ? registry[initialAlgorithm].examplePreset
+    : "numeric";
   const [history, setHistory] = useState(() =>
     createDatasetHistory(
       initialData ??
         (initialKind === "numeric"
           ? numericExample
-          : makeStructuredPreset(
+          : makeExperimentPreset(
               initialKind,
               initialKind === "stream" ? 48 : 12,
               initialKind === "matrix" ? 8 : 3,
@@ -128,7 +120,7 @@ export default function StructuredLab({
       },
   );
   const [generator, setGenerator] = useState<{
-    kind: StructuredPreset;
+    kind: ExperimentPreset;
     count: number;
     dimensions: number;
     seed: number;
@@ -263,8 +255,8 @@ export default function StructuredLab({
     <div className="structured-page">
       <h1>다중 데이터 실험</h1>
       <p>
-        수치형·범주형·혼합형·그래프·스트림 원본으로 계산합니다. 표시 축을 바꿔도
-        원본 계산은 바뀌지 않습니다.
+        전체 원본 특성과 관계로 계산합니다. 표시 축을 바꿔도 원본 계산은 바뀌지
+        않습니다.
       </p>
       <div className="structured-layout">
         <section className="stage">
@@ -287,17 +279,19 @@ export default function StructuredLab({
           </div>
           <div className="structured-provenance" role="status">
             전체 {points.length}개{" "}
-            {data.kind === "numeric" || data.kind === "categorical"
-              ? `· 원본 ${data.values[0].length}차원`
-              : data.kind === "mixed"
-                ? `· 수치 ${data.numeric[0].length} + 범주 ${data.categorical[0].length}차원`
-                : data.kind === "graph"
-                  ? `· 실제 그래프 간선 ${data.edges.length}개`
-                  : data.kind === "stream"
-                    ? `· 실제 시각 ${data.samples[0].time}–${data.samples.at(-1)!.time} · 원본 ${data.samples[0].values.length}차원`
-                    : data.kind === "matrix"
-                      ? `· 원본 ${data.values.length}행×${data.values[0].length}열`
-                      : "· 실제 시간축"}{" "}
+            {data.kind === "constrained"
+              ? `· 원본 ${data.data.values[0].length}차원 · ML ${data.mustLink.length}/CL ${data.cannotLink.length}`
+              : data.kind === "numeric" || data.kind === "categorical"
+                ? `· 원본 ${data.values[0].length}차원`
+                : data.kind === "mixed"
+                  ? `· 수치 ${data.numeric[0].length} + 범주 ${data.categorical[0].length}차원`
+                  : data.kind === "graph"
+                    ? `· 실제 그래프 간선 ${data.edges.length}개`
+                    : data.kind === "stream"
+                      ? `· 실제 시각 ${data.samples[0].time}–${data.samples.at(-1)!.time} · 원본 ${data.samples[0].values.length}차원`
+                      : data.kind === "matrix"
+                        ? `· 원본 ${data.values.length}행×${data.values[0].length}열`
+                        : "· 실제 시간축"}{" "}
             · 표시 좌표와 계산 데이터 분리
           </div>
           {data.kind === "numeric" && (
@@ -424,10 +418,41 @@ export default function StructuredLab({
             >
               시계열 형태 예제
             </button>
+            <button
+              onClick={() =>
+                apply(makeExperimentPreset("constrained", 12, 3, 42))
+              }
+            >
+              하드 제약 예제
+            </button>
+            <button
+              onClick={() => {
+                apply(makeExperimentPreset("bernoulli", 24, 3, 42));
+                choose("Bernoulli Mixture");
+              }}
+            >
+              이진 응답 예제
+            </button>
+            <button
+              onClick={() => {
+                apply(makeExperimentPreset("poisson", 24, 3, 42));
+                choose("Poisson Mixture");
+              }}
+            >
+              포아송 카운트 예제
+            </button>
+            <button
+              onClick={() => {
+                apply(makeExperimentPreset("multinomial", 24, 3, 42));
+                choose("Multinomial Mixture");
+              }}
+            >
+              다항 카운트 예제
+            </button>
           </div>
           <p className="small">
             {data.kind === "numeric"
-              ? "3차원 예제의 X·Y는 겹치며 Z로 군집이 분리됩니다. 원본 전체 차원을 사용합니다."
+              ? "모든 원본 특성으로 계산하며 표시 축은 별도입니다. 이산 혼합모델은 실제 이진 응답·카운트 예제를 사용하세요."
               : data.kind === "categorical"
                 ? "화면 좌표는 선택한 범주 토큰의 표시 배치입니다. 범주를 수치 거리로 계산하지 않습니다."
                 : data.kind === "mixed"
@@ -436,7 +461,11 @@ export default function StructuredLab({
                     ? "시각과 원본 특성으로 online CF를 계산합니다. 화면은 첫 두 특성입니다."
                     : "원본 관계와 화면 좌표를 구분합니다."}
           </p>
-          <DatasetEditor data={data} onChange={apply} onError={setError} />
+          {data.kind === "constrained" ? (
+            <ConstraintEditor data={data} onChange={apply} onError={setError} />
+          ) : (
+            <DatasetEditor data={data} onChange={apply} onError={setError} />
+          )}
           {data.kind === "stream" && (
             <div className="structured-stream-controls">
               <button onClick={() => setAutoFeed((v) => !v)}>
@@ -459,7 +488,7 @@ export default function StructuredLab({
                 onChange={(e) =>
                   setGenerator({
                     ...generator,
-                    kind: e.target.value as StructuredPreset,
+                    kind: e.target.value as ExperimentPreset,
                   })
                 }
               >
@@ -471,6 +500,10 @@ export default function StructuredLab({
                   "stream",
                   "matrix",
                   "timeseries",
+                  "constrained",
+                  "bernoulli",
+                  "poisson",
+                  "multinomial",
                 ].map((k) => (
                   <option key={k}>{k}</option>
                 ))}
@@ -515,7 +548,7 @@ export default function StructuredLab({
               onClick={() => {
                 try {
                   apply(
-                    makeStructuredPreset(
+                    makeExperimentPreset(
                       generator.kind,
                       generator.count,
                       generator.dimensions,
@@ -606,7 +639,9 @@ export default function StructuredLab({
                           ? data.samples[0].values.length
                           : data.kind === "timeseries"
                             ? data.series[0].values.length
-                            : undefined,
+                            : data.kind === "constrained"
+                              ? data.data.values[0].length
+                              : undefined,
                   state: stateAt(lab.trace, lab.trace.steps.length),
                   output: nativeResult(
                     stateAt(lab.trace, lab.trace.steps.length),

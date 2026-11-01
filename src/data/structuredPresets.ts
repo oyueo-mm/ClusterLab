@@ -9,6 +9,121 @@ export type StructuredPreset =
   | "matrix"
   | "timeseries"
   | "stream";
+export type ModelPreset =
+  "bernoulli" | "poisson" | "multinomial" | "constrained";
+export type ExperimentPreset = StructuredPreset | ModelPreset;
+export function makeModelPreset(
+  kind: ModelPreset,
+  count = 24,
+  dimensions = 3,
+  seed = 42,
+): Dataset {
+  if (
+    !Number.isSafeInteger(count) ||
+    count < 2 ||
+    !Number.isSafeInteger(dimensions) ||
+    dimensions < 1 ||
+    !Number.isSafeInteger(seed)
+  )
+    throw new Error("생성 개수≥2·차원≥1·시드는 정수여야 합니다.");
+  const bytes =
+    count * ((kind === "constrained" ? 256 : 128) + dimensions * 32);
+  if (!Number.isFinite(bytes) || bytes > DEFAULT_WORKING_BYTES)
+    throw new Error(
+      "원본 생성 메모리 예산을 초과했습니다. 입력을 자르지 않았습니다.",
+    );
+  if (kind === "constrained") {
+    const base = makeStructuredPreset("numeric", count, dimensions, seed);
+    if (base.kind !== "numeric") throw new Error("수치 생성기 계약 오류");
+    const middle = Math.ceil(count / 2),
+      mustLink: [number, number][] = [];
+    for (let i = 1; i < count; i++) if (i !== middle) mustLink.push([i - 1, i]);
+    return {
+      kind: "constrained",
+      data: base,
+      mustLink,
+      cannotLink: [[0, middle]],
+      provenance: {
+        generator: "clusterlab-constrained-v1",
+        seed,
+        parameters: {
+          count,
+          dimensions,
+          groups: 2,
+          relation: "within-group chains and one cross-group CL",
+        },
+      },
+    };
+  }
+  const rng = random(seed),
+    poisson = (rate: number) => {
+      const limit = Math.exp(-rate);
+      let p = 1,
+        k = 0;
+      do {
+        k++;
+        p *= rng();
+      } while (p > limit);
+      return k - 1;
+    };
+  const values = Array.from({ length: count }, (_, i) => {
+    const group = i < count / 2 ? 0 : 1;
+    if (kind === "bernoulli")
+      return Array.from({ length: dimensions }, (_, j) =>
+        rng() < (group === j % 2 ? 0.8 : 0.2) ? 1 : 0,
+      );
+    if (kind === "poisson")
+      return Array.from({ length: dimensions }, (_, j) =>
+        poisson(group === j % 2 ? 7 : 1),
+      );
+    const row = Array(dimensions).fill(0) as number[],
+      weights = Array.from({ length: dimensions }, (_, j) =>
+        j === group % dimensions ? 6 : 1,
+      ),
+      sum = weights.reduce((a, b) => a + b, 0);
+    for (let trial = 0; trial < 20; trial++) {
+      let value = rng() * sum,
+        index = 0;
+      while (index < dimensions - 1 && value >= weights[index])
+        value -= weights[index++];
+      row[index]++;
+    }
+    return row;
+  });
+  return {
+    kind: "numeric",
+    values,
+    featureNames: Array.from(
+      { length: dimensions },
+      (_, j) =>
+        `${kind === "bernoulli" ? "이진 특성" : "관측 카운트"} ${j + 1}`,
+    ),
+    provenance: {
+      generator: `clusterlab-${kind}-v1`,
+      seed,
+      parameters: {
+        count,
+        dimensions,
+        groups: 2,
+        ...(kind === "bernoulli"
+          ? { probabilities: "0.2,0.8" }
+          : kind === "poisson"
+            ? { rates: "1,7" }
+            : { trials: 20, profileWeights: "favored=6,others=1" }),
+      },
+    },
+  };
+}
+export function makeExperimentPreset(
+  kind: ExperimentPreset,
+  count = 24,
+  dimensions = 3,
+  seed = 42,
+): Dataset {
+  return ["bernoulli", "poisson", "multinomial", "constrained"].includes(kind)
+    ? makeModelPreset(kind as ModelPreset, count, dimensions, seed)
+    : makeStructuredPreset(kind as StructuredPreset, count, dimensions, seed);
+}
 export function makeStructuredPreset(
   kind: StructuredPreset,
   count = 24,

@@ -1,42 +1,54 @@
-﻿# 현재 아키텍처
+# 현재 아키텍처
+
+> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
 
 ## 2026-11-01 재개 작업 — 현재 구조
 
-현재 소스의 동적 실행 엔진은 **44개**다. 기존 13개와 신규 후보에 해당하는 31개를 구분하며, 119개 후보 중 88개는 아직 실행 엔진이 없다. 이 숫자는 실행 경로의 수이며 전체 마스터 검수 기준의 완전 구현 인증 수가 아니다. 이번 변경의 전체 브라우저·회귀·배포 검증은 진행 중이다. 아래 2026-10-31 절은 당시 구조를 보존한 기록이며 현재 지원 표는 [DATA_FORMATS.md](DATA_FORMATS.md)를 따른다.
+현재 소스의 동적 실행 엔진은 **50개**다. 기존13개와 신규 후보에 해당하는37개를 구분하며,119개 후보 중82개는 아직 실행 엔진이 없다. 마스터 완전 구현 인증은0개다. 안정44개 제품fd78886과 [당시 문서](sessions/platform44/)를 보존하고 이후6개를 로컬 통합 중이다. 마지막 전체 타입/lint/build·단위509개/37파일·신규 Python reference3개는 통과했으나 새 브라우저 첫 실행은4통과/4실패여서 테스트 가정·접힌 분석 접근을 보완 중이다. 새 배포 성공으로 표시하지 않는다. 아래 과거 구조 기록과 현재 [DATA_FORMATS.md](DATA_FORMATS.md)를 구분한다.
 
 ### 원본 데이터와 표시
 
-`Dataset` union과 기존 `Point[]` 계약을 함께 유지한다. 수치형·범주형·혼합형·그래프·행렬·시계열·스트림은 이제 원본 형식으로 실제 계산할 수 있다. constrained는 스키마와 제약 모순 검증만 있으며 실행 엔진은 없다. 모든 알고리즘이 모든 형식을 지원하는 구조가 아니다.
+`Dataset` union과 기존 `Point[]` 계약을 함께 유지한다. 수치형·범주형·혼합형·그래프·행렬·시계열·스트림과 constrained를 호환 엔진에서 원본 형식으로 계산한다. constrained는 COP-KMeans에만 전달하고 내부 numeric의 전체 차원과 실제 ML/CL을 보존한다. 이산 혼합3개는 numeric의 별도0/1·정수 count support를 검증한다. 모든 알고리즘이 모든 형식을 지원하는 구조가 아니다.
 
 `supportsDataset`이 실제 호환 엔진만 허용하고 `prepareDataset`이 스키마·활성 파라미터·자원을 검사한다. `displayPoints`는 표시 축/범주 배치/그래프 좌표/시계열 평균·표준편차를 만들 뿐이다. 엔진은 네 번째 인수의 원본 Dataset으로 전체 특성, 범주 문자열, 간선, 행렬 셀, 순서 있는 파형, 실제 timestamp를 사용한다. 원본 그래프의 노드에는 ID와 표시 위치가 있으며 별도 노드 질량 필드는 없다. 가중 모듈성의 노드 질량은 실제 간선 차수에서 계산한다.
 
 `runDataset`은 lazy loader를 사용하는 비동기 직접 API다. `run`은 같은 준비 단계와 네 번째 인수를 지원하는 동기 검증 API다. 제품은 Worker가 같은 준비 단계/loader를 호출한다. Worker의 완료 메시지는 Trace이며, API와 결과 내보내기는 최종 상태에서 `nativeResult`를 추출한다.
 
-| 최종 결과 kind       | 수학적 출력                                                                |
-| -------------------- | -------------------------------------------------------------------------- |
-| partition            | 원본 행/점에 대응하는 labels; Spectral도 이 계약을 유지                    |
-| communities          | 실제 계층 levels·Q·수렴 정보; MCL의 중첩 memberships                       |
-| subspaces            | CLIQUE의 실제 차원·구성원·격자/영역 및 전체 memberships                    |
-| projected-partition  | PROCLUS의 labels·medoids·dimensionsByCluster·influence·objective·converged |
-| biclustering         | Bimax/Cheng–Church의 행·열 biclusters와 양쪽 memberships                   |
-| timeseries-partition | K-Shape의 전체 길이 형태·shift·실제 squared-SBD 목적값                     |
-| stream-summary       | DenStream의 실제 시각·처리 수·살아 있는 micro-cluster CF                   |
+| 최종 결과 kind        | 수학적 출력                                                                                                   |
+| --------------------- | ------------------------------------------------------------------------------------------------------------- |
+| partition             | 원본 행/점에 대응하는 labels; Spectral도 이 계약을 유지                                                       |
+| communities           | 실제 levels·해당 목적값·수렴 정보; MCL/CPM의 커뮤니티별 memberships, Walktrap의 실제 dendrogram/selectedLevel |
+| constrained-partition | COP의 labels·ND centroids·componentIds/componentCannotLink·SSE·activeK·converged                              |
+| mixture               | 이산 혼합의 method·labels·weights·ND parameters·전체 n×K responsibilities·sum logLikelihood·support·converged |
+| subspaces             | CLIQUE의 실제 차원·구성원·격자/영역 및 전체 memberships                                                       |
+| projected-partition   | PROCLUS의 labels·medoids·dimensionsByCluster·influence·objective·converged                                    |
+| biclustering          | Bimax/Cheng–Church의 행·열 biclusters와 양쪽 memberships                                                      |
+| timeseries-partition  | K-Shape의 전체 길이 형태·shift·실제 squared-SBD 목적값                                                        |
+| stream-summary        | DenStream의 실제 시각·처리 수·살아 있는 micro-cluster CF                                                      |
 
 API 최상위 kind는 output.kind와 같으며 computedRows는 표시 표본 수가 아닌 처리한 원본 행/노드/시계열 수다. sourceDimensions는 실제 특성 수이며 행렬에는 열 수, 시계열에는 파형 길이를 기록한다. 행렬의 computedColumns와 시계열의 timeSeriesSteps도 반환한다. PROCLUS의 선택 축/medoid/influence/비용은 전용 analysis와 native projected-partition에 보존한다. 범주형·혼합형 실제 중심은 전용 analysis에 있으며 최상위 결과는 partition이다.
 
 ### 레지스트리·실행·자원
 
-44개 loader는 필요할 때 해당 모듈만 import한다. Params/parameters/algorithmDefaults가 실행 검증과 UI를 연결하며, 가이드는 실제 engine 및 필요할 때 experimentDataset을 지정한다. Bimax/Cheng–Church/K-Shape 미니 실험은 진짜 행렬/시계열, Fluid는 연결된 단위 가중치 그래프를 전달한다. legacy Point[]로 지원되지 않는 입력을 꾸며 실행하지 않는다.
+50개 loader는 필요할 때 해당 모듈만 import한다. Params/parameters/algorithmDefaults가 실행 검증과 UI를 연결하며, 가이드는 실제 engine 및 필요할 때 experimentDataset을 지정한다. Bimax/Cheng–Church/K-Shape 미니 실험은 진짜 행렬/시계열, Fluid/CPM은 적합한 단위 가중치 그래프, COP은 실제 constrained, 이산 혼합은 bit/count/profile 원본을 전달한다. legacy Point[]로 지원되지 않는 입력을 꾸며 실행하지 않는다. `makeModelPreset`/`makeExperimentPreset`은 모델별 생성기·시드·원본 featureNames·provenance와 실제 제약 관계를 보존한다.
 
 Worker 취소는 terminate로 실제 계산을 중단하고, 세대 ID·원본 Dataset 캐시 키로 오래된 결과를 배제한다. 진행 보고는 준비 상태와 실제 기록 이벤트 수이며 산술 연산 전체의 완료 비율은 아니다. 계산 자체의 pause/resume·Worker pool은 아직 없다.
 
-공통 작업 공간 256MiB/Trace 64MiB는 바이트 정책이다. 전역 행 개수 상한을 새로 두지 않는다. 실제 raw graph는 n과 m으로 희소 공간을 추정하고 numeric→union-kNN은 생성 비용을 별도로 반영한다. 화면 자원 안내도 실제 간선 수 m을 전달하도록 맞췄다. MCL은 n², G-Means는 원본 d², K-Shape는 파형 길이 L², CLIQUE/Bimax는 실제 탐색·출력 증가를 검사한다. 이 추정은 브라우저 가용 메모리나 GC peak의 측정값이 아니다. [PERFORMANCE.md](PERFORMANCE.md)의 관측과 구분한다.
+공통 작업 공간256MiB/Trace64MiB는 바이트 정책이다. 전역 행 개수 상한을 새로 두지 않는다. 실제 raw graph는 n과 m으로 희소 공간을 추정하고 numeric→union-kNN은 생성 비용을 별도로 반영한다. 화면 자원 안내도 실제 m을 전달한다. MCL/Walktrap은 n², G-Means는 원본 d², K-Shape는 파형 길이 L², CLIQUE/Bimax/CPM은 실제 탐색·출력 증가를 검사한다. COP은 ML 성분·희소 CL 관계, 이산 혼합은 nd 원본·nK posterior·Kd 모수를 반영한다. CPM의 조합 상계는 기록 세분도용이고0-clique 희소 입력을 무조건 거부하는 점 수 제한이 아니다. 이 추정은 브라우저 가용 메모리나 GC peak의 측정값이 아니다. [PERFORMANCE.md](PERFORMANCE.md)의 관측과 구분한다.
+
+### 신규6개 수학 계약과 실제 분석
+
+- COP은 원본 행순서 pointwise greedy와 ML 전이 성분·유도 CL을 사용한다. 매 후보의 실제 ND 거리/허용 여부·위반 witness·부분 할당을 기록하고 feasible 분할이 있어도 greedy 실패할 수 있다. 실패는 전역 불가능성 증명이 아니며 Worker가 실패 부분 Trace를 성공 결과처럼 반환하지 않는다. 성공 결과만 실제 중심/SSE·hard 준수·정지 이유를 갖는다. [CONSTRAINED](research/CONSTRAINED.md)
+- 이산 혼합은 조건부 독립 Bernoulli/Poisson 또는 실제 행 총수를 조건으로 한 Multinomial 무prior ML EM이다. support 내부 초기화와 M-step smoothing은 다르다. 실제0 모수·빈 성분·0 trial·비식별성을 공개한다. M 후 전체 posterior와 정규화 상수를 포함한 sumLL를 재평가하여 현재 모수와 일치시키고, 갱신에 사용한 이전 통계는 별도 보존한다. [DISCRETE_MIXTURES](research/DISCRETE_MIXTURES.md)
+- Walktrap은 canonical 간선에서 가중 incident 평균 인공 loop를 보행 전용으로 더한 전체 Pᵗ와 인접 Ward 계층을 계산한다. 원본 그래프 Q로 계층의 cut을 선택하며 CNM식 ΔQ 병합이나 전역 최대Q 탐색이 아니다. CPM은 모든 k-clique와 실제 공유(k−1)-face 연결 성분의 중첩 cover다. objectiveName은 목적함수 없음,−1은 clique 비소속이고 통계적 noise가 아니다. [GRAPH_FOLLOWUP](research/GRAPH_FOLLOWUP.md)
+
+native communities는 해당할 때만 objectiveName·communities·dendrogram/selectedLevel을 추가한다. memberships는 MCL/CPM의 **커뮤니티별 원본 노드 목록**이며 이산 혼합의 n×K 확률 행렬과 다르다. [extension-integration.test.ts](../src/engine/extension-integration.test.ts)는 동적 API·실제 숨은 차원·native 수식·바이트 검사·임의 표시·역진/checkpoint를 검증한다.
 
 ### 실제 내부 Trace와 전용 시각화
 
 Recorder의 patch/undo·희소 label/center 변화·48이벤트 checkpoint를 유지한다. analysisDelta는 변경 필드의 before/after를 기록하고 불변 원본/행렬/간선/계층은 공유한다. 원본 수치·범주·행렬·파형과 MCL transition이 매 이벤트 전체 복사되지 않도록 실제 불변성을 검사한다. 역진·체크포인트·최종 출력 일치를 단위 및 [typed-integration.test.ts](../src/engine/typed-integration.test.ts)에서 검증한다.
 
-새 전용 분석은 자동 K의 국소 BIC/AD/dip/bootstrap/중심, 커뮤니티 ΔQ/refinement/집약/Brandes 점수/MCL 행렬/CNM 병합/Fluid 밀도, 범주 빈도·실제 prototype, CLIQUE 격자/영역·PROCLUS 축/medoid, DenStream 감쇠 CF, 행렬 잔차·이중 소속, K-Shape NCC/정렬/고유형태를 표시한다. Canvas의 색상 분할이 중첩/부분공간/이중군집 전체 결과를 대체하지 않는다.
+새 전용 분석은 자동 K의 국소 BIC/AD/dip/bootstrap/중심, 커뮤니티 ΔQ/refinement/집약/Brandes 점수/MCL 행렬/CNM 병합/Fluid 밀도, 범주 빈도·실제 prototype, CLIQUE 격자/영역·PROCLUS 축/medoid, DenStream 감쇠 CF, 행렬 잔차·이중 소속, K-Shape NCC/정렬/고유형태를 유지한다. 여기에 COP 허용 후보/관계·이산 분포별 확률/강도/정수 빈도·실제 posterior·Walktrap 행 확률/Ward/실제 계층·CPM clique/face/중첩을 연결했다. Canvas의 색상 분할이 중첩/부분공간/이중군집 전체 결과를 대체하지 않는다.
 
 행렬/수치 표는 페이지 표시, Canvas는 가시 영역/LOD, 그래프 계층은 표시 배치를 사용한다. 표시 생략과 전체 계산을 구분한다. 큰 입력은 실제 첫 이동/주요 단계/패스 요약 등 기록 세분도를 낮추며 생략된 모든 상세 이벤트를 되살릴 수 있다고 하지 않는다. 보간은 시각 효과이며 이산 계산의 실제 중간 상태로 표시하지 않는다. reduced-motion을 따른다.
 
@@ -46,13 +58,15 @@ Recorder의 patch/undo·희소 label/center 변화·48이벤트 checkpoint를 �
 
 `datasetHistory.ts`는 최대 100작업의 경로 기반 변경과 배열 splice를 저장한다. 희소 셀 수정은 수정 값만, 새 관측은 추가된 샘플만 보존하고 관련 없는 행 객체를 공유한다. 복원 시 변경 경로의 배열 컨테이너 복사는 O(n)일 수 있고, 조밀 교체/형식 변경은 전체 변경 배열을 보존할 수 있다. 완전한 O(1) 편집이나 디스크 영속 히스토리가 아니다. 기존 점 편집기의 제스처·히스토리는 별도 경로로 유지한다.
 
+`ConstraintEditor`는 내부 ND 속성 표와 별도의 ML/CL 관계 편집을 연결하고 인덱스·추이 모순을 확인한다. 실제 관계 추가/수정/삭제는 같은 Dataset/히스토리/Worker 입력을 갱신한다. 이는 임의 그래프의 시각적 간선과 다른 hard 관계이며, 모든 제약 알고리즘에 공통 실행 지원을 뜻하지 않는다.
+
 스트림 유입 컨트롤은 관측을 실제 timestamp로 추가한다. 현재 화면은 변경된 **전체 prefix를 Worker에서 재계산**한다. `DenStreamModel` 자체는 과거 관측을 보관하지 않는 온라인 CF 상태지만 화면의 파일/편집/되감기는 전체 샘플을 보존한다. 네트워크 무한 스트림이나 영속 Worker 증분 세션이 구현됐다고 표시하지 않는다.
 
 ### 남은 구조 과제
 
-TypedArray/transferable, 파일 청크/스트리밍 파서, 영속 계산 세션, 희소/FFT 고유해, heap 기반 CNM/Dijkstra, fast kNN, 비교의 원본 다중 데이터 확장, 3D 회전, 방향/음수 그래프, constrained 실행은 미완료다. Leiden은 한 계층 iteration, MCL은 밀집 exact 연산, K-Shape는 직접 O(L²) NCC이며 각 연구 문서의 제한을 유지한다. 신규 UI의 전체 브라우저·대규모 전송·장시간 peak/누수·취소 지연·Pages 공개 확인은 검증 중이다.
+TypedArray/transferable, 파일 청크/스트리밍 파서, 영속 계산 세션, 희소/FFT 고유해, heap 기반 CNM/Dijkstra/Walktrap, fast kNN, 비교의 원본 다중 데이터 확장, 3D 회전, 방향/음수 그래프와 COP 외 제약 엔진은 미완료다. Leiden은 한 계층 iteration, MCL/Walktrap은 밀집 상태, K-Shape는 직접 O(L²) NCC이며 각 연구 문서의 제한을 유지한다. 신규6개 UI의 전체 브라우저·대규모 전송·장시간 peak/누수·취소 지연·Pages 공개 확인은 아직 확정하지 않았다.
 
-### 재개 검증 현황 보완
+### 안정44개 개발 중 검증 기록 (보존)
 
 독립 reference 생성 스크립트 7개를 통합 환경에서 다시 실행해 모두 성공했다. 전체 Vitest는 426/426 통과 후 PROCLUS native output의 독립 부분공간/influence 검증 1개를 추가해 개별 통과했다. 최종 전체 427개 재실행은 아직 확정하지 않는다. 신규 [next-platform.spec.ts](../tests/next-platform.spec.ts)의 8개 시나리오는 Chromium/mobile에서 16/16 통과했다. 실제 추가 19개 엔진 Worker, 원본 1,000행×12열 편집·전체 계산, 7개 폭을 포함한다. 캐시 적중 시 traceIsCurrent 판정 문제를 수정해 현재 Trace의 결과 내보내기가 정상 작동한다. 추가 가이드 이동 검사는 진행 중이며, 전체 기존 회귀·Firefox/WebKit·원격 배포는 미실행 상태다. 상세 검증 범위는 [VALIDATION.md](VALIDATION.md)를 따른다.
 

@@ -1,0 +1,1647 @@
+{
+  "oracle": "NumPy 2.5.4; explicit pair closure/full relation scan; small exhaustive K**n feasibility and SSE (not proof of greedy global optimum)",
+  "cases": [
+    {
+      "values": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0.1
+        ],
+        [
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          0,
+          3.1
+        ]
+      ],
+      "k": 2,
+      "seed": 42,
+      "mustLink": [
+        [
+          0,
+          1
+        ]
+      ],
+      "cannotLink": [
+        [
+          1,
+          2
+        ]
+      ],
+      "iterations": 10,
+      "tolerance": 1e-09,
+      "initialization": [
+        2,
+        0
+      ],
+      "states": [
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 1,
+          "labels": [
+            1,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.010000000000000002,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 2,
+          "labels": [
+            1,
+            1,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 3,
+          "labels": [
+            1,
+            1,
+            0,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.010000000000000018,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "move",
+          "iteration": 1,
+          "labels": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "centroids": [
+            [
+              0.0,
+              0.0,
+              3.05
+            ],
+            [
+              0.0,
+              0.0,
+              0.05
+            ]
+          ],
+          "objective": 0.010000000000000009,
+          "movement": 0.05
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0025000000000000005,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 1,
+          "labels": [
+            1,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0025000000000000005,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 2,
+          "labels": [
+            1,
+            1,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0024999999999999823,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 3,
+          "labels": [
+            1,
+            1,
+            0,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0025000000000000265,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "move",
+          "iteration": 2,
+          "labels": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "centroids": [
+            [
+              0.0,
+              0.0,
+              3.05
+            ],
+            [
+              0.0,
+              0.0,
+              0.05
+            ]
+          ],
+          "objective": 0.010000000000000009,
+          "movement": 0.0
+        }
+      ],
+      "failed": false,
+      "stopReason": "labels-stable",
+      "feasible": [
+        {
+          "labels": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "sse": 6.206666666666666
+        },
+        {
+          "labels": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "sse": 0.010000000000000009
+        },
+        {
+          "labels": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "sse": 0.010000000000000009
+        },
+        {
+          "labels": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "sse": 6.206666666666666
+        }
+      ]
+    },
+    {
+      "values": [
+        [
+          0
+        ],
+        [
+          10
+        ],
+        [
+          0
+        ],
+        [
+          10
+        ]
+      ],
+      "k": 2,
+      "seed": 8,
+      "mustLink": [
+        [
+          0,
+          1
+        ]
+      ],
+      "cannotLink": [],
+      "iterations": 10,
+      "tolerance": 1e-09,
+      "initialization": [
+        0,
+        3
+      ],
+      "states": [
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 1,
+          "labels": [
+            0,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": false
+            },
+            {
+              "cluster": 0,
+              "distanceSquared": 100.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 2,
+          "labels": [
+            0,
+            0,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 3,
+          "labels": [
+            0,
+            0,
+            0,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "move",
+          "iteration": 1,
+          "labels": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "centroids": [
+            [
+              3.3333333333333335
+            ],
+            [
+              10.0
+            ]
+          ],
+          "objective": 66.66666666666666,
+          "movement": 3.3333333333333335
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 11.111111111111112,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 1,
+          "labels": [
+            0,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": false
+            },
+            {
+              "cluster": 0,
+              "distanceSquared": 44.444444444444436,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 2,
+          "labels": [
+            0,
+            0,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 11.111111111111112,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 3,
+          "labels": [
+            0,
+            0,
+            0,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "move",
+          "iteration": 2,
+          "labels": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "centroids": [
+            [
+              3.3333333333333335
+            ],
+            [
+              10.0
+            ]
+          ],
+          "objective": 66.66666666666666,
+          "movement": 0.0
+        }
+      ],
+      "failed": false,
+      "stopReason": "labels-stable",
+      "feasible": [
+        {
+          "labels": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sse": 100.0
+        },
+        {
+          "labels": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "sse": 66.66666666666666
+        },
+        {
+          "labels": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "sse": 66.66666666666667
+        },
+        {
+          "labels": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "sse": 100.0
+        },
+        {
+          "labels": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "sse": 100.0
+        },
+        {
+          "labels": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "sse": 66.66666666666667
+        },
+        {
+          "labels": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "sse": 66.66666666666666
+        },
+        {
+          "labels": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "sse": 100.0
+        }
+      ]
+    },
+    {
+      "values": [
+        [
+          0
+        ],
+        [
+          0.05
+        ],
+        [
+          3
+        ],
+        [
+          3.05
+        ]
+      ],
+      "k": 2,
+      "seed": 42,
+      "mustLink": [],
+      "cannotLink": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "iterations": 10,
+      "tolerance": 1e-09,
+      "initialization": [
+        2,
+        0
+      ],
+      "states": [
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 1,
+          "labels": [
+            1,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0025000000000000005,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 2,
+          "labels": [
+            1,
+            1,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 3,
+          "labels": [
+            1,
+            1,
+            0,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0024999999999999823,
+              "allowed": false
+            },
+            {
+              "cluster": 1,
+              "distanceSquared": 9.302499999999998,
+              "allowed": false
+            }
+          ]
+        }
+      ],
+      "failed": true,
+      "stopReason": "greedy-failure",
+      "feasible": [
+        {
+          "labels": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "sse": 9.0025
+        },
+        {
+          "labels": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "sse": 9.0025
+        }
+      ]
+    },
+    {
+      "values": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "k": 2,
+      "seed": 42,
+      "mustLink": [],
+      "cannotLink": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "iterations": 10,
+      "tolerance": 1e-09,
+      "initialization": [
+        1,
+        0
+      ],
+      "states": [
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 1,
+          "labels": [
+            1,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 2,
+          "labels": [
+            1,
+            0,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 1.0,
+              "allowed": false
+            },
+            {
+              "cluster": 1,
+              "distanceSquared": 4.0,
+              "allowed": false
+            }
+          ]
+        }
+      ],
+      "failed": true,
+      "stopReason": "greedy-failure",
+      "feasible": []
+    },
+    {
+      "values": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ]
+      ],
+      "k": 3,
+      "seed": 7,
+      "mustLink": [],
+      "cannotLink": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "iterations": 10,
+      "tolerance": 1e-09,
+      "initialization": [
+        0,
+        1,
+        2
+      ],
+      "states": [
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 1,
+          "labels": [
+            0,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": false
+            },
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 2,
+          "labels": [
+            0,
+            1,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": false
+            },
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": false
+            },
+            {
+              "cluster": 2,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "move",
+          "iteration": 1,
+          "labels": [
+            0,
+            1,
+            2
+          ],
+          "centroids": [
+            [
+              0.0
+            ],
+            [
+              0.0
+            ],
+            [
+              0.0
+            ]
+          ],
+          "objective": 0.0,
+          "movement": 0.0
+        }
+      ],
+      "failed": false,
+      "stopReason": "center-tolerance",
+      "feasible": [
+        {
+          "labels": [
+            0,
+            1,
+            2
+          ],
+          "sse": 0.0
+        },
+        {
+          "labels": [
+            0,
+            2,
+            1
+          ],
+          "sse": 0.0
+        },
+        {
+          "labels": [
+            1,
+            0,
+            2
+          ],
+          "sse": 0.0
+        },
+        {
+          "labels": [
+            1,
+            2,
+            0
+          ],
+          "sse": 0.0
+        },
+        {
+          "labels": [
+            2,
+            0,
+            1
+          ],
+          "sse": 0.0
+        },
+        {
+          "labels": [
+            2,
+            1,
+            0
+          ],
+          "sse": 0.0
+        }
+      ]
+    },
+    {
+      "values": [
+        [
+          0
+        ],
+        [
+          0.2
+        ],
+        [
+          0.4
+        ],
+        [
+          0.6
+        ],
+        [
+          2
+        ]
+      ],
+      "k": 2,
+      "seed": 19,
+      "mustLink": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "cannotLink": [
+        [
+          2,
+          4
+        ]
+      ],
+      "iterations": 10,
+      "tolerance": 1e-09,
+      "initialization": [
+        0,
+        4
+      ],
+      "states": [
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 1,
+          "labels": [
+            0,
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.04000000000000001,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 2,
+          "labels": [
+            0,
+            0,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.16000000000000003,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 3,
+          "labels": [
+            0,
+            0,
+            0,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.36,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 4,
+          "labels": [
+            0,
+            0,
+            0,
+            0,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "move",
+          "iteration": 1,
+          "labels": [
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "centroids": [
+            [
+              0.30000000000000004
+            ],
+            [
+              2.0
+            ]
+          ],
+          "objective": 0.19999999999999998,
+          "movement": 0.30000000000000004
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.09000000000000002,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 1,
+          "labels": [
+            0,
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.010000000000000007,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 2,
+          "labels": [
+            0,
+            0,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.009999999999999995,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 3,
+          "labels": [
+            0,
+            0,
+            0,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.08999999999999996,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 4,
+          "labels": [
+            0,
+            0,
+            0,
+            0,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "move",
+          "iteration": 2,
+          "labels": [
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "centroids": [
+            [
+              0.30000000000000004
+            ],
+            [
+              2.0
+            ]
+          ],
+          "objective": 0.19999999999999998,
+          "movement": 0.0
+        }
+      ],
+      "failed": false,
+      "stopReason": "labels-stable",
+      "feasible": [
+        {
+          "labels": [
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "sse": 0.19999999999999998
+        },
+        {
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "sse": 1.06
+        },
+        {
+          "labels": [
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "sse": 1.06
+        },
+        {
+          "labels": [
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "sse": 0.19999999999999998
+        }
+      ]
+    },
+    {
+      "values": [
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "k": 1,
+      "seed": 42,
+      "mustLink": [],
+      "cannotLink": [],
+      "iterations": 10,
+      "tolerance": 1e-09,
+      "initialization": [
+        0
+      ],
+      "states": [
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 0,
+          "labels": [
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "move",
+          "iteration": 1,
+          "labels": [
+            0
+          ],
+          "centroids": [
+            [
+              1.0,
+              2.0,
+              3.0
+            ]
+          ],
+          "objective": 0.0,
+          "movement": 0.0
+        }
+      ],
+      "failed": false,
+      "stopReason": "center-tolerance",
+      "feasible": [
+        {
+          "labels": [
+            0
+          ],
+          "sse": 0.0
+        }
+      ]
+    },
+    {
+      "values": [
+        [
+          0
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          5
+        ]
+      ],
+      "k": 2,
+      "seed": 42,
+      "mustLink": [
+        [
+          0,
+          3
+        ]
+      ],
+      "cannotLink": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "iterations": 10,
+      "tolerance": 1e-09,
+      "initialization": [
+        2,
+        0
+      ],
+      "states": [
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 1,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 1,
+          "labels": [
+            1,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 1.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 2,
+          "labels": [
+            1,
+            0,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 1,
+          "row": 3,
+          "labels": [
+            1,
+            0,
+            0,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 4.0,
+              "allowed": false
+            },
+            {
+              "cluster": 1,
+              "distanceSquared": 25.0,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "move",
+          "iteration": 1,
+          "labels": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "centroids": [
+            [
+              2.5
+            ],
+            [
+              2.5
+            ]
+          ],
+          "objective": 13.0,
+          "movement": 2.5
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 0,
+          "labels": [
+            -2,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 6.25,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 1,
+          "labels": [
+            0,
+            -2,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.25,
+              "allowed": false
+            },
+            {
+              "cluster": 1,
+              "distanceSquared": 0.25,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 2,
+          "labels": [
+            0,
+            1,
+            -2,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 0.25,
+              "allowed": false
+            },
+            {
+              "cluster": 1,
+              "distanceSquared": 0.25,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "test-row",
+          "iteration": 2,
+          "row": 3,
+          "labels": [
+            0,
+            1,
+            1,
+            -2
+          ],
+          "candidates": [
+            {
+              "cluster": 0,
+              "distanceSquared": 6.25,
+              "allowed": true
+            }
+          ]
+        },
+        {
+          "phase": "move",
+          "iteration": 2,
+          "labels": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "centroids": [
+            [
+              2.5
+            ],
+            [
+              2.5
+            ]
+          ],
+          "objective": 13.0,
+          "movement": 0.0
+        }
+      ],
+      "failed": false,
+      "stopReason": "center-tolerance",
+      "feasible": [
+        {
+          "labels": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "sse": 13.0
+        },
+        {
+          "labels": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "sse": 13.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+.constraint-analysis {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+.constraint-analysis h3,
+.constraint-analysis h4,
+.constraint-analysis p {
+  margin: 0;
+}
+.constraint-analysis .matrix-scroll {
+  max-width: 100%;
+  overflow: auto;
+}
+.constraint-analysis table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.constraint-analysis th,
+.constraint-analysis td {
+  padding: 8px;
+  border-bottom: 1px solid var(--line, #dfe5e2);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.constraint-analysis td {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+.constraint-analysis details {
+  border: 1px solid var(--line, #dfe5e2);
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 0;
+}
+.constraint-analysis summary {
+  cursor: pointer;
+}
+.constraint-accept {
+  color: #34564d;
+  font-weight: 700;
+}
+.constraint-reject {
+  color: #963e36;
+  font-weight: 700;
+}
+.constraint-window {
+  min-width: 0;
+}
+.constraint-analysis svg {
+  width: 100%;
+  height: auto;
+}
+.constraint-static {
+  display: none;
+}
+.constraint-analysis input {
+  max-width: 90px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .constraint-analysis td {
+    transition: none;
+  }
+  .constraint-interpolated {
+    display: none;
+  }
+  .constraint-static {
+    display: block;
+  }
+}

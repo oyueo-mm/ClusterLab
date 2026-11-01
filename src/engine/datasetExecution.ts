@@ -7,6 +7,29 @@ import { Recorder } from "./trace";
 import type { Algorithm, Params, Trace, State } from "./types";
 export function nativeResult(state: State) {
   const a = state.analysis;
+  if (a?.kind === "constraints")
+    return {
+      kind: "constrained-partition" as const,
+      labels: state.labels,
+      centroids: a.centroids,
+      componentIds: a.componentIds,
+      componentCannotLink: a.componentCannotLink,
+      objective: a.objective,
+      converged: a.converged,
+      activeK: a.activeK,
+    };
+  if (a?.kind === "discrete-mixture")
+    return {
+      kind: "mixture" as const,
+      method: a.method,
+      labels: state.labels,
+      weights: a.weights,
+      parameters: a.parameters,
+      responsibilities: state.responsibilities,
+      logLikelihood: a.logLikelihood,
+      converged: a.converged,
+      support: a.support,
+    };
   if (a?.kind === "biclustering")
     return {
       kind: "biclustering" as const,
@@ -38,6 +61,11 @@ export function nativeResult(state: State) {
       memberships: a.memberships,
       objective: a.objective,
       converged: a.converged,
+      ...(a.objectiveName ? { objectiveName: a.objectiveName } : {}),
+      ...(a.communities ? { communities: a.communities } : {}),
+      ...(a.dendrogram
+        ? { dendrogram: a.dendrogram, selectedLevel: a.selectedLevel }
+        : {}),
     };
   if (a?.kind === "stream")
     return {
@@ -135,7 +163,12 @@ export function prepareDataset(
                       (sum, s) => sum + s.values.length * 64,
                       0,
                     )
-                  : 0;
+                  : data.kind === "constrained"
+                    ? data.data.values.length *
+                        data.data.values[0].length *
+                        32 +
+                      (data.mustLink.length + data.cannotLink.length) * 176
+                    : 0;
   if (estimate.workingBytes + rawBytes > DEFAULT_WORKING_BYTES)
     throw new Error(
       `메모리 예산 초과: 원본 데이터 포함 작업 공간 추정 ${((estimate.workingBytes + rawBytes) / 1048576).toFixed(1)} MiB.`,
@@ -168,6 +201,7 @@ export async function runDataset(
       "stream",
       "matrix",
       "timeseries",
+      "constrained",
     ].includes(data.kind)
       ? {
           sourceDimensions:
@@ -181,7 +215,9 @@ export async function runDataset(
                   ? data.samples[0].values.length
                   : data.kind === "timeseries"
                     ? data.series[0].values.length
-                    : undefined,
+                    : data.kind === "constrained"
+                      ? data.data.values[0].length
+                      : undefined,
         }
       : {}),
     ...(data.kind === "matrix"

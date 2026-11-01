@@ -1,0 +1,17 @@
+
+Running 2 tests using 1 worker
+
+node.exe : (node:23756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:23756) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\expansion.spec.ts:5:1 › catalog distinguishes all candidates from executable engines and filters without overflow (1.9s)
+(node:33500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [mobile] › tests\expansion.spec.ts:5:1 › catalog distinguishes all candidates from executable engines and filters without overflow (1.4s)
+
+  2 passed (4.8s)

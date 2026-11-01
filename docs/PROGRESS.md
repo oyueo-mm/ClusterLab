@@ -1,46 +1,24 @@
-﻿# 진행 기록 — 2026-11-01
+# 진행 기록 — 50개 엔진 통합
 
-전체 마스터 목표는 **미완료**다. 기준 main `4ac46eb`, 작업 브랜치 `feat/model-community-data-engines`에서 이어갔다. 직전 25개 기록은 [sessions/platform25/](sessions/platform25/)에 보존했다.
+> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
 
-## 구현 범위
+전체 마스터 목표는 미완료다. 안정44개(main826001d/제품fd78886)에서 `feat/constraints-mixtures-and-overlap`로 이어갔다. 직전 문서 원문은 [sessions/platform44](sessions/platform44/)에 보존했다.
 
-실행 가능한 소스 엔진 **44개 = 기존13 + 신규 후보31**. 후보119개 중 구현31개, **미구현88개**다. 이번 추가19개:
+현재 소스 **50개 = 기존13 + 후보37**, 후보119개 중 **82개 미구현**, 엄격한 마스터 완전 인증0개다. 새6개는 COP-KMeans, Bernoulli/Poisson/Multinomial Mixture, Walktrap, Clique Percolation이다. 이름만 추가한 것이 아니라 원본 계산·고유 Trace/분석·파라미터·수학 교재/손계산·실제 미니 실험·독립 oracle를 연결했다. 후보별119행과 분류는 ALGORITHM_REGISTRY를 따른다.
 
-- X-Means, G-Means, Dip-Means, DP-Means.
-- Louvain, Leiden, Label Propagation, Girvan–Newman, MCL, CNM, Fluid Communities.
-- K-Modes, K-Prototypes, CLIQUE, PROCLUS, DenStream.
-- Bimax, Cheng–Church Biclustering, K-Shape.
+COP는 실제 ND·ML closure/CL·pointwise greedy·hard-feasible SSE를 계산한다. 실패는 전역 불가능 증명이 아니다. 이산 혼합은 각 분포의 정규화상수 포함 로그우도·실제 ML EM·책임도를 계산하며 경계 MLE/빈 성분/미수렴을 구분한다. Walktrap은 전체 P^t·인접 Ward 병합·최고 원본Q cut, CPM은 전체 k-clique·공유 face 연결·중첩 cover/미소속을 반환한다. CPM의 −1은 통계적 노이즈가 아니다.
 
-실제 계산·전용 Trace·분석·파라미터·수학 가이드/수치 예제·실제 Worker 미니 실험·독립 수치 검증을 연결했다. 각 원문의 접근 범위·변형·한계는 research 문서에 있다. 엄격한 마스터 **완전 구현 인증0개(아직 미인증)**와 제한 범위의 실행 가능44개를 구분한다.
+실제 제약 관계 편집·delta Undo/Redo·네 가지 시드 생성기를 추가했다. 기존 원본 형식과 표시 축 분리, Worker 종료 취소, no-cap/byte 자원 검사, 기존 디자인을 유지한다. 정적 run API를 제품 경로에 넣지 않았다.
 
-## 데이터와 기존 기능
+## 이번에 확인한 검사
 
-ND, 범주형, 혼합형, 실제 가중 그래프, 행렬, 규칙적 시계열, 실제 시각 스트림을 원본으로 계산한다. constrained는 스키마/모순 검증만 있다. 표는16×8 표시 창이며 전체 원본을 보존한다. 셀/간선 가중치/노드·행렬·시계열 값·유입을 편집하고 최대100작업을 경로/splice delta로 되돌린다.
+- 타입·ESLint·프로덕션 빌드 통과.
+- 독립 oracle 세 스크립트 재생성 성공: COP8사례/27 feasible labeled partitions, 이산3단계/6 EM 실행, Walktrap5/CPM273입력. 입력 사례를 테스트 함수 수로 부풀리지 않는다.
+- 전체 Vitest **509/509·37파일** 통과. 원자료 platform50/unit-final.json.
+- 신규 Chromium/mobile **8/8** 통과(4시나리오×2). 최초4성공/4실패는 잘못된 기본 관계 가정과 접힌 트리 접근을 테스트에서 수정했다. 두 실행 원자료를 보존한다.
+- 기존13 엔진·32프리셋·홈·v03/v04·workflow·의존성 **20파일**의 Git clean-filter blob이4ac46eb와 동일하다. Windows CRLF 원시바이트 차이를 소스 변경으로 세지 않는다.
+- 전체 브라우저·cross·Git/Actions/Pages는 현재 검증 중이다. 최종 결과는 SESSION_REPORT의 마지막 확정 기록을 따른다. 현재 공개판44개의 성공을50개 성공으로 전용하지 않는다.
 
-native 결과는 CLIQUE 중첩 부분공간, PROCLUS 선택 차원/medoid/influence, 실제 커뮤니티/이중군집 행열 소속/시계열 중심/CF 요약을 보존한다. Worker에 원본을 보내고 표시 배열의 중복 전송은 생략한다. 완료 캐시의 표시 참조는 유지한다. 취소는 실제 Worker 종료다. DenStream class는 증분 CF지만 UI 유입은 prefix 전체를 재계산한다.
+## 계속할 작업
 
-600개 상한 및 새로운 전역 개수 상한을 도입하지 않았다. 작업 공간/차원/간선/문자열·Trace 바이트 예산으로 위험 할당을 거부하고 전체 계산과 표시/기록 세분도를 구분한다. 파일 입력은 전체 JSON 문자열이며 청크 파서는 아직 없다.
-
-기존13엔진·32프리셋·HomeDemos·의존성·workflow는 기준 Git 객체와 동일하다. 홈4데모/11순환·편집/제스처·CSV/JSON·최대4비교·기존 디자인 회귀를 검사한다. typed 데이터끼리의 비교 화면은 아직 없다.
-
-## 검증 체크포인트
-
-타입·ESLint·프로덕션 빌드 통과. 최종 전체 단위/통합 **428/428,32파일** 통과. 독립 Python7종을 실제 재생성했다. NumPy2.5.4/SciPy1.18.1/diptest0.11.0/NetworkX3.6.1/igraph1.0.0/leidenalg0.12.0은 검증 전용이며 제품 의존성을 늘리지 않았다.
-
-신규 Chromium/mobile9시나리오 **18/18 통과**. 실제19 Worker·원본 수치 변화·Undo/Redo·전용 출력 다운로드·스트림 유입·오류·1000×12 전체 계산/마지막 셀·7개 폭·raw 가이드 단계 보존을 검사했다. 전체 기존 회귀/cross/Actions/Pages는 진행 중이며 마지막 확정 결과는 SESSION_REPORT를 따른다. 초기 실패와 수정 후 실행을 구분한다.
-
-## 미완료·후속
-
-후보88개 및119개 전수 원문 조사, 제약/확률·혼합/남은 그래프·밀도·부분공간/실제 신경망·추가 행렬·시계열을 계속한다. typed 비교/추가 지표,3D회전/PCA·시각 그래프 편집, Worker pool/계산 pause/증분 UI·transferable/청크 파서·장시간 peak/FPS도 남아 있다.
-
-커밋 SHA/main/배포의 최종 상태는 [SESSION_REPORT](SESSION_REPORT.md), 재개 명령은 [CONTINUE](CONTINUE.md)를 따른다. 전체 완료로 보고하거나 사용자에게 마스터 지시문을 다시 요청하지 않는다.
-
-최종 릴리스 전 보완: 전체428개·32파일, Chromium/mobile 고유64성공/12기존 조건부 생략(최초62/2실패 후44교재2재검사), Firefox/WebKit24/24가 확정됐다. 신규18개는64개에 포함되며 중복 합산하지 않는다. 최초·수정 후·cross 증거는 platform44에 있다. 원격CI/Pages는 SESSION_REPORT 마지막 기록에서 확정한다.
-
-## 마지막 Git 체크포인트
-
-구현 커밋 `a81a931d7b8f0e698989fcc85bdf988f8ef3aebf`을 작업 브랜치와 main에 fast-forward/push했다. [Actions41256051227](https://github.com/oyueo-mm/ClusterLab/actions/runs/41256051227)이 진행 중이다. 공개 배포는 아직 확정하지 않았다. 원격 실패가 있으면 해당 실제 원인을 고친 뒤 검증하고 후속 정상 커밋으로 이어간다.
-
-## 최종 안정 배포
-
-제품소스fd78886(main), Actions41257323667 validate/deploy 성공. 원격428단위·통합/32파일과 단일 전체브라우저64성공/12기존 조건부생략/0실패. 공개34구성의 초기실행·환경실패 재검사와 최종호환성4구성은 SESSION_REPORT에 구분했다. 실행44개/후보31구현·88미구현/마스터완전인증0개를 유지한다. 로컬preview4273은 정리했다. 다음 세로 단위를 기존 마스터 범위에서 계속한다.
+후보82개의 실제 구현·전수 원문 조사, 남은 soft 제약/퍼지·확률·밀도·계층/그래프·부분공간·실제 신경망·순차/스트림/행렬/시계열을 계속한다. typed 비교·추가 지표, 3D/PCA, 대형 파일 청크/transferable, Worker pool/계산 pause, 무한 스트림 UI, 장시간 peak/FPS는 미완료다. 제한적 실행 가능 수를 완전 인증 수로 표시하지 않는다.

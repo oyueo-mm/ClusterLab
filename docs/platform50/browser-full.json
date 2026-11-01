@@ -1,0 +1,3381 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\playwright.config.ts",
+    "rootDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "C:/Users/hihi9/Desktop/Projects/ClusterLab/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "snapshotDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4273/ClusterLab/",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "mobile",
+        "testDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "snapshotDir": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4273/ClusterLab/",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E148 Safari/604.1",
+          "viewport": {
+            "width": 390,
+            "height": 664
+          },
+          "screen": {
+            "width": 390,
+            "height": 844
+          },
+          "deviceScaleFactor": 3,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "mobile"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": ".local/e2e-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "constraints-models.spec.ts",
+      "file": "constraints-models.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7741,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:12.408Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dac9ff2132bcede6e4d3-772841757d38a0e63418",
+          "file": "constraints-models.spec.ts",
+          "line": 196,
+          "column": 1
+        },
+        {
+          "title": "three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6889,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:20.269Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dac9ff2132bcede6e4d3-ca55a7f2e9e4d66cc9b2",
+          "file": "constraints-models.spec.ts",
+          "line": 414,
+          "column": 1
+        },
+        {
+          "title": "Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2676,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:27.166Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dac9ff2132bcede6e4d3-912f957f4f177b67791b",
+          "file": "constraints-models.spec.ts",
+          "line": 535,
+          "column": 1
+        },
+        {
+          "title": "1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2567,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:29.850Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dac9ff2132bcede6e4d3-0ae16780fadeb2e87bb0",
+          "file": "constraints-models.spec.ts",
+          "line": 658,
+          "column": 1
+        },
+        {
+          "title": "COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7419,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:29:55.834Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dac9ff2132bcede6e4d3-33d0520e7af378da20aa",
+          "file": "constraints-models.spec.ts",
+          "line": 196,
+          "column": 1
+        },
+        {
+          "title": "three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6400,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:03.379Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dac9ff2132bcede6e4d3-2ffd7ee855b752f624f3",
+          "file": "constraints-models.spec.ts",
+          "line": 414,
+          "column": 1
+        },
+        {
+          "title": "Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2517,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:09.785Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dac9ff2132bcede6e4d3-a1187a151b9854a4abe5",
+          "file": "constraints-models.spec.ts",
+          "line": 535,
+          "column": 1
+        },
+        {
+          "title": "1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3934,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:12.308Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dac9ff2132bcede6e4d3-e5c2ec2abeca93c3d441",
+          "file": "constraints-models.spec.ts",
+          "line": 658,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "expansion.spec.ts",
+      "file": "expansion.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "catalog distinguishes all candidates from executable engines and filters without overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1256,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:32.455Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de5dd86fe8d99c93f505-2b10f90e141ca4939ee0",
+          "file": "expansion.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "new algorithms compute actual events in production workers and reversible playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1224,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:33.719Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de5dd86fe8d99c93f505-63c7ce8827db7d95d926",
+          "file": "expansion.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "100k import has no truncation and cancellation actually terminates its worker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2537,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:34.950Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de5dd86fe8d99c93f505-e7a2c480f4e325fc1d55",
+          "file": "expansion.spec.ts",
+          "line": 93,
+          "column": 1
+        },
+        {
+          "title": "catalog distinguishes all candidates from executable engines and filters without overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1296,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:16.276Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de5dd86fe8d99c93f505-03b0fb69da4684a95eaf",
+          "file": "expansion.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "new algorithms compute actual events in production workers and reversible playback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1261,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:17.578Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de5dd86fe8d99c93f505-9e41e97029258a262a85",
+          "file": "expansion.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "100k import has no truncation and cancellation actually terminates its worker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3259,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:18.845Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "de5dd86fe8d99c93f505-a865ca2f5d46075d5a40",
+          "file": "expansion.spec.ts",
+          "line": 93,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "next-platform.spec.ts",
+      "file": "next-platform.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "six numeric engines run real split, penalty and subspace operations with reversible analysis",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4738,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:37.503Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-60f81db68ca569aaf721",
+          "file": "next-platform.spec.ts",
+          "line": 171,
+          "column": 1
+        },
+        {
+          "title": "seven graph engines consume actual connected edges and expose their distinct operations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6658,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:42.251Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-756b4e6513ceedc6a7fa",
+          "file": "next-platform.spec.ts",
+          "line": 209,
+          "column": 1
+        },
+        {
+          "title": "six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4894,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:48.930Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-fd1bdf66d36e0725c99c",
+          "file": "next-platform.spec.ts",
+          "line": 260,
+          "column": 1
+        },
+        {
+          "title": "category and mixed table edits alter actual model statistics and Undo/Redo restores original input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2890,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:53.838Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-816c83961b479cc7c50b",
+          "file": "next-platform.spec.ts",
+          "line": 341,
+          "column": 1
+        },
+        {
+          "title": "graph weights, matrix cells and time series values are editable mathematical inputs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3270,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:21:56.735Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-ce2dfa57bee8c3bcf236",
+          "file": "next-platform.spec.ts",
+          "line": 394,
+          "column": 1
+        },
+        {
+          "title": "stream arrivals increase the computed prefix and actual CF time; automatic input can pause",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3425,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:00.014Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-bd5ea3769aec6f60fa0a",
+          "file": "next-platform.spec.ts",
+          "line": 472,
+          "column": 1
+        },
+        {
+          "title": "typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2213,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:03.447Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-354fe4dd74f81e4b1e8a",
+          "file": "next-platform.spec.ts",
+          "line": 505,
+          "column": 1
+        },
+        {
+          "title": "a thousand raw rows remain computed and editable through a bounded table at seven viewport widths",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5061,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:05.668Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-de7b7aa2d93ae4fdad9f",
+          "file": "next-platform.spec.ts",
+          "line": 539,
+          "column": 1
+        },
+        {
+          "title": "the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2365,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:10.739Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-47d9e954a5d713b12812",
+          "file": "next-platform.spec.ts",
+          "line": 603,
+          "column": 1
+        },
+        {
+          "title": "six numeric engines run real split, penalty and subspace operations with reversible analysis",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4724,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:22.127Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-4880e7ee76d2596e1d0d",
+          "file": "next-platform.spec.ts",
+          "line": 171,
+          "column": 1
+        },
+        {
+          "title": "seven graph engines consume actual connected edges and expose their distinct operations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5981,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:26.857Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-77510406641db17669c3",
+          "file": "next-platform.spec.ts",
+          "line": 209,
+          "column": 1
+        },
+        {
+          "title": "six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4682,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:32.845Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-95a5ba65834688f1b528",
+          "file": "next-platform.spec.ts",
+          "line": 260,
+          "column": 1
+        },
+        {
+          "title": "category and mixed table edits alter actual model statistics and Undo/Redo restores original input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3098,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:37.535Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-2f1ce36ac397976acee4",
+          "file": "next-platform.spec.ts",
+          "line": 341,
+          "column": 1
+        },
+        {
+          "title": "graph weights, matrix cells and time series values are editable mathematical inputs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3841,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:40.647Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-34df41577525afff0099",
+          "file": "next-platform.spec.ts",
+          "line": 394,
+          "column": 1
+        },
+        {
+          "title": "stream arrivals increase the computed prefix and actual CF time; automatic input can pause",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3801,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:44.496Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-7910f2198398f3b0ae67",
+          "file": "next-platform.spec.ts",
+          "line": 472,
+          "column": 1
+        },
+        {
+          "title": "typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2949,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:48.316Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-8ab1a71e398da83a40cf",
+          "file": "next-platform.spec.ts",
+          "line": 505,
+          "column": 1
+        },
+        {
+          "title": "a thousand raw rows remain computed and editable through a bounded table at seven viewport widths",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10001,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:30:51.278Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-559829f05ba81c34d56a",
+          "file": "next-platform.spec.ts",
+          "line": 539,
+          "column": 1
+        },
+        {
+          "title": "the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2653,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:01.288Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "58a7954fbd23001cdfa7-53969254a7c8884c5962",
+          "file": "next-platform.spec.ts",
+          "line": 603,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "platform.spec.ts",
+      "file": "platform.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "ten new engines expose real events, dedicated analysis and reversible production traces",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6472,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:13.131Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-fbf50aa32095795d50f0",
+          "file": "platform.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "ND raw computation survives projection changes; weighted graph ignores display positions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3296,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:19.613Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-93926013a5c034b05bc3",
+          "file": "platform.spec.ts",
+          "line": 93,
+          "column": 1
+        },
+        {
+          "title": "unsupported structured data and contradictory constraints fail explicitly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 753,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:22.916Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-cb154564ab923b2e3436",
+          "file": "platform.spec.ts",
+          "line": 186,
+          "column": 1
+        },
+        {
+          "title": "ten new engines expose real events, dedicated analysis and reversible production traces",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7114,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:03.984Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-6d1089203dba43434bb5",
+          "file": "platform.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "ND raw computation survives projection changes; weighted graph ignores display positions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4654,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:11.108Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-60e7308a4d94815ae7dc",
+          "file": "platform.spec.ts",
+          "line": 93,
+          "column": 1
+        },
+        {
+          "title": "unsupported structured data and contradictory constraints fail explicitly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 752,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:15.770Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "310f5d38cd89ad55ea3f-954efe1957a5ca2f8a6f",
+          "file": "platform.spec.ts",
+          "line": 186,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "quality.spec.ts",
+      "file": "quality.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "home visual evidence and sustained animation frame timings",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5303,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:23.686Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f46baca133b10bf87db1-3905f72f8f4289551578",
+          "file": "quality.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "real data editing, CSV import, label preservation and JSON download",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1109,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:28.996Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f46baca133b10bf87db1-4beb1e62f6d4710bc859",
+          "file": "quality.spec.ts",
+          "line": 96,
+          "column": 1
+        },
+        {
+          "title": "home visual evidence and sustained animation frame timings",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5478,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:16.540Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f46baca133b10bf87db1-c20424d15270ed8447ae",
+          "file": "quality.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "real data editing, CSV import, label preservation and JSON download",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1267,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:22.027Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f46baca133b10bf87db1-11d3525f381a55cce16e",
+          "file": "quality.spec.ts",
+          "line": 96,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "site.spec.ts",
+      "file": "site.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "home demo, navigation, playback pause/resume/seek and mobile layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1918,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:30.121Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5c02723ad68c2a0d50c5-715e3ec1950c5b44d476",
+          "file": "site.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "all algorithms run to completion in actual Workers with dedicated analyses",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11356,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:32.046Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5c02723ad68c2a0d50c5-d52fa3d162eee3fc69cc",
+          "file": "site.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "dataset gallery, import/export UI, guide, compare and direct hash routing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1984,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:43.408Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5c02723ad68c2a0d50c5-853f9ed686169db046b1",
+          "file": "site.spec.ts",
+          "line": 105,
+          "column": 1
+        },
+        {
+          "title": "home demo, navigation, playback pause/resume/seek and mobile layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2156,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:23.320Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5c02723ad68c2a0d50c5-d8c14e00a7af722a4685",
+          "file": "site.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "all algorithms run to completion in actual Workers with dedicated analyses",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 12475,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:25.483Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5c02723ad68c2a0d50c5-0c529072041798e7ef29",
+          "file": "site.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "dataset gallery, import/export UI, guide, compare and direct hash routing",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2408,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:37.964Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5c02723ad68c2a0d50c5-ede7d0ae9470fba62293",
+          "file": "site.spec.ts",
+          "line": 105,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v02.spec.ts",
+      "file": "v02.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "four real home Workers share exactly the same source data and stop when not visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1031,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:45.408Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7abbfe996b02718659a-218a8e99acddfa3e45e5",
+          "file": "v02.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1225,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:46.446Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7abbfe996b02718659a-fe426db1f518d77faaf3",
+          "file": "v02.spec.ts",
+          "line": 119,
+          "column": 1
+        },
+        {
+          "title": "four real home Workers share exactly the same source data and stop when not visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1139,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:40.404Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7abbfe996b02718659a-1d38b612cb096f99b8e0",
+          "file": "v02.spec.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1559,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:41.550Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b7abbfe996b02718659a-d9093f860c96682f6835",
+          "file": "v02.spec.ts",
+          "line": 119,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v03.spec.ts",
+      "file": "v03.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "real bundled display/UI fonts, forest tokens and aligned responsive layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 570,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:47.705Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "38efdb781084cb24a6f8-b3789f48d41c3362a489",
+          "file": "v03.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "font failure uses fallbacks without clipping or disabling navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 594,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:48.291Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "38efdb781084cb24a6f8-0b51647a63273f0efaea",
+          "file": "v03.spec.ts",
+          "line": 101,
+          "column": 1
+        },
+        {
+          "title": "automatic cycle holds real final results, changes every preset/combination and wraps after exposing all 13",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 240000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 143748,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:22:48.891Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "38efdb781084cb24a6f8-d27f5ef0f2a61591f77d",
+          "file": "v03.spec.ts",
+          "line": 118,
+          "column": 1
+        },
+        {
+          "title": "labeled and categorical home cards transfer the exact original records into the lab",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 110000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 81037,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:25:12.646Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "38efdb781084cb24a6f8-9a7ca45792abc64bf38a",
+          "file": "v03.spec.ts",
+          "line": 231,
+          "column": 1
+        },
+        {
+          "title": "real bundled display/UI fonts, forest tokens and aligned responsive layout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 927,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:43.159Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "38efdb781084cb24a6f8-d56296207dc812948c38",
+          "file": "v03.spec.ts",
+          "line": 4,
+          "column": 1
+        },
+        {
+          "title": "font failure uses fallbacks without clipping or disabling navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 682,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:44.096Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "38efdb781084cb24a6f8-7dd20a3070e8f8e5250d",
+          "file": "v03.spec.ts",
+          "line": 101,
+          "column": 1
+        },
+        {
+          "title": "automatic cycle holds real final results, changes every preset/combination and wraps after exposing all 13",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Full cycle uses a desktop viewport with all four cards fully visible; mobile lifecycle/layout is covered separately.",
+                  "location": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v03.spec.ts",
+                    "line": 121,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 137,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:44.785Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Full cycle uses a desktop viewport with all four cards fully visible; mobile lifecycle/layout is covered separately.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v03.spec.ts",
+                        "line": 121,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "38efdb781084cb24a6f8-d74d5aeb9fa85447a816",
+          "file": "v03.spec.ts",
+          "line": 118,
+          "column": 1
+        },
+        {
+          "title": "labeled and categorical home cards transfer the exact original records into the lab",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Full round progression is checked on desktop; mobile selection is checked by the existing lifecycle test.",
+                  "location": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v03.spec.ts",
+                    "line": 234,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 124,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:44.930Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Full round progression is checked on desktop; mobile selection is checked by the existing lifecycle test.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v03.spec.ts",
+                        "line": 234,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "38efdb781084cb24a6f8-1c3e65d76918622e80ba",
+          "file": "v03.spec.ts",
+          "line": 231,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v04.spec.ts",
+      "file": "v04.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "compact task pages retain controls and consistently show Korean preset names",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 941,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:26:33.712Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "862a963887775b08bdea-c742ec7565cd14f8c663",
+          "file": "v04.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 23997,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:26:34.664Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "862a963887775b08bdea-969eeab557efd0a3a591",
+          "file": "v04.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "real Worker GMM renders initialization, E/M covariance motion and final ellipses in every home round",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 260000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 144131,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:26:58.673Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "GMM geometry from real Canvas calls",
+                      "contentType": "application/json",
+                      "body": "WwogIHsKICAgICJwcmVzZXQiOiAiYmxvYnMiLAogICAgImV2ZW50cyI6IDE2LAogICAgInNhbXBsZXMiOiB7CiAgICAgICJpbml0aWFsIjogWwogICAgICAgIHsKICAgICAgICAgICJyeCI6IDcyLAogICAgICAgICAgInJ5IjogNzIsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAxLAogICAgICAgICAgICAwLAogICAgICAgICAgICAwLAogICAgICAgICAgICAxLAogICAgICAgICAgICAxOTAuMjY5NTYxNzY3NTc4MTIsCiAgICAgICAgICAgIDEzMC40MjM0NzcxNzI4NTE1NgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzYsCiAgICAgICAgICAicnkiOiAzNiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDE5MC4yNjk1NjE3Njc1NzgxMiwKICAgICAgICAgICAgMTMwLjQyMzQ3NzE3Mjg1MTU2CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiA3MiwKICAgICAgICAgICJyeSI6IDcyLAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMTI2LjY4Mjk2MDUxMDI1MzksCiAgICAgICAgICAgIDg3LjUzNjMzODgwNjE1MjM0CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzNiwKICAgICAgICAgICJyeSI6IDM2LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMTI2LjY4Mjk2MDUxMDI1MzksCiAgICAgICAgICAgIDg3LjUzNjMzODgwNjE1MjM0CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiA3MiwKICAgICAgICAgICJyeSI6IDcyLAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMTExLjQ3OTczNjMyODEyNSwKICAgICAgICAgICAgMTY4LjE3NDcyODM5MzU1NDcKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDM2LAogICAgICAgICAgInJ5IjogMzYsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAxLAogICAgICAgICAgICAwLAogICAgICAgICAgICAwLAogICAgICAgICAgICAxLAogICAgICAgICAgICAxMTEuNDc5NzM2MzI4MTI1LAogICAgICAgICAgICAxNjguMTc0NzI4MzkzNTU0NwogICAgICAgICAgXQogICAgICAgIH0KICAgICAgXSwKICAgICAgImV4cGVjdGF0aW9uIjogWwogICAgICAgIHsKICAgICAgICAgICJyeCI6IDUzLjU4ODAxMTYwODE1NjA1LAogICAgICAgICAgInJ5IjogMzkuODI5MDgyNDU5NDc5NTgsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjg4ODkyODE2NDUwNzY3NDksCiAgICAgICAgICAgIDAuNDU4MDQ2NjMzMzczNzM4NywKICAgICAgICAgICAgLTAuNDU4MDQ2NjMzMzczNzM4NywKICAgICAgICAgICAgMC44ODg5MjgxNjQ1MDc2NzQ5LAogICAgICAgICAgICAxNzYuODEzNzM1OTYxOTE0MDYsCiAgICAgICAgICAgIDEyOS4yODYxOTM4NDc2NTYyNQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMjYuNzk0MDA1ODA0MDc4MDI2LAogICAgICAgICAgInJ5IjogMTkuOTE0NTQxMjI5NzM5NzksCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjg4ODkyODE2NDUwNzY3NDksCiAgICAgICAgICAgIDAuNDU4MDQ2NjMzMzczNzM4NywKICAgICAgICAgICAgLTAuNDU4MDQ2NjMzMzczNzM4NywKICAgICAgICAgICAgMC44ODg5MjgxNjQ1MDc2NzQ5LAogICAgICAgICAgICAxNzYuODEzNzM1OTYxOTE0MDYsCiAgICAgICAgICAgIDEyOS4yODYxOTM4NDc2NTYyNQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNTUuNjY2MjY3MTU2NDk4NDEsCiAgICAgICAgICAicnkiOiA0MS41ODUyMjc3NTUyMDI4MTYsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjIyNzMyODA3ODc1NDk3NjY1LAogICAgICAgICAgICAtMC45NzM4MTgyMjk3NTgyOTA3LAogICAgICAgICAgICAwLjk3MzgxODIyOTc1ODI5MDcsCiAgICAgICAgICAgIDAuMjI3MzI4MDc4NzU0OTc2NjUsCiAgICAgICAgICAgIDEzNi41Mjk0Nzk5ODA0Njg3NSwKICAgICAgICAgICAgOTYuNzI3ODUxODY3Njc1NzgKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDI3LjgzMzEzMzU3ODI0OTIwMywKICAgICAgICAgICJyeSI6IDIwLjc5MjYxMzg3NzYwMTQwOCwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuMjI3MzI4MDc4NzU0OTc2NjUsCiAgICAgICAgICAgIC0wLjk3MzgxODIyOTc1ODI5MDcsCiAgICAgICAgICAgIDAuOTczODE4MjI5NzU4MjkwNywKICAgICAgICAgICAgMC4yMjczMjgwNzg3NTQ5NzY2NSwKICAgICAgICAgICAgMTM2LjUyOTQ3OTk4MDQ2ODc1LAogICAgICAgICAgICA5Ni43Mjc4NTE4Njc2NzU3OAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNDkuODIwMDE5MjY0MDc5MTE0LAogICAgICAgICAgInJ5IjogMzEuMzk2NjA5ODMwMTY5OTU0LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC45MTk1MTI5MjUzMTk2NjIzLAogICAgICAgICAgICAtMC4zOTMwNTk3NjY2NjQxNTEyNywKICAgICAgICAgICAgMC4zOTMwNTk3NjY2NjQxNTEyNywKICAgICAgICAgICAgMC45MTk1MTI5MjUzMTk2NjIzLAogICAgICAgICAgICAxMTQuMzQ5NDQxNTI4MzIwMzEsCiAgICAgICAgICAgIDE0OS43ODE0NjM2MjMwNDY4OAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMjQuOTEwMDA5NjMyMDM5NTU3LAogICAgICAgICAgInJ5IjogMTUuNjk4MzA0OTE1MDg0OTc3LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC45MTk1MTI5MjUzMTk2NjIzLAogICAgICAgICAgICAtMC4zOTMwNTk3NjY2NjQxNTEyNywKICAgICAgICAgICAgMC4zOTMwNTk3NjY2NjQxNTEyNywKICAgICAgICAgICAgMC45MTk1MTI5MjUzMTk2NjIzLAogICAgICAgICAgICAxMTQuMzQ5NDQxNTI4MzIwMzEsCiAgICAgICAgICAgIDE0OS43ODE0NjM2MjMwNDY4OAogICAgICAgICAgXQogICAgICAgIH0KICAgICAgXSwKICAgICAgIm1heGltaXphdGlvbiI6IFsKICAgICAgICB7CiAgICAgICAgICAicngiOiA0Ni4xMjQzMjA2NDgxODg2LAogICAgICAgICAgInJ5IjogMzUuMzg0NDg0OTI2MDQzOTQsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjg1MjI2MjQwNzkzMzk4MywKICAgICAgICAgICAgMC41MjMxMTQ1MDc1NjI3MDMsCiAgICAgICAgICAgIC0wLjUyMzExNDUwNzU2MjcwMywKICAgICAgICAgICAgMC44NTIyNjI0MDc5MzM5ODMsCiAgICAgICAgICAgIDE4MC4wMzkwOTMwMTc1NzgxMiwKICAgICAgICAgICAgMTMxLjE2MTgwNDE5OTIxODc1CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAyMy4wNjIxNjAzMjQwOTQzLAogICAgICAgICAgInJ5IjogMTcuNjkyMjQyNDYzMDIxOTcsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjg1MjI2MjQwNzkzMzk4MywKICAgICAgICAgICAgMC41MjMxMTQ1MDc1NjI3MDMsCiAgICAgICAgICAgIC0wLjUyMzExNDUwNzU2MjcwMywKICAgICAgICAgICAgMC44NTIyNjI0MDc5MzM5ODMsCiAgICAgICAgICAgIDE4MC4wMzkwOTMwMTc1NzgxMiwKICAgICAgICAgICAgMTMxLjE2MTgwNDE5OTIxODc1CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiA0Ni45ODE2MzI0MTI0NzMyNzQsCiAgICAgICAgICAicnkiOiAzNS40MTMxMjYxMTM1MTIyMSwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuMjI2NjYyNzY1NzI3MDA4NTgsCiAgICAgICAgICAgIC0wLjk3Mzk3MzMwMDc4MDM1NjcsCiAgICAgICAgICAgIDAuOTczOTczMzAwNzgwMzU2NywKICAgICAgICAgICAgMC4yMjY2NjI3NjU3MjcwMDg1OCwKICAgICAgICAgICAgMTM2Ljc2NTEwNjIwMTE3MTg4LAogICAgICAgICAgICA5MS41OTk1NjM1OTg2MzI4MQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMjMuNDkwODE2MjA2MjM2NjM3LAogICAgICAgICAgInJ5IjogMTcuNzA2NTYzMDU2NzU2MTA3LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC4yMjY2NjI3NjU3MjcwMDg1OCwKICAgICAgICAgICAgLTAuOTczOTczMzAwNzgwMzU2NywKICAgICAgICAgICAgMC45NzM5NzMzMDA3ODAzNTY3LAogICAgICAgICAgICAwLjIyNjY2Mjc2NTcyNzAwODU4LAogICAgICAgICAgICAxMzYuNzY1MTA2MjAxMTcxODgsCiAgICAgICAgICAgIDkxLjU5OTU2MzU5ODYzMjgxCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzOS4wODY2OTEwOTM0NzY0OSwKICAgICAgICAgICJyeSI6IDI1Ljk2NjYxNzUzMDM1Njg3LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC45MzQ4NzkyODM4OTc4NTYxLAogICAgICAgICAgICAtMC4zNTQ5NjU4MDc1NjI2ODg3NSwKICAgICAgICAgICAgMC4zNTQ5NjU4MDc1NjI2ODg3NSwKICAgICAgICAgICAgMC45MzQ4NzkyODM4OTc4NTYxLAogICAgICAgICAgICAxMTAuNTgwNjE5ODEyMDExNzIsCiAgICAgICAgICAgIDE1MS40ODIzOTEzNTc0MjE4OAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMTkuNTQzMzQ1NTQ2NzM4MjQ0LAogICAgICAgICAgInJ5IjogMTIuOTgzMzA4NzY1MTc4NDM1LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC45MzQ4NzkyODM4OTc4NTYxLAogICAgICAgICAgICAtMC4zNTQ5NjU4MDc1NjI2ODg3NSwKICAgICAgICAgICAgMC4zNTQ5NjU4MDc1NjI2ODg3NSwKICAgICAgICAgICAgMC45MzQ4NzkyODM4OTc4NTYxLAogICAgICAgICAgICAxMTAuNTgwNjE5ODEyMDExNzIsCiAgICAgICAgICAgIDE1MS40ODIzOTEzNTc0MjE4OAogICAgICAgICAgXQogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgICJmaW5hbCI6IFsKICAgICAgewogICAgICAgICJyeCI6IDMxLjkyNDIyMjYwMzg5MjgzMywKICAgICAgICAicnkiOiAxOC4yMDY0NTY2MzMzNjYxNTUsCiAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgIDAuODQyNDYyOTEzMDM5NjEwNSwKICAgICAgICAgIC0wLjUzODc1NDM0MTE5MTYxNzQsCiAgICAgICAgICAwLjUzODc1NDM0MTE5MTYxNzQsCiAgICAgICAgICAwLjg0MjQ2MjkxMzAzOTYxMDUsCiAgICAgICAgICAxODUuMjI0MDc1MzE3MzgyOCwKICAgICAgICAgIDEzNi42NTgwNjU3OTU4OTg0NAogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJyeCI6IDE1Ljk2MjExMTMwMTk0NjQxNiwKICAgICAgICAicnkiOiA5LjEwMzIyODMxNjY4MzA3OCwKICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgMC44NDI0NjI5MTMwMzk2MTA1LAogICAgICAgICAgLTAuNTM4NzU0MzQxMTkxNjE3NCwKICAgICAgICAgIDAuNTM4NzU0MzQxMTkxNjE3NCwKICAgICAgICAgIDAuODQyNDYyOTEzMDM5NjEwNSwKICAgICAgICAgIDE4NS4yMjQwNzUzMTczODI4LAogICAgICAgICAgMTM2LjY1ODA2NTc5NTg5ODQ0CiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogMjUuMzU0MDA0NDQ0OTg5MjMzLAogICAgICAgICJyeSI6IDEyLjk0MzEwODUyNDY3MDg3NCwKICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgMC45MjMzMjI2Mzc1MjkxMzY1LAogICAgICAgICAgMC4zODQwMjUxMzg1MzQyMzU3NSwKICAgICAgICAgIC0wLjM4NDAyNTEzODUzNDIzNTc1LAogICAgICAgICAgMC45MjMzMjI2Mzc1MjkxMzY1LAogICAgICAgICAgMTM4LjY2MjM1MzUxNTYyNSwKICAgICAgICAgIDgyLjY5ODE1ODI2NDE2MDE2CiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogMTIuNjc3MDAyMjIyNDk0NjE2LAogICAgICAgICJyeSI6IDYuNDcxNTU0MjYyMzM1NDM3LAogICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAwLjkyMzMyMjYzNzUyOTEzNjUsCiAgICAgICAgICAwLjM4NDAyNTEzODUzNDIzNTc1LAogICAgICAgICAgLTAuMzg0MDI1MTM4NTM0MjM1NzUsCiAgICAgICAgICAwLjkyMzMyMjYzNzUyOTEzNjUsCiAgICAgICAgICAxMzguNjYyMzUzNTE1NjI1LAogICAgICAgICAgODIuNjk4MTU4MjY0MTYwMTYKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicngiOiAyMC43NjE2ODcxNTAzOTUwOTQsCiAgICAgICAgInJ5IjogMTMuNzI1NTAxNDQwMDg1MzYxLAogICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAwLjE3MTgyMDA5NzI4MzM3NTcyLAogICAgICAgICAgMC45ODUxMjgzNDQwMDg4MDU0LAogICAgICAgICAgLTAuOTg1MTI4MzQ0MDA4ODA1NCwKICAgICAgICAgIDAuMTcxODIwMDk3MjgzMzc1NzIsCiAgICAgICAgICAxMDUuNDI0OTY0OTA0Nzg1MTYsCiAgICAgICAgICAxNTIuODQ0MTQ2NzI4NTE1NjIKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicngiOiAxMC4zODA4NDM1NzUxOTc1NDcsCiAgICAgICAgInJ5IjogNi44NjI3NTA3MjAwNDI2ODEsCiAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgIDAuMTcxODIwMDk3MjgzMzc1NzIsCiAgICAgICAgICAwLjk4NTEyODM0NDAwODgwNTQsCiAgICAgICAgICAtMC45ODUxMjgzNDQwMDg4MDU0LAogICAgICAgICAgMC4xNzE4MjAwOTcyODMzNzU3MiwKICAgICAgICAgIDEwNS40MjQ5NjQ5MDQ3ODUxNiwKICAgICAgICAgIDE1Mi44NDQxNDY3Mjg1MTU2MgogICAgICAgIF0KICAgICAgfQogICAgXQogIH0sCiAgewogICAgInByZXNldCI6ICJsYWJlbGVkIiwKICAgICJldmVudHMiOiAxOCwKICAgICJzYW1wbGVzIjogewogICAgICAiaW5pdGlhbCI6IFsKICAgICAgICB7CiAgICAgICAgICAicngiOiA3MiwKICAgICAgICAgICJyeSI6IDcyLAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMTk5LjQ1MDQyNDE5NDMzNTk0LAogICAgICAgICAgICAxMzIuNzMxOTQ4ODUyNTM5MDYKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDM2LAogICAgICAgICAgInJ5IjogMzYsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAxLAogICAgICAgICAgICAwLAogICAgICAgICAgICAwLAogICAgICAgICAgICAxLAogICAgICAgICAgICAxOTkuNDUwNDI0MTk0MzM1OTQsCiAgICAgICAgICAgIDEzMi43MzE5NDg4NTI1MzkwNgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNzIsCiAgICAgICAgICAicnkiOiA3MiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDkzLjA0MDY1NzA0MzQ1NzAzLAogICAgICAgICAgICAxNzAuNjAxNzYwODY0MjU3OAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzYsCiAgICAgICAgICAicnkiOiAzNiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDkzLjA0MDY1NzA0MzQ1NzAzLAogICAgICAgICAgICAxNzAuNjAxNzYwODY0MjU3OAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNzIsCiAgICAgICAgICAicnkiOiA3MiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDE0OC45ODA2MDYwNzkxMDE1NiwKICAgICAgICAgICAgNjAuNzUwMzg1Mjg0NDIzODMKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDM2LAogICAgICAgICAgInJ5IjogMzYsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAxLAogICAgICAgICAgICAwLAogICAgICAgICAgICAwLAogICAgICAgICAgICAxLAogICAgICAgICAgICAxNDguOTgwNjA2MDc5MTAxNTYsCiAgICAgICAgICAgIDYwLjc1MDM4NTI4NDQyMzgzCiAgICAgICAgICBdCiAgICAgICAgfQogICAgICBdLAogICAgICAiZXhwZWN0YXRpb24iOiBbCiAgICAgICAgewogICAgICAgICAgInJ4IjogNjMuNDAxMDgzNTQ5NzMyMzM0LAogICAgICAgICAgInJ5IjogNjAuNzEwODE0NTUxNjQyODA1LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC43ODQwNTU4NDU1ODUzNDQyLAogICAgICAgICAgICAwLjYyMDY5MDI4NTg5NDIyMTgsCiAgICAgICAgICAgIC0wLjYyMDY5MDI4NTg5NDIyMTgsCiAgICAgICAgICAgIDAuNzg0MDU1ODQ1NTg1MzQ0MiwKICAgICAgICAgICAgMTkwLjUwMDIxMzYyMzA0Njg4LAogICAgICAgICAgICAxMzMuNDIxNTA4Nzg5MDYyNQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzEuNzAwNTQxNzc0ODY2MTY3LAogICAgICAgICAgInJ5IjogMzAuMzU1NDA3Mjc1ODIxNDAzLAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC43ODQwNTU4NDU1ODUzNDQyLAogICAgICAgICAgICAwLjYyMDY5MDI4NTg5NDIyMTgsCiAgICAgICAgICAgIC0wLjYyMDY5MDI4NTg5NDIyMTgsCiAgICAgICAgICAgIDAuNzg0MDU1ODQ1NTg1MzQ0MiwKICAgICAgICAgICAgMTkwLjUwMDIxMzYyMzA0Njg4LAogICAgICAgICAgICAxMzMuNDIxNTA4Nzg5MDYyNQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNjIuNDAzOTIzMzQ2ODkwNTMsCiAgICAgICAgICAicnkiOiA1OS44MjQwNzMxNDE5Mjg3MTQsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjgwMzA5OTkwNjY3MzYzMywKICAgICAgICAgICAgLTAuNTk1ODQ0MzkyMzU0OTE4NSwKICAgICAgICAgICAgMC41OTU4NDQzOTIzNTQ5MTg1LAogICAgICAgICAgICAwLjgwMzA5OTkwNjY3MzYzMywKICAgICAgICAgICAgOTguNjQ5NDk3OTg1ODM5ODQsCiAgICAgICAgICAgIDE2Mi44NDE2MTM3Njk1MzEyNQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzEuMjAxOTYxNjczNDQ1MjY1LAogICAgICAgICAgInJ5IjogMjkuOTEyMDM2NTcwOTY0MzU3LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC44MDMwOTk5MDY2NzM2MzMsCiAgICAgICAgICAgIC0wLjU5NTg0NDM5MjM1NDkxODUsCiAgICAgICAgICAgIDAuNTk1ODQ0MzkyMzU0OTE4NSwKICAgICAgICAgICAgMC44MDMwOTk5MDY2NzM2MzMsCiAgICAgICAgICAgIDk4LjY0OTQ5Nzk4NTgzOTg0LAogICAgICAgICAgICAxNjIuODQxNjEzNzY5NTMxMjUKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDYzLjc0MjgxNDY2MjAzNzYyLAogICAgICAgICAgInJ5IjogNjAuNTI3MzQ0MDA1MjY2NDcsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjQzMzkzNTEwMDg5NDc4NjUsCiAgICAgICAgICAgIDAuOTAwOTQ0MTMxNTcwNTYwNSwKICAgICAgICAgICAgLTAuOTAwOTQ0MTMxNTcwNTYwNSwKICAgICAgICAgICAgMC40MzM5MzUxMDA4OTQ3ODY1LAogICAgICAgICAgICAxNDMuODkyNTQ3NjA3NDIxODgsCiAgICAgICAgICAgIDY4LjE4NTUxNjM1NzQyMTg4CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzMS44NzE0MDczMzEwMTg4MSwKICAgICAgICAgICJyeSI6IDMwLjI2MzY3MjAwMjYzMzIzNiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNDMzOTM1MTAwODk0Nzg2NSwKICAgICAgICAgICAgMC45MDA5NDQxMzE1NzA1NjA1LAogICAgICAgICAgICAtMC45MDA5NDQxMzE1NzA1NjA1LAogICAgICAgICAgICAwLjQzMzkzNTEwMDg5NDc4NjUsCiAgICAgICAgICAgIDE0My44OTI1NDc2MDc0MjE4OCwKICAgICAgICAgICAgNjguMTg1NTE2MzU3NDIxODgKICAgICAgICAgIF0KICAgICAgICB9CiAgICAgIF0sCiAgICAgICJtYXhpbWl6YXRpb24iOiBbCiAgICAgICAgewogICAgICAgICAgInJ4IjogNTEuNDg2Mjg3NzI5NzkxMzYsCiAgICAgICAgICAicnkiOiA0My44Njc4MzUwMzg0MjQ0NCwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNzg0MDU1ODQ1NTg1MzQ0LAogICAgICAgICAgICAwLjYyMDY5MDI4NTg5NDIyMiwKICAgICAgICAgICAgLTAuNjIwNjkwMjg1ODk0MjIyLAogICAgICAgICAgICAwLjc4NDA1NTg0NTU4NTM0NCwKICAgICAgICAgICAgMTc5Ljk3NzUzOTA2MjUsCiAgICAgICAgICAgIDEzNC4yMzIyMjM1MTA3NDIyCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAyNS43NDMxNDM4NjQ4OTU2OCwKICAgICAgICAgICJyeSI6IDIxLjkzMzkxNzUxOTIxMjIyLAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC43ODQwNTU4NDU1ODUzNDQsCiAgICAgICAgICAgIDAuNjIwNjkwMjg1ODk0MjIyLAogICAgICAgICAgICAtMC42MjA2OTAyODU4OTQyMjIsCiAgICAgICAgICAgIDAuNzg0MDU1ODQ1NTg1MzQ0LAogICAgICAgICAgICAxNzkuOTc3NTM5MDYyNSwKICAgICAgICAgICAgMTM0LjIzMjIyMzUxMDc0MjIKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDQ4Ljc2Mzc0MDA5NTc5NDI2LAogICAgICAgICAgInJ5IjogNDEuMTMyMDA3MjA1ODA4MzIsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjgwMzA5OTkwNjY3MzYzMzIsCiAgICAgICAgICAgIC0wLjU5NTg0NDM5MjM1NDkxODIsCiAgICAgICAgICAgIDAuNTk1ODQ0MzkyMzU0OTE4MiwKICAgICAgICAgICAgMC44MDMwOTk5MDY2NzM2MzMyLAogICAgICAgICAgICAxMDUuMjQzNzU5MTU1MjczNDQsCiAgICAgICAgICAgIDE1My43MTgwOTM4NzIwNzAzCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAyNC4zODE4NzAwNDc4OTcxMywKICAgICAgICAgICJyeSI6IDIwLjU2NjAwMzYwMjkwNDE2LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC44MDMwOTk5MDY2NzM2MzMyLAogICAgICAgICAgICAtMC41OTU4NDQzOTIzNTQ5MTgyLAogICAgICAgICAgICAwLjU5NTg0NDM5MjM1NDkxODIsCiAgICAgICAgICAgIDAuODAzMDk5OTA2NjczNjMzMiwKICAgICAgICAgICAgMTA1LjI0Mzc1OTE1NTI3MzQ0LAogICAgICAgICAgICAxNTMuNzE4MDkzODcyMDcwMwogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNTIuMzk2MjczMzMxMTg0NDksCiAgICAgICAgICAicnkiOiA0My4zMTI3MTk3NTcwMTYwMywKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNDMzOTM1MTAwODk0Nzg2NSwKICAgICAgICAgICAgMC45MDA5NDQxMzE1NzA1NjA1LAogICAgICAgICAgICAtMC45MDA5NDQxMzE1NzA1NjA1LAogICAgICAgICAgICAwLjQzMzkzNTEwMDg5NDc4NjUsCiAgICAgICAgICAgIDEzNy45MTA1ODM0OTYwOTM3NSwKICAgICAgICAgICAgNzYuOTI2OTI1NjU5MTc5NjkKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDI2LjE5ODEzNjY2NTU5MjI0NCwKICAgICAgICAgICJyeSI6IDIxLjY1NjM1OTg3ODUwODAxNywKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNDMzOTM1MTAwODk0Nzg2NSwKICAgICAgICAgICAgMC45MDA5NDQxMzE1NzA1NjA1LAogICAgICAgICAgICAtMC45MDA5NDQxMzE1NzA1NjA1LAogICAgICAgICAgICAwLjQzMzkzNTEwMDg5NDc4NjUsCiAgICAgICAgICAgIDEzNy45MTA1ODM0OTYwOTM3NSwKICAgICAgICAgICAgNzYuOTI2OTI1NjU5MTc5NjkKICAgICAgICAgIF0KICAgICAgICB9CiAgICAgIF0KICAgIH0sCiAgICAiZmluYWwiOiBbCiAgICAgIHsKICAgICAgICAicngiOiAyNS4yMjk3MDE3MTg3Mjg3MywKICAgICAgICAicnkiOiAxOC45NzIyNDcxMDA0MTY4OTcsCiAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgIDAuMDY4NzE1MTc1Nzg5ODQ2MDMsCiAgICAgICAgICAtMC45OTc2MzYzMTg4MTM3MTAxLAogICAgICAgICAgMC45OTc2MzYzMTg4MTM3MTAxLAogICAgICAgICAgMC4wNjg3MTUxNzU3ODk4NDYwMywKICAgICAgICAgIDE4MC41MTg0MTczNTgzOTg0NCwKICAgICAgICAgIDEzNy4yNzgyMjg3NTk3NjU2MgogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJyeCI6IDEyLjYxNDg1MDg1OTM2NDM2NSwKICAgICAgICAicnkiOiA5LjQ4NjEyMzU1MDIwODQ0OSwKICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgMC4wNjg3MTUxNzU3ODk4NDYwMywKICAgICAgICAgIC0wLjk5NzYzNjMxODgxMzcxMDEsCiAgICAgICAgICAwLjk5NzYzNjMxODgxMzcxMDEsCiAgICAgICAgICAwLjA2ODcxNTE3NTc4OTg0NjAzLAogICAgICAgICAgMTgwLjUxODQxNzM1ODM5ODQ0LAogICAgICAgICAgMTM3LjI3ODIyODc1OTc2NTYyCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogMjguODU3OTU1MDA4MDk0ODIsCiAgICAgICAgInJ5IjogMTYuODQ2MDc3Nzc1MTkzNzE3LAogICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAwLjcxMjA2MDgzNzM1OTQ5MjIsCiAgICAgICAgICAtMC43MDIxMTc3NzA2NzU5MDIyLAogICAgICAgICAgMC43MDIxMTc3NzA2NzU5MDIyLAogICAgICAgICAgMC43MTIwNjA4MzczNTk0OTIyLAogICAgICAgICAgMTA2LjM4MDc5ODMzOTg0Mzc1LAogICAgICAgICAgMTUwLjMzNjUzMjU5Mjc3MzQ0CiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogMTQuNDI4OTc3NTA0MDQ3NDEsCiAgICAgICAgInJ5IjogOC40MjMwMzg4ODc1OTY4NTgsCiAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgIDAuNzEyMDYwODM3MzU5NDkyMiwKICAgICAgICAgIC0wLjcwMjExNzc3MDY3NTkwMjIsCiAgICAgICAgICAwLjcwMjExNzc3MDY3NTkwMjIsCiAgICAgICAgICAwLjcxMjA2MDgzNzM1OTQ5MjIsCiAgICAgICAgICAxMDYuMzgwNzk4MzM5ODQzNzUsCiAgICAgICAgICAxNTAuMzM2NTMyNTkyNzczNDQKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicngiOiAyNC4zODEwNDI3MTgyODgyNzQsCiAgICAgICAgInJ5IjogMTAuOTgzNTE4MTc0ODg0MDU0LAogICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAwLjg0OTkyNDg2NDMyMjAxMzgsCiAgICAgICAgICAtMC41MjY5MDM5MDQ5MDc5MTI1LAogICAgICAgICAgMC41MjY5MDM5MDQ5MDc5MTI1LAogICAgICAgICAgMC44NDk5MjQ4NjQzMjIwMTM4LAogICAgICAgICAgMTMxLjUwNjg5Njk3MjY1NjI1LAogICAgICAgICAgNzMuODAyODcxNzA0MTAxNTYKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicngiOiAxMi4xOTA1MjEzNTkxNDQxMzcsCiAgICAgICAgInJ5IjogNS40OTE3NTkwODc0NDIwMjcsCiAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgIDAuODQ5OTI0ODY0MzIyMDEzOCwKICAgICAgICAgIC0wLjUyNjkwMzkwNDkwNzkxMjUsCiAgICAgICAgICAwLjUyNjkwMzkwNDkwNzkxMjUsCiAgICAgICAgICAwLjg0OTkyNDg2NDMyMjAxMzgsCiAgICAgICAgICAxMzEuNTA2ODk2OTcyNjU2MjUsCiAgICAgICAgICA3My44MDI4NzE3MDQxMDE1NgogICAgICAgIF0KICAgICAgfQogICAgXQogIH0sCiAgewogICAgInByZXNldCI6ICJhbmlzb3Ryb3BpYyIsCiAgICAiZXZlbnRzIjogMzIsCiAgICAic2FtcGxlcyI6IHsKICAgICAgImluaXRpYWwiOiBbCiAgICAgICAgewogICAgICAgICAgInJ4IjogNzIsCiAgICAgICAgICAicnkiOiA3MiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDE3MS45NzQ5NDUwNjgzNTkzOCwKICAgICAgICAgICAgMTQ0LjU0MDIzNzQyNjc1NzgKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDM2LAogICAgICAgICAgInJ5IjogMzYsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAxLAogICAgICAgICAgICAwLAogICAgICAgICAgICAwLAogICAgICAgICAgICAxLAogICAgICAgICAgICAxNzEuOTc0OTQ1MDY4MzU5MzgsCiAgICAgICAgICAgIDE0NC41NDAyMzc0MjY3NTc4CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiA3MiwKICAgICAgICAgICJyeSI6IDcyLAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMjMxLjQ5MDAzNjAxMDc0MjIsCiAgICAgICAgICAgIDEwNS4xNTg1NzY5NjUzMzIwMwogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzYsCiAgICAgICAgICAicnkiOiAzNiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDIzMS40OTAwMzYwMTA3NDIyLAogICAgICAgICAgICAxMDUuMTU4NTc2OTY1MzMyMDMKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDcyLAogICAgICAgICAgInJ5IjogNzIsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAxLAogICAgICAgICAgICAwLAogICAgICAgICAgICAwLAogICAgICAgICAgICAxLAogICAgICAgICAgICAxMDEuMzQyMjMxNzUwNDg4MjgsCiAgICAgICAgICAgIDE1Mi4wODI5MTYyNTk3NjU2MgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzYsCiAgICAgICAgICAicnkiOiAzNiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDEwMS4zNDIyMzE3NTA0ODgyOCwKICAgICAgICAgICAgMTUyLjA4MjkxNjI1OTc2NTYyCiAgICAgICAgICBdCiAgICAgICAgfQogICAgICBdLAogICAgICAiZXhwZWN0YXRpb24iOiBbCiAgICAgICAgewogICAgICAgICAgInJ4IjogNzIuMDIyMjk4MTg4NDEyNzgsCiAgICAgICAgICAicnkiOiA3MC4zNDE0NDA1MTI4MTU5OSwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNjMyMjM4ODQyMzcyNzQ3MywKICAgICAgICAgICAgMC43NzQ3NzM1NDUxMDUzODY1LAogICAgICAgICAgICAtMC43NzQ3NzM1NDUxMDUzODY1LAogICAgICAgICAgICAwLjYzMjIzODg0MjM3Mjc0NzMsCiAgICAgICAgICAgIDE2OS44ODM5NTY5MDkxNzk3LAogICAgICAgICAgICAxNDAuNTI0ODQxMzA4NTkzNzUKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDM2LjAxMTE0OTA5NDIwNjM5LAogICAgICAgICAgInJ5IjogMzUuMTcwNzIwMjU2NDA3OTk2LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC42MzIyMzg4NDIzNzI3NDczLAogICAgICAgICAgICAwLjc3NDc3MzU0NTEwNTM4NjUsCiAgICAgICAgICAgIC0wLjc3NDc3MzU0NTEwNTM4NjUsCiAgICAgICAgICAgIDAuNjMyMjM4ODQyMzcyNzQ3MywKICAgICAgICAgICAgMTY5Ljg4Mzk1NjkwOTE3OTcsCiAgICAgICAgICAgIDE0MC41MjQ4NDEzMDg1OTM3NQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNzIuMTQ2NzI0MjA3NTc3NDksCiAgICAgICAgICAicnkiOiA2OC43MTIyODQ4ODIxNzY2NiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuODQ0NzQ4ODE1NjE2OTU0LAogICAgICAgICAgICAwLjUzNTE2MzAwMTgxNjk3MywKICAgICAgICAgICAgLTAuNTM1MTYzMDAxODE2OTczLAogICAgICAgICAgICAwLjg0NDc0ODgxNTYxNjk1NCwKICAgICAgICAgICAgMjI2Ljk1Mjk1NzE1MzMyMDMsCiAgICAgICAgICAgIDEwNC44ODEwODA2Mjc0NDE0CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzNi4wNzMzNjIxMDM3ODg3NDYsCiAgICAgICAgICAicnkiOiAzNC4zNTYxNDI0NDEwODgzMywKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuODQ0NzQ4ODE1NjE2OTU0LAogICAgICAgICAgICAwLjUzNTE2MzAwMTgxNjk3MywKICAgICAgICAgICAgLTAuNTM1MTYzMDAxODE2OTczLAogICAgICAgICAgICAwLjg0NDc0ODgxNTYxNjk1NCwKICAgICAgICAgICAgMjI2Ljk1Mjk1NzE1MzMyMDMsCiAgICAgICAgICAgIDEwNC44ODEwODA2Mjc0NDE0CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiA3My45MjIzMjQxOTE0MzQ4NywKICAgICAgICAgICJyeSI6IDY4LjUxMDAyMDM5MjY1MzAyLAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC41ODExOTQxODY3MTU0NzMsCiAgICAgICAgICAgIC0wLjgxMzc2NDkwMjk4Mzc0MjYsCiAgICAgICAgICAgIDAuODEzNzY0OTAyOTgzNzQyNiwKICAgICAgICAgICAgMC41ODExOTQxODY3MTU0NzMsCiAgICAgICAgICAgIDEwMi4yMTE5MzY5NTA2ODM2LAogICAgICAgICAgICAxNDkuNjgwODc3Njg1NTQ2ODgKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDM2Ljk2MTE2MjA5NTcxNzQzNCwKICAgICAgICAgICJyeSI6IDM0LjI1NTAxMDE5NjMyNjUxLAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC41ODExOTQxODY3MTU0NzMsCiAgICAgICAgICAgIC0wLjgxMzc2NDkwMjk4Mzc0MjYsCiAgICAgICAgICAgIDAuODEzNzY0OTAyOTgzNzQyNiwKICAgICAgICAgICAgMC41ODExOTQxODY3MTU0NzMsCiAgICAgICAgICAgIDEwMi4yMTE5MzY5NTA2ODM2LAogICAgICAgICAgICAxNDkuNjgwODc3Njg1NTQ2ODgKICAgICAgICAgIF0KICAgICAgICB9CiAgICAgIF0sCiAgICAgICJtYXhpbWl6YXRpb24iOiBbCiAgICAgICAgewogICAgICAgICAgInJ4IjogNzIuMTAzMDA4Mzc1OTE3OTUsCiAgICAgICAgICAicnkiOiA2My45NzQ5MTAyNDE3MzAxMiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNjMyMjM4ODQyMzcyNzQ2OSwKICAgICAgICAgICAgMC43NzQ3NzM1NDUxMDUzODY5LAogICAgICAgICAgICAtMC43NzQ3NzM1NDUxMDUzODY5LAogICAgICAgICAgICAwLjYzMjIzODg0MjM3Mjc0NjksCiAgICAgICAgICAgIDE2Mi4zMTAwNTg1OTM3NSwKICAgICAgICAgICAgMTI1Ljk4MDM2MTkzODQ3NjU2CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzNi4wNTE1MDQxODc5NTg5NzYsCiAgICAgICAgICAicnkiOiAzMS45ODc0NTUxMjA4NjUwNiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNjMyMjM4ODQyMzcyNzQ2OSwKICAgICAgICAgICAgMC43NzQ3NzM1NDUxMDUzODY5LAogICAgICAgICAgICAtMC43NzQ3NzM1NDUxMDUzODY5LAogICAgICAgICAgICAwLjYzMjIzODg0MjM3Mjc0NjksCiAgICAgICAgICAgIDE2Mi4zMTAwNTg1OTM3NSwKICAgICAgICAgICAgMTI1Ljk4MDM2MTkzODQ3NjU2CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiA3Mi42NzU3MDUxMjM3ODM2LAogICAgICAgICAgInJ5IjogNTUuMTg3NjkwMjM2NjQ2NzEsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjg0NDc0ODgxNTYxNjk1NDEsCiAgICAgICAgICAgIDAuNTM1MTYzMDAxODE2OTcyNywKICAgICAgICAgICAgLTAuNTM1MTYzMDAxODE2OTcyNywKICAgICAgICAgICAgMC44NDQ3NDg4MTU2MTY5NTQxLAogICAgICAgICAgICAyMTAuNTE4OTA1NjM5NjQ4NDQsCiAgICAgICAgICAgIDEwMy44NzU5MjMxNTY3MzgyOAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzYuMzM3ODUyNTYxODkxOCwKICAgICAgICAgICJyeSI6IDI3LjU5Mzg0NTExODMyMzM1NSwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuODQ0NzQ4ODE1NjE2OTU0MSwKICAgICAgICAgICAgMC41MzUxNjMwMDE4MTY5NzI3LAogICAgICAgICAgICAtMC41MzUxNjMwMDE4MTY5NzI3LAogICAgICAgICAgICAwLjg0NDc0ODgxNTYxNjk1NDEsCiAgICAgICAgICAgIDIxMC41MTg5MDU2Mzk2NDg0NCwKICAgICAgICAgICAgMTAzLjg3NTkyMzE1NjczODI4CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiA4MC41MDE5NjI5MDY0NDU0NiwKICAgICAgICAgICJyeSI6IDU0LjAxMjg4NTQ4MTgyNzY0LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC41ODExOTQxODY3MTU0NzI1LAogICAgICAgICAgICAtMC44MTM3NjQ5MDI5ODM3NDI4LAogICAgICAgICAgICAwLjgxMzc2NDkwMjk4Mzc0MjgsCiAgICAgICAgICAgIDAuNTgxMTk0MTg2NzE1NDcyNSwKICAgICAgICAgICAgMTA1LjM2MjE0NDQ3MDIxNDg0LAogICAgICAgICAgICAxNDAuOTgwMjcwMzg1NzQyMgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNDAuMjUwOTgxNDUzMjIyNzMsCiAgICAgICAgICAicnkiOiAyNy4wMDY0NDI3NDA5MTM4MiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNTgxMTk0MTg2NzE1NDcyNSwKICAgICAgICAgICAgLTAuODEzNzY0OTAyOTgzNzQyOCwKICAgICAgICAgICAgMC44MTM3NjQ5MDI5ODM3NDI4LAogICAgICAgICAgICAwLjU4MTE5NDE4NjcxNTQ3MjUsCiAgICAgICAgICAgIDEwNS4zNjIxNDQ0NzAyMTQ4NCwKICAgICAgICAgICAgMTQwLjk4MDI3MDM4NTc0MjIKICAgICAgICAgIF0KICAgICAgICB9CiAgICAgIF0KICAgIH0sCiAgICAiZmluYWwiOiBbCiAgICAgIHsKICAgICAgICAicngiOiAzMC40MTE4NzU1ODI0MDIwNzUsCiAgICAgICAgInJ5IjogNC40Nzc5NjEzMDQ0ODEyNzQsCiAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgIDAuODI3NTU2ODI0ODQ2NTA1MiwKICAgICAgICAgIC0wLjU2MTM4MTk1NzAwNDI5MzcsCiAgICAgICAgICAwLjU2MTM4MTk1NzAwNDI5MzcsCiAgICAgICAgICAwLjgyNzU1NjgyNDg0NjUwNTIsCiAgICAgICAgICAxNzcuMzEzNDYxMzAzNzEwOTQsCiAgICAgICAgICAxNDIuMDcxMjg5MDYyNQogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJyeCI6IDE1LjIwNTkzNzc5MTIwMTAzOCwKICAgICAgICAicnkiOiAyLjIzODk4MDY1MjI0MDYzNywKICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgMC44Mjc1NTY4MjQ4NDY1MDUyLAogICAgICAgICAgLTAuNTYxMzgxOTU3MDA0MjkzNywKICAgICAgICAgIDAuNTYxMzgxOTU3MDA0MjkzNywKICAgICAgICAgIDAuODI3NTU2ODI0ODQ2NTA1MiwKICAgICAgICAgIDE3Ny4zMTM0NjEzMDM3MTA5NCwKICAgICAgICAgIDE0Mi4wNzEyODkwNjI1CiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogMTMuMzY4NTQ1NTM3ODY3NjM2LAogICAgICAgICJyeSI6IDcuOTMxNjE1NTM0ODA5MjAzLAogICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAwLjk4MDczNDA0NDU5MDE1NDgsCiAgICAgICAgICAtMC4xOTUzNDc3MjUzMDQ5OTYzNiwKICAgICAgICAgIDAuMTk1MzQ3NzI1MzA0OTk2MzYsCiAgICAgICAgICAwLjk4MDczNDA0NDU5MDE1NDgsCiAgICAgICAgICAyMjEuNjgyMjUwOTc2NTYyNSwKICAgICAgICAgIDExMS4wODY1MTczMzM5ODQzOAogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJyeCI6IDYuNjg0MjcyNzY4OTMzODE4LAogICAgICAgICJyeSI6IDMuOTY1ODA3NzY3NDA0NjAxNSwKICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgMC45ODA3MzQwNDQ1OTAxNTQ4LAogICAgICAgICAgLTAuMTk1MzQ3NzI1MzA0OTk2MzYsCiAgICAgICAgICAwLjE5NTM0NzcyNTMwNDk5NjM2LAogICAgICAgICAgMC45ODA3MzQwNDQ1OTAxNTQ4LAogICAgICAgICAgMjIxLjY4MjI1MDk3NjU2MjUsCiAgICAgICAgICAxMTEuMDg2NTE3MzMzOTg0MzgKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicngiOiA5Ni4yNDc1NzExNzIyMDgzMSwKICAgICAgICAicnkiOiAyNC40NTM5MTA0OTM5NzU3NjYsCiAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgIDAuNTQyMTI3OTk2NjA2MzI1NSwKICAgICAgICAgIC0wLjg0MDI5NTkyMTI2NTYwNSwKICAgICAgICAgIDAuODQwMjk1OTIxMjY1NjA1LAogICAgICAgICAgMC41NDIxMjc5OTY2MDYzMjU1LAogICAgICAgICAgMTE3LjY4OTk3MTkyMzgyODEyLAogICAgICAgICAgMTE0LjMzMTI0NTQyMjM2MzI4CiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogNDguMTIzNzg1NTg2MTA0MTU1LAogICAgICAgICJyeSI6IDEyLjIyNjk1NTI0Njk4Nzg4MywKICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgMC41NDIxMjc5OTY2MDYzMjU1LAogICAgICAgICAgLTAuODQwMjk1OTIxMjY1NjA1LAogICAgICAgICAgMC44NDAyOTU5MjEyNjU2MDUsCiAgICAgICAgICAwLjU0MjEyNzk5NjYwNjMyNTUsCiAgICAgICAgICAxMTcuNjg5OTcxOTIzODI4MTIsCiAgICAgICAgICAxMTQuMzMxMjQ1NDIyMzYzMjgKICAgICAgICBdCiAgICAgIH0KICAgIF0KICB9LAogIHsKICAgICJwcmVzZXQiOiAidW5lcXVhbCIsCiAgICAiZXZlbnRzIjogMzIsCiAgICAic2FtcGxlcyI6IHsKICAgICAgImluaXRpYWwiOiBbCiAgICAgICAgewogICAgICAgICAgInJ4IjogNzIsCiAgICAgICAgICAicnkiOiA3MiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDE4My40OTAwMjA3NTE5NTMxMiwKICAgICAgICAgICAgMTQwLjcwOTU2NDIwODk4NDM4CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzNiwKICAgICAgICAgICJyeSI6IDM2LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMTgzLjQ5MDAyMDc1MTk1MzEyLAogICAgICAgICAgICAxNDAuNzA5NTY0MjA4OTg0MzgKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDcyLAogICAgICAgICAgInJ5IjogNzIsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAxLAogICAgICAgICAgICAwLAogICAgICAgICAgICAwLAogICAgICAgICAgICAxLAogICAgICAgICAgICAxMTcuNTMxMTg4OTY0ODQzNzUsCiAgICAgICAgICAgIDg2LjE0NjI3ODM4MTM0NzY2CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzNiwKICAgICAgICAgICJyeSI6IDM2LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMTE3LjUzMTE4ODk2NDg0Mzc1LAogICAgICAgICAgICA4Ni4xNDYyNzgzODEzNDc2NgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNzIsCiAgICAgICAgICAicnkiOiA3MiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDE5NS45NTIzOTI1NzgxMjUsCiAgICAgICAgICAgIDExMy45MjY0MjIxMTkxNDA2MgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzYsCiAgICAgICAgICAicnkiOiAzNiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDE5NS45NTIzOTI1NzgxMjUsCiAgICAgICAgICAgIDExMy45MjY0MjIxMTkxNDA2MgogICAgICAgICAgXQogICAgICAgIH0KICAgICAgXSwKICAgICAgImV4cGVjdGF0aW9uIjogWwogICAgICAgIHsKICAgICAgICAgICJyeCI6IDY3LjQxNzUxMDc3ODU4ODY0LAogICAgICAgICAgInJ5IjogNjYuNzA4MjY4MTYxNjIwNDUsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjk3NTAwNzE5MDUzMTM5OTUsCiAgICAgICAgICAgIDAuMjIyMTczMzA3MTU0NzIzOSwKICAgICAgICAgICAgLTAuMjIyMTczMzA3MTU0NzIzOSwKICAgICAgICAgICAgMC45NzUwMDcxOTA1MzEzOTk1LAogICAgICAgICAgICAxODIuNjMyMDY0ODE5MzM1OTQsCiAgICAgICAgICAgIDEzOS43NDM4NjU5NjY3OTY4OAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzMuNzA4NzU1Mzg5Mjk0MzIsCiAgICAgICAgICAicnkiOiAzMy4zNTQxMzQwODA4MTAyMjYsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjk3NTAwNzE5MDUzMTM5OTUsCiAgICAgICAgICAgIDAuMjIyMTczMzA3MTU0NzIzOSwKICAgICAgICAgICAgLTAuMjIyMTczMzA3MTU0NzIzOSwKICAgICAgICAgICAgMC45NzUwMDcxOTA1MzEzOTk1LAogICAgICAgICAgICAxODIuNjMyMDY0ODE5MzM1OTQsCiAgICAgICAgICAgIDEzOS43NDM4NjU5NjY3OTY4OAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNjkuOTAzMTQ2ODI3MDQ3NSwKICAgICAgICAgICJyeSI6IDY5LjEwOTQyNjA4NTk4MDk3LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC44MDg1NjE2NTE4MTg5ODU2LAogICAgICAgICAgICAtMC41ODg0MTE0Njc2MDM4ODEzLAogICAgICAgICAgICAwLjU4ODQxMTQ2NzYwMzg4MTMsCiAgICAgICAgICAgIDAuODA4NTYxNjUxODE4OTg1NiwKICAgICAgICAgICAgMTIwLjk4NzI0MzY1MjM0Mzc1LAogICAgICAgICAgICA5MC40OTc3ODc0NzU1ODU5NAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzQuOTUxNTczNDEzNTIzNzUsCiAgICAgICAgICAicnkiOiAzNC41NTQ3MTMwNDI5OTA0ODUsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjgwODU2MTY1MTgxODk4NTYsCiAgICAgICAgICAgIC0wLjU4ODQxMTQ2NzYwMzg4MTMsCiAgICAgICAgICAgIDAuNTg4NDExNDY3NjAzODgxMywKICAgICAgICAgICAgMC44MDg1NjE2NTE4MTg5ODU2LAogICAgICAgICAgICAxMjAuOTg3MjQzNjUyMzQzNzUsCiAgICAgICAgICAgIDkwLjQ5Nzc4NzQ3NTU4NTk0CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiA2Ny41MDY5NzU2MTIxODk5OSwKICAgICAgICAgICJyeSI6IDY2LjY1MTg1ODI4Mzk5NDA3LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC41NzY0NTEzNjk4MzY0MjQsCiAgICAgICAgICAgIDAuODE3MTMxNDU3MTE5MTc3NiwKICAgICAgICAgICAgLTAuODE3MTMxNDU3MTE5MTc3NiwKICAgICAgICAgICAgMC41NzY0NTEzNjk4MzY0MjQsCiAgICAgICAgICAgIDE5My4yNzc2NDg5MjU3ODEyNSwKICAgICAgICAgICAgMTE2LjY2ODkxNDc5NDkyMTg4CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzMy43NTM0ODc4MDYwOTQ5OTUsCiAgICAgICAgICAicnkiOiAzMy4zMjU5MjkxNDE5OTcwNCwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNTc2NDUxMzY5ODM2NDI0LAogICAgICAgICAgICAwLjgxNzEzMTQ1NzExOTE3NzYsCiAgICAgICAgICAgIC0wLjgxNzEzMTQ1NzExOTE3NzYsCiAgICAgICAgICAgIDAuNTc2NDUxMzY5ODM2NDI0LAogICAgICAgICAgICAxOTMuMjc3NjQ4OTI1NzgxMjUsCiAgICAgICAgICAgIDExNi42Njg5MTQ3OTQ5MjE4OAogICAgICAgICAgXQogICAgICAgIH0KICAgICAgXSwKICAgICAgIm1heGltaXphdGlvbiI6IFsKICAgICAgICB7CiAgICAgICAgICAicngiOiA1Mi4zODA3ODg4NjQ3MTg2MjUsCiAgICAgICAgICAicnkiOiA0OC43ODkzMzAwNDAwMzQ5MjYsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjk3NTAwNzE5MDUzMTM5OTcsCiAgICAgICAgICAgIDAuMjIyMTczMzA3MTU0NzIyODYsCiAgICAgICAgICAgIC0wLjIyMjE3MzMwNzE1NDcyMjg2LAogICAgICAgICAgICAwLjk3NTAwNzE5MDUzMTM5OTcsCiAgICAgICAgICAgIDE4MC4yMTI5ODIxNzc3MzQzOCwKICAgICAgICAgICAgMTM3LjAyMDk1MDMxNzM4MjgKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDI2LjE5MDM5NDQzMjM1OTMxMiwKICAgICAgICAgICJyeSI6IDI0LjM5NDY2NTAyMDAxNzQ2MywKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuOTc1MDA3MTkwNTMxMzk5NywKICAgICAgICAgICAgMC4yMjIxNzMzMDcxNTQ3MjI4NiwKICAgICAgICAgICAgLTAuMjIyMTczMzA3MTU0NzIyODYsCiAgICAgICAgICAgIDAuOTc1MDA3MTkwNTMxMzk5NywKICAgICAgICAgICAgMTgwLjIxMjk4MjE3NzczNDM4LAogICAgICAgICAgICAxMzcuMDIwOTUwMzE3MzgyOAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNjMuNjE5ODI4MDU3NjYxOTA2LAogICAgICAgICAgInJ5IjogNjAuMjE2NjEyNzkzMDYwNDMsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjgwODU2MTY1MTgxODk4NDgsCiAgICAgICAgICAgIC0wLjU4ODQxMTQ2NzYwMzg4MjQsCiAgICAgICAgICAgIDAuNTg4NDExNDY3NjAzODgyNCwKICAgICAgICAgICAgMC44MDg1NjE2NTE4MTg5ODQ4LAogICAgICAgICAgICAxMzAuNzMxODg3ODE3MzgyOCwKICAgICAgICAgICAgMTAyLjc2NzIzNDgwMjI0NjEKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDMxLjgwOTkxNDAyODgzMDk1MywKICAgICAgICAgICJyeSI6IDMwLjEwODMwNjM5NjUzMDIxNCwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuODA4NTYxNjUxODE4OTg0OCwKICAgICAgICAgICAgLTAuNTg4NDExNDY3NjAzODgyNCwKICAgICAgICAgICAgMC41ODg0MTE0Njc2MDM4ODI0LAogICAgICAgICAgICAwLjgwODU2MTY1MTgxODk4NDgsCiAgICAgICAgICAgIDEzMC43MzE4ODc4MTczODI4LAogICAgICAgICAgICAxMDIuNzY3MjM0ODAyMjQ2MQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNTIuODE5MDYxMjI0Nzk2NDg1LAogICAgICAgICAgInJ5IjogNDguNDkzOTY1MDkxNzc2ODg2LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC41NzY0NTEzNjk4MzY0MjQsCiAgICAgICAgICAgIDAuODE3MTMxNDU3MTE5MTc3NiwKICAgICAgICAgICAgLTAuODE3MTMxNDU3MTE5MTc3NiwKICAgICAgICAgICAgMC41NzY0NTEzNjk4MzY0MjQsCiAgICAgICAgICAgIDE4NS43MzU5NzcxNzI4NTE1NiwKICAgICAgICAgICAgMTI0LjQwMTYxMTMyODEyNQogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMjYuNDA5NTMwNjEyMzk4MjQzLAogICAgICAgICAgInJ5IjogMjQuMjQ2OTgyNTQ1ODg4NDQzLAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC41NzY0NTEzNjk4MzY0MjQsCiAgICAgICAgICAgIDAuODE3MTMxNDU3MTE5MTc3NiwKICAgICAgICAgICAgLTAuODE3MTMxNDU3MTE5MTc3NiwKICAgICAgICAgICAgMC41NzY0NTEzNjk4MzY0MjQsCiAgICAgICAgICAgIDE4NS43MzU5NzcxNzI4NTE1NiwKICAgICAgICAgICAgMTI0LjQwMTYxMTMyODEyNQogICAgICAgICAgXQogICAgICAgIH0KICAgICAgXQogICAgfSwKICAgICJmaW5hbCI6IFsKICAgICAgewogICAgICAgICJyeCI6IDI0Ljg4NjU1NjI4MTc5MDQ5NCwKICAgICAgICAicnkiOiA4LjkxNzU0MjE3ODk2ODIyNCwKICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgMC41MjIzMDI2Njk3OTAxMzU1LAogICAgICAgICAgLTAuODUyNzYwMTc3OTY5MjIwNSwKICAgICAgICAgIDAuODUyNzYwMTc3OTY5MjIwNSwKICAgICAgICAgIDAuNTIyMzAyNjY5NzkwMTM1NSwKICAgICAgICAgIDE3OS4xMTczNDAwODc4OTA2MiwKICAgICAgICAgIDEzNC4yNTgxOTM5Njk3MjY1NgogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJyeCI6IDEyLjQ0MzI3ODE0MDg5NTI0NywKICAgICAgICAicnkiOiA0LjQ1ODc3MTA4OTQ4NDExMiwKICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgMC41MjIzMDI2Njk3OTAxMzU1LAogICAgICAgICAgLTAuODUyNzYwMTc3OTY5MjIwNSwKICAgICAgICAgIDAuODUyNzYwMTc3OTY5MjIwNSwKICAgICAgICAgIDAuNTIyMzAyNjY5NzkwMTM1NSwKICAgICAgICAgIDE3OS4xMTczNDAwODc4OTA2MiwKICAgICAgICAgIDEzNC4yNTgxOTM5Njk3MjY1NgogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJyeCI6IDY2Ljk3ODg3NjE2NzMyNjU5LAogICAgICAgICJyeSI6IDE5LjUxMDI0MzAwMzAxNjUzLAogICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAwLjUxNjczNDE2Mjg3ODE1MjIsCiAgICAgICAgICAtMC44NTYxNDU5MDE2NTE0NzQsCiAgICAgICAgICAwLjg1NjE0NTkwMTY1MTQ3NCwKICAgICAgICAgIDAuNTE2NzM0MTYyODc4MTUyMiwKICAgICAgICAgIDEyNy43Nzc2NzE4MTM5NjQ4NCwKICAgICAgICAgIDEwNy4xMDkzNTIxMTE4MTY0CiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogMzMuNDg5NDM4MDgzNjYzMjk1LAogICAgICAgICJyeSI6IDkuNzU1MTIxNTAxNTA4MjY1LAogICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAwLjUxNjczNDE2Mjg3ODE1MjIsCiAgICAgICAgICAtMC44NTYxNDU5MDE2NTE0NzQsCiAgICAgICAgICAwLjg1NjE0NTkwMTY1MTQ3NCwKICAgICAgICAgIDAuNTE2NzM0MTYyODc4MTUyMiwKICAgICAgICAgIDEyNy43Nzc2NzE4MTM5NjQ4NCwKICAgICAgICAgIDEwNy4xMDkzNTIxMTE4MTY0CiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogMjYuNzA2MzY1NTk3NzU2MjYsCiAgICAgICAgInJ5IjogNy4yNTkyNzQ2ODc3NTI4OTEsCiAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgIDAuMzk4NDg0OTI0NDU4MDAxLAogICAgICAgICAgMC45MTcxNzQ4ODI0NDA0NzYyLAogICAgICAgICAgLTAuOTE3MTc0ODgyNDQwNDc2MiwKICAgICAgICAgIDAuMzk4NDg0OTI0NDU4MDAxLAogICAgICAgICAgMTg4LjM2Mzk4MzE1NDI5Njg4LAogICAgICAgICAgMTM1LjY0ODcyNzQxNjk5MjIKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAicngiOiAxMy4zNTMxODI3OTg4NzgxMywKICAgICAgICAicnkiOiAzLjYyOTYzNzM0Mzg3NjQ0NTMsCiAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgIDAuMzk4NDg0OTI0NDU4MDAxLAogICAgICAgICAgMC45MTcxNzQ4ODI0NDA0NzYyLAogICAgICAgICAgLTAuOTE3MTc0ODgyNDQwNDc2MiwKICAgICAgICAgIDAuMzk4NDg0OTI0NDU4MDAxLAogICAgICAgICAgMTg4LjM2Mzk4MzE1NDI5Njg4LAogICAgICAgICAgMTM1LjY0ODcyNzQxNjk5MjIKICAgICAgICBdCiAgICAgIH0KICAgIF0KICB9LAogIHsKICAgICJwcmVzZXQiOiAib3ZlcmxhcCIsCiAgICAiZXZlbnRzIjogMTYsCiAgICAic2FtcGxlcyI6IHsKICAgICAgImluaXRpYWwiOiBbCiAgICAgICAgewogICAgICAgICAgInJ4IjogNzIsCiAgICAgICAgICAicnkiOiA3MiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDEzMi45MTQ3MzM4ODY3MTg3NSwKICAgICAgICAgICAgMTQ3LjA5NTEyMzI5MTAxNTYyCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzNiwKICAgICAgICAgICJyeSI6IDM2LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMTMyLjkxNDczMzg4NjcxODc1LAogICAgICAgICAgICAxNDcuMDk1MTIzMjkxMDE1NjIKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDcyLAogICAgICAgICAgInJ5IjogNzIsCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAxLAogICAgICAgICAgICAwLAogICAgICAgICAgICAwLAogICAgICAgICAgICAxLAogICAgICAgICAgICAyMjguNTA0Mzk0NTMxMjUsCiAgICAgICAgICAgIDU2LjExNzU3Mjc4NDQyMzgzCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzNiwKICAgICAgICAgICJyeSI6IDM2LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMCwKICAgICAgICAgICAgMSwKICAgICAgICAgICAgMjI4LjUwNDM5NDUzMTI1LAogICAgICAgICAgICA1Ni4xMTc1NzI3ODQ0MjM4MwogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogNzIsCiAgICAgICAgICAicnkiOiA3MiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDg2LjMxNjk2MzE5NTgwMDc4LAogICAgICAgICAgICA4NS45OTM3MzYyNjcwODk4NAogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzYsCiAgICAgICAgICAicnkiOiAzNiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDAsCiAgICAgICAgICAgIDEsCiAgICAgICAgICAgIDg2LjMxNjk2MzE5NTgwMDc4LAogICAgICAgICAgICA4NS45OTM3MzYyNjcwODk4NAogICAgICAgICAgXQogICAgICAgIH0KICAgICAgXSwKICAgICAgImV4cGVjdGF0aW9uIjogWwogICAgICAgIHsKICAgICAgICAgICJyeCI6IDcyLjYwNDQ2ODg5MzkyNzA2LAogICAgICAgICAgInJ5IjogNzEuMDcwODIwMTc3OTE0MjksCiAgICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgICAwLjU3NTI3MDg0NDQxNjUxMzgsCiAgICAgICAgICAgIC0wLjgxNzk2Mjk5MTU2MTU0NDQsCiAgICAgICAgICAgIDAuODE3OTYyOTkxNTYxNTQ0NCwKICAgICAgICAgICAgMC41NzUyNzA4NDQ0MTY1MTM4LAogICAgICAgICAgICAxMzMuMDExNjU3NzE0ODQzNzUsCiAgICAgICAgICAgIDE0Ny4wNDc4NjY4MjEyODkwNgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgInJ4IjogMzYuMzAyMjM0NDQ2OTYzNTMsCiAgICAgICAgICAicnkiOiAzNS41MzU0MTAwODg5NTcxNCwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNTc1MjcwODQ0NDE2NTEzOCwKICAgICAgICAgICAgLTAuODE3OTYyOTkxNTYxNTQ0NCwKICAgICAgICAgICAgMC44MTc5NjI5OTE1NjE1NDQ0LAogICAgICAgICAgICAwLjU3NTI3MDg0NDQxNjUxMzgsCiAgICAgICAgICAgIDEzMy4wMTE2NTc3MTQ4NDM3NSwKICAgICAgICAgICAgMTQ3LjA0Nzg2NjgyMTI4OTA2CiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiA3MS41Njk5NzY0OTIwOTU4MiwKICAgICAgICAgICJyeSI6IDcwLjc3NTg1ODEwNjgyOTE4LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC42ODI1NDM1NzU4NjA5NTQyLAogICAgICAgICAgICAwLjczMDg0NDg5OTQ0OTIyMDksCiAgICAgICAgICAgIC0wLjczMDg0NDg5OTQ0OTIyMDksCiAgICAgICAgICAgIDAuNjgyNTQzNTc1ODYwOTU0MiwKICAgICAgICAgICAgMjI2Ljg2ODA0MTk5MjE4NzUsCiAgICAgICAgICAgIDU4LjM4NDU3NDg5MDEzNjcyCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzNS43ODQ5ODgyNDYwNDc5MSwKICAgICAgICAgICJyeSI6IDM1LjM4NzkyOTA1MzQxNDU5LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC42ODI1NDM1NzU4NjA5NTQyLAogICAgICAgICAgICAwLjczMDg0NDg5OTQ0OTIyMDksCiAgICAgICAgICAgIC0wLjczMDg0NDg5OTQ0OTIyMDksCiAgICAgICAgICAgIDAuNjgyNTQzNTc1ODYwOTU0MiwKICAgICAgICAgICAgMjI2Ljg2ODA0MTk5MjE4NzUsCiAgICAgICAgICAgIDU4LjM4NDU3NDg5MDEzNjcyCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiA3Mi4zMzUwOTU5NDg4NDU4MywKICAgICAgICAgICJyeSI6IDcwLjc5NDk2MzU5MDQ3MDU2LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC40ODUzNzA4OTAzODQxOTc4LAogICAgICAgICAgICAtMC44NzQzMDgzNTQ1MTA5NTM1LAogICAgICAgICAgICAwLjg3NDMwODM1NDUxMDk1MzUsCiAgICAgICAgICAgIDAuNDg1MzcwODkwMzg0MTk3OCwKICAgICAgICAgICAgODguMDY3NzQxMzk0MDQyOTcsCiAgICAgICAgICAgIDg2LjEzODY3OTUwNDM5NDUzCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAicngiOiAzNi4xNjc1NDc5NzQ0MjI5MiwKICAgICAgICAgICJyeSI6IDM1LjM5NzQ4MTc5NTIzNTI4LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC40ODUzNzA4OTAzODQxOTc4LAogICAgICAgICAgICAtMC44NzQzMDgzNTQ1MTA5NTM1LAogICAgICAgICAgICAwLjg3NDMwODM1NDUxMDk1MzUsCiAgICAgICAgICAgIDAuNDg1MzcwODkwMzg0MTk3OCwKICAgICAgICAgICAgODguMDY3NzQxMzk0MDQyOTcsCiAgICAgICAgICAgIDg2LjEzODY3OTUwNDM5NDUzCiAgICAgICAgICBdCiAgICAgICAgfQogICAgICBdLAogICAgICAibWF4aW1pemF0aW9uIjogWwogICAgICAgIHsKICAgICAgICAgICJyeCI6IDc2LjE1MDczMzIyNDM1NTYsCiAgICAgICAgICAicnkiOiA2NS4xODI1MDExMjAzMjQ4OSwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNTc1MjcwODQ0NDE2NTEzNywKICAgICAgICAgICAgLTAuODE3OTYyOTkxNTYxNTQ0NSwKICAgICAgICAgICAgMC44MTc5NjI5OTE1NjE1NDQ1LAogICAgICAgICAgICAwLjU3NTI3MDg0NDQxNjUxMzcsCiAgICAgICAgICAgIDEzMy41OTY2MDMzOTM1NTQ3LAogICAgICAgICAgICAxNDYuNzYyNjgwMDUzNzEwOTQKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDM4LjA3NTM2NjYxMjE3NzgsCiAgICAgICAgICAicnkiOiAzMi41OTEyNTA1NjAxNjI0NCwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNTc1MjcwODQ0NDE2NTEzNywKICAgICAgICAgICAgLTAuODE3OTYyOTkxNTYxNTQ0NSwKICAgICAgICAgICAgMC44MTc5NjI5OTE1NjE1NDQ1LAogICAgICAgICAgICAwLjU3NTI3MDg0NDQxNjUxMzcsCiAgICAgICAgICAgIDEzMy41OTY2MDMzOTM1NTQ3LAogICAgICAgICAgICAxNDYuNzYyNjgwMDUzNzEwOTQKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDY4LjkxNzc4NDY4MDc1MTM1LAogICAgICAgICAgInJ5IjogNjIuODg0MTE4MzcxNzc0OTk2LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC42ODI1NDM1NzU4NjA5NTM2LAogICAgICAgICAgICAwLjczMDg0NDg5OTQ0OTIyMTUsCiAgICAgICAgICAgIC0wLjczMDg0NDg5OTQ0OTIyMTUsCiAgICAgICAgICAgIDAuNjgyNTQzNTc1ODYwOTUzNiwKICAgICAgICAgICAgMjE2Ljk5MjQ3NzQxNjk5MjIsCiAgICAgICAgICAgIDcyLjA2NjI2MTI5MTUwMzkKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDM0LjQ1ODg5MjM0MDM3NTY4LAogICAgICAgICAgInJ5IjogMzEuNDQyMDU5MTg1ODg3NDk4LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC42ODI1NDM1NzU4NjA5NTM2LAogICAgICAgICAgICAwLjczMDg0NDg5OTQ0OTIyMTUsCiAgICAgICAgICAgIC0wLjczMDg0NDg5OTQ0OTIyMTUsCiAgICAgICAgICAgIDAuNjgyNTQzNTc1ODYwOTUzNiwKICAgICAgICAgICAgMjE2Ljk5MjQ3NzQxNjk5MjIsCiAgICAgICAgICAgIDcyLjA2NjI2MTI5MTUwMzkKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDc0LjMyNTM4MjU1MTYxMzcsCiAgICAgICAgICAicnkiOiA2My4wMzUyMzUwMDE0MDY0LAogICAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgICAgMC40ODUzNzA4OTAzODQxOTc0LAogICAgICAgICAgICAtMC44NzQzMDgzNTQ1MTA5NTM3LAogICAgICAgICAgICAwLjg3NDMwODM1NDUxMDk1MzcsCiAgICAgICAgICAgIDAuNDg1MzcwODkwMzg0MTk3NCwKICAgICAgICAgICAgOTguNjMzOTM0MDIwOTk2MSwKICAgICAgICAgICAgODcuMDEzNDIwMTA0OTgwNDcKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJyeCI6IDM3LjE2MjY5MTI3NTgwNjg1LAogICAgICAgICAgInJ5IjogMzEuNTE3NjE3NTAwNzAzMiwKICAgICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAgIDAuNDg1MzcwODkwMzg0MTk3NCwKICAgICAgICAgICAgLTAuODc0MzA4MzU0NTEwOTUzNywKICAgICAgICAgICAgMC44NzQzMDgzNTQ1MTA5NTM3LAogICAgICAgICAgICAwLjQ4NTM3MDg5MDM4NDE5NzQsCiAgICAgICAgICAgIDk4LjYzMzkzNDAyMDk5NjEsCiAgICAgICAgICAgIDg3LjAxMzQyMDEwNDk4MDQ3CiAgICAgICAgICBdCiAgICAgICAgfQogICAgICBdCiAgICB9LAogICAgImZpbmFsIjogWwogICAgICB7CiAgICAgICAgInJ4IjogOTIuNTM3NzgyOTExOTUyOTUsCiAgICAgICAgInJ5IjogMjYuMTMwOTQzMTYyODA0MzU3LAogICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAwLjU4NTk1NzU3NDM4OTczODYsCiAgICAgICAgICAtMC44MTAzNDE3MzEwMDkzODk2LAogICAgICAgICAgMC44MTAzNDE3MzEwMDkzODk2LAogICAgICAgICAgMC41ODU5NTc1NzQzODk3Mzg2LAogICAgICAgICAgMTQ1LjAxMTA0NzM2MzI4MTI1LAogICAgICAgICAgMTQ2LjMxOTEwNzA1NTY2NDA2CiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogNDYuMjY4ODkxNDU1OTc2NDcsCiAgICAgICAgInJ5IjogMTMuMDY1NDcxNTgxNDAyMTc4LAogICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAwLjU4NTk1NzU3NDM4OTczODYsCiAgICAgICAgICAtMC44MTAzNDE3MzEwMDkzODk2LAogICAgICAgICAgMC44MTAzNDE3MzEwMDkzODk2LAogICAgICAgICAgMC41ODU5NTc1NzQzODk3Mzg2LAogICAgICAgICAgMTQ1LjAxMTA0NzM2MzI4MTI1LAogICAgICAgICAgMTQ2LjMxOTEwNzA1NTY2NDA2CiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogNjYuMjc5MDY1NDA2NTU3NDUsCiAgICAgICAgInJ5IjogMjIuMjQ3OTg4OTI4MjYwNDQ0LAogICAgICAgICJ0cmFuc2Zvcm0iOiBbCiAgICAgICAgICAwLjEyMDU1OTA3MDE4NjQxNzI1LAogICAgICAgICAgMC45OTI3MDYxNTUyMTE5OTc2LAogICAgICAgICAgLTAuOTkyNzA2MTU1MjExOTk3NiwKICAgICAgICAgIDAuMTIwNTU5MDcwMTg2NDE3MjUsCiAgICAgICAgICAyMjEuOTM4NzIwNzAzMTI1LAogICAgICAgICAgMTA3LjY5Mzk3NzM1NTk1NzAzCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogMzMuMTM5NTMyNzAzMjc4NzI1LAogICAgICAgICJyeSI6IDExLjEyMzk5NDQ2NDEzMDIyMiwKICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgMC4xMjA1NTkwNzAxODY0MTcyNSwKICAgICAgICAgIDAuOTkyNzA2MTU1MjExOTk3NiwKICAgICAgICAgIC0wLjk5MjcwNjE1NTIxMTk5NzYsCiAgICAgICAgICAwLjEyMDU1OTA3MDE4NjQxNzI1LAogICAgICAgICAgMjIxLjkzODcyMDcwMzEyNSwKICAgICAgICAgIDEwNy42OTM5NzczNTU5NTcwMwogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJyeCI6IDgxLjE3ODA5ODI1NzUxNTYsCiAgICAgICAgInJ5IjogMzguMTc0OTAzMTY0NzUyNDQsCiAgICAgICAgInRyYW5zZm9ybSI6IFsKICAgICAgICAgIDAuNTcwMTY1MTIwMTAzODg1NiwKICAgICAgICAgIC0wLjgyMTUzMDExODYzMDQyNTksCiAgICAgICAgICAwLjgyMTUzMDExODYzMDQyNTksCiAgICAgICAgICAwLjU3MDE2NTEyMDEwMzg4NTYsCiAgICAgICAgICAxMTMuNDYzNzk4NTIyOTQ5MjIsCiAgICAgICAgICA5MS4zMzc3OTE0NDI4NzExCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgInJ4IjogNDAuNTg5MDQ5MTI4NzU3OCwKICAgICAgICAicnkiOiAxOS4wODc0NTE1ODIzNzYyMiwKICAgICAgICAidHJhbnNmb3JtIjogWwogICAgICAgICAgMC41NzAxNjUxMjAxMDM4ODU2LAogICAgICAgICAgLTAuODIxNTMwMTE4NjMwNDI1OSwKICAgICAgICAgIDAuODIxNTMwMTE4NjMwNDI1OSwKICAgICAgICAgIDAuNTcwMTY1MTIwMTAzODg1NiwKICAgICAgICAgIDExMy40NjM3OTg1MjI5NDkyMiwKICAgICAgICAgIDkxLjMzNzc5MTQ0Mjg3MTEKICAgICAgICBdCiAgICAgIH0KICAgIF0KICB9Cl0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "862a963887775b08bdea-b20fec9dcb631dff9137",
+          "file": "v04.spec.ts",
+          "line": 141,
+          "column": 1
+        },
+        {
+          "title": "compact task pages retain controls and consistently show Korean preset names",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 983,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:45.075Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "862a963887775b08bdea-1ef0fe8cfe811ac6f62f",
+          "file": "v04.spec.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 26018,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:31:46.065Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "862a963887775b08bdea-3534e2172fa4676e5398",
+          "file": "v04.spec.ts",
+          "line": 53,
+          "column": 1
+        },
+        {
+          "title": "real Worker GMM renders initialization, E/M covariance motion and final ellipses in every home round",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Full cycle requires all cards visible; minimal renderer and mobile guide are tested separately.",
+                  "location": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v04.spec.ts",
+                    "line": 144,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 137,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:32:12.092Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Full cycle requires all cards visible; minimal renderer and mobile guide are tested separately.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v04.spec.ts",
+                        "line": 144,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "862a963887775b08bdea-493cba50ebdb85eb56be",
+          "file": "v04.spec.ts",
+          "line": 141,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v05.spec.ts",
+      "file": "v05.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "home introduction centers beside the demos and stays compact when stacked",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9230,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:29:22.818Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "98261165a885a636e54a-7d088b533252a4be9ced",
+          "file": "v05.spec.ts",
+          "line": 3,
+          "column": 1
+        },
+        {
+          "title": "home introduction centers beside the demos and stays compact when stacked",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Explicit viewport matrix covers desktop and mobile sizes.",
+                  "location": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v05.spec.ts",
+                    "line": 6,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 128,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:32:12.260Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Explicit viewport matrix covers desktop and mobile sizes.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v05.spec.ts",
+                        "line": 6,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "98261165a885a636e54a-5cc63ef30246df8b5242",
+          "file": "v05.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "v06.spec.ts",
+      "file": "v06.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Uses the real touch-enabled mobile browser context.",
+                  "location": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                    "line": 538,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 83,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:29:51.296Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Uses the real touch-enabled mobile browser context.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                        "line": 538,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "82073cf787935ec5771f-a76b24ea65e904467327",
+          "file": "v06.spec.ts",
+          "line": 534,
+          "column": 1
+        },
+        {
+          "title": "larger home typography and editor toolbar fit requested viewport widths",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2474,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:29:51.384Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "82073cf787935ec5771f-b6a4888142ef987a2589",
+          "file": "v06.spec.ts",
+          "line": 613,
+          "column": 1
+        },
+        {
+          "title": "native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1323,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:32:13.263Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "82073cf787935ec5771f-6b9f46a4bda9d3435c2a",
+          "file": "v06.spec.ts",
+          "line": 534,
+          "column": 1
+        },
+        {
+          "title": "larger home typography and editor toolbar fit requested viewport widths",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "description": "Explicit viewport matrix; mobile behavior is covered separately.",
+                  "location": {
+                    "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                    "line": 616,
+                    "column": 8
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 128,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-01T10:32:14.594Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Explicit viewport matrix; mobile behavior is covered separately.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                        "line": 616,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "82073cf787935ec5771f-723c770adddc18951c3a",
+          "file": "v06.spec.ts",
+          "line": 613,
+          "column": 1
+        }
+      ],
+      "suites": [
+        {
+          "title": "v0.6 desktop editing",
+          "file": "v06.spec.ts",
+          "line": 60,
+          "column": 6,
+          "specs": [
+            {
+              "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4222,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:29:32.069Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "82073cf787935ec5771f-e1c03c7af3b5ac3056b1",
+              "file": "v06.spec.ts",
+              "line": 70,
+              "column": 3
+            },
+            {
+              "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5862,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:29:36.298Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "stroke-frame-times",
+                          "contentType": "application/json",
+                          "body": "eyJzYW1wbGVzIjozNiwicDk1TXMiOjE2Ljc5OTk5OTk5OTk5OTk1NSwibWF4TXMiOjE2LjgwMDAwMDAwMDAwMDA2OH0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "82073cf787935ec5771f-d7866ac59290aa2d2c2f",
+              "file": "v06.spec.ts",
+              "line": 147,
+              "column": 3
+            },
+            {
+              "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2890,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:29:42.166Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "82073cf787935ec5771f-5d5344240cb77a3e4f5a",
+              "file": "v06.spec.ts",
+              "line": 235,
+              "column": 3
+            },
+            {
+              "title": "preset, regeneration options and CSV/JSON replacements restore matching metadata",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2766,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:29:45.061Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "82073cf787935ec5771f-299c7c87c740cbbf672d",
+              "file": "v06.spec.ts",
+              "line": 316,
+              "column": 3
+            },
+            {
+              "title": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1722,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:29:47.836Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "82073cf787935ec5771f-b7f24e50e84a4bf2b9e8",
+              "file": "v06.spec.ts",
+              "line": 401,
+              "column": 3
+            },
+            {
+              "title": "cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1723,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:29:49.565Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "82073cf787935ec5771f-d5f8c037f52304f48b5d",
+              "file": "v06.spec.ts",
+              "line": 461,
+              "column": 3
+            },
+            {
+              "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                        "line": 62,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 127,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:32:12.429Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                          "location": {
+                            "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                            "line": 62,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "82073cf787935ec5771f-f24e33a563c02765f9b0",
+              "file": "v06.spec.ts",
+              "line": 70,
+              "column": 3
+            },
+            {
+              "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                        "line": 62,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 117,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:32:12.563Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                          "location": {
+                            "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                            "line": 62,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "82073cf787935ec5771f-7c2855ab4a4f903a2449",
+              "file": "v06.spec.ts",
+              "line": 147,
+              "column": 3
+            },
+            {
+              "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                        "line": 62,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 141,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:32:12.689Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                          "location": {
+                            "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                            "line": 62,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "82073cf787935ec5771f-07ba31b7337acfdec58e",
+              "file": "v06.spec.ts",
+              "line": 235,
+              "column": 3
+            },
+            {
+              "title": "preset, regeneration options and CSV/JSON replacements restore matching metadata",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                        "line": 62,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 132,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:32:12.839Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                          "location": {
+                            "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                            "line": 62,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "82073cf787935ec5771f-ff7924171e69ed876824",
+              "file": "v06.spec.ts",
+              "line": 316,
+              "column": 3
+            },
+            {
+              "title": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                        "line": 62,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 127,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:32:12.978Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                          "location": {
+                            "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                            "line": 62,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "82073cf787935ec5771f-d7ee55d82a71371e0bab",
+              "file": "v06.spec.ts",
+              "line": 401,
+              "column": 3
+            },
+            {
+              "title": "cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                      "location": {
+                        "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                        "line": 62,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 145,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-01T10:32:13.111Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Mouse matrix runs on desktop; native touch is tested separately.",
+                          "location": {
+                            "file": "C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts",
+                            "line": 62,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "82073cf787935ec5771f-668eea502431323c48f9",
+              "file": "v06.spec.ts",
+              "line": 461,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-01T10:21:11.722Z",
+    "duration": 663681.403,
+    "expected": 72,
+    "skipped": 12,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

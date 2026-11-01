@@ -14,12 +14,14 @@ const inputNames: Record<string, string> = {
   matrix: "행렬",
   timeseries: "실제 시계열",
   stream: "시각 포함 스트림",
+  constrained: "원본 하드 제약",
   "입력 계약 조사 필요": "입력 유형 조사 중",
 };
 const classificationNames: Record<string, string> = {
   algorithm: "독립 알고리즘",
   variant: "변형",
   "related-learning": "관련 학습법",
+  "model-family": "확률 모형",
 };
 const validationNames: Record<string, string> = {
   "v0.6-regression": "기준 버전 회귀",
@@ -28,6 +30,7 @@ const validationNames: Record<string, string> = {
   "independent-numpy": "독립 NumPy 비교",
   "independent-networkx": "NumPy·NetworkX 비교",
   "independent-author": "원저자 구현·NumPy 비교",
+  "independent-igraph": "NumPy·igraph 비교",
 };
 export default function Catalog({
   onRun,

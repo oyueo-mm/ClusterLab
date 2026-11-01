@@ -30,9 +30,17 @@ export function validateRun(
   params: Params,
 ) {
   validateParameters(algorithm, params);
-  const minimum = ["Bimax", "Cheng–Church Biclustering", "K-Shape"].includes(
-    algorithm,
-  )
+  const minimum = [
+    "Bimax",
+    "Cheng–Church Biclustering",
+    "K-Shape",
+    "COP-KMeans",
+    "Bernoulli Mixture",
+    "Poisson Mixture",
+    "Multinomial Mixture",
+    "Walktrap",
+    "Clique Percolation",
+  ].includes(algorithm)
     ? 1
     : 2;
   if (points.length < minimum)

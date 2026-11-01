@@ -2,6 +2,7 @@ import type { Algorithm, Params, Point } from "./types";
 import { algorithmDefaults, legacyAlgorithms } from "./types";
 import type { Dataset } from "./dataset";
 import type { Recorder } from "./trace";
+import type { ExperimentPreset } from "../data/structuredPresets";
 import { algorithmDetails, type AlgorithmDetail } from "./algorithmDetails";
 import { fields } from "./parameters";
 import { algorithmFamilies } from "../data/algorithmFamilies";
@@ -56,6 +57,12 @@ const koreanNames: Record<Algorithm, string> = {
   "K-Shape": "시계열 형태 군집화",
   "Greedy Modularity (CNM)": "탐욕 모듈성 병합",
   "Fluid Communities": "유동 커뮤니티",
+  "COP-KMeans": "하드 제약 K-평균",
+  "Bernoulli Mixture": "베르누이 혼합모델",
+  "Poisson Mixture": "포아송 혼합모델",
+  "Multinomial Mixture": "다항 카운트 혼합모델",
+  Walktrap: "확률보행 계층 커뮤니티",
+  "Clique Percolation": "클리크 퍼콜레이션 중첩 커뮤니티",
 };
 export const loaders: Record<Algorithm, () => Promise<Engine>> = {
   "K-Means": () => import("./algorithms/kmeans").then((m) => m.kmeans),
@@ -114,6 +121,16 @@ export const loaders: Record<Algorithm, () => Promise<Engine>> = {
   "Greedy Modularity (CNM)": () =>
     import("./algorithms/cnm").then((m) => m.cnm),
   "Fluid Communities": () => import("./algorithms/fluid").then((m) => m.fluid),
+  "COP-KMeans": () => import("./algorithms/copkmeans").then((m) => m.copkmeans),
+  "Bernoulli Mixture": () =>
+    import("./algorithms/bernoulli").then((m) => m.bernoulli),
+  "Poisson Mixture": () =>
+    import("./algorithms/poisson").then((m) => m.poisson),
+  "Multinomial Mixture": () =>
+    import("./algorithms/multinomial").then((m) => m.multinomial),
+  Walktrap: () => import("./algorithms/walktrap").then((m) => m.walktrap),
+  "Clique Percolation": () =>
+    import("./algorithms/cliquepercolation").then((m) => m.cliquepercolation),
 };
 export const structuredAlgorithms = [
   "Spectral Clustering",
@@ -125,6 +142,7 @@ export const structuredAlgorithms = [
   "DP-Means",
   "Louvain",
   "Leiden",
+  "COP-KMeans",
   "Label Propagation",
   "Girvan–Newman",
   "Markov Clustering (MCL)",
@@ -138,6 +156,12 @@ export const structuredAlgorithms = [
   "K-Shape",
   "Greedy Modularity (CNM)",
   "Fluid Communities",
+  "COP-KMeans",
+  "Bernoulli Mixture",
+  "Poisson Mixture",
+  "Multinomial Mixture",
+  "Walktrap",
+  "Clique Percolation",
 ] as const;
 export const communityAlgorithms: readonly Algorithm[] = [
   "Louvain",
@@ -147,12 +171,23 @@ export const communityAlgorithms: readonly Algorithm[] = [
   "Markov Clustering (MCL)",
   "Greedy Modularity (CNM)",
   "Fluid Communities",
+  "Walktrap",
+  "Clique Percolation",
 ];
 /** Native matrix/time-series engines cannot consume the point editor input. */
 export function supportsLegacyPoints(algorithm: Algorithm) {
-  return !["Bimax", "Cheng–Church Biclustering", "K-Shape"].includes(algorithm);
+  return ![
+    "Bimax",
+    "Cheng–Church Biclustering",
+    "K-Shape",
+    "COP-KMeans",
+    "Bernoulli Mixture",
+    "Poisson Mixture",
+    "Multinomial Mixture",
+  ].includes(algorithm);
 }
 export function supportsDataset(algorithm: Algorithm, kind: Dataset["kind"]) {
+  if (kind === "constrained") return algorithm === "COP-KMeans";
   if (kind === "categorical") return algorithm === "K-Modes";
   if (kind === "mixed") return algorithm === "K-Prototypes";
   if (kind === "stream") return algorithm === "DenStream";
@@ -174,6 +209,7 @@ export function supportsDataset(algorithm: Algorithm, kind: Dataset["kind"]) {
       "Bimax",
       "Cheng–Church Biclustering",
       "K-Shape",
+      "COP-KMeans",
     ].includes(algorithm)
   );
 }
@@ -188,67 +224,78 @@ export const registry = Object.fromEntries(
         koreanName: koreanNames[id],
         family: algorithmFamilies[id],
         classification: [
-          "LVQ",
-          "SOM",
-          "Neural Gas",
-          "Growing Neural Gas",
+          "Bernoulli Mixture",
+          "Poisson Mixture",
+          "Multinomial Mixture",
         ].includes(id)
-          ? "related-learning"
-          : [
-                "Bisecting K-Means",
-                "K-Medians",
-                "Mini-Batch K-Means",
-                "CLARA",
-                "CLARANS",
-                "Density Peaks / CFSFDP",
-                "X-Means",
-                "G-Means",
-                "Dip-Means",
-                "K-Modes",
-                "K-Prototypes",
-                "Leiden",
-              ].includes(id)
-            ? "variant"
-            : "algorithm",
+          ? "model-family"
+          : ["LVQ", "SOM", "Neural Gas", "Growing Neural Gas"].includes(id)
+            ? "related-learning"
+            : [
+                  "Bisecting K-Means",
+                  "K-Medians",
+                  "Mini-Batch K-Means",
+                  "CLARA",
+                  "CLARANS",
+                  "Density Peaks / CFSFDP",
+                  "X-Means",
+                  "G-Means",
+                  "Dip-Means",
+                  "K-Modes",
+                  "K-Prototypes",
+                  "Leiden",
+                ].includes(id)
+              ? "variant"
+              : "algorithm",
         input:
-          id === "Bimax" || id === "Cheng–Church Biclustering"
-            ? "matrix"
-            : id === "K-Shape"
-              ? "timeseries"
-              : id === "K-Modes"
-                ? "categorical"
-                : id === "K-Prototypes"
-                  ? "mixed"
-                  : id === "DenStream"
-                    ? "stream"
-                    : structuredAlgorithms.some((a) => a === id)
-                      ? id === "Spectral Clustering" ||
-                        communityAlgorithms.includes(id)
-                        ? "numeric-or-graph"
-                        : "numeric-nd"
-                      : id === "ROCK"
-                        ? "categorical-tokens"
-                        : id === "LVQ"
-                          ? "labeled-points2d"
-                          : "points2d",
+          id === "COP-KMeans"
+            ? "constrained"
+            : id === "Bimax" || id === "Cheng–Church Biclustering"
+              ? "matrix"
+              : id === "K-Shape"
+                ? "timeseries"
+                : id === "K-Modes"
+                  ? "categorical"
+                  : id === "K-Prototypes"
+                    ? "mixed"
+                    : id === "DenStream"
+                      ? "stream"
+                      : structuredAlgorithms.some((a) => a === id)
+                        ? id === "Spectral Clustering" ||
+                          communityAlgorithms.includes(id)
+                          ? "numeric-or-graph"
+                          : "numeric-nd"
+                        : id === "ROCK"
+                          ? "categorical-tokens"
+                          : id === "LVQ"
+                            ? "labeled-points2d"
+                            : "points2d",
         output:
-          id === "Bimax" || id === "Cheng–Church Biclustering"
-            ? "biclustering"
-            : id === "K-Shape"
-              ? "timeseries-partition"
-              : id === "PROCLUS"
-                ? "projected-partition"
-                : id === "CLIQUE"
-                  ? "subspaces"
-                  : id === "DenStream"
-                    ? "stream-summary"
-                    : communityAlgorithms.includes(id)
-                      ? "communities"
-                      : id === "Fuzzy C-Means"
-                        ? "memberships-and-partition"
-                        : id === "Bisecting K-Means"
-                          ? "partition-and-split-tree"
-                          : "algorithm-state",
+          id === "COP-KMeans"
+            ? "constrained-partition"
+            : [
+                  "Bernoulli Mixture",
+                  "Poisson Mixture",
+                  "Multinomial Mixture",
+                ].includes(id)
+              ? "mixture"
+              : id === "Bimax" || id === "Cheng–Church Biclustering"
+                ? "biclustering"
+                : id === "K-Shape"
+                  ? "timeseries-partition"
+                  : id === "PROCLUS"
+                    ? "projected-partition"
+                    : id === "CLIQUE"
+                      ? "subspaces"
+                      : id === "DenStream"
+                        ? "stream-summary"
+                        : communityAlgorithms.includes(id)
+                          ? "communities"
+                          : id === "Fuzzy C-Means"
+                            ? "memberships-and-partition"
+                            : id === "Bisecting K-Means"
+                              ? "partition-and-split-tree"
+                              : "algorithm-state",
         capabilities: {
           autoK: [
             "DBSCAN",
@@ -268,6 +315,8 @@ export const registry = Object.fromEntries(
             "CLIQUE",
             "DenStream",
             "Greedy Modularity (CNM)",
+            "Walktrap",
+            "Clique Percolation",
           ].includes(id),
           noiseLabels: [
             "DBSCAN",
@@ -287,17 +336,41 @@ export const registry = Object.fromEntries(
             "Leiden",
             "Girvan–Newman",
             "Greedy Modularity (CNM)",
+            "Walktrap",
           ].includes(id),
           overlap: [
             "CLIQUE",
             "Markov Clustering (MCL)",
             "Bimax",
             "Cheng–Church Biclustering",
+            "Clique Percolation",
           ].includes(id),
         },
         details: algorithmDetails[id],
         parameters: fields[id],
         defaults: algorithmDefaults(id),
+        unassignedLabel: id === "Clique Percolation" ? "미소속" : "노이즈",
+        examplePreset: (id === "COP-KMeans"
+          ? "constrained"
+          : id === "Bernoulli Mixture"
+            ? "bernoulli"
+            : id === "Poisson Mixture"
+              ? "poisson"
+              : id === "Multinomial Mixture"
+                ? "multinomial"
+                : id === "K-Modes"
+                  ? "categorical"
+                  : id === "K-Prototypes"
+                    ? "mixed"
+                    : id === "DenStream"
+                      ? "stream"
+                      : id === "Bimax" || id === "Cheng–Church Biclustering"
+                        ? "matrix"
+                        : id === "K-Shape"
+                          ? "timeseries"
+                          : communityAlgorithms.includes(id)
+                            ? "graph"
+                            : "numeric") as ExperimentPreset,
         resetParametersOnSelect: ![
           ...legacyAlgorithms,
           "Fuzzy C-Means",
@@ -320,6 +393,8 @@ export const registry = Object.fromEntries(
           "Bimax",
           "DP-Means",
           "DenStream",
+          "Walktrap",
+          "Clique Percolation",
         ].includes(id),
         backend: "typescript-worker",
         parallelism: "independent-jobs",
@@ -368,6 +443,8 @@ export const registry = Object.fromEntries(
     output: string;
     parameters: (typeof fields)[Algorithm];
     defaults: Params;
+    unassignedLabel: string;
+    examplePreset: ExperimentPreset;
     resetParametersOnSelect: boolean;
     seeded: boolean;
     backend: string;
