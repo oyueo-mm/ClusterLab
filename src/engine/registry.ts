@@ -142,7 +142,6 @@ export const structuredAlgorithms = [
   "DP-Means",
   "Louvain",
   "Leiden",
-  "COP-KMeans",
   "Label Propagation",
   "Girvan–Newman",
   "Markov Clustering (MCL)",

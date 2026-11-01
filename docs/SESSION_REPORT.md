@@ -58,3 +58,9 @@ Recorder delta/checkpoint/역진을 유지하고 새 불변 관계/행렬 참조
 최종 타입·ESLint·build·Vitest509/509(37파일), 새 독립 oracle3종이 통과했다. 전체 Chromium/mobile72성공·12기존 조건부 생략·0실패에 신규6가이드 전달 시나리오2개를 더해 **고유74구성 성공**이다. 후속10/10은 기존8개 재검사+새2개이며 중복 합산하지 않는다. Firefox/WebKit의 platform/next-platform/constraints-models/model-guides 네 spec **34/34**가 통과했다. 모든 legacy 테스트의 cross 검증은 아니다. 최종 도감 메타데이터 smoke2/2도 같은 도감 사례의 반복이다.
 
 browser-full.json/log, browser-guides.json/log, browser-cross.json/log, catalog-final.json/log와 실제 Bernoulli/Walktrap desktop/mobile PNG를 platform50에 보존했다. 가이드 중간 실행의 부정확한 접이식 패널 대기는 제품을 바꾸지 않고 test를 보완했고, 중단 로그/JSON 미flush 사실은 browser-guide-diagnostic.md/log에 구분했다. 중단 실행을 완결된 성공으로 세지 않는다. source50·후보37/82미구현·완전인증0이며 main/Actions/Pages는 다음 관문이다.
+
+## 레지스트리 중복 보완
+
+별도 다음 개발 트리의 공통 인터페이스 점검에서 COP-KMeans가 structuredAlgorithms 배열에 두 번 들어가 제약 선택 항목이 중복되는 것을 발견했다. 첫 중복만 제거하고 목록 고유성 단위 단언과 실제 COP option 개수1 브라우저 단언을 추가했다. 알고리즘의 수학·Trace·원본 데이터는 변경하지 않았다. lint/build(타입 포함), 전체509/37파일, 실제 COP 편집·실패복구 Chromium/mobile2/2가 다시 통과했다(unit-registry-final, browser-registry-final). 원격 최종 제품은 이 보완 커밋의 후속 Actions를 따른다. 앞선 f98629a의 검증/배포와 혼동하지 않는다.
+
+다음 BSAS/MBSAS/TTSAS 개발은 .local/sequential-worktree의 feat/sequential-clustering에 격리해 진행 중이며, 이50개 구현·배포 수에는 더하지 않는다.

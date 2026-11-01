@@ -205,6 +205,11 @@ test("COP real hard constraints edit, undo/redo, contradiction and greedy failur
   await expect(
     box.getByLabel("다중 데이터 알고리즘", { exact: true }),
   ).toHaveValue("COP-KMeans");
+  await expect(
+    box
+      .getByLabel("다중 데이터 알고리즘", { exact: true })
+      .getByRole("option", { name: "COP-KMeans", exact: true }),
+  ).toHaveCount(1);
   const run = await source(page, constrained, "COP-KMeans", 4, 2),
     end = await inspected(box, run.trace, "test", "Hard 제약 · 실제 원본 연산");
   expect(end.analysis?.kind).toBe("constraints");

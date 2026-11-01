@@ -7,7 +7,7 @@ import type {
   NumericDataset,
 } from "./dataset";
 import { applyStep, stateAt } from "./trace";
-import { registry } from "./registry";
+import { registry, structuredAlgorithms } from "./registry";
 import graphReference from "./fixtures/graph-followup-reference.json";
 
 const options = (method: Algorithm, change = {}) => ({
@@ -117,6 +117,9 @@ function modularity(data: GraphDataset, labels: number[]) {
 
 describe("dynamic typed-input execution and native mathematical results", () => {
   it("COP preserves hard closure, actual third-axis means/SSE, display independence and singleton input through the public API", async () => {
+    expect(new Set(structuredAlgorithms).size).toBe(
+      structuredAlgorithms.length,
+    );
     const values = [
         [0, 0, 0],
         [0, 0, 0.2],
