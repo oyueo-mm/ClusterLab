@@ -1,0 +1,24 @@
+{
+  "sourceSha": "fc5cc155cae4904c72d7166a0e7dce57745a71f3",
+  "runId": 41305149245,
+  "validateJob": 124843923836,
+  "deployJob": 124847332976,
+  "status": "success",
+  "page": "https://oyueo-mm.github.io/ClusterLab/",
+  "engines": 53,
+  "original": 13,
+  "candidateEngines": 40,
+  "candidatePending": 79,
+  "strictMasterCertifications": 0,
+  "public": {
+    "chromiumAndMobile": 4,
+    "firefoxAndWebkit": 4,
+    "failed": 0,
+    "scope": "Three actual sequential engines, order/defer/ND/native results, valid huge distance SVG, 1001 rows, 7 widths and real mini event transfer. Not full public legacy regression."
+  },
+  "priorStable50": {
+    "sourceSha": "da10d2168ad1de4bd9ff9cfe8f9bb64f4549a641",
+    "runId": 41299520759,
+    "publicConfigurations": 20
+  }
+}

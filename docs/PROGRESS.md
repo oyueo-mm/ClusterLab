@@ -1,6 +1,8 @@
 # 진행 기록 — 53개 소스 개발 트리
 
-전체 마스터 목표는 미완료다. 현재 소스53개=기존13+신규 후보40,119후보 중79개 미구현, 엄격한 완전 구현 인증0개다. 공개 안정50개는 제품da10d21/문서d6e4e0d이며 원문은 sessions/platform50에 보존했다. 새3개의 main/배포 최종 상태는 SESSION_REPORT 마지막 절을 따른다.
+> 최종 공개 체크포인트:53개(기존13+후보40), 미구현79개, 완전 인증0. 제품main fc5cc15·Actions41305149245 validate/Pages 성공. 원격532/39파일·전체브라우저78통과/12기존생략, 로컬 다섯 spec cross38/38, 공개4브라우저8/8. 아래 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
+
+전체 마스터 목표는 미완료다. 현재 소스53개=기존13+신규 후보40,119후보 중79개 미구현, 엄격한 완전 구현 인증0개다. 직전 공개50개는 제품da10d21/문서d6e4e0d이며 원문은 sessions/platform50에 보존했다. 새3개의 main/배포 최종 상태는 SESSION_REPORT 마지막 절을 따른다.
 
 ## 이번 실제 구현
 
@@ -17,7 +19,7 @@ BSAS·MBSAS·TTSAS를 실제 원본 순서·전체 ND로 계산한다. 배정 �
 - Firefox/WebKit은 다섯 플랫폼 spec38/38이다. 모든 legacy 홈/편집 테스트의 cross 검증은 아니다.
 - 100~100000 원본의 각3방법·ND/실제 이벤트·회차·Trace bytes·Node 시간/heap delta를 저장했다. Node heap은 peak/FPS가 아니다.
 
-원자료는 platform53, 실제 정의·정책/자료 접근·라이선스/한계는 research/SEQUENTIAL.md다. CI/main/Pages는 다음 관문이다. 기존13/32프리셋/홈11순환/디자인과 CSV/JSON·Undo/Redo·최대4비교·제스처를 보존한다. 새 전역 데이터 개수 상한은 없다.
+원자료는 platform53, 실제 정의·정책/자료 접근·라이선스/한계는 research/SEQUENTIAL.md다. 현재 main/CI/Pages 성공과 공개 확인은 SESSION_REPORT 마지막 절에 확정했다. 기존13/32프리셋/홈11순환/디자인과 CSV/JSON·Undo/Redo·최대4비교·제스처를 보존한다. 새 전역 데이터 개수 상한은 없다.
 
 ## 계속할 범위
 

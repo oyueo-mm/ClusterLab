@@ -1,5 +1,7 @@
 # 통합 세션 보고서 — 53개 소스 개발 단위
 
+> 최종 공개 체크포인트:53개(기존13+후보40), 미구현79개, 완전 인증0. 제품main fc5cc15·Actions41305149245 validate/Pages 성공. 원격532/39파일·전체브라우저78통과/12기존생략, 로컬 다섯 spec cross38/38, 공개4브라우저8/8. 아래 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
+
 전체 마스터 목표는 미완료다. 현재 source53개=기존13+후보40,119후보 중79개는 미구현, 엄격한 완전 인증0개다. 최종 Git/CI/Pages는 이 파일 마지막 확정 절을 우선한다. 안정50개 제품da10d21/문서d6e4e0d의 성공 기록은 sessions/platform50에 원문 보존했다.
 
 ## 개발 개요·분류·119개 상태
@@ -53,3 +55,17 @@ Node24/Windows x64의100/1000/10000/100000 원본·3차원·두 분리 군집에
 순차 소스 체크포인트는297eb31이다. main d6e4e0d를 히스토리 재작성 없이 병합했다. 소스 충돌은 없었고 현재 문서11개는53개 내용을 유지했다. 50개 원문은 이미 정확한 Git 객체로 sessions/platform50에 보존했으며, 원래 main의 CI/공개 증거와 COP 고유성 단언도 함께 보존했다.
 
 병합 후 lint/build(타입 포함)·전체532/39파일과 실제 순차 Chromium/mobile4/4가 다시 통과했다. 이4개는 전체78개 중 같은 구성의 재검사다. 후보 거리의 실제 계산값과 assign 전후 상태를 추가 감사했고, 유효한1e308 배율에서도 유한한 동일 그래프 폭을 확인했다. 실제 TTSAS pass2 유보 화면(desktop/mobile PNG)을 보존하고 desktop을 직접 확인했다. 거리0.6, 하한0.4, 상한1, 실제 미배정1행의 상태다. 아직 새53개 원격/공개 결과로 표시하지 않는다.
+
+## 최종53개 공개 배포 확정 — 2026-11-01
+
+최종 제품 소스 **fc5cc155cae4904c72d7166a0e7dce57745a71f3**, main. 코드 체크포인트297eb31에 안정50개 main d6e4e0d를 병합했다. [Actions41305149245](https://github.com/oyueo-mm/ClusterLab/actions/runs/41305149245)의 Ubuntu/Node22 validate(job124843923836)와 Pages deploy(job124847332976)가 모두 성공했다. 원격 lint/type/build·전체 **532/532·39파일**, 한 번의 전체 Chromium/mobile **78통과·12기존 조건부 생략·0실패**가 확정됐다. 테스트 개수가 모든 입력/장치의 정확성·성능을 보장하는 것은 아니다.
+
+공개 https://oyueo-mm.github.io/ClusterLab/ 에서 새 순차3개의 실제 ND Worker·원본 순서·실제 유보/pass·역재생·native전체 원본·1001행/7폭·유효한1e308 거리 그래프·mini 원본/변경 파라미터/선택사건 전달을 확인했다. Chromium/mobile4/4, Firefox/WebKit4/4로 **공개8구성 모두 통과**했다. 실제 공개 TTSAS 유보 장면의 desktop/mobile PNG도 보존했다. 이는 최신 공개사이트의 모든 legacy 테스트를 실행한 결과가 아니다. 최신 전체 회귀는 위 원격78개, 로컬 다섯 spec cross는38개, 직전50개 소스의 공개20개 검사는 archive 기록으로 각각 구분한다.
+
+원자료 ci-validation.log/json, deployment.json, browser-public*.json/log와 공개 PNG는 platform53에 있다. root에서도 기존 .local 검증 환경 경로를 명시해 공식180결과를 다시 생성했고 fixture가 동일함을 확인했다(reference-root.log). 기존13·프리셋/홈/디자인/워크플로/의존성20파일의 Git clean-filter blob은4ac46eb와 동일하다. 최종 source/runtime/test/의존성은 이 원격 검증 커밋 이후 바꾸지 않는다.
+
+현재 **53개 실행 경로 = 기존13 + 후보40**,119후보 중 **79개 미구현**, 엄격한 마스터 완전 인증0개다. 전체 목표는 미완료다. PCK/PCM/FPCM/MPCK/Constrained Spectral·Leader 등 다음 작업과 전체 후보를 CONTINUE/REGISTRY/RESEARCH_QUEUE에 남겼다. 후속 저자2005 수식의 직접 페이지 확인·독립 양의 거리 블록 검산은 FUZZY_FORMULAS에 별도 연구로 보존했다. PCM/FPCM 제품 엔진·R 비교·원전 전체 확인 완료로 집계하지 않는다.
+
+후속 문서·연구 기록 전용 [skip ci] 커밋은 제품 코드/테스트/의존성을 바꾸지 않는다. 최종 문서 SHA는 git log를 따른다. main과 feat/sequential-clustering을 같은 검증 체크포인트로 유지하며 강제 푸시/히스토리 재작성은 하지 않는다.
+
+작업용 preview4373과 프로젝트 경로/Vite/포트4273이 모두 확인된 자체 preview를 종료했다. 타 프로젝트4173은 건드리지 않았고, 작업 트리와 검증 환경·증거는 그대로 보존했다. 원격 검증 제품 이후 runtime/test/의존성 diff가 없음을 확인했으며 이후 커밋은 문서·검증 증거·후속 연구 기록만 포함한다.

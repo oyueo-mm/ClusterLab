@@ -1,5 +1,7 @@
 # 후속 원문 조사·구현 큐
 
+> 최종 공개 체크포인트:53개(기존13+후보40), 미구현79개, 완전 인증0. 제품main fc5cc15·Actions41305149245 validate/Pages 성공. 원격532/39파일·전체브라우저78통과/12기존생략, 로컬 다섯 spec cross38/38, 공개4브라우저8/8. 아래 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
+
 > 현재53개 소스(기존13+후보40), 미구현79개, 완전 인증0. 안정50개는 sessions/platform50에 원문 보존했다. 전체532/39파일·로컬78통과/12기존생략·후속순차4/4·다섯 spec Firefox/WebKit38/38이 통과했다. 새 main/CI/Pages는 SESSION_REPORT 마지막 확정 결과를 따른다. 아래 과거 수치는 당시 기록이다.
 
 2026-11-01 현재 소스는 **50개 실행 엔진 / 신규 후보119개 중37개 구현·82개 미구현 / 마스터 완전 구현 인증0개**다. 안정44개 이후6개는 로컬 통합 중이며 새 배포가 확정되지 않았다. 이전25개/107개·44개/88개와 아래117개/엔진 없음 표현은 과거 조사 당시 기록으로 보존한다. [안정44개 조사 문서](sessions/platform44/RESEARCH_QUEUE.md), [등록 현황](ALGORITHM_REGISTRY.md), [전체 계획](MASTER_PLAN.md)을 구분하고 후보 목록을 축소하지 않는다.
@@ -78,3 +80,5 @@ Rodriguez & Laio, _Clustering by fast search-and-find of density peaks_, Science
 ## 현재 순차 개발 이후의 큐
 
 BSAS108/MBSAS109/TTSAS110은이제실제모듈·ND분석·Trace·교재/mini·공식Python/NumPy검산으로이어졌다. 소스53/후보40연결·79미구현·완전인증0이며전체브라우저/배포는SESSION_REPORT를따른다. NEXT_50_QUEUE의BSAS는사전조사당시기록으로보존하고현재실제범위는SEQUENTIAL이다. PCK/PCM/FPCM/MPCK/ConstrainedSpectral/Leader의정의·원문접근·계약의남은요구사항은그큐에서계속한다. 나머지후보도전체범위에남아있다.
+
+후속 PCM/FPCM의 저자2005 재서술 수식을 실제 페이지로 확인하고, 표본×군집 표기 전치·서로 다른 합 방향·양의 거리 블록의 KKT/목적값·복제 효과를 독립 NumPy로 검산했다. [FUZZY_FORMULAS](research/FUZZY_FORMULAS.md)는 다음 구현의 자료이며 제품 엔진·R 비교·원전 전체 조사 완료가 아니다. 현재53개/후보40·79미구현/완전 인증0은 그대로다.

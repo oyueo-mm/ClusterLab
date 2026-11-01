@@ -1,10 +1,12 @@
 # 재개 절차 — 순차3개 통합
 
+> 최종 공개 체크포인트:53개(기존13+후보40), 미구현79개, 완전 인증0. 제품main fc5cc15·Actions41305149245 validate/Pages 성공. 원격532/39파일·전체브라우저78통과/12기존생략, 로컬 다섯 spec cross38/38, 공개4브라우저8/8. 아래 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
+
 MASTER_PLAN/PROGRESS/ALGORITHM_REGISTRY/SESSION_REPORT/ARCHITECTURE/DATA_FORMATS/PERFORMANCE/VALIDATION/RESEARCH_QUEUE와 research 자료를 먼저 읽는다. 전체 마스터를 다시 요청하지 않는다. 현재 소스53개/후보40연결·79미구현/완전인증0이다. BSAS/MBSAS/TTSAS를 다시 만들지 않는다. 마지막 source SHA/Actions/Pages는 SESSION_REPORT 마지막 확정 절과 git log를 따른다.
 
 ## 작업 위치와 검사
 
-개발 트리는 원래 저장소 root의 .local/sequential-worktree, branch feat/sequential-clustering이며 기준은 f98629a다. 안정50개 root main은 da10d21/문서d6e4e0d다. 최종 main 반영 후에는 root에서 같은 검사를 실행한다. 당시50개 문서 원문은 sessions/platform50에 보존했다.
+현재 root main은53개 제품fc5cc15이며 feat/sequential-clustering도 같은 체크포인트다. 원래 개발 트리 .local/sequential-worktree를 보존하고 root에서 같은 검사를 실행한다. 직전50개는 제품da10d21/문서d6e4e0d다. 당시50개 문서 원문은 sessions/platform50에 보존했다.
 
 ```powershell
 git status --short
@@ -49,3 +51,7 @@ python -B scripts/sequential_reference.py
 ```
 
 검증 환경 경로는 제품 런타임/번들에 들어가지 않는다. 새 clone에는 위 연구 문서의 고정 버전 설치 절차를 사용한다.
+
+## 다음 재개 시작점
+
+현재 main은53개이며 위50개 기준/개발 위치 설명은 진행 당시 기록이다. 원래 root에서 CONTINUE 명령을 사용하고, 이전 .local/sequential-worktree도 같은 체크포인트로 보존한다. 현재 전체/공개 검증을 이유 없이 반복하거나 순차3개를 중복 개발하지 않는다. 다음에는 RESEARCH_QUEUE와 FUZZY_FORMULAS/NEXT_50_QUEUE를 읽고 남은79개의 실제 계산부터 이어간다. 수식 블록 검산만 완료된 후보를 제품 구현으로 올리지 않는다. 새 변경에 필요한 회귀와 독립 oracle를 수행한 뒤 다음 안정 커밋을 만든다.
