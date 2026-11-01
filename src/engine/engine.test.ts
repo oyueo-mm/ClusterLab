@@ -1,6 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { run } from "./run";
-import { algorithms, defaults, type Algorithm, type Point } from "./types";
+import {
+  algorithms,
+  defaults,
+  algorithmDefaults,
+  type Algorithm,
+  type Point,
+} from "./types";
+import { lessons } from "../data/lessons";
+import { displayPoints } from "./dataset";
 import { stateAt, advance, applyStep } from "./trace";
 import {
   dataset,
@@ -30,14 +38,16 @@ const partition = (labels: number[]) =>
 describe("algorithm invariants", () => {
   for (const algorithm of algorithms)
     it(`${algorithm}: real events, deterministic result, reversible trace`, () => {
-      const points =
-        algorithm === "ROCK"
+      const input = lessons[algorithm].experimentDataset;
+      const points = input
+        ? displayPoints(input)
+        : ["ROCK", "K-Modes", "K-Prototypes"].includes(algorithm)
           ? dataset("categorical", { ...dataDefaults, count: 18 })
           : algorithm === "LVQ"
             ? dataset("labeled", { ...dataDefaults, count: 18 })
             : p;
       const o = {
-        ...defaults,
+        ...algorithmDefaults(algorithm),
         k: 2,
         minSize: 3,
         minPts: 3,
@@ -45,8 +55,8 @@ describe("algorithm invariants", () => {
         iterations: algorithm === "Affinity Propagation" ? 200 : 5,
         threshold: algorithm === "ROCK" ? 0.5 : 0.06,
       };
-      const trace = run(algorithm, points, o),
-        again = run(algorithm, points, o);
+      const trace = run(algorithm, points, o, input),
+        again = run(algorithm, points, o, input);
       expect(trace.steps.length).toBeGreaterThan(1);
       expect(trace.steps).toEqual(again.steps);
       const final = stateAt(trace, trace.steps.length);

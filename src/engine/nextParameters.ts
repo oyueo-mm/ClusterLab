@@ -1,0 +1,299 @@
+import type { Field } from "./parameters";
+import type { Params } from "./types";
+const number = (
+  key: keyof Params,
+  label: string,
+  min: number,
+  max: number,
+  hint: string,
+  step = 1,
+): Field => ({ key, label, min, max, step, hint });
+const k = number("k", "군집 수 K", 1, 32, "원본 입력의 군집 수 매개변수");
+const initial = number(
+  "k",
+  "초기 군집 수",
+  1,
+  16,
+  "자동 군집 수 탐색의 시작점",
+);
+const max = number(
+  "maxClusters",
+  "최대 군집 수",
+  1,
+  64,
+  "모델 선택의 명시적 탐색 매개변수; 데이터 수 상한이 아님",
+);
+const iterations = number(
+  "iterations",
+  "반복 한도",
+  1,
+  300,
+  "수렴 여부와 한도 종료를 구분합니다",
+);
+const tolerance = number(
+  "tolerance",
+  "수렴 허용오차",
+  0,
+  0.01,
+  "실제 목적함수 또는 중심 갱신의 정지 조건",
+  0.00001,
+);
+const minSamples = number(
+  "minSamples",
+  "검정 최소 표본",
+  4,
+  100,
+  "이보다 작은 군집은 검정 불충분으로 기록",
+);
+const neighbors = number(
+  "neighbors",
+  "kNN 이웃 수",
+  1,
+  64,
+  "좌표 입력→이진 union-kNN 그래프 변환. 실제 graph 입력은 원래 간선을 사용",
+);
+const resolution = number(
+  "resolution",
+  "Resolution γ",
+  0.01,
+  5,
+  "가중 모듈성의 해상도",
+  0.01,
+);
+const gamma = number(
+  "gamma",
+  "범주 불일치 가중치 γ",
+  0,
+  10,
+  "수치 제곱거리 + γ × 범주 불일치 수",
+  0.1,
+);
+const bins = number(
+  "gridBins",
+  "축별 격자 구간 수",
+  1,
+  32,
+  "각 원본 차원을 균일 구간으로 나눕니다",
+);
+const dimensions = number(
+  "subspaceDimensions",
+  "부분공간 차원",
+  1,
+  32,
+  "CLIQUE 탐색 최대 차원 / PROCLUS 평균 차원 예산",
+);
+export const nextFields = {
+  "X-Means": [initial, max, iterations, tolerance],
+  "G-Means": [
+    initial,
+    max,
+    iterations,
+    minSamples,
+    number(
+      "significance",
+      "유의수준 α (원문 검증값)",
+      0.0001,
+      0.0001,
+      "현재 검증된 원문 α=.0001 / 임계값1.8692만 지원",
+      0.0001,
+    ),
+    tolerance,
+  ],
+  "Dip-Means": [
+    initial,
+    max,
+    iterations,
+    minSamples,
+    number(
+      "significance",
+      "부트스트랩 유의수준 α",
+      0,
+      1,
+      "Uniform dip와 비교한 경험적 p-value",
+      0.001,
+    ),
+    number(
+      "splitViewFraction",
+      "분할 viewer 비율",
+      0,
+      1,
+      "단봉성 기각 viewer의 최소 비율",
+      0.01,
+    ),
+    number(
+      "bootstrapSamples",
+      "부트스트랩 횟수",
+      1,
+      1000,
+      "실제 Uniform 재표본 수; 시드로 재현",
+    ),
+    tolerance,
+  ],
+  "DP-Means": [
+    number(
+      "lambda",
+      "군집 벌점 λ",
+      0.000001,
+      5,
+      "최근접 제곱거리>λ일 때 새 중심; SSE+λK",
+      0.01,
+    ),
+    iterations,
+    tolerance,
+  ],
+  Louvain: [resolution, neighbors, iterations],
+  Leiden: [
+    resolution,
+    neighbors,
+    number(
+      "refinementRandomness",
+      "정제 무작위성 θ",
+      0.0001,
+      1,
+      "허용된 실제 개선의 확률적 정제 선택",
+      0.01,
+    ),
+    iterations,
+  ],
+  "Label Propagation": [neighbors, iterations],
+  "Girvan–Newman": [k, neighbors, iterations],
+  "Markov Clustering (MCL)": [
+    neighbors,
+    number(
+      "expansion",
+      "Expansion 거듭제곱",
+      2,
+      8,
+      "실제 전이 행렬의 정수 거듭제곱",
+    ),
+    number(
+      "inflation",
+      "Inflation 지수",
+      1.01,
+      5,
+      "원소별 거듭제곱 후 열 정규화",
+      0.1,
+    ),
+    iterations,
+    tolerance,
+  ],
+  "K-Modes": [k, iterations, tolerance],
+  "K-Prototypes": [k, gamma, iterations, tolerance],
+  CLIQUE: [
+    bins,
+    number(
+      "densityThreshold",
+      "Dense unit 최소 비율 τ",
+      0.001,
+      1,
+      "전체 n개 중 격자 cell의 점 비율",
+      0.01,
+    ),
+    dimensions,
+  ],
+  PROCLUS: [
+    k,
+    number(
+      "subspaceDimensions",
+      "평균 부분공간 차원 ℓ",
+      2,
+      32,
+      "전체 Kℓ 차원 예산과 군집별 최소 2차원",
+    ),
+    number(
+      "samplingFactor",
+      "초기 표본 배수",
+      1,
+      100,
+      "알고리즘의 명시적 초기 후보 표본. 최종 계산은 전체 원본",
+    ),
+    number(
+      "medoidFactor",
+      "Medoid 후보 배수",
+      1,
+      100,
+      "farthest-first 초기 후보 탐색 크기",
+    ),
+    {
+      ...iterations,
+      label: "연속 비개선 제안 한도",
+      hint: "개선 시 카운터를 초기화하는 PROCLUS 탐색",
+    },
+  ],
+  DenStream: [
+    number(
+      "epsilon",
+      "Micro-cluster 반경 ε",
+      0.0001,
+      2,
+      "CF RMS 반경과 2ε macro 연결",
+      0.01,
+    ),
+    number("decayRate", "시간 감쇠 λ", 0.0001, 1, "가중치 2^(−λΔt)", 0.001),
+    number("beta", "Outlier 비율 β", 0.01, 1, "0<β≤1, βμ>1이어야 함", 0.01),
+    number(
+      "minWeight",
+      "Core 최소 가중치 μ",
+      2,
+      100,
+      "현재 micro-cluster 자체 가중치 기준",
+    ),
+    number(
+      "streamInitSize",
+      "초기 배치 크기",
+      0,
+      1000,
+      "0은 cold start. 초기 배치 수집 후 개수 기반 warm start",
+    ),
+  ],
+  Bimax: [
+    number(
+      "minSize",
+      "최소 행 수",
+      1,
+      100,
+      "반환할 최대 all-ones bicluster의 최소 행 수",
+    ),
+    number(
+      "minPts",
+      "최소 열 수",
+      1,
+      100,
+      "실제 열 집합 최소 크기; 결과 수를 자르지 않습니다",
+    ),
+  ],
+  "Cheng–Church Biclustering": [
+    number(
+      "residueThreshold",
+      "평균 제곱 잔차 δ",
+      0,
+      10,
+      "원본 행·열 선택의 MSR 한도",
+      0.001,
+    ),
+    number(
+      "biclusterCount",
+      "탐색 bicluster 수",
+      1,
+      20,
+      "시드 masking 후 반복 탐색",
+    ),
+    number(
+      "deletionThreshold",
+      "다중 삭제 계수 α",
+      1,
+      3,
+      "큰 축에서 MSR보다 α배 큰 잔차 제거",
+      0.1,
+    ),
+    {
+      key: "inversion",
+      label: "역상관 행 추가",
+      options: ["allow", "none"],
+      hint: "원문의 선택적 부호 반전 행 추가",
+    },
+  ],
+  "K-Shape": [k, iterations],
+  "Greedy Modularity (CNM)": [resolution, neighbors],
+  "Fluid Communities": [k, neighbors, iterations],
+} satisfies Record<string, Field[]>;

@@ -30,12 +30,12 @@ export default defineConfig({
       ? [
           {
             name: "firefox",
-            testMatch: "platform.spec.ts",
+            testMatch: ["platform.spec.ts", "next-platform.spec.ts"],
             use: { ...devices["Desktop Firefox"] },
           },
           {
             name: "webkit",
-            testMatch: "platform.spec.ts",
+            testMatch: ["platform.spec.ts", "next-platform.spec.ts"],
             use: { ...devices["Desktop Safari"] },
           },
         ]

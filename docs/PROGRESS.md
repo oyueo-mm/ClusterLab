@@ -1,36 +1,38 @@
-# 진행 기록 — 2026-10-31
+﻿# 진행 기록 — 2026-11-01
 
-전체 마스터 목표는 **미완료**다. 작업 브랜치는 feat/graph-and-prototype-engines, 시작 main은 f5777c1이다. 구현 732a410을 main/원격 작업 브랜치에 fast-forward/push했고 현재 브랜치는 main이다. 이전 세션 기록은 sessions/foundation/에 보존했다.
+전체 마스터 목표는 **미완료**다. 기준 main `4ac46eb`, 작업 브랜치 `feat/model-community-data-engines`에서 이어갔다. 직전 25개 기록은 [sessions/platform25/](sessions/platform25/)에 보존했다.
 
-## 실제 완료 범위
+## 구현 범위
 
-- 신규 10개: Spectral Clustering, Affinity Propagation, Density Peaks / CFSFDP, CURE, Neural Gas, Growing Neural Gas, K-Medians, Mini-Batch K-Means, CLARA, CLARANS.
-- 각 엔진의 실제 계산·상태 변화 Trace·전용 분석 화면·스키마 파라미터·수학 가이드/실제 Worker 미니 실험·독립 수치 fixture·시드/복원 검증을 연결했다. 제한은 research 문서에 명시했다.
-- 기존 13개와 이전 2개를 포함한 실제 엔진 25개. 후보 119개 중 실제 12개, 미구현 107개. 원문 전수 조사와 엄격한 마스터 완전 구현 인증은 아직 미완료다.
-- Dataset union·런타임 스키마 검증·JSON 입출력·지원 호환성. ND 원본 전체 계산은 Spectral/AP/Density Peaks, 실제 그래프는 Spectral에 연결했다. 다른 데이터 유형은 계약/검증만 있다.
-- 실제 W/L/임베딩 중심·S/R/A·밀도 결정 그래프·대표점·뉴런 간선·배치 counts·medoid 제안 화면. 행렬을 접고 페이지 표시하며 계산 데이터를 줄이지 않는다.
-- analysis field delta·불변 행렬 공유·조밀한 label delta 임시 객체 제거. 원본과 표시 좌표 분리, 그래프 간선 LOD/개수 표시, reduced-motion 반영.
-- 실험실 검색·도감 기능/검증 필터·신규 기본값. 홈 원래 13개/11라운드, 기존 디자인/32프리셋/편집/비교를 보존한다.
-- SLINK/CLINK/NN-chain 및 혼합모델 별칭 관계 8개 조사 기록. 명칭 등록만으로 구현 수에 추가하지 않는다.
+실행 가능한 소스 엔진 **44개 = 기존13 + 신규 후보31**. 후보119개 중 구현31개, **미구현88개**다. 이번 추가19개:
 
-## 검증 상태
+- X-Means, G-Means, Dip-Means, DP-Means.
+- Louvain, Leiden, Label Propagation, Girvan–Newman, MCL, CNM, Fluid Communities.
+- K-Modes, K-Prototypes, CLIQUE, PROCLUS, DenStream.
+- Bimax, Cheng–Church Biclustering, K-Shape.
 
-타입 검사·ESLint·프로덕션 빌드 통과. 단위 테스트 **247/247, 21파일** 통과. 신규 플랫폼 Chromium/mobile 6/6, Firefox/WebKit 6/6 통과. 전체 회귀 최초 44통과/12조건부 생략/2선택자 실패 후, 정확한 도감 검색 선택자와 option 접근을 수정했다. 최종 도감·플랫폼 18/18 통과(Chromium/mobile 12, Firefox/WebKit 6). 중복 실행을 제외한 Chromium/mobile 고유 검사는 46통과/12조건부 생략이다. 원격 Actions #10 전체 단일 실행은 46통과/12기존 조건부 skip/0실패, validate/deploy 성공이다. 공개 Pages 12/12도 통과했다.
+실제 계산·전용 Trace·분석·파라미터·수학 가이드/수치 예제·실제 Worker 미니 실험·독립 수치 검증을 연결했다. 각 원문의 접근 범위·변형·한계는 research 문서에 있다. 엄격한 마스터 **완전 구현 인증0개(아직 미인증)**와 제한 범위의 실행 가능44개를 구분한다.
 
-NumPy 2.5.4/SciPy 1.18.1/scikit-learn 1.7.2는 검증 전용으로 실제 실행했다. 제품 의존성은 추가하지 않았다. Node 전체 입력 100~100만 K-Means/Mini-Batch 관측을 platform에 보존했다. 메모리 peak나 브라우저 60FPS를 보장하지 않는다.
+## 데이터와 기존 기능
 
-## 미완료와 다음 단위
+ND, 범주형, 혼합형, 실제 가중 그래프, 행렬, 규칙적 시계열, 실제 시각 스트림을 원본으로 계산한다. constrained는 스키마/모순 검증만 있다. 표는16×8 표시 창이며 전체 원본을 보존한다. 셀/간선 가중치/노드·행렬·시계열 값·유입을 편집하고 최대100작업을 경로/splice delta로 되돌린다.
 
-1. 107개 후보의 원문/수식/정확한 분류·실제 엔진. X/G-Means 및 Louvain/Leiden/Label Propagation, K-Modes/PROCLUS/CLIQUE/DenStream을 우선 진행한다.
-2. 범주/혼합/제약/행렬/시계열/스트림/딥 학습 실제 실행과 전용 편집·시각화. JSON 스키마 존재를 실행 완료로 표시하지 않는다.
-3. Worker pool·계산 pause/resume·증분 엔진·TypedArray transferable·청크 파서·희소 고유해·장시간 메모리/브라우저 대규모 측정.
-4. 구조형 데이터 비교·Undo/Redo·3D 회전·노드/간선 시각 편집·PCA, 적용 조건이 맞는 추가 지표.
-5. 기존 메타데이터 원문 전수 감사와 119개 조사 완료. 접근 불가 원문은 근거 한계를 유지한다.
+native 결과는 CLIQUE 중첩 부분공간, PROCLUS 선택 차원/medoid/influence, 실제 커뮤니티/이중군집 행열 소속/시계열 중심/CF 요약을 보존한다. Worker에 원본을 보내고 표시 배열의 중복 전송은 생략한다. 완료 캐시의 표시 참조는 유지한다. 취소는 실제 Worker 종료다. DenStream class는 증분 CF지만 UI 유입은 prefix 전체를 재계산한다.
 
-## 작업 파일과 커밋
+600개 상한 및 새로운 전역 개수 상한을 도입하지 않았다. 작업 공간/차원/간선/문자열·Trace 바이트 예산으로 위험 할당을 거부하고 전체 계산과 표시/기록 세분도를 구분한다. 파일 입력은 전체 JSON 문자열이며 청크 파서는 아직 없다.
 
-engine/{dataset*,algorithmDetails,linalg,registry,resources,trace,types,parameters,worker,run}, algorithms 신규 10개, fixtures/독립 Python 5개, lessons 신규 5개, AlgorithmAnalysis/StructuredLab/Catalog/App/renderer/useExperiment, tests/platform 및 기존 회귀, docs를 수정했다. 기존 문서·검증 증거는 삭제하지 않았다. 최종 SHA는 SESSION_REPORT와 git log를 따른다. 안정 커밋 후 main fast-forward 및 기존 Pages workflow로 배포한다. 강제 push는 사용하지 않는다.
+기존13엔진·32프리셋·HomeDemos·의존성·workflow는 기준 Git 객체와 동일하다. 홈4데모/11순환·편집/제스처·CSV/JSON·최대4비교·기존 디자인 회귀를 검사한다. typed 데이터끼리의 비교 화면은 아직 없다.
 
-배포 대기 중 원문 일부/서지·검산 과제를 후속11개 후보에 추가 기록했다. research/{MODEL_SELECTION,COMMUNITY,DATA_FAMILIES}_QUEUE.md를 읽는다. 정식 조사·구현 단계는 상향하지 않았다.
+## 검증 체크포인트
 
-최종 배포 소스 732a410, 원격 실행41187164683 및 공개 동작 증거를 platform에 보존했다. 현재 main에서 문서 전용 [skip ci] 체크포인트를 남긴다. 상세 SHA/후속 명령은 SESSION_REPORT·CONTINUE와 git log를 따른다. 로컬 preview4273은 종료했다.
+타입·ESLint·프로덕션 빌드 통과. 최종 전체 단위/통합 **428/428,32파일** 통과. 독립 Python7종을 실제 재생성했다. NumPy2.5.4/SciPy1.18.1/diptest0.11.0/NetworkX3.6.1/igraph1.0.0/leidenalg0.12.0은 검증 전용이며 제품 의존성을 늘리지 않았다.
+
+신규 Chromium/mobile9시나리오 **18/18 통과**. 실제19 Worker·원본 수치 변화·Undo/Redo·전용 출력 다운로드·스트림 유입·오류·1000×12 전체 계산/마지막 셀·7개 폭·raw 가이드 단계 보존을 검사했다. 전체 기존 회귀/cross/Actions/Pages는 진행 중이며 마지막 확정 결과는 SESSION_REPORT를 따른다. 초기 실패와 수정 후 실행을 구분한다.
+
+## 미완료·후속
+
+후보88개 및119개 전수 원문 조사, 제약/확률·혼합/남은 그래프·밀도·부분공간/실제 신경망·추가 행렬·시계열을 계속한다. typed 비교/추가 지표,3D회전/PCA·시각 그래프 편집, Worker pool/계산 pause/증분 UI·transferable/청크 파서·장시간 peak/FPS도 남아 있다.
+
+커밋 SHA/main/배포의 최종 상태는 [SESSION_REPORT](SESSION_REPORT.md), 재개 명령은 [CONTINUE](CONTINUE.md)를 따른다. 전체 완료로 보고하거나 사용자에게 마스터 지시문을 다시 요청하지 않는다.
+
+최종 릴리스 전 보완: 전체428개·32파일, Chromium/mobile 고유64성공/12기존 조건부 생략(최초62/2실패 후44교재2재검사), Firefox/WebKit24/24가 확정됐다. 신규18개는64개에 포함되며 중복 합산하지 않는다. 최초·수정 후·cross 증거는 platform44에 있다. 원격CI/Pages는 SESSION_REPORT 마지막 기록에서 확정한다.

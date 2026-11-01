@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "number": 1,
     "name": "Mini-Batch K-Means",
@@ -22,37 +22,45 @@
     "number": 3,
     "name": "X-Means",
     "family": "A 중심·대표점 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "주요 변형 (BIC 기반 K-Means 분할 탐색)",
+    "input": "numeric-nd",
+    "engine": "X-Means",
+    "research": "docs/research/AUTO_MODELS.md · 저자 PDF pp2–4와 ELKI 점수 정의 확인 · https://www.cs.cmu.edu/~dpelleg/download/xmeans.pdf",
+    "limitations": "출판된 X-Means BIC heuristic; kd-tree 가속·전역 최적 보장 없음"
   },
   {
     "number": 4,
     "name": "G-Means",
     "family": "A 중심·대표점 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "주요 변형 (정규성 검정 기반 K-Means 분할)",
+    "input": "numeric-nd",
+    "engine": "G-Means",
+    "research": "docs/research/AUTO_MODELS.md · 원문 Algorithm1·표본 분산·AD 보정 확인 · https://papers.nips.cc/paper/2526-learning-the-k-in-k-means.pdf",
+    "limitations": "검증된 α=.0001만 지원; 작은 표본 검정 불충분 표시"
   },
   {
     "number": 5,
     "name": "Dip-Means",
     "family": "A 중심·대표점 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "주요 변형 (dip 검정 기반 K-Means 분할)",
+    "input": "numeric-nd",
+    "engine": "Dip-Means",
+    "research": "docs/research/AUTO_MODELS.md · Dip-Means 원문 확인; dip 원전은 서지·공식 구현 설명 확인, 원전 PDF 접근 제한 · https://papers.nips.cc/paper_files/paper/2012/file/a8240cb8235e9c493a0c30607586166c-Paper.pdf",
+    "limitations": "모든 viewer·시드 Uniform bootstrap; kernel 미지원, generic hull은 AS217 가속 구현 아님"
   },
   {
     "number": 6,
     "name": "DP-Means",
     "family": "A 중심·대표점 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (small-variance 비모수 hard 목적함수)",
+    "input": "numeric-nd",
+    "engine": "DP-Means",
+    "research": "docs/research/AUTO_MODELS.md · 원문 Algorithm1·§3.2·정리 확인 · https://icml.cc/2012/papers/291.pdf",
+    "limitations": "SSE+λK 순차 최적화; DP-GMM posterior 추론 아님, 반복·최대 K 한도 명시"
   },
   {
     "number": 7,
@@ -68,19 +76,23 @@
     "number": 8,
     "name": "K-Modes",
     "family": "A 중심·대표점 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "주요 변형 (범주 불일치·최빈값 batch 갱신)",
+    "input": "categorical",
+    "engine": "K-Modes",
+    "research": "docs/research/DATA_CLUSTERING.md · Huang 서지·초록; 본문 구독 제한, klaR 공식 batch 정의 확인 · https://link.springer.com/article/10.1023/A:1009769707641",
+    "limitations": "실제 범주 열; 초기화·동률·빈 군집 정책 명시, 화면 중심은 표시용 평균"
   },
   {
     "number": 9,
     "name": "K-Prototypes",
     "family": "A 중심·대표점 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "주요 변형 (수치·범주 혼합 prototype)",
+    "input": "mixed",
+    "engine": "K-Prototypes",
+    "research": "docs/research/DATA_CLUSTERING.md · Huang 원문 본문 구독 제한; 구현 저자 R Journal의 거리·갱신 수식 확인 · https://journal.r-project.org/articles/RJ-2018-048/",
+    "limitations": "전체 수치 제곱거리+γ 범주 불일치; 자동 표준화·자동 γ·결측 처리 없음"
   },
   {
     "number": 10,
@@ -314,10 +326,12 @@
     "number": 35,
     "name": "DenStream",
     "family": "C 밀도·온라인 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (시간 감쇠 밀도 micro-cluster 요약)",
+    "input": "stream",
+    "engine": "DenStream",
+    "research": "docs/research/DENSTREAM.md · 원문 §3–4·Algorithm1/2·초기화·macro 정의 및 독립 경계 감사 · https://www.cs.sfu.ca/~ester/papers/SDM2006.DenStream.final.pdf",
+    "limitations": "RMS CF 요약·원본 시각; warm batch 끝 시각 개수 가중치, 정적 전체 DBSCAN과 구별"
   },
   {
     "number": 36,
@@ -455,28 +469,34 @@
     "number": 50,
     "name": "Louvain",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (다단계 greedy modularity)",
+    "input": "numeric-or-graph",
+    "engine": "Louvain",
+    "research": "docs/research/COMMUNITIES.md · 원문 local move·집약과 독립 NetworkX Q 확인 · https://arxiv.org/abs/0803.0476",
+    "limitations": "가중 무방향; 연결된 커뮤니티·전역 최적 보장 없음"
   },
   {
     "number": 51,
     "name": "Leiden",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "주요 변형 (Louvain에 연결성 refinement·집약 추가)",
+    "input": "numeric-or-graph",
+    "engine": "Leiden",
+    "research": "docs/research/COMMUNITIES.md · 원문 실제 refinement와 저자 leidenalg 비교 · https://arxiv.org/abs/1810.08473",
+    "limitations": "실제 단일 계층 iteration; 반복적 점근 subset 최적 수렴 전체를 구현했다고 하지 않음"
   },
   {
     "number": 52,
     "name": "Label Propagation",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (비동기 가중 이웃 레이블 전파)",
+    "input": "numeric-or-graph",
+    "engine": "Label Propagation",
+    "research": "docs/research/COMMUNITIES.md · 원문·NetworkX 비동기 투표/합의 정의 확인 · https://arxiv.org/abs/0709.2938",
+    "limitations": "시드 순서·동률 의존, 반복 한도와 수렴 구분; Q는 관측 지표"
   },
   {
     "number": 53,
@@ -491,10 +511,12 @@
     "number": 54,
     "name": "Girvan–Newman",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (간선 betweenness 제거; 가중 확장)",
+    "input": "numeric-or-graph",
+    "engine": "Girvan–Newman",
+    "research": "docs/research/COMMUNITIES.md · 원문 반복 제거와 Brandes dependency·NetworkX 수치 확인 · https://arxiv.org/html/cond-mat/0112110v1",
+    "limitations": "가중치는 strength, 길이는1/weight; 요청 K 컷, 최고 Q 컷 자동 선택 없음"
   },
   {
     "number": 55,
@@ -518,28 +540,34 @@
     "number": 57,
     "name": "Markov Clustering (MCL)",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (전이 흐름 expansion·inflation)",
+    "input": "numeric-or-graph",
+    "engine": "Markov Clustering (MCL)",
+    "research": "docs/research/COMMUNITIES.md · 1998 CWI 원문 Definition6·§5 확인; 2000 학위논문 서지 확인 · https://ir.cwi.nl/pub/4604/04604D.pdf",
+    "limitations": "밀집 정확 행렬곱·pruning 없음; tolerance 기반 support와 표시용 hard labels 구분"
   },
   {
     "number": 58,
     "name": "Greedy Modularity (CNM)",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 greedy modularity 알고리즘의 전수 스캔 구현 변형",
+    "input": "numeric-or-graph",
+    "engine": "Greedy Modularity (CNM)",
+    "research": "docs/research/GRAPH_EXTRA.md · CNM 원문 §II와 NetworkX 독립 Q·병합 검산 · https://arxiv.org/html/cond-mat/0408187v2",
+    "limitations": "원문 heap 가속 미구현; 양의 ΔQ에서 종료, 전체 음수 병합 덴드로그램 아님"
   },
   {
     "number": 59,
     "name": "Fluid Communities",
     "family": "E 그래프·네트워크 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (경쟁 유체 밀도 전파)",
+    "input": "numeric-or-graph",
+    "engine": "Fluid Communities",
+    "research": "docs/research/GRAPH_EXTRA.md · 원문 §3·공식 NetworkX 입력 계약 확인 · https://arxiv.org/pdf/1703.09307",
+    "limitations": "연결·단순·무방향·단위 가중치만; 조건 위반 거부, 반복 부족 미할당은 오류"
   },
   {
     "number": 60,
@@ -581,10 +609,12 @@
     "number": 64,
     "name": "CLIQUE",
     "family": "F 격자·고차원 부분공간 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (격자 부분공간; MDL 미사용 변형)",
+    "input": "numeric-nd",
+    "engine": "CLIQUE",
+    "research": "docs/research/DATA_CLUSTERING.md · 원문 §2–3 strict selectivity·Apriori·face 연결·DNF 확인 · https://www2.cs.sfu.ca/CourseCentral/459/han/papers/agrawal98.pdf",
+    "limitations": "요청 최대 차원까지 unpruned Apriori; 모든 중첩 소속과 실제 DNF 보존, 최소 cover 보장 없음"
   },
   {
     "number": 65,
@@ -617,10 +647,12 @@
     "number": 68,
     "name": "PROCLUS",
     "family": "F 격자·고차원 부분공간 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (projected medoid·부분공간 탐색)",
+    "input": "numeric-nd",
+    "engine": "PROCLUS",
+    "research": "docs/research/DATA_CLUSTERING.md · 원문 §2·Figures2–6 및 ELKI 공식 계약 확인 · https://sigmodrecord.org/?download_id=6956&smd_process_download=1",
+    "limitations": "실제 후보 표본·전체 원본 평가; 군집 최소2축·연속 미개선 한도, 전역 최적 보장 없음"
   },
   {
     "number": 69,
@@ -1047,10 +1079,12 @@
     "number": 115,
     "name": "Cheng–Church Biclustering",
     "family": "I 순차·이중군집·특수 데이터 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (MSR 기반 행·열 이중군집)",
+    "input": "matrix",
+    "engine": "Cheng–Church Biclustering",
+    "research": "docs/research/BICLUSTERING.md · 원문 Algorithm1–4·원본 기반 추가·반전·masking 확인 · https://cdn.aaai.org/ISMB/2000/ISMB00-010.pdf",
+    "limitations": "원본 δ 재검산 safeguard·순차 수용 명시; 요청 수는 시도 수, 중복 출력을 부풀리지 않음"
   },
   {
     "number": 116,
@@ -1065,10 +1099,12 @@
     "number": 117,
     "name": "Bimax",
     "family": "I 순차·이중군집·특수 데이터 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (최대 이진 이중군집 divide-and-conquer)",
+    "input": "matrix",
+    "engine": "Bimax",
+    "research": "docs/research/BICLUSTERING.md · 원문 Appendix A.1 분할·Z admissibility 직접 확인 · https://www.sop.tik.ee.ethz.ch/publicationListFiles/pbzw2006b.pdf",
+    "limitations": "실제 binary만; 최소 행·열을 만족하는 모든 최대 bicluster, byte 예산 실패는 오류"
   },
   {
     "number": 118,
@@ -1083,9 +1119,11 @@
     "number": 119,
     "name": "K-Shape",
     "family": "I 순차·이중군집·특수 데이터 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "실제 계산·Trace·전용 분석·가이드·독립 수치 검증 (제한 범위; 통합 검증 이력은 SESSION_REPORT)",
+    "classification": "독립 알고리즘 (shape-based 시계열 군집화; 직접 NCC 구현)",
+    "input": "timeseries",
+    "engine": "K-Shape",
+    "research": "docs/research/TIMESERIES.md · 원문 Algorithm1–3·Eq8/13/15·AppendixB와 공식 tslearn 계약 확인 · https://www.paparrizos.org/papers/PaparrizosSIGMOD15.pdf",
+    "limitations": "동일 길이·공통 균일 grid; 직접 전체 lag 합산·Jacobi, FFT 없음; 목적 단조성 보장 없음"
   }
 ]

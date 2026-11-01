@@ -1,45 +1,52 @@
 import type { Point } from "./types";
 
-export interface NumericDataset {
+export interface DatasetMetadata {
+  provenance?: {
+    generator: string;
+    seed: number;
+    parameters: Record<string, string | number | boolean>;
+  };
+}
+export interface NumericDataset extends DatasetMetadata {
   kind: "numeric";
   values: number[][];
   featureNames?: string[];
   display?: Point[];
   labels?: number[];
 }
-export interface CategoricalDataset {
+export interface CategoricalDataset extends DatasetMetadata {
   kind: "categorical";
   values: string[][];
   featureNames?: string[];
   display?: Point[];
 }
-export interface MixedDataset {
+export interface MixedDataset extends DatasetMetadata {
   kind: "mixed";
   numeric: number[][];
   categorical: string[][];
   display?: Point[];
 }
-export interface GraphDataset {
+export interface GraphDataset extends DatasetMetadata {
   kind: "graph";
   nodes: { id: string; position?: Point }[];
   edges: { source: string; target: string; weight: number }[];
   directed: boolean;
 }
-export interface MatrixDataset {
+export interface MatrixDataset extends DatasetMetadata {
   kind: "matrix";
   values: number[][];
   rowNames?: string[];
   columnNames?: string[];
 }
-export interface TimeSeriesDataset {
+export interface TimeSeriesDataset extends DatasetMetadata {
   kind: "timeseries";
   series: { id: string; times: number[]; values: number[] }[];
 }
-export interface StreamDataset {
+export interface StreamDataset extends DatasetMetadata {
   kind: "stream";
   samples: { time: number; values: number[] }[];
 }
-export interface ConstrainedDataset {
+export interface ConstrainedDataset extends DatasetMetadata {
   kind: "constrained";
   data: NumericDataset;
   mustLink: [number, number][];
@@ -78,6 +85,60 @@ export function displayPoints(
   data: Dataset,
   axes: [number, number] = [0, 1],
 ): Point[] {
+  if (data.kind === "mixed")
+    return (
+      data.display ??
+      displayPoints({ kind: "numeric", values: data.numeric }, axes)
+    );
+  if (data.kind === "categorical") {
+    if (data.display) return data.display;
+    const dimensions = data.values[0]?.length ?? 1;
+    const columns = axes.map((a) =>
+      Math.max(0, Math.min(Math.trunc(a), dimensions - 1)),
+    );
+    const tokens = columns.map((column) =>
+      [...new Set(data.values.map((row) => row[column]))].sort(),
+    );
+    const indexes = tokens.map(
+      (values) => new Map(values.map((value, i) => [value, i])),
+    );
+    return data.values.map((row) => ({
+      x:
+        0.1 +
+        (0.8 * indexes[0].get(row[columns[0]])!) /
+          Math.max(1, tokens[0].length - 1),
+      y:
+        0.1 +
+        (0.8 * indexes[1].get(row[columns[1]])!) /
+          Math.max(1, tokens[1].length - 1),
+      features: row,
+    }));
+  }
+  if (data.kind === "stream")
+    return displayPoints(
+      { kind: "numeric", values: data.samples.map((s) => s.values) },
+      axes,
+    );
+  if (data.kind === "matrix")
+    return displayPoints({ kind: "numeric", values: data.values }, axes);
+  if (data.kind === "timeseries")
+    return displayPoints(
+      {
+        kind: "numeric",
+        values: data.series.map((s) => {
+          const mean = s.values.reduce((a, b) => a + b, 0) / s.values.length;
+          return [
+            mean,
+            Math.sqrt(
+              s.values.reduce((a, b) => a + (b - mean) ** 2, 0) /
+                s.values.length,
+            ),
+          ];
+        }),
+      },
+      axes,
+    );
+  if (data.kind === "constrained") return displayPoints(data.data, axes);
   if (data.kind === "numeric") {
     if (data.display) return data.display;
     const dims = data.values[0]?.length ?? 0;

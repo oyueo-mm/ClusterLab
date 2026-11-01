@@ -1,0 +1,34 @@
+import { xmeans, gmeans, dipmeans, dpmeans } from "./autoModels";
+import {
+  louvain,
+  leiden,
+  labelpropagation,
+  girvannewman,
+  mcl,
+} from "./communities";
+import { kmodes, kprototypes, clique, proclus } from "./dataClustering";
+import { denstream } from "./stream";
+import { bimax, chengchurch } from "./biclustering";
+import { kshape } from "./timeseries";
+import { cnm, fluid } from "./graphExtra";
+export const nextLessons = {
+  "X-Means": xmeans,
+  "G-Means": gmeans,
+  "Dip-Means": dipmeans,
+  "DP-Means": dpmeans,
+  Louvain: louvain,
+  Leiden: leiden,
+  "Label Propagation": labelpropagation,
+  "Girvan–Newman": girvannewman,
+  "Markov Clustering (MCL)": mcl,
+  "K-Modes": kmodes,
+  "K-Prototypes": kprototypes,
+  CLIQUE: clique,
+  PROCLUS: proclus,
+  DenStream: denstream,
+  Bimax: bimax,
+  "Cheng–Church Biclustering": chengchurch,
+  "K-Shape": kshape,
+  "Greedy Modularity (CNM)": cnm,
+  "Fluid Communities": fluid,
+};

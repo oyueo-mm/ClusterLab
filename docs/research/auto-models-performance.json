@@ -1,0 +1,88 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "seed": 42,
+  "maxK": 8,
+  "iterations": 12,
+  "dipBootstrap": 50,
+  "note": "Single Node observation; input generation and browser Worker transfer/rendering excluded. Heap delta is not peak. Dip is evaluated at 100 only due to expensive all-viewer testing.",
+  "observations": [
+    {
+      "algorithm": "X-Means",
+      "n": 100,
+      "dimensions": 2,
+      "milliseconds": 1.22,
+      "heapDeltaBytes": 727560,
+      "events": 14,
+      "traceEstimatedBytes": 28260,
+      "clusters": 1,
+      "converged": true
+    },
+    {
+      "algorithm": "X-Means",
+      "n": 1000,
+      "dimensions": 2,
+      "milliseconds": 2.47,
+      "heapDeltaBytes": -4353432,
+      "events": 16,
+      "traceEstimatedBytes": 163180,
+      "clusters": 1,
+      "converged": true
+    },
+    {
+      "algorithm": "G-Means",
+      "n": 100,
+      "dimensions": 2,
+      "milliseconds": 4.77,
+      "heapDeltaBytes": 1930824,
+      "events": 54,
+      "traceEstimatedBytes": 101122,
+      "clusters": 3,
+      "converged": true
+    },
+    {
+      "algorithm": "G-Means",
+      "n": 1000,
+      "dimensions": 2,
+      "milliseconds": 16.45,
+      "heapDeltaBytes": -3246880,
+      "events": 76,
+      "traceEstimatedBytes": 534072,
+      "clusters": 3,
+      "converged": true
+    },
+    {
+      "algorithm": "Dip-Means",
+      "n": 100,
+      "dimensions": 2,
+      "milliseconds": 10.32,
+      "heapDeltaBytes": 172400,
+      "events": 58,
+      "traceEstimatedBytes": 133888,
+      "clusters": 4,
+      "converged": true
+    },
+    {
+      "algorithm": "DP-Means",
+      "n": 100,
+      "dimensions": 2,
+      "milliseconds": 3.99,
+      "heapDeltaBytes": 1973904,
+      "events": 406,
+      "traceEstimatedBytes": 236856,
+      "clusters": 2,
+      "converged": true
+    },
+    {
+      "algorithm": "DP-Means",
+      "n": 1000,
+      "dimensions": 2,
+      "milliseconds": 26.74,
+      "heapDeltaBytes": -903136,
+      "events": 4006,
+      "traceEstimatedBytes": 6061506,
+      "clusters": 2,
+      "converged": true
+    }
+  ]
+}

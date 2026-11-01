@@ -1,4 +1,5 @@
 import type { Algorithm, Params } from "./types";
+import { nextFields } from "./nextParameters";
 export interface Field {
   key: keyof Params;
   label: string;
@@ -9,6 +10,7 @@ export interface Field {
   hint: string;
 }
 export const fields: Record<Algorithm, Field[]> = {
+  ...nextFields,
   "K-Medians": [
     {
       key: "k",

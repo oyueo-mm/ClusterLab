@@ -1,0 +1,88 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "observations": [
+    {
+      "name": "Louvain",
+      "n": 100,
+      "status": "complete",
+      "milliseconds": 4.56,
+      "heapDeltaBytes": -228544,
+      "events": 102,
+      "traceEstimatedBytes": 511664
+    },
+    {
+      "name": "Louvain",
+      "n": 1000,
+      "status": "complete",
+      "milliseconds": 254.52,
+      "heapDeltaBytes": 73127304,
+      "events": 1047,
+      "traceEstimatedBytes": 33519392
+    },
+    {
+      "name": "Leiden",
+      "n": 100,
+      "status": "complete",
+      "milliseconds": 7.17,
+      "heapDeltaBytes": 10109528,
+      "events": 195,
+      "traceEstimatedBytes": 956904
+    },
+    {
+      "name": "Leiden",
+      "n": 1000,
+      "status": "complete",
+      "milliseconds": 12.82,
+      "heapDeltaBytes": -32083416,
+      "events": 34,
+      "traceEstimatedBytes": 1679734
+    },
+    {
+      "name": "Label Propagation",
+      "n": 100,
+      "status": "complete",
+      "milliseconds": 2.52,
+      "heapDeltaBytes": 5382904,
+      "events": 164,
+      "traceEstimatedBytes": 288164
+    },
+    {
+      "name": "Label Propagation",
+      "n": 1000,
+      "status": "complete",
+      "milliseconds": 102.9,
+      "heapDeltaBytes": -41783240,
+      "events": 1636,
+      "traceEstimatedBytes": 9885514
+    },
+    {
+      "name": "Girvan–Newman",
+      "n": 30,
+      "status": "complete",
+      "milliseconds": 1.11,
+      "heapDeltaBytes": 1812624,
+      "events": 8,
+      "traceEstimatedBytes": 40742
+    },
+    {
+      "name": "Markov Clustering (MCL)",
+      "n": 50,
+      "status": "complete",
+      "milliseconds": 42.12,
+      "heapDeltaBytes": 35371544,
+      "events": 127,
+      "traceEstimatedBytes": 2924564
+    },
+    {
+      "name": "Markov Clustering (MCL)",
+      "n": 100,
+      "status": "complete",
+      "milliseconds": 157.46,
+      "heapDeltaBytes": -13742080,
+      "events": 127,
+      "traceEstimatedBytes": 10787664
+    }
+  ],
+  "note": "Single Node observation; input generation/Worker/rendering excluded. Heap delta is not peak."
+}

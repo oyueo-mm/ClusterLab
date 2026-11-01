@@ -26,6 +26,30 @@
   align-self: start;
   min-width: 0;
 }
+.dataset-table-editor {
+  margin: 18px 0;
+  min-width: 0;
+}
+.dataset-table-editor input {
+  width: 6em;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.dataset-table-editor table {
+  width: max-content;
+  min-width: 100%;
+}
+.structured-controls details > label {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0;
+}
+.structured-controls details > label input,
+.structured-controls details > label select {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
 .structured-controls h2 {
   font-size: 17px;
   margin: 20px 0 12px;

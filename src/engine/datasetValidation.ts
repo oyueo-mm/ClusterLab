@@ -65,6 +65,24 @@ function display(value: unknown, count: number) {
 /** Validates storage contracts; this is not a claim of an executable engine for every kind. */
 export function validateDataset(value: unknown): asserts value is Dataset {
   const data = object(value);
+  if (data.provenance !== undefined) {
+    const p = object(data.provenance),
+      parameters = object(p.parameters);
+    if (
+      typeof p.generator !== "string" ||
+      !p.generator ||
+      !Number.isSafeInteger(p.seed) ||
+      Object.values(parameters).some(
+        (v) =>
+          !(
+            typeof v === "string" ||
+            typeof v === "boolean" ||
+            (typeof v === "number" && Number.isFinite(v))
+          ),
+      )
+    )
+      fail("provenance의 생성기·정수 seed·실제 생성 매개변수를 확인하세요.");
+  }
   switch (data.kind) {
     case "numeric":
     case "categorical":

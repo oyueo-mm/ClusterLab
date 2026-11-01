@@ -1,0 +1,867 @@
+{
+  "oracle": "Independent observation-weight recomputation / NumPy 2.5.4",
+  "cases": [
+    {
+      "samples": [
+        {
+          "time": 0,
+          "values": [
+            0,
+            0
+          ]
+        },
+        {
+          "time": 1,
+          "values": [
+            0.1,
+            0
+          ]
+        },
+        {
+          "time": 2,
+          "values": [
+            0,
+            0.1
+          ]
+        },
+        {
+          "time": 3,
+          "values": [
+            0.05,
+            0.05
+          ]
+        },
+        {
+          "time": 4,
+          "values": [
+            1,
+            1
+          ]
+        },
+        {
+          "time": 5,
+          "values": [
+            1.1,
+            1
+          ]
+        },
+        {
+          "time": 6,
+          "values": [
+            1,
+            1.1
+          ]
+        },
+        {
+          "time": 7,
+          "values": [
+            1.05,
+            1.05
+          ]
+        },
+        {
+          "time": 80,
+          "values": [
+            2,
+            2
+          ]
+        },
+        {
+          "time": 81,
+          "values": [
+            2.1,
+            2
+          ]
+        },
+        {
+          "time": 82,
+          "values": [
+            2,
+            2.1
+          ]
+        },
+        {
+          "time": 83,
+          "values": [
+            2.05,
+            2.05
+          ]
+        }
+      ],
+      "epsilon": 0.1,
+      "beta": 0.6,
+      "minWeight": 3,
+      "decayRate": 0.05,
+      "pruneInterval": 24,
+      "states": [
+        {
+          "time": 0,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 1.0,
+              "center": [
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": false
+            }
+          ]
+        },
+        {
+          "time": 1,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 1.9659363289248457,
+              "center": [
+                0.050866347260945716,
+                0.0
+              ],
+              "radius": 0.04999249386081327,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 2,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 2.898969320461653,
+              "center": [
+                0.033319991422710984,
+                0.03449501838262824
+              ],
+              "radius": 0.06694305683867842,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 3,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 3.800219783072483,
+              "center": [
+                0.03770921350180957,
+                0.03857504072408238
+              ],
+              "radius": 0.05833261092121551,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 4,
+          "assigned": 1,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 3.6707703463686077,
+              "center": [
+                0.03770921350180958,
+                0.03857504072408238
+              ],
+              "radius": 0.0583326109212155,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 1.0,
+              "center": [
+                1.0,
+                1.0
+              ],
+              "radius": 0.0,
+              "potential": false
+            }
+          ]
+        },
+        {
+          "time": 5,
+          "assigned": 1,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 3.545730432697476,
+              "center": [
+                0.03770921350180958,
+                0.03857504072408239
+              ],
+              "radius": 0.05833261092121551,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 1.9659363289248457,
+              "center": [
+                1.0508663472609459,
+                1.0
+              ],
+              "radius": 0.04999249386081331,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 6,
+          "assigned": 1,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 3.424949837516904,
+              "center": [
+                0.037709213501809585,
+                0.03857504072408239
+              ],
+              "radius": 0.05833261092121551,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 2.898969320461653,
+              "center": [
+                1.033319991422711,
+                1.0344950183826283
+              ],
+              "radius": 0.06694305683867847,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 7,
+          "assigned": 1,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 3.3082834728028248,
+              "center": [
+                0.03770921350180958,
+                0.03857504072408239
+              ],
+              "radius": 0.0583326109212155,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 3.800219783072483,
+              "center": [
+                1.0377092135018096,
+                1.0385750407240824
+              ],
+              "radius": 0.05833261092121555,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 80,
+          "assigned": 2,
+          "micro": [
+            {
+              "id": 2,
+              "weight": 1.0,
+              "center": [
+                2.0,
+                2.0
+              ],
+              "radius": 0.0,
+              "potential": false
+            }
+          ]
+        },
+        {
+          "time": 81,
+          "assigned": 2,
+          "micro": [
+            {
+              "id": 2,
+              "weight": 1.9659363289248457,
+              "center": [
+                2.050866347260946,
+                2.0
+              ],
+              "radius": 0.04999249386081331,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 82,
+          "assigned": 2,
+          "micro": [
+            {
+              "id": 2,
+              "weight": 2.898969320461653,
+              "center": [
+                2.033319991422711,
+                2.0344950183826285
+              ],
+              "radius": 0.06694305683867847,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 83,
+          "assigned": 2,
+          "micro": [
+            {
+              "id": 2,
+              "weight": 3.800219783072483,
+              "center": [
+                2.0377092135018096,
+                2.0385750407240826
+              ],
+              "radius": 0.05833261092121553,
+              "potential": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "samples": [
+        {
+          "time": 0,
+          "values": [
+            1000000000000.0,
+            1000000000000.0
+          ]
+        },
+        {
+          "time": 1,
+          "values": [
+            1000000000000.125,
+            1000000000000.0
+          ]
+        },
+        {
+          "time": 2,
+          "values": [
+            1000000000000.0,
+            1000000000000.125
+          ]
+        },
+        {
+          "time": 3,
+          "values": [
+            1000000000000.125,
+            1000000000000.125
+          ]
+        }
+      ],
+      "epsilon": 0.2,
+      "beta": 0.6,
+      "minWeight": 3,
+      "decayRate": 0.05,
+      "pruneInterval": 24,
+      "states": [
+        {
+          "time": 0,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 1.0,
+              "center": [
+                1000000000000.0,
+                1000000000000.0
+              ],
+              "radius": 0.0,
+              "potential": false
+            }
+          ]
+        },
+        {
+          "time": 1,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 1.9659363289248457,
+              "center": [
+                1000000000000.0636,
+                1000000000000.0
+              ],
+              "radius": 0.06249061732601658,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 2,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 2.898969320461653,
+              "center": [
+                1000000000000.0416,
+                1000000000000.0431
+              ],
+              "radius": 0.083678821048348,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 3,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 3.800219783072483,
+              "center": [
+                1000000000000.0636,
+                1000000000000.0647
+              ],
+              "radius": 0.08835518708230239,
+              "potential": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "samples": [
+        {
+          "time": 0,
+          "values": [
+            0,
+            0,
+            0.0
+          ]
+        },
+        {
+          "time": 1,
+          "values": [
+            0,
+            0,
+            5.0
+          ]
+        },
+        {
+          "time": 2,
+          "values": [
+            0,
+            0,
+            0.0
+          ]
+        },
+        {
+          "time": 3,
+          "values": [
+            0,
+            0,
+            5.0
+          ]
+        },
+        {
+          "time": 4,
+          "values": [
+            0,
+            0,
+            0.0
+          ]
+        },
+        {
+          "time": 5,
+          "values": [
+            0,
+            0,
+            5.0
+          ]
+        },
+        {
+          "time": 6,
+          "values": [
+            0,
+            0,
+            0.0
+          ]
+        },
+        {
+          "time": 7,
+          "values": [
+            0,
+            0,
+            5.0
+          ]
+        },
+        {
+          "time": 8,
+          "values": [
+            0,
+            0,
+            0.0
+          ]
+        },
+        {
+          "time": 9,
+          "values": [
+            0,
+            0,
+            5.0
+          ]
+        },
+        {
+          "time": 10,
+          "values": [
+            0,
+            0,
+            0.0
+          ]
+        },
+        {
+          "time": 11,
+          "values": [
+            0,
+            0,
+            5.0
+          ]
+        }
+      ],
+      "epsilon": 0.1,
+      "beta": 0.6,
+      "minWeight": 3,
+      "decayRate": 0.05,
+      "pruneInterval": 24,
+      "states": [
+        {
+          "time": 0,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 1.0,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": false
+            }
+          ]
+        },
+        {
+          "time": 1,
+          "assigned": 1,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 0.9659363289248456,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": false
+            },
+            {
+              "id": 1,
+              "weight": 1.0,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": false
+            }
+          ]
+        },
+        {
+          "time": 2,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 1.9330329915368074,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 0.9659363289248456,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": false
+            }
+          ]
+        },
+        {
+          "time": 3,
+          "assigned": 1,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 1.867186791535676,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 1.9330329915368074,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 4,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 2.8035835548329313,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 1.867186791535676,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 5,
+          "assigned": 1,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 2.7080832067893903,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 2.8035835548329313,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 6,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 3.615835951189167,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 2.7080832067893903,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 7,
+          "assigned": 1,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 3.492667304686141,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 3.615835951189167,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 8,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 4.373694234444366,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 3.492667304686141,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 9,
+          "assigned": 1,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 4.224710152658954,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 4.373694234444366,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 10,
+          "assigned": 0,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 5.080801015630914,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 4.224710152658954,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            }
+          ]
+        },
+        {
+          "time": 11,
+          "assigned": 1,
+          "micro": [
+            {
+              "id": 0,
+              "weight": 4.907730281036152,
+              "center": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            },
+            {
+              "id": 1,
+              "weight": 5.080801015630914,
+              "center": [
+                0.0,
+                0.0,
+                5.0
+              ],
+              "radius": 0.0,
+              "potential": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

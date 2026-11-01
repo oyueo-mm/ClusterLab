@@ -1,0 +1,103 @@
+{
+  "recordedAt": "2026-10-31T23:49:46.113Z",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "architecture": "x64",
+  "system": {
+    "cpu": "Intel(R) Core(TM) Ultra 7 256V",
+    "logicalProcessors": 8,
+    "osRelease": "10.0.26200",
+    "totalMemoryBytes": 16687738880
+  },
+  "parameters": {
+    "epsilon": 0.2,
+    "beta": 0.6,
+    "minWeight": 3,
+    "decayRate": 0.001,
+    "streamInitSize": 0
+  },
+  "input": "row i: time=i/10, values=[(i%2)*5+(i%7)/100,(i%11)/100,0]; all rows processed; exactly two separated live micro-clusters",
+  "note": "Single Node observations; generation/Worker/rendering excluded; heap delta is not peak and GC can make it negative. Stateful-CF and full-Trace timings are separate. Not a dense-micro worst-case benchmark.",
+  "observations": [
+    {
+      "n": 100,
+      "mode": "stateful-CF",
+      "dimensions": 3,
+      "milliseconds": 0.36,
+      "heapDeltaBytes": 781696,
+      "microClusters": 2,
+      "totalWeight": 99.65767957124288,
+      "independentExpectedWeight": 99.6576795712427
+    },
+    {
+      "n": 100,
+      "mode": "full-trace",
+      "dimensions": 3,
+      "status": "complete",
+      "milliseconds": 12.12,
+      "heapDeltaBytes": 2573160,
+      "events": 202,
+      "traceEstimatedBytes": 1564530
+    },
+    {
+      "n": 1000,
+      "mode": "stateful-CF",
+      "dimensions": 3,
+      "milliseconds": 4.08,
+      "heapDeltaBytes": -379368,
+      "microClusters": 2,
+      "totalWeight": 966.1631940212363,
+      "independentExpectedWeight": 966.1631940212199
+    },
+    {
+      "n": 1000,
+      "mode": "full-trace",
+      "dimensions": 3,
+      "status": "complete",
+      "milliseconds": 3.06,
+      "heapDeltaBytes": 36096,
+      "events": 10,
+      "traceEstimatedBytes": 131334
+    },
+    {
+      "n": 10000,
+      "mode": "stateful-CF",
+      "dimensions": 3,
+      "milliseconds": 12.5,
+      "heapDeltaBytes": 4364584,
+      "microClusters": 2,
+      "totalWeight": 7213.72520733407,
+      "independentExpectedWeight": 7213.72520733293
+    },
+    {
+      "n": 10000,
+      "mode": "full-trace",
+      "dimensions": 3,
+      "status": "complete",
+      "milliseconds": 33.58,
+      "heapDeltaBytes": 9383232,
+      "events": 10,
+      "traceEstimatedBytes": 1085346
+    },
+    {
+      "n": 100000,
+      "mode": "stateful-CF",
+      "dimensions": 3,
+      "milliseconds": 94.53,
+      "heapDeltaBytes": 5008064,
+      "microClusters": 2,
+      "totalWeight": 14413.36110761388,
+      "independentExpectedWeight": 14413.361107620289
+    },
+    {
+      "n": 100000,
+      "mode": "full-trace",
+      "dimensions": 3,
+      "status": "complete",
+      "milliseconds": 301.41,
+      "heapDeltaBytes": 31473112,
+      "events": 10,
+      "traceEstimatedBytes": 10625358
+    }
+  ]
+}

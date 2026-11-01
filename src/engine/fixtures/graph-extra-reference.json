@@ -1,0 +1,3065 @@
+{
+  "versions": {
+    "numpy": "2.5.4",
+    "networkx": "3.6.1"
+  },
+  "note": "Fluid exact relative-machine-epsilon maxima; NetworkX uses 1e-4 ties, so same PRNG/partition is not claimed generally. NumPy recomputes membership/counts independently.",
+  "cases": [
+    {
+      "name": "unit-barbell",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1,
+          1.0
+        ],
+        [
+          1,
+          2,
+          1.0
+        ],
+        [
+          0,
+          2,
+          1.0
+        ],
+        [
+          3,
+          4,
+          1.0
+        ],
+        [
+          4,
+          5,
+          1.0
+        ],
+        [
+          3,
+          5,
+          1.0
+        ],
+        [
+          2,
+          3,
+          1.0
+        ]
+      ],
+      "greedyLabels": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "greedyPath": [
+        {
+          "a": 0,
+          "b": 1,
+          "gain": 0.10204081632653059,
+          "labels": [
+            0,
+            0,
+            2,
+            3,
+            4,
+            5
+          ],
+          "before": -0.173469387755102,
+          "after": -0.07142857142857142
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "gain": 0.163265306122449,
+          "labels": [
+            0,
+            0,
+            0,
+            3,
+            4,
+            5
+          ],
+          "before": -0.07142857142857142,
+          "after": 0.09183673469387757
+        },
+        {
+          "a": 4,
+          "b": 5,
+          "gain": 0.10204081632653059,
+          "labels": [
+            0,
+            0,
+            0,
+            3,
+            4,
+            4
+          ],
+          "before": 0.09183673469387757,
+          "after": 0.19387755102040816
+        },
+        {
+          "a": 3,
+          "b": 4,
+          "gain": 0.163265306122449,
+          "labels": [
+            0,
+            0,
+            0,
+            3,
+            3,
+            3
+          ],
+          "before": 0.19387755102040816,
+          "after": 0.35714285714285715
+        }
+      ],
+      "networkxGreedyLabels": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "networkxGreedyQ": 0.35714285714285715,
+      "fluid": [
+        {
+          "k": 1,
+          "seed": 42,
+          "seeds": [
+            1
+          ],
+          "decisions": [
+            {
+              "node": 0,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                1.0
+              ],
+              "beforeCounts": [
+                1
+              ],
+              "beforeDensity": [
+                1.0
+              ],
+              "beforeLabels": [
+                -1,
+                0,
+                -1,
+                -1,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                -1,
+                -1,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 2,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                1.0
+              ],
+              "beforeCounts": [
+                2
+              ],
+              "beforeDensity": [
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                -1,
+                -1,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0
+              ],
+              "beforeCounts": [
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 3,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                0.3333333333333333
+              ],
+              "beforeCounts": [
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 4,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                0.25
+              ],
+              "beforeCounts": [
+                4
+              ],
+              "beforeDensity": [
+                0.25
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "node": 5,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                0.4
+              ],
+              "beforeCounts": [
+                5
+              ],
+              "beforeDensity": [
+                0.2
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                -1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 3,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666
+              ],
+              "beforeCounts": [
+                6
+              ],
+              "beforeDensity": [
+                0.16666666666666666
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666
+              ],
+              "beforeCounts": [
+                6
+              ],
+              "beforeDensity": [
+                0.16666666666666666
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.5
+              ],
+              "beforeCounts": [
+                6
+              ],
+              "beforeDensity": [
+                0.16666666666666666
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.5
+              ],
+              "beforeCounts": [
+                6
+              ],
+              "beforeDensity": [
+                0.16666666666666666
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.5
+              ],
+              "beforeCounts": [
+                6
+              ],
+              "beforeDensity": [
+                0.16666666666666666
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 3,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666
+              ],
+              "beforeCounts": [
+                6
+              ],
+              "beforeDensity": [
+                0.16666666666666666
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 4,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.5
+              ],
+              "beforeCounts": [
+                6
+              ],
+              "beforeDensity": [
+                0.16666666666666666
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666
+              ],
+              "beforeCounts": [
+                6
+              ],
+              "beforeDensity": [
+                0.16666666666666666
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.5
+              ],
+              "beforeCounts": [
+                6
+              ],
+              "beforeDensity": [
+                0.16666666666666666
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 5,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.5
+              ],
+              "beforeCounts": [
+                6
+              ],
+              "beforeDensity": [
+                0.16666666666666666
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "counts": [
+            6
+          ],
+          "networkxLabels": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "k": 2,
+          "seed": 42,
+          "seeds": [
+            1,
+            0
+          ],
+          "decisions": [
+            {
+              "node": 0,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                1.0,
+                1.0
+              ],
+              "beforeCounts": [
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                -1,
+                -1,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                1,
+                0,
+                -1,
+                -1,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 2,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                1.0
+              ],
+              "beforeCounts": [
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                -1,
+                -1,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                1,
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                1.0
+              ],
+              "beforeCounts": [
+                2,
+                1
+              ],
+              "beforeDensity": [
+                0.5,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                1,
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 3,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                0.5,
+                0.0
+              ],
+              "beforeCounts": [
+                2,
+                1
+              ],
+              "beforeDensity": [
+                0.5,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                1,
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 3,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666,
+                0.0
+              ],
+              "beforeCounts": [
+                3,
+                1
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                1,
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                1.0
+              ],
+              "beforeCounts": [
+                3,
+                1
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                1,
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 5,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                0.3333333333333333,
+                0.0
+              ],
+              "beforeCounts": [
+                3,
+                1
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                1,
+                0,
+                0,
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                0.5,
+                1.0
+              ],
+              "beforeCounts": [
+                4,
+                1
+              ],
+              "beforeDensity": [
+                0.25,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                0,
+                0,
+                -1,
+                0
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                1,
+                0,
+                0,
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 0,
+              "chosen": 1,
+              "scores": [
+                0.5,
+                1.0
+              ],
+              "beforeCounts": [
+                4,
+                1
+              ],
+              "beforeDensity": [
+                0.25,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                0,
+                0,
+                -1,
+                0
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                1,
+                1,
+                0,
+                0,
+                -1,
+                0
+              ]
+            },
+            {
+              "node": 4,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666,
+                0.0
+              ],
+              "beforeCounts": [
+                3,
+                2
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.5
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                0,
+                0,
+                -1,
+                0
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                0.25,
+                1.0
+              ],
+              "beforeCounts": [
+                4,
+                2
+              ],
+              "beforeDensity": [
+                0.25,
+                0.5
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 3,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                0.0
+              ],
+              "beforeCounts": [
+                4,
+                2
+              ],
+              "beforeDensity": [
+                0.25,
+                0.5
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 4,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.75,
+                0.0
+              ],
+              "beforeCounts": [
+                4,
+                2
+              ],
+              "beforeDensity": [
+                0.25,
+                0.5
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 0,
+              "chosen": 1,
+              "scores": [
+                0.5,
+                1.0
+              ],
+              "beforeCounts": [
+                4,
+                2
+              ],
+              "beforeDensity": [
+                0.25,
+                0.5
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                0.0,
+                1.0
+              ],
+              "beforeCounts": [
+                3,
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 5,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                0.0
+              ],
+              "beforeCounts": [
+                3,
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 5,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                0.0
+              ],
+              "beforeCounts": [
+                3,
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 4,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                0.0
+              ],
+              "beforeCounts": [
+                3,
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                0.0,
+                1.0
+              ],
+              "beforeCounts": [
+                3,
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                0.3333333333333333,
+                1.0
+              ],
+              "beforeCounts": [
+                3,
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 3,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                0.3333333333333333
+              ],
+              "beforeCounts": [
+                3,
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                0.0,
+                1.0
+              ],
+              "beforeCounts": [
+                3,
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "labels": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "counts": [
+            3,
+            3
+          ],
+          "networkxLabels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "k": 6,
+          "seed": 42,
+          "seeds": [
+            1,
+            0,
+            4,
+            5,
+            2,
+            3
+          ],
+          "decisions": [
+            {
+              "node": 4,
+              "previous": 2,
+              "chosen": 2,
+              "scores": [
+                0.0,
+                0.0,
+                1.0,
+                1.0,
+                0.0,
+                1.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                1.0,
+                1.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ]
+            },
+            {
+              "node": 5,
+              "previous": 3,
+              "chosen": 3,
+              "scores": [
+                0.0,
+                0.0,
+                1.0,
+                1.0,
+                0.0,
+                1.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 4,
+              "chosen": 4,
+              "scores": [
+                1.0,
+                1.0,
+                0.0,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                1.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ]
+            },
+            {
+              "node": 3,
+              "previous": 5,
+              "chosen": 5,
+              "scores": [
+                0.0,
+                0.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                1,
+                0,
+                4,
+                5,
+                2,
+                3
+              ]
+            }
+          ],
+          "labels": [
+            1,
+            0,
+            4,
+            5,
+            2,
+            3
+          ],
+          "counts": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "networkxLabels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "name": "weighted-loop",
+      "n": 6,
+      "edges": [
+        [
+          0,
+          1,
+          1.0
+        ],
+        [
+          1,
+          2,
+          1.0
+        ],
+        [
+          0,
+          2,
+          1.0
+        ],
+        [
+          3,
+          4,
+          1.0
+        ],
+        [
+          4,
+          5,
+          1.0
+        ],
+        [
+          3,
+          5,
+          1.0
+        ],
+        [
+          2,
+          3,
+          0.1
+        ],
+        [
+          0,
+          0,
+          0.3
+        ]
+      ],
+      "greedyLabels": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "greedyPath": [
+        {
+          "a": 4,
+          "b": 5,
+          "gain": 0.10742187500000001,
+          "labels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            4
+          ],
+          "before": -0.12145996093749997,
+          "after": -0.014038085937499962
+        },
+        {
+          "a": 3,
+          "b": 4,
+          "gain": 0.20996093750000008,
+          "labels": [
+            0,
+            1,
+            2,
+            3,
+            3,
+            3
+          ],
+          "before": -0.014038085937499962,
+          "after": 0.1959228515625001
+        },
+        {
+          "a": 1,
+          "b": 2,
+          "gain": 0.10498046875,
+          "labels": [
+            0,
+            1,
+            1,
+            3,
+            3,
+            3
+          ],
+          "before": 0.1959228515625001,
+          "after": 0.3009033203125001
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "gain": 0.1823730468749999,
+          "labels": [
+            0,
+            0,
+            0,
+            3,
+            3,
+            3
+          ],
+          "before": 0.3009033203125001,
+          "after": 0.4832763671875
+        }
+      ],
+      "networkxGreedyLabels": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "networkxGreedyQ": 0.4832763671875
+    },
+    {
+      "name": "path",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1,
+          1.0
+        ],
+        [
+          1,
+          2,
+          1.0
+        ],
+        [
+          2,
+          3,
+          1.0
+        ],
+        [
+          3,
+          4,
+          1.0
+        ]
+      ],
+      "greedyLabels": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "greedyPath": [
+        {
+          "a": 0,
+          "b": 1,
+          "gain": 0.1875,
+          "labels": [
+            0,
+            0,
+            2,
+            3,
+            4
+          ],
+          "before": -0.21875,
+          "after": -0.03125
+        },
+        {
+          "a": 3,
+          "b": 4,
+          "gain": 0.1875,
+          "labels": [
+            0,
+            0,
+            2,
+            3,
+            3
+          ],
+          "before": -0.03125,
+          "after": 0.15625
+        },
+        {
+          "a": 0,
+          "b": 2,
+          "gain": 0.0625,
+          "labels": [
+            0,
+            0,
+            0,
+            3,
+            3
+          ],
+          "before": 0.15625,
+          "after": 0.21875
+        }
+      ],
+      "networkxGreedyLabels": [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "networkxGreedyQ": 0.21875,
+      "fluid": [
+        {
+          "k": 1,
+          "seed": 42,
+          "seeds": [
+            0
+          ],
+          "decisions": [
+            {
+              "node": 1,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                1.0
+              ],
+              "beforeCounts": [
+                1
+              ],
+              "beforeDensity": [
+                1.0
+              ],
+              "beforeLabels": [
+                0,
+                -1,
+                -1,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 2,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                0.5
+              ],
+              "beforeCounts": [
+                2
+              ],
+              "beforeDensity": [
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666
+              ],
+              "beforeCounts": [
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666
+              ],
+              "beforeCounts": [
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666
+              ],
+              "beforeCounts": [
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ]
+            },
+            {
+              "node": 3,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                0.3333333333333333
+              ],
+              "beforeCounts": [
+                3
+              ],
+              "beforeDensity": [
+                0.3333333333333333
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                -1,
+                -1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.75
+              ],
+              "beforeCounts": [
+                4
+              ],
+              "beforeDensity": [
+                0.25
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "node": 3,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.5
+              ],
+              "beforeCounts": [
+                4
+              ],
+              "beforeDensity": [
+                0.25
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.5
+              ],
+              "beforeCounts": [
+                4
+              ],
+              "beforeDensity": [
+                0.25
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.75
+              ],
+              "beforeCounts": [
+                4
+              ],
+              "beforeDensity": [
+                0.25
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1
+              ]
+            },
+            {
+              "node": 4,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                0.25
+              ],
+              "beforeCounts": [
+                4
+              ],
+              "beforeDensity": [
+                0.25
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                -1
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6000000000000001
+              ],
+              "beforeCounts": [
+                5
+              ],
+              "beforeDensity": [
+                0.2
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 2,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6000000000000001
+              ],
+              "beforeCounts": [
+                5
+              ],
+              "beforeDensity": [
+                0.2
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 3,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6000000000000001
+              ],
+              "beforeCounts": [
+                5
+              ],
+              "beforeDensity": [
+                0.2
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6000000000000001
+              ],
+              "beforeCounts": [
+                5
+              ],
+              "beforeDensity": [
+                0.2
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.4
+              ],
+              "beforeCounts": [
+                5
+              ],
+              "beforeDensity": [
+                0.2
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "node": 4,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.4
+              ],
+              "beforeCounts": [
+                5
+              ],
+              "beforeDensity": [
+                0.2
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "iteration": 3,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "counts": [
+            5
+          ],
+          "networkxLabels": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "k": 2,
+          "seed": 42,
+          "seeds": [
+            0,
+            4
+          ],
+          "decisions": [
+            {
+              "node": 3,
+              "previous": -1,
+              "chosen": 1,
+              "scores": [
+                0.0,
+                1.0
+              ],
+              "beforeCounts": [
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                0,
+                -1,
+                -1,
+                -1,
+                1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                -1,
+                -1,
+                1,
+                1
+              ]
+            },
+            {
+              "node": 1,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                0.0
+              ],
+              "beforeCounts": [
+                1,
+                2
+              ],
+              "beforeDensity": [
+                1.0,
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                -1,
+                -1,
+                1,
+                1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                -1,
+                1,
+                1
+              ]
+            },
+            {
+              "node": 4,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                0.0,
+                1.0
+              ],
+              "beforeCounts": [
+                2,
+                2
+              ],
+              "beforeDensity": [
+                0.5,
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                -1,
+                1,
+                1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                -1,
+                1,
+                1
+              ]
+            },
+            {
+              "node": 2,
+              "previous": -1,
+              "chosen": 0,
+              "scores": [
+                0.5,
+                0.5
+              ],
+              "beforeCounts": [
+                2,
+                2
+              ],
+              "beforeDensity": [
+                0.5,
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                -1,
+                1,
+                1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666,
+                0.0
+              ],
+              "beforeCounts": [
+                3,
+                2
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                0.0
+              ],
+              "beforeCounts": [
+                3,
+                2
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            },
+            {
+              "node": 3,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                0.3333333333333333,
+                1.0
+              ],
+              "beforeCounts": [
+                3,
+                2
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666,
+                0.0
+              ],
+              "beforeCounts": [
+                3,
+                2
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                0.6666666666666666,
+                0.5
+              ],
+              "beforeCounts": [
+                3,
+                2
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            },
+            {
+              "node": 4,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                0.0,
+                1.0
+              ],
+              "beforeCounts": [
+                3,
+                2
+              ],
+              "beforeDensity": [
+                0.3333333333333333,
+                0.5
+              ],
+              "beforeLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ],
+              "iteration": 1,
+              "afterLabels": [
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "counts": [
+            3,
+            2
+          ],
+          "networkxLabels": [
+            0,
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "k": 5,
+          "seed": 42,
+          "seeds": [
+            0,
+            4,
+            2,
+            1,
+            3
+          ],
+          "decisions": [
+            {
+              "node": 3,
+              "previous": 4,
+              "chosen": 4,
+              "scores": [
+                0.0,
+                1.0,
+                1.0,
+                0.0,
+                1.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                0,
+                3,
+                2,
+                4,
+                1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                3,
+                2,
+                4,
+                1
+              ]
+            },
+            {
+              "node": 1,
+              "previous": 3,
+              "chosen": 3,
+              "scores": [
+                1.0,
+                0.0,
+                1.0,
+                1.0,
+                0.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                0,
+                3,
+                2,
+                4,
+                1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                3,
+                2,
+                4,
+                1
+              ]
+            },
+            {
+              "node": 4,
+              "previous": 1,
+              "chosen": 1,
+              "scores": [
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                0,
+                3,
+                2,
+                4,
+                1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                3,
+                2,
+                4,
+                1
+              ]
+            },
+            {
+              "node": 2,
+              "previous": 2,
+              "chosen": 2,
+              "scores": [
+                0.0,
+                0.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                0,
+                3,
+                2,
+                4,
+                1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                3,
+                2,
+                4,
+                1
+              ]
+            },
+            {
+              "node": 0,
+              "previous": 0,
+              "chosen": 0,
+              "scores": [
+                1.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              "beforeCounts": [
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "beforeDensity": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "beforeLabels": [
+                0,
+                3,
+                2,
+                4,
+                1
+              ],
+              "iteration": 0,
+              "afterLabels": [
+                0,
+                3,
+                2,
+                4,
+                1
+              ]
+            }
+          ],
+          "labels": [
+            0,
+            3,
+            2,
+            4,
+            1
+          ],
+          "counts": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "networkxLabels": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ]
+    }
+  ]
+}

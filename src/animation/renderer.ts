@@ -108,12 +108,12 @@ export function draw(
     from.centers,
     to.centers,
     t,
-    ["Mean Shift", "Neural Gas", "Growing Neural Gas"].includes(
+    ["Mean Shift", "Neural Gas", "Growing Neural Gas", "DenStream"].includes(
       options.algorithm,
     ),
   );
   if (
-    ["Affinity Propagation", "Density Peaks / CFSFDP"].includes(
+    ["Affinity Propagation", "Density Peaks / CFSFDP", "PROCLUS"].includes(
       options.algorithm,
     )
   )

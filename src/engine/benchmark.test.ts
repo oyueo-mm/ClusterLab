@@ -3,21 +3,26 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { run } from "./run";
 import { algorithms, algorithmDefaults } from "./types";
 import { dataset, dataDefaults } from "../data/presets";
+import { lessons } from "../data/lessons";
+import { displayPoints } from "./dataset";
 it("records reproducible computation / trace sizes at 120 points without timing assertions", () => {
   const results = algorithms.map((algorithm) => {
-    const points = dataset(
-        algorithm === "LVQ"
-          ? "labeled"
-          : algorithm === "ROCK"
-            ? "categorical"
-            : "blobs",
-        dataDefaults,
-      ),
+    const input = lessons[algorithm].experimentDataset;
+    const points = input
+        ? displayPoints(input)
+        : dataset(
+            algorithm === "LVQ"
+              ? "labeled"
+              : ["ROCK", "K-Modes", "K-Prototypes"].includes(algorithm)
+                ? "categorical"
+                : "blobs",
+            dataDefaults,
+          ),
       params = {
         ...algorithmDefaults(algorithm),
         threshold: algorithm === "ROCK" ? 0.5 : 0.055,
       },
-      trace = run(algorithm, points, params);
+      trace = run(algorithm, points, params, input);
     expect(trace.steps.length).toBeGreaterThan(1);
     const serialized = JSON.stringify(trace);
     return {

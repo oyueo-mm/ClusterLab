@@ -27,6 +27,25 @@ export const algorithms = [
   "Mini-Batch K-Means",
   "CLARA",
   "CLARANS",
+  "X-Means",
+  "G-Means",
+  "Dip-Means",
+  "DP-Means",
+  "Louvain",
+  "Leiden",
+  "Label Propagation",
+  "Girvan–Newman",
+  "Markov Clustering (MCL)",
+  "K-Modes",
+  "K-Prototypes",
+  "CLIQUE",
+  "PROCLUS",
+  "DenStream",
+  "Bimax",
+  "Cheng–Church Biclustering",
+  "K-Shape",
+  "Greedy Modularity (CNM)",
+  "Fluid Communities",
 ] as const;
 export type Algorithm = (typeof algorithms)[number];
 export interface Point {
@@ -84,6 +103,12 @@ export interface State {
 }
 /** Algorithm state is separate from display points and restored by Recorder patches. */
 export type AlgorithmAnalysis =
+  | import("./autoTypes").AutoAnalysis
+  | import("./communityTypes").CommunityAnalysis
+  | import("./dataTypes").DataAnalysis
+  | import("./streamTypes").StreamAnalysis
+  | import("./matrixTypes").MatrixAnalysis
+  | import("./timeseriesTypes").TimeSeriesAnalysis
   | {
       kind: "centroid-variant";
       phase: string;
@@ -150,6 +175,18 @@ export type AlgorithmAnalysis =
       edgeAges?: { a: number; b: number; age: number }[];
     };
 export type EventKind =
+  | "residue"
+  | "mask"
+  | "align"
+  | "test"
+  | "refine"
+  | "aggregate"
+  | "decay"
+  | "prune"
+  | "inflate"
+  | "expand-matrix"
+  | "dimension"
+  | "grid"
   | "graph"
   | "laplacian"
   | "eigen"
@@ -204,6 +241,28 @@ export interface Trace {
   algorithm: Algorithm;
 }
 export interface Params {
+  residueThreshold: number;
+  biclusterCount: number;
+  deletionThreshold: number;
+  inversion: string;
+  maxClusters: number;
+  significance: number;
+  splitViewFraction: number;
+  bootstrapSamples: number;
+  minSamples: number;
+  resolution: number;
+  inflation: number;
+  expansion: number;
+  refinementRandomness: number;
+  gridBins: number;
+  densityThreshold: number;
+  subspaceDimensions: number;
+  samplingFactor: number;
+  medoidFactor: number;
+  decayRate: number;
+  beta: number;
+  minWeight: number;
+  streamInitSize: number;
   batchSize: number;
   sampleSize: number;
   numLocal: number;
@@ -247,6 +306,28 @@ export interface Params {
   bandwidth: number;
 }
 export const defaults: Params = {
+  residueThreshold: 0.01,
+  biclusterCount: 2,
+  deletionThreshold: 1.2,
+  inversion: "allow",
+  maxClusters: 16,
+  significance: 0.0001,
+  splitViewFraction: 0.01,
+  bootstrapSamples: 200,
+  minSamples: 8,
+  resolution: 1,
+  inflation: 2,
+  expansion: 2,
+  refinementRandomness: 0.01,
+  gridBins: 8,
+  densityThreshold: 0.1,
+  subspaceDimensions: 2,
+  samplingFactor: 10,
+  medoidFactor: 10,
+  decayRate: 0.01,
+  beta: 0.6,
+  minWeight: 3,
+  streamInitSize: 12,
   batchSize: 32,
   sampleSize: 40,
   numLocal: 3,
@@ -295,10 +376,41 @@ export function algorithmDefaults(algorithm: Algorithm): Params {
     ...(algorithm === "Affinity Propagation" ? { iterations: 200 } : {}),
     ...(algorithm === "PAM" ? { initialization: "build" } : {}),
     ...(algorithm === "ROCK" ? { threshold: 0.5 } : {}),
+    ...(["X-Means", "G-Means", "Dip-Means"].includes(algorithm)
+      ? { k: 1 }
+      : {}),
+    ...(algorithm === "DP-Means" ? { lambda: 0.04 } : {}),
+    ...(algorithm === "K-Prototypes" ? { gamma: 1 } : {}),
+    ...(algorithm === "Markov Clustering (MCL)" ? { iterations: 100 } : {}),
+    ...(algorithm === "Fluid Communities" ? { iterations: 100 } : {}),
+    ...(algorithm === "Bimax" || algorithm === "Cheng–Church Biclustering"
+      ? { minSize: 2, minPts: 2 }
+      : {}),
   };
 }
 export const isPrototypeAlgorithm = (algorithm: Algorithm) =>
   ["SOM", "Neural Gas", "Growing Neural Gas"].includes(algorithm);
+export const supportsEuclideanSilhouette = (algorithm: Algorithm) =>
+  !isPrototypeAlgorithm(algorithm) &&
+  ![
+    "LVQ",
+    "ROCK",
+    "K-Modes",
+    "K-Prototypes",
+    "CLIQUE",
+    "PROCLUS",
+    "DenStream",
+    "Louvain",
+    "Leiden",
+    "Label Propagation",
+    "Girvan–Newman",
+    "Markov Clustering (MCL)",
+    "Bimax",
+    "Cheng–Church Biclustering",
+    "K-Shape",
+    "Greedy Modularity (CNM)",
+    "Fluid Communities",
+  ].includes(algorithm);
 export function emptyState(n: number): State {
   return {
     labels: Array(n).fill(-2),

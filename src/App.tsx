@@ -31,6 +31,7 @@ import {
   defaults,
   algorithmDefaults,
   isPrototypeAlgorithm,
+  supportsEuclideanSilhouette,
   emptyState,
   type Algorithm,
   type Params,
@@ -40,6 +41,7 @@ import { stateAt } from "./engine/trace";
 import { silhouette } from "./engine/math";
 import { useExperiment } from "./animation/useExperiment";
 import { palette } from "./animation/renderer";
+import type { Dataset } from "./engine/dataset";
 import {
   dataset,
   dataDefaults,
@@ -114,9 +116,7 @@ function CompareCard({
     score = useMemo(
       () =>
         points.length ** 2 > 2_000_000 ||
-        algorithm === "ROCK" ||
-        isPrototypeAlgorithm(algorithm) ||
-        algorithm === "LVQ"
+        !supportsEuclideanSilhouette(algorithm)
           ? null
           : silhouette(points, state.labels),
       [points, state.labels, algorithm],
@@ -127,10 +127,23 @@ function CompareCard({
         <select
           aria-label="비교 알고리즘"
           value={algorithm}
-          onChange={(e) => setAlgorithm(e.target.value as Algorithm)}
+          onChange={(e) => {
+            const a = e.target.value as Algorithm;
+            setAlgorithm(a);
+            setParams(algorithmDefaults(a));
+          }}
         >
           {algorithms.map((a) => (
-            <option key={a}>{a}</option>
+            <option
+              key={a}
+              disabled={[
+                "Bimax",
+                "Cheng–Church Biclustering",
+                "K-Shape",
+              ].includes(a)}
+            >
+              {a}
+            </option>
           ))}
         </select>
         <button
@@ -211,6 +224,12 @@ export default function App() {
     ]),
     [compareCount, setCompareCount] = useState(2),
     [compareStart, setCompareStart] = useState(0);
+  const [structuredRequest, setStructuredRequest] = useState<{
+    algorithm: Algorithm;
+    data?: Dataset;
+    params?: Params;
+    event?: EventKind;
+  }>();
   const editor = useEditorHistory(() => ({
     points: dataset("blobs", dataDefaults),
     preset: "blobs",
@@ -282,6 +301,12 @@ export default function App() {
   };
   const changeAlgorithm = (a: Algorithm) => {
     setAlgorithm(a);
+    if (["Bimax", "Cheng–Church Biclustering", "K-Shape"].includes(a)) {
+      setParams(algorithmDefaults(a));
+      setStructuredRequest(undefined);
+      go("structured");
+      return;
+    }
     if (
       [
         "Spectral Clustering",
@@ -294,6 +319,22 @@ export default function App() {
         "Mini-Batch K-Means",
         "CLARA",
         "CLARANS",
+        "X-Means",
+        "G-Means",
+        "Dip-Means",
+        "DP-Means",
+        "Louvain",
+        "Leiden",
+        "Label Propagation",
+        "Girvan–Newman",
+        "Markov Clustering (MCL)",
+        "K-Modes",
+        "K-Prototypes",
+        "CLIQUE",
+        "PROCLUS",
+        "DenStream",
+        "Greedy Modularity (CNM)",
+        "Fluid Communities",
       ].includes(a)
     ) {
       setParams(algorithmDefaults(a));
@@ -422,7 +463,24 @@ export default function App() {
                 <p role="status">다중 데이터 실험을 불러오는 중입니다.</p>
               }
             >
-              <StructuredLab />
+              <StructuredLab
+                initialAlgorithm={algorithm}
+                initialData={
+                  structuredRequest?.algorithm === algorithm
+                    ? structuredRequest.data
+                    : undefined
+                }
+                initialParams={
+                  structuredRequest?.algorithm === algorithm
+                    ? structuredRequest.params
+                    : undefined
+                }
+                initialEvent={
+                  structuredRequest?.algorithm === algorithm
+                    ? structuredRequest.event
+                    : undefined
+                }
+              />
             </Suspense>
           )}
           {page === "catalog" && (
@@ -430,7 +488,18 @@ export default function App() {
               <Catalog
                 onRun={(a) => {
                   changeAlgorithm(a);
-                  go("lab");
+                  go(
+                    [
+                      "K-Modes",
+                      "K-Prototypes",
+                      "DenStream",
+                      "Bimax",
+                      "Cheng–Church Biclustering",
+                      "K-Shape",
+                    ].includes(a)
+                      ? "structured"
+                      : "lab",
+                  );
                 }}
                 onGuide={(a) => {
                   setGuideAlgorithm(a);
@@ -1012,8 +1081,18 @@ export default function App() {
               <GuidePage
                 algorithm={guideAlgorithm}
                 onSelect={setGuideAlgorithm}
-                onExperiment={(a, presetId, event, experimentParams) => {
+                onExperiment={(a, presetId, event, experimentParams, input) => {
                   changeAlgorithm(a);
+                  if (input) {
+                    setStructuredRequest({
+                      algorithm: a,
+                      data: input,
+                      params: experimentParams,
+                      event,
+                    });
+                    go("structured");
+                    return;
+                  }
                   if (experimentParams) setParams(experimentParams);
                   if (presetId) choose(presetId);
                   setGuideEvent(event ?? null);

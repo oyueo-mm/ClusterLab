@@ -3,6 +3,12 @@ import type { State } from "../engine/types";
 import { ease } from "../engine/trace";
 import { palette } from "../animation/renderer";
 import "./structured.css";
+import { StreamAnalysis } from "./StreamAnalysis";
+import { AutoAnalysisView } from "./AutoAnalysis";
+import CommunityAnalysis from "./CommunityAnalysis";
+import DataClusteringAnalysis from "./DataClusteringAnalysis";
+import BiclusterAnalysis from "./BiclusterAnalysis";
+import { TimeSeriesAnalysisView } from "./TimeSeriesAnalysis";
 
 function MatrixViewer({
   title,
@@ -405,6 +411,36 @@ export function AlgorithmAnalysis({
         </p>
       </div>
     );
+  if (a.kind === "model-selection")
+    return (
+      <AutoAnalysisView
+        analysis={a}
+        next={target?.kind === "model-selection" ? target : a}
+        progress={visualProgress}
+      />
+    );
+  if (a.kind === "community")
+    return (
+      <CommunityAnalysis
+        analysis={a}
+        next={target?.kind === "community" ? target : a}
+        progress={visualProgress}
+      />
+    );
+  if (a.kind === "data-clustering")
+    return <DataClusteringAnalysis analysis={a} />;
+  if (a.kind === "biclustering") return <BiclusterAnalysis analysis={a} />;
+  if (a.kind === "timeseries-clustering")
+    return (
+      <TimeSeriesAnalysisView
+        analysis={a}
+        next={target?.kind === "timeseries-clustering" ? target : a}
+        progress={visualProgress}
+      />
+    );
+  if (a.kind === "stream")
+    return <StreamAnalysis analysis={a} next={next} progress={progress} />;
+  if (a.kind !== "neural-gas") return null;
   return (
     <div className="algorithm-analysis">
       <h3>실제 뉴런 경쟁·연결</h3>

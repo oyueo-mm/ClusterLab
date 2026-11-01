@@ -8,6 +8,7 @@ export interface Equation {
   derivation: string[];
 }
 export interface Lesson {
+  experimentDataset?: import("../../engine/dataset").Dataset;
   experimentParams?: Partial<Params>;
   purpose: string;
   analogy: string;

@@ -1,0 +1,28 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "seed": 42,
+  "k": 2,
+  "iterations": 3,
+  "note": "Single Node observation. Generation/Worker transfer/rendering excluded; heap delta is not peak. Direct O(length²) correlations and dense exact eigensolver.",
+  "observations": [
+    {
+      "n": 100,
+      "length": 16,
+      "milliseconds": 18.61,
+      "heapDeltaBytes": -3592264,
+      "events": 617,
+      "traceEstimatedBytes": 1410404,
+      "recording": "실제 전체 NCC 지연·zero-padding 정렬·고유벡터 형태 추출·할당"
+    },
+    {
+      "n": 1000,
+      "length": 16,
+      "milliseconds": 139.71,
+      "heapDeltaBytes": 41858000,
+      "events": 6017,
+      "traceEstimatedBytes": 37453238,
+      "recording": "실제 전체 NCC 지연·zero-padding 정렬·고유벡터 형태 추출·할당"
+    }
+  ]
+}

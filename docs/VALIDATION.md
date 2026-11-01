@@ -1,19 +1,21 @@
 # ClusterLab v0.6 검증 보고서
 
+현재 2026-11-01 재개 변경의 검증 범위는 이 문서 마지막 절을 따른다. 아래 v0.6의 600개 제한·스냅샷 히스토리 설명과 2026-10-31의 25엔진/107개 미구현 수치는 당시 기록으로 보존한다. 현재 입력 고정 상한은 제거됐으며 실행 엔진은 44개다. 과거 Pages 성공을 이번 변경의 배포 성공으로 재사용하지 않는다.
+
 검증일: 2026-10-29 (Asia/Seoul). 기준 v0.5 main: `bb7f9f9dffde5d638557a54fc3e92cb6443f4127`. 원격 fetch 후 로컬과 일치함을 확인했습니다. 기존 프로젝트·라이브러리를 사용하고 새 런타임 의존성은 추가하지 않았습니다.
 
 이전 기록: [v0.1](v0.1/VALIDATION.md) · [v0.2](v0.2/VALIDATION.md) · [v0.3](v0.3/VALIDATION.md) · [v0.4](v0.4/VALIDATION.md) · [v0.5](v0.5/VALIDATION.md). 기존 v0.4 보고서는 별도 경로로 보존하고 이미지 링크만 새 상대 위치에 맞췄습니다.
 
 ## 홈 타이포그래피
 
-| 폭 | 메인 제목 전→후 | 부제목 전→후 | 버튼 전→후 |
-| --- | --- | --- | --- |
-| 1920px | 48→54px | 27→31px | 14→16px |
-| 1440px | 46.8→52.56px | 27→31px | 14→16px |
-| 1024px | 40→42px | 26→28px | 13→14px |
-| 800·768px | 44→48px | 27→30px | 14→15px |
-| 390px | 31.98→33.54px | 25→26px | 13→14px |
-| 320px | 28→28px | 24→24px | 12→12px |
+| 폭        | 메인 제목 전→후 | 부제목 전→후 | 버튼 전→후 |
+| --------- | --------------- | ------------ | ---------- |
+| 1920px    | 48→54px         | 27→31px      | 14→16px    |
+| 1440px    | 46.8→52.56px    | 27→31px      | 14→16px    |
+| 1024px    | 40→42px         | 26→28px      | 13→14px    |
+| 800·768px | 44→48px         | 27→30px      | 14→15px    |
+| 390px     | 31.98→33.54px   | 25→26px      | 13→14px    |
+| 320px     | 28→28px         | 24→24px      | 12→12px    |
 
 데스크톱 기본 제목은 `clamp(42px, 3.65vw, 54px)`입니다. Black Han Sans·Pretendard·#34564D·검은 부제목·순백 배경·버튼 형태·높이·가로 배치를 보존했습니다. Grid의 `.hero-copy { align-self: center }`와 800px 이하의 `start`는 그대로입니다. 글꼴 크기에 따라 그룹 높이가 바뀌어도 오른쪽 `.home-cycle`에 맞춰 중심을 계산합니다.
 
@@ -81,11 +83,9 @@ PointerCancel·캡처 상실·리사이즈·포커스 상실·탭 숨김·도구
 - 드래그 미리보기 중에는 데이터 개수/부모 상태가 마지막 확정 값이고 마우스/손가락을 놓으면 갱신됩니다. 보기 이동/확대는 Undo 대상이 아닙니다.
 - 편집 중 0~1개 점은 허용하지만 기존 알고리즘 계산·파일 가져오기의 2~600개 입력 규칙은 그대로입니다. CSV는 기존 단순 헤더 규격이며 인용부호 안 쉼표 등 전체 RFC 문법 지원을 추가하지 않았습니다.
 
-
 ---
 
 2026-10-31 플랫폼 확장 기반의 새 검증 기록은 [expansion/VALIDATION.md](expansion/VALIDATION.md)에 추가했습니다. 위 v0.6 검증 기록은 보존합니다.
-
 
 ## 2026-10-31 플랫폼 확장 검증 (기존 기록 보존)
 
@@ -98,3 +98,80 @@ PointerCancel·캡처 상실·리사이즈·포커스 상실·탭 숨김·도구
 최종 로컬 보완: 도감·플랫폼 18/18 통과. 중복 제외 Chromium/mobile 46통과/12기존 조건부 skip, Firefox/WebKit 신규6통과. 최초 오류는 테스트 검색/option 선택자 가정이며 수정 후 검증했다. 전체 단일 원격 결과는 SESSION_REPORT에서 별도로 기록한다.
 
 원격 확정: Actions41187164683/source732a410에서 단위247개 및 전체 브라우저46통과/12기존 조건부 skip/0실패, validate/deploy 모두 success. 공개 Pages Chromium/mobile12검사도 통과했다. 증거와 실제 범위는 현재 SESSION_REPORT 및 platform/browser-public.json을 따른다.
+
+## 2026-11-01 재개 작업 — 44개 실행 엔진 검증 범위
+
+현재 소스는 기존 13개 + 신규 후보 31개 = **44개 실행 엔진**을 연결한다. 직전 25개에서 추가된 것은 자동 K 4개, 그래프 커뮤니티 7개, 범주형/혼합형/부분공간 4개, DenStream, 행렬 2개, K-Shape로 총 19개다. 신규 후보 119개 중 88개는 실행 미구현이다. 실행 가능 수·제한 범위 독립 검증·전체 마스터 완전 구현 인증을 구분한다. 전체 후보의 원문 조사도 아직 끝나지 않았다.
+
+아래는 직접 실행한 전용 단위/독립 수치 검증과 해당 원자료다. 새로운 전체 브라우저·회귀·프로덕션 빌드·Actions·Pages 검증은 **진행 중**이며 최종 상태/커밋 SHA는 [SESSION_REPORT.md](SESSION_REPORT.md)에서 별도로 확정한다. 이 절은 과거 또는 부분 실행의 통과 수를 전체 최신 결과로 합산하지 않는다.
+
+### 7개 연구 단위의 실제 독립 검증
+
+| 연구/구현 범위                       | 실제 독립 근거와 비교                                                                                                  | 전용 단위 테스트                                          | 상세 기록                                  |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------ |
+| X/G/Dip/DP-Means                     | NumPy2.5.4/SciPy1.18.1/diptest0.11.0: BIC·AD/logCDF·dip·bootstrap/순차 목적식                                          | auto-models.test.ts 15개 통과                             | [자동 K](research/AUTO_MODELS.md)          |
+| Louvain/Leiden/LPA/Girvan–Newman/MCL | NetworkX3.6.1/원저자 leidenalg0.12.0/igraph1.0.0/NumPy: 원본 Q·집약·분할, Brandes 점수/각 제거, MCL 곱/인플레이션/수렴 | community.test.ts 22개 통과                               | [커뮤니티](research/COMMUNITIES.md)        |
+| CNM/Fluid                            | NetworkX3.6.1/NumPy2.5.4: 실제 모든 병합 ΔQ/최종 분할, ego one-hot 곱과 매 갱신 전체 count 재계산                      | graph-extra.test.ts 9개 통과                              | [추가 그래프](research/GRAPH_EXTRA.md)     |
+| K-Modes/K-Prototypes/CLIQUE/PROCLUS  | NumPy2.5.4: 범주 빈도·평균·목적식, 전수 격자 성분, 모든 30개 ordered medoid 쌍의 locality/축/할당/정제                 | data-clustering.test.ts 19개 통과                         | [데이터 계열](research/DATA_CLUSTERING.md) |
+| DenStream                            | NumPy2.5.4가 과거 관측/시각을 보존해 매 도착 가중 평균·RMS 반경을 재계산; 엔진과 별도 원문 경계 감사                   | denstream.test.ts 8개 + denstream-audit.test.ts 10개 통과 | [스트림 감사](research/DENSTREAM.md)       |
+| Bimax/Cheng–Church                   | NumPy2.5.4: 독립 부분집합 전수 최대 직사각형, double-centering 모든 부분행렬 MSR와 삭제/부호/원본 검산                 | matrix-clustering.test.ts 13개 통과                       | [이중군집](research/BICLUSTERING.md)       |
+| K-Shape                              | NumPy2.5.4/SciPy1.18.1: signal.correlate, 명시적 QᵀXᵀXQ/eigh, 독립 전체 clustering loop                                | timeseries-clustering.test.ts 8개 통과                    | [시계열](research/TIMESERIES.md)           |
+
+각 연구 문서에 원문 열람 범위·수학적 선택·알고리즘별 계산/Trace/UI/가이드·한계·성능 JSON을 보존한다. Huang 원문 본문과 AS217 원문 전체의 직접 접근 제한, X-Means 공개 BIC 규약 문제, Fluid/원저자 PRNG 및 동률 차이, K-Shape 부호 선택/정지 정책처럼 독립 구현과 달라질 수 있는 부분을 감추지 않는다. 관련된 모든 데이터의 동일 최종 레이블이나 전역 최적을 보장하지 않는다.
+
+Dip의 565개 fixture, Bimax의 3×3 모든512개+4×4 40개 입력, Cheng–Church의 225개 부분행렬은 **수치 비교 사례**다. 각각을 별도 테스트 함수 수로 부풀리지 않는다. Leiden의 16seed 연결성·모든 작은 분할/집약 Q, 600노드 작은 성분+고립점 회귀도 관련 전용 테스트 내부의 검증이다. 600은 이 회귀 입력의 크기일 뿐 상한이 아니다.
+
+검증 전용 Python 라이브러리는 제품 런타임/브라우저 번들에 넣지 않았다. GPL diptest/leidenalg/igraph도 `.local`의 검증 환경에서만 사용하며 제품 코드를 복사하지 않는다. 실제 패키지 버전·원문/저자/공식 문서 출처는 각 연구와 fixture provenance를 따른다.
+
+### 실제 원본 형식과 native output 통합
+
+추가 [typed-integration.test.ts](../src/engine/typed-integration.test.ts)는 **24/24 통과**했다. graph 전용 31개와 함께 재실행한 결과는 **3파일 55/55 통과**다. 이 수를 위 전용 단위 테스트와 다시 합산하지 않는다. 해당 시점 global `npx tsc -b --pretty false`와 새 파일 ESLint가 통과했다.
+
+이 통합 검사는 다음 수학적 동작을 실제 동적 `runDataset` 로더와 동기 typed `run`에서 확인한다.
+
+- 그래프 7개에서 실제 가중 간선·노드 순서·loop/중복 규약과 원본 Q를 직접 edge sum으로 검산한다. 표시 위치를 임의로 바꾸어도 실제 분할/native 결과가 같다. 계산 후 전체 역재생이 초기 상태를 복구한다.
+- X/Y가 모두 같은 수치 입력도 원본 세 번째 차원으로 정확한 union-kNN을 구성하며 실제 입력 간선과 비교한다. 지원되지 않는 형식·방향·Fluid 가중치·GN loop를 몰래 버리거나 평탄화하지 않는다.
+- n=3,000 path raw graph는 실제 m 기반 희소 공간으로 허용하고, 같은 n의 큰 neighbors numeric 변환은 할당/전수 계산 전에 예산 초과로 거부한다. 입력 절단·근사 성공을 반환하지 않는다.
+- 동일 표시 좌표에서도 K-Modes/K-Prototypes의 원본 범주·수치 열에 대한 독립 비용·분할을 확인한다. CLIQUE는 실제 네 번째 차원의 성분 및 모든 중첩 memberships를 전수 격자 oracle와 비교한다.
+- Bimax는 손계산 3×3 예제의 네 최대 직사각형 전체와 양쪽 소속을 반환한다. Cheng–Church는 반환 rows/columns/rowSigns로 원본에서 MSR을 직접 다시 계산한다.
+- K-Shape는 독립 전체 실행의 실제 형태/목적값을 비교하며, 평균·표준편차 표시가 같아도 순서가 다른 파형의 결과가 달라짐을 확인한다. 특정 seed가 항상 참 군집 수/분할을 얻는다고 검사하지 않는다.
+- DenStream은 실제 timestamp 간격에 따라 `3×2^(−λgap)+1` 가중치가 달라지는지, anchor 상대 CF를 원좌표 모멘트로 복원했을 때 실제 합이 맞는지 확인한다.
+
+API 최상위 kind는 native output.kind와 일치하며 communities/subspaces/projected-partition/biclustering/timeseries-partition/stream-summary를 일반 partition으로 잃지 않는다. computedRows/sourceDimensions와 행렬 computedColumns/시계열 timeSeriesSteps는 실제 원본 범위를 반환한다. Spectral의 partition 계약은 유지하고 PROCLUS는 labels/medoids/dimensionsByCluster/influence/objective/converged의 projected-partition으로 보존한다.
+
+### 표 편집·되돌리기·스트림 통합의 현재 상태
+
+구조형 원본 속성 표·그래프 노드/간선 표·관측 추가·시드 생성 provenance와 100작업 Undo/Redo가 연결됐다. datasetHistory 단위 회귀는 10,000행 한 셀의 희소 경로·관련 없는 행 객체 공유, 한 관측의 단일 splice, 전체 교체/형식 변경/Redo 분기/작업 수를 검증한다. 페이지 표시 창은 16행×8열이며 계산 크기 상한과 다르다.
+
+시계열 시간축 변경은 JSON에서, 값/ID는 표에서 편집한다. DenStream 자동 유입은 전체 prefix의 Worker 재계산이며 model 자체의 증분 CF와 구분한다. 기존 점 편집기/홈/32프리셋/11데이터셋/비교/속도/재생·되감기·사이드바의 최신 전체 브라우저 회귀는 검증 중이다. 과거 기능이 보존되도록 구현했음을 현재 소스 연결과 이미 확정된 과거 테스트 결과만으로 최신 브라우저 통과라고 표시하지 않는다.
+
+### 재현 명령과 남은 검증
+
+독립 fixture 생성: `scripts/auto_models_reference.py`, `community_reference.py`, `graph_extra_reference.py`, `data_clustering_reference.py`, `denstream_reference.py`, `matrix_reference.py`, `timeseries_reference.py`. 각 fixture의 실제 생성 버전은 research/fixtures에 기록돼 있다. 검증 전용 `.local` 환경이 필요한 도구는 해당 연구 문서의 절차를 따른다.
+
+```powershell
+npx vitest run src/engine/typed-integration.test.ts src/engine/community.test.ts src/engine/graph-extra.test.ts
+npx tsc -b --pretty false
+npx eslint src/engine/typed-integration.test.ts
+```
+
+미완료 검증: 이번 변경 전체의 브라우저/모바일/Firefox/WebKit와 프로덕션 build/Actions/Pages 최종 확인, 장시간 누수/peak, 대형 입출력/Worker 전송·취소 지연, 100k/1M 실제 그래프·긴 파형·많은 활성 CF, 실제 모바일 FPS. Node 성능은 [PERFORMANCE.md](PERFORMANCE.md)의 한정된 관측이며 60FPS·임의 기기 메모리 성공의 증명이 아니다. 전체 마스터 프로젝트는 아직 미완료다.
+
+### 최신 통합 실행 보완 — 확정된 범위
+
+- `auto_models_reference.py`, `community_reference.py`, `graph_extra_reference.py`, `data_clustering_reference.py`, `denstream_reference.py`, `matrix_reference.py`, `timeseries_reference.py`를 통합 환경에서 재실행해 **7개 모두 성공**했다. 실제 버전은 NumPy2.5.4/SciPy1.18.1/diptest0.11.0/NetworkX3.6.1/igraph1.0.0/leidenalg0.12.0이다. fixture 입력 사례 수를 테스트 함수 수로 합산하지 않는다.
+- 전체 Vitest **426/426 통과, 실패0**를 확인했다. 이후 PROCLUS native projected-partition에 대해 독립 fixture의 선택 축·medoid·influence를 검사하는 테스트 1개를 추가해 개별 통과했다. typed integration은 현재 25개이며 이전 24개/합동55개 숫자는 앞선 실행 기록이다. **최종 전체 427개 재실행은 아직 확정 전**이다.
+- [next-platform.spec.ts](../tests/next-platform.spec.ts)의 신규 **8개 시나리오×Chromium/mobile = 16/16 통과**다. 실제 번들 Worker에서 추가 19엔진의 고유 이벤트·원본 입력·역재생·전용 분석을 확인하고, 범주/혼합 셀·그래프 가중치·행렬 셀·시계열 값 편집·Undo/Redo·스트림 prefix/자동 유입·잘못된 이진/시간 입력·결과 내보내기를 검사했다. 1,000행×12열의 마지막 셀까지 편집/계산하며 1920/1440/1024/800/768/390/320px 표시 창을 확인했다.
+- 통합 검증 중 raw graph의 화면 자원 추정에 실제 m 전달을 추가했고, 캐시 적중 시 traceIsCurrent 판정 오류를 수정했다. 현재 Trace의 전체 계산 결과 내보내기가 정상 작동한다.
+
+추가 가이드 실제 Dataset/파라미터/이벤트를 실험실로 옮기는 사례는 검증 중이다. **전체 기존 브라우저 회귀·Firefox/WebKit 신규 교차 검증·원격 Actions/Pages는 아직 미실행**이며 16/16 신규 부분 결과와 구분한다. build/최종 타입·린트·전체 테스트 재실행의 최종 상태는 SESSION_REPORT에서 확정한다. 과거 2026-10-31의 Pages/브라우저 성공을 이번 버전에 전용하지 않는다.
+
+## 2026-11-01 릴리스 전 최종 로컬 검증
+
+타입·ESLint·프로덕션 빌드와 전체 **428/428·32파일** 통과. [unit-final](platform44/unit-final.json), [환경](platform44/environment.json), [기준21파일 소스 동일성](platform44/legacy-source-audit.json)을 보존했다. typed integration은26개이며 앞 절의24/25개는 개발 중 기록이다.
+
+Chromium/mobile 전체 최초 실행은 **62통과·12기존 조건부 생략·2실패**였다. 두 실패는 일부 신규 교재의 참고자료가2개 미만인 경우였다. 실제 확인한 공식 GMeans·저자 small-variance 설명·PyClustering CLIQUE와 BCCC 문서를 보강했고, 기존 테스트의 참고자료 조건은 유지했다. 수정 빌드에서44교재 순회2/2가 통과했다. 따라서 **고유 구성64통과·12생략**이며 이를 로컬 전체 단일 재실행이라고 주장하지 않는다. 최초/수정 후 원자료는 [browser-local-first](platform44/browser-local-first.json), [browser-guides-final](platform44/browser-guides-final.json)이다.
+
+신규9×Chromium/mobile18개는 위 전체 구성에 포함된다. 18을64에 중복 합산하지 않는다. 최종 빌드의 두 플랫폼 spec은 **Firefox/WebKit24/24 통과**했다. 실제29개 추가 엔진(이번19+직전10), 원본 데이터·편집·native 결과·되감기·가이드 단계 전달·오류를 확인했다. 기존 모든 기능의 Firefox/WebKit 검증이라는 뜻은 아니다. [browser-cross-final](platform44/browser-cross-final.json)을 따른다.
+
+원격 Actions/Pages와 공개 사이트의 이번 버전 검증은 아직 대기 중이며, SESSION_REPORT 마지막 기록에서 별도로 확정한다. 이전 버전 Pages 성공과 재사용하지 않는다.

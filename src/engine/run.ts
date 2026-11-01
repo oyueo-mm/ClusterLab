@@ -27,7 +27,11 @@ import { kmedians } from "./algorithms/kmedians";
 import { minibatch } from "./algorithms/minibatch";
 import { clara } from "./algorithms/clara";
 import { clarans } from "./algorithms/clarans";
+import { nextEngines } from "./nextEngines";
+import { prepareDataset } from "./datasetExecution";
+import type { Dataset } from "./dataset";
 const engines = {
+  ...nextEngines,
   "K-Medians": kmedians,
   "Mini-Batch K-Means": minibatch,
   CLARA: clara,
@@ -56,12 +60,20 @@ const engines = {
   BIRCH: birch,
   "Mean Shift": meanshift,
 };
-export function run(algorithm: Algorithm, points: Point[], params: Params) {
-  validateRun(algorithm, points, params);
-  assertResources(algorithm, points.length, params);
+export function run(
+  algorithm: Algorithm,
+  points: Point[],
+  params: Params,
+  input?: Dataset,
+) {
+  if (input) points = prepareDataset(algorithm, input, params).points;
+  else {
+    validateRun(algorithm, points, params);
+    assertResources(algorithm, points.length, params);
+  }
   const start = performance.now(),
     r = new Recorder(points.length, algorithm);
-  engines[algorithm](points, params, r);
+  engines[algorithm](points, params, r, input);
   r.trace.elapsed = performance.now() - start;
   return r.trace;
 }

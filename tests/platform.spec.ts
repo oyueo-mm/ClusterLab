@@ -189,8 +189,16 @@ test("unsupported structured data and contradictory constraints fail explicitly"
   await page.goto("#structured");
   await page.getByLabel("원본 데이터 JSON").fill(
     JSON.stringify({
-      kind: "timeseries",
-      series: [{ id: "s", times: [0, 1], values: [1, 2] }],
+      kind: "constrained",
+      data: {
+        kind: "numeric",
+        values: [
+          [0, 0],
+          [1, 1],
+        ],
+      },
+      mustLink: [[0, 1]],
+      cannotLink: [],
     }),
   );
   await page.getByRole("button", { name: "데이터 적용", exact: true }).click();

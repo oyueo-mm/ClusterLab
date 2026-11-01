@@ -3,7 +3,12 @@ import type { Algorithm, Params } from "./types";
 // Byte budgets are configurable execution policies, never a global point count.
 export const DEFAULT_WORKING_BYTES = 256 * 1024 * 1024;
 export const DEFAULT_TRACE_BYTES = 64 * 1024 * 1024;
-export function estimateResources(algorithm: Algorithm, n: number, o: Params) {
+export function estimateResources(
+  algorithm: Algorithm,
+  n: number,
+  o: Params,
+  graphEdges?: number,
+) {
   let workingBytes = n * 192;
   let work = n * Math.min(n, o.k) * o.iterations;
   if (
@@ -40,6 +45,42 @@ export function estimateResources(algorithm: Algorithm, n: number, o: Params) {
     work = n * o.k * o.maxNeighbors * o.numLocal;
   }
   if (algorithm === "Mini-Batch K-Means") work = n * o.k * o.epochs;
+  if (["X-Means", "G-Means", "Dip-Means", "DP-Means"].includes(algorithm)) {
+    workingBytes += n * 32 + Math.min(n, o.maxClusters) * 128;
+    work = n * Math.min(n, o.maxClusters) * o.iterations;
+    if (algorithm === "Dip-Means") work += n ** 3 + o.bootstrapSamples * n * n;
+  }
+  if (
+    [
+      "Louvain",
+      "Leiden",
+      "Label Propagation",
+      "Girvan–Newman",
+      "Greedy Modularity (CNM)",
+      "Fluid Communities",
+    ].includes(algorithm)
+  ) {
+    // Exact raw sparse edge memory is added by Dataset preflight. This base
+    // covers the explicitly constructed union-kNN when input is numeric.
+    workingBytes +=
+      graphEdges === undefined
+        ? n * Math.min(n, 2 * o.neighbors) * 96
+        : graphEdges * 192;
+    work =
+      (graphEdges === undefined ? n * n : 0) +
+      (n + (graphEdges ?? n * Math.max(1, o.neighbors))) * o.iterations;
+    if (algorithm === "Girvan–Newman") work = n ** 3 * Math.max(1, o.neighbors);
+    if (algorithm === "Greedy Modularity (CNM)")
+      work = n * n * Math.max(1, o.neighbors);
+  }
+  if (algorithm === "Markov Clustering (MCL)") {
+    workingBytes += n * n * 112;
+    work = o.iterations * o.expansion * n ** 3;
+  }
+  if (algorithm === "K-Modes" || algorithm === "K-Prototypes")
+    workingBytes += n * 32 + Math.min(n, o.k) * 256;
+  if (algorithm === "PROCLUS") workingBytes += n * Math.min(n, o.k) * 32;
+  if (algorithm === "DenStream") workingBytes += n * 32;
   if (algorithm === "Neural Gas" || algorithm === "Growing Neural Gas") {
     const neurons = algorithm === "Neural Gas" ? o.k : o.maxNeurons;
     workingBytes += neurons ** 2 * 64;
@@ -66,6 +107,13 @@ export function estimateResources(algorithm: Algorithm, n: number, o: Params) {
     work,
     traceBudgetBytes: DEFAULT_TRACE_BYTES,
     approximate: false,
+    inputTruncation: false,
+    policy:
+      algorithm === "DenStream"
+        ? "시간 감쇠 micro-cluster 요약; 전체 입력 처리"
+        : algorithm === "CLARA" || algorithm === "PROCLUS"
+          ? "명시적 표본 후보 탐색; 전체 입력 평가"
+          : "전체 원본 계산; 기록/렌더링 세분도는 별도",
   };
 }
 export function assertResources(
@@ -73,8 +121,9 @@ export function assertResources(
   n: number,
   o: Params,
   budgetBytes = DEFAULT_WORKING_BYTES,
+  graphEdges?: number,
 ) {
-  const estimate = estimateResources(algorithm, n, o);
+  const estimate = estimateResources(algorithm, n, o, graphEdges);
   if (
     !Number.isFinite(estimate.workingBytes) ||
     estimate.workingBytes > budgetBytes

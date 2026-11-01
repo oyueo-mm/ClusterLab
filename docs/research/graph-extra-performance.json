@@ -1,0 +1,47 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "observations": [
+    {
+      "name": "Greedy Modularity (CNM)",
+      "n": 100,
+      "status": "complete",
+      "iterations": 100,
+      "milliseconds": 26.05,
+      "heapDeltaBytes": 7950664,
+      "events": 179,
+      "traceEstimatedBytes": 7474424
+    },
+    {
+      "name": "Greedy Modularity (CNM)",
+      "n": 1000,
+      "status": "complete",
+      "iterations": 100,
+      "milliseconds": 87.22,
+      "heapDeltaBytes": 1082208,
+      "events": 23,
+      "traceEstimatedBytes": 2027924
+    },
+    {
+      "name": "Fluid Communities",
+      "n": 100,
+      "status": "complete",
+      "iterations": 100,
+      "milliseconds": 15.94,
+      "heapDeltaBytes": 9481456,
+      "events": 1259,
+      "traceEstimatedBytes": 2581130
+    },
+    {
+      "name": "Fluid Communities",
+      "n": 1000,
+      "status": "complete",
+      "iterations": 1000,
+      "milliseconds": 66.01,
+      "heapDeltaBytes": -4192376,
+      "events": 386,
+      "traceEstimatedBytes": 2788876
+    }
+  ],
+  "note": "Single Node; no inputgeneration/Worker/rendering. Heapdelta isnotpeak."
+}

@@ -1,4 +1,6 @@
 import type { Algorithm } from "../engine/types";
+import { nextLessons } from "./lessons/next";
+import { algorithmFamilies } from "./algorithmFamilies";
 /** Brief introductions; full structured textbook lives in lessons/. */
 export interface Guide {
   family: string;
@@ -8,6 +10,18 @@ export interface Guide {
   cons: string;
 }
 export const guides: Record<Algorithm, Guide> = {
+  ...(Object.fromEntries(
+    Object.entries(nextLessons).map(([id, lesson]) => [
+      id,
+      {
+        family: algorithmFamilies[id as Algorithm],
+        intro: lesson.purpose,
+        steps: lesson.operations.map((op) => op.title),
+        pros: lesson.analogy,
+        cons: lesson.complexity.cost,
+      },
+    ]),
+  ) as Record<keyof typeof nextLessons, Guide>),
   "K-Medians": {
     family: "중앙값·L1",
     intro:

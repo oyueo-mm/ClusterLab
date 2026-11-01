@@ -1,4 +1,5 @@
 import { algorithms } from "../src/engine/types";
+import { registry } from "../src/engine/registry";
 import { test, expect } from "@playwright/test";
 
 test("catalog distinguishes all candidates from executable engines and filters without overflow", async ({
@@ -15,7 +16,7 @@ test("catalog distinguishes all candidates from executable engines and filters w
   );
   await page.getByLabel("도감 입력 유형").selectOption("numeric-or-graph");
   await expect(page.locator(".catalog-grid article h2")).toHaveText(
-    "Spectral Clustering",
+    algorithms.filter((a) => registry[a].input === "numeric-or-graph"),
   );
   await page.getByLabel("도감 검증 상태").selectOption("independent-sklearn");
   await page.getByLabel("도감 입력 유형").selectOption("");

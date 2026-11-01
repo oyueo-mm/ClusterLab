@@ -17,9 +17,13 @@ self.onmessage = async (
   const { id, algorithm, params, dataset } = event.data;
   let points = event.data.points;
   try {
-    if (dataset) points = prepareDataset(algorithm, dataset, params).points;
+    const prepared = dataset
+      ? prepareDataset(algorithm, dataset, params)
+      : undefined;
+    if (prepared) points = prepared.points;
     else validateRun(algorithm, points, params);
-    const estimate = assertResources(algorithm, points.length, params);
+    const estimate =
+      prepared?.estimate ?? assertResources(algorithm, points.length, params);
     self.postMessage({ id, progress: { phase: "validated", ...estimate } });
     const engine = await loaders[algorithm]();
     const r = new Recorder(

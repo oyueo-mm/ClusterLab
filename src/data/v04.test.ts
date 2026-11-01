@@ -9,7 +9,8 @@ import {
   exportData,
   importData,
 } from "./presets";
-import { algorithms, defaults } from "../engine/types";
+import { algorithms, defaults, algorithmDefaults } from "../engine/types";
+import { displayPoints } from "../engine/dataset";
 import { lessons } from "./lessons";
 import { run } from "../engine/run";
 import { stateAt } from "../engine/trace";
@@ -45,18 +46,25 @@ describe("v0.4 content and v0.3 compatibility", () => {
         expect(eq.symbols.length).toBeGreaterThan(10);
         expect(eq.derivation.length).toBeGreaterThan(0);
       }
-      const points = dataset(lesson.preset, { ...dataDefaults, count: 12 });
-      const trace = run(algorithm, points, {
-        ...defaults,
-        iterations: 8,
-        epochs: 2,
-        grid: 3,
-        minPts: 3,
-        minSize: 3,
-        threshold: algorithm === "ROCK" ? 0.5 : defaults.threshold,
-        initialization: algorithm === "PAM" ? "build" : "kmeans++",
-        ...lesson.experimentParams,
-      });
+      const points = lesson.experimentDataset
+        ? displayPoints(lesson.experimentDataset)
+        : dataset(lesson.preset, { ...dataDefaults, count: 12 });
+      const trace = run(
+        algorithm,
+        points,
+        {
+          ...algorithmDefaults(algorithm),
+          iterations: 8,
+          epochs: 2,
+          grid: 3,
+          minPts: 3,
+          minSize: 3,
+          threshold: algorithm === "ROCK" ? 0.5 : defaults.threshold,
+          initialization: algorithm === "PAM" ? "build" : "kmeans++",
+          ...lesson.experimentParams,
+        },
+        lesson.experimentDataset,
+      );
       // Some conditional events (e.g. a PAM move) may legitimately be absent.
       expect(
         lesson.events.some((event) =>

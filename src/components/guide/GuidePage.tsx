@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   algorithms,
-  defaults,
+  algorithmDefaults,
   type Algorithm,
   type EventKind,
   type Params,
@@ -12,6 +12,7 @@ import { guides } from "../../data/guides";
 import { lessons } from "../../data/lessons";
 import { Formula } from "./Formula";
 import { TraceLesson } from "./TraceLesson";
+import type { Dataset } from "../../engine/dataset";
 import "./guide.css";
 const sections = [
   ["overview", "개요"],
@@ -38,6 +39,7 @@ export default function GuidePage({
     preset: PresetId,
     event?: EventKind,
     params?: Params,
+    data?: Dataset,
   ) => void;
   onCompare: (pair: [Algorithm, Algorithm], preset: PresetId) => void;
 }) {
@@ -126,7 +128,18 @@ export default function GuidePage({
               </div>
               <button
                 className="primary"
-                onClick={() => onExperiment(algorithm, lesson.preset)}
+                onClick={() =>
+                  onExperiment(
+                    algorithm,
+                    lesson.preset,
+                    undefined,
+                    {
+                      ...algorithmDefaults(algorithm),
+                      ...lesson.experimentParams,
+                    },
+                    lesson.experimentDataset,
+                  )
+                }
               >
                 이 알고리즘으로 실험 ↗
               </button>
@@ -184,7 +197,13 @@ export default function GuidePage({
               algorithm={algorithm}
               lesson={lesson}
               onOpen={(event, params) =>
-                onExperiment(algorithm, lesson.preset, event, params)
+                onExperiment(
+                  algorithm,
+                  lesson.preset,
+                  event,
+                  params,
+                  lesson.experimentDataset,
+                )
               }
             />
           </section>
@@ -232,7 +251,7 @@ export default function GuidePage({
                       <th>
                         {p.key}
                         <small>
-                          {String(defaults[p.key])}
+                          {String(algorithmDefaults(algorithm)[p.key])}
                           {algorithm === "ROCK" && p.key === "threshold"
                             ? " (ROCK 선택 시 0.5)"
                             : ""}
@@ -269,8 +288,8 @@ export default function GuidePage({
             )}
             <p className="small">
               일반 알고리즘의 작업 메모리와 학습용 Trace의 저장량은 다릅니다.
-              앱은 연산 후 전체 Trace를 Worker에서 전달하며 입력은
-              2점 이상이며 실행별 메모리 예산을 검사합니다.
+              앱은 연산 후 전체 Trace를 Worker에서 전달하며 입력은 2점 이상이며
+              실행별 메모리 예산을 검사합니다.
             </p>
           </section>
           <section id="lesson-limitations" tabIndex={-1}>

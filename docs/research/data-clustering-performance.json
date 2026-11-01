@@ -1,0 +1,43 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "note": "Single engine-only observations, input generation/Worker transfer/rendering excluded; heap delta is not peak.",
+  "observations": [
+    {
+      "name": "K-Modes",
+      "n": 1000,
+      "dimensions": 2,
+      "milliseconds": 1.62,
+      "heapDeltaBytes": 2536920,
+      "events": 6,
+      "traceEstimatedBytes": 69624
+    },
+    {
+      "name": "K-Prototypes",
+      "n": 1000,
+      "dimensions": 5,
+      "milliseconds": 3.82,
+      "heapDeltaBytes": -1597632,
+      "events": 6,
+      "traceEstimatedBytes": 70422
+    },
+    {
+      "name": "CLIQUE",
+      "n": 1000,
+      "dimensions": 3,
+      "milliseconds": 4.75,
+      "heapDeltaBytes": -1602040,
+      "events": 6,
+      "traceEstimatedBytes": 682406
+    },
+    {
+      "name": "PROCLUS",
+      "n": 1000,
+      "dimensions": 3,
+      "milliseconds": 5.07,
+      "heapDeltaBytes": 3246032,
+      "events": 13,
+      "traceEstimatedBytes": 239348
+    }
+  ]
+}

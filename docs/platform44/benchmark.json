@@ -1,0 +1,398 @@
+[
+  {
+    "algorithm": "K-Means",
+    "points": 120,
+    "events": 969,
+    "computationMs": 11.65,
+    "traceBytes": 234108,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 253681
+  },
+  {
+    "algorithm": "DBSCAN",
+    "points": 120,
+    "events": 358,
+    "computationMs": 9.75,
+    "traceBytes": 626664,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 634197
+  },
+  {
+    "algorithm": "HDBSCAN",
+    "points": 120,
+    "events": 250,
+    "computationMs": 22.8,
+    "traceBytes": 1337938,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 1341818
+  },
+  {
+    "algorithm": "AGNES",
+    "points": 120,
+    "events": 240,
+    "computationMs": 186,
+    "traceBytes": 3187473,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 3195704
+  },
+  {
+    "algorithm": "DIANA",
+    "points": 120,
+    "events": 84,
+    "computationMs": 90.13,
+    "traceBytes": 35116,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 38203
+  },
+  {
+    "algorithm": "SOM",
+    "points": 120,
+    "events": 1930,
+    "computationMs": 58.09,
+    "traceBytes": 3003483,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 3065086
+  },
+  {
+    "algorithm": "LVQ",
+    "points": 120,
+    "events": 1930,
+    "computationMs": 24.57,
+    "traceBytes": 1503325,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 1563552
+  },
+  {
+    "algorithm": "OPTICS",
+    "points": 120,
+    "events": 789,
+    "computationMs": 18.52,
+    "traceBytes": 2578795,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 2593651
+  },
+  {
+    "algorithm": "PAM",
+    "points": 120,
+    "events": 708,
+    "computationMs": 32.23,
+    "traceBytes": 189819,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 193774
+  },
+  {
+    "algorithm": "ROCK",
+    "points": 120,
+    "events": 237,
+    "computationMs": 82.78,
+    "traceBytes": 697495,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 702115
+  },
+  {
+    "algorithm": "GMM",
+    "points": 120,
+    "events": 32,
+    "computationMs": 8.69,
+    "traceBytes": 267231,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 268678
+  },
+  {
+    "algorithm": "BIRCH",
+    "points": 120,
+    "events": 525,
+    "computationMs": 70.34,
+    "traceBytes": 988736,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 999855
+  },
+  {
+    "algorithm": "Mean Shift",
+    "points": 120,
+    "events": 1637,
+    "computationMs": 113.29,
+    "traceBytes": 4801153,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 4853174
+  },
+  {
+    "algorithm": "Fuzzy C-Means",
+    "points": 120,
+    "events": 28,
+    "computationMs": 39.67,
+    "traceBytes": 214824,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 215657
+  },
+  {
+    "algorithm": "Bisecting K-Means",
+    "points": 120,
+    "events": 16,
+    "computationMs": 8.49,
+    "traceBytes": 14222,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 14575
+  },
+  {
+    "algorithm": "Spectral Clustering",
+    "points": 120,
+    "events": 20,
+    "computationMs": 134.43,
+    "traceBytes": 1006458,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 1007044
+  },
+  {
+    "algorithm": "Affinity Propagation",
+    "points": 120,
+    "events": 65,
+    "computationMs": 177.57,
+    "traceBytes": 38794266,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 38796693
+  },
+  {
+    "algorithm": "Density Peaks / CFSFDP",
+    "points": 120,
+    "events": 243,
+    "computationMs": 75.04,
+    "traceBytes": 1447007,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 1459183
+  },
+  {
+    "algorithm": "CURE",
+    "points": 120,
+    "events": 353,
+    "computationMs": 218.02,
+    "traceBytes": 6202375,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 6220815
+  },
+  {
+    "algorithm": "Neural Gas",
+    "points": 120,
+    "events": 1930,
+    "computationMs": 166.25,
+    "traceBytes": 1231809,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 1331090
+  },
+  {
+    "algorithm": "Growing Neural Gas",
+    "points": 120,
+    "events": 3868,
+    "computationMs": 600.67,
+    "traceBytes": 17199543,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 17404472
+  },
+  {
+    "algorithm": "K-Medians",
+    "points": 120,
+    "events": 7,
+    "computationMs": 10.91,
+    "traceBytes": 6442,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 6773
+  },
+  {
+    "algorithm": "Mini-Batch K-Means",
+    "points": 120,
+    "events": 74,
+    "computationMs": 6.51,
+    "traceBytes": 77352,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 81276
+  },
+  {
+    "algorithm": "CLARA",
+    "points": 120,
+    "events": 27,
+    "computationMs": 19.36,
+    "traceBytes": 28016,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 29357
+  },
+  {
+    "algorithm": "CLARANS",
+    "points": 120,
+    "events": 453,
+    "computationMs": 27.82,
+    "traceBytes": 276221,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 294662
+  },
+  {
+    "algorithm": "X-Means",
+    "points": 120,
+    "events": 14,
+    "computationMs": 5.62,
+    "traceBytes": 14796,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 15308
+  },
+  {
+    "algorithm": "G-Means",
+    "points": 120,
+    "events": 54,
+    "computationMs": 24.1,
+    "traceBytes": 69527,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 72498
+  },
+  {
+    "algorithm": "Dip-Means",
+    "points": 120,
+    "events": 30,
+    "computationMs": 45.47,
+    "traceBytes": 100451,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 101940
+  },
+  {
+    "algorithm": "DP-Means",
+    "points": 120,
+    "events": 970,
+    "computationMs": 10.71,
+    "traceBytes": 245380,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 265131
+  },
+  {
+    "algorithm": "Louvain",
+    "points": 120,
+    "events": 146,
+    "computationMs": 58.05,
+    "traceBytes": 986118,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 989855
+  },
+  {
+    "algorithm": "Leiden",
+    "points": 120,
+    "events": 266,
+    "computationMs": 52.86,
+    "traceBytes": 1436482,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 1450696
+  },
+  {
+    "algorithm": "Label Propagation",
+    "points": 120,
+    "events": 489,
+    "computationMs": 96.64,
+    "traceBytes": 657248,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 686815
+  },
+  {
+    "algorithm": "Girvan–Newman",
+    "points": 120,
+    "events": 2,
+    "computationMs": 7.99,
+    "traceBytes": 69513,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 69803
+  },
+  {
+    "algorithm": "Markov Clustering (MCL)",
+    "points": 120,
+    "events": 29,
+    "computationMs": 118.11,
+    "traceBytes": 5578480,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 5579952
+  },
+  {
+    "algorithm": "K-Modes",
+    "points": 120,
+    "events": 6,
+    "computationMs": 34.54,
+    "traceBytes": 12219,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 12705
+  },
+  {
+    "algorithm": "K-Prototypes",
+    "points": 120,
+    "events": 6,
+    "computationMs": 26.49,
+    "traceBytes": 13045,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 13580
+  },
+  {
+    "algorithm": "CLIQUE",
+    "points": 120,
+    "events": 6,
+    "computationMs": 18.13,
+    "traceBytes": 30444,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 30990
+  },
+  {
+    "algorithm": "PROCLUS",
+    "points": 120,
+    "events": 45,
+    "computationMs": 24.34,
+    "traceBytes": 131651,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 135733
+  },
+  {
+    "algorithm": "DenStream",
+    "points": 120,
+    "events": 220,
+    "computationMs": 106.42,
+    "traceBytes": 1498276,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 1512216
+  },
+  {
+    "algorithm": "Bimax",
+    "points": 3,
+    "events": 12,
+    "computationMs": 16.74,
+    "traceBytes": 10405,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 11393
+  },
+  {
+    "algorithm": "Cheng–Church Biclustering",
+    "points": 4,
+    "events": 18,
+    "computationMs": 28.49,
+    "traceBytes": 24941,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 26313
+  },
+  {
+    "algorithm": "K-Shape",
+    "points": 6,
+    "events": 52,
+    "computationMs": 65.13,
+    "traceBytes": 68415,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 69774
+  },
+  {
+    "algorithm": "Greedy Modularity (CNM)",
+    "points": 120,
+    "events": 237,
+    "computationMs": 243.8,
+    "traceBytes": 12617133,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 12628519
+  },
+  {
+    "algorithm": "Fluid Communities",
+    "points": 6,
+    "events": 19,
+    "computationMs": 4.03,
+    "traceBytes": 13709,
+    "traceMeasure": "JSON string code units (legacy field), not retained heap",
+    "traceUtf8Bytes": 15053
+  }
+]

@@ -9,6 +9,11 @@ const inputNames: Record<string, string> = {
   "labeled-points2d": "정답 라벨이 있는 2D 수치형",
   "numeric-nd": "N차원 수치형",
   "numeric-or-graph": "N차원 수치형·가중 그래프",
+  categorical: "원본 범주형",
+  mixed: "원본 수치·범주 혼합",
+  matrix: "행렬",
+  timeseries: "실제 시계열",
+  stream: "시각 포함 스트림",
   "입력 계약 조사 필요": "입력 유형 조사 중",
 };
 const classificationNames: Record<string, string> = {
@@ -21,6 +26,8 @@ const validationNames: Record<string, string> = {
   "analytical-tests": "독립 수치 검산",
   "independent-sklearn": "NumPy·scikit-learn 비교",
   "independent-numpy": "독립 NumPy 비교",
+  "independent-networkx": "NumPy·NetworkX 비교",
+  "independent-author": "원저자 구현·NumPy 비교",
 };
 export default function Catalog({
   onRun,

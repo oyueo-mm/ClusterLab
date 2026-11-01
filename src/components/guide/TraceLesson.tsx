@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import type { Algorithm, EventKind, Params } from "../../engine/types";
-import { defaults, emptyState } from "../../engine/types";
+import { defaults, algorithmDefaults, emptyState } from "../../engine/types";
 import { stateAt } from "../../engine/trace";
 import { dataset, dataDefaults } from "../../data/presets";
+import { displayPoints } from "../../engine/dataset";
 import type { Lesson } from "../../data/lessons/types";
 import { useExperiment } from "../../animation/useExperiment";
 import { Canvas } from "../Canvas";
@@ -19,7 +20,7 @@ export function TraceLesson({
   onOpen: (event: EventKind, params: Params) => void;
 }) {
   const [params, setParams] = useState<Params>(() => ({
-    ...defaults,
+    ...algorithmDefaults(algorithm),
     iterations: 8,
     epochs: 2,
     threshold:
@@ -35,10 +36,15 @@ export function TraceLesson({
     ...lesson.experimentParams,
   }));
   const points = useMemo(
-    () => dataset(lesson.preset, { ...dataDefaults, count: 12 }),
-    [lesson.preset],
+    () =>
+      lesson.experimentDataset
+        ? displayPoints(lesson.experimentDataset)
+        : dataset(lesson.preset, { ...dataDefaults, count: 12 }),
+    [lesson.preset, lesson.experimentDataset],
   );
-  const lab = useExperiment(algorithm, points, params);
+  const lab = useExperiment(algorithm, points, params, {
+    dataset: lesson.experimentDataset,
+  });
   const index = Math.floor(lab.position);
   const state = useMemo(
     () => (lab.trace ? stateAt(lab.trace, index) : emptyState(points.length)),
@@ -52,9 +58,9 @@ export function TraceLesson({
   return (
     <div className="trace-lesson">
       <p>
-        12개 점의 실제 Web Worker·Trace·Canvas입니다. 설정을 바꾸면 같은
-        데이터에서 다시 계산합니다. 정지 후 단계 버튼으로 해당 이벤트 직후의
-        상태를 확인하세요.
+        {points.length}개 원본 레코드의 실제 Web Worker·Trace·Canvas입니다.
+        설정을 바꾸면 같은 데이터에서 다시 계산합니다. 정지 후 단계 버튼으로
+        해당 이벤트 직후의 상태를 확인하세요.
       </p>
       <details className="lesson-settings">
         <summary>파라미터 조절</summary>

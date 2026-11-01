@@ -94,7 +94,7 @@ export function useExperiment(
         w.postMessage({
           id: requestId,
           algorithm,
-          points,
+          points: input ? [] : points,
           params,
           ...(input ? { dataset: input } : {}),
         }),

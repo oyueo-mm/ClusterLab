@@ -1,0 +1,27 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "note": "Single engine-only observation; input generation/Worker/rendering excluded; heap delta is not peak.",
+  "observations": [
+    {
+      "name": "Bimax",
+      "rows": 100,
+      "columns": 20,
+      "milliseconds": 1.51,
+      "heapDeltaBytes": 1630696,
+      "events": 16,
+      "traceEstimatedBytes": 437700,
+      "biclusters": 4
+    },
+    {
+      "name": "Cheng–Church Biclustering",
+      "rows": 100,
+      "columns": 20,
+      "milliseconds": 26.7,
+      "heapDeltaBytes": 7409800,
+      "events": 74,
+      "traceEstimatedBytes": 3961284,
+      "biclusters": 2
+    }
+  ]
+}

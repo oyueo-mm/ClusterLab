@@ -1,10 +1,10 @@
-# ClusterLab — 플랫폼 확장 진행 중
+﻿# ClusterLab — 플랫폼 확장 진행 중
 
-기존 13개와 신규 12개, 총 25개 엔진의 실제 계산을 기록하고 재생합니다. 신규 119개 후보 중 107개는 미구현이며 전체 마스터 목표는 진행 중입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다.
+**44개 실행 엔진**(기존13 + 신규 후보31)의 실제 연산을 계산·기록·재생합니다. 신규119개 후보 중 **88개는 미구현**이며 전체 마스터 목표는 진행 중입니다. 엄격한 전체 기준의 **완전 구현 인증은0개(아직 미인증)**입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다.
 
 배포 대상: https://oyueo-mm.github.io/ClusterLab/
 
-진행 현황: [마스터 계획](docs/MASTER_PLAN.md) · [진행 기록](docs/PROGRESS.md) · [119개 후보 상태](docs/ALGORITHM_REGISTRY.md) · [재개 절차](docs/CONTINUE.md). 아래 v0.6 기능 설명과 과거 검증 기록을 보존합니다.
+진행 현황: [마스터 계획](docs/MASTER_PLAN.md) · [진행 기록](docs/PROGRESS.md) · [119개 후보 상태](docs/ALGORITHM_REGISTRY.md) · [재개 절차](docs/CONTINUE.md) · [최종 세션 보고서](docs/SESSION_REPORT.md). 실행 가능 수와 완전 인증 수를 구분하며 아래 기존 버전·이전25개 검증 기록을 보존합니다.
 
 ## 실행 및 검증
 
@@ -21,7 +21,34 @@ npm run build
 
 개발 URL: `http://127.0.0.1:5173/ClusterLab/`. GitHub Pages base path는 `/ClusterLab/`, 라우팅은 `#lab`, `#data`, `#compare`, `#guide`, `#catalog`, `#structured`입니다.
 
-## 이번 확장
+## 이번19개 확장
+
+후속 우선14개와 추가5개를 실제 계산·내부 Trace·전용 분석 시각화·파라미터·수학 가이드/수치 예제·실제 미니 실험·독립 수치 검증까지 연결했습니다. 구현별 지원 범위와 남은 가속·수학적 제한을 공개하며 전체 마스터 완료로 표시하지 않습니다.
+
+| 범위         | 새 엔진                                                                                  |
+| ------------ | ---------------------------------------------------------------------------------------- |
+| 자동 군집 수 | X-Means · G-Means · Dip-Means · DP-Means                                                 |
+| 그래프       | Louvain · Leiden · Label Propagation · Girvan–Newman · Markov Clustering                 |
+| 범주·혼합    | K-Modes · K-Prototypes                                                                   |
+| 부분공간     | CLIQUE · PROCLUS                                                                         |
+| 스트림       | DenStream                                                                                |
+| 추가5개      | Bimax · Cheng–Church Biclustering · K-Shape · Greedy Modularity(CNM) · Fluid Communities |
+
+다중 데이터 실험은 N차원 수치형·실제 범주형·수치/범주 혼합·가중 그래프·행렬·시계열·시각 포함 스트림 원본을 생성·편집·JSON 입출력하고 호환되는 엔진으로 실행합니다. 표시 좌표는 실제 계산과 분리합니다. 16행×8열 표 창은 표시 범위이며 전체 데이터 수 제한이 아닙니다. 원본 모든 행·열, 중첩 행열/부분공간 소속과 현재 CF 요약을 보존하고 실행별 byte 예산을 검사합니다. 제약 입력은 아직 실행 엔진이 없습니다.
+
+작은 데이터는 상세 연산을 재생하고 큰 Trace는 기록 세분도를 명시합니다. PROCLUS의 후보 표본과 DenStream의 시간 감쇠 CF는 각 알고리즘 자체의 정의이며 입력 일부만 계산하고 전체 처리로 표시하지 않습니다. 알고리즘별 한계·원문 열람 범위·성능 관측은 [등록 현황](docs/ALGORITHM_REGISTRY.md), [연구 문서](docs/research/), [데이터 형식](docs/DATA_FORMATS.md), [성능](docs/PERFORMANCE.md)을 참조합니다.
+
+## 현재 통합 검증
+
+타입 검사·ESLint·프로덕션 빌드와 **Vitest428개**가 통과했습니다. 독립 reference·Trace 역복원·원본 입력·기존 회귀를 포함한 단위 검증입니다. **브라우저·기존 기능 전체 통합 회귀·GitHub Actions/Pages 배포는 검증 중**이며 성공을 미리 주장하지 않습니다. 최종 결과·실제 공개 사이트 확인·커밋은 [SESSION_REPORT](docs/SESSION_REPORT.md)와 [VALIDATION](docs/VALIDATION.md)을 따릅니다. Node 시간·heap 관측은 브라우저 FPS/peak 메모리 보장이 아닙니다.
+
+## 다음 개발
+
+미구현88개와119개 전수 원문 조사, 제약 관계·확률/혼합·실제 신경망/딥 학습·잔여 중심/밀도/계층/그래프/부분공간/순차/행렬 후보를 계속 개발합니다. 제약 편집·고차원/3D·행렬 구조·시계열 시간축의 편리한 UI, 무한 스트림 공급·증분 실행·청크 대형 파일·자원별 Worker 병렬화·장시간 peak/FPS 측정도 후속 과제입니다. 현재 표/JSON 편집과 이들 고급 UX를 구별합니다. [전체 계획](docs/MASTER_PLAN.md)과 [조사 큐](docs/RESEARCH_QUEUE.md)에 의존성과 다음 절차를 유지합니다.
+
+## 이전25개 플랫폼 확장 기록
+
+아래는 이전25개 시점의 범위와 당시 데이터 지원 설명입니다. 현재44개 지원은 위 설명을 따릅니다. 당시 브라우저/배포 증거는 [보존 문서](docs/sessions/platform25/)에 있으며 새 통합 배포 성공을 의미하지 않습니다.
 
 Spectral Clustering · Affinity Propagation · Density Peaks · CURE · Neural Gas · Growing Neural Gas · K-Medians · Mini-Batch K-Means · CLARA · CLARANS를 실제 계산/Trace/전용 분석/수학 가이드와 함께 추가했습니다. 이전 Fuzzy C-Means/Bisecting K-Means도 유지합니다.
 
@@ -30,6 +57,8 @@ Spectral Clustering · Affinity Propagation · Density Peaks · CURE · Neural G
 검증 범위·알고리즘별 한계·후속 작업: [세션 보고서](docs/SESSION_REPORT.md), [데이터 형식](docs/DATA_FORMATS.md), [성능](docs/PERFORMANCE.md). 아래 기존 버전 설명과 과거 증거를 보존합니다.
 
 ## 기능
+
+다음 기능·알고리즘 표·버전별 검증은 v0.6까지의 보존 기록입니다. 현재 엔진 수·다중 데이터·대규모 Trace 정책은 위 현재 설명과 연결된 최신 문서를 따릅니다.
 
 - 13개 독립 알고리즘 모듈과 실제 연산 이벤트 (Mean Shift 추가)
 - 역방향 패치, 48 이벤트마다 스냅샷, 일관된 앞뒤 이동

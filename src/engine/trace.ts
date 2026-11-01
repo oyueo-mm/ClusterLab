@@ -67,6 +67,15 @@ export class Recorder {
         "eigenvectors",
         "embedding",
         "embeddingCenters",
+        "transition",
+        "dimensionScores",
+        "numericCenters",
+        "centroids",
+        "proposedCentroids",
+        "values",
+        "workingValues",
+        "series",
+        "aligned",
       ]);
       const sameMatrix = (a: unknown, b: unknown) =>
         Array.isArray(a) &&

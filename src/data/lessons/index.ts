@@ -7,7 +7,9 @@ import { agnes, diana } from "./hierarchical";
 import { som, lvq } from "./competitive";
 import { pam, rock } from "./representatives";
 import { birch, meanshift } from "./modes";
+import { nextLessons } from "./next";
 export const lessons: Record<Algorithm, Lesson> = {
+  ...nextLessons,
   "K-Medians": kmedians,
   "Mini-Batch K-Means": minibatch,
   CLARA: clara,
