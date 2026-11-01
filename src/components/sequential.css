@@ -1,0 +1,84 @@
+.sequential-analysis {
+  min-width: 0;
+}
+.sequential-analysis figure {
+  margin-inline: 0;
+}
+.sequential-analysis svg {
+  display: block;
+  width: 100%;
+  max-height: 380px;
+}
+.sequential-analysis input {
+  max-width: 105px;
+}
+.sequential-analysis .matrix-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-block: 12px;
+}
+.sequential-analysis .matrix-controls label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sequential-analysis .matrix-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.sequential-analysis table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+.sequential-analysis caption {
+  text-align: left;
+  font-size: 12px;
+  color: #34564d;
+  padding: 8px 0;
+}
+.sequential-analysis th,
+.sequential-analysis td {
+  padding: 7px 9px;
+  text-align: left;
+  border-bottom: 1px solid #e5ece8;
+  font-variant-numeric: tabular-nums;
+}
+.sequential-analysis tbody tr[aria-current="step"] {
+  background: #edf4ef;
+}
+.sequential-analysis .sequential-decision {
+  border-left: 3px solid #34564d;
+  padding-left: 10px;
+}
+.sequential-analysis .sequential-rules {
+  background: #f7faf8;
+  padding: 4px 12px;
+  border: 1px solid #e3ebe6;
+}
+.sequential-analysis rect,
+.sequential-analysis circle {
+  transition:
+    fill 0.16s ease,
+    stroke 0.16s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sequential-analysis rect,
+  .sequential-analysis circle {
+    transition: none;
+  }
+}
+@media (max-width: 480px) {
+  .sequential-analysis .matrix-controls {
+    gap: 8px;
+  }
+  .sequential-analysis .matrix-controls label {
+    font-size: 12px;
+  }
+  .sequential-analysis caption {
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+}

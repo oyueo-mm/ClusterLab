@@ -31,6 +31,7 @@ const validationNames: Record<string, string> = {
   "independent-networkx": "NumPy·NetworkX 비교",
   "independent-author": "원저자 구현·NumPy 비교",
   "independent-igraph": "NumPy·igraph 비교",
+  "independent-pyclustering": "NumPy·PyClustering 비교",
 };
 export default function Catalog({
   onRun,

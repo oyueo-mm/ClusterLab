@@ -1,6 +1,7 @@
 import type { Algorithm, EventKind } from "./types";
 import { nextDetails } from "./nextDetails";
 import { extensionDetails } from "./extensionDetails";
+import { sequentialDetails } from "./sequentialDetails";
 export interface AlgorithmDetail {
   timeComplexity: string;
   spaceComplexity: string;
@@ -13,6 +14,7 @@ export interface AlgorithmDetail {
 export const algorithmDetails: Partial<Record<Algorithm, AlgorithmDetail>> = {
   ...nextDetails,
   ...extensionDetails,
+  ...sequentialDetails,
   "Spectral Clustering": {
     timeComplexity: "O(n²d+n³+TnK²)",
     spaceComplexity: "O(n²+nK)",

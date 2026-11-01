@@ -14,7 +14,11 @@ import { cnm, fluid } from "./graphExtra";
 import { copkmeans } from "./constrained";
 import { bernoulli, poisson, multinomial } from "./discreteMixtures";
 import { walktrap, cliquepercolation } from "./graphFollowup";
+import { bsas, mbsas, ttsas } from "./sequential";
 export const nextLessons = {
+  BSAS: bsas,
+  MBSAS: mbsas,
+  TTSAS: ttsas,
   "X-Means": xmeans,
   "G-Means": gmeans,
   "Dip-Means": dipmeans,

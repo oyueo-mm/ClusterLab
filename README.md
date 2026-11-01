@@ -1,6 +1,6 @@
 ﻿# ClusterLab — 플랫폼 확장 진행 중
 
-현재 소스는 **50개 실행 엔진**(기존13 + 신규 후보37)의 실제 연산을 계산·기록·재생합니다. 신규119개 후보 중 **82개는 미구현**이며 전체 마스터 목표는 진행 중입니다. 엄격한 전체 기준의 **완전 구현 인증은0개(아직 미인증)**입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다. 공개 배포와 검증의 최종 상태는 [세션 보고서](docs/SESSION_REPORT.md)를 따릅니다.
+현재 소스는 **53개 실행 엔진**(기존13 + 신규 후보40)의 실제 연산을 계산·기록·재생합니다. 신규119개 후보 중 **79개는 미구현**이며 전체 마스터 목표는 진행 중입니다. 엄격한 전체 기준의 **완전 구현 인증은0개(아직 미인증)**입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다. 공개 배포와 검증의 최종 상태는 [세션 보고서](docs/SESSION_REPORT.md)를 따릅니다.
 
 배포 대상: https://oyueo-mm.github.io/ClusterLab/
 
@@ -20,6 +20,10 @@ npm run build
 ```
 
 개발 URL: `http://127.0.0.1:5173/ClusterLab/`. GitHub Pages base path는 `/ClusterLab/`, 라우팅은 `#lab`, `#data`, `#compare`, `#guide`, `#catalog`, `#structured`입니다.
+
+## 순차 원본 군집화 추가
+
+BSAS·MBSAS·TTSAS의 원본 순서/전체 ND 계산, 실제 생성·배정·유보·pass Trace, ND 대표/임계값 분석, 수학 교재·mini·native 결과와 공식 Python/NumPy 검증을 추가했습니다. 한 pass의 즉시 평균 갱신, 두 단계 seed/유보 처리, 두 경계의 실제 재방문을 구분합니다. [실제 정의·성능·자료 접근 한계](docs/research/SEQUENTIAL.md)를 확인할 수 있습니다.
 
 ## 제약·이산 혼합·중첩 커뮤니티 추가
 

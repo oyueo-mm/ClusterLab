@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-11-01T11:51:51.609Z",
+  "node": "v24.19.0",
+  "platform": "win32",
+  "arch": "x64",
+  "cpu": "Intel(R) Core(TM) Ultra 7 256V",
+  "logicalProcessors": 8,
+  "totalMemoryBytes": 16687738880,
+  "osRelease": "10.0.26200",
+  "versions": {
+    "vite": "7.3.7",
+    "vitest": "3.2.7",
+    "typescript": "5.9.3",
+    "react": "19.3.1",
+    "@playwright/test": "1.64.1"
+  }
+}

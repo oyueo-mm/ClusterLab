@@ -7,6 +7,19 @@ import { Recorder } from "./trace";
 import type { Algorithm, Params, Trace, State } from "./types";
 export function nativeResult(state: State) {
   const a = state.analysis;
+  if (a?.kind === "sequential")
+    return {
+      kind: "sequential-partition" as const,
+      method: a.method,
+      labels: state.labels,
+      centroids: a.centroids,
+      counts: a.counts,
+      prototypeCounts: a.prototypeCounts,
+      passes: a.pass,
+      unassigned: a.unassigned,
+      converged: a.converged,
+      assignedSSE: a.objective,
+    };
   if (a?.kind === "constraints")
     return {
       kind: "constrained-partition" as const,

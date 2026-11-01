@@ -23,8 +23,14 @@ import { poisson } from "./algorithms/poisson";
 import { multinomial } from "./algorithms/multinomial";
 import { walktrap } from "./algorithms/walktrap";
 import { cliquepercolation } from "./algorithms/cliquepercolation";
+import { bsas } from "./algorithms/bsas";
+import { mbsas } from "./algorithms/mbsas";
+import { ttsas } from "./algorithms/ttsas";
 /** Static validation API only. Product Workers use registry lazy loaders. */
 export const nextEngines = {
+  BSAS: bsas,
+  MBSAS: mbsas,
+  TTSAS: ttsas,
   "X-Means": xmeans,
   "G-Means": gmeans,
   "Dip-Means": dipmeans,

@@ -1,6 +1,9 @@
 import type { Algorithm } from "../engine/types";
 /** Small metadata used by the lab; textbook and KaTeX stay in the guide chunk. */
 export const algorithmFamilies: Record<Algorithm, string> = {
+  BSAS: "입력 순서·순차 대표점",
+  MBSAS: "두 단계·순차 대표점",
+  TTSAS: "두 임계값·유보 재방문",
   "COP-KMeans": "하드 제약·중심",
   "Bernoulli Mixture": "이진 확률·혼합모델",
   "Poisson Mixture": "카운트 확률·혼합모델",

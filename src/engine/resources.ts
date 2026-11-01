@@ -11,6 +11,14 @@ export function estimateResources(
 ) {
   let workingBytes = n * 192;
   let work = n * Math.min(n, o.k) * o.iterations;
+  if (["BSAS", "MBSAS", "TTSAS"].includes(algorithm)) {
+    const prototypes = algorithm === "TTSAS" ? n : Math.min(n, o.maxClusters);
+    workingBytes += n * 128 + prototypes * 128;
+    work =
+      algorithm === "TTSAS"
+        ? n ** 3
+        : n * prototypes * (algorithm === "MBSAS" ? 2 : 1);
+  }
   if (
     [
       "Spectral Clustering",

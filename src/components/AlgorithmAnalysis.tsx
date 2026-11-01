@@ -11,6 +11,7 @@ import BiclusterAnalysis from "./BiclusterAnalysis";
 import { TimeSeriesAnalysisView } from "./TimeSeriesAnalysis";
 import ConstraintAnalysisView from "./ConstraintAnalysis";
 import { DiscreteMixtureAnalysisView } from "./DiscreteMixtureAnalysis";
+import { SequentialAnalysisView } from "./SequentialAnalysis";
 
 function MatrixViewer({
   title,
@@ -211,6 +212,14 @@ export function AlgorithmAnalysis({
     ? 0
     : progress;
   if (!a) return null;
+  if (a.kind === "sequential")
+    return (
+      <SequentialAnalysisView
+        analysis={a}
+        nextAnalysis={target?.kind === "sequential" ? target : undefined}
+        progress={visualProgress}
+      />
+    );
   if (a.kind === "spectral")
     return (
       <div className="algorithm-analysis">

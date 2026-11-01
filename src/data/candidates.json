@@ -1032,29 +1032,31 @@
     "number": 108,
     "name": "BSAS",
     "family": "I 순차·이중군집·특수 데이터 기반",
-    "status": "원문·정의 예비 검토 · 엔진 미구현",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null,
-    "research": "docs/research/NEXT_50_QUEUE.md: 부분 열람·정의 비교, oracle 미실행"
+    "status": "독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)",
+    "classification": "독립 알고리즘 (Euclidean·이동 평균 대표 순차 정책)",
+    "input": "numeric-nd",
+    "engine": "BSAS",
+    "research": "docs/research/SEQUENTIAL.md (원서 전체 미열람, 공식 Python 정책)"
   },
   {
     "number": 109,
     "name": "MBSAS",
     "family": "I 순차·이중군집·특수 데이터 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)",
+    "classification": "변형 (실제 pass·유보·대표 갱신 규칙 구분)",
+    "input": "numeric-nd",
+    "engine": "MBSAS",
+    "research": "docs/research/SEQUENTIAL.md (원서 전체 미열람, 공식 Python 정책)"
   },
   {
     "number": 110,
     "name": "TTSAS",
     "family": "I 순차·이중군집·특수 데이터 기반",
-    "status": "미조사",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null
+    "status": "독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)",
+    "classification": "변형 (실제 pass·유보·대표 갱신 규칙 구분)",
+    "input": "numeric-nd",
+    "engine": "TTSAS",
+    "research": "docs/research/SEQUENTIAL.md (원서 전체 미열람, 공식 Python 정책)"
   },
   {
     "number": 111,

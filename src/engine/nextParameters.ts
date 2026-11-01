@@ -83,6 +83,58 @@ const dimensions = number(
   "CLIQUE 탐색 최대 차원 / PROCLUS 평균 차원 예산",
 );
 export const nextFields = {
+  BSAS: [
+    number(
+      "threshold",
+      "거리 임계값 θ",
+      0,
+      10,
+      "현재 대표점까지 실제 Euclidean 거리",
+      0.01,
+    ),
+    number(
+      "maxClusters",
+      "최대 군집 수 q",
+      1,
+      64,
+      "새 군집 생성의 알고리즘 매개변수; 입력 행 수 상한이 아님",
+    ),
+  ],
+  MBSAS: [
+    number(
+      "threshold",
+      "거리 임계값 θ",
+      0,
+      10,
+      "첫 pass에서 고정 대표점과 비교하는 실제 거리",
+      0.01,
+    ),
+    number(
+      "maxClusters",
+      "최대 군집 수 q",
+      1,
+      64,
+      "두 단계 순차 군집화의 최대 군집 수",
+    ),
+  ],
+  TTSAS: [
+    number(
+      "threshold",
+      "할당 하한 θ₁",
+      0,
+      10,
+      "d≤θ₁이면 할당, 두 임계값 사이는 유보",
+      0.01,
+    ),
+    number(
+      "upperThreshold",
+      "생성 상한 θ₂",
+      0,
+      20,
+      "d>θ₂이면 생성. θ₂>θ₁ 필요",
+      0.01,
+    ),
+  ],
   "X-Means": [initial, max, iterations, tolerance],
   "G-Means": [
     initial,

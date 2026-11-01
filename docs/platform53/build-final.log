@@ -1,0 +1,211 @@
+
+> clusterlab@0.6.0 build
+> tsc --noEmit && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 1730 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/poisson-DBIpdN4F.js                         0.18 kB
+dist/assets/bernoulli-BLr7w21B.js                       0.19 kB
+dist/assets/multinomial-qr3hKnOj.js                     0.19 kB
+dist/assets/bsas-QOjH-erb.js                            0.34 kB
+dist/assets/math-B1mblT4j.js                            0.43 kB
+dist/assets/mbsas-X1TqGNnE.js                           0.45 kB
+dist/assets/ttsas-C80VpEXK.js                           0.52 kB
+dist/index.html                                         0.85 kB │ gzip:   0.52 kB
+dist/assets/dbscan-CZd2BiMD.js                          1.30 kB
+dist/assets/pam-CBHyRYo3.js                             1.40 kB
+dist/assets/lvq-Rg6A9WQB.js                             1.54 kB
+dist/assets/som-Cltr6HBa.js                             1.57 kB
+dist/assets/diana-D5BTm2r_.js                           1.57 kB
+dist/assets/agnes-Dsk7XOmO.js                           1.62 kB
+dist/assets/matrixCommon-C50gOlTA.js                    1.75 kB
+dist/assets/fuzzy-hlTVwxvi.js                           1.91 kB
+dist/assets/gmm-DX7TR9m1.js                             1.99 kB
+dist/assets/kmodes-QtoKhHpr.js                          2.09 kB
+dist/assets/labelpropagation-DKjEXaue.js                2.32 kB
+dist/assets/bisecting-C_S7JM1m.js                       2.33 kB
+dist/assets/kmeans-CzreaKR8.js                          2.37 kB
+dist/assets/dataCommon-CC8ANRTC.js                      2.55 kB
+dist/assets/neuralgas-BwtVfgtR.js                       2.57 kB
+dist/assets/dpmeans-DoARdPM7.js                         2.66 kB
+dist/assets/louvain-puVZrq-r.js                         2.77 kB
+dist/assets/clarans-Ck15IvnT.js                         2.77 kB
+dist/assets/kprototypes-Cc1Hsauc.js                     2.82 kB
+dist/assets/optics-CLqjIlLL.js                          2.84 kB
+dist/assets/meanshift-ei1uMPqS.js                       2.88 kB
+dist/assets/hdbscan-CuDcO9QO.js                         2.91 kB
+dist/assets/cnm-CsJoUuaR.js                             2.92 kB
+dist/assets/kmedians-kktR8vsx.js                        2.95 kB
+dist/assets/cure-CNki1Tls.js                            2.95 kB
+dist/assets/birch-BTku_lHW.js                           3.20 kB
+dist/assets/xmeans-Bq3KpVvh.js                          3.24 kB
+dist/assets/girvannewman-DikZQS2B.js                    3.37 kB
+dist/assets/densitypeaks-Wj5lj0cr.js                    3.59 kB
+dist/assets/gmeans-D-djnK7X.js                          3.76 kB
+dist/assets/minibatch-CTMBoaEL.js                       3.79 kB
+dist/assets/fluid-gWeqYrKD.js                           3.93 kB
+dist/assets/clara-BKHDPyMh.js                           4.00 kB
+dist/assets/bimax-D-daveHU.js                           4.13 kB
+dist/assets/autoCommon-mQ3JUwOY.js                      4.22 kB
+dist/assets/mcl-C_xUWsIx.js                             4.27 kB
+dist/assets/growingneuralgas-DwCiTRVp.js                4.32 kB
+dist/assets/KaTeX_Size3-Regular-CTq5MqoE.woff           4.42 kB
+dist/assets/affinity-BYc9rvVX.js                        4.55 kB
+dist/assets/dipmeans-YTzquWRe.js                        4.73 kB
+dist/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2          4.93 kB
+dist/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2          5.21 kB
+dist/assets/cliquepercolation-C97ELfkL.js               5.32 kB
+dist/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2          5.47 kB
+dist/assets/walktrap-CS1VQaEz.js                        5.67 kB
+dist/assets/clique-CTMz6WjI.js                          5.72 kB
+dist/assets/communityCommon-AskwwIHY.js                 5.82 kB
+dist/assets/leiden-DVYFZLfd.js                          5.84 kB
+dist/assets/KaTeX_Size4-Regular-BF-4gkZK.woff           5.98 kB
+dist/assets/sequentialCommon-BU8qKaUL.js                5.98 kB
+dist/assets/KaTeX_Size2-Regular-oD1tc_U0.woff           6.19 kB
+dist/assets/KaTeX_Size1-Regular-C195tn64.woff           6.50 kB
+dist/assets/proclus-BVYgbrEG.js                         6.63 kB
+dist/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2    6.91 kB
+dist/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2       6.91 kB
+dist/assets/chengchurch-Ct2_xycJ.js                     7.08 kB
+dist/assets/spectral-npbdOGuQ.js                        7.42 kB
+dist/assets/KaTeX_Size3-Regular-DgpXs0kz.ttf            7.59 kB
+dist/assets/KaTeX_Caligraphic-Regular-CTRA-rTL.woff     7.66 kB
+dist/assets/KaTeX_Caligraphic-Bold-BEiXGLvX.woff        7.72 kB
+dist/assets/kshape-B7CJcJbY.js                          7.75 kB
+dist/assets/discreteMixtureCommon-m2E9q8wa.js           7.87 kB
+dist/assets/copkmeans-uArIkJ33.js                       7.93 kB
+dist/assets/KaTeX_Script-Regular-D3wIWfF6.woff2         9.64 kB
+dist/assets/denstream-CWcgH7t3.js                       9.96 kB
+dist/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2     10.34 kB
+dist/assets/KaTeX_Size4-Regular-DWFBv043.ttf           10.36 kB
+dist/assets/KaTeX_Script-Regular-D5yQViql.woff         10.59 kB
+dist/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2       11.32 kB
+dist/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2          11.35 kB
+dist/assets/KaTeX_Size2-Regular-B7gKUWhC.ttf           11.51 kB
+dist/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2      12.03 kB
+dist/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2        12.22 kB
+dist/assets/KaTeX_Size1-Regular-Dbsnue_I.ttf           12.23 kB
+dist/assets/KaTeX_SansSerif-Regular-CS6fqUqJ.woff      12.32 kB
+dist/assets/KaTeX_Caligraphic-Regular-wX97UBjC.ttf     12.34 kB
+dist/assets/KaTeX_Caligraphic-Bold-ATXxdsX0.ttf        12.37 kB
+dist/assets/KaTeX_Fraktur-Regular-Dxdc4cR9.woff        13.21 kB
+dist/assets/KaTeX_Fraktur-Bold-BsDP51OF.woff           13.30 kB
+dist/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2    13.57 kB
+dist/assets/KaTeX_SansSerif-Italic-DN2j7dab.woff       14.11 kB
+dist/assets/KaTeX_SansSerif-Bold-DbIhKOiC.woff         14.41 kB
+dist/assets/KaTeX_Typewriter-Regular-C0xS9mPB.woff     16.03 kB
+dist/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2       16.40 kB
+dist/assets/KaTeX_Math-Italic-t53AETM-.woff2           16.44 kB
+dist/assets/KaTeX_Script-Regular-C5JkGWo-.ttf          16.65 kB
+dist/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2       16.78 kB
+dist/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2           16.99 kB
+dist/assets/KaTeX_Math-BoldItalic-iY-2wyZ7.woff        18.67 kB
+dist/assets/KaTeX_Math-Italic-DA0__PXp.woff            18.75 kB
+dist/assets/KaTeX_Main-BoldItalic-SpSLRI95.woff        19.41 kB
+dist/assets/KaTeX_SansSerif-Regular-BNo7hRIc.ttf       19.44 kB
+dist/assets/KaTeX_Fraktur-Regular-CB_wures.ttf         19.57 kB
+dist/assets/KaTeX_Fraktur-Bold-BdnERNNW.ttf            19.58 kB
+dist/assets/KaTeX_Main-Italic-BMLOBm91.woff            19.68 kB
+dist/assets/KaTeX_SansSerif-Italic-YYjJ1zSn.ttf        22.36 kB
+dist/assets/KaTeX_SansSerif-Bold-CFMepnvq.ttf          24.50 kB
+dist/assets/KaTeX_Main-Bold-Cx986IdX.woff2             25.32 kB
+dist/assets/KaTeX_Main-Regular-B22Nviop.woff2          26.27 kB
+dist/assets/KaTeX_Typewriter-Regular-D3Ib7_Hf.ttf      27.56 kB
+dist/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2           28.08 kB
+dist/assets/KaTeX_Main-Bold-Jm3AIy58.woff              29.91 kB
+dist/assets/KaTeX_Main-Regular-Dr94JaBh.woff           30.77 kB
+dist/assets/KaTeX_Math-BoldItalic-B3XSjfu4.ttf         31.20 kB
+dist/assets/KaTeX_Math-Italic-flOr_0UB.ttf             31.31 kB
+dist/assets/KaTeX_Main-BoldItalic-DzxPMmG6.ttf         32.97 kB
+dist/assets/KaTeX_AMS-Regular-DMm9YOAa.woff            33.52 kB
+dist/assets/KaTeX_Main-Italic-3WenGoN9.ttf             33.58 kB
+dist/assets/KaTeX_Main-Bold-waoOVXN0.ttf               51.34 kB
+dist/assets/KaTeX_Main-Regular-ypZvNtVU.ttf            53.58 kB
+dist/assets/worker-HNGkyyqC.js                         63.13 kB
+dist/assets/KaTeX_AMS-Regular-DRggAlZN.ttf             63.63 kB
+dist/assets/Catalog-DZOhhcKw.css                        0.62 kB │ gzip:   0.32 kB
+dist/assets/GuidePage-kMYQfqsX.css                     34.81 kB │ gzip:   9.29 kB
+dist/assets/index-LJ3Z48MU.css                         51.04 kB │ gzip:  10.84 kB
+dist/assets/poisson-CMw_MGOx.js                         0.19 kB │ gzip:   0.16 kB
+dist/assets/bernoulli-C5p0MmCZ.js                       0.19 kB │ gzip:   0.16 kB
+dist/assets/multinomial-BVgJU3tu.js                     0.19 kB │ gzip:   0.16 kB
+dist/assets/bsas-x8PjiHpm.js                            0.37 kB │ gzip:   0.28 kB
+dist/assets/mbsas-DKHnGYQa.js                           0.48 kB │ gzip:   0.31 kB
+dist/assets/ttsas-DJsdspZy.js                           0.55 kB │ gzip:   0.36 kB
+dist/assets/dbscan-xvC9VtEm.js                          1.30 kB │ gzip:   0.82 kB
+dist/assets/pam-aQ4d_g0c.js                             1.39 kB │ gzip:   0.91 kB
+dist/assets/lvq-ClszbuQN.js                             1.54 kB │ gzip:   0.98 kB
+dist/assets/som-DXBDmyCR.js                             1.57 kB │ gzip:   1.04 kB
+dist/assets/diana-3_DRgp24.js                           1.57 kB │ gzip:   0.92 kB
+dist/assets/agnes-it133ylU.js                           1.62 kB │ gzip:   0.96 kB
+dist/assets/dataset-AESM_EOb.js                         1.71 kB │ gzip:   0.81 kB
+dist/assets/matrixCommon-CJ8Txfp5.js                    1.75 kB │ gzip:   1.00 kB
+dist/assets/rock-DTGnIfyS.js                            1.81 kB │ gzip:   1.12 kB
+dist/assets/fuzzy-B_e38tuF.js                           1.91 kB │ gzip:   1.14 kB
+dist/assets/gmm-DZIRME-6.js                             1.96 kB │ gzip:   1.11 kB
+dist/assets/kmodes-D9VdIUKn.js                          2.09 kB │ gzip:   1.27 kB
+dist/assets/linalg-DTFERCzt.js                          2.18 kB │ gzip:   1.16 kB
+dist/assets/labelpropagation-CWIRIvlJ.js                2.29 kB │ gzip:   1.39 kB
+dist/assets/bisecting-D0RBJduO.js                       2.31 kB │ gzip:   1.34 kB
+dist/assets/kmeans-DI4eml6d.js                          2.34 kB │ gzip:   1.32 kB
+dist/assets/dataCommon-drKEGkCh.js                      2.55 kB │ gzip:   1.26 kB
+dist/assets/neuralgas-CBRfGafn.js                       2.58 kB │ gzip:   1.49 kB
+dist/assets/dpmeans-C6NovRPy.js                         2.66 kB │ gzip:   1.57 kB
+dist/assets/louvain-C-pPcfa_.js                         2.74 kB │ gzip:   1.41 kB
+dist/assets/clarans-DbJkIrKD.js                         2.77 kB │ gzip:   1.48 kB
+dist/assets/kprototypes-C568RzV2.js                     2.82 kB │ gzip:   1.60 kB
+dist/assets/optics-DEthHQgq.js                          2.84 kB │ gzip:   1.61 kB
+dist/assets/meanshift-Ls76ESPT.js                       2.88 kB │ gzip:   1.59 kB
+dist/assets/cnm-BO6PlxFu.js                             2.90 kB │ gzip:   1.66 kB
+dist/assets/hdbscan-DKlgAkzL.js                         2.91 kB │ gzip:   1.56 kB
+dist/assets/kmedians-H9_aWWw1.js                        2.95 kB │ gzip:   1.54 kB
+dist/assets/cure-DOkFqT9D.js                            2.95 kB │ gzip:   1.56 kB
+dist/assets/birch-CYzrST3m.js                           3.20 kB │ gzip:   1.71 kB
+dist/assets/xmeans-BBLftLBv.js                          3.24 kB │ gzip:   1.68 kB
+dist/assets/girvannewman-Df8FlMJ6.js                    3.35 kB │ gzip:   1.81 kB
+dist/assets/densitypeaks-CItAt-in.js                    3.62 kB │ gzip:   2.02 kB
+dist/assets/minibatch-CpGJJ1k_.js                       3.75 kB │ gzip:   1.73 kB
+dist/assets/gmeans-DznVWrhM.js                          3.76 kB │ gzip:   1.91 kB
+dist/assets/fluid-B0pCKT5d.js                           3.90 kB │ gzip:   2.14 kB
+dist/assets/clara-yq7uBxTP.js                           4.00 kB │ gzip:   1.99 kB
+dist/assets/bimax-EFhXQ13t.js                           4.12 kB │ gzip:   2.08 kB
+dist/assets/autoCommon-D2pRJMsy.js                      4.22 kB │ gzip:   2.10 kB
+dist/assets/mcl-BzYzVaPb.js                             4.24 kB │ gzip:   2.23 kB
+dist/assets/growingneuralgas-CqB5x557.js                4.32 kB │ gzip:   2.19 kB
+dist/assets/affinity-C3VySLqT.js                        4.55 kB │ gzip:   2.20 kB
+dist/assets/dipmeans-D6BBQWTs.js                        4.73 kB │ gzip:   2.38 kB
+dist/assets/datasetValidation-CDbmbCJJ.js               5.03 kB │ gzip:   2.11 kB
+dist/assets/cliquepercolation-BHEeKtsa.js               5.29 kB │ gzip:   2.75 kB
+dist/assets/walktrap-B_Usdit1.js                        5.64 kB │ gzip:   2.79 kB
+dist/assets/clique-B-hAW6BK.js                          5.75 kB │ gzip:   2.91 kB
+dist/assets/communityCommon-Bv81rIHp.js                 5.79 kB │ gzip:   2.62 kB
+dist/assets/leiden-CA-X_Ewc.js                          5.81 kB │ gzip:   2.72 kB
+dist/assets/sequentialCommon-Dp9rCFhu.js                6.02 kB │ gzip:   2.70 kB
+dist/assets/proclus-CD7ykjQG.js                         6.63 kB │ gzip:   3.30 kB
+dist/assets/chengchurch-DkMO0VuT.js                     7.05 kB │ gzip:   3.21 kB
+dist/assets/spectral-DLvZLT8P.js                        7.42 kB │ gzip:   3.41 kB
+dist/assets/kshape-Dqq1QwRi.js                          7.71 kB │ gzip:   3.47 kB
+dist/assets/discreteMixtureCommon-BkQDklTF.js           7.88 kB │ gzip:   3.65 kB
+dist/assets/copkmeans-BTSKUr7i.js                       7.96 kB │ gzip:   3.89 kB
+dist/assets/denstream-Dv1Ws_HD.js                       9.96 kB │ gzip:   4.35 kB
+dist/assets/StructuredLab-CAnZxbqg.js                  27.96 kB │ gzip:   9.92 kB
+dist/assets/Catalog-D1JWrJas.js                        42.12 kB │ gzip:   8.46 kB
+dist/assets/index-UExi0ZkO.js                         432.24 kB │ gzip: 137.65 kB
+dist/assets/GuidePage-BLSnZFpO.js                     593.96 kB │ gzip: 189.46 kB
+node.exe :
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-m
+anualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.02s

@@ -1,0 +1,53 @@
+
+Running 38 tests using 1 worker
+
+node.exe : (node:20584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:20584) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [firefox] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success (9.0s)
+  ok  2 [firefox] › tests\constraints-models.spec.ts:416:1 › three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery (7.8s)
+  ok  3 [firefox] › tests\constraints-models.spec.ts:537:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes (3.0s)
+  ok  4 [firefox] › tests\constraints-models.spec.ts:660:1 › 1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths (2.8s)
+  ok  5 [firefox] › tests\model-guides.spec.ts:100:1 › six model guides preserve actual mini source, changed parameters and selected real event into the structured Worker experiment (11.3s)
+  ok  6 [firefox] › tests\next-platform.spec.ts:171:1 › six numeric engines run real split, penalty and subspace operations with reversible analysis (5.7s)
+  ok  7 [firefox] › tests\next-platform.spec.ts:209:1 › seven graph engines consume actual connected edges and expose their distinct operations (6.9s)
+  ok  8 [firefox] › tests\next-platform.spec.ts:260:1 › six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes (5.6s)
+  ok  9 [firefox] › tests\next-platform.spec.ts:341:1 › category and mixed table edits alter actual model statistics and Undo/Redo restores original input (3.2s)
+  ok 10 [firefox] › tests\next-platform.spec.ts:394:1 › graph weights, matrix cells and time series values are editable mathematical inputs (3.8s)
+  ok 11 [firefox] › tests\next-platform.spec.ts:472:1 › stream arrivals increase the computed prefix and actual CF time; automatic input can pause (4.1s)
+  ok 12 [firefox] › tests\next-platform.spec.ts:505:1 › typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success (2.5s)
+  ok 13 [firefox] › tests\next-platform.spec.ts:539:1 › a thousand raw rows remain computed and editable through a bounded table at seven viewport widths (3.2s)
+  ok 14 [firefox] › tests\next-platform.spec.ts:603:1 › the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab (2.5s)
+  ok 15 [firefox] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces (7.6s)
+  ok 16 [firefox] › tests\platform.spec.ts:93:1 › ND raw computation survives projection changes; weighted graph ignores display positions (3.8s)
+  ok 17 [firefox] › tests\platform.spec.ts:186:1 › unsupported structured data and contradictory constraints fail explicitly (961ms)
+  ok 18 [firefox] › tests\sequential-platform.spec.ts:180:1 › three sequential Workers use full raw ND and true passes/defer, BSAS source order matters, projection does not; native all-row and seven-width checks (7.9s)
+  ok 19 [firefox] › tests\sequential-platform.spec.ts:386:1 › three sequential guide minis transfer raw source, changed thresholds and selected real event to the structured Worker (5.3s)
+(node:17756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 20 [webkit] › tests\constraints-models.spec.ts:196:1 › COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success (9.4s)
+  ok 21 [webkit] › tests\constraints-models.spec.ts:416:1 › three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery (10.5s)
+  ok 22 [webkit] › tests\constraints-models.spec.ts:537:1 › Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes (4.9s)
+  ok 23 [webkit] › tests\constraints-models.spec.ts:660:1 › 1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths (3.7s)
+  ok 24 [webkit] › tests\model-guides.spec.ts:100:1 › six model guides preserve actual mini source, changed parameters and selected real event into the structured Worker experiment (15.6s)
+  ok 25 [webkit] › tests\next-platform.spec.ts:171:1 › six numeric engines run real split, penalty and subspace operations with reversible analysis (19.9s)
+  ok 26 [webkit] › tests\next-platform.spec.ts:209:1 › seven graph engines consume actual connected edges and expose their distinct operations (12.8s)
+  ok 27 [webkit] › tests\next-platform.spec.ts:260:1 › six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes (10.9s)
+  ok 28 [webkit] › tests\next-platform.spec.ts:341:1 › category and mixed table edits alter actual model statistics and Undo/Redo restores original input (4.0s)
+  ok 29 [webkit] › tests\next-platform.spec.ts:394:1 › graph weights, matrix cells and time series values are editable mathematical inputs (4.6s)
+  ok 30 [webkit] › tests\next-platform.spec.ts:472:1 › stream arrivals increase the computed prefix and actual CF time; automatic input can pause (4.2s)
+  ok 31 [webkit] › tests\next-platform.spec.ts:505:1 › typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success (3.3s)
+  ok 32 [webkit] › tests\next-platform.spec.ts:539:1 › a thousand raw rows remain computed and editable through a bounded table at seven viewport widths (5.1s)
+  ok 33 [webkit] › tests\next-platform.spec.ts:603:1 › the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab (3.6s)
+  ok 34 [webkit] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces (12.4s)
+  ok 35 [webkit] › tests\platform.spec.ts:93:1 › ND raw computation survives projection changes; weighted graph ignores display positions (5.3s)
+  ok 36 [webkit] › tests\platform.spec.ts:186:1 › unsupported structured data and contradictory constraints fail explicitly (1.4s)
+  ok 37 [webkit] › tests\sequential-platform.spec.ts:180:1 › three sequential Workers use full raw ND and true passes/defer, BSAS source order matters, projection does not; native all-row and seven-width checks (13.5s)
+  ok 38 [webkit] › tests\sequential-platform.spec.ts:386:1 › three sequential guide minis transfer raw source, changed thresholds and selected real event to the structured Worker (7.1s)
+
+  38 passed (4.2m)

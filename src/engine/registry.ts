@@ -63,6 +63,9 @@ const koreanNames: Record<Algorithm, string> = {
   "Multinomial Mixture": "다항 카운트 혼합모델",
   Walktrap: "확률보행 계층 커뮤니티",
   "Clique Percolation": "클리크 퍼콜레이션 중첩 커뮤니티",
+  BSAS: "기본 순차 군집화",
+  MBSAS: "두 단계 순차 군집화",
+  TTSAS: "두 임계값 순차 군집화",
 };
 export const loaders: Record<Algorithm, () => Promise<Engine>> = {
   "K-Means": () => import("./algorithms/kmeans").then((m) => m.kmeans),
@@ -131,6 +134,9 @@ export const loaders: Record<Algorithm, () => Promise<Engine>> = {
   Walktrap: () => import("./algorithms/walktrap").then((m) => m.walktrap),
   "Clique Percolation": () =>
     import("./algorithms/cliquepercolation").then((m) => m.cliquepercolation),
+  BSAS: () => import("./algorithms/bsas").then((m) => m.bsas),
+  MBSAS: () => import("./algorithms/mbsas").then((m) => m.mbsas),
+  TTSAS: () => import("./algorithms/ttsas").then((m) => m.ttsas),
 };
 export const structuredAlgorithms = [
   "Spectral Clustering",
@@ -142,7 +148,6 @@ export const structuredAlgorithms = [
   "DP-Means",
   "Louvain",
   "Leiden",
-  "COP-KMeans",
   "Label Propagation",
   "Girvan–Newman",
   "Markov Clustering (MCL)",
@@ -162,6 +167,9 @@ export const structuredAlgorithms = [
   "Multinomial Mixture",
   "Walktrap",
   "Clique Percolation",
+  "BSAS",
+  "MBSAS",
+  "TTSAS",
 ] as const;
 export const communityAlgorithms: readonly Algorithm[] = [
   "Louvain",
@@ -184,6 +192,9 @@ export function supportsLegacyPoints(algorithm: Algorithm) {
     "Bernoulli Mixture",
     "Poisson Mixture",
     "Multinomial Mixture",
+    "BSAS",
+    "MBSAS",
+    "TTSAS",
   ].includes(algorithm);
 }
 export function supportsDataset(algorithm: Algorithm, kind: Dataset["kind"]) {
@@ -244,6 +255,8 @@ export const registry = Object.fromEntries(
                   "K-Modes",
                   "K-Prototypes",
                   "Leiden",
+                  "MBSAS",
+                  "TTSAS",
                 ].includes(id)
               ? "variant"
               : "algorithm",
@@ -270,8 +283,9 @@ export const registry = Object.fromEntries(
                           : id === "LVQ"
                             ? "labeled-points2d"
                             : "points2d",
-        output:
-          id === "COP-KMeans"
+        output: ["BSAS", "MBSAS", "TTSAS"].includes(id)
+          ? "sequential-partition"
+          : id === "COP-KMeans"
             ? "constrained-partition"
             : [
                   "Bernoulli Mixture",
@@ -308,6 +322,9 @@ export const registry = Object.fromEntries(
             "G-Means",
             "Dip-Means",
             "DP-Means",
+            "BSAS",
+            "MBSAS",
+            "TTSAS",
             "Louvain",
             "Leiden",
             "Label Propagation",
@@ -349,7 +366,11 @@ export const registry = Object.fromEntries(
         details: algorithmDetails[id],
         parameters: fields[id],
         defaults: algorithmDefaults(id),
-        unassignedLabel: id === "Clique Percolation" ? "미소속" : "노이즈",
+        unassignedLabel: ["BSAS", "MBSAS", "TTSAS"].includes(id)
+          ? "미할당"
+          : id === "Clique Percolation"
+            ? "미소속"
+            : "노이즈",
         examplePreset: (id === "COP-KMeans"
           ? "constrained"
           : id === "Bernoulli Mixture"
@@ -395,6 +416,9 @@ export const registry = Object.fromEntries(
           "DenStream",
           "Walktrap",
           "Clique Percolation",
+          "BSAS",
+          "MBSAS",
+          "TTSAS",
         ].includes(id),
         backend: "typescript-worker",
         parallelism: "independent-jobs",

@@ -1,6 +1,6 @@
 # 후속 원문 조사·구현 큐
 
-> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
+> 현재53개 소스(기존13+후보40), 미구현79개, 완전 인증0. 안정50개는 sessions/platform50에 원문 보존했다. 전체532/39파일·로컬78통과/12기존생략·후속순차4/4·다섯 spec Firefox/WebKit38/38이 통과했다. 새 main/CI/Pages는 SESSION_REPORT 마지막 확정 결과를 따른다. 아래 과거 수치는 당시 기록이다.
 
 2026-11-01 현재 소스는 **50개 실행 엔진 / 신규 후보119개 중37개 구현·82개 미구현 / 마스터 완전 구현 인증0개**다. 안정44개 이후6개는 로컬 통합 중이며 새 배포가 확정되지 않았다. 이전25개/107개·44개/88개와 아래117개/엔진 없음 표현은 과거 조사 당시 기록으로 보존한다. [안정44개 조사 문서](sessions/platform44/RESEARCH_QUEUE.md), [등록 현황](ALGORITHM_REGISTRY.md), [전체 계획](MASTER_PLAN.md)을 구분하고 후보 목록을 축소하지 않는다.
 
@@ -74,3 +74,7 @@ Rodriguez & Laio, _Clustering by fast search-and-find of density peaks_, Science
 배포 검증 대기 중 [MIXTURE_FOLLOWUP_QUEUE](research/MIXTURE_FOLLOWUP_QUEUE.md)에 후보81–91의 분포별 EM/입력/수치 경계·실제 원문 열람·공식 oracle 확보 여부를 정리했다. TAXONOMY의 관계 조사와 새 부분 열람을 구분하며 구현·정식 조사 완료 수에 합산하지 않는다.
 
 [GRAPH_FOLLOWUP_QUEUE](research/GRAPH_FOLLOWUP_QUEUE.md)에 다음7개 그래프 후보의 원문·방향/가중/중첩·전이/목적함수·현재 계약 차이와 접근 제한을 기록했다. Walktrap/Infomap/CPM 공식 구현 smoke는 다음 oracle 준비이며 신규 제품 엔진 검증이나 구현 수로 세지 않았다.
+
+## 현재 순차 개발 이후의 큐
+
+BSAS108/MBSAS109/TTSAS110은이제실제모듈·ND분석·Trace·교재/mini·공식Python/NumPy검산으로이어졌다. 소스53/후보40연결·79미구현·완전인증0이며전체브라우저/배포는SESSION_REPORT를따른다. NEXT_50_QUEUE의BSAS는사전조사당시기록으로보존하고현재실제범위는SEQUENTIAL이다. PCK/PCM/FPCM/MPCK/ConstrainedSpectral/Leader의정의·원문접근·계약의남은요구사항은그큐에서계속한다. 나머지후보도전체범위에남아있다.

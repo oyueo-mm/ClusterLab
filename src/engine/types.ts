@@ -52,6 +52,9 @@ export const algorithms = [
   "Multinomial Mixture",
   "Walktrap",
   "Clique Percolation",
+  "BSAS",
+  "MBSAS",
+  "TTSAS",
 ] as const;
 export type Algorithm = (typeof algorithms)[number];
 export interface Point {
@@ -117,6 +120,7 @@ export type AlgorithmAnalysis =
   | import("./timeseriesTypes").TimeSeriesAnalysis
   | import("./constraintTypes").ConstraintAnalysis
   | import("./mixtureTypes").DiscreteMixtureAnalysis
+  | import("./sequentialTypes").SequentialAnalysis
   | {
       kind: "centroid-variant";
       phase: string;
@@ -186,6 +190,7 @@ export type EventKind =
   | "walk"
   | "clique"
   | "percolate"
+  | "defer"
   | "residue"
   | "mask"
   | "align"
@@ -252,6 +257,7 @@ export interface Trace {
   algorithm: Algorithm;
 }
 export interface Params {
+  upperThreshold: number;
   walkSteps: number;
   cliqueSize: number;
   residueThreshold: number;
@@ -319,6 +325,7 @@ export interface Params {
   bandwidth: number;
 }
 export const defaults: Params = {
+  upperThreshold: 2,
   walkSteps: 4,
   cliqueSize: 3,
   residueThreshold: 0.01,
@@ -395,6 +402,9 @@ export function algorithmDefaults(algorithm: Algorithm): Params {
       ? { k: 1 }
       : {}),
     ...(algorithm === "DP-Means" ? { lambda: 0.04 } : {}),
+    ...(["BSAS", "MBSAS", "TTSAS"].includes(algorithm)
+      ? { threshold: 1, upperThreshold: 2 }
+      : {}),
     ...(algorithm === "K-Prototypes" ? { gamma: 1 } : {}),
     ...(algorithm === "Markov Clustering (MCL)" ? { iterations: 100 } : {}),
     ...(algorithm === "Fluid Communities" ? { iterations: 100 } : {}),
@@ -420,6 +430,9 @@ export const supportsEuclideanSilhouette = (algorithm: Algorithm) =>
     "ROCK",
     "K-Modes",
     "K-Prototypes",
+    "BSAS",
+    "MBSAS",
+    "TTSAS",
     "CLIQUE",
     "PROCLUS",
     "DenStream",

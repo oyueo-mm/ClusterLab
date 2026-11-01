@@ -40,6 +40,9 @@ export function validateRun(
     "Multinomial Mixture",
     "Walktrap",
     "Clique Percolation",
+    "BSAS",
+    "MBSAS",
+    "TTSAS",
   ].includes(algorithm)
     ? 1
     : 2;

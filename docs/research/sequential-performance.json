@@ -1,0 +1,148 @@
+{
+  "node": "v24.19.0",
+  "platform": "win32",
+  "arch": "x64",
+  "cpu": "Intel(R) Core(TM) Ultra 7 256V",
+  "logicalProcessors": 8,
+  "totalMemoryBytes": 16687738880,
+  "osRelease": "10.0.26200",
+  "generator": "row i: [i%2*5+(i%7)/100,(i%11)/100,i%2*3]",
+  "threshold": 1,
+  "upperThreshold": 2,
+  "maxClusters": 16,
+  "observations": [
+    {
+      "method": "BSAS",
+      "n": 100,
+      "dimensions": 3,
+      "elapsedMs": 5.13900000000001,
+      "heapDeltaBytes": -1856400,
+      "events": 202,
+      "traceEstimatedBytes": 659804,
+      "passes": 1,
+      "clusters": 2
+    },
+    {
+      "method": "MBSAS",
+      "n": 100,
+      "dimensions": 3,
+      "elapsedMs": 13.12110000000007,
+      "heapDeltaBytes": 4524448,
+      "events": 399,
+      "traceEstimatedBytes": 1535092,
+      "passes": 2,
+      "clusters": 2
+    },
+    {
+      "method": "TTSAS",
+      "n": 100,
+      "dimensions": 3,
+      "elapsedMs": 0.5753999999999451,
+      "heapDeltaBytes": 649896,
+      "events": 20,
+      "traceEstimatedBytes": 62412,
+      "passes": 1,
+      "clusters": 2
+    },
+    {
+      "method": "BSAS",
+      "n": 1000,
+      "dimensions": 3,
+      "elapsedMs": 1.3740999999999985,
+      "heapDeltaBytes": 2613248,
+      "events": 26,
+      "traceEstimatedBytes": 213650,
+      "passes": 1,
+      "clusters": 2
+    },
+    {
+      "method": "MBSAS",
+      "n": 1000,
+      "dimensions": 3,
+      "elapsedMs": 1.8250000000000455,
+      "heapDeltaBytes": 2865512,
+      "events": 29,
+      "traceEstimatedBytes": 182584,
+      "passes": 2,
+      "clusters": 2
+    },
+    {
+      "method": "TTSAS",
+      "n": 1000,
+      "dimensions": 3,
+      "elapsedMs": 1.6440999999999804,
+      "heapDeltaBytes": 2514272,
+      "events": 26,
+      "traceEstimatedBytes": 213766,
+      "passes": 1,
+      "clusters": 2
+    },
+    {
+      "method": "BSAS",
+      "n": 10000,
+      "dimensions": 3,
+      "elapsedMs": 13.495700000000056,
+      "heapDeltaBytes": -7229040,
+      "events": 34,
+      "traceEstimatedBytes": 1676476,
+      "passes": 1,
+      "clusters": 2
+    },
+    {
+      "method": "MBSAS",
+      "n": 10000,
+      "dimensions": 3,
+      "elapsedMs": 13.79239999999993,
+      "heapDeltaBytes": -1150016,
+      "events": 37,
+      "traceEstimatedBytes": 1374152,
+      "passes": 2,
+      "clusters": 2
+    },
+    {
+      "method": "TTSAS",
+      "n": 10000,
+      "dimensions": 3,
+      "elapsedMs": 10.13639999999998,
+      "heapDeltaBytes": 7118936,
+      "events": 34,
+      "traceEstimatedBytes": 1676592,
+      "passes": 1,
+      "clusters": 2
+    },
+    {
+      "method": "BSAS",
+      "n": 100000,
+      "dimensions": 3,
+      "elapsedMs": 100.68470000000002,
+      "heapDeltaBytes": 43483056,
+      "events": 40,
+      "traceEstimatedBytes": 15603634,
+      "passes": 1,
+      "clusters": 2
+    },
+    {
+      "method": "MBSAS",
+      "n": 100000,
+      "dimensions": 3,
+      "elapsedMs": 123.21429999999998,
+      "heapDeltaBytes": -5007104,
+      "events": 43,
+      "traceEstimatedBytes": 13086532,
+      "passes": 2,
+      "clusters": 2
+    },
+    {
+      "method": "TTSAS",
+      "n": 100000,
+      "dimensions": 3,
+      "elapsedMs": 100.91570000000002,
+      "heapDeltaBytes": 50218952,
+      "events": 40,
+      "traceEstimatedBytes": 15603750,
+      "passes": 1,
+      "clusters": 2
+    }
+  ],
+  "note": "One Node engine+Trace observation per case, no forced GC. Heap delta is not peak memory or FPS; generation/Worker/Canvas excluded; all original rows processed."
+}

@@ -1,6 +1,6 @@
 # 성능 측정 — 2026-10-31 플랫폼 확장
 
-> 최신 체크포인트: 소스50개(기존13+후보37), 미구현82개, 완전 인증0. 로컬 type/lint/build·단위509/37파일·독립oracle3종·Chromium/mobile 고유74성공/12기존생략·네 플랫폼spec Firefox/WebKit34/34가 확정됐다. main/CI/Pages는 아직 대기다. 이하 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
+> 현재53개 소스(기존13+후보40), 미구현79개, 완전 인증0. 안정50개는 sessions/platform50에 원문 보존했다. 전체532/39파일·로컬78통과/12기존생략·후속순차4/4·다섯 spec Firefox/WebKit38/38이 통과했다. 새 main/CI/Pages는 SESSION_REPORT 마지막 확정 결과를 따른다. 아래 과거 수치는 당시 기록이다.
 
 현재50개 소스(후보37개 구현/82개 미구현, 완전 인증0)의 신규6개 관측은 마지막 절을 따른다. 이전44개 성능·배포 증거와 [당시 문서](sessions/platform44/PERFORMANCE.md)를 보존한다. 새 전체 타입/lint/build·단위509개/37파일·신규 Python reference3개는 통과했지만 로컬 브라우저 통합은 첫4통과/4실패 이후 수정 중이다. 새50개의 전체 회귀·공개 배포·정량 브라우저 성능 성공을 주장하지 않는다.
 
@@ -153,3 +153,13 @@ npx vitest run src/engine/extension-integration.test.ts src/data/model-presets.t
 ```
 
 실행 시 `.local/` 성능 자료는 JIT/GC/부하로 보존 JSON과 달라질 수 있다. 속도에 pass/fail 문턱을 만들지 않는다. 새50개 소스의 로컬 브라우저 통합·전체 기존 회귀·cross-browser·Actions/Pages·장시간 메모리/실제 모바일/대규모 전송과 취소 지연은 아직 성공으로 확정하지 않았다.
+
+## 순차3개 관측 — 53개 개발 트리
+
+현재 소스53/후보40·79미구현/완전 인증0이다. 안정50개 문서는 sessions/platform50에 보존했다. [SEQUENTIAL](research/SEQUENTIAL.md)과 [원자료](research/sequential-performance.json)는 실제 원본100/1k/10k/100k,3차원·두 분리 군집·threshold1/upper2/q16의 각3방법 단일 Node 관측이다. 모든 원본을 처리하고 실제 시간·heap delta·회차·K·이벤트/Trace 추정을 저장했다.
+
+TTSAS는 한 pass인 쉬운 사례다. 이를 다회 유보의 보수 최악 O(n³d) 성능으로 확대하지 않는다. 생성·Worker 전송·Canvas/FPS/취소 지연·장시간 peak는 제외했다. heap delta는 peak가 아니며 GC로 음수가 될 수 있다.
+
+새 전역 행 개수 상한은 없다. q는 BSAS/MBSAS의 모형 매개변수이고 TTSAS에는 적용하지 않는다. 작업 추정 n(24d+128)+Kmax(48d+128)와 별도 Trace byte 예산을 검사한다. Kmax는 두 방법에서 min(n,q), TTSAS에서n이다. 예산은 브라우저 가용RAM이나 GC peak 측정이 아니다.
+
+현재 버전의 짧은 rAF 관측은 platform53/*performance*.json이다. 홈36점/4Worker와 K-Means120점의 제한된 장면이며 신규3개·대량 데이터의 60FPS를 보장하지 않는다. 제품 거리 SVG는 값을 최대값으로 먼저 나눠1e308 같은 유효한 큰 수에서도 불필요한 곱셈 overflow를 방지한다. 이 안정화는 계산 값을 clipping한 근사 실행이 아니다.

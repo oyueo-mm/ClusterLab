@@ -1,0 +1,126 @@
+{
+  "baseline": "4ac46ebd91c21b058205b5ca62e1bd05da1e218c",
+  "comparison": "Git clean/EOL filtered blobs",
+  "files": [
+    {
+      "path": "src/engine/algorithms/kmeans.ts",
+      "unchanged": true,
+      "baselineBlob": "4f22a418ba9b7e58e582ed4bacaa95765f3a0737",
+      "currentFilteredBlob": "4f22a418ba9b7e58e582ed4bacaa95765f3a0737"
+    },
+    {
+      "path": "src/engine/algorithms/dbscan.ts",
+      "unchanged": true,
+      "baselineBlob": "0bc13942afa57fdb203cc82fed03c904e0d86a91",
+      "currentFilteredBlob": "0bc13942afa57fdb203cc82fed03c904e0d86a91"
+    },
+    {
+      "path": "src/engine/algorithms/hdbscan.ts",
+      "unchanged": true,
+      "baselineBlob": "56e37cb393d3ce2ef0818b55ae4b0ac2277830c4",
+      "currentFilteredBlob": "56e37cb393d3ce2ef0818b55ae4b0ac2277830c4"
+    },
+    {
+      "path": "src/engine/algorithms/agnes.ts",
+      "unchanged": true,
+      "baselineBlob": "8e9b63559238eef86eb747ac71a8f438b1e84aa5",
+      "currentFilteredBlob": "8e9b63559238eef86eb747ac71a8f438b1e84aa5"
+    },
+    {
+      "path": "src/engine/algorithms/diana.ts",
+      "unchanged": true,
+      "baselineBlob": "0c2e819503c1e8aba834e0cf95ca6046e826e3f0",
+      "currentFilteredBlob": "0c2e819503c1e8aba834e0cf95ca6046e826e3f0"
+    },
+    {
+      "path": "src/engine/algorithms/som.ts",
+      "unchanged": true,
+      "baselineBlob": "0dabccc532d504e0b12efe4eb5dfe2cc222ab67f",
+      "currentFilteredBlob": "0dabccc532d504e0b12efe4eb5dfe2cc222ab67f"
+    },
+    {
+      "path": "src/engine/algorithms/lvq.ts",
+      "unchanged": true,
+      "baselineBlob": "f651f0fddd06759419dc23f6b262035c9de279d9",
+      "currentFilteredBlob": "f651f0fddd06759419dc23f6b262035c9de279d9"
+    },
+    {
+      "path": "src/engine/algorithms/optics.ts",
+      "unchanged": true,
+      "baselineBlob": "c072acfddd2264262cd5ac0d8ef43fa305f80b69",
+      "currentFilteredBlob": "c072acfddd2264262cd5ac0d8ef43fa305f80b69"
+    },
+    {
+      "path": "src/engine/algorithms/pam.ts",
+      "unchanged": true,
+      "baselineBlob": "4f2fe07ec68c940c67834aabedf503e98ed317aa",
+      "currentFilteredBlob": "4f2fe07ec68c940c67834aabedf503e98ed317aa"
+    },
+    {
+      "path": "src/engine/algorithms/rock.ts",
+      "unchanged": true,
+      "baselineBlob": "9462cb45ff796d1b547de810690f2d2934d2face",
+      "currentFilteredBlob": "9462cb45ff796d1b547de810690f2d2934d2face"
+    },
+    {
+      "path": "src/engine/algorithms/gmm.ts",
+      "unchanged": true,
+      "baselineBlob": "6b9577115e1a83ee5f556bde7c998be42b219955",
+      "currentFilteredBlob": "6b9577115e1a83ee5f556bde7c998be42b219955"
+    },
+    {
+      "path": "src/engine/algorithms/birch.ts",
+      "unchanged": true,
+      "baselineBlob": "4e6bfc2196bbb8013bb12c5caa1b524c7e78a589",
+      "currentFilteredBlob": "4e6bfc2196bbb8013bb12c5caa1b524c7e78a589"
+    },
+    {
+      "path": "src/engine/algorithms/meanshift.ts",
+      "unchanged": true,
+      "baselineBlob": "be45bae7841a9608abd7d85219ef62205e9c4e5a",
+      "currentFilteredBlob": "be45bae7841a9608abd7d85219ef62205e9c4e5a"
+    },
+    {
+      "path": "src/data/presets.ts",
+      "unchanged": true,
+      "baselineBlob": "88d19af147f072e4a50674e31a781468e1516b47",
+      "currentFilteredBlob": "88d19af147f072e4a50674e31a781468e1516b47"
+    },
+    {
+      "path": "src/components/HomeDemos.tsx",
+      "unchanged": true,
+      "baselineBlob": "69a5d1e196f462d2a249b4cec01a51201c6650d1",
+      "currentFilteredBlob": "69a5d1e196f462d2a249b4cec01a51201c6650d1"
+    },
+    {
+      "path": "src/v03.css",
+      "unchanged": true,
+      "baselineBlob": "b463b4efec185081864bdb3c8ebadf47e34291eb",
+      "currentFilteredBlob": "b463b4efec185081864bdb3c8ebadf47e34291eb"
+    },
+    {
+      "path": "src/v04.css",
+      "unchanged": true,
+      "baselineBlob": "ec9582185ab20af4323ff59d8d98fa0d3f9b5d7b",
+      "currentFilteredBlob": "ec9582185ab20af4323ff59d8d98fa0d3f9b5d7b"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "unchanged": true,
+      "baselineBlob": "2c6326533af999ba39de48c453d51ac44f1ee051",
+      "currentFilteredBlob": "2c6326533af999ba39de48c453d51ac44f1ee051"
+    },
+    {
+      "path": "package.json",
+      "unchanged": true,
+      "baselineBlob": "856ed0b1bb5378ca5e17f87077daea2410f185d6",
+      "currentFilteredBlob": "856ed0b1bb5378ca5e17f87077daea2410f185d6"
+    },
+    {
+      "path": "package-lock.json",
+      "unchanged": true,
+      "baselineBlob": "a63507dd2d42485099c559eda492e83ce0e110db",
+      "currentFilteredBlob": "a63507dd2d42485099c559eda492e83ce0e110db"
+    }
+  ]
+}
