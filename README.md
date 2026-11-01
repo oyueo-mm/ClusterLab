@@ -4,7 +4,9 @@
 
 배포 대상: https://oyueo-mm.github.io/ClusterLab/
 
-VizLab 기반 백과사전 UI 개편을 진행 중입니다. [개편 범위·검증 상태](docs/UI_DATASET_PLAN.md) · [53개 알고리즘별 맞춤 데이터셋](docs/DATASET_RECOMMENDATIONS.md). UI 개편 완료와 알고리즘 마스터 개발 완료는 별개입니다.
+VizLab 기반 백과사전 UI·맞춤 데이터셋 개편을 공개 배포했습니다. 홈 → 도감 → ID 기반 개별 실험실에서 53개 엔진의 기본·추가·한계 데이터셋과 실제 계산 Trace를 탐색합니다. [개편 범위·검증 상태](docs/UI_DATASET_PLAN.md) · [53개 알고리즘별 맞춤 데이터셋](docs/DATASET_RECOMMENDATIONS.md) · [디자인 비교](docs/UI_DESIGN_REVIEW.md). UI 개편 완료와 알고리즘 마스터 개발 완료는 별개입니다.
+
+2026-11-02 제품 `c51ea16`의 [Actions](https://github.com/oyueo-mm/ClusterLab/actions/runs/41328815303)에서 타입·ESLint·592개 단위 테스트·빌드·전체 브라우저 **105통과/13조건부 생략/0실패**와 Pages 배포가 성공했습니다. 공개 데스크톱1440px/모바일390px에서 실제 계산과 되감기까지 확인했습니다. [검증 원자료](docs/ui-datasets/release.json). 실제 휴대전화 검사는 수행하지 않았으며 초기/교재 청크 크기 경고가 남습니다.
 
 진행 현황: [마스터 계획](docs/MASTER_PLAN.md) · [진행 기록](docs/PROGRESS.md) · [119개 후보 상태](docs/ALGORITHM_REGISTRY.md) · [재개 절차](docs/CONTINUE.md) · [최종 세션 보고서](docs/SESSION_REPORT.md). 실행 가능 수와 완전 인증 수를 구분하며 아래 기존 버전·이전25개 검증 기록을 보존합니다.
 
@@ -21,7 +23,7 @@ npm run test:e2e
 npm run build
 ```
 
-개발 URL: `http://127.0.0.1:5173/ClusterLab/`. GitHub Pages base path는 `/ClusterLab/`, 라우팅은 `#lab`, `#data`, `#compare`, `#guide`, `#catalog`, `#structured`입니다.
+개발 URL: `http://127.0.0.1:5173/ClusterLab/`. GitHub Pages base path는 `/ClusterLab/`입니다. 개별 실험실은 `#/lab/<encoded Algorithm ID>`, 도감은 `#/catalog?category=density`처럼 URL 필터를 지원합니다. 기존 `#lab`, `#data`, `#compare`, `#guide`, `#catalog`, `#structured`도 호환 경로로 유지합니다.
 
 ## 순차 원본 군집화 추가
 
@@ -44,11 +46,11 @@ BSAS·MBSAS·TTSAS의 원본 순서/전체 ND 계산, 실제 생성·배정·유
 | 스트림       | DenStream                                                                                |
 | 추가5개      | Bimax · Cheng–Church Biclustering · K-Shape · Greedy Modularity(CNM) · Fluid Communities |
 
-다중 데이터 실험은 N차원 수치형·실제 범주형·수치/범주 혼합·가중 그래프·행렬·시계열·시각 포함 스트림 원본을 생성·편집·JSON 입출력하고 호환되는 엔진으로 실행합니다. 표시 좌표는 실제 계산과 분리합니다. 16행×8열 표 창은 표시 범위이며 전체 데이터 수 제한이 아닙니다. 원본 모든 행·열, 중첩 행열/부분공간 소속과 현재 CF 요약을 보존하고 실행별 byte 예산을 검사합니다. 제약 입력은 아직 실행 엔진이 없습니다.
+다중 데이터 실험은 N차원 수치형·실제 범주형·수치/범주 혼합·가중 그래프·행렬·시계열·시각 포함 스트림·제약 원본을 생성·편집·JSON 입출력하고 호환되는 엔진으로 실행합니다. 표시 좌표는 실제 계산과 분리합니다. 16행×8열 표 창은 표시 범위이며 전체 데이터 수 제한이 아닙니다. 원본 모든 행·열, 중첩 행열/부분공간 소속과 현재 CF 요약을 보존하고 실행별 byte 예산을 검사합니다. 제약 입력은 COP-KMeans에서 실행합니다.
 
 작은 데이터는 상세 연산을 재생하고 큰 Trace는 기록 세분도를 명시합니다. PROCLUS의 후보 표본과 DenStream의 시간 감쇠 CF는 각 알고리즘 자체의 정의이며 입력 일부만 계산하고 전체 처리로 표시하지 않습니다. 알고리즘별 한계·원문 열람 범위·성능 관측은 [등록 현황](docs/ALGORITHM_REGISTRY.md), [연구 문서](docs/research/), [데이터 형식](docs/DATA_FORMATS.md), [성능](docs/PERFORMANCE.md)을 참조합니다.
 
-## 현재 통합 검증
+## 이전 확장 릴리스의 통합 검증 (역사 기록)
 
 최종 제품 소스 `fd78886`의 [Actions](https://github.com/oyueo-mm/ClusterLab/actions/runs/41257323667)에서 타입·ESLint·프로덕션 빌드·**Vitest428개/32파일**, 전체 Chromium/mobile **64통과·12기존 조건부 생략·0실패**와 Pages 배포가 성공했습니다. 로컬 Firefox/WebKit24개와 후속 입력 호환성 검사를 별도 확인했습니다. 공개 사이트는 계산 코드가 동일한 두 단계의 검사 범위를 구분해 기록했습니다. [SESSION_REPORT](docs/SESSION_REPORT.md)와 [VALIDATION](docs/VALIDATION.md)에 최초 실패·재검사·공개 증거를 보존합니다. 전체 마스터 목표와 후보88개는 미완료입니다. Node heap/시간이나 작은 화면 rAF를 대규모 FPS/peak 보장으로 해석하지 않습니다.
 
@@ -161,7 +163,7 @@ Black Han Sans는 Google Fonts 공식 Regular의 제목용 글리프 subset 약 
 - BIRCH는 메모리 내 CF-Tree로 외부 메모리 spill/rebuild는 없습니다.
 - Mean Shift는 flat kernel·전체 점 seeding·cluster_all=true만 지원합니다. 자동 Bandwidth 추정·bin seeding·다른 커널·공간 인덱스는 제공하지 않습니다.
 - CSV는 문서화된 단순 헤더를 사용합니다. 인용부호 안 쉼표 등 RFC 4180 전체 문법은 지원하지 않습니다.
-- 실험 상태는 화면 이동 동안 유지되지만 새로고침 후에는 기본값입니다. JSON은 데이터 저장용입니다.
+- 사용자 데이터는 IndexedDB에, 작은 파라미터·탭·선택 상태는 localStorage에 저장해 새로고침 후 복원합니다. 저장 실패는 화면에 안내하며 JSON으로도 내보낼 수 있습니다. 직접 편집한 데이터는 알고리즘을 바꿔도 유지합니다.
 - 실제 고주사율 기기·실제 휴대전화 실측은 별도입니다. 자동 브라우저 결과가 모든 기기의 60FPS를 보장하지 않습니다.
 
 ## 가이드 소스와 검증

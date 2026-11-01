@@ -1,0 +1,82 @@
+[
+  {
+    "url": "https://oyueo-mm.github.io/ClusterLab/",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "homeEvents": [
+      {
+        "algorithm": "K-Means",
+        "events": 151
+      },
+      {
+        "algorithm": "DBSCAN",
+        "events": 106
+      },
+      {
+        "algorithm": "GMM",
+        "events": 16
+      },
+      {
+        "algorithm": "Mean Shift",
+        "events": 411
+      }
+    ],
+    "computedFeatured": [
+      "실제 계산 결과",
+      "실제 계산 결과",
+      "실제 계산 결과",
+      "실제 계산 결과",
+      "실제 계산 결과",
+      "실제 계산 결과"
+    ],
+    "dbscanEvents": 359,
+    "originalGraph": {
+      "nodes": 24,
+      "edges": 49
+    },
+    "graphEvents": 31,
+    "errors": []
+  },
+  {
+    "url": "https://oyueo-mm.github.io/ClusterLab/",
+    "viewport": {
+      "width": 390,
+      "height": 1000
+    },
+    "homeEvents": [
+      {
+        "algorithm": "K-Means",
+        "events": 151
+      },
+      {
+        "algorithm": "DBSCAN",
+        "events": 106
+      },
+      {
+        "algorithm": "GMM",
+        "events": 16
+      },
+      {
+        "algorithm": "Mean Shift",
+        "events": 411
+      }
+    ],
+    "computedFeatured": [
+      "실제 계산 결과",
+      "실제 계산 결과",
+      "실제 계산 결과",
+      "실제 계산 결과",
+      "실제 계산 결과",
+      "실제 계산 결과"
+    ],
+    "dbscanEvents": 359,
+    "originalGraph": {
+      "nodes": 24,
+      "edges": 49
+    },
+    "graphEvents": 31,
+    "errors": []
+  }
+]

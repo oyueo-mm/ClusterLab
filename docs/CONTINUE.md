@@ -1,4 +1,8 @@
-# 재개 절차 — UI·데이터셋 개편 진행 중
+# 재개 절차 — UI·데이터셋 개편 공개 배포 완료
+
+**2026-11-02 최종 확정:** 제품 main `c51ea16a3993a5d0892f037592902ff49cd89ae0`, [Actions41328815303](https://github.com/oyueo-mm/ClusterLab/actions/runs/41328815303) validate/Pages 성공. 단위592/592·43파일, 전체 Chromium/mobile105통과/13기존 조건부 생략/0실패. 로컬 최종 네 구성45통과/3중복생략. 공개1440/390px에서 홈4실제 데모·대표6실제 결과·132개 도감·DBSCAN 기본moons/되감기·Louvain 원본graph 실행을 확인했다. `ui-datasets/release.json`, `ci-final.log`, `public-verification.json`, `public-*.png`가 최종 증거다. 아래 진행 중 기록은 당시 이력이다.
+
+이번 UI·데이터셋 개편은 완료했다. 실행53개 모두 기본1+추가2+한계1(212구성)을 제공하고 엔진/프리셋/홈/이력142파일을 보존했다. 후보119개 중79개 미구현·엄격 인증0개인 마스터 목표는 계속 미완료다. 다음 알고리즘 작업은 MASTER_PLAN/RESEARCH_QUEUE를 따른다. UI 추가 개선은 초기/교재 번들 경량화와 App의 남은 고급 편집 UI 분리다. 실제 휴대전화 미검사. 기존 `.local/sequential-worktree`와 사용자 VizLab 작업 트리를 보존했다.
 
 2026-11-02 최신 보완: main에 UI통합 `ed67773`까지 반영했다. 첫 Actions41325473043은 모바일 홈 가시성 검사 1개로 실패하여 Pages는 배포하지 않았다. 수정 후 로컬 네 구성 상태/셸/품질 **45통과/3중복생략**, 단위592/592, 타입/ESLint/build, 원본142/142 보존 통과. 사용자 소유 데이터와 자동 추천을 IndexedDB에서 구분하며 기존 저장 데이터도 보존한다. 다음은 보완 커밋 push → 새 전체 Actions/Pages → 실제 공개 desktop/mobile 검사 → 최종 문서다. `local-smoke-*`를 공개 검사로 취급하지 않는다.
 

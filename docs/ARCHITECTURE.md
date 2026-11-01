@@ -1,10 +1,12 @@
 # 현재 아키텍처 — 53개 소스 개발 트리
 
-## UI·추천 데이터셋 개편 구조 (2026-11-01, 검증 중)
+## UI·추천 데이터셋 개편 구조 (2026-11-02 공개 배포 완료)
 
 최신 UI 작업은 [UI_DATASET_PLAN](UI_DATASET_PLAN.md)을 따른다. `router.ts`의 ID 해시와 기존 페이지 별칭, `Sidebar`, `pages/Home`, lazy `Catalog`, 기존 점/원본 실험실, 공통 `lab/LabTabs`·`FullscreenButton`·`LabDetails`, `compare/CompareWorkbench`로 역할을 나눈다. 원본 비교는 유형별 공통 Dataset과 독립 파라미터/Trace를 사용하며, 기존 2D 비교는 호환 경로에 보존한다. 아래 과거의 “typed 비교 UI 미구현”은 이번 개편 전 체크포인트 설명이다. 유형별 공통 품질 지표/3D/PCA 등 마스터 후속은 여전히 별도 미완료다.
 
-`data/recommendations.ts`는 엔진53개를 명시적으로 연결하고 기존32프리셋/원본 생성기를 재사용한다. 교재의 요약·실제 관련 알고리즘만 `catalogMetadata.json`으로 추출해 전체 수학 교재가 초기 로드되지 않게 한다. 신규 엔진은 추천 등록 및 메타데이터 동기화 검사를 통과해야 한다. `DatasetPreview`는 형식별 원본 표현을 공유하고 `AlgorithmPreview`는 최대2 Worker·화면 밖 취소·최종 요약 캐시를 사용한다. 썸네일 예산48행은 사용자 실행 데이터 상한이 아니다。
+`data/recommendations.ts`는 엔진53개를 명시적으로 연결하고 기존32프리셋/원본 생성기를 재사용한다. 교재의 요약·실제 관련 알고리즘만 `catalogMetadata.json`으로 추출해 전체 수학 교재가 초기 로드되지 않게 한다. 신규 엔진은 추천 등록 및 메타데이터 동기화 검사를 통과해야 한다. `DatasetPreview`는 형식별 원본 표현을 공유하고 `AlgorithmPreview`는 최대2 Worker·화면 밖 취소·최종 요약 캐시를 사용한다. 썸네일 예산48행은 사용자 실행 데이터 상한이 아니다.
+
+초기 자동 데이터와 사용자 소유 데이터를 구분한다. 후자는 알고리즘 전환만으로 덮어쓰지 않으며, 소유 표시를 IndexedDB 데이터와 함께 저장해 localStorage가 차단되어도 보존한다. 과거 저장 데이터는 사용자 데이터로 이전한다. 행렬/시계열/범주형의 현대 실험실 주 시각화는 DatasetPreview를 사용하고 실제 전체 원본 실행과 표시 예산을 구분한다.
 
 자동 저장은 원본을 IndexedDB로, 작은 파라미터/탭/추천 선택만 localStorage로 분리한다. 데이터 편집 이력 코어는 변경하지 않았다. `useExperiment`는 입력·알고리즘·파라미터와 일치하는 완료 Trace만 UI에 노출해 전환 직후 잘못된 이전 결과가 표시되지 않게 한다. 수치 엔진/Recorder/기존 프리셋/홈 데모/이력142파일의 Git blob이 기준 c4d6a7d와 동일함을 `ui-datasets/source-preservation.json`에 기록했다.
 

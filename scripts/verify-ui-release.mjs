@@ -39,13 +39,45 @@ try {
         events: Number(card.getAttribute("data-events")),
       })),
     );
+    const featured = page.locator(".featured-grid .algorithm-preview");
+    for (let index = 0; index < 6; index++) {
+      await featured.nth(index).scrollIntoViewIfNeeded();
+      await expect(featured.nth(index)).toHaveAttribute(
+        "data-preview-status",
+        "computed",
+      );
+    }
+    const computedFeatured = await featured
+      .locator(".preview-status")
+      .allTextContents();
     await page.evaluate(() => {
       window.scrollTo(0, 0);
       return document.fonts.ready;
     });
+    await page.waitForFunction(
+      () =>
+        [...document.querySelectorAll(".home-demo canvas")].length === 4 &&
+        [...document.querySelectorAll(".home-demo canvas")].every((canvas) => {
+          const context = canvas.getContext("2d");
+          const pixels = context.getImageData(
+            0,
+            0,
+            canvas.width,
+            canvas.height,
+          ).data;
+          for (let index = 0; index < pixels.length; index += 4) {
+            if (
+              pixels[index + 3] > 0 &&
+              Math.min(pixels[index], pixels[index + 1], pixels[index + 2]) <
+                220
+            )
+              return true;
+          }
+          return false;
+        }),
+    );
     await page.screenshot({
       path: `docs/ui-datasets/public-home-${name}.png`,
-      fullPage: true,
     });
     await page
       .getByRole("button", { name: "알고리즘 둘러보기", exact: true })
@@ -102,6 +134,7 @@ try {
       url,
       viewport: { width, height: 1000 },
       homeEvents,
+      computedFeatured,
       dbscanEvents,
       originalGraph: {
         nodes: original.nodes.length,
