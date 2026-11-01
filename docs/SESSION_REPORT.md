@@ -91,3 +91,19 @@ X-Means는 출판된 BIC heuristic, G-Means는 원문 보정/검증α, Dip은 �
 ### 비교 입력 호환성 보완
 
 최종 경로 감사에서 행렬·시계열 가이드의 비교 버튼이 Point[] 비교로 연결되는 것을 확인했다. native-only 엔진의 공통 supportsLegacyPoints 계약으로 비교 선택기와 가이드 버튼을 함께 막고, 원본 개별 실험 경로를 안내한다. Bimax/Cheng–Church/K-Shape 세 가이드의 비활성 상태와 실제 K-Shape raw 실험 전달을 Chromium/mobile/Firefox/WebKit4/4로 확인했다. 타입·lint·build·전체428개도 다시 통과했다. 초기 a81a931의 CI validate/deploy는 성공했으며 이 UI 보완 소스는 후속 정상 커밋과 새 CI로 검증한다.
+
+### 추가 검사 기록 정정
+
+브라우저 추가 검사 결과를 확인하기 전에 ARCHITECTURE에 통과로 기록한 부분은 정정했다. 해당2건은 raw 가이드1성공/기존10엔진 경로1Worker 시작 오류였고 원자료 browser-registry-final.json에 보존했다. 이후 계산 엔진을 바꾸지 않은 단독 진단과 기존10엔진 단독 재검사는 전부 성공했다(browser-registry-isolated.log, 종료코드0). Worker 시작 오류 원인은 확정하지 못했으므로 해결된 수학 오류라고 주장하지 않는다.
+
+공개 a81a931의34검사 첫 실행은33성공/1실패였다. 실패는 browserContext.close에서 다른 동시 Playwright 실행이 공유 결과 폴더의 recording22.trace를 정리해 ENOENT가 난 검사 환경 충돌이었다. 단독 공개 재검사1/1은 통과했다(browser-public-retry.json/log). 고유 공개 구성34개 성공을 최초/재시도 구분해서 기록하며 한 번의 전체34성공으로 표시하지 않는다. 이후 브라우저 실행은 결과 폴더를 공유하는 작업끼리 순차 완료를 확인한다.
+
+## 12. 최종 배포 확정 — 2026-11-01
+
+최종 제품 소스 **fd7888690c82606af7f55863a898b8fb25a2ca2d**, main. [Actions41257323667](https://github.com/oyueo-mm/ClusterLab/actions/runs/41257323667)의 Ubuntu/Node22 validate와 deploy 모두 성공했다. 원격 타입·ESLint·단위 **428/428·32파일**·프로덕션 빌드와 전체 Chromium/mobile **64통과·12기존 조건부 생략·0실패**를 한 번의 전체 실행에서 확인했다. 직전 a81a931의 첫44엔진 CI도 성공했지만 최종 근거는 fd78886이다. 중간 a194785 실행은 후속 커밋으로 교체됐다.
+
+공개 사이트는 계산 엔진이 같은 두 단계로 검사했다. a81a931의 고유34구성은 최초33성공/1검사환경 정리 실패 후 단독1성공이었다. 최종 fd78886의 실제 가이드/원본/이벤트·입력 호환성은 Chromium/mobile/Firefox/WebKit4/4가 통과했다. 전체38개를 한 번의 동일 소스 실행이라고 주장하지 않는다. 두 단계 사이 algorithms/datasetExecution/worker/trace/math 소스가 동일함을 Git으로 확인했다. 전체 최신 소스의 단일 회귀는 위 원격64개가 담당한다.
+
+공개 실제 K-Shape 결과와 데스크톱·모바일 화면을 직접 확인했고 alert0이었다. public-kshape-*.png, browser-public-{first,retry,final}.json/log와 [ci-validation](platform44/ci-validation.json), [deployment](platform44/deployment.json)에 근거를 보존했다. 로컬 Worker 시작 오류1회의 원인은 미확정이며, 단독/원격에서 재현되지 않았다는 범위만 기록한다. 공유 결과 폴더의 동시 실행 충돌은 공개 실패 기록과 구분한다.
+
+실행44개/후보31개 구현·88개 미구현/엄격한 마스터 완전 인증0개가 이번 안정 체크포인트다. 전체 마스터는 미완료다. 이후 문서 전용 [skip ci] 커밋은 제품 소스·테스트·의존성을 바꾸지 않으며 최종 문서 SHA는 git log를 따른다. 자신의4273 preview는 종료했고 타 프로젝트 서버는 건드리지 않았다. 다음 실제 개발은 CONTINUE와 제약/그래프/혼합 후속 조사 큐에서 이어간다.

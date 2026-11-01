@@ -7,7 +7,7 @@ node.exe : (node:9948) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: ((node:9948) War... env being set.:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
- 
+
 (Use `node --trace-warnings ...` to show where the warning was created)
   ok  1 [chromium] › tests\expansion.spec.ts:5:1 › catalog distinguishes all candidates from executable engines and filters without overflow (1.9s)
   ok  2 [chromium] › tests\expansion.spec.ts:61:1 › new algorithms compute actual events in production workers and reversible playback (1.3s)
@@ -93,7 +93,7 @@ node.exe : (node:9948) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_
   -  76 [mobile] › tests\v06.spec.ts:613:1 › larger home typography and editor toolbar fit requested viewport widths
 
 
-  1) [chromium] › tests\v04.spec.ts:53:1 › all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison 
+  1) [chromium] › tests\v04.spec.ts:53:1 › all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison
 
     Error: expect(received).toBeGreaterThanOrEqual(expected)
 
@@ -123,7 +123,7 @@ node.exe : (node:9948) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-  2) [mobile] › tests\v04.spec.ts:53:1 › all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison 
+  2) [mobile] › tests\v04.spec.ts:53:1 › all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison
 
     Error: expect(received).toBeGreaterThanOrEqual(expected)
 
@@ -154,7 +154,7 @@ node.exe : (node:9948) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
   2 failed
-    [chromium] › tests\v04.spec.ts:53:1 › all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison 
-    [mobile] › tests\v04.spec.ts:53:1 › all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison 
+    [chromium] › tests\v04.spec.ts:53:1 › all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison
+    [mobile] › tests\v04.spec.ts:53:1 › all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison
   12 skipped
   62 passed (9.9m)

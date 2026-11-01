@@ -1,0 +1,30 @@
+{
+  "source": "fd7888690c82606af7f55863a898b8fb25a2ca2d",
+  "runId": 41257323667,
+  "url": "https://github.com/oyueo-mm/ClusterLab/actions/runs/41257323667",
+  "unitTests": 428,
+  "testFiles": 32,
+  "browserPassed": 64,
+  "browserSkipped": 12,
+  "browserFailed": 0,
+  "jobs": [
+    {
+      "id": 124703236960,
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124706048346,
+      "name": "deploy",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "logExcerpts": [
+    "2026-11-01T00:36:00.7436666Z  Test Files  32 passed (32)",
+    "2026-11-01T00:36:00.7437657Z       Tests  428 passed (428)",
+    "2026-11-01T00:47:15.0548714Z   12 skipped",
+    "2026-11-01T00:47:15.0550522Z   64 passed (10.7m)"
+  ]
+}

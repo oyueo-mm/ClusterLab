@@ -40,7 +40,7 @@ npm run build
 
 ## 현재 통합 검증
 
-타입 검사·ESLint·프로덕션 빌드와 **Vitest428개**가 통과했습니다. 독립 reference·Trace 역복원·원본 입력·기존 회귀를 포함한 단위 검증입니다. **브라우저·기존 기능 전체 통합 회귀·GitHub Actions/Pages 배포는 검증 중**이며 성공을 미리 주장하지 않습니다. 최종 결과·실제 공개 사이트 확인·커밋은 [SESSION_REPORT](docs/SESSION_REPORT.md)와 [VALIDATION](docs/VALIDATION.md)을 따릅니다. Node 시간·heap 관측은 브라우저 FPS/peak 메모리 보장이 아닙니다.
+최종 제품 소스 `fd78886`의 [Actions](https://github.com/oyueo-mm/ClusterLab/actions/runs/41257323667)에서 타입·ESLint·프로덕션 빌드·**Vitest428개/32파일**, 전체 Chromium/mobile **64통과·12기존 조건부 생략·0실패**와 Pages 배포가 성공했습니다. 로컬 Firefox/WebKit24개와 후속 입력 호환성 검사를 별도 확인했습니다. 공개 사이트는 계산 코드가 동일한 두 단계의 검사 범위를 구분해 기록했습니다. [SESSION_REPORT](docs/SESSION_REPORT.md)와 [VALIDATION](docs/VALIDATION.md)에 최초 실패·재검사·공개 증거를 보존합니다. 전체 마스터 목표와 후보88개는 미완료입니다. Node heap/시간이나 작은 화면 rAF를 대규모 FPS/peak 보장으로 해석하지 않습니다.
 
 ## 다음 개발
 

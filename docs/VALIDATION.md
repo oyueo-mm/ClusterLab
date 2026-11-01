@@ -175,3 +175,9 @@ Chromium/mobile 전체 최초 실행은 **62통과·12기존 조건부 생략·2
 신규9×Chromium/mobile18개는 위 전체 구성에 포함된다. 18을64에 중복 합산하지 않는다. 최종 빌드의 두 플랫폼 spec은 **Firefox/WebKit24/24 통과**했다. 실제29개 추가 엔진(이번19+직전10), 원본 데이터·편집·native 결과·되감기·가이드 단계 전달·오류를 확인했다. 기존 모든 기능의 Firefox/WebKit 검증이라는 뜻은 아니다. [browser-cross-final](platform44/browser-cross-final.json)을 따른다.
 
 원격 Actions/Pages와 공개 사이트의 이번 버전 검증은 아직 대기 중이며, SESSION_REPORT 마지막 기록에서 별도로 확정한다. 이전 버전 Pages 성공과 재사용하지 않는다.
+
+## 최종 원격·공개 확정 — 2026-11-01
+
+최종 제품 소스fd78886, [Actions41257323667](https://github.com/oyueo-mm/ClusterLab/actions/runs/41257323667). Ubuntu/Node22 타입·lint·428개/32파일·build와 전체 Chromium/mobile **64통과·12기존 조건부 생략·0실패**, validate/deploy 모두 성공했다. 공개 a81a931 고유34구성(33+환경 충돌 후1재검사)과 계산 코드가 같은 최종fd78886 raw 가이드4구성을 구분해 확인했다. 최종공개4는 Chromium/mobile/Firefox/WebKit 모두 통과했다. 중복/재시도 수를 합산해 부풀리지 않는다. 근거는 platform44/{ci-validation,deployment,browser-public-first,browser-public-retry,browser-public-final}.json과 공개화면이다.
+
+추가 로컬 Worker 시작 오류1회는 원인 미확정이고, 단독 진단10개·단독 해당검사·최종원격 전체에서는 재현되지 않았다. 별도 공개 기록 정리 실패는 동시 Playwright가 같은 결과 폴더를 사용한 ENOENT였으며 단독 재실행이 통과했다. 테스트 결과를 확인하기 전의 문서 성공 표현은 SESSION_REPORT와 ARCHITECTURE에서 정정했다. 해결된 수학 오류나 항상 성공 보장으로 설명하지 않는다.

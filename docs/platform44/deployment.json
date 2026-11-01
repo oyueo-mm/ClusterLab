@@ -1,0 +1,28 @@
+{
+  "source": "fd7888690c82606af7f55863a898b8fb25a2ca2d",
+  "site": "https://oyueo-mm.github.io/ClusterLab/",
+  "workflow": "https://github.com/oyueo-mm/ClusterLab/actions/runs/41257323667",
+  "validate": "success",
+  "deploy": "success",
+  "engines": 44,
+  "implementedCandidates": 31,
+  "pendingCandidates": 88,
+  "masterCertifiedComplete": 0,
+  "publicVerification": [
+    {
+      "source": "a81a931d7b8f0e698989fcc85bdf988f8ef3aebf",
+      "uniqueCases": 34,
+      "initialPassed": 33,
+      "initialFailed": 1,
+      "retryPassed": 1,
+      "note": "Initial failure was shared Playwright artifacts ENOENT during browserContext.close; isolated retry passed."
+    },
+    {
+      "source": "fd7888690c82606af7f55863a898b8fb25a2ca2d",
+      "cases": 4,
+      "passed": 4,
+      "note": "Chromium/mobile/Firefox/WebKit: incompatible matrix/time comparisons disabled and actual raw experiment/event preserved."
+    }
+  ],
+  "calculationSourcesIdenticalBetweenPublicStages": true
+}

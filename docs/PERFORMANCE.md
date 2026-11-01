@@ -114,3 +114,5 @@ npx vitest run src/engine/typed-integration.test.ts src/editor/datasetHistory.te
 이번 scale 실행에서100만 전체 입력 K-Means는3774.96ms·15이벤트·Trace 추정58,782,080바이트, Mini-Batch는3627.56ms·6이벤트·전체200만 방문(2epoch)·Trace 추정58,260,824바이트였다. 생성·전송·렌더링을 제외한 단일 Node 관측이며 heap delta는 peak가 아니다. 기존25개 증거와 혼합하지 않는다. 이 관측을 신규44개 전체의100만 지원 보장으로 확대하지 않는다.
 
 최종 빌드의 홈36점/4Worker 및 실험실120점 K-Means rAF 관측도 Chromium/mobile2검사에서 통과했다. 원자료는 platform44/{home-performance-chromium,home-performance-mobile,performance-chromium,performance-mobile}.json이다. 약2.2초 관측과 기기 에뮬레이션이며 신규 대형 데이터/실제 휴대전화/장시간60FPS 보장으로 해석하지 않는다.
+
+최종 소스fd78886의 원격64전체 회귀·428단위·통합과 Pages 배포가 성공했다. 공개/교차 브라우저의 실제 범위는 SESSION_REPORT를 따른다. 본 문서의 중간426/427/16/대기 표현은 개발 중 관측이며 마지막428/공개 확인 기록이 현재 기준이다. 장시간·대규모 브라우저 peak/FPS는 계속 미검증이다.

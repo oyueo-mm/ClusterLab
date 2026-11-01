@@ -78,3 +78,7 @@ npm test -- src/engine/scale.test.ts src/engine/platform-scale.test.ts src/engin
 혼합모델을 이어갈 때 [research/MIXTURE_FOLLOWUP_QUEUE.md](research/MIXTURE_FOLLOWUP_QUEUE.md)도 읽는다. 분포별 실제 입력 범위와 EM/ECM·변분추론을 구분하고, 미실행 oracle을 검증 완료로 표시하지 않는다. 기존2D GMM은 보존한 채 ND 분포 엔진을 독립 검증한다.
 
 그래프 후속은 [research/GRAPH_FOLLOWUP_QUEUE.md](research/GRAPH_FOLLOWUP_QUEUE.md)를 읽는다. CW와 현재 LPA의 tie 규약·별칭 여부, Walktrap의 self-loop 전이 규약, Infomap description length, 중첩 CPM/BigCLAM, SBM 추론법·OSLOM 근거를 각각 구분한다. 공식 구현 smoke를 제품 엔진 구현으로 세지 않는다.
+
+## 최종 확정 상태
+
+현재 안정 제품 소스는 **fd7888690c82606af7f55863a898b8fb25a2ca2d**다. Actions41257323667의428단위·통합/단일 전체브라우저64성공·12기존조건부생략/배포가 성공했다. 공개 검증은 SESSION_REPORT와 platform44/deployment.json을 따른다. 그 뒤 문서 [skip ci] 커밋은 앱을 바꾸지 않는다. 앞의 a81a931/진행중 문구는 이전 체크포인트 기록이다. 4273 preview는 종료했다. 새 작업 브랜치에서 이 안정 버전과 문서부터 읽고 미구현88개를 이어간다.

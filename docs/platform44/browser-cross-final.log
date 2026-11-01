@@ -7,7 +7,7 @@ node.exe : (node:12812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: ((node:12812) Wa... env being set.:String) [], RemoteException
     + FullyQualifiedErrorId : NativeCommandError
- 
+
 (Use `node --trace-warnings ...` to show where the warning was created)
   ok  1 [firefox] › tests\next-platform.spec.ts:171:1 › six numeric engines run real split, penalty and subspace operations with reversible analysis (7.4s)
   ok  2 [firefox] › tests\next-platform.spec.ts:209:1 › seven graph engines consume actual connected edges and expose their distinct operations (6.9s)

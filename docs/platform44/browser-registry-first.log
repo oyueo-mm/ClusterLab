@@ -1,0 +1,51 @@
+
+Running 2 tests using 1 worker
+
+node.exe : (node:25400) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:25400) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\next-platform.spec.ts:603:1 › the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab (6.1s)
+  x  2 [chromium] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces (20.0s)
+
+
+  1) [chromium] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "Density Peaks / CFSFDP"
+    Received: "Affinity Propagation"
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+      66 |     await expect
+      67 |       .poll(() => page.evaluate(() => window.platformTraces.at(-1)?.algorithm))
+    > 68 |       .toBe(name);
+         |        ^
+      69 |     await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
+      70 |     const trace = await page.evaluate(() => window.platformTraces.at(-1)!);
+      71 |     expect(trace.steps.some((s) => s.kind === event)).toBe(true);
+        at C:\Users\hihi9\Desktop\Projects\ClusterLab\tests\platform.spec.ts:68:8
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\platform-ten-new-engines-e-c711a-eversible-production-traces-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\platform-ten-new-engines-e-c711a-eversible-production-traces-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\platform-ten-new-engines-e-c711a-eversible-production-traces-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\platform-ten-new-engines-e-c711a-eversible-production-traces-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces
+  1 passed (30.9s)

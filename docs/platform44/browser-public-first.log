@@ -1,0 +1,68 @@
+
+Running 34 tests using 1 worker
+
+node.exe : (node:21924) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:21924) Wa... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\expansion.spec.ts:5:1 › catalog distinguishes all candidates from executable engines and filters without overflow (4.4s)
+  ok  2 [chromium] › tests\expansion.spec.ts:61:1 › new algorithms compute actual events in production workers and reversible playback (3.4s)
+  ok  3 [chromium] › tests\expansion.spec.ts:93:1 › 100k import has no truncation and cancellation actually terminates its worker (5.3s)
+  ok  4 [chromium] › tests\next-platform.spec.ts:171:1 › six numeric engines run real split, penalty and subspace operations with reversible analysis (12.7s)
+  ok  5 [chromium] › tests\next-platform.spec.ts:209:1 › seven graph engines consume actual connected edges and expose their distinct operations (16.7s)
+  ok  6 [chromium] › tests\next-platform.spec.ts:260:1 › six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes (14.7s)
+  ok  7 [chromium] › tests\next-platform.spec.ts:341:1 › category and mixed table edits alter actual model statistics and Undo/Redo restores original input (7.4s)
+  ok  8 [chromium] › tests\next-platform.spec.ts:394:1 › graph weights, matrix cells and time series values are editable mathematical inputs (8.3s)
+  ok  9 [chromium] › tests\next-platform.spec.ts:472:1 › stream arrivals increase the computed prefix and actual CF time; automatic input can pause (7.4s)
+  ok 10 [chromium] › tests\next-platform.spec.ts:505:1 › typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success (10.9s)
+  ok 11 [chromium] › tests\next-platform.spec.ts:539:1 › a thousand raw rows remain computed and editable through a bounded table at seven viewport widths (15.5s)
+  x  12 [chromium] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces (32.7s)
+(node:47256) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 13 [chromium] › tests\platform.spec.ts:93:1 › ND raw computation survives projection changes; weighted graph ignores display positions (6.9s)
+  ok 14 [chromium] › tests\platform.spec.ts:186:1 › unsupported structured data and contradictory constraints fail explicitly (4.5s)
+  ok 15 [chromium] › tests\site.spec.ts:2:1 › home demo, navigation, playback pause/resume/seek and mobile layout (5.7s)
+  ok 16 [chromium] › tests\site.spec.ts:46:1 › all algorithms run to completion in actual Workers with dedicated analyses (30.0s)
+  ok 17 [chromium] › tests\site.spec.ts:105:1 › dataset gallery, import/export UI, guide, compare and direct hash routing (4.1s)
+(node:40496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 18 [mobile] › tests\expansion.spec.ts:5:1 › catalog distinguishes all candidates from executable engines and filters without overflow (5.4s)
+  ok 19 [mobile] › tests\expansion.spec.ts:61:1 › new algorithms compute actual events in production workers and reversible playback (4.9s)
+  ok 20 [mobile] › tests\expansion.spec.ts:93:1 › 100k import has no truncation and cancellation actually terminates its worker (8.3s)
+  ok 21 [mobile] › tests\next-platform.spec.ts:171:1 › six numeric engines run real split, penalty and subspace operations with reversible analysis (15.2s)
+  ok 22 [mobile] › tests\next-platform.spec.ts:209:1 › seven graph engines consume actual connected edges and expose their distinct operations (17.6s)
+  ok 23 [mobile] › tests\next-platform.spec.ts:260:1 › six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes (13.9s)
+  ok 24 [mobile] › tests\next-platform.spec.ts:341:1 › category and mixed table edits alter actual model statistics and Undo/Redo restores original input (7.0s)
+  ok 25 [mobile] › tests\next-platform.spec.ts:394:1 › graph weights, matrix cells and time series values are editable mathematical inputs (9.0s)
+  ok 26 [mobile] › tests\next-platform.spec.ts:472:1 › stream arrivals increase the computed prefix and actual CF time; automatic input can pause (5.3s)
+  ok 27 [mobile] › tests\next-platform.spec.ts:505:1 › typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success (3.5s)
+  ok 28 [mobile] › tests\next-platform.spec.ts:539:1 › a thousand raw rows remain computed and editable through a bounded table at seven viewport widths (17.5s)
+  ok 29 [mobile] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces (17.7s)
+  ok 30 [mobile] › tests\platform.spec.ts:93:1 › ND raw computation survives projection changes; weighted graph ignores display positions (9.3s)
+  ok 31 [mobile] › tests\platform.spec.ts:186:1 › unsupported structured data and contradictory constraints fail explicitly (3.8s)
+  ok 32 [mobile] › tests\site.spec.ts:2:1 › home demo, navigation, playback pause/resume/seek and mobile layout (3.6s)
+  ok 33 [mobile] › tests\site.spec.ts:46:1 › all algorithms run to completion in actual Workers with dedicated analyses (28.1s)
+  ok 34 [mobile] › tests\site.spec.ts:105:1 › dataset gallery, import/export UI, guide, compare and direct hash routing (8.7s)
+
+
+  1) [chromium] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces
+
+    Error: browserContext.close: ENOENT: no such file or directory, open 'C:\Users\hihi9\Desktop\Projects\ClusterLab\test-results\.playwright-artifacts-0\traces\310f5d38cd89ad55ea3f-fbf50aa32095795d50f0-recording22.trace'
+
+    Error Context: test-results\platform-ten-new-engines-e-c711a-eversible-production-traces-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\platform-ten-new-engines-e-c711a-eversible-production-traces-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\platform-ten-new-engines-e-c711a-eversible-production-traces-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests\platform.spec.ts:36:1 › ten new engines expose real events, dedicated analysis and reversible production traces
+  33 passed (6.7m)

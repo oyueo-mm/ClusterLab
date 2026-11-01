@@ -1,0 +1,23 @@
+
+Running 4 tests using 1 worker
+
+node.exe : (node:8752) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+위치 줄:1 문자:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:8752) War... env being set.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\next-platform.spec.ts:603:1 › the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab (4.8s)
+(node:45316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 2 [mobile] › tests\next-platform.spec.ts:603:1 › the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab (4.9s)
+(node:12904) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 3 [firefox] › tests\next-platform.spec.ts:603:1 › the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab (7.4s)
+(node:39620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 4 [webkit] › tests\next-platform.spec.ts:603:1 › the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab (12.5s)
+
+  4 passed (35.1s)
