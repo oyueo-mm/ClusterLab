@@ -1,14 +1,13 @@
-import { FullscreenButton } from "./lab/FullscreenButton";
+import { LabWorkspace } from "./lab/LabWorkspace";
+import { ResizeHandle, usePanelWidth } from "./lab/ResizeHandle";
+import type { CSSProperties } from "react";
 import { LabTabs } from "./lab/LabTabs";
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import {
-  Activity,
   ArrowRight,
   Check,
-  ChevronDown,
   Database,
   Download,
-  FlaskConical,
   Menu,
   MousePointer2,
   Move,
@@ -17,13 +16,11 @@ import {
   Undo2,
   Redo2,
   Search,
-  Settings2,
   Trash2,
   Upload,
   X,
 } from "lucide-react";
 import {
-  algorithms,
   algorithmDefaults,
   isPrototypeAlgorithm,
   clusterCount,
@@ -45,7 +42,6 @@ import {
   importData,
   type DataOptions,
 } from "./data/presets";
-import { algorithmFamilies } from "./data/algorithmFamilies";
 import {
   registry,
   supportsLegacyPoints,
@@ -97,7 +93,10 @@ export default function App() {
   const [page, setPage] = useState<Page>(initialPage),
     [collapsed, setCollapsed] = useState(() => {
       try {
-        return localStorage.getItem("clusterlab:sidebar") === "true";
+        const saved = localStorage.getItem("clusterlab:sidebar");
+        return saved === null
+          ? ["lab", "structured"].includes(initialPage())
+          : saved === "true";
       } catch {
         return false;
       }
@@ -114,9 +113,7 @@ export default function App() {
     [selection, setSelection] = useState<number[]>([]),
     [label, setLabel] = useState(0),
     [query, setQuery] = useState(""),
-    [algorithmQuery, setAlgorithmQuery] = useState(""),
     [notice, setNotice] = useState(""),
-    [settingsOpen, setSettingsOpen] = useState(false),
     [guideAlgorithm, setGuideAlgorithm] = useState<Algorithm>("K-Means"),
     [guideEvent, setGuideEvent] = useState<EventKind | null>(null),
     [compareAlgorithms, setCompareAlgorithms] = useState<Algorithm[]>([
@@ -143,12 +140,35 @@ export default function App() {
   useEffect(() => {
     writePreference(`params:${algorithm}`, params);
   }, [algorithm, params]);
-  const [labTab, setLabTab] = useState(() =>
-      readPreference("panel-tab", "settings"),
-    ),
-    [panelOpen, setPanelOpen] = useState(() =>
-      readPreference("panel-open", true),
-    );
+  const [labTab, setLabTab] = useState("settings");
+  const [dataEditing, setDataEditing] = useState(false);
+  const [navHidden, setNavHidden] = useState(() =>
+    readPreference("nav-hidden", false),
+  );
+  const [focused, setFocused] = useState(false);
+  const [navWidth, setNavWidth] = usePanelWidth("nav-width", 222, 180, 380);
+  const isLab = page === "lab" || page === "structured";
+  useEffect(() => {
+    const toggle = () => {
+      if (matchMedia("(max-width: 800px)").matches) setMobileNav((v) => !v);
+      else if (focused) setFocused(false);
+      else if (navHidden) {
+        setNavHidden(false);
+        setCollapsed(false);
+      } else if (collapsed) setNavHidden(true);
+      else setCollapsed(true);
+    };
+    const focus = (e: Event) => setFocused((e as CustomEvent<boolean>).detail);
+    window.addEventListener("clusterlab:navigation", toggle);
+    window.addEventListener("clusterlab:focus", focus);
+    return () => {
+      window.removeEventListener("clusterlab:navigation", toggle);
+      window.removeEventListener("clusterlab:focus", focus);
+    };
+  }, [focused, navHidden, collapsed]);
+  useEffect(() => {
+    writePreference("nav-hidden", navHidden);
+  }, [navHidden]);
   const [modernCompare, setModernCompare] = useState(
     () => location.hash !== "#compare",
   );
@@ -156,10 +176,6 @@ export default function App() {
     algorithms: Algorithm[];
     data: Dataset;
   }>();
-  useEffect(() => {
-    writePreference("panel-tab", labTab);
-    writePreference("panel-open", panelOpen);
-  }, [labTab, panelOpen]);
   useEffect(() => {
     try {
       localStorage.setItem("clusterlab:sidebar", String(collapsed));
@@ -213,7 +229,7 @@ export default function App() {
     setSelection([]);
   };
   useEffect(() => {
-    if (page !== "data" && !(page === "lab" && labTab === "data")) return;
+    if (page !== "data" && !(page === "lab" && dataEditing)) return;
     const handler = (e: KeyboardEvent) => {
       const target = e.target;
       if (
@@ -233,7 +249,7 @@ export default function App() {
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [page, labTab, undo, redo]);
+  }, [page, dataEditing, undo, redo]);
   const setPoints = (next: Point[]) => {
     ownPoints();
     editor.commit({ ...editor.value, points: next, preset: "" });
@@ -321,7 +337,40 @@ export default function App() {
     setSelection([]);
     return true;
   }
-  const changeAlgorithm = (a: Algorithm) => {
+  const changeAlgorithm = (a: Algorithm, source?: Dataset) => {
+    if (source && !structuredAlgorithms.some((id) => id === a)) {
+      if (
+        source.kind === "numeric" &&
+        source.values.every((row) => row.length === 2)
+      ) {
+        ownPoints();
+        editor.commit({
+          points: source.values.map((row, i) => ({
+            x: row[0],
+            y: row[1],
+            ...(source.labels?.[i] === undefined
+              ? {}
+              : { label: source.labels[i] }),
+          })),
+          preset: "",
+          options: dataOptions,
+        });
+      } else {
+        setNotice(
+          `${source.kind} 원본은 이 2D 실험실로 변환할 수 없어 원본 편집 기록에 보존했습니다. 데이터셋 편집에서 호환되는 추천을 선택하세요.`,
+        );
+      }
+    }
+    if (
+      page === "lab" &&
+      pointsOwned.current &&
+      !supportsDataset(a, "numeric") &&
+      structuredAlgorithms.some((id) => id === a)
+    ) {
+      setNotice(
+        `${a}는 현재 수치 데이터를 지원하지 않습니다. 편집 데이터는 보존했습니다. 데이터셋 편집에서 호환되는 추천을 선택하세요.`,
+      );
+    }
     const initialRecommendation = initializePoints(a);
     algorithmRef.current = a;
     setAlgorithm(a);
@@ -356,8 +405,7 @@ export default function App() {
           lab.trace.steps.length - 1,
         )
       ],
-    clusters = clusterCount(state),
-    noise = state.labels.filter((x) => x === -1).length;
+    clusters = clusterCount(state);
   const legendValues = (
     algorithm === "LVQ"
       ? [
@@ -403,7 +451,10 @@ export default function App() {
     lab.setPlaying,
   ]);
   return (
-    <div className={`app ${collapsed ? "nav-collapsed" : ""}`}>
+    <div
+      className={`app ${collapsed ? "nav-collapsed" : ""} ${isLab ? "workspace-app" : ""} ${isLab && (navHidden || focused) ? "nav-hidden" : ""}`}
+      style={{ "--nav-width": `${navWidth}px` } as CSSProperties}
+    >
       <a
         className="skip-link"
         href="#main"
@@ -419,10 +470,30 @@ export default function App() {
         category={route.filters.category}
         collapsed={collapsed}
         mobileNav={mobileNav}
-        onToggle={() => setCollapsed(!collapsed)}
+        onToggle={() => {
+          setNavHidden(false);
+          setCollapsed(!collapsed);
+        }}
         onClose={() => setMobileNav(false)}
-        go={go}
+        go={(next) => {
+          if (next === "data" && isLab) {
+            window.dispatchEvent(new Event("clusterlab:data"));
+            setMobileNav(false);
+          } else go(next);
+        }}
       />
+      {isLab && !collapsed && !navHidden && !focused && (
+        <div className="nav-resizer">
+          <ResizeHandle
+            label="탐색 사이드바 너비"
+            width={navWidth}
+            onChange={setNavWidth}
+            initial={222}
+            min={180}
+            max={380}
+          />
+        </div>
+      )}
       <div className="workspace">
         <header className="mobile-header">
           <button
@@ -515,169 +586,351 @@ export default function App() {
               }}
             />
           )}
-          <div
-            hidden={page !== "lab"}
-            className={`lab-page ${panelOpen ? "" : "panel-hidden"}`}
-          >
-            <header className="lab-header">
-              <div>
-                <small>{algorithmFamilies[algorithm]}</small>
-                <h1>
-                  {registry[algorithm].koreanName} <small>{algorithm}</small>
-                </h1>
-                <p>실제 계산과 Trace를 재생하며 원리를 관찰하세요.</p>
-              </div>
-              <div className="lab-actions">
-                <button
-                  aria-label="실험실 실행 취소"
-                  disabled={!editor.canUndo}
-                  onClick={() => restoreEditor(undo())}
-                >
-                  <Undo2 size={16} />
-                </button>
-                <button
-                  aria-label="실험실 다시 실행"
-                  disabled={!editor.canRedo}
-                  onClick={() => restoreEditor(redo())}
-                >
-                  <Redo2 size={16} />
-                </button>
-                <button onClick={() => setParams(algorithmDefaults(algorithm))}>
-                  알고리즘 초기화
-                </button>
-                <FullscreenButton />
-                <button
-                  aria-expanded={panelOpen}
-                  onClick={() => {
-                    setPanelOpen(!panelOpen);
-                    setSettingsOpen(!panelOpen);
-                  }}
-                >
-                  설정 패널 {panelOpen ? "접기" : "펼치기"}
-                </button>
-              </div>
-            </header>
-            <div className="lab-layout">
-              <section className="stage">
-                <div className="stage-heading">
-                  <div className="stage-identity">
-                    <div className="algorithm-select">
-                      <span className="algorithm-icon">
-                        <FlaskConical size={19} />
-                      </span>
+          <div hidden={page !== "lab"} className="lab-page">
+            <LabWorkspace
+              active={page === "lab"}
+              algorithm={algorithm}
+              onAlgorithmChange={changeAlgorithm}
+              onDataOpen={setDataEditing}
+              data={
+                <>
+                  {" "}
+                  <div>
+                    <div className="lab-panel-links">
+                      <button
+                        aria-label="실험실 실행 취소"
+                        disabled={!editor.canUndo}
+                        onClick={() => restoreEditor(undo())}
+                      >
+                        <Undo2 size={16} />
+                        실행 취소
+                      </button>
+                      <button
+                        aria-label="실험실 다시 실행"
+                        disabled={!editor.canRedo}
+                        onClick={() => restoreEditor(redo())}
+                      >
+                        <Redo2 size={16} />
+                        다시 실행
+                      </button>
+                    </div>
+                    <p>
+                      {points.length}개 ·{" "}
+                      {preset
+                        ? (datasetRegistry[preset]?.name ?? preset)
+                        : "사용자 데이터"}
+                    </p>
+                    <label>
+                      <Database size={14} />
                       <select
-                        aria-label="알고리즘 선택"
-                        value={algorithm}
-                        onChange={(e) =>
-                          changeAlgorithm(e.target.value as Algorithm)
+                        aria-label="실험 프리셋"
+                        value={preset}
+                        onChange={(e) => choose(e.target.value)}
+                      >
+                        {!preset && (
+                          <option value="" disabled>
+                            사용자 데이터
+                          </option>
+                        )}
+                        {preset && !presetAliases[preset] && (
+                          <option value={preset}>
+                            {datasetRegistry[preset]?.name ?? preset}
+                          </option>
+                        )}
+                        {presets.map((p) => (
+                          <option key={p[0]} value={p[0]}>
+                            {p[1]}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+
+                    <button
+                      title="시드로 데이터 재생성"
+                      aria-label="데이터 재생성"
+                      disabled={!preset}
+                      onClick={() => choose(preset)}
+                    >
+                      <RefreshCw size={14} />
+                    </button>
+
+                    <div className="lab-panel-links">
+                      <button onClick={() => go("data")}>
+                        고급 데이터 편집
+                      </button>
+                      <button onClick={() => file.current?.click()}>
+                        CSV/JSON 가져오기
+                      </button>
+                      <button
+                        onClick={() =>
+                          download(
+                            "clusterlab-data.json",
+                            exportData(points, "json"),
+                          )
                         }
                       >
-                        {algorithms
-                          .filter(
-                            (a) =>
-                              a === algorithm ||
-                              `${a} ${registry[a].koreanName} ${algorithmFamilies[a]}`
-                                .toLowerCase()
-                                .includes(algorithmQuery.toLowerCase()),
-                          )
-                          .map((a) => (
-                            <option key={a}>{a}</option>
-                          ))}
-                      </select>
-                      <span className="family-tag">
-                        {algorithmFamilies[algorithm]}
-                      </span>
+                        JSON 내보내기
+                      </button>
                     </div>
-                    <span className="visualization-description">
-                      {algorithm} 데이터 및 실제 연산 시각화
-                    </span>
-                  </div>
-                  <div className="stage-summary">
-                    <span className="point-count">{points.length} points</span>
-                    <span className={`status ${lab.playing ? "running" : ""}`}>
-                      <i />
-                      {lab.busy
-                        ? "계산 중"
-                        : lab.playing
-                          ? "재생 중"
-                          : lab.position >=
-                              (lab.trace?.steps.length ?? Infinity)
-                            ? "완료"
-                            : "준비됨"}
-                    </span>
-                    <button
-                      className="settings-toggle"
-                      aria-label="설정 열기"
-                      onClick={() => setSettingsOpen(!settingsOpen)}
-                    >
-                      <Settings2 size={17} />
-                    </button>
-                  </div>
-                </div>
-                <div className="stage-subbar">
-                  <label>
-                    <Search size={14} />
-                    <input
-                      aria-label="실험실 알고리즘 검색"
-                      placeholder="알고리즘 검색"
-                      value={algorithmQuery}
-                      onChange={(e) => setAlgorithmQuery(e.target.value)}
-                      style={{ minWidth: 0, width: 130, border: 0 }}
-                    />
-                  </label>
-                  <label>
-                    <Database size={14} />
-                    <select
-                      aria-label="실험 프리셋"
-                      value={preset}
-                      onChange={(e) => choose(e.target.value)}
-                    >
-                      {!preset && (
-                        <option value="" disabled>
-                          사용자 데이터
-                        </option>
-                      )}
-                      {preset && !presetAliases[preset] && (
-                        <option value={preset}>
-                          {datasetRegistry[preset]?.name ?? preset}
-                        </option>
-                      )}
-                      {presets.map((p) => (
-                        <option key={p[0]} value={p[0]}>
-                          {p[1]}
-                        </option>
+                    <p className="small">
+                      캔버스에서 편집합니다. 드래그·연속 추가·영역
+                      선택·확대·우클릭 이동을 지원합니다.
+                    </p>
+                    <div className="lab-panel-links">
+                      {[
+                        ["move", "점 이동"],
+                        ["add", "점 추가"],
+                        ["delete", "점 삭제"],
+                        ["select", "영역 선택"],
+                        ["pan", "화면 이동"],
+                      ].map(([id, name]) => (
+                        <button
+                          key={id}
+                          aria-pressed={tool === id}
+                          onClick={() => setTool(id)}
+                        >
+                          {name}
+                        </button>
                       ))}
-                    </select>
-                  </label>
-
+                      <button
+                        disabled={!selection.length}
+                        onClick={() =>
+                          setPoints(
+                            points.filter((_, i) => !selection.includes(i)),
+                          )
+                        }
+                      >
+                        선택 삭제
+                      </button>
+                    </div>
+                    <Recommendations
+                      key={algorithm}
+                      algorithm={algorithm}
+                      onApply={(id, data, suggested) => {
+                        if (data.kind !== "numeric" || !data.display) return;
+                        ownPoints();
+                        const options = {
+                          ...dataDefaults,
+                          seed: datasetRegistry[id].seed,
+                          count: data.display.length,
+                        };
+                        editor.commit({
+                          points: data.display,
+                          preset: id,
+                          options,
+                        });
+                        setDataOptions(options);
+                        if (suggested) setParams(suggested);
+                        setNotice(
+                          `${id} 데이터셋을 적용했습니다. 데이터 편집에서 실행 취소할 수 있습니다.`,
+                        );
+                      }}
+                    />
+                    {(
+                      [
+                        {
+                          key: "count",
+                          label: "데이터 수",
+                          min: 10,
+                          max: undefined,
+                          step: 10,
+                        },
+                        {
+                          key: "noise",
+                          label: "노이즈",
+                          min: 0,
+                          max: 0.1,
+                          step: 0.005,
+                        },
+                        {
+                          key: "spread",
+                          label: "분산 (표준편차)",
+                          min: 0.01,
+                          max: 0.2,
+                          step: 0.005,
+                        },
+                        {
+                          key: "separation",
+                          label: "군집 간 거리",
+                          min: 0.05,
+                          max: 0.4,
+                          step: 0.01,
+                        },
+                        {
+                          key: "seed",
+                          label: "난수 시드",
+                          min: 0,
+                          max: 999999,
+                          step: 1,
+                        },
+                      ] as const
+                    ).map((f) => (
+                      <label className="field" key={f.key}>
+                        <span>{f.label}</span>
+                        <input
+                          type="number"
+                          min={f.min}
+                          max={f.max}
+                          step={f.step}
+                          value={dataOptions[f.key]}
+                          onChange={(e) => {
+                            const n = +e.target.value;
+                            if (
+                              Number.isFinite(n) &&
+                              n >= f.min &&
+                              n <= (f.max ?? Infinity)
+                            )
+                              setDataOptions({ ...dataOptions, [f.key]: n });
+                          }}
+                        />
+                      </label>
+                    ))}
+                    <button
+                      className="primary full"
+                      disabled={!preset}
+                      onClick={() => choose(preset)}
+                    >
+                      <RefreshCw size={15} />
+                      현재 프리셋 다시 생성
+                    </button>
+                    <div className="file-actions">
+                      <button onClick={() => file.current?.click()}>
+                        <Upload size={14} />
+                        가져오기
+                      </button>
+                      <button
+                        onClick={() =>
+                          download(
+                            "clusterlab-data.csv",
+                            exportData(points, "csv"),
+                          )
+                        }
+                      >
+                        <Download size={14} />
+                        CSV
+                      </button>
+                      <button
+                        onClick={() =>
+                          download(
+                            "clusterlab-data.json",
+                            exportData(points, "json"),
+                          )
+                        }
+                      >
+                        JSON
+                      </button>
+                    </div>
+                    <p className="muted small">
+                      CSV: x,y,label,features
+                      <br />
+                      범주형 속성은 세미콜론으로 구분합니다.
+                      <br />
+                      라벨과 속성은 자동 생성하지 않습니다.
+                    </p>
+                    <label>
+                      새 점 클래스
+                      <input
+                        aria-label="새 점 클래스"
+                        type="number"
+                        min="0"
+                        max="9"
+                        value={label}
+                        onChange={(e) =>
+                          setLabel(Math.max(0, Math.min(9, +e.target.value)))
+                        }
+                      />
+                    </label>
+                    <button onClick={() => setPoints([])}>전체 지우기</button>
+                  </div>
+                </>
+              }
+              settings={
+                <>
+                  <LabTabs
+                    value={labTab}
+                    onChange={setLabTab}
+                    tabs={[
+                      ["settings", "설정"],
+                      ["analysis", "분석"],
+                    ]}
+                  />
                   <button
-                    title="시드로 데이터 재생성"
-                    aria-label="데이터 재생성"
-                    disabled={!preset}
-                    onClick={() => choose(preset)}
+                    onClick={() => setParams(algorithmDefaults(algorithm))}
                   >
-                    <RefreshCw size={14} />
-                  </button>
-                </div>
-                {lab.trace?.recording && (
-                  <p className="small muted" role="status">
-                    기록: {lab.trace.recording.policy} · 추정 저장량{" "}
-                    {(lab.trace.recording.estimatedBytes / 1048576).toFixed(2)}{" "}
-                    MiB
-                  </p>
-                )}
+                    알고리즘 초기화
+                  </button>{" "}
+                  <div hidden={labTab !== "settings"}>
+                    <Settings
+                      algorithm={algorithm}
+                      value={params}
+                      onChange={setParams}
+                    />
+                  </div>
+                  {labTab === "analysis" && (
+                    <Analysis
+                      algorithm={algorithm}
+                      state={state}
+                      points={points}
+                      next={nextState}
+                      progress={lab.position - stepIndex}
+                    />
+                  )}
+                </>
+              }
+              details={
+                <>
+                  {" "}
+                  <LabDetails
+                    algorithm={algorithm}
+                    onSelect={changeAlgorithm}
+                    onExperiment={(
+                      a,
+                      presetId,
+                      event,
+                      experimentParams,
+                      input,
+                    ) => {
+                      changeAlgorithm(a);
+                      if (input) {
+                        setStructuredRequest({
+                          algorithm: a,
+                          data: input,
+                          params: experimentParams,
+                          event,
+                        });
+                        go("structured");
+                        return;
+                      }
+                      if (experimentParams) setParams(experimentParams);
+                      if (presetId) choose(presetId);
+                      setGuideEvent(event ?? null);
+                    }}
+                    onCompare={(pair, presetId) => {
+                      setCompareAlgorithms([...pair, "GMM", "AGNES"]);
+                      setCompareCount(2);
+                      choose(presetId);
+                      location.hash = "#compare";
+                      setPage("compare");
+                    }}
+                  />
+                </>
+              }
+            >
+              <section className="stage">
+                {" "}
                 {lab.error && (
                   <div className="error" role="alert">
                     {lab.error}
                   </div>
                 )}
                 <Canvas
+                  active={page === "lab"}
                   algorithm={algorithm}
                   points={points}
                   trace={lab.traceIsCurrent ? lab.trace : null}
                   position={lab.position}
                   clock={lab.clock}
-                  edit={labTab === "data"}
+                  edit={dataEditing}
                   tool={tool}
                   selected={selection}
                   onSelect={setSelection}
@@ -685,6 +938,16 @@ export default function App() {
                   label={label}
                 />
                 <div className="canvas-legend">
+                  <span className="point-count">{points.length} points</span>
+                  <span className="status">
+                    {lab.busy
+                      ? "계산 중"
+                      : lab.playing
+                        ? "재생 중"
+                        : lab.position >= (lab.trace?.steps.length ?? Infinity)
+                          ? "완료"
+                          : "준비됨"}
+                  </span>
                   {legendValues.map((value) => (
                     <span key={value}>
                       <i
@@ -727,175 +990,8 @@ export default function App() {
                     {activeStep?.kind ?? "ready"}
                   </span>
                 </div>
-                <details className="analysis-panel">
-                  <summary>
-                    <span>
-                      <Activity size={16} /> 분석 및 내부 구조
-                    </span>
-                    <span>
-                      연산 {lab.trace?.elapsed.toFixed(1) ?? "—"} ms{" "}
-                      <ChevronDown size={15} />
-                    </span>
-                  </summary>
-                  <div className="stat-row">
-                    <div>
-                      <small>
-                        {isPrototypeAlgorithm(algorithm)
-                          ? "사용된 BMU"
-                          : "현재 군집"}
-                      </small>
-                      <b>{clusters}</b>
-                    </div>
-                    <div>
-                      <small>{registry[algorithm].unassignedLabel}</small>
-                      <b>
-                        {noise} <em>/{points.length}</em>
-                      </b>
-                    </div>
-                    <div>
-                      <small>기록된 이벤트</small>
-                      <b>{lab.trace?.steps.length ?? 0}</b>
-                    </div>
-                  </div>
-                  <Analysis
-                    algorithm={algorithm}
-                    state={state}
-                    points={points}
-                    next={nextState}
-                    progress={lab.position - stepIndex}
-                  />
-                </details>
               </section>
-              <aside
-                className={`settings-panel ${settingsOpen ? "sheet-open" : ""}`}
-              >
-                <button
-                  className="sheet-close"
-                  aria-label="설정 닫기"
-                  onClick={() => setSettingsOpen(false)}
-                >
-                  <X size={18} />
-                </button>
-                <LabTabs value={labTab} onChange={setLabTab} />
-                <div hidden={labTab !== "data"}>
-                  <div className="lab-panel-links">
-                    <button onClick={() => go("data")}>고급 데이터 편집</button>
-                    <button onClick={() => file.current?.click()}>
-                      CSV/JSON 가져오기
-                    </button>
-                    <button
-                      onClick={() =>
-                        download(
-                          "clusterlab-data.json",
-                          exportData(points, "json"),
-                        )
-                      }
-                    >
-                      JSON 내보내기
-                    </button>
-                  </div>
-                  <p className="small">
-                    캔버스에서 편집합니다. 드래그·연속 추가·영역
-                    선택·확대·우클릭 이동을 지원합니다.
-                  </p>
-                  <div className="lab-panel-links">
-                    {[
-                      ["move", "점 이동"],
-                      ["add", "점 추가"],
-                      ["delete", "점 삭제"],
-                      ["select", "영역 선택"],
-                      ["pan", "화면 이동"],
-                    ].map(([id, name]) => (
-                      <button
-                        key={id}
-                        aria-pressed={tool === id}
-                        onClick={() => setTool(id)}
-                      >
-                        {name}
-                      </button>
-                    ))}
-                    <button
-                      disabled={!selection.length}
-                      onClick={() =>
-                        setPoints(
-                          points.filter((_, i) => !selection.includes(i)),
-                        )
-                      }
-                    >
-                      선택 삭제
-                    </button>
-                  </div>
-                  <Recommendations
-                    key={algorithm}
-                    algorithm={algorithm}
-                    onApply={(id, data, suggested) => {
-                      if (data.kind !== "numeric" || !data.display) return;
-                      ownPoints();
-                      const options = {
-                        ...dataDefaults,
-                        seed: datasetRegistry[id].seed,
-                        count: data.display.length,
-                      };
-                      editor.commit({
-                        points: data.display,
-                        preset: id,
-                        options,
-                      });
-                      setDataOptions(options);
-                      if (suggested) setParams(suggested);
-                      setNotice(
-                        `${id} 데이터셋을 적용했습니다. 데이터 편집에서 실행 취소할 수 있습니다.`,
-                      );
-                    }}
-                  />
-                </div>
-                <div hidden={labTab !== "settings"}>
-                  <Settings
-                    algorithm={algorithm}
-                    value={params}
-                    onChange={setParams}
-                  />
-                </div>
-                {labTab === "analysis" && (
-                  <Analysis
-                    algorithm={algorithm}
-                    state={state}
-                    points={points}
-                    next={nextState}
-                    progress={lab.position - stepIndex}
-                  />
-                )}
-              </aside>
-            </div>
-            {page === "lab" && (
-              <LabDetails
-                algorithm={algorithm}
-                onSelect={changeAlgorithm}
-                onExperiment={(a, presetId, event, experimentParams, input) => {
-                  changeAlgorithm(a);
-                  if (input) {
-                    setStructuredRequest({
-                      algorithm: a,
-                      data: input,
-                      params: experimentParams,
-                      event,
-                    });
-                    go("structured");
-                    return;
-                  }
-                  if (experimentParams) setParams(experimentParams);
-                  if (presetId) choose(presetId);
-                  setGuideEvent(event ?? null);
-                }}
-                onCompare={(pair, presetId) => {
-                  setCompareAlgorithms([...pair, "GMM", "AGNES"]);
-                  setCompareCount(2);
-                  choose(presetId);
-                  location.hash = "#compare";
-                  setPage("compare");
-                }}
-              />
-            )}
+            </LabWorkspace>
           </div>
           {page === "data" && (
             <div className="data-page">

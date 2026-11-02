@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Maximize, Minimize } from "lucide-react";
 export function FullscreenButton() {
   const ref = useRef<HTMLButtonElement>(null);
   const [expanded, setExpanded] = useState(false);
@@ -28,6 +29,8 @@ export function FullscreenButton() {
   return (
     <button
       ref={ref}
+      title={expanded ? "전체 화면 종료" : "전체 화면"}
+      aria-label={expanded ? "전체 화면 종료" : "전체 화면"}
       onClick={async () => {
         const root = ref.current!.closest<HTMLElement>(
           ".lab-page,.structured-page",
@@ -50,7 +53,7 @@ export function FullscreenButton() {
         }
       }}
     >
-      {expanded ? "전체 화면 종료" : "전체 화면"}
+      {expanded ? <Minimize size={18} /> : <Maximize size={18} />}
     </button>
   );
 }

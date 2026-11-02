@@ -15,6 +15,7 @@ import {
   ChartNoAxesCombined,
   Brain,
   Timer,
+  Database,
 } from "lucide-react";
 import { categories, categoryCount } from "../navigation/categories";
 import type { Page } from "../router";
@@ -126,6 +127,7 @@ export function Sidebar({
             { id: "home", label: "홈", icon: Home },
             { id: "catalog", label: "알고리즘 도감", icon: Search },
             { id: "compare", label: "알고리즘 비교", icon: GitCompareArrows },
+            { id: "data", label: "데이터셋 편집", icon: Database },
           ].map((p) => (
             <button
               key={p.id}

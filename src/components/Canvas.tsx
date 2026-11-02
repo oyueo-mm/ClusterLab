@@ -107,8 +107,6 @@ export function Canvas(props: Props) {
       if (w && (w !== rect.width || h !== rect.height)) cancelInput();
       w = rect.width;
       h = rect.height;
-      canvas.width = w * devicePixelRatio;
-      canvas.height = h * devicePixelRatio;
     });
     observer.observe(canvas);
     const tick = (now: number) => {
@@ -125,6 +123,13 @@ export function Canvas(props: Props) {
         points = preview.current ?? p.points,
         position = p.clock?.current ?? p.position,
         index = Math.floor(position);
+      // Apply size changes once per animation frame, including display DPR changes.
+      const pixelWidth = Math.round(w * devicePixelRatio),
+        pixelHeight = Math.round(h * devicePixelRatio);
+      if (canvas.width !== pixelWidth || canvas.height !== pixelHeight) {
+        canvas.width = pixelWidth;
+        canvas.height = pixelHeight;
+      }
       if (
         !cache ||
         cache.trace !== p.trace ||
@@ -172,10 +177,17 @@ export function Canvas(props: Props) {
     const wheel = (e: WheelEvent) => {
       e.preventDefault();
       cancelInput();
+      const previous = view.current.zoom;
       view.current.zoom = Math.max(
         0.5,
         Math.min(6, view.current.zoom * Math.exp(-e.deltaY * 0.001)),
       );
+      const rect = canvas.getBoundingClientRect(),
+        ratio = view.current.zoom / previous;
+      const x = e.clientX - rect.left - w / 2,
+        y = e.clientY - rect.top - h / 2;
+      view.current.panX = x - (x - view.current.panX) * ratio;
+      view.current.panY = y - (y - view.current.panY) * ratio;
     };
     canvas.addEventListener("wheel", wheel, { passive: false });
     return () => {
@@ -201,14 +213,11 @@ export function Canvas(props: Props) {
         role="img"
         data-gesture="idle"
         onContextMenu={(e) => {
-          if (props.edit) e.preventDefault();
+          e.preventDefault();
         }}
         onPointerDown={(e) => {
           const right =
-            props.edit &&
-            e.pointerType === "mouse" &&
-            e.button === 2 &&
-            e.buttons === 2;
+            e.pointerType === "mouse" && e.button === 2 && e.buttons === 2;
           if (
             !right &&
             (e.button !== 0 || (e.pointerType === "mouse" && e.buttons !== 1))

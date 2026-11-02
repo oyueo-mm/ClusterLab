@@ -1,4 +1,4 @@
-import { FullscreenButton } from "../lab/FullscreenButton";
+import { LabWorkspace } from "../lab/LabWorkspace";
 import { LabTabs } from "../lab/LabTabs";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -105,7 +105,7 @@ export default function StructuredLab({
   initialData?: Dataset;
   initialParams?: ReturnType<typeof algorithmDefaults>;
   initialEvent?: EventKind;
-  onAlgorithmChange?: (algorithm: Algorithm) => void;
+  onAlgorithmChange?: (algorithm: Algorithm, source?: Dataset) => void;
   onCompare?: (pair: [Algorithm, Algorithm], data: Dataset) => void;
 }) {
   const requestedAlgorithm =
@@ -143,10 +143,6 @@ export default function StructuredLab({
   const [tab, setTab] = useState(() =>
     initialEvent ? "analysis" : readPreference("structured-tab", "settings"),
   );
-  const [panelOpen, setPanelOpen] = useState(() =>
-    readPreference("structured-panel", true),
-  );
-  const [sheetOpen, setSheetOpen] = useState(!!initialEvent);
   const [requestedEvent, setRequestedEvent] = useState(initialEvent);
   const dataRequest = useRef(initialData);
   useEffect(() => {
@@ -204,8 +200,7 @@ export default function StructuredLab({
   }, [history, restored]);
   useEffect(() => {
     writePreference("structured-tab", tab);
-    writePreference("structured-panel", panelOpen);
-  }, [tab, panelOpen]);
+  }, [tab]);
   const data = history.present;
   const [text, setText] = useState(() => exportDataset(data));
   const [algorithm, setAlgorithm] = useState<Algorithm>(() =>
@@ -389,118 +384,468 @@ export default function StructuredLab({
   }, [autoFeed, data, lab.busy]);
   return (
     <div
-      className={`structured-page ${panelOpen ? "" : "panel-hidden"} ${legacyLayout ? "legacy-structured" : ""}`}
+      className={`structured-page ${legacyLayout ? "legacy-structured" : ""}`}
     >
-      <header className="lab-header">
-        <div>
-          <small>{registry[algorithm].family}</small>
-          <h1>
-            {registry[algorithm].koreanName} <small>{algorithm}</small>
-          </h1>
-        </div>
-        <div className="lab-actions">
-          <button onClick={() => setParams(algorithmDefaults(algorithm))}>
-            알고리즘 초기화
-          </button>
-          <FullscreenButton />
-          <button
-            aria-expanded={panelOpen}
-            onClick={() => {
-              setPanelOpen(!panelOpen);
-              setSheetOpen(!panelOpen);
-            }}
-          >
-            설정 패널 {panelOpen ? "접기" : "펼치기"}
-          </button>
-          <button
-            className="structured-sheet-toggle"
-            onClick={() => {
-              setSheetOpen(true);
-              setPanelOpen(true);
-            }}
-          >
-            설정·데이터·분석 열기
-          </button>
-        </div>
-      </header>
-      {storageError && <p role="status">{storageError}</p>}
-      {!supportsDataset(algorithm, data.kind) && (
-        <p role="alert">
-          현재 {data.kind} 원본은 {algorithm}에서 지원하지 않습니다. 편집
-          데이터는 보존했습니다. 데이터 탭에서 호환되는 추천을 적용하세요.
-        </p>
-      )}
-      <p>
-        전체 원본 특성과 관계로 계산합니다. 표시 축을 바꿔도 원본 계산은 바뀌지
-        않습니다.
-      </p>
-      <div className="structured-layout">
-        <section className="stage">
-          <div className="stage-heading">
-            <label>
-              알고리즘
-              <select
-                aria-label="다중 데이터 알고리즘"
-                value={algorithm}
-                onChange={(e) => choose(e.target.value as Algorithm)}
-              >
-                {structuredAlgorithms.map((a) => (
-                  <option key={a} disabled={!supportsDataset(a, data.kind)}>
-                    {a}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <span className="family-tag">{registry[algorithm].koreanName}</span>
-          </div>
-          <div className="structured-provenance" role="status">
-            전체 {points.length}개{" "}
-            {data.kind === "constrained"
-              ? `· 원본 ${data.data.values[0].length}차원 · ML ${data.mustLink.length}/CL ${data.cannotLink.length}`
-              : data.kind === "numeric" || data.kind === "categorical"
-                ? `· 원본 ${data.values[0].length}차원`
-                : data.kind === "mixed"
-                  ? `· 수치 ${data.numeric[0].length} + 범주 ${data.categorical[0].length}차원`
-                  : data.kind === "graph"
-                    ? `· 실제 그래프 간선 ${data.edges.length}개`
-                    : data.kind === "stream"
-                      ? `· 실제 시각 ${data.samples[0].time}–${data.samples.at(-1)!.time} · 원본 ${data.samples[0].values.length}차원`
-                      : data.kind === "matrix"
-                        ? `· 원본 ${data.values.length}행×${data.values[0].length}열`
-                        : "· 실제 시간축"}{" "}
-            · 표시 좌표와 계산 데이터 분리
-          </div>
-          {data.kind === "numeric" && (
-            <div className="matrix-controls">
-              {[0, 1].map((j) => (
-                <label key={j}>
-                  {j === 0 ? "표시 X 축" : "표시 Y 축"}
-                  <input
-                    aria-label={j === 0 ? "표시 X 차원" : "표시 Y 차원"}
-                    type="number"
-                    min={1}
-                    max={data.values[0].length}
-                    value={axes[j] + 1}
+      <LabWorkspace
+        algorithm={algorithm}
+        onAlgorithmChange={(a) => {
+          if (structuredAlgorithms.some((id) => id === a)) choose(a);
+          else onAlgorithmChange?.(a, data);
+        }}
+        data={
+          <>
+            {" "}
+            <div className="structured-controls">
+              {" "}
+              <div className="structured-provenance" role="status">
+                전체 {points.length}개{" "}
+                {data.kind === "constrained"
+                  ? `· 원본 ${data.data.values[0].length}차원 · ML ${data.mustLink.length}/CL ${data.cannotLink.length}`
+                  : data.kind === "numeric" || data.kind === "categorical"
+                    ? `· 원본 ${data.values[0].length}차원`
+                    : data.kind === "mixed"
+                      ? `· 수치 ${data.numeric[0].length} + 범주 ${data.categorical[0].length}차원`
+                      : data.kind === "graph"
+                        ? `· 실제 그래프 간선 ${data.edges.length}개`
+                        : data.kind === "stream"
+                          ? `· 실제 시각 ${data.samples[0].time}–${data.samples.at(-1)!.time} · 원본 ${data.samples[0].values.length}차원`
+                          : data.kind === "matrix"
+                            ? `· 원본 ${data.values.length}행×${data.values[0].length}열`
+                            : "· 실제 시간축"}{" "}
+                · 표시 좌표와 계산 데이터 분리
+              </div>
+              {data.kind === "numeric" && (
+                <div className="matrix-controls">
+                  {[0, 1].map((j) => (
+                    <label key={j}>
+                      {j === 0 ? "표시 X 축" : "표시 Y 축"}
+                      <input
+                        aria-label={j === 0 ? "표시 X 차원" : "표시 Y 차원"}
+                        type="number"
+                        min={1}
+                        max={data.values[0].length}
+                        value={axes[j] + 1}
+                        onChange={(e) =>
+                          setAxes(
+                            (old) =>
+                              old.map((x, k) =>
+                                k === j
+                                  ? Math.max(
+                                      0,
+                                      Math.min(
+                                        data.values[0].length - 1,
+                                        Math.trunc(+e.target.value || 1) - 1,
+                                      ),
+                                    )
+                                  : x,
+                              ) as [number, number],
+                          )
+                        }
+                      />
+                    </label>
+                  ))}
+                </div>
+              )}
+              <Recommendations
+                key={algorithm}
+                algorithm={algorithm}
+                onApply={(id, input, suggested) => {
+                  apply(input);
+                  if (suggested) setParams(suggested);
+                  setError("");
+                  setStorageError(
+                    `${id} 데이터셋을 적용했습니다. 되돌리기로 이전 원본을 복원할 수 있습니다.`,
+                  );
+                }}
+              />
+              <h2>원본 데이터</h2>
+              <div className="structured-examples">
+                <button
+                  aria-label="다중 데이터 Undo"
+                  disabled={!history.past.length}
+                  onClick={() => restore(true)}
+                >
+                  되돌리기
+                </button>
+                <button
+                  aria-label="다중 데이터 Redo"
+                  disabled={!history.future.length}
+                  onClick={() => restore(false)}
+                >
+                  다시하기
+                </button>
+              </div>
+              <div className="structured-examples">
+                <button onClick={() => apply(numericExample)}>
+                  3차원 수치 예제
+                </button>
+                <button onClick={() => apply(graphExample)}>
+                  가중 그래프 예제
+                </button>
+                <button
+                  onClick={() =>
+                    apply(makeStructuredPreset("categorical", 12, 3, 42))
+                  }
+                >
+                  범주형 예제
+                </button>
+                <button
+                  onClick={() =>
+                    apply(makeStructuredPreset("mixed", 12, 2, 42))
+                  }
+                >
+                  혼합형 예제
+                </button>
+                <button
+                  onClick={() =>
+                    apply(makeStructuredPreset("graph", 12, 3, 42))
+                  }
+                >
+                  연결 커뮤니티 예제
+                </button>
+                <button
+                  onClick={() =>
+                    apply(makeStructuredPreset("stream", 48, 3, 42))
+                  }
+                >
+                  개념 드리프트 스트림
+                </button>
+                <button
+                  onClick={() =>
+                    apply(makeStructuredPreset("matrix", 12, 8, 42))
+                  }
+                >
+                  이중군집 행렬 예제
+                </button>
+                <button
+                  onClick={() =>
+                    apply(makeStructuredPreset("timeseries", 12, 3, 42))
+                  }
+                >
+                  시계열 형태 예제
+                </button>
+                <button
+                  onClick={() =>
+                    apply(makeExperimentPreset("constrained", 12, 3, 42))
+                  }
+                >
+                  하드 제약 예제
+                </button>
+                <button
+                  onClick={() => {
+                    apply(makeExperimentPreset("bernoulli", 24, 3, 42));
+                    choose("Bernoulli Mixture");
+                  }}
+                >
+                  이진 응답 예제
+                </button>
+                <button
+                  onClick={() => {
+                    apply(makeExperimentPreset("poisson", 24, 3, 42));
+                    choose("Poisson Mixture");
+                  }}
+                >
+                  포아송 카운트 예제
+                </button>
+                <button
+                  onClick={() => {
+                    apply(makeExperimentPreset("multinomial", 24, 3, 42));
+                    choose("Multinomial Mixture");
+                  }}
+                >
+                  다항 카운트 예제
+                </button>
+              </div>
+              <p className="small">
+                {data.kind === "numeric"
+                  ? "모든 원본 특성으로 계산하며 표시 축은 별도입니다. 이산 혼합모델은 실제 이진 응답·카운트 예제를 사용하세요."
+                  : data.kind === "categorical"
+                    ? "화면 좌표는 선택한 범주 토큰의 표시 배치입니다. 범주를 수치 거리로 계산하지 않습니다."
+                    : data.kind === "mixed"
+                      ? "점 좌표는 수치 특성 표시이며 실제 계산에는 범주 특성도 포함됩니다."
+                      : data.kind === "stream"
+                        ? "시각과 원본 특성으로 online CF를 계산합니다. 화면은 첫 두 특성입니다."
+                        : "원본 관계와 화면 좌표를 구분합니다."}
+              </p>
+              {data.kind === "constrained" ? (
+                <ConstraintEditor
+                  data={data}
+                  onChange={apply}
+                  onError={setError}
+                />
+              ) : (
+                <DatasetEditor
+                  data={data}
+                  onChange={apply}
+                  onError={setError}
+                />
+              )}
+              {data.kind === "stream" && (
+                <div className="structured-stream-controls">
+                  <button onClick={() => setAutoFeed((v) => !v)}>
+                    {autoFeed ? "유입 일시정지" : "유입 시작"}
+                  </button>
+                  <p className="small">
+                    추가 관측을 실제 시각에 유입합니다. 이 화면은 재현 가능한
+                    전체 prefix를 Worker에서 재계산하며, DenStreamModel 자체는
+                    이전 관측을 보관하지 않는 증분 CF 엔진입니다.
+                  </p>
+                </div>
+              )}
+              <details>
+                <summary>시드 데이터 생성</summary>
+                <label>
+                  데이터 유형{" "}
+                  <select
+                    aria-label="다중 생성 유형"
+                    value={generator.kind}
                     onChange={(e) =>
-                      setAxes(
-                        (old) =>
-                          old.map((x, k) =>
-                            k === j
-                              ? Math.max(
-                                  0,
-                                  Math.min(
-                                    data.values[0].length - 1,
-                                    Math.trunc(+e.target.value || 1) - 1,
-                                  ),
-                                )
-                              : x,
-                          ) as [number, number],
-                      )
+                      setGenerator({
+                        ...generator,
+                        kind: e.target.value as ExperimentPreset,
+                      })
+                    }
+                  >
+                    {[
+                      "numeric",
+                      "categorical",
+                      "mixed",
+                      "graph",
+                      "stream",
+                      "matrix",
+                      "timeseries",
+                      "constrained",
+                      "bernoulli",
+                      "poisson",
+                      "multinomial",
+                    ].map((k) => (
+                      <option key={k}>{k}</option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  개수{" "}
+                  <input
+                    aria-label="다중 생성 개수"
+                    type="number"
+                    min={2}
+                    value={generator.count}
+                    onChange={(e) =>
+                      setGenerator({ ...generator, count: +e.target.value })
                     }
                   />
                 </label>
-              ))}
+                <label>
+                  차원{" "}
+                  <input
+                    aria-label="다중 생성 차원"
+                    type="number"
+                    min={1}
+                    value={generator.dimensions}
+                    onChange={(e) =>
+                      setGenerator({
+                        ...generator,
+                        dimensions: +e.target.value,
+                      })
+                    }
+                  />
+                </label>
+                <label>
+                  시드{" "}
+                  <input
+                    aria-label="다중 생성 시드"
+                    type="number"
+                    value={generator.seed}
+                    onChange={(e) =>
+                      setGenerator({ ...generator, seed: +e.target.value })
+                    }
+                  />
+                </label>
+                <button
+                  onClick={() => {
+                    try {
+                      apply(
+                        makeExperimentPreset(
+                          generator.kind,
+                          generator.count,
+                          generator.dimensions,
+                          generator.seed,
+                        ),
+                      );
+                    } catch (e) {
+                      setError(e instanceof Error ? e.message : String(e));
+                    }
+                  }}
+                >
+                  원본 생성
+                </button>
+              </details>
+              <label>
+                JSON 원본 편집
+                <textarea
+                  aria-label="원본 데이터 JSON"
+                  rows={14}
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                  spellCheck={false}
+                />
+              </label>
+              <button
+                className="primary"
+                onClick={() => {
+                  try {
+                    apply(importDataset(text));
+                  } catch (e) {
+                    setError(e instanceof Error ? e.message : String(e));
+                  }
+                }}
+              >
+                데이터 적용
+              </button>
+              <label className="field">
+                데이터 JSON 가져오기
+                <input
+                  aria-label="다중 데이터 파일"
+                  type="file"
+                  accept=".json"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (!file) return;
+                    try {
+                      if (file.size * 6 > DEFAULT_WORKING_BYTES)
+                        throw new Error(
+                          "파일 파싱의 추정 메모리 예산을 초과합니다.",
+                        );
+                      const value = importDataset(await file.text());
+                      apply(value);
+                    } catch (ex) {
+                      setError(ex instanceof Error ? ex.message : String(ex));
+                    }
+                    e.target.value = "";
+                  }}
+                />
+              </label>
+              <button
+                onClick={() =>
+                  download(
+                    "clusterlab-dataset.json",
+                    JSON.parse(exportDataset(data)),
+                  )
+                }
+              >
+                원본 JSON 내보내기
+              </button>
+              <button
+                disabled={!lab.traceIsCurrent}
+                onClick={() => {
+                  if (lab.trace)
+                    download("clusterlab-result.json", {
+                      algorithm,
+                      params,
+                      input: data,
+                      inputKind: data.kind,
+                      computedRows: points.length,
+                      sourceDimensions:
+                        data.kind === "numeric" ||
+                        data.kind === "categorical" ||
+                        data.kind === "matrix"
+                          ? data.values[0].length
+                          : data.kind === "mixed"
+                            ? data.numeric[0].length +
+                              data.categorical[0].length
+                            : data.kind === "stream"
+                              ? data.samples[0].values.length
+                              : data.kind === "timeseries"
+                                ? data.series[0].values.length
+                                : data.kind === "constrained"
+                                  ? data.data.values[0].length
+                                  : undefined,
+                      state: stateAt(lab.trace, lab.trace.steps.length),
+                      output: nativeResult(
+                        stateAt(lab.trace, lab.trace.steps.length),
+                      ),
+                    });
+                }}
+              >
+                전체 계산 결과 내보내기
+              </button>
             </div>
+          </>
+        }
+        settings={
+          <>
+            <LabTabs
+              value={tab}
+              onChange={setTab}
+              tabs={[
+                ["settings", "설정"],
+                ["analysis", "분석"],
+              ]}
+            />
+            <button onClick={() => setParams(algorithmDefaults(algorithm))}>
+              알고리즘 초기화
+            </button>{" "}
+            <div hidden={tab !== "settings"}>
+              <h2>파라미터</h2>
+              <Settings
+                algorithm={algorithm}
+                value={params}
+                onChange={setParams}
+              />
+              <p className="small">
+                작업 공간 추정 {(estimate.workingBytes / 1048576).toFixed(1)}{" "}
+                MiB · 원본 특성 저장 공간과 전송 복사는 별도입니다.
+              </p>
+              <p className="small">
+                지원하는 원본 유형과 맞는 엔진만 선택할 수 있습니다. 입력을 표시
+                좌표로 바꿔 계산하지 않습니다.
+              </p>
+            </div>
+            {tab === "analysis" && (
+              <>
+                <Analysis
+                  algorithm={algorithm}
+                  state={state}
+                  next={next}
+                  points={points}
+                  progress={lab.position - index}
+                />
+              </>
+            )}
+          </>
+        }
+        details={
+          <>
+            {" "}
+            <LabDetails
+              algorithm={algorithm}
+              onSelect={choose}
+              onExperiment={(a, _preset, event, nextParams, input) => {
+                choose(a);
+                if (input) apply(input);
+                if (nextParams) setParams(nextParams);
+                soughtGuideEvent.current = false;
+                setRequestedEvent(event);
+                if (event) {
+                  setTab("analysis");
+                }
+              }}
+              onCompare={(pair) => {
+                if (onCompare) onCompare(pair, data);
+                else location.hash = "#/compare";
+              }}
+            />
+          </>
+        }
+      >
+        <section className="stage">
+          {" "}
+          {storageError && <p role="status">{storageError}</p>}
+          {!supportsDataset(algorithm, data.kind) && (
+            <p role="alert">
+              현재 {data.kind} 원본은 {algorithm}에서 지원하지 않습니다. 편집
+              데이터는 보존했습니다. 데이터 탭에서 호환되는 추천을 적용하세요.
+            </p>
           )}
           {(error || lab.error) && (
             <p className="error" role="alert">
@@ -547,374 +892,7 @@ export default function StructuredLab({
             </p>
           )}
         </section>
-        <aside
-          className={`panel structured-controls ${sheetOpen ? "sheet-open" : ""}`}
-        >
-          <button
-            className="sheet-close"
-            aria-label="설정 닫기"
-            onClick={() => setSheetOpen(false)}
-          >
-            닫기
-          </button>
-          <LabTabs value={tab} onChange={setTab} />
-          <div hidden={!legacyLayout && tab !== "data"}>
-            <Recommendations
-              key={algorithm}
-              algorithm={algorithm}
-              onApply={(id, input, suggested) => {
-                apply(input);
-                if (suggested) setParams(suggested);
-                setError("");
-                setStorageError(
-                  `${id} 데이터셋을 적용했습니다. 되돌리기로 이전 원본을 복원할 수 있습니다.`,
-                );
-              }}
-            />
-            <h2>원본 데이터</h2>
-            <div className="structured-examples">
-              <button
-                aria-label="다중 데이터 Undo"
-                disabled={!history.past.length}
-                onClick={() => restore(true)}
-              >
-                되돌리기
-              </button>
-              <button
-                aria-label="다중 데이터 Redo"
-                disabled={!history.future.length}
-                onClick={() => restore(false)}
-              >
-                다시하기
-              </button>
-            </div>
-            <div className="structured-examples">
-              <button onClick={() => apply(numericExample)}>
-                3차원 수치 예제
-              </button>
-              <button onClick={() => apply(graphExample)}>
-                가중 그래프 예제
-              </button>
-              <button
-                onClick={() =>
-                  apply(makeStructuredPreset("categorical", 12, 3, 42))
-                }
-              >
-                범주형 예제
-              </button>
-              <button
-                onClick={() => apply(makeStructuredPreset("mixed", 12, 2, 42))}
-              >
-                혼합형 예제
-              </button>
-              <button
-                onClick={() => apply(makeStructuredPreset("graph", 12, 3, 42))}
-              >
-                연결 커뮤니티 예제
-              </button>
-              <button
-                onClick={() => apply(makeStructuredPreset("stream", 48, 3, 42))}
-              >
-                개념 드리프트 스트림
-              </button>
-              <button
-                onClick={() => apply(makeStructuredPreset("matrix", 12, 8, 42))}
-              >
-                이중군집 행렬 예제
-              </button>
-              <button
-                onClick={() =>
-                  apply(makeStructuredPreset("timeseries", 12, 3, 42))
-                }
-              >
-                시계열 형태 예제
-              </button>
-              <button
-                onClick={() =>
-                  apply(makeExperimentPreset("constrained", 12, 3, 42))
-                }
-              >
-                하드 제약 예제
-              </button>
-              <button
-                onClick={() => {
-                  apply(makeExperimentPreset("bernoulli", 24, 3, 42));
-                  choose("Bernoulli Mixture");
-                }}
-              >
-                이진 응답 예제
-              </button>
-              <button
-                onClick={() => {
-                  apply(makeExperimentPreset("poisson", 24, 3, 42));
-                  choose("Poisson Mixture");
-                }}
-              >
-                포아송 카운트 예제
-              </button>
-              <button
-                onClick={() => {
-                  apply(makeExperimentPreset("multinomial", 24, 3, 42));
-                  choose("Multinomial Mixture");
-                }}
-              >
-                다항 카운트 예제
-              </button>
-            </div>
-            <p className="small">
-              {data.kind === "numeric"
-                ? "모든 원본 특성으로 계산하며 표시 축은 별도입니다. 이산 혼합모델은 실제 이진 응답·카운트 예제를 사용하세요."
-                : data.kind === "categorical"
-                  ? "화면 좌표는 선택한 범주 토큰의 표시 배치입니다. 범주를 수치 거리로 계산하지 않습니다."
-                  : data.kind === "mixed"
-                    ? "점 좌표는 수치 특성 표시이며 실제 계산에는 범주 특성도 포함됩니다."
-                    : data.kind === "stream"
-                      ? "시각과 원본 특성으로 online CF를 계산합니다. 화면은 첫 두 특성입니다."
-                      : "원본 관계와 화면 좌표를 구분합니다."}
-            </p>
-            {data.kind === "constrained" ? (
-              <ConstraintEditor
-                data={data}
-                onChange={apply}
-                onError={setError}
-              />
-            ) : (
-              <DatasetEditor data={data} onChange={apply} onError={setError} />
-            )}
-            {data.kind === "stream" && (
-              <div className="structured-stream-controls">
-                <button onClick={() => setAutoFeed((v) => !v)}>
-                  {autoFeed ? "유입 일시정지" : "유입 시작"}
-                </button>
-                <p className="small">
-                  추가 관측을 실제 시각에 유입합니다. 이 화면은 재현 가능한 전체
-                  prefix를 Worker에서 재계산하며, DenStreamModel 자체는 이전
-                  관측을 보관하지 않는 증분 CF 엔진입니다.
-                </p>
-              </div>
-            )}
-            <details>
-              <summary>시드 데이터 생성</summary>
-              <label>
-                데이터 유형{" "}
-                <select
-                  aria-label="다중 생성 유형"
-                  value={generator.kind}
-                  onChange={(e) =>
-                    setGenerator({
-                      ...generator,
-                      kind: e.target.value as ExperimentPreset,
-                    })
-                  }
-                >
-                  {[
-                    "numeric",
-                    "categorical",
-                    "mixed",
-                    "graph",
-                    "stream",
-                    "matrix",
-                    "timeseries",
-                    "constrained",
-                    "bernoulli",
-                    "poisson",
-                    "multinomial",
-                  ].map((k) => (
-                    <option key={k}>{k}</option>
-                  ))}
-                </select>
-              </label>
-              <label>
-                개수{" "}
-                <input
-                  aria-label="다중 생성 개수"
-                  type="number"
-                  min={2}
-                  value={generator.count}
-                  onChange={(e) =>
-                    setGenerator({ ...generator, count: +e.target.value })
-                  }
-                />
-              </label>
-              <label>
-                차원{" "}
-                <input
-                  aria-label="다중 생성 차원"
-                  type="number"
-                  min={1}
-                  value={generator.dimensions}
-                  onChange={(e) =>
-                    setGenerator({ ...generator, dimensions: +e.target.value })
-                  }
-                />
-              </label>
-              <label>
-                시드{" "}
-                <input
-                  aria-label="다중 생성 시드"
-                  type="number"
-                  value={generator.seed}
-                  onChange={(e) =>
-                    setGenerator({ ...generator, seed: +e.target.value })
-                  }
-                />
-              </label>
-              <button
-                onClick={() => {
-                  try {
-                    apply(
-                      makeExperimentPreset(
-                        generator.kind,
-                        generator.count,
-                        generator.dimensions,
-                        generator.seed,
-                      ),
-                    );
-                  } catch (e) {
-                    setError(e instanceof Error ? e.message : String(e));
-                  }
-                }}
-              >
-                원본 생성
-              </button>
-            </details>
-            <label>
-              JSON 원본 편집
-              <textarea
-                aria-label="원본 데이터 JSON"
-                rows={14}
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                spellCheck={false}
-              />
-            </label>
-            <button
-              className="primary"
-              onClick={() => {
-                try {
-                  apply(importDataset(text));
-                } catch (e) {
-                  setError(e instanceof Error ? e.message : String(e));
-                }
-              }}
-            >
-              데이터 적용
-            </button>
-            <label className="field">
-              데이터 JSON 가져오기
-              <input
-                aria-label="다중 데이터 파일"
-                type="file"
-                accept=".json"
-                onChange={async (e) => {
-                  const file = e.target.files?.[0];
-                  if (!file) return;
-                  try {
-                    if (file.size * 6 > DEFAULT_WORKING_BYTES)
-                      throw new Error(
-                        "파일 파싱의 추정 메모리 예산을 초과합니다.",
-                      );
-                    const value = importDataset(await file.text());
-                    apply(value);
-                  } catch (ex) {
-                    setError(ex instanceof Error ? ex.message : String(ex));
-                  }
-                  e.target.value = "";
-                }}
-              />
-            </label>
-            <button
-              onClick={() =>
-                download(
-                  "clusterlab-dataset.json",
-                  JSON.parse(exportDataset(data)),
-                )
-              }
-            >
-              원본 JSON 내보내기
-            </button>
-            <button
-              disabled={!lab.traceIsCurrent}
-              onClick={() => {
-                if (lab.trace)
-                  download("clusterlab-result.json", {
-                    algorithm,
-                    params,
-                    input: data,
-                    inputKind: data.kind,
-                    computedRows: points.length,
-                    sourceDimensions:
-                      data.kind === "numeric" ||
-                      data.kind === "categorical" ||
-                      data.kind === "matrix"
-                        ? data.values[0].length
-                        : data.kind === "mixed"
-                          ? data.numeric[0].length + data.categorical[0].length
-                          : data.kind === "stream"
-                            ? data.samples[0].values.length
-                            : data.kind === "timeseries"
-                              ? data.series[0].values.length
-                              : data.kind === "constrained"
-                                ? data.data.values[0].length
-                                : undefined,
-                    state: stateAt(lab.trace, lab.trace.steps.length),
-                    output: nativeResult(
-                      stateAt(lab.trace, lab.trace.steps.length),
-                    ),
-                  });
-              }}
-            >
-              전체 계산 결과 내보내기
-            </button>
-          </div>
-          <div hidden={!legacyLayout && tab !== "settings"}>
-            <h2>파라미터</h2>
-            <Settings
-              algorithm={algorithm}
-              value={params}
-              onChange={setParams}
-            />
-            <p className="small">
-              작업 공간 추정 {(estimate.workingBytes / 1048576).toFixed(1)} MiB
-              · 원본 특성 저장 공간과 전송 복사는 별도입니다.
-            </p>
-            <p className="small">
-              지원하는 원본 유형과 맞는 엔진만 선택할 수 있습니다. 입력을 표시
-              좌표로 바꿔 계산하지 않습니다.
-            </p>
-          </div>
-          {(legacyLayout || tab === "analysis") && (
-            <>
-              <Analysis
-                algorithm={algorithm}
-                state={state}
-                next={next}
-                points={points}
-                progress={lab.position - index}
-              />
-            </>
-          )}
-        </aside>
-      </div>
-      <LabDetails
-        algorithm={algorithm}
-        onSelect={choose}
-        onExperiment={(a, _preset, event, nextParams, input) => {
-          choose(a);
-          if (input) apply(input);
-          if (nextParams) setParams(nextParams);
-          soughtGuideEvent.current = false;
-          setRequestedEvent(event);
-          if (event) {
-            setTab("analysis");
-            setSheetOpen(true);
-          }
-        }}
-        onCompare={(pair) => {
-          if (onCompare) onCompare(pair, data);
-          else location.hash = "#/compare";
-        }}
-      />
+      </LabWorkspace>
     </div>
   );
 }

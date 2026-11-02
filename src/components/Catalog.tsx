@@ -54,7 +54,9 @@ export default function Catalog({
     onFilter({ ...filters, [key]: value }, replace);
   const visible = entries.filter(
     (a) =>
-      normalizeSearch(`${a.name} ${a.search}`).includes(normalizeSearch(filters.q ?? "")) &&
+      normalizeSearch(`${a.name} ${a.search}`).includes(
+        normalizeSearch(filters.q ?? ""),
+      ) &&
       (!filters.category || categoryOf(a.name) === filters.category) &&
       (!filters.family || a.family === filters.family) &&
       (!filters.status || a.status === filters.status) &&
@@ -169,7 +171,19 @@ export default function Catalog({
       </div>
       <div className="catalog-grid">
         {visible.map((a) => (
-          <article key={a.name} className="panel algorithm-card">
+          <article
+            key={a.name}
+            className="panel algorithm-card"
+            onDoubleClick={(event) => {
+              if (
+                a.engine &&
+                !(event.target as HTMLElement).closest(
+                  "button,a,input,select,summary",
+                )
+              )
+                onRun(a.engine as Algorithm);
+            }}
+          >
             {a.engine ? (
               <AlgorithmPreview
                 key={a.engine}

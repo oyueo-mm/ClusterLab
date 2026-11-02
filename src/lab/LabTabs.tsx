@@ -1,4 +1,4 @@
-const tabs = [
+const defaultTabs = [
   ["settings", "설정"],
   ["data", "데이터"],
   ["analysis", "분석"],
@@ -6,9 +6,11 @@ const tabs = [
 export function LabTabs({
   value,
   onChange,
+  tabs = defaultTabs,
 }: {
   value: string;
   onChange: (value: string) => void;
+  tabs?: string[][];
 }) {
   return (
     <div className="lab-tabs" role="tablist" aria-label="실험실 패널">

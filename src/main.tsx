@@ -7,6 +7,7 @@ import "./v02.css";
 import "./v03.css";
 import "./v04.css";
 import "./encyclopedia.css";
+import "./workspace.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />
