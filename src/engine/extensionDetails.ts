@@ -2,6 +2,22 @@ import type { AlgorithmDetail } from "./algorithmDetails";
 export const extensionDetails: Partial<
   Record<import("./types").Algorithm, AlgorithmDetail>
 > = {
+  PCKMeans: {
+    timeComplexity:
+      "O(E log E+(n+E)α(n)+TnK(d+최대 성분 CL 차수)); 상세 Trace 목적 재집계 비용 별도",
+    spaceComplexity: "O(nd+nK+E+Kd), Trace 별도64MiB 예산",
+    traceKinds: ["initialize", "test", "assign", "move", "finish"],
+    visualizations: [
+      "원본·유도 ML/CL",
+      "후보 거리·벌점",
+      "실제 ND 중심 이동",
+      "목적함수·위반수",
+    ],
+    validation: "independent-numpy",
+    limitations:
+      "일관된 constrained 원본·전역 균일 유한 벌점. J=SSE+w·위반수 (SDM 비용 w_p=w/2). 시드 무작위 순서·ML 이웃 평균/전체 평균 perturbation·동률 유지·빈 중심 유지. 능동 질의/모순 감독/관계별 가중치 미지원; 전역 최적/hard 만족 보장 없음.",
+    references: ["https://www.cs.utexas.edu/~ml/papers/semi-sdm-04.pdf"],
+  },
   "COP-KMeans": {
     timeComplexity:
       "O(E log E+(n+E)α(n)+nKd+TnK(d+log K+최대 성분 CL 차수)), E=ML+CL",

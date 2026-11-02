@@ -12,10 +12,12 @@ import { bimax, chengchurch } from "./biclustering";
 import { kshape } from "./timeseries";
 import { cnm, fluid } from "./graphExtra";
 import { copkmeans } from "./constrained";
+import { pckmeans } from "./pairwise";
 import { bernoulli, poisson, multinomial } from "./discreteMixtures";
 import { walktrap, cliquepercolation } from "./graphFollowup";
 import { bsas, mbsas, ttsas } from "./sequential";
 export const nextLessons = {
+  PCKMeans: pckmeans,
   BSAS: bsas,
   MBSAS: mbsas,
   TTSAS: ttsas,

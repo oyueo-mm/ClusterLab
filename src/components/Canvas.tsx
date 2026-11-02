@@ -23,6 +23,8 @@ interface Gesture {
   label?: number;
 }
 interface Props {
+  nativeAxes?: [number, number];
+  constraintLines?: "original" | "violated" | "none";
   algorithm: Algorithm;
   points: Point[];
   trace: Trace | null;
@@ -38,6 +40,9 @@ interface Props {
   label?: number;
 }
 export function Canvas(props: Props) {
+  const [constraintLines, setConstraintLines] = useState<
+    "original" | "violated" | "none"
+  >("original");
   const ref = useRef<HTMLCanvasElement>(null),
     latest = useRef(props),
     view = useRef<View>({ zoom: 1, panX: 0, panY: 0 }),
@@ -46,7 +51,7 @@ export function Canvas(props: Props) {
     pointers = useRef(new Map<number, { x: number; y: number }>()),
     pinch = useRef(0),
     [fps, setFps] = useState(0);
-  latest.current = props;
+  latest.current = { ...props, constraintLines };
   const finish = useCallback((commit: boolean, release = true) => {
     const gesture = drag.current;
     drag.current = null;
@@ -163,6 +168,8 @@ export function Canvas(props: Props) {
           time: now,
           decision: true,
           minimal: p.minimal,
+          nativeAxes: p.nativeAxes,
+          constraintLines: p.constraintLines,
         },
       );
       frames++;
@@ -207,6 +214,20 @@ export function Canvas(props: Props) {
   };
   return (
     <div className="canvas-wrap">
+      {props.algorithm === "PCKMeans" && (
+        <select
+          className="canvas-constraint-options"
+          aria-label="제약선 표시"
+          value={constraintLines}
+          onChange={(e) =>
+            setConstraintLines(e.target.value as typeof constraintLines)
+          }
+        >
+          <option value="original">원래 ML/CL</option>
+          <option value="violated">위반된 원래 관계</option>
+          <option value="none">제약선 숨김</option>
+        </select>
+      )}
       <canvas
         ref={ref}
         aria-label={`${props.algorithm} 데이터 및 실제 연산 시각화`}

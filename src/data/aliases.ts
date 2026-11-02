@@ -1,5 +1,6 @@
 import type { Algorithm } from "../engine/types";
 export const algorithmAliases: Partial<Record<Algorithm, string>> = {
+  PCKMeans: "Pairwise Constrained K-Means 쌍별 제약 벌점 K 평균",
   "K-Means": "kmeans Lloyd k averages 케이 평균",
   DBSCAN: "Density Based Spatial Clustering of Applications with Noise",
   HDBSCAN: "Hierarchical Density Based Spatial Clustering",
@@ -13,7 +14,8 @@ export const algorithmAliases: Partial<Record<Algorithm, string>> = {
   CURE: "Clustering Using Representatives",
   GMM: "Gaussian Mixture Model Expectation Maximization EM 가우시안 혼합",
   "Fuzzy C-Means": "FCM fuzzy c means 퍼지 씨 평균",
-  "Spectral Clustering": "normalized cuts spectral Laplacian embedding 고유벡터",
+  "Spectral Clustering":
+    "normalized cuts spectral Laplacian embedding 고유벡터",
   "Affinity Propagation": "AP exemplar 메시지 전파",
   SOM: "Self Organizing Map 자기 조직화 지도",
   LVQ: "Learning Vector Quantization 학습 벡터 양자화",
@@ -27,4 +29,5 @@ export const algorithmAliases: Partial<Record<Algorithm, string>> = {
   MBSAS: "Modified Basic Sequential Algorithmic Scheme",
   TTSAS: "Two Threshold Sequential Algorithmic Scheme",
 };
-export const normalizeSearch = (text: string) => text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
+export const normalizeSearch = (text: string) =>
+  text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");

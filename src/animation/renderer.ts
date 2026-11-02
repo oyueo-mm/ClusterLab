@@ -1,5 +1,6 @@
 import { ease } from "../engine/trace";
 import type { Point, State, Algorithm, Center } from "../engine/types";
+import { projectedCenters } from "../engine/ndMath";
 export function interpolateCenters(
   from: Center[],
   to: Center[],
@@ -57,6 +58,8 @@ export interface DrawOptions {
   time: number;
   decision: boolean;
   minimal?: boolean;
+  nativeAxes?: [number, number];
+  constraintLines?: "original" | "violated" | "none";
 }
 export function draw(
   ctx: CanvasRenderingContext2D,
@@ -104,9 +107,17 @@ export function draw(
       ctx.fillText((1 - v).toFixed(1), 8, y - 5);
     }
   }
+  const nativeCenters = (state: State) =>
+    state.analysis?.kind === "pairwise" && options.nativeAxes
+      ? projectedCenters(
+          state.analysis.centroids,
+          state.analysis.dimensionBounds,
+          options.nativeAxes,
+        )
+      : state.centers;
   let centers = interpolateCenters(
-    from.centers,
-    to.centers,
+    nativeCenters(from),
+    nativeCenters(to),
     t,
     ["Mean Shift", "Neural Gas", "Growing Neural Gas", "DenStream"].includes(
       options.algorithm,
@@ -299,7 +310,10 @@ export function draw(
       36,
     );
   }
-  if (to.analysis?.kind === "constraints") {
+  if (
+    (to.analysis?.kind === "constraints" || to.analysis?.kind === "pairwise") &&
+    options.constraintLines !== "none"
+  ) {
     const a = to.analysis,
       total = a.mustLink.length + a.cannotLink.length,
       budget = Math.max(1, Math.floor((w * h) / 200)),
@@ -310,10 +324,18 @@ export function draw(
       const must = i < a.mustLink.length,
         pair = must ? a.mustLink[i] : a.cannotLink[i - a.mustLink.length];
       if (!points[pair[0]] || !points[pair[1]]) continue;
+      const assigned = to.labels[pair[0]] >= 0 && to.labels[pair[1]] >= 0;
+      const violated =
+        assigned &&
+        (must
+          ? to.labels[pair[0]] !== to.labels[pair[1]]
+          : to.labels[pair[0]] === to.labels[pair[1]]);
+      if (options.constraintLines === "violated" && !violated) continue;
       const [x, y] = xy(points[pair[0]]),
         [bx, by] = xy(points[pair[1]]);
       ctx.setLineDash(must ? [] : [5, 4]);
-      ctx.strokeStyle = must ? "#34564D" : "#b65a72";
+      ctx.strokeStyle = violated ? "#d18132" : must ? "#34564D" : "#b65a72";
+      ctx.lineWidth = violated ? 2.5 : 1.5;
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.lineTo(bx, by);
@@ -324,9 +346,9 @@ export function draw(
     if (!options.minimal) {
       ctx.fillStyle = "#34564D";
       ctx.fillText(
-        `ML 실선 · CL 점선${stride > 1 ? ` · 선 표시 대상 ${Math.ceil(total / stride)}/${total} (계산은 전체 제약)` : ""}`,
+        `${a.kind === "pairwise" ? "원래 ML 실선 · CL 점선 · 주황=위반" : "ML 실선 · CL 점선"}${stride > 1 ? ` · 선 표시 대상 ${Math.ceil(total / stride)}/${total} (계산은 전체 제약)` : ""}`,
         14,
-        36,
+        a.kind === "pairwise" && w < 520 ? 52 : 36,
       );
     }
   }
@@ -346,7 +368,7 @@ export function draw(
     }
   }
   if (
-    options.algorithm === "K-Means" &&
+    (options.algorithm === "K-Means" || options.algorithm === "PCKMeans") &&
     centers.length &&
     focus !== undefined &&
     points[focus]

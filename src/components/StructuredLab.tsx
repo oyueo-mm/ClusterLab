@@ -230,12 +230,19 @@ export default function StructuredLab({
   const [autoFeed, setAutoFeed] = useState(false);
   // Projection changes only Canvas coordinates; the Worker keeps the same raw dataset.
   const computePoints = useMemo(() => displayPoints(data), [data]);
+  const projectionData = useMemo(
+    () =>
+      algorithm === "PCKMeans" && data.kind === "constrained"
+        ? { ...data, data: { ...data.data, display: undefined } }
+        : data,
+    [algorithm, data],
+  );
   const points = useMemo(
     () =>
-      axes[0] === 0 && axes[1] === 1
+      projectionData === data && axes[0] === 0 && axes[1] === 1
         ? computePoints
-        : displayPoints(data, axes),
-    [data, axes, computePoints],
+        : displayPoints(projectionData, axes),
+    [data, projectionData, axes, computePoints],
   );
   const lab = useExperiment(algorithm, computePoints, params, {
     dataset: data,
@@ -414,7 +421,8 @@ export default function StructuredLab({
                             : "· 실제 시간축"}{" "}
                 · 표시 좌표와 계산 데이터 분리
               </div>
-              {data.kind === "numeric" && (
+              {(data.kind === "numeric" ||
+                (algorithm === "PCKMeans" && data.kind === "constrained")) && (
                 <div className="matrix-controls">
                   {[0, 1].map((j) => (
                     <label key={j}>
@@ -423,7 +431,11 @@ export default function StructuredLab({
                         aria-label={j === 0 ? "표시 X 차원" : "표시 Y 차원"}
                         type="number"
                         min={1}
-                        max={data.values[0].length}
+                        max={
+                          (data.kind === "constrained"
+                            ? data.data.values
+                            : data.values)[0].length
+                        }
                         value={axes[j] + 1}
                         onChange={(e) =>
                           setAxes(
@@ -433,7 +445,7 @@ export default function StructuredLab({
                                   ? Math.max(
                                       0,
                                       Math.min(
-                                        data.values[0].length - 1,
+                                        (data.kind==="constrained"?data.data.values:data.values)[0].length - 1,
                                         Math.trunc(+e.target.value || 1) - 1,
                                       ),
                                     )
@@ -872,6 +884,7 @@ export default function StructuredLab({
           ) : (
             <Canvas
               algorithm={algorithm}
+              nativeAxes={algorithm === "PCKMeans" ? axes : undefined}
               points={points}
               trace={lab.traceIsCurrent ? lab.trace : null}
               position={lab.position}

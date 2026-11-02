@@ -230,11 +230,12 @@
     "number": 24,
     "name": "PCKMeans",
     "family": "B 퍼지·제약 기반",
-    "status": "원문·정의 예비 검토 · 엔진 미구현",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null,
-    "research": "docs/research/NEXT_50_QUEUE.md: 부분 열람·정의 비교, oracle 미실행"
+    "status": "제한 범위 구현 · 독립 수치·브라우저 검증",
+    "classification": "독립 알고리즘",
+    "input": "constrained",
+    "engine": "PCKMeans",
+    "research": "docs/research/PCKMEANS.md · SDM2004 §2–3/Figure1 직접 확인 · 독립 NumPy 검산",
+    "limitations": "일관된 제약·전역 균일 유한 벌점·전체 ND. J=SSE+w·위반수. 능동 질의/모순 감독/관계별 가중치 미지원."
   },
   {
     "number": 25,

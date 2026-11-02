@@ -18,6 +18,7 @@ import { kshape } from "./algorithms/kshape";
 import { cnm } from "./algorithms/cnm";
 import { fluid } from "./algorithms/fluid";
 import { copkmeans } from "./algorithms/copkmeans";
+import { pckmeans } from "./algorithms/pckmeans";
 import { bernoulli } from "./algorithms/bernoulli";
 import { poisson } from "./algorithms/poisson";
 import { multinomial } from "./algorithms/multinomial";
@@ -51,6 +52,7 @@ export const nextEngines = {
   "Greedy Modularity (CNM)": cnm,
   "Fluid Communities": fluid,
   "COP-KMeans": copkmeans,
+  PCKMeans: pckmeans,
   "Bernoulli Mixture": bernoulli,
   "Poisson Mixture": poisson,
   "Multinomial Mixture": multinomial,

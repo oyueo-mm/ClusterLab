@@ -1,0 +1,68 @@
+{
+  "stats": {
+    "startTime": "2026-11-02T18:26:41.492Z",
+    "duration": 18520.221,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6116,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2520,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5715,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2533,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

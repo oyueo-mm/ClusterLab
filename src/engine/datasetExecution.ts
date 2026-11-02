@@ -7,6 +7,21 @@ import { Recorder } from "./trace";
 import type { Algorithm, Params, Trace, State } from "./types";
 export function nativeResult(state: State) {
   const a = state.analysis;
+  if (a?.kind === "pairwise")
+    return {
+      kind: "pairwise-partition" as const,
+      labels: state.labels,
+      centroids: a.centroids,
+      counts: a.counts,
+      distanceCost: a.distanceCost,
+      mustLinkCost: a.mustLinkCost,
+      cannotLinkCost: a.cannotLinkCost,
+      objective: a.objective,
+      mustViolations: a.mustViolations,
+      cannotViolations: a.cannotViolations,
+      converged: a.converged,
+      stopReason: a.stopReason,
+    };
   if (a?.kind === "sequential")
     return {
       kind: "sequential-partition" as const,

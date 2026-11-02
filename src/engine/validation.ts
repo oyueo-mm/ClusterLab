@@ -35,6 +35,7 @@ export function validateRun(
     "Cheng–Church Biclustering",
     "K-Shape",
     "COP-KMeans",
+    "PCKMeans",
     "Bernoulli Mixture",
     "Poisson Mixture",
     "Multinomial Mixture",

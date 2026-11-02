@@ -18,7 +18,7 @@ const measurements: object[] = [];
 describe("algorithm learning datasets", () => {
   it("requires an explicit recommendation for every engine", () => {
     expect(Object.keys(recommendations).sort()).toEqual([...algorithms].sort());
-    expect(Object.values(recommendations).flat()).toHaveLength(212);
+    expect(Object.values(recommendations).flat()).toHaveLength(216);
   });
   for (const algorithm of algorithms) {
     it(`${algorithm}: reproducible, compatible full input and actual trace`, async () => {

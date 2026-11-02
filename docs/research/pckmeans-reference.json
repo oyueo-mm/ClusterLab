@@ -1,0 +1,4398 @@
+{
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "license": "NumPy BSD-3-Clause; verification only",
+    "officialImplementationExecuted": false
+  },
+  "cases": [
+    {
+      "input": {
+        "name": "nd-closure",
+        "values": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            0,
+            5
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "cannotLink": [
+          [
+            1,
+            2
+          ]
+        ],
+        "k": 2,
+        "penalty": 2,
+        "seed": 42
+      },
+      "result": {
+        "initialCenters": [
+          [
+            0.0,
+            0.0,
+            0.5
+          ],
+          [
+            0.0,
+            0.0,
+            4.0
+          ]
+        ],
+        "initialCost": {
+          "distanceCost": 1.5,
+          "mustLinkCost": 0,
+          "cannotLinkCost": 0,
+          "objective": 1.5,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "labels": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "centroids": [
+          [
+            0.0,
+            0.0,
+            0.5
+          ],
+          [
+            0.0,
+            0.0,
+            4.5
+          ]
+        ],
+        "closureMustLink": [
+          [
+            0,
+            1
+          ]
+        ],
+        "closureCannotLink": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "states": [
+          {
+            "iteration": 1,
+            "row": 0,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.25,
+                "globalObjective": 1.5
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 16.0,
+                "mustLinkCost": 2,
+                "cannotLinkCost": 2,
+                "total": 20.0,
+                "globalObjective": 21.25
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 1,
+            "row": 3,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 20.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 20.25,
+                "globalObjective": 20.75
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 1.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.0,
+                "globalObjective": 1.5
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 1,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.25,
+                "globalObjective": 1.5
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 9.0,
+                "mustLinkCost": 2,
+                "cannotLinkCost": 2,
+                "total": 13.0,
+                "globalObjective": 14.25
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 1,
+            "row": 2,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 12.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 4,
+                "total": 16.25,
+                "globalObjective": 17.75
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 1.5
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 2,
+            "row": 3,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 20.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 20.25,
+                "globalObjective": 21.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.25,
+                "globalObjective": 1.0
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 2,
+            "row": 1,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.25,
+                "globalObjective": 1.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 12.25,
+                "mustLinkCost": 2,
+                "cannotLinkCost": 2,
+                "total": 16.25,
+                "globalObjective": 17.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 0,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.25,
+                "globalObjective": 1.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 20.25,
+                "mustLinkCost": 2,
+                "cannotLinkCost": 2,
+                "total": 24.25,
+                "globalObjective": 25.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 2,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 12.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 4,
+                "total": 16.25,
+                "globalObjective": 17.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.25,
+                "globalObjective": 1.0
+              }
+            ],
+            "chosen": 1
+          }
+        ],
+        "stopReason": "labels-stable",
+        "distanceCost": 1.0,
+        "mustLinkCost": 0,
+        "cannotLinkCost": 0,
+        "objective": 1.0,
+        "mustViolations": 0,
+        "cannotViolations": 0,
+        "exhaustive": [
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 17.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 4,
+            "objective": 21.0,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 8.666666666666666,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 4,
+            "objective": 12.666666666666666,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 14.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 14.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 1.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 14.0,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 18.0,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 16.0,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 20.0,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 17.0,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 21.0,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 8.666666666666668,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 12.666666666666668,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 8.666666666666668,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 12.666666666666668,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 17.0,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 21.0,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 16.0,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 20.0,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 14.0,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 18.0,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 1.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 14.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 14.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 8.666666666666666,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 4,
+            "objective": 12.666666666666666,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 17.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 4,
+            "objective": 21.0,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "accept-violation",
+        "values": [
+          [
+            0
+          ],
+          [
+            0.1
+          ],
+          [
+            4
+          ],
+          [
+            4.1
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            3
+          ]
+        ],
+        "cannotLink": [
+          [
+            0,
+            1
+          ]
+        ],
+        "k": 2,
+        "penalty": 0.01,
+        "seed": 42
+      },
+      "result": {
+        "initialCenters": [
+          [
+            2.05
+          ],
+          [
+            0.1
+          ]
+        ],
+        "initialCost": {
+          "distanceCost": 8.015,
+          "mustLinkCost": 0.01,
+          "cannotLinkCost": 0.01,
+          "objective": 8.035,
+          "mustViolations": 1,
+          "cannotViolations": 1
+        },
+        "labels": [
+          1,
+          1,
+          0,
+          0
+        ],
+        "centroids": [
+          [
+            4.05
+          ],
+          [
+            0.05
+          ]
+        ],
+        "closureMustLink": [
+          [
+            0,
+            3
+          ]
+        ],
+        "closureCannotLink": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "states": [
+          {
+            "iteration": 1,
+            "row": 0,
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 4.2025,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.0,
+                "total": 4.2025,
+                "globalObjective": 12.2075
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.010000000000000002,
+                "mustLinkCost": 0.01,
+                "cannotLinkCost": 0.01,
+                "total": 0.030000000000000006,
+                "globalObjective": 8.035
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 3,
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 4.2025,
+                "mustLinkCost": 0.01,
+                "cannotLinkCost": 0.0,
+                "total": 4.2124999999999995,
+                "globalObjective": 8.035
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 15.999999999999996,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.01,
+                "total": 16.009999999999998,
+                "globalObjective": 19.832499999999996
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 1,
+            "row": 1,
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 3.802499999999999,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.01,
+                "total": 3.8124999999999987,
+                "globalObjective": 11.837499999999999
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.01,
+                "total": 0.01,
+                "globalObjective": 8.035
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 2,
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 3.8025000000000007,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.0,
+                "total": 3.8025000000000007,
+                "globalObjective": 8.035
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 15.209999999999999,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.0,
+                "total": 15.209999999999999,
+                "globalObjective": 19.4425
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 3,
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0024999999999999823,
+                "mustLinkCost": 0.01,
+                "cannotLinkCost": 0.0,
+                "total": 0.012499999999999983,
+                "globalObjective": 0.029999999999999964
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 16.4025,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.01,
+                "total": 16.4125,
+                "globalObjective": 16.43
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 1,
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 15.602499999999997,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.01,
+                "total": 15.612499999999997,
+                "globalObjective": 15.629999999999995
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0025000000000000005,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.01,
+                "total": 0.0125,
+                "globalObjective": 0.029999999999999964
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 2,
+            "row": 0,
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 16.4025,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.0,
+                "total": 16.4025,
+                "globalObjective": 16.410000000000004
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0025000000000000005,
+                "mustLinkCost": 0.01,
+                "cannotLinkCost": 0.01,
+                "total": 0.0225,
+                "globalObjective": 0.029999999999999964
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 2,
+            "row": 2,
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0024999999999999823,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.0,
+                "total": 0.0024999999999999823,
+                "globalObjective": 0.029999999999999964
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 15.602500000000001,
+                "mustLinkCost": 0.0,
+                "cannotLinkCost": 0.0,
+                "total": 15.602500000000001,
+                "globalObjective": 15.63
+              }
+            ],
+            "chosen": 0
+          }
+        ],
+        "stopReason": "labels-stable",
+        "distanceCost": 0.009999999999999966,
+        "mustLinkCost": 0.01,
+        "cannotLinkCost": 0.01,
+        "objective": 0.029999999999999964,
+        "mustViolations": 1,
+        "cannotViolations": 1,
+        "exhaustive": [
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 16.009999999999998,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.02,
+            "objective": 16.029999999999998,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 10.406666666666668,
+            "mustLinkCost": 0.01,
+            "cannotLinkCost": 0.01,
+            "objective": 10.426666666666668,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 10.94,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.02,
+            "objective": 10.959999999999999,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 0.009999999999999966,
+            "mustLinkCost": 0.01,
+            "cannotLinkCost": 0.01,
+            "objective": 0.029999999999999964,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 10.939999999999998,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": 10.939999999999998,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 15.999999999999998,
+            "mustLinkCost": 0.01,
+            "cannotLinkCost": 0.01,
+            "objective": 16.02,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 16.009999999999998,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": 16.009999999999998,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 10.406666666666666,
+            "mustLinkCost": 0.01,
+            "cannotLinkCost": 0.01,
+            "objective": 10.426666666666666,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 10.406666666666666,
+            "mustLinkCost": 0.01,
+            "cannotLinkCost": 0.01,
+            "objective": 10.426666666666666,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 16.009999999999998,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": 16.009999999999998,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 15.999999999999998,
+            "mustLinkCost": 0.01,
+            "cannotLinkCost": 0.01,
+            "objective": 16.02,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 10.939999999999998,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": 10.939999999999998,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 0.009999999999999966,
+            "mustLinkCost": 0.01,
+            "cannotLinkCost": 0.01,
+            "objective": 0.029999999999999964,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 10.94,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.02,
+            "objective": 10.959999999999999,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 10.406666666666668,
+            "mustLinkCost": 0.01,
+            "cannotLinkCost": 0.01,
+            "objective": 10.426666666666668,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 16.009999999999998,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.02,
+            "objective": 16.029999999999998,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "high-penalty",
+        "values": [
+          [
+            0
+          ],
+          [
+            0.1
+          ],
+          [
+            4
+          ],
+          [
+            4.1
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            3
+          ]
+        ],
+        "cannotLink": [
+          [
+            0,
+            1
+          ]
+        ],
+        "k": 2,
+        "penalty": 30,
+        "seed": 42
+      },
+      "result": {
+        "initialCenters": [
+          [
+            2.05
+          ],
+          [
+            0.1
+          ]
+        ],
+        "initialCost": {
+          "distanceCost": 8.015,
+          "mustLinkCost": 30,
+          "cannotLinkCost": 30,
+          "objective": 68.015,
+          "mustViolations": 1,
+          "cannotViolations": 1
+        },
+        "labels": [
+          0,
+          1,
+          0,
+          0
+        ],
+        "centroids": [
+          [
+            2.6999999999999997
+          ],
+          [
+            0.1
+          ]
+        ],
+        "closureMustLink": [
+          [
+            0,
+            3
+          ]
+        ],
+        "closureCannotLink": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "states": [
+          {
+            "iteration": 1,
+            "row": 0,
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 4.2025,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 4.2025,
+                "globalObjective": 12.2075
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.010000000000000002,
+                "mustLinkCost": 30,
+                "cannotLinkCost": 30,
+                "total": 60.010000000000005,
+                "globalObjective": 68.015
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 1,
+            "row": 3,
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 4.2025,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 4.2025,
+                "globalObjective": 12.2075
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 15.999999999999996,
+                "mustLinkCost": 30,
+                "cannotLinkCost": 30,
+                "total": 76.0,
+                "globalObjective": 84.005
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 1,
+            "row": 1,
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 3.802499999999999,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 60,
+                "total": 63.8025,
+                "globalObjective": 76.00999999999999
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 12.2075
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 2,
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 3.8025000000000007,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 3.8025000000000007,
+                "globalObjective": 12.2075
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 15.209999999999999,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 15.209999999999999,
+                "globalObjective": 23.615
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 3,
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 1.9599999999999997,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.9599999999999997,
+                "globalObjective": 10.939999999999998
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 15.999999999999996,
+                "mustLinkCost": 30,
+                "cannotLinkCost": 30,
+                "total": 76.0,
+                "globalObjective": 84.97999999999999
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 1,
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 6.759999999999998,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 60,
+                "total": 66.75999999999999,
+                "globalObjective": 77.7
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 10.939999999999998
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 2,
+            "row": 0,
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 7.289999999999998,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 7.289999999999998,
+                "globalObjective": 10.939999999999998
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.010000000000000002,
+                "mustLinkCost": 30,
+                "cannotLinkCost": 30,
+                "total": 60.010000000000005,
+                "globalObjective": 63.66
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 2,
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 1.6900000000000006,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.6900000000000006,
+                "globalObjective": 10.939999999999998
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 15.209999999999999,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 15.209999999999999,
+                "globalObjective": 24.459999999999997
+              }
+            ],
+            "chosen": 0
+          }
+        ],
+        "stopReason": "labels-stable",
+        "distanceCost": 10.939999999999998,
+        "mustLinkCost": 0,
+        "cannotLinkCost": 0,
+        "objective": 10.939999999999998,
+        "mustViolations": 0,
+        "cannotViolations": 0,
+        "exhaustive": [
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 16.009999999999998,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 60,
+            "objective": 76.00999999999999,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 10.406666666666668,
+            "mustLinkCost": 30,
+            "cannotLinkCost": 30,
+            "objective": 70.40666666666667,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 10.94,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 60,
+            "objective": 70.94,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 0.009999999999999966,
+            "mustLinkCost": 30,
+            "cannotLinkCost": 30,
+            "objective": 60.01,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 10.939999999999998,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 10.939999999999998,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 15.999999999999998,
+            "mustLinkCost": 30,
+            "cannotLinkCost": 30,
+            "objective": 76.0,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 16.009999999999998,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 16.009999999999998,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 10.406666666666666,
+            "mustLinkCost": 30,
+            "cannotLinkCost": 30,
+            "objective": 70.40666666666667,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 10.406666666666666,
+            "mustLinkCost": 30,
+            "cannotLinkCost": 30,
+            "objective": 70.40666666666667,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 16.009999999999998,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 16.009999999999998,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 15.999999999999998,
+            "mustLinkCost": 30,
+            "cannotLinkCost": 30,
+            "objective": 76.0,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 10.939999999999998,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 10.939999999999998,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 0.009999999999999966,
+            "mustLinkCost": 30,
+            "cannotLinkCost": 30,
+            "objective": 60.01,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 10.94,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 60,
+            "objective": 70.94,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 10.406666666666668,
+            "mustLinkCost": 30,
+            "cannotLinkCost": 30,
+            "objective": 70.40666666666667,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 16.009999999999998,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 60,
+            "objective": 76.00999999999999,
+            "mustViolations": 0,
+            "cannotViolations": 2
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "duplicates-empty",
+        "values": [
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "mustLink": [],
+        "cannotLink": [
+          [
+            0,
+            1
+          ]
+        ],
+        "k": 3,
+        "penalty": 1,
+        "seed": 42
+      },
+      "result": {
+        "initialCenters": [
+          [
+            2.0,
+            2.0
+          ],
+          [
+            2.0,
+            2.0
+          ],
+          [
+            2.0,
+            2.0
+          ]
+        ],
+        "initialCost": {
+          "distanceCost": 0.0,
+          "mustLinkCost": 0,
+          "cannotLinkCost": 1,
+          "objective": 1.0,
+          "mustViolations": 0,
+          "cannotViolations": 1
+        },
+        "labels": [
+          0,
+          1,
+          0
+        ],
+        "centroids": [
+          [
+            2.0,
+            2.0
+          ],
+          [
+            2.0,
+            2.0
+          ],
+          [
+            2.0,
+            2.0
+          ]
+        ],
+        "closureMustLink": [],
+        "closureCannotLink": [
+          [
+            0,
+            1
+          ]
+        ],
+        "states": [
+          {
+            "iteration": 1,
+            "row": 2,
+            "labels": [
+              0,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 1.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 1.0
+              },
+              {
+                "cluster": 2,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 1.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 1,
+            "row": 1,
+            "labels": [
+              0,
+              0,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 1,
+                "total": 1.0,
+                "globalObjective": 1.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              },
+              {
+                "cluster": 2,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 0,
+            "labels": [
+              0,
+              1,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 1,
+                "total": 1.0,
+                "globalObjective": 1.0
+              },
+              {
+                "cluster": 2,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 1,
+            "labels": [
+              0,
+              1,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 1,
+                "total": 1.0,
+                "globalObjective": 1.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              },
+              {
+                "cluster": 2,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 2,
+            "row": 0,
+            "labels": [
+              0,
+              1,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 1,
+                "total": 1.0,
+                "globalObjective": 1.0
+              },
+              {
+                "cluster": 2,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 2,
+            "labels": [
+              0,
+              1,
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              },
+              {
+                "cluster": 2,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              }
+            ],
+            "chosen": 0
+          }
+        ],
+        "stopReason": "labels-stable",
+        "distanceCost": 0.0,
+        "mustLinkCost": 0,
+        "cannotLinkCost": 0,
+        "objective": 0.0,
+        "mustViolations": 0,
+        "cannotViolations": 0,
+        "exhaustive": [
+          {
+            "labels": [
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              0,
+              2
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              2
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              2,
+              0
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              2,
+              1
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              2,
+              2
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              0,
+              2
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              1,
+              2
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              2,
+              0
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              2,
+              1
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              2,
+              2
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              2,
+              0,
+              0
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              2,
+              0,
+              1
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              2,
+              0,
+              2
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              2,
+              1,
+              0
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              2,
+              1,
+              1
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              2,
+              1,
+              2
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              2,
+              2,
+              0
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              2,
+              2,
+              1
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              2,
+              2,
+              2
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 1.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "zero-penalty",
+        "values": [
+          [
+            0
+          ],
+          [
+            2
+          ],
+          [
+            8
+          ],
+          [
+            10
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            3
+          ]
+        ],
+        "cannotLink": [
+          [
+            1,
+            2
+          ]
+        ],
+        "k": 2,
+        "penalty": 0,
+        "seed": 137
+      },
+      "result": {
+        "initialCenters": [
+          [
+            5.0
+          ],
+          [
+            5.23464361904189
+          ]
+        ],
+        "initialCost": {
+          "distanceCost": 64.35581735124391,
+          "mustLinkCost": 0,
+          "cannotLinkCost": 0,
+          "objective": 64.35581735124391,
+          "mustViolations": 1,
+          "cannotViolations": 0
+        },
+        "labels": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "centroids": [
+          [
+            1.0
+          ],
+          [
+            9.0
+          ]
+        ],
+        "closureMustLink": [
+          [
+            0,
+            3
+          ]
+        ],
+        "closureCannotLink": [
+          [
+            1,
+            2
+          ]
+        ],
+        "states": [
+          {
+            "iteration": 1,
+            "row": 3,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 25.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 25.0,
+                "globalObjective": 66.64719591370573
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 22.708621437538177,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 22.708621437538177,
+                "globalObjective": 64.35581735124391
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 2,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 9.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 9.0,
+                "globalObjective": 65.70862143753817
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 7.647195913705736,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 7.647195913705736,
+                "globalObjective": 64.35581735124391
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 0,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 25.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 25.0,
+                "globalObjective": 64.35581735124391
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 27.401493818375975,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 27.401493818375975,
+                "globalObjective": 66.7573111696199
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 1,
+            "row": 1,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 9.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 9.0,
+                "globalObjective": 64.35581735124391
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 10.462919342208416,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 10.462919342208416,
+                "globalObjective": 65.81873669345234
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 1,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 1.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.0,
+                "globalObjective": 4.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 49.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 49.0,
+                "globalObjective": 52.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 3,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 81.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 81.0,
+                "globalObjective": 84.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 1.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.0,
+                "globalObjective": 4.0
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 2,
+            "row": 0,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 1.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.0,
+                "globalObjective": 4.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 81.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 81.0,
+                "globalObjective": 84.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 2,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 49.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 49.0,
+                "globalObjective": 52.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 1.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.0,
+                "globalObjective": 4.0
+              }
+            ],
+            "chosen": 1
+          }
+        ],
+        "stopReason": "labels-stable",
+        "distanceCost": 4.0,
+        "mustLinkCost": 0,
+        "cannotLinkCost": 0,
+        "objective": 4.0,
+        "mustViolations": 1,
+        "cannotViolations": 0,
+        "exhaustive": [
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 68.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 68.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 34.666666666666664,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 34.666666666666664,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 56.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 56.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 4.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 4.0,
+            "mustViolations": 1,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 56.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 56.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 64.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 64.0,
+            "mustViolations": 1,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 68.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 68.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 34.66666666666667,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 34.66666666666667,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 34.66666666666667,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 34.66666666666667,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 68.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 68.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 64.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 64.0,
+            "mustViolations": 1,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 56.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 56.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 4.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 4.0,
+            "mustViolations": 1,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 56.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 56.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 34.666666666666664,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 34.666666666666664,
+            "mustViolations": 1,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 68.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 68.0,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "ml-chain",
+        "values": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "cannotLink": [
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "k": 2,
+        "penalty": 1,
+        "seed": 7
+      },
+      "result": {
+        "initialCenters": [
+          [
+            1.0
+          ],
+          [
+            7.0
+          ]
+        ],
+        "initialCost": {
+          "distanceCost": 3.0,
+          "mustLinkCost": 0,
+          "cannotLinkCost": 1,
+          "objective": 4.0,
+          "mustViolations": 0,
+          "cannotViolations": 1
+        },
+        "labels": [
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "centroids": [
+          [
+            1.0
+          ],
+          [
+            7.5
+          ]
+        ],
+        "closureMustLink": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "closureCannotLink": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "states": [
+          {
+            "iteration": 1,
+            "row": 3,
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 36.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 3,
+                "total": 39.0,
+                "globalObjective": 42.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 1,
+                "total": 1.0,
+                "globalObjective": 4.0
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 1,
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 4.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 36.0,
+                "mustLinkCost": 2,
+                "cannotLinkCost": 1,
+                "total": 39.0,
+                "globalObjective": 43.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 1,
+            "row": 2,
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 1.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.0,
+                "globalObjective": 4.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 25.0,
+                "mustLinkCost": 2,
+                "cannotLinkCost": 1,
+                "total": 28.0,
+                "globalObjective": 31.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 1,
+            "row": 4,
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 49.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 49.0,
+                "globalObjective": 51.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 1.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 1,
+                "total": 2.0,
+                "globalObjective": 4.0
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 0,
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 1.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.0,
+                "globalObjective": 4.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 49.0,
+                "mustLinkCost": 2,
+                "cannotLinkCost": 1,
+                "total": 52.0,
+                "globalObjective": 55.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 4,
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 49.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 49.0,
+                "globalObjective": 51.25
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 1,
+                "total": 1.25,
+                "globalObjective": 3.5
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 2,
+            "row": 0,
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 1.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.0,
+                "globalObjective": 3.5
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 56.25,
+                "mustLinkCost": 2,
+                "cannotLinkCost": 1,
+                "total": 59.25,
+                "globalObjective": 61.75
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 3,
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 36.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 3,
+                "total": 39.0,
+                "globalObjective": 41.25
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.25,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 1,
+                "total": 1.25,
+                "globalObjective": 3.5
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 2,
+            "row": 1,
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 3.5
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 42.25,
+                "mustLinkCost": 2,
+                "cannotLinkCost": 1,
+                "total": 45.25,
+                "globalObjective": 48.75
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 2,
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 1.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 1.0,
+                "globalObjective": 3.5
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 30.25,
+                "mustLinkCost": 2,
+                "cannotLinkCost": 1,
+                "total": 33.25,
+                "globalObjective": 35.75
+              }
+            ],
+            "chosen": 0
+          }
+        ],
+        "stopReason": "labels-stable",
+        "distanceCost": 2.5,
+        "mustLinkCost": 0,
+        "cannotLinkCost": 1,
+        "objective": 3.5,
+        "mustViolations": 0,
+        "cannotViolations": 1,
+        "exhaustive": [
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 53.2,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 4,
+            "objective": 57.2,
+            "mustViolations": 0,
+            "cannotViolations": 4
+          },
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 29.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 3,
+            "objective": 32.0,
+            "mustViolations": 0,
+            "cannotViolations": 3
+          },
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 38.75,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 38.75,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 2.5,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 3.5,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 50.0,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 3,
+            "objective": 55.0,
+            "mustViolations": 2,
+            "cannotViolations": 3
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 46.66666666666667,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 50.66666666666667,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 50.5,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 1,
+            "objective": 53.5,
+            "mustViolations": 2,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 21.166666666666664,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 25.166666666666664,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 44.75,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 3,
+            "objective": 49.75,
+            "mustViolations": 2,
+            "cannotViolations": 3
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 50.5,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 54.5,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 52.666666666666664,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 1,
+            "objective": 55.666666666666664,
+            "mustViolations": 2,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 30.666666666666664,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 34.666666666666664,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 38.5,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 42.5,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 53.16666666666667,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 1,
+            "objective": 56.16666666666667,
+            "mustViolations": 2,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 52.66666666666667,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 56.66666666666667,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 37.0,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 3,
+            "objective": 42.0,
+            "mustViolations": 2,
+            "cannotViolations": 3
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 37.0,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 3,
+            "objective": 42.0,
+            "mustViolations": 2,
+            "cannotViolations": 3
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 52.66666666666667,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 56.66666666666667,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 53.16666666666667,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 1,
+            "objective": 56.16666666666667,
+            "mustViolations": 2,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 38.5,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 42.5,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 30.666666666666664,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 34.666666666666664,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 52.666666666666664,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 1,
+            "objective": 55.666666666666664,
+            "mustViolations": 2,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 50.5,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 54.5,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 44.75,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 3,
+            "objective": 49.75,
+            "mustViolations": 2,
+            "cannotViolations": 3
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 21.166666666666664,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 25.166666666666664,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 50.5,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 1,
+            "objective": 53.5,
+            "mustViolations": 2,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 46.66666666666667,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 2,
+            "objective": 50.66666666666667,
+            "mustViolations": 2,
+            "cannotViolations": 2
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 50.0,
+            "mustLinkCost": 2,
+            "cannotLinkCost": 3,
+            "objective": 55.0,
+            "mustViolations": 2,
+            "cannotViolations": 3
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 2.5,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 1,
+            "objective": 3.5,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 38.75,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 38.75,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 29.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 3,
+            "objective": 32.0,
+            "mustViolations": 0,
+            "cannotViolations": 3
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 53.2,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 4,
+            "objective": 57.2,
+            "mustViolations": 0,
+            "cannotViolations": 4
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "no-supervision",
+        "values": [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            5
+          ]
+        ],
+        "mustLink": [],
+        "cannotLink": [],
+        "k": 2,
+        "penalty": 1,
+        "seed": 42
+      },
+      "result": {
+        "initialCenters": [
+          [
+            4.5909933767281474,
+            3.4844871676992626
+          ],
+          [
+            4.817219214141369,
+            3.550920212431811
+          ]
+        ],
+        "initialCost": {
+          "distanceCost": 66.33813710331616,
+          "mustLinkCost": 0,
+          "cannotLinkCost": 0,
+          "objective": 66.33813710331616,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "labels": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "centroids": [
+          [
+            0.5,
+            2.5
+          ],
+          [
+            8.5,
+            4.5
+          ]
+        ],
+        "closureMustLink": [],
+        "closureCannotLink": [],
+        "states": [
+          {
+            "iteration": 1,
+            "row": 2,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 11.887079637778086,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 11.887079637778086,
+                "globalObjective": 67.89345055466107
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 10.331766186433173,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 10.331766186433173,
+                "globalObjective": 66.33813710331616
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 3,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 21.736118548923265,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 21.736118548923265,
+                "globalObjective": 68.4787683189526
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 19.595487333286812,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 19.595487333286812,
+                "globalObjective": 66.33813710331616
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 1,
+            "row": 1,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 13.129961247370677,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 13.129961247370677,
+                "globalObjective": 66.33813710331616
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 14.874675609275965,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 14.874675609275965,
+                "globalObjective": 68.08285146522144
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 1,
+            "row": 0,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 23.280922336225498,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 23.280922336225498,
+                "globalObjective": 66.33813710331616
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 25.610954462422324,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 25.610954462422324,
+                "globalObjective": 68.66816922951298
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 1,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.5,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.5,
+                "globalObjective": 2.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 58.5,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 58.5,
+                "globalObjective": 60.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 0,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.5,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.5,
+                "globalObjective": 2.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 78.5,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 78.5,
+                "globalObjective": 80.0
+              }
+            ],
+            "chosen": 0
+          },
+          {
+            "iteration": 2,
+            "row": 3,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 78.5,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 78.5,
+                "globalObjective": 80.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.5,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.5,
+                "globalObjective": 2.0
+              }
+            ],
+            "chosen": 1
+          },
+          {
+            "iteration": 2,
+            "row": 2,
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 58.5,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 58.5,
+                "globalObjective": 60.0
+              },
+              {
+                "cluster": 1,
+                "distanceSquared": 0.5,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.5,
+                "globalObjective": 2.0
+              }
+            ],
+            "chosen": 1
+          }
+        ],
+        "stopReason": "labels-stable",
+        "distanceCost": 2.0,
+        "mustLinkCost": 0,
+        "cannotLinkCost": 0,
+        "objective": 2.0,
+        "mustViolations": 0,
+        "cannotViolations": 0,
+        "exhaustive": [
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 70.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 70.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 40.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 40.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 53.333333333333336,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 53.333333333333336,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 2.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 2.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 53.333333333333336,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 53.333333333333336,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 68.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 68.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 70.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 70.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              0,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 40.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 40.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "distanceCost": 40.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 40.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "distanceCost": 70.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 70.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              0
+            ],
+            "distanceCost": 68.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 68.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              0,
+              1,
+              1
+            ],
+            "distanceCost": 53.333333333333336,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 53.333333333333336,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "distanceCost": 2.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 2.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              0,
+              1
+            ],
+            "distanceCost": 53.333333333333336,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 53.333333333333336,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "distanceCost": 40.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 40.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "labels": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "distanceCost": 70.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 70.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "name": "single",
+        "values": [
+          [
+            3
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            0
+          ]
+        ],
+        "cannotLink": [],
+        "k": 1,
+        "penalty": 1,
+        "seed": 42
+      },
+      "result": {
+        "initialCenters": [
+          [
+            3.0
+          ]
+        ],
+        "initialCost": {
+          "distanceCost": 0.0,
+          "mustLinkCost": 0,
+          "cannotLinkCost": 0,
+          "objective": 0.0,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "labels": [
+          0
+        ],
+        "centroids": [
+          [
+            3.0
+          ]
+        ],
+        "closureMustLink": [],
+        "closureCannotLink": [],
+        "states": [
+          {
+            "iteration": 1,
+            "row": 0,
+            "labels": [
+              0
+            ],
+            "candidates": [
+              {
+                "cluster": 0,
+                "distanceSquared": 0.0,
+                "mustLinkCost": 0,
+                "cannotLinkCost": 0,
+                "total": 0.0,
+                "globalObjective": 0.0
+              }
+            ],
+            "chosen": 0
+          }
+        ],
+        "stopReason": "labels-stable",
+        "distanceCost": 0.0,
+        "mustLinkCost": 0,
+        "cannotLinkCost": 0,
+        "objective": 0.0,
+        "mustViolations": 0,
+        "cannotViolations": 0,
+        "exhaustive": [
+          {
+            "labels": [
+              0
+            ],
+            "distanceCost": 0.0,
+            "mustLinkCost": 0,
+            "cannotLinkCost": 0,
+            "objective": 0.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ]
+      }
+    }
+  ]
+}

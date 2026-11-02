@@ -47,6 +47,7 @@ export const algorithms = [
   "Greedy Modularity (CNM)",
   "Fluid Communities",
   "COP-KMeans",
+  "PCKMeans",
   "Bernoulli Mixture",
   "Poisson Mixture",
   "Multinomial Mixture",
@@ -119,6 +120,7 @@ export type AlgorithmAnalysis =
   | import("./matrixTypes").MatrixAnalysis
   | import("./timeseriesTypes").TimeSeriesAnalysis
   | import("./constraintTypes").ConstraintAnalysis
+  | import("./pairwiseTypes").PairwiseAnalysis
   | import("./mixtureTypes").DiscreteMixtureAnalysis
   | import("./sequentialTypes").SequentialAnalysis
   | {
@@ -257,6 +259,7 @@ export interface Trace {
   algorithm: Algorithm;
 }
 export interface Params {
+  constraintPenalty: number;
   upperThreshold: number;
   walkSteps: number;
   cliqueSize: number;
@@ -325,6 +328,7 @@ export interface Params {
   bandwidth: number;
 }
 export const defaults: Params = {
+  constraintPenalty: 0.5,
   upperThreshold: 2,
   walkSteps: 4,
   cliqueSize: 3,
@@ -410,6 +414,7 @@ export function algorithmDefaults(algorithm: Algorithm): Params {
     ...(algorithm === "Fluid Communities" ? { iterations: 100 } : {}),
     ...([
       "COP-KMeans",
+      "PCKMeans",
       "Bernoulli Mixture",
       "Poisson Mixture",
       "Multinomial Mixture",

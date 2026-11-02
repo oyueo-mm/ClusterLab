@@ -171,6 +171,28 @@ export function previewPainter(canvas: HTMLCanvasElement, data: Dataset) {
         );
       }
       const densityMax = Math.max(1, ...(frame.density ?? []));
+      if (frame.constraints) {
+        const drawPairs = (pairs: [number, number][], must: boolean) =>
+          pairs.forEach(([a, b]) => {
+            if (!positions[a] || !positions[b]) return;
+            const violated =
+              frame.labels[a] >= 0 &&
+              frame.labels[b] >= 0 &&
+              (must
+                ? frame.labels[a] !== frame.labels[b]
+                : frame.labels[a] === frame.labels[b]);
+            ctx.setLineDash(must ? [] : [4, 3]);
+            line(
+              positions[a],
+              positions[b],
+              violated ? "#d18132" : must ? "#34564d" : "#b65a72",
+              violated ? 1.6 : 1,
+            );
+          });
+        drawPairs(frame.constraints.mustLink, true);
+        drawPairs(frame.constraints.cannotLink, false);
+        ctx.setLineDash([]);
+      }
       positions.forEach((p, i) => {
         const unseen = data.kind === "stream" && i >= (frame.processed ?? 0);
         ctx.globalAlpha = unseen ? 0.08 : 0.9;

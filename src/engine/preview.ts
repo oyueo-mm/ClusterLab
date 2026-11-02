@@ -23,6 +23,10 @@ export interface PreviewFrame {
   density?: number[];
   panel?: { title: string; values: number[][] };
   sequential?: { centroids: number[][]; pass: number; unassigned: number };
+  constraints?: {
+    mustLink: [number, number][];
+    cannotLink: [number, number][];
+  };
   embedding?: Point[];
   biclusters?: Bicluster[];
   selectedRows?: number[];
@@ -91,6 +95,9 @@ export function previewFrame(
             unassigned: a.unassigned,
           },
         }
+      : {}),
+    ...(a?.kind === "pairwise"
+      ? { constraints: { mustLink: a.mustLink, cannotLink: a.cannotLink } }
       : {}),
     ...(a?.kind === "affinity"
       ? {

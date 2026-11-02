@@ -1,3 +1,11 @@
+## 2026-11-03 신규 확장 1차 — PCKMeans 세로 단위 완료, PCM 다음
+
+현재 main 로컬54엔진·추천216구성·후보78개 미구현·엄격 완전 인증0이다. PCKMeans 원본ND·일관 제약의 정확한 희소 폐쇄·유한 벌점·실제 후보/평균 Trace·관계/중심 시각화·전용 분석·4추천·가이드/실제 비용 변경 mini·독립 NumPy8사례/140배정을 연결했다. 원문 ½SSE와 제품 SSE의 w=2w_p 대응 및 초기화/동률/종료 변형을 명시한다.
+
+전체 Vitest670/670·47파일, PCK전용15개, 타입/ESLint/build 통과. PCK 실험/미니와 기존 제약·모델 Chromium/mobile12/12통과(생략0). Node100/1000/10000 및 대형 폐쇄, 브라우저100/1000·10만행 계산 중 취소·짧은 재생약60FPS를 실제 관측했다. 기존212추천/생성636건은 f615923과 동일하다. [확장 보고서](ALGORITHM_EXPANSION_1_REPORT.md), [수학/수치/성능](research/PCKMEANS.md)을 먼저 읽는다.
+
+이 단계의 안정 커밋 이후 PCM을 순차 구현한다. FUZZY_FORMULAS의 기존 블록 검산을 활용하며 새 PCM 전체 AO·ND 초기화·척도/전형성·진단·4추천·FCM 비교 mini·단위/브라우저는 아직 남았다. 두 엔진 완료 후 전체55개/220추천·기존 회귀·Actions/Pages/공개 확인을 수행한다. 공개 제품은 아직96d9bab, 원격main은f615923이며 이번 전체 단위/공개 배포는 미완료다. main 강제push 없음, 별도 `.local/sequential-worktree`/`feat/sequential-clustering`/c4d6a7d를 보존한다.
+
 ## 2026-11-03 홈 타이포그래피·설정 패널 개선 — 공개 배포 완료
 
 제품 `96d9bab381065e2452584acb70ca629bd69d2ab8`. [Actions41472349888](https://github.com/oyueo-mm/ClusterLab/actions/runs/41472349888) validate/Pages 성공. 로컬·원격 타입/ESLint/빌드 및 Vitest **651/651·46파일**, 최종 전체 Chromium/mobile 각각 **122통과·14조건부 생략·0실패**다. 최초 모바일 패널 겹침1건을 경계 ResizeObserver 보완으로 해결했고 최초/표적/최종 전체 실행을 구분해 보존했다.

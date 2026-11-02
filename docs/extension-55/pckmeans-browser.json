@@ -1,0 +1,180 @@
+{
+  "stats": {
+    "startTime": "2026-11-02T18:15:55.888Z",
+    "duration": 72822.552,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8512,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8185,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3097,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3664,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7697,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9621,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3469,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10243,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5393,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2408,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5809,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2835,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

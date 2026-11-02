@@ -1,3 +1,7 @@
+## 2026-11-03 PCKMeans 추가 — 로컬54개
+
+PCKMeans 세로 단위를 연결·검증해 기존53+1=54개, 후보119개 중41개 연결·78개 미구현, 추천216개다. 엄격 완전 인증0. PCM은 다음 단계이며 전체55개/공개 배포 미완료. [현재 확장 보고서](ALGORITHM_EXPANSION_1_REPORT.md). 아래53개 설명은 이전 기록이며119개 후보 번호/이름/순서는 유지한다.
+
 # 알고리즘 전체 등록 현황 — 53개 개발 트리
 
 > 최종 공개 체크포인트:53개(기존13+후보40), 미구현79개, 완전 인증0. 제품main fc5cc15·Actions41305149245 validate/Pages 성공. 원격532/39파일·전체브라우저78통과/12기존생략, 로컬 다섯 spec cross38/38, 공개4브라우저8/8. 아래 중간 기록보다 SESSION_REPORT 마지막 확정 절을 우선한다.
@@ -51,7 +55,7 @@
 |   21 | Possibilistic C-Means            | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 원문·정의 예비 검토 · 엔진 미구현                                                            |
 |   22 | Fuzzy Possibilistic C-Means      | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 원문·정의 예비 검토 · 엔진 미구현                                                            |
 |   23 | COP-KMeans                       | variant                                                  | constrained         | COP-KMeans                | 독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)                                          |
-|   24 | PCKMeans                         | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 원문·정의 예비 검토 · 엔진 미구현                                                            |
+| 24 | PCKMeans | 독립 알고리즘 | constrained 원본 ND | PCKMeans | 일관 관계·균일 유한 벌점의 제한 범위, 독립 수치·브라우저 검증; 완전 인증 아님 |
 |   25 | MPCKMeans                        | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 원문·정의 예비 검토 · 엔진 미구현                                                            |
 |   26 | Constrained Spectral Clustering  | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 원문·정의 예비 검토 · 엔진 미구현                                                            |
 |   27 | Density Peaks / CFSFDP           | 중심 선택 변형 (명시적 K)                                | numeric-nd          | Density Peaks / CFSFDP    | 독립 수치·Trace·브라우저 검증 완료 (제한 범위)                                               |

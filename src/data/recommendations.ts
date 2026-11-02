@@ -17,6 +17,10 @@ import {
   type ExperimentPreset,
 } from "./structuredPresets";
 import { random } from "../engine/math";
+import {
+  registerPairwiseDatasets,
+  pairwiseRecommendations,
+} from "./pairwiseRecommendations";
 
 export interface DatasetDefinition {
   id: string;
@@ -71,6 +75,7 @@ const structuredNames: Record<ExperimentPreset, [string, string]> = {
   poisson: ["발생 빈도 집단", "Poisson counts"],
   multinomial: ["문서 구성 카운트", "Multinomial profiles"],
 };
+registerPairwiseDatasets(datasetRegistry);
 for (const [kind, [name, nameEn]] of Object.entries(structuredNames)) {
   for (const variant of ["base", "ambiguous", "boundary"] as const) {
     const id = `${kind}-${variant}`;
@@ -255,6 +260,14 @@ datasetRegistry.ordered = {
 // Every runnable engine must explicitly declare its learning goals and examples.
 type Spec = [string, string, string, string, string, Partial<Params>?];
 const specifications: Record<Algorithm, Spec> = {
+  PCKMeans: [
+    "pck-separated",
+    "pck-overlap",
+    "pck-conflict",
+    "거리와 유한 제약 비용",
+    "위반 개수와 위반 비용은 다릅니다.",
+    { k: 2 },
+  ],
   "K-Means": [
     "blobs",
     "anisotropic",
@@ -728,6 +741,7 @@ export const recommendations = Object.fromEntries(
     },
   ),
 ) as Record<Algorithm, Recommendation[]>;
+recommendations.PCKMeans = pairwiseRecommendations;
 for (const [algorithm, entries] of Object.entries(recommendations))
   for (const entry of entries)
     entry.count = recommendationCount(

@@ -297,6 +297,13 @@
       "DP-Means"
     ]
   },
+  "PCKMeans": {
+    "summary": "각 표본의 거리와 Must-Link·Cannot-Link 위반의 유한 비용을 함께 줄이는 PCKMeans입니다. 전체 원본 차원을 사용하며 위반을 감수한 배정도 정상 결과입니다.",
+    "related": [
+      "COP-KMeans",
+      "K-Means"
+    ]
+  },
   "Bernoulli Mixture": {
     "summary": "조건부 독립 이진 특성의 product-Bernoulli 혼합을 실제 최대우도 EM으로 학습합니다. 원본 모든 차원에서 성분별 성공 확률과 혼합 가중치, Bayes 사후소속을 추정합니다.",
     "related": [

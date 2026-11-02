@@ -5,6 +5,7 @@ export const algorithmFamilies: Record<Algorithm, string> = {
   MBSAS: "두 단계·순차 대표점",
   TTSAS: "두 임계값·유보 재방문",
   "COP-KMeans": "하드 제약·중심",
+  PCKMeans: "유한 벌점·쌍별 제약",
   "Bernoulli Mixture": "이진 확률·혼합모델",
   "Poisson Mixture": "카운트 확률·혼합모델",
   "Multinomial Mixture": "구성 카운트·혼합모델",

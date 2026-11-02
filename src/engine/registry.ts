@@ -58,6 +58,7 @@ const koreanNames: Record<Algorithm, string> = {
   "Greedy Modularity (CNM)": "탐욕 모듈성 병합",
   "Fluid Communities": "유동 커뮤니티",
   "COP-KMeans": "하드 제약 K-평균",
+  PCKMeans: "쌍별 제약 K-평균",
   "Bernoulli Mixture": "베르누이 혼합모델",
   "Poisson Mixture": "포아송 혼합모델",
   "Multinomial Mixture": "다항 카운트 혼합모델",
@@ -125,6 +126,7 @@ export const loaders: Record<Algorithm, () => Promise<Engine>> = {
     import("./algorithms/cnm").then((m) => m.cnm),
   "Fluid Communities": () => import("./algorithms/fluid").then((m) => m.fluid),
   "COP-KMeans": () => import("./algorithms/copkmeans").then((m) => m.copkmeans),
+  PCKMeans: () => import("./algorithms/pckmeans").then((m) => m.pckmeans),
   "Bernoulli Mixture": () =>
     import("./algorithms/bernoulli").then((m) => m.bernoulli),
   "Poisson Mixture": () =>
@@ -162,6 +164,7 @@ export const structuredAlgorithms = [
   "Greedy Modularity (CNM)",
   "Fluid Communities",
   "COP-KMeans",
+  "PCKMeans",
   "Bernoulli Mixture",
   "Poisson Mixture",
   "Multinomial Mixture",
@@ -189,6 +192,7 @@ export function supportsLegacyPoints(algorithm: Algorithm) {
     "Cheng–Church Biclustering",
     "K-Shape",
     "COP-KMeans",
+    "PCKMeans",
     "Bernoulli Mixture",
     "Poisson Mixture",
     "Multinomial Mixture",
@@ -198,7 +202,8 @@ export function supportsLegacyPoints(algorithm: Algorithm) {
   ].includes(algorithm);
 }
 export function supportsDataset(algorithm: Algorithm, kind: Dataset["kind"]) {
-  if (kind === "constrained") return algorithm === "COP-KMeans";
+  if (kind === "constrained")
+    return algorithm === "COP-KMeans" || algorithm === "PCKMeans";
   if (kind === "categorical") return algorithm === "K-Modes";
   if (kind === "mixed") return algorithm === "K-Prototypes";
   if (kind === "stream") return algorithm === "DenStream";
@@ -221,6 +226,7 @@ export function supportsDataset(algorithm: Algorithm, kind: Dataset["kind"]) {
       "Cheng–Church Biclustering",
       "K-Shape",
       "COP-KMeans",
+      "PCKMeans",
     ].includes(algorithm)
   );
 }
@@ -261,7 +267,7 @@ export const registry = Object.fromEntries(
               ? "variant"
               : "algorithm",
         input:
-          id === "COP-KMeans"
+          id === "COP-KMeans" || id === "PCKMeans"
             ? "constrained"
             : id === "Bimax" || id === "Cheng–Church Biclustering"
               ? "matrix"
@@ -285,7 +291,7 @@ export const registry = Object.fromEntries(
                             : "points2d",
         output: ["BSAS", "MBSAS", "TTSAS"].includes(id)
           ? "sequential-partition"
-          : id === "COP-KMeans"
+          : id === "COP-KMeans" || id === "PCKMeans"
             ? "constrained-partition"
             : [
                   "Bernoulli Mixture",
@@ -371,7 +377,7 @@ export const registry = Object.fromEntries(
           : id === "Clique Percolation"
             ? "미소속"
             : "노이즈",
-        examplePreset: (id === "COP-KMeans"
+        examplePreset: (id === "COP-KMeans" || id === "PCKMeans"
           ? "constrained"
           : id === "Bernoulli Mixture"
             ? "bernoulli"
