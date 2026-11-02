@@ -40,6 +40,11 @@ describe("actual thumbnail traces", () => {
         expect(frame.focus).toEqual(state.focus);
         expect(frame.responsibilities).toEqual(state.responsibilities);
         expect(frame.roles).toEqual(state.roles);
+        if (state.analysis?.kind === "sequential") {
+          expect(frame.sequential?.centroids).toEqual(state.analysis.centroids);
+          expect(frame.sequential?.pass).toBe(state.analysis.pass);
+          expect(frame.sequential?.unassigned).toBe(state.analysis.unassigned);
+        }
         if (state.analysis?.kind === "affinity") {
           expect(frame.panel?.values[0]).toEqual(
             state.analysis.responsibility?.map((row, i) => row[i]) ?? [],

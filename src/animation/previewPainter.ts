@@ -21,6 +21,31 @@ function membership(weights: number[] | undefined, label: number) {
 export function previewPainter(canvas: HTMLCanvasElement, data: Dataset) {
   const ctx = canvas.getContext("2d")!;
   const points = displayPoints(data);
+  const rows = data.kind === "numeric" ? data.values : undefined;
+  const axes = [0, Math.min(1, (rows?.[0].length ?? 2) - 1)];
+  const lows = axes.map((axis) =>
+    rows ? Math.min(...rows.map((row) => row[axis])) : 0,
+  );
+  const highs = axes.map((axis) =>
+    rows ? Math.max(...rows.map((row) => row[axis])) : 1,
+  );
+  const centersAt = (frame: PreviewFrame) =>
+    frame.sequential
+      ? frame.sequential.centroids.map((row, i) => ({
+          id: i,
+          label: i,
+          x:
+            data.kind === "numeric" && data.display
+              ? row[axes[0]]
+              : 0.1 +
+                (0.8 * (row[axes[0]] - lows[0])) / (highs[0] - lows[0] || 1),
+          y:
+            data.kind === "numeric" && data.display
+              ? row[axes[1]]
+              : 0.1 +
+                (0.8 * (row[axes[1]] - lows[1])) / (highs[1] - lows[1] || 1),
+        }))
+      : frame.centers;
   const ratio = Math.min(2, window.devicePixelRatio || 1);
   canvas.width = 300 * ratio;
   canvas.height = 150 * ratio;
@@ -122,7 +147,12 @@ export function previewPainter(canvas: HTMLCanvasElement, data: Dataset) {
           values: frame.embedding.map((p) => [p.x, p.y]),
         });
       const edges = frame.edges;
-      const centers = interpolateCenters(from.centers, frame.centers, t, true);
+      const centers = interpolateCenters(
+        centersAt(from),
+        centersAt(frame),
+        t,
+        true,
+      );
       const edgePoints = frame.neuronEdges ? centers : positions;
       edges.forEach((e) => {
         if (edgePoints[e.a] && edgePoints[e.b])
@@ -155,7 +185,7 @@ export function previewPainter(canvas: HTMLCanvasElement, data: Dataset) {
         );
         ctx.globalAlpha = 1;
         if (frame.focus.includes(i)) {
-          dot(p, 5, "#c08536", true);
+          dot(p, 5, frame.kind === "defer" ? "#db8ca9" : "#c08536", true);
           if (frame.radius > 0)
             dot(p, Math.min(90, frame.radius * 126), "#dbab65", true);
         }
@@ -209,6 +239,15 @@ export function previewPainter(canvas: HTMLCanvasElement, data: Dataset) {
             line(aggregate[e.a], aggregate[e.b], "#709ed0");
         });
         aggregate.forEach((p, i) => dot(p, 3, color(i)));
+      }
+      if (frame.sequential) {
+        ctx.fillStyle = "#45614e";
+        ctx.font = "9px sans-serif";
+        ctx.fillText(
+          `pass ${frame.sequential.pass} · 미할당 ${frame.sequential.unassigned}`,
+          12,
+          148,
+        );
       }
       if (data.kind === "stream" && frame.micro) {
         const rows = data.samples.map((s) => s.values);

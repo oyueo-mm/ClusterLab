@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+﻿import assert from "node:assert/strict";
 import { chromium, expect } from "@playwright/test";
 import { mkdir, writeFile } from "node:fs/promises";
 import process from "node:process";
@@ -48,7 +48,9 @@ try {
         }
       };
       const clear = globalThis.CanvasRenderingContext2D.prototype.clearRect;
-      globalThis.CanvasRenderingContext2D.prototype.clearRect = function (...args) {
+      globalThis.CanvasRenderingContext2D.prototype.clearRect = function (
+        ...args
+      ) {
         if (this.canvas.closest(".algorithm-preview")) globalThis.__draws++;
         return clear.apply(this, args);
       };
@@ -62,6 +64,7 @@ try {
       errors = [];
     page.on("pageerror", (error) => errors.push(error.message));
     for (const [i, algorithm] of algorithms.entries()) {
+      await page.goto("about:blank");
       const response = await page.goto(
         `${url}#/catalog?q=${encodeURIComponent(algorithm)}`,
       );
@@ -74,7 +77,10 @@ try {
         .locator("../..");
       await preview.scrollIntoViewIfNeeded();
       await expect(preview).toHaveAttribute("data-preview-status", "computed");
-      await page.waitForFunction((name) => !!globalThis.__clips[name], algorithm);
+      await page.waitForFunction(
+        (name) => !!globalThis.__clips[name],
+        algorithm,
+      );
       const clip = await page.evaluate((name) => {
         const clip = globalThis.__clips[name];
         return {
@@ -84,8 +90,12 @@ try {
             kind: frame.kind,
           })),
           computationMs: clip.elapsed,
+          sequentialFrames: clip.frames.filter(
+            (frame) => frame.sequential?.centroids.length,
+          ).length,
         };
       }, algorithm);
+      if (algorithm === "MBSAS") assert.ok(clip.sequentialFrames > 0);
       const target = clip.frames[Math.floor(clip.frames.length / 2)].index;
       const canvas = preview.locator("canvas");
       for (const [stage, index] of [
@@ -93,10 +103,32 @@ try {
         ["middle", target],
         ["final", clip.events],
       ]) {
-        await expect(preview).toHaveAttribute(
-          "data-preview-frame",
-          String(index),
-          { timeout: 12000 },
+        // Observe at RAF cadence: ordinary assertion polling can miss a 100ms keyframe.
+        // Freeze through the same visibility boundary used by the application so
+        // screenshots capture the exact actual frame rather than the next one.
+        await preview.evaluate(
+          (node, index) =>
+            new Promise((resolve, reject) => {
+              const timer = globalThis.setTimeout(
+                () => reject(new Error(`Frame ${index} was not displayed`)),
+                12000,
+              );
+              const check = () => {
+                if (node.getAttribute("data-preview-frame") === String(index)) {
+                  globalThis.clearTimeout(timer);
+                  Object.defineProperty(globalThis.document, "hidden", {
+                    configurable: true,
+                    value: true,
+                  });
+                  globalThis.document.dispatchEvent(
+                    new globalThis.Event("visibilitychange"),
+                  );
+                  resolve();
+                } else globalThis.requestAnimationFrame(check);
+              };
+              check();
+            }),
+          index,
         );
         await preview.screenshot({
           path: `${directory}/${device}-${i}-${stage}.png`,
@@ -108,6 +140,12 @@ try {
           return pixels.some((value, i) => i % 4 === 3 && value > 0);
         });
         assert.equal(pixels, true);
+        await page.evaluate(() => {
+          delete globalThis.document.hidden;
+          globalThis.document.dispatchEvent(
+            new globalThis.Event("visibilitychange"),
+          );
+        });
       }
       const measured = await page.evaluate(() => {
         const times = globalThis.__times,
@@ -150,5 +188,5 @@ await writeFile(
   ) + "\n",
 );
 process.stdout.write(
-  `Verified ${evidence.length} public algorithm/device combinations, initial/middle/final and reduced motion.\n`,
+  `Verified ${evidence.length} algorithm/device combinations at ${url}, initial/middle/final and reduced motion.\n`,
 );

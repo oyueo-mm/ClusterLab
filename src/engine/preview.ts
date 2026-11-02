@@ -21,6 +21,7 @@ export interface PreviewFrame {
   roles: string[];
   density?: number[];
   panel?: { title: string; values: number[][] };
+  sequential?: { centroids: number[][]; pass: number; unassigned: number };
   embedding?: Point[];
   biclusters?: Bicluster[];
   selectedRows?: number[];
@@ -80,6 +81,15 @@ export function previewFrame(
     radius: state.radius,
     responsibilities: state.responsibilities,
     roles: state.roles,
+    ...(a?.kind === "sequential"
+      ? {
+          sequential: {
+            centroids: a.centroids,
+            pass: a.pass,
+            unassigned: a.unassigned,
+          },
+        }
+      : {}),
     ...(a?.kind === "affinity"
       ? {
           panel: {
