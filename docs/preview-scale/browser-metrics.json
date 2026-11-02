@@ -1,0 +1,1013 @@
+[
+  {
+    "project": "chromium",
+    "kind": "worker-and-memory",
+    "metrics": {
+      "active": 0,
+      "max": 2,
+      "draws": 562,
+      "perCanvas": {
+        "K-Means 실제 Trace 주요 단계 미리보기": 23,
+        "DBSCAN 실제 Trace 주요 단계 미리보기": 25,
+        "HDBSCAN 실제 Trace 주요 단계 미리보기": 25,
+        "AGNES 실제 Trace 주요 단계 미리보기": 9,
+        "DIANA 실제 Trace 주요 단계 미리보기": 9,
+        "SOM 실제 Trace 주요 단계 미리보기": 9,
+        "LVQ 실제 Trace 주요 단계 미리보기": 9,
+        "OPTICS 실제 Trace 주요 단계 미리보기": 9,
+        "PAM 실제 Trace 주요 단계 미리보기": 9,
+        "ROCK 실제 Trace 주요 단계 미리보기": 9,
+        "GMM 실제 Trace 주요 단계 미리보기": 9,
+        "BIRCH 실제 Trace 주요 단계 미리보기": 9,
+        "Mean Shift 실제 Trace 주요 단계 미리보기": 9,
+        "Fuzzy C-Means 실제 Trace 주요 단계 미리보기": 9,
+        "Bisecting K-Means 실제 Trace 주요 단계 미리보기": 11,
+        "Spectral Clustering 실제 Trace 주요 단계 미리보기": 9,
+        "Affinity Propagation 실제 Trace 주요 단계 미리보기": 9,
+        "Density Peaks / CFSFDP 실제 Trace 주요 단계 미리보기": 9,
+        "CURE 실제 Trace 주요 단계 미리보기": 9,
+        "Neural Gas 실제 Trace 주요 단계 미리보기": 9,
+        "Growing Neural Gas 실제 Trace 주요 단계 미리보기": 8,
+        "K-Medians 실제 Trace 주요 단계 미리보기": 9,
+        "Mini-Batch K-Means 실제 Trace 주요 단계 미리보기": 11,
+        "CLARA 실제 Trace 주요 단계 미리보기": 9,
+        "CLARANS 실제 Trace 주요 단계 미리보기": 9,
+        "X-Means 실제 Trace 주요 단계 미리보기": 9,
+        "G-Means 실제 Trace 주요 단계 미리보기": 9,
+        "Dip-Means 실제 Trace 주요 단계 미리보기": 10,
+        "DP-Means 실제 Trace 주요 단계 미리보기": 10,
+        "Louvain 실제 Trace 주요 단계 미리보기": 8,
+        "Leiden 실제 Trace 주요 단계 미리보기": 11,
+        "Label Propagation 실제 Trace 주요 단계 미리보기": 11,
+        "Girvan–Newman 실제 Trace 주요 단계 미리보기": 9,
+        "Markov Clustering (MCL) 실제 Trace 주요 단계 미리보기": 12,
+        "K-Modes 실제 Trace 주요 단계 미리보기": 12,
+        "K-Prototypes 실제 Trace 주요 단계 미리보기": 11,
+        "CLIQUE 실제 Trace 주요 단계 미리보기": 11,
+        "PROCLUS 실제 Trace 주요 단계 미리보기": 11,
+        "DenStream 실제 Trace 주요 단계 미리보기": 14,
+        "Bimax 실제 Trace 주요 단계 미리보기": 11,
+        "Cheng–Church Biclustering 실제 Trace 주요 단계 미리보기": 11,
+        "K-Shape 실제 Trace 주요 단계 미리보기": 7,
+        "Greedy Modularity (CNM) 실제 Trace 주요 단계 미리보기": 10,
+        "Fluid Communities 실제 Trace 주요 단계 미리보기": 10,
+        "COP-KMeans 실제 Trace 주요 단계 미리보기": 8,
+        "Bernoulli Mixture 실제 Trace 주요 단계 미리보기": 11,
+        "Poisson Mixture 실제 Trace 주요 단계 미리보기": 11,
+        "Multinomial Mixture 실제 Trace 주요 단계 미리보기": 9,
+        "Walktrap 실제 Trace 주요 단계 미리보기": 12,
+        "Clique Percolation 실제 Trace 주요 단계 미리보기": 13,
+        "BSAS 실제 Trace 주요 단계 미리보기": 11,
+        "MBSAS 실제 Trace 주요 단계 미리보기": 8,
+        "TTSAS 실제 Trace 주요 단계 미리보기": 8
+      },
+      "clips": [
+        {
+          "algorithm": "DBSCAN",
+          "frames": 35,
+          "events": 141,
+          "elapsed": 1.7999999523162842,
+          "bytes": 26617,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "K-Means",
+          "frames": 36,
+          "events": 296,
+          "elapsed": 2.899999976158142,
+          "bytes": 36087,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "HDBSCAN",
+          "frames": 36,
+          "events": 102,
+          "elapsed": 3.9000000953674316,
+          "bytes": 56769,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "AGNES",
+          "frames": 35,
+          "events": 96,
+          "elapsed": 11.5,
+          "bytes": 136870,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "DIANA",
+          "frames": 15,
+          "events": 14,
+          "elapsed": 4.799999952316284,
+          "bytes": 14279,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "SOM",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 10.399999976158142,
+          "bytes": 96528,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "LVQ",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 6.899999976158142,
+          "bytes": 48510,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "OPTICS",
+          "frames": 36,
+          "events": 179,
+          "elapsed": 2.4000000953674316,
+          "bytes": 32476,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "PAM",
+          "frames": 36,
+          "events": 276,
+          "elapsed": 6.199999928474426,
+          "bytes": 36461,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "GMM",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 3.600000023841858,
+          "bytes": 140512,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "ROCK",
+          "frames": 36,
+          "events": 93,
+          "elapsed": 14.800000071525574,
+          "bytes": 207726,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "BIRCH",
+          "frames": 36,
+          "events": 184,
+          "elapsed": 3.5,
+          "bytes": 58521,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Fuzzy C-Means",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 3.100000023841858,
+          "bytes": 129967,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Mean Shift",
+          "frames": 36,
+          "events": 591,
+          "elapsed": 11.199999928474426,
+          "bytes": 143650,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Bisecting K-Means",
+          "frames": 21,
+          "events": 20,
+          "elapsed": 1.100000023841858,
+          "bytes": 24125,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Affinity Propagation",
+          "frames": 33,
+          "events": 43,
+          "elapsed": 16.300000071525574,
+          "bytes": 94895,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Spectral Clustering",
+          "frames": 22,
+          "events": 21,
+          "elapsed": 16,
+          "bytes": 188760,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Density Peaks / CFSFDP",
+          "frames": 35,
+          "events": 99,
+          "elapsed": 2.700000047683716,
+          "bytes": 82125,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "CURE",
+          "frames": 35,
+          "events": 137,
+          "elapsed": 12.899999976158142,
+          "bytes": 185059,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Neural Gas",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 11.600000023841858,
+          "bytes": 38074,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Growing Neural Gas",
+          "frames": 36,
+          "events": 1558,
+          "elapsed": 43.39999997615814,
+          "bytes": 50267,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "K-Medians",
+          "frames": 10,
+          "events": 9,
+          "elapsed": 1,
+          "bytes": 10027,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Mini-Batch K-Means",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 1.8000000715255737,
+          "bytes": 36386,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "CLARA",
+          "frames": 26,
+          "events": 25,
+          "elapsed": 4.799999952316284,
+          "bytes": 26701,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "CLARANS",
+          "frames": 36,
+          "events": 243,
+          "elapsed": 5.400000095367432,
+          "bytes": 36695,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "X-Means",
+          "frames": 30,
+          "events": 37,
+          "elapsed": 2.4000000953674316,
+          "bytes": 26825,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "G-Means",
+          "frames": 28,
+          "events": 27,
+          "elapsed": 5.700000047683716,
+          "bytes": 25013,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "DP-Means",
+          "frames": 36,
+          "events": 982,
+          "elapsed": 15.800000071525574,
+          "bytes": 30362,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Dip-Means",
+          "frames": 18,
+          "events": 17,
+          "elapsed": 17,
+          "bytes": 16081,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Louvain",
+          "frames": 33,
+          "events": 59,
+          "elapsed": 24.299999952316284,
+          "bytes": 189414,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Label Propagation",
+          "frames": 36,
+          "events": 141,
+          "elapsed": 10,
+          "bytes": 122122,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Leiden",
+          "frames": 35,
+          "events": 108,
+          "elapsed": 20,
+          "bytes": 198426,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Girvan–Newman",
+          "frames": 17,
+          "events": 16,
+          "elapsed": 26.59999990463257,
+          "bytes": 54409,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "K-Modes",
+          "frames": 7,
+          "events": 6,
+          "elapsed": 9.800000071525574,
+          "bytes": 6749,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Markov Clustering (MCL)",
+          "frames": 33,
+          "events": 39,
+          "elapsed": 49.10000002384186,
+          "bytes": 140316,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "K-Prototypes",
+          "frames": 15,
+          "events": 14,
+          "elapsed": 8.299999952316284,
+          "bytes": 15362,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "CLIQUE",
+          "frames": 7,
+          "events": 6,
+          "elapsed": 15,
+          "bytes": 6985,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "PROCLUS",
+          "frames": 34,
+          "events": 51,
+          "elapsed": 30.100000023841858,
+          "bytes": 49794,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "DenStream",
+          "frames": 34,
+          "events": 76,
+          "elapsed": 23,
+          "bytes": 54446,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Bimax",
+          "frames": 9,
+          "events": 8,
+          "elapsed": 8.700000047683716,
+          "bytes": 10645,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Cheng–Church Biclustering",
+          "frames": 34,
+          "events": 61,
+          "elapsed": 22,
+          "bytes": 40559,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "K-Shape",
+          "frames": 35,
+          "events": 304,
+          "elapsed": 85.10000002384186,
+          "bytes": 214096,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Greedy Modularity (CNM)",
+          "frames": 35,
+          "events": 91,
+          "elapsed": 99,
+          "bytes": 118879,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Fluid Communities",
+          "frames": 36,
+          "events": 213,
+          "elapsed": 35.200000047683716,
+          "bytes": 121896,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "COP-KMeans",
+          "frames": 35,
+          "events": 199,
+          "elapsed": 18.5,
+          "bytes": 30564,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Poisson Mixture",
+          "frames": 11,
+          "events": 10,
+          "elapsed": 7.899999976158142,
+          "bytes": 29793,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Bernoulli Mixture",
+          "frames": 25,
+          "events": 24,
+          "elapsed": 9.100000023841858,
+          "bytes": 71152,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Multinomial Mixture",
+          "frames": 9,
+          "events": 8,
+          "elapsed": 13.800000071525574,
+          "bytes": 24333,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Clique Percolation",
+          "frames": 36,
+          "events": 99,
+          "elapsed": 7.700000047683716,
+          "bytes": 123302,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Walktrap",
+          "frames": 35,
+          "events": 101,
+          "elapsed": 48.60000002384186,
+          "bytes": 119474,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "BSAS",
+          "frames": 27,
+          "events": 26,
+          "elapsed": 12.5,
+          "bytes": 9918,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "MBSAS",
+          "frames": 31,
+          "events": 43,
+          "elapsed": 8.899999976158142,
+          "bytes": 11190,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "TTSAS",
+          "frames": 33,
+          "events": 52,
+          "elapsed": 7.600000023841858,
+          "bytes": 12002,
+          "hasTrace": false
+        }
+      ],
+      "mainThreadUsedJSHeapSize": 29400000
+    }
+  },
+  {
+    "project": "chromium",
+    "kind": "render-performance",
+    "metrics": {
+      "fps": 60.00000000000001,
+      "maxGap": 16.800000000000182,
+      "canvasDrawsInTwoSeconds": 183,
+      "maxWorkers": 2
+    }
+  },
+  {
+    "project": "mobile",
+    "kind": "worker-and-memory",
+    "metrics": {
+      "active": 0,
+      "max": 1,
+      "draws": 284,
+      "perCanvas": {
+        "K-Means 실제 Trace 주요 단계 미리보기": 11,
+        "DBSCAN 실제 Trace 주요 단계 미리보기": 4,
+        "HDBSCAN 실제 Trace 주요 단계 미리보기": 5,
+        "AGNES 실제 Trace 주요 단계 미리보기": 5,
+        "DIANA 실제 Trace 주요 단계 미리보기": 5,
+        "SOM 실제 Trace 주요 단계 미리보기": 5,
+        "LVQ 실제 Trace 주요 단계 미리보기": 5,
+        "OPTICS 실제 Trace 주요 단계 미리보기": 5,
+        "PAM 실제 Trace 주요 단계 미리보기": 5,
+        "ROCK 실제 Trace 주요 단계 미리보기": 5,
+        "GMM 실제 Trace 주요 단계 미리보기": 5,
+        "BIRCH 실제 Trace 주요 단계 미리보기": 5,
+        "Mean Shift 실제 Trace 주요 단계 미리보기": 5,
+        "Fuzzy C-Means 실제 Trace 주요 단계 미리보기": 5,
+        "Bisecting K-Means 실제 Trace 주요 단계 미리보기": 3,
+        "Spectral Clustering 실제 Trace 주요 단계 미리보기": 5,
+        "Affinity Propagation 실제 Trace 주요 단계 미리보기": 5,
+        "Density Peaks / CFSFDP 실제 Trace 주요 단계 미리보기": 5,
+        "CURE 실제 Trace 주요 단계 미리보기": 5,
+        "Neural Gas 실제 Trace 주요 단계 미리보기": 8,
+        "Growing Neural Gas 실제 Trace 주요 단계 미리보기": 6,
+        "K-Medians 실제 Trace 주요 단계 미리보기": 6,
+        "Mini-Batch K-Means 실제 Trace 주요 단계 미리보기": 5,
+        "CLARA 실제 Trace 주요 단계 미리보기": 6,
+        "CLARANS 실제 Trace 주요 단계 미리보기": 5,
+        "X-Means 실제 Trace 주요 단계 미리보기": 5,
+        "G-Means 실제 Trace 주요 단계 미리보기": 5,
+        "Dip-Means 실제 Trace 주요 단계 미리보기": 6,
+        "DP-Means 실제 Trace 주요 단계 미리보기": 5,
+        "Louvain 실제 Trace 주요 단계 미리보기": 5,
+        "Leiden 실제 Trace 주요 단계 미리보기": 5,
+        "Label Propagation 실제 Trace 주요 단계 미리보기": 5,
+        "Girvan–Newman 실제 Trace 주요 단계 미리보기": 4,
+        "Markov Clustering (MCL) 실제 Trace 주요 단계 미리보기": 5,
+        "K-Modes 실제 Trace 주요 단계 미리보기": 6,
+        "K-Prototypes 실제 Trace 주요 단계 미리보기": 5,
+        "CLIQUE 실제 Trace 주요 단계 미리보기": 6,
+        "PROCLUS 실제 Trace 주요 단계 미리보기": 5,
+        "DenStream 실제 Trace 주요 단계 미리보기": 5,
+        "Bimax 실제 Trace 주요 단계 미리보기": 6,
+        "Cheng–Church Biclustering 실제 Trace 주요 단계 미리보기": 5,
+        "K-Shape 실제 Trace 주요 단계 미리보기": 7,
+        "Greedy Modularity (CNM) 실제 Trace 주요 단계 미리보기": 5,
+        "Fluid Communities 실제 Trace 주요 단계 미리보기": 6,
+        "COP-KMeans 실제 Trace 주요 단계 미리보기": 5,
+        "Bernoulli Mixture 실제 Trace 주요 단계 미리보기": 5,
+        "Poisson Mixture 실제 Trace 주요 단계 미리보기": 6,
+        "Multinomial Mixture 실제 Trace 주요 단계 미리보기": 5,
+        "Walktrap 실제 Trace 주요 단계 미리보기": 6,
+        "Clique Percolation 실제 Trace 주요 단계 미리보기": 5,
+        "BSAS 실제 Trace 주요 단계 미리보기": 6,
+        "MBSAS 실제 Trace 주요 단계 미리보기": 6,
+        "TTSAS 실제 Trace 주요 단계 미리보기": 5
+      },
+      "clips": [
+        {
+          "algorithm": "K-Means",
+          "frames": 36,
+          "events": 296,
+          "elapsed": 2.700000047683716,
+          "bytes": 36087,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "DBSCAN",
+          "frames": 35,
+          "events": 141,
+          "elapsed": 2.200000047683716,
+          "bytes": 26616,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "HDBSCAN",
+          "frames": 36,
+          "events": 102,
+          "elapsed": 3.5,
+          "bytes": 56754,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "AGNES",
+          "frames": 35,
+          "events": 96,
+          "elapsed": 11.700000047683716,
+          "bytes": 136884,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "DIANA",
+          "frames": 15,
+          "events": 14,
+          "elapsed": 3.399999976158142,
+          "bytes": 14279,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "SOM",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 10.399999976158142,
+          "bytes": 96528,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "LVQ",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 6.799999952316284,
+          "bytes": 48510,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "OPTICS",
+          "frames": 36,
+          "events": 179,
+          "elapsed": 2.600000023841858,
+          "bytes": 32475,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "PAM",
+          "frames": 36,
+          "events": 276,
+          "elapsed": 4.600000023841858,
+          "bytes": 36461,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "ROCK",
+          "frames": 36,
+          "events": 93,
+          "elapsed": 8.5,
+          "bytes": 207711,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "GMM",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 5.5,
+          "bytes": 140498,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "BIRCH",
+          "frames": 36,
+          "events": 184,
+          "elapsed": 3.5,
+          "bytes": 58521,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Mean Shift",
+          "frames": 36,
+          "events": 591,
+          "elapsed": 11.299999952316284,
+          "bytes": 143650,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Fuzzy C-Means",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 3.299999952316284,
+          "bytes": 129967,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Bisecting K-Means",
+          "frames": 21,
+          "events": 20,
+          "elapsed": 1.2999999523162842,
+          "bytes": 24126,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Spectral Clustering",
+          "frames": 22,
+          "events": 21,
+          "elapsed": 12.199999928474426,
+          "bytes": 188776,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Affinity Propagation",
+          "frames": 33,
+          "events": 43,
+          "elapsed": 15.600000023841858,
+          "bytes": 94895,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Density Peaks / CFSFDP",
+          "frames": 35,
+          "events": 99,
+          "elapsed": 3.399999976158142,
+          "bytes": 82125,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "CURE",
+          "frames": 35,
+          "events": 137,
+          "elapsed": 28,
+          "bytes": 185043,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Neural Gas",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 81.5,
+          "bytes": 38060,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Growing Neural Gas",
+          "frames": 36,
+          "events": 1558,
+          "elapsed": 85.10000002384186,
+          "bytes": 50267,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "K-Medians",
+          "frames": 10,
+          "events": 9,
+          "elapsed": 2.200000047683716,
+          "bytes": 10043,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Mini-Batch K-Means",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 4.599999904632568,
+          "bytes": 36385,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "CLARA",
+          "frames": 26,
+          "events": 25,
+          "elapsed": 12,
+          "bytes": 26686,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "CLARANS",
+          "frames": 36,
+          "events": 243,
+          "elapsed": 7.5,
+          "bytes": 36681,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "X-Means",
+          "frames": 30,
+          "events": 37,
+          "elapsed": 7.200000047683716,
+          "bytes": 26824,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "G-Means",
+          "frames": 28,
+          "events": 27,
+          "elapsed": 10,
+          "bytes": 24998,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Dip-Means",
+          "frames": 18,
+          "events": 17,
+          "elapsed": 15,
+          "bytes": 16081,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "DP-Means",
+          "frames": 36,
+          "events": 982,
+          "elapsed": 14.5,
+          "bytes": 30348,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Louvain",
+          "frames": 33,
+          "events": 59,
+          "elapsed": 9.100000023841858,
+          "bytes": 189413,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Leiden",
+          "frames": 35,
+          "events": 108,
+          "elapsed": 14.700000047683716,
+          "bytes": 198442,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Label Propagation",
+          "frames": 36,
+          "events": 141,
+          "elapsed": 10.700000047683716,
+          "bytes": 122138,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Girvan–Newman",
+          "frames": 17,
+          "events": 16,
+          "elapsed": 19.5,
+          "bytes": 54396,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Markov Clustering (MCL)",
+          "frames": 33,
+          "events": 39,
+          "elapsed": 30.100000023841858,
+          "bytes": 140317,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "K-Modes",
+          "frames": 7,
+          "events": 6,
+          "elapsed": 3.700000047683716,
+          "bytes": 6749,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "K-Prototypes",
+          "frames": 15,
+          "events": 14,
+          "elapsed": 6.199999928474426,
+          "bytes": 15362,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "CLIQUE",
+          "frames": 7,
+          "events": 6,
+          "elapsed": 8.700000047683716,
+          "bytes": 7000,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "PROCLUS",
+          "frames": 34,
+          "events": 51,
+          "elapsed": 16.5,
+          "bytes": 49780,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "DenStream",
+          "frames": 34,
+          "events": 76,
+          "elapsed": 14.299999952316284,
+          "bytes": 54462,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Bimax",
+          "frames": 9,
+          "events": 8,
+          "elapsed": 3.5,
+          "bytes": 10631,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Cheng–Church Biclustering",
+          "frames": 34,
+          "events": 61,
+          "elapsed": 14.700000047683716,
+          "bytes": 40575,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "K-Shape",
+          "frames": 35,
+          "events": 304,
+          "elapsed": 60.10000002384186,
+          "bytes": 214096,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Greedy Modularity (CNM)",
+          "frames": 35,
+          "events": 91,
+          "elapsed": 20.100000023841858,
+          "bytes": 118895,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Fluid Communities",
+          "frames": 36,
+          "events": 213,
+          "elapsed": 11.799999952316284,
+          "bytes": 121896,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "COP-KMeans",
+          "frames": 35,
+          "events": 199,
+          "elapsed": 11.899999976158142,
+          "bytes": 30578,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Bernoulli Mixture",
+          "frames": 25,
+          "events": 24,
+          "elapsed": 7.200000047683716,
+          "bytes": 71152,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Poisson Mixture",
+          "frames": 11,
+          "events": 10,
+          "elapsed": 4.600000023841858,
+          "bytes": 29793,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Multinomial Mixture",
+          "frames": 9,
+          "events": 8,
+          "elapsed": 9.400000095367432,
+          "bytes": 24332,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Walktrap",
+          "frames": 35,
+          "events": 101,
+          "elapsed": 16.100000023841858,
+          "bytes": 119475,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "Clique Percolation",
+          "frames": 36,
+          "events": 99,
+          "elapsed": 9,
+          "bytes": 123286,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "BSAS",
+          "frames": 27,
+          "events": 26,
+          "elapsed": 3.6999999284744263,
+          "bytes": 9932,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "MBSAS",
+          "frames": 31,
+          "events": 43,
+          "elapsed": 7.399999976158142,
+          "bytes": 11190,
+          "hasTrace": false
+        },
+        {
+          "algorithm": "TTSAS",
+          "frames": 33,
+          "events": 52,
+          "elapsed": 6.699999928474426,
+          "bytes": 12002,
+          "hasTrace": false
+        }
+      ],
+      "mainThreadUsedJSHeapSize": 27600000
+    }
+  },
+  {
+    "project": "mobile",
+    "kind": "render-performance",
+    "metrics": {
+      "fps": 60.0030001500075,
+      "maxGap": 16.800000000000182,
+      "canvasDrawsInTwoSeconds": 60,
+      "maxWorkers": 1
+    }
+  },
+  {
+    "project": "chromium",
+    "kind": "stroke-frame-times",
+    "metrics": {
+      "samples": 36,
+      "p95Ms": 16.799999999999955,
+      "maxMs": 16.799999999999955
+    }
+  }
+]

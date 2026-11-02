@@ -1,0 +1,859 @@
+[
+  {
+    "algorithm": "K-Means",
+    "count": 48,
+    "computationMs": 2.999200000000002,
+    "events": 296,
+    "frames": 36,
+    "clipRetainedEstimate": 112834,
+    "traceRetainedEstimate": 163724,
+    "operations": [
+      "initialize",
+      "distance",
+      "assign",
+      "move",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "DBSCAN",
+    "count": 48,
+    "computationMs": 1.4333000000000027,
+    "events": 141,
+    "frames": 35,
+    "clipRetainedEstimate": 95046,
+    "traceRetainedEstimate": 231880,
+    "operations": [
+      "neighbors",
+      "core",
+      "expand",
+      "assign",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "HDBSCAN",
+    "count": 48,
+    "computationMs": 3.0708999999999946,
+    "events": 102,
+    "frames": 36,
+    "clipRetainedEstimate": 154638,
+    "traceRetainedEstimate": 186524,
+    "operations": [
+      "core",
+      "distance",
+      "mst",
+      "condense",
+      "stability",
+      "extract"
+    ]
+  },
+  {
+    "algorithm": "AGNES",
+    "count": 48,
+    "computationMs": 11.75139999999999,
+    "events": 96,
+    "frames": 35,
+    "clipRetainedEstimate": 444464,
+    "traceRetainedEstimate": 698432,
+    "operations": [
+      "initialize",
+      "distance",
+      "merge",
+      "extract"
+    ]
+  },
+  {
+    "algorithm": "DIANA",
+    "count": 48,
+    "computationMs": 3.3495999999999526,
+    "events": 14,
+    "frames": 15,
+    "clipRetainedEstimate": 48626,
+    "traceRetainedEstimate": 14100,
+    "operations": [
+      "initialize",
+      "split",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "SOM",
+    "count": 48,
+    "computationMs": 9.90949999999998,
+    "events": 778,
+    "frames": 36,
+    "clipRetainedEstimate": 261814,
+    "traceRetainedEstimate": 1158630,
+    "operations": [
+      "initialize",
+      "distance",
+      "prototype",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "LVQ",
+    "count": 48,
+    "computationMs": 5.759500000000003,
+    "events": 778,
+    "frames": 36,
+    "clipRetainedEstimate": 132280,
+    "traceRetainedEstimate": 707020,
+    "operations": [
+      "initialize",
+      "distance",
+      "prototype",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "OPTICS",
+    "count": 48,
+    "computationMs": 1.636099999999999,
+    "events": 179,
+    "frames": 36,
+    "clipRetainedEstimate": 105952,
+    "traceRetainedEstimate": 152064,
+    "operations": [
+      "core",
+      "visit",
+      "distance",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "PAM",
+    "count": 48,
+    "computationMs": 5.053899999999999,
+    "events": 276,
+    "frames": 36,
+    "clipRetainedEstimate": 115842,
+    "traceRetainedEstimate": 164622,
+    "operations": [
+      "initialize",
+      "assign",
+      "swap",
+      "move",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "ROCK",
+    "count": 48,
+    "computationMs": 6.392699999999991,
+    "events": 93,
+    "frames": 36,
+    "clipRetainedEstimate": 698684,
+    "traceRetainedEstimate": 137156,
+    "operations": [
+      "neighbors",
+      "distance",
+      "merge",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "GMM",
+    "count": 48,
+    "computationMs": 2.5510999999999626,
+    "events": 42,
+    "frames": 34,
+    "clipRetainedEstimate": 201740,
+    "traceRetainedEstimate": 94366,
+    "operations": [
+      "initialize",
+      "expectation",
+      "maximization",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "BIRCH",
+    "count": 48,
+    "computationMs": 3.4589000000000283,
+    "events": 184,
+    "frames": 36,
+    "clipRetainedEstimate": 177784,
+    "traceRetainedEstimate": 274690,
+    "operations": [
+      "initialize",
+      "insert",
+      "distance",
+      "tree-split",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Mean Shift",
+    "count": 48,
+    "computationMs": 6.720799999999997,
+    "events": 591,
+    "frames": 36,
+    "clipRetainedEstimate": 272844,
+    "traceRetainedEstimate": 857630,
+    "operations": [
+      "initialize",
+      "neighbors",
+      "distance",
+      "move",
+      "core",
+      "merge",
+      "extract",
+      "assign",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Fuzzy C-Means",
+    "count": 48,
+    "computationMs": 2.0160999999999945,
+    "events": 42,
+    "frames": 34,
+    "clipRetainedEstimate": 195190,
+    "traceRetainedEstimate": 85552,
+    "operations": [
+      "initialize",
+      "move",
+      "assign",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Bisecting K-Means",
+    "count": 48,
+    "computationMs": 0.7982000000000085,
+    "events": 20,
+    "frames": 21,
+    "clipRetainedEstimate": 75256,
+    "traceRetainedEstimate": 18454,
+    "operations": [
+      "initialize",
+      "split",
+      "assign",
+      "move",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Spectral Clustering",
+    "count": 48,
+    "computationMs": 15.443299999999965,
+    "events": 21,
+    "frames": 22,
+    "clipRetainedEstimate": 393196,
+    "traceRetainedEstimate": 162130,
+    "operations": [
+      "graph",
+      "laplacian",
+      "eigen",
+      "embedding",
+      "initialize",
+      "assign",
+      "move",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Affinity Propagation",
+    "count": 48,
+    "computationMs": 13.175299999999993,
+    "events": 43,
+    "frames": 33,
+    "clipRetainedEstimate": 133714,
+    "traceRetainedEstimate": 905686,
+    "operations": [
+      "initialize",
+      "messages",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Density Peaks / CFSFDP",
+    "count": 48,
+    "computationMs": 2.1598000000000184,
+    "events": 99,
+    "frames": 35,
+    "clipRetainedEstimate": 201656,
+    "traceRetainedEstimate": 267302,
+    "operations": [
+      "initialize",
+      "density",
+      "distance",
+      "extract",
+      "assign",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "CURE",
+    "count": 48,
+    "computationMs": 13.163299999999992,
+    "events": 137,
+    "frames": 35,
+    "clipRetainedEstimate": 507812,
+    "traceRetainedEstimate": 995368,
+    "operations": [
+      "initialize",
+      "distance",
+      "representatives",
+      "merge",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Neural Gas",
+    "count": 48,
+    "computationMs": 8.094799999999964,
+    "events": 778,
+    "frames": 36,
+    "clipRetainedEstimate": 114482,
+    "traceRetainedEstimate": 752878,
+    "operations": [
+      "initialize",
+      "rank",
+      "prototype",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Growing Neural Gas",
+    "count": 48,
+    "computationMs": 48.12329999999997,
+    "events": 1558,
+    "frames": 36,
+    "clipRetainedEstimate": 144424,
+    "traceRetainedEstimate": 5206992,
+    "operations": [
+      "initialize",
+      "rank",
+      "prototype",
+      "connect",
+      "insert",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "K-Medians",
+    "count": 48,
+    "computationMs": 0.7386000000000195,
+    "events": 9,
+    "frames": 10,
+    "clipRetainedEstimate": 31488,
+    "traceRetainedEstimate": 11160,
+    "operations": [
+      "initialize",
+      "assign",
+      "move",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Mini-Batch K-Means",
+    "count": 48,
+    "computationMs": 1.4413000000000693,
+    "events": 42,
+    "frames": 34,
+    "clipRetainedEstimate": 113154,
+    "traceRetainedEstimate": 63806,
+    "operations": [
+      "initialize",
+      "assign",
+      "move",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "CLARA",
+    "count": 48,
+    "computationMs": 4.696300000000065,
+    "events": 25,
+    "frames": 26,
+    "clipRetainedEstimate": 83674,
+    "traceRetainedEstimate": 39038,
+    "operations": [
+      "initialize",
+      "swap",
+      "move",
+      "assign",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "CLARANS",
+    "count": 48,
+    "computationMs": 5.951000000000022,
+    "events": 243,
+    "frames": 36,
+    "clipRetainedEstimate": 115318,
+    "traceRetainedEstimate": 266918,
+    "operations": [
+      "initialize",
+      "swap",
+      "move",
+      "visit",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "X-Means",
+    "count": 48,
+    "computationMs": 2.3789999999999054,
+    "events": 37,
+    "frames": 30,
+    "clipRetainedEstimate": 92430,
+    "traceRetainedEstimate": 52464,
+    "operations": [
+      "initialize",
+      "assign",
+      "move",
+      "refine",
+      "test",
+      "split",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "G-Means",
+    "count": 48,
+    "computationMs": 2.915200000000027,
+    "events": 27,
+    "frames": 28,
+    "clipRetainedEstimate": 86184,
+    "traceRetainedEstimate": 40338,
+    "operations": [
+      "initialize",
+      "assign",
+      "move",
+      "refine",
+      "test",
+      "split",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Dip-Means",
+    "count": 48,
+    "computationMs": 8.259900000000016,
+    "events": 17,
+    "frames": 18,
+    "clipRetainedEstimate": 55330,
+    "traceRetainedEstimate": 34564,
+    "operations": [
+      "initialize",
+      "assign",
+      "move",
+      "test",
+      "refine",
+      "split",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "DP-Means",
+    "count": 48,
+    "computationMs": 7.360900000000015,
+    "events": 982,
+    "frames": 36,
+    "clipRetainedEstimate": 104808,
+    "traceRetainedEstimate": 538918,
+    "operations": [
+      "initialize",
+      "insert",
+      "assign",
+      "move",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Louvain",
+    "count": 48,
+    "computationMs": 4.453800000000001,
+    "events": 59,
+    "frames": 33,
+    "clipRetainedEstimate": 660568,
+    "traceRetainedEstimate": 227906,
+    "operations": [
+      "graph",
+      "move",
+      "extract",
+      "aggregate",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Leiden",
+    "count": 48,
+    "computationMs": 4.903799999999933,
+    "events": 108,
+    "frames": 35,
+    "clipRetainedEstimate": 690968,
+    "traceRetainedEstimate": 390646,
+    "operations": [
+      "graph",
+      "move",
+      "extract",
+      "refine",
+      "aggregate",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Label Propagation",
+    "count": 48,
+    "computationMs": 4.1381000000000085,
+    "events": 141,
+    "frames": 36,
+    "clipRetainedEstimate": 404690,
+    "traceRetainedEstimate": 229788,
+    "operations": [
+      "graph",
+      "messages",
+      "assign",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Girvan–Newman",
+    "count": 48,
+    "computationMs": 8.954500000000053,
+    "events": 16,
+    "frames": 17,
+    "clipRetainedEstimate": 182050,
+    "traceRetainedEstimate": 181144,
+    "operations": [
+      "graph",
+      "distance",
+      "split",
+      "prune",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Markov Clustering (MCL)",
+    "count": 48,
+    "computationMs": 12.875799999999913,
+    "events": 39,
+    "frames": 33,
+    "clipRetainedEstimate": 388490,
+    "traceRetainedEstimate": 802274,
+    "operations": [
+      "initialize",
+      "expand-matrix",
+      "inflate",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "K-Modes",
+    "count": 48,
+    "computationMs": 1.7468999999999824,
+    "events": 6,
+    "frames": 7,
+    "clipRetainedEstimate": 21902,
+    "traceRetainedEstimate": 22298,
+    "operations": [
+      "initialize",
+      "assign",
+      "prototype",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "K-Prototypes",
+    "count": 48,
+    "computationMs": 2.830500000000029,
+    "events": 14,
+    "frames": 15,
+    "clipRetainedEstimate": 48020,
+    "traceRetainedEstimate": 37208,
+    "operations": [
+      "initialize",
+      "assign",
+      "prototype",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "CLIQUE",
+    "count": 48,
+    "computationMs": 3.3439999999999372,
+    "events": 6,
+    "frames": 7,
+    "clipRetainedEstimate": 22986,
+    "traceRetainedEstimate": 162694,
+    "operations": [
+      "initialize",
+      "grid",
+      "dimension",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "PROCLUS",
+    "count": 48,
+    "computationMs": 5.7690000000000055,
+    "events": 51,
+    "frames": 34,
+    "clipRetainedEstimate": 126220,
+    "traceRetainedEstimate": 198938,
+    "operations": [
+      "initialize",
+      "dimension",
+      "assign",
+      "refine",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "DenStream",
+    "count": 48,
+    "computationMs": 4.784400000000005,
+    "events": 76,
+    "frames": 34,
+    "clipRetainedEstimate": 130546,
+    "traceRetainedEstimate": 449538,
+    "operations": [
+      "initialize",
+      "insert",
+      "decay",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Bimax",
+    "count": 48,
+    "computationMs": 1.4350000000000591,
+    "events": 8,
+    "frames": 9,
+    "clipRetainedEstimate": 34606,
+    "traceRetainedEstimate": 44504,
+    "operations": [
+      "initialize",
+      "prune",
+      "split",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Cheng–Church Biclustering",
+    "count": 48,
+    "computationMs": 7.434500000000071,
+    "events": 61,
+    "frames": 34,
+    "clipRetainedEstimate": 131026,
+    "traceRetainedEstimate": 429372,
+    "operations": [
+      "initialize",
+      "residue",
+      "prune",
+      "insert",
+      "extract",
+      "mask",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "K-Shape",
+    "count": 48,
+    "computationMs": 29.809399999999982,
+    "events": 304,
+    "frames": 35,
+    "clipRetainedEstimate": 194494,
+    "traceRetainedEstimate": 851870,
+    "operations": [
+      "initialize",
+      "align",
+      "prototype",
+      "distance",
+      "assign",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Greedy Modularity (CNM)",
+    "count": 48,
+    "computationMs": 8.021499999999946,
+    "events": 91,
+    "frames": 35,
+    "clipRetainedEstimate": 394156,
+    "traceRetainedEstimate": 1197908,
+    "operations": [
+      "graph",
+      "test",
+      "merge",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Fluid Communities",
+    "count": 48,
+    "computationMs": 5.4868000000000166,
+    "events": 213,
+    "frames": 36,
+    "clipRetainedEstimate": 405780,
+    "traceRetainedEstimate": 449192,
+    "operations": [
+      "initialize",
+      "messages",
+      "assign",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "COP-KMeans",
+    "count": 48,
+    "computationMs": 4.939999999999941,
+    "events": 199,
+    "frames": 35,
+    "clipRetainedEstimate": 102922,
+    "traceRetainedEstimate": 318248,
+    "operations": [
+      "initialize",
+      "assign",
+      "test",
+      "move",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Bernoulli Mixture",
+    "count": 48,
+    "computationMs": 3.1206999999999425,
+    "events": 24,
+    "frames": 25,
+    "clipRetainedEstimate": 131056,
+    "traceRetainedEstimate": 138922,
+    "operations": [
+      "initialize",
+      "expectation",
+      "maximization",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Poisson Mixture",
+    "count": 48,
+    "computationMs": 1.9753000000000611,
+    "events": 10,
+    "frames": 11,
+    "clipRetainedEstimate": 56338,
+    "traceRetainedEstimate": 61938,
+    "operations": [
+      "initialize",
+      "expectation",
+      "maximization",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Multinomial Mixture",
+    "count": 48,
+    "computationMs": 1.3092999999998938,
+    "events": 8,
+    "frames": 9,
+    "clipRetainedEstimate": 45664,
+    "traceRetainedEstimate": 50504,
+    "operations": [
+      "initialize",
+      "expectation",
+      "maximization",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Walktrap",
+    "count": 48,
+    "computationMs": 13.647400000000061,
+    "events": 101,
+    "frames": 35,
+    "clipRetainedEstimate": 396038,
+    "traceRetainedEstimate": 1330872,
+    "operations": [
+      "graph",
+      "walk",
+      "test",
+      "merge",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "Clique Percolation",
+    "count": 48,
+    "computationMs": 4.563099999999963,
+    "events": 99,
+    "frames": 36,
+    "clipRetainedEstimate": 406732,
+    "traceRetainedEstimate": 380852,
+    "operations": [
+      "graph",
+      "clique",
+      "percolate",
+      "extract",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "BSAS",
+    "count": 12,
+    "computationMs": 1.2893000000000256,
+    "events": 26,
+    "frames": 27,
+    "clipRetainedEstimate": 31880,
+    "traceRetainedEstimate": 58976,
+    "operations": [
+      "initialize",
+      "prototype",
+      "distance",
+      "assign",
+      "visit",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "MBSAS",
+    "count": 12,
+    "computationMs": 1.515800000000013,
+    "events": 43,
+    "frames": 31,
+    "clipRetainedEstimate": 36092,
+    "traceRetainedEstimate": 99754,
+    "operations": [
+      "initialize",
+      "prototype",
+      "distance",
+      "defer",
+      "visit",
+      "assign",
+      "finish"
+    ]
+  },
+  {
+    "algorithm": "TTSAS",
+    "count": 12,
+    "computationMs": 1.247199999999907,
+    "events": 52,
+    "frames": 33,
+    "clipRetainedEstimate": 38688,
+    "traceRetainedEstimate": 122988,
+    "operations": [
+      "initialize",
+      "prototype",
+      "distance",
+      "defer",
+      "assign",
+      "visit",
+      "finish"
+    ]
+  }
+]
