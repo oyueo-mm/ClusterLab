@@ -139,6 +139,11 @@ export const pckmeans: Lesson = {
   ],
   references: [
     {
+      title: "Wagstaff et al. (ICML2001), Constrained K-Means",
+      url: "https://www.wkiri.com/research/papers/wagstaff-kmeans-01.pdf",
+      note: "COP-KMeans의 hard 관계 검사를 비교하는 원논문입니다. PCK의 유한 위반 비용 목적과 구분하세요.",
+    },
+    {
       title: "Basu, Banerjee & Mooney (SDM2004), §2–3/Figure1",
       url: "https://www.cs.utexas.edu/~ml/papers/semi-sdm-04.pdf",
       note: "직접 렌더링해 초기화 그림과 ½SSE 비용 규약 확인. 능동 질의는 이번 구현 밖입니다.",

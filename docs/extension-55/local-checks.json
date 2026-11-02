@@ -1,0 +1,13 @@
+{
+  "typecheck": "passed",
+  "eslint": "passed",
+  "vitest": {
+    "files": 48,
+    "passed": 694,
+    "failed": 0,
+    "summary": "Test Files  48 passed (48)\n      Tests  694 passed (694)\n   Start at  04:14:17\n   Duration  10.78s (transform 6.08s, setup 0ms, collect 12.64s, tests 37.52s, environment 7ms, prepare 6.69s)"
+  },
+  "productionBuild": "passed",
+  "existingSourceBaseline": "f615923",
+  "strictCertification": 0
+}
