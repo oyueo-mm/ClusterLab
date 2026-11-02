@@ -1,0 +1,14 @@
+{
+  "baseline": "035cc7b37a8f73d0595e8e02cbdfcbdf93994d6d",
+  "release": "96d9bab381065e2452584acb70ca629bd69d2ab8",
+  "changedSourceFiles": [
+    "src/components/Sidebar.tsx",
+    "src/encyclopedia.css",
+    "src/lab/LabWorkspace.tsx",
+    "src/pages/Home.tsx"
+  ],
+  "sourceFiles": 256,
+  "unchangedSourceFiles": 252,
+  "protectedEngineDataAnimationEditorFiles": 199,
+  "allProtectedGitBlobsMatch": true
+}

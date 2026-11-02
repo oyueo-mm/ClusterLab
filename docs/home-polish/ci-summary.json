@@ -1,0 +1,16 @@
+{
+  "commit": "96d9bab381065e2452584acb70ca629bd69d2ab8",
+  "run": 41472349888,
+  "job": 125368929811,
+  "unitTests": 651,
+  "unitFiles": 46,
+  "browserPassed": 122,
+  "browserSkipped": 14,
+  "browserFailed": 0,
+  "summaryLines": [
+    "2026-11-02T15:32:42.5850427Z  Test Files  46 passed (46)",
+    "2026-11-02T15:32:42.5851631Z       Tests  651 passed (651)",
+    "2026-11-02T15:50:51.6898540Z   14 skipped",
+    "2026-11-02T15:50:51.6899149Z   122 passed (17.4m)"
+  ]
+}

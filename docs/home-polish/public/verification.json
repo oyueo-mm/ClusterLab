@@ -1,0 +1,396 @@
+{
+  "base": "https://oyueo-mm.github.io/ClusterLab/",
+  "records": [
+    {
+      "kind": "home",
+      "width": 1920,
+      "title": "96px",
+      "subtitle": "30px",
+      "text": "인터랙티브 군집화 알고리즘 백과사전",
+      "buttons": [
+        "알고리즘 둘러보기",
+        "실험 시작하기",
+        "데이터셋 둘러보기"
+      ],
+      "demos": 4,
+      "sidebarNote": false,
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "K-Means",
+      "width": 1920,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1856,
+        "height": 949.5625
+      },
+      "openStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1546,
+        "height": 949.5625
+      },
+      "playback": {
+        "x": 64,
+        "y": 888.421875,
+        "width": 1856,
+        "height": 59
+      },
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "TTSAS",
+      "width": 1920,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1856,
+        "height": 949.5625
+      },
+      "openStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1546,
+        "height": 949.5625
+      },
+      "playback": {
+        "x": 64,
+        "y": 885.859375,
+        "width": 1856,
+        "height": 59
+      },
+      "overflow": false
+    },
+    {
+      "kind": "home",
+      "width": 1440,
+      "title": "86.4px",
+      "subtitle": "27.36px",
+      "text": "인터랙티브 군집화 알고리즘 백과사전",
+      "buttons": [
+        "알고리즘 둘러보기",
+        "실험 시작하기",
+        "데이터셋 둘러보기"
+      ],
+      "demos": 4,
+      "sidebarNote": false,
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "K-Means",
+      "width": 1440,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1376,
+        "height": 949.5625
+      },
+      "openStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 949.5625
+      },
+      "playback": {
+        "x": 64,
+        "y": 888.421875,
+        "width": 1376,
+        "height": 59
+      },
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "TTSAS",
+      "width": 1440,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1376,
+        "height": 949.5625
+      },
+      "openStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 949.5625
+      },
+      "playback": {
+        "x": 64,
+        "y": 885.859375,
+        "width": 1376,
+        "height": 59
+      },
+      "overflow": false
+    },
+    {
+      "kind": "home",
+      "width": 1024,
+      "title": "61.44px",
+      "subtitle": "24px",
+      "text": "인터랙티브 군집화 알고리즘 백과사전",
+      "buttons": [
+        "알고리즘 둘러보기",
+        "실험 시작하기",
+        "데이터셋 둘러보기"
+      ],
+      "demos": 4,
+      "sidebarNote": false,
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "K-Means",
+      "width": 1024,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 960,
+        "height": 949.5625
+      },
+      "openStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 650,
+        "height": 949.5625
+      },
+      "playback": {
+        "x": 64,
+        "y": 888.421875,
+        "width": 960,
+        "height": 59
+      },
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "TTSAS",
+      "width": 1024,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 960,
+        "height": 949.5625
+      },
+      "openStage": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 650,
+        "height": 949.5625
+      },
+      "playback": {
+        "x": 64,
+        "y": 885.859375,
+        "width": 960,
+        "height": 59
+      },
+      "overflow": false
+    },
+    {
+      "kind": "home",
+      "width": 768,
+      "title": "48px",
+      "subtitle": "24px",
+      "text": "인터랙티브 군집화 알고리즘 백과사전",
+      "buttons": [
+        "알고리즘 둘러보기",
+        "실험 시작하기",
+        "데이터셋 둘러보기"
+      ],
+      "demos": 4,
+      "sidebarNote": false,
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "K-Means",
+      "width": 768,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 0,
+        "y": 48,
+        "width": 768,
+        "height": 952
+      },
+      "openStage": {
+        "x": 0,
+        "y": 48,
+        "width": 768,
+        "height": 952
+      },
+      "playback": {
+        "x": 0,
+        "y": 882.421875,
+        "width": 768,
+        "height": 65
+      },
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "TTSAS",
+      "width": 768,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 0,
+        "y": 48,
+        "width": 768,
+        "height": 952
+      },
+      "openStage": {
+        "x": 0,
+        "y": 48,
+        "width": 768,
+        "height": 952
+      },
+      "playback": {
+        "x": 0,
+        "y": 879.859375,
+        "width": 768,
+        "height": 65
+      },
+      "overflow": false
+    },
+    {
+      "kind": "home",
+      "width": 390,
+      "title": "54.6px",
+      "subtitle": "21.84px",
+      "text": "인터랙티브 군집화 알고리즘 백과사전",
+      "buttons": [
+        "알고리즘 둘러보기",
+        "실험 시작하기",
+        "데이터셋 둘러보기"
+      ],
+      "demos": 4,
+      "sidebarNote": false,
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "K-Means",
+      "width": 390,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 952
+      },
+      "openStage": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 952
+      },
+      "playback": {
+        "x": 0,
+        "y": 844.0625,
+        "width": 390,
+        "height": 105
+      },
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "TTSAS",
+      "width": 390,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 952
+      },
+      "openStage": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 952
+      },
+      "playback": {
+        "x": 0,
+        "y": 843.71875,
+        "width": 390,
+        "height": 65
+      },
+      "overflow": false
+    },
+    {
+      "kind": "home",
+      "width": 320,
+      "title": "48px",
+      "subtitle": "20px",
+      "text": "인터랙티브 군집화 알고리즘 백과사전",
+      "buttons": [
+        "알고리즘 둘러보기",
+        "실험 시작하기",
+        "데이터셋 둘러보기"
+      ],
+      "demos": 4,
+      "sidebarNote": false,
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "K-Means",
+      "width": 320,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 0,
+        "y": 48,
+        "width": 320,
+        "height": 952
+      },
+      "openStage": {
+        "x": 0,
+        "y": 48,
+        "width": 320,
+        "height": 952
+      },
+      "playback": {
+        "x": 0,
+        "y": 844.0625,
+        "width": 320,
+        "height": 105
+      },
+      "overflow": false
+    },
+    {
+      "kind": "lab",
+      "algorithm": "TTSAS",
+      "width": 320,
+      "initialClosed": true,
+      "closedStage": {
+        "x": 0,
+        "y": 48,
+        "width": 320,
+        "height": 952
+      },
+      "openStage": {
+        "x": 0,
+        "y": 48,
+        "width": 320,
+        "height": 952
+      },
+      "playback": {
+        "x": 0,
+        "y": 785.71875,
+        "width": 320,
+        "height": 105
+      },
+      "overflow": false
+    }
+  ],
+  "errors": []
+}
