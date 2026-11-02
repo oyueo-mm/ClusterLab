@@ -1,122 +1,122 @@
-import { useEffect, useRef, useState } from "react";
-import type { Algorithm, Center } from "../engine/types";
-import type { Bicluster } from "../engine/matrixTypes";
-import { supportsDataset } from "../engine/registry";
-import {
-  generateRecommended,
-  recommendations,
-  recommendationParams,
-} from "../data/recommendations";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { emptyState } from "../engine/types";
+import { previewFrame } from "../engine/preview";
 import { displayPoints } from "../engine/dataset";
-import { stateAt } from "../engine/trace";
-import { DatasetPreview } from "./DatasetPreview";
+import type { Algorithm } from "../engine/types";
+import type { PreviewClip } from "../engine/preview";
+import {
+  previewCache,
+  previewInput,
+  requestPreview,
+  playPreview,
+} from "../animation/previewRuntime";
+import { previewPainter } from "../animation/previewPainter";
 
-// At most two thumbnail Workers; retain a small final summary, never full traces.
-interface PreviewResult {
-  labels: number[];
-  centers: Center[];
-  biclusters?: Bicluster[];
-}
-const cache = new Map<Algorithm, PreviewResult>();
-let running = 0;
-const waiting = new Set<() => void>();
-function pump() {
-  for (const next of waiting) {
-    if (running >= 2) break;
-    waiting.delete(next);
-    next();
-  }
-}
 export function AlgorithmPreview({ algorithm }: { algorithm: Algorithm }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null),
+    canvas = useRef<HTMLCanvasElement>(null),
+    status = useRef<HTMLSpanElement>(null);
   const [visible, setVisible] = useState(false);
-  const [labels, setLabels] = useState(() => cache.get(algorithm));
-  const [error, setError] = useState("");
-  const entry = recommendations[algorithm][0];
-  const [data] = useState(() =>
-    generateRecommended(entry.datasetId, { count: 48 }),
+  const [clip, setClip] = useState<PreviewClip | undefined>(() =>
+    previewCache.get(algorithm),
   );
+  const [error, setError] = useState("");
+  const [reduced, setReduced] = useState(
+    () => matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+  const data = useMemo(() => previewInput(algorithm), [algorithm]);
   useEffect(() => {
-    const observer = new IntersectionObserver(([e]) =>
-      setVisible(e.isIntersecting),
+    const observer = new IntersectionObserver(
+      ([e]) => setVisible(e.isIntersecting),
+      { threshold: 0.05 },
     );
     observer.observe(ref.current!);
-    return () => observer.disconnect();
+    const media = matchMedia("(prefers-reduced-motion: reduce)");
+    const change = () => setReduced(media.matches);
+    media.addEventListener("change", change);
+    return () => {
+      observer.disconnect();
+      media.removeEventListener("change", change);
+    };
   }, []);
   useEffect(() => {
-    if (!visible || labels || error) return;
-    let worker: Worker | undefined,
-      released = false;
-    const release = () => {
-      if (worker && !released) {
-        released = true;
-        worker.terminate();
-        running--;
-        pump();
+    if (!visible || clip || error) return;
+    return requestPreview(algorithm, (result, message) => {
+      setClip(result);
+      setError(message ?? "");
+    });
+  }, [algorithm, visible, clip, error]);
+  useEffect(() => {
+    if (!visible) return;
+    const draw = previewPainter(canvas.current!, data);
+    const frames = clip?.frames;
+    if (!frames) {
+      const initial = previewFrame(
+        emptyState(displayPoints(data).length),
+        0,
+        "initial",
+        "초기 입력",
+      );
+      draw(initial, initial, 1);
+      return;
+    }
+    const last = frames.at(-1)!;
+    draw(last, last, 1);
+    ref.current!.dataset.previewFrame = String(last.index);
+    ref.current!.dataset.previewMotion = reduced ? "reduced" : "paused";
+    if (reduced) return;
+    let elapsed = 0,
+      previous = -1;
+    const stop = playPreview((dt) => {
+      elapsed = (elapsed + dt) % 5600;
+      // 500 ms initial hold, 4000 ms actual sampled events, 1100 ms final hold.
+      const position = Math.min(
+        frames.length - 1,
+        Math.max(0, (elapsed - 500) / 4000) * (frames.length - 1),
+      );
+      const index = Math.floor(position),
+        next = elapsed <= 500 ? 0 : Math.min(frames.length - 1, index + 1);
+      draw(frames[index], frames[next], position - index);
+      ref.current!.dataset.previewMotion = "playing";
+      ref.current!.dataset.previewFrame = String(frames[next].index);
+      if (previous !== next) {
+        status.current!.textContent = `실제 Trace · ${frames[next].description}`;
+        previous = next;
       }
-    };
-    const start = () => {
-      running++;
-      worker = new Worker(new URL("../engine/worker.ts", import.meta.url), {
-        type: "module",
-      });
-      worker.onmessage = (e) => {
-        if (released) return;
-        if (e.data.progress) return;
-        if (e.data.error) setError(e.data.error);
-        else {
-          const state = stateAt(e.data.trace, e.data.trace.steps.length);
-          const result: PreviewResult = {
-            labels: state.labels,
-            centers: state.centers,
-            ...(state.analysis?.kind === "biclustering"
-              ? { biclusters: state.analysis.biclusters }
-              : {}),
-          };
-          cache.set(algorithm, result);
-          setLabels(result);
-        }
-        release();
-      };
-      worker.onerror = () => {
-        setError("미리보기 계산을 불러오지 못했습니다.");
-        release();
-      };
-      worker.postMessage({
-        id: 1,
-        purpose: "thumbnail",
-        algorithm,
-        params: recommendationParams(algorithm, entry),
-        points:
-          data.kind === "numeric" && data.display
-            ? data.display
-            : displayPoints(data),
-        ...(supportsDataset(algorithm, data.kind) ? { dataset: data } : {}),
-      });
-    };
-    waiting.add(start);
-    pump();
+    });
     return () => {
-      waiting.delete(start);
-      release();
+      stop();
+      if (ref.current) ref.current.dataset.previewMotion = "paused";
     };
-  }, [algorithm, data, entry, visible, labels, error]);
+  }, [visible, reduced, clip, data]);
   return (
     <div
       ref={ref}
       className="algorithm-preview"
-      data-preview-status={error ? "error" : labels ? "computed" : "pending"}
+      data-preview-status={error ? "error" : clip ? "computed" : "pending"}
     >
-      <DatasetPreview
-        data={data}
-        labels={labels?.labels}
-        centers={labels?.centers}
-        biclusters={labels?.biclusters}
-      />
-      <span className="preview-status">
+      <figure className="dataset-preview">
+        <canvas
+          ref={canvas}
+          role="img"
+          aria-label={`${algorithm} 실제 Trace 주요 단계 미리보기`}
+          style={{ width: "100%", aspectRatio: "2 / 1", display: "block" }}
+        />
+        <figcaption>
+          실제 연산 주요 상태 ·{" "}
+          {data.kind === "matrix"
+            ? "행렬 영역"
+            : data.kind === "timeseries"
+              ? "파형·정렬"
+              : data.kind === "categorical"
+                ? "원본 범주 행·속성"
+                : "원본 입력의 2D 표시"}
+        </figcaption>
+      </figure>
+      <span ref={status} className="preview-status" title={error || undefined}>
         {error
           ? "계산 오류 · 실험실에서 확인"
-          : labels
+          : clip
             ? "실제 계산 결과"
             : "입력 데이터 · 계산 대기"}
       </span>

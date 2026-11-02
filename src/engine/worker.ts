@@ -1,6 +1,7 @@
 import { loaders } from "./registry";
 import { validateRun } from "./validation";
 import { assertResources, DEFAULT_TRACE_BYTES } from "./resources";
+import { compactPreview } from "./preview";
 import { Recorder } from "./trace";
 import type { Algorithm, Point, Params } from "./types";
 import type { Dataset } from "./dataset";
@@ -8,6 +9,7 @@ import { prepareDataset } from "./datasetExecution";
 self.onmessage = async (
   event: MessageEvent<{
     id: number;
+    purpose?: "thumbnail";
     algorithm: Algorithm;
     points: Point[];
     params: Params;
@@ -36,7 +38,11 @@ self.onmessage = async (
     const start = performance.now();
     engine(points, params, r, dataset);
     r.trace.elapsed = performance.now() - start;
-    self.postMessage({ id, trace: r.trace });
+    self.postMessage(
+      event.data.purpose === "thumbnail"
+        ? { id, preview: compactPreview(r.trace) }
+        : { id, trace: r.trace },
+    );
   } catch (e) {
     self.postMessage({ id, error: e instanceof Error ? e.message : String(e) });
   }
