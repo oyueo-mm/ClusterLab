@@ -61,7 +61,7 @@ export function LabWorkspace({
       root.current!.clientWidth <= 900
     )
       setRightOpen(false);
-    setDataOpen((v) => !v);
+    setDataOpen((v) => focus || !v);
   };
   useEffect(() => {
     const media = matchMedia("(max-width: 800px)");
@@ -195,7 +195,7 @@ export function LabWorkspace({
                 root.current!.clientWidth <= 900
               )
                 setDataOpen(false);
-              setRightOpen((v) => !v);
+              setRightOpen((v) => focus || !v);
             }}
           >
             <Settings2 size={18} />

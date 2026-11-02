@@ -69,6 +69,15 @@ test("resizing independent panels and focus preserve actual Trace, edits and pla
   await expect(lab.getByLabel("타임라인", { exact: true })).toHaveValue(
     position,
   );
+  await lab
+    .locator(".workspace-toolbar")
+    .getByLabel("데이터셋 편집", { exact: true })
+    .click();
+  await expect(lab.locator(".workspace-data")).toBeVisible();
+  await lab.getByLabel("시각화 집중 모드", { exact: true }).click();
+  await lab.getByLabel("설정 열기", { exact: true }).click();
+  await expect(lab.locator(".workspace-settings")).toBeVisible();
+  await lab.getByLabel("시각화 집중 모드", { exact: true }).click();
   await page.keyboard.press("Escape");
   await expect(lab.locator(".workspace-data")).toBeVisible();
   await expect(right).toHaveAttribute("aria-valuenow", rightWidth!);
