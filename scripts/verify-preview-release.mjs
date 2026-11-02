@@ -93,8 +93,12 @@ try {
           sequentialFrames: clip.frames.filter(
             (frame) => frame.sequential?.centroids.length,
           ).length,
+          queryCentersRecorded: clip.frames.every(
+            (frame) => typeof frame.activeCenter === "number",
+          ),
         };
       }, algorithm);
+      assert.equal(clip.queryCentersRecorded, true);
       if (algorithm === "MBSAS") assert.ok(clip.sequentialFrames > 0);
       const target = clip.frames[Math.floor(clip.frames.length / 2)].index;
       const canvas = preview.locator("canvas");

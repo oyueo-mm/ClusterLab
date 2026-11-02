@@ -13,6 +13,7 @@ interface Metrics {
     elapsed: number;
     bytes: number;
     hasTrace: boolean;
+    finalDescription: string;
   }[];
 }
 async function instrument(page: Page) {
@@ -50,6 +51,7 @@ async function instrument(page: Page) {
                 elapsed: event.data.preview.elapsed,
                 bytes: JSON.stringify(event.data.preview).length,
                 hasTrace: !!event.data.trace,
+                finalDescription: event.data.preview.frames.at(-1).description,
               });
           });
         }
@@ -233,6 +235,10 @@ test("actual frames loop, stop offscreen/hidden, respect live reduced motion and
     .toBeGreaterThan(hidden.draws);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(preview).toHaveAttribute("data-preview-motion", "reduced");
+  await expect(preview.locator(".preview-status")).toContainText(
+    (await metrics(page)).clips.find((c) => c.algorithm === "K-Means")!
+      .finalDescription,
+  );
   const reduced = await metrics(page);
   await page.waitForTimeout(300);
   expect((await metrics(page)).draws).toBe(reduced.draws);

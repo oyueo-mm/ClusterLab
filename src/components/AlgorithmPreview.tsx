@@ -62,6 +62,7 @@ export function AlgorithmPreview({ algorithm }: { algorithm: Algorithm }) {
     }
     const last = frames.at(-1)!;
     draw(last, last, 1);
+    status.current!.textContent = `실제 Trace · ${last.description}`;
     ref.current!.dataset.previewFrame = String(last.index);
     ref.current!.dataset.previewMotion = reduced ? "reduced" : "paused";
     if (reduced) return;
