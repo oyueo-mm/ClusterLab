@@ -451,6 +451,8 @@ test.describe("v0.6 desktop editing", () => {
     await page.keyboard.press("Control+Shift+z");
     await count(page, 3);
     await page.goto("#lab");
+    await expect(page.locator(".lab-page")).toBeVisible();
+    await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
     await page.keyboard.press("Control+z");
     expect(
       await page.locator("html").getAttribute("data-shortcut-prevented"),
