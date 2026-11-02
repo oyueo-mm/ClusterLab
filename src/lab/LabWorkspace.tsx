@@ -11,6 +11,7 @@ import { AlgorithmPicker } from "./AlgorithmPicker";
 import { FullscreenButton } from "./FullscreenButton";
 import { ResizeHandle, usePanelWidth } from "./ResizeHandle";
 import { readPreference, writePreference } from "./storage";
+import { GuideCloseContext } from "./GuideCloseContext";
 
 export function LabWorkspace({
   algorithm,
@@ -55,8 +56,21 @@ export function LabWorkspace({
     lastFocus = useRef<HTMLElement | null>(null);
   const openData = () => {
     setFocus(false);
+    if (
+      matchMedia("(max-width: 800px)").matches ||
+      root.current!.clientWidth <= 900
+    )
+      setRightOpen(false);
     setDataOpen((v) => !v);
   };
+  useEffect(() => {
+    const media = matchMedia("(max-width: 800px)");
+    const resize = () => {
+      if (media.matches) setRightOpen(false);
+    };
+    media.addEventListener("change", resize);
+    return () => media.removeEventListener("change", resize);
+  }, []);
   useEffect(() => {
     onDataOpen?.(dataOpen && !focus && active);
   }, [dataOpen, focus, active, onDataOpen]);
@@ -109,6 +123,11 @@ export function LabWorkspace({
     if (!active) return;
     const dataEvent = () => {
       setFocus(false);
+      if (
+        matchMedia("(max-width: 800px)").matches ||
+        root.current!.clientWidth <= 900
+      )
+        setRightOpen(false);
       setDataOpen(true);
     };
     const key = (e: KeyboardEvent) => {
@@ -171,6 +190,11 @@ export function LabWorkspace({
             aria-expanded={rightOpen && !focus}
             onClick={() => {
               setFocus(false);
+              if (
+                matchMedia("(max-width: 800px)").matches ||
+                root.current!.clientWidth <= 900
+              )
+                setDataOpen(false);
               setRightOpen((v) => !v);
             }}
           >
@@ -274,7 +298,9 @@ export function LabWorkspace({
             <X size={18} />
             닫기
           </button>
-          {details}
+          <GuideCloseContext.Provider value={() => setGuide(false)}>
+            {details}
+          </GuideCloseContext.Provider>
         </div>
       )}
     </div>

@@ -1,3 +1,4 @@
+import { openData } from "./workspace-helpers";
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 test("legacy saved original data migrates without being replaced by a recommendation", async ({
@@ -154,17 +155,15 @@ test("untouched native defaults follow each algorithm while explicit source data
     .toBe("graph");
   const narrow = (page.viewportSize()?.width ?? 1440) <= 800;
   if (narrow)
-    await lab
-      .getByRole("button", { name: "설정·데이터·분석 열기", exact: true })
-      .click();
-  await lab.getByRole("tab", { name: "데이터", exact: true }).click();
+    await lab.getByRole("button", { name: "설정 열기", exact: true }).click();
+  await openData(lab);
   await lab
     .getByRole("button", { name: "이 데이터셋 적용", exact: true })
     .click();
   const before = JSON.parse(
     await lab.getByLabel("원본 데이터 JSON", { exact: true }).inputValue(),
   ).data;
-  if (narrow) await lab.getByLabel("설정 닫기", { exact: true }).click();
+  if (narrow) await lab.getByLabel("데이터 패널 닫기", { exact: true }).click();
   await page.goto("#/lab/Bimax");
   await expect(lab.getByRole("alert")).toContainText(
     "현재 graph 원본은 Bimax에서 지원하지 않습니다",
@@ -185,7 +184,7 @@ test("an alternate recommendation keeps its seed when regenerated", async ({
   await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
   const open = async () => {
     if (narrow) await lab.getByLabel("설정 열기", { exact: true }).click();
-    await lab.getByRole("tab", { name: "데이터", exact: true }).click();
+    await openData(lab);
   };
   await open();
   await lab.getByLabel("추천 데이터셋", { exact: true }).selectOption("2");
@@ -201,7 +200,7 @@ test("an alternate recommendation keeps its seed when regenerated", async ({
     return JSON.parse(await readFile((await file.path())!, "utf8"));
   };
   const before = await exported();
-  if (narrow) await lab.getByLabel("설정 닫기", { exact: true }).click();
+  if (narrow) await lab.getByLabel("데이터 패널 닫기", { exact: true }).click();
   await expect
     .poll(() =>
       page.evaluate(
@@ -225,6 +224,7 @@ test("an alternate recommendation keeps its seed when regenerated", async ({
     .toBe("blobs-alternate");
   await page.reload();
   await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
+  await openData(lab);
   await lab.getByLabel("데이터 재생성", { exact: true }).click();
   await open();
   expect(await exported()).toEqual(before);
@@ -246,8 +246,10 @@ test("edited data, undo/redo and IndexedDB restoration survive algorithm navigat
     ),
   });
   await expect(page.locator(".point-count")).toHaveText("4 points");
+  await openData(page);
   await page.getByLabel("실험실 실행 취소", { exact: true }).click();
   await expect(page.locator(".point-count")).toHaveText(original!);
+  await openData(page);
   await page.getByLabel("실험실 다시 실행", { exact: true }).click();
   await expect(page.locator(".point-count")).toHaveText("4 points");
   await expect
@@ -277,9 +279,11 @@ test("edited data, undo/redo and IndexedDB restoration survive algorithm navigat
   await expect(page.locator(".point-count")).toHaveText("4 points");
   await page.goto("#/lab/Spectral%20Clustering");
   // ID entry must retain original work; explicitly recommended replacements remain undoable.
-  await expect(page.locator(".structured-page .lab-header h1")).toContainText(
-    "Spectral Clustering",
-  );
+  await expect(
+    page
+      .locator(".structured-page")
+      .getByLabel("알고리즘 선택", { exact: true }),
+  ).toContainText("Spectral Clustering");
   const raw = JSON.parse(
     await page
       .locator(".structured-page")

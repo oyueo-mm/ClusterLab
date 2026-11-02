@@ -1,3 +1,4 @@
+import { chooseAlgorithm, openData } from "./workspace-helpers";
 import { test, expect } from "@playwright/test";
 test("home demo, navigation, playback pause/resume/seek and mobile layout", async ({
   page,
@@ -10,7 +11,7 @@ test("home demo, navigation, playback pause/resume/seek and mobile layout", asyn
   ).toBeVisible();
   await expect(page.locator(".home-demo")).toHaveCount(4);
   await page.getByRole("button", { name: "실험 시작하기" }).click();
-  await expect(page.locator(".visualization-description")).toBeVisible();
+  await expect(page.locator(".lab-page canvas")).toBeVisible();
   await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
   await page.getByLabel("재생", { exact: true }).click();
   await page.waitForTimeout(700);
@@ -63,17 +64,19 @@ test("all algorithms run to completion in actual Workers with dedicated analyses
     "BIRCH",
     "Mean Shift",
   ]) {
-    await page.getByLabel("알고리즘 선택").selectOption(name);
-    if (name === "LVQ")
-      await page.getByLabel("실험 프리셋").selectOption("labeled");
-    else if (name === "ROCK")
-      await page.getByLabel("실험 프리셋").selectOption("categorical");
-    else await page.getByLabel("실험 프리셋").selectOption("tiny");
+    await chooseAlgorithm(page, name);
+    await openData(page);
+    await page
+      .getByLabel("실험 프리셋")
+      .selectOption(
+        name === "LVQ" ? "labeled" : name === "ROCK" ? "categorical" : "tiny",
+      );
     await expect(page.locator(".status")).toHaveText("준비됨", {
       timeout: 30000,
     });
     await expect(page.locator(".error")).toHaveCount(0);
-    await expect(page.locator(".visualization-description")).toHaveText(
+    await expect(page.locator(".lab-page canvas")).toHaveAttribute(
+      "aria-label",
       `${name} 데이터 및 실제 연산 시각화`,
     );
     if (name === "LVQ")

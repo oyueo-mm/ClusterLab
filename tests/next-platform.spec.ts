@@ -1,3 +1,5 @@
+import { chooseAlgorithm } from "./workspace-helpers";
+import { openData, openAnalysis } from "./workspace-helpers";
 import { test, expect, type Page, type Locator } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 import type { Algorithm, Trace } from "../src/engine/types";
@@ -97,15 +99,12 @@ async function choose(
   page: Page,
   scope: Locator,
   algorithm: Algorithm,
-  structured: boolean,
+  _structured: boolean,
   rows: number,
 ) {
   const before = await tracesSoFar(page);
-  const selector = scope.getByLabel(
-    structured ? "다중 데이터 알고리즘" : "알고리즘 선택",
-    { exact: true },
-  );
-  if ((await selector.inputValue()) === algorithm) {
+  const selector = scope.getByLabel("알고리즘 선택", { exact: true });
+  if ((await selector.textContent()) === algorithm) {
     await expect(scope.getByLabel("재생", { exact: true })).toBeEnabled();
     return page.evaluate(
       (algorithm) =>
@@ -113,7 +112,7 @@ async function choose(
       algorithm,
     );
   }
-  await selector.selectOption(algorithm);
+  await chooseAlgorithm(scope, algorithm);
   return afterRun(page, before, algorithm, rows);
 }
 
@@ -135,6 +134,7 @@ async function inspectTrace(
   expect(end.analysis).toBeDefined();
   await expect(scope.getByLabel("재생", { exact: true })).toBeEnabled();
   await scope.getByLabel("마지막으로", { exact: true }).click();
+  await openAnalysis(scope);
   const panel = scope.locator("details.analysis-panel");
   if ((await panel.count()) && (await panel.getAttribute("open")) === null)
     await panel.locator(":scope > summary").click();
@@ -174,6 +174,7 @@ test("six numeric engines run real split, penalty and subspace operations with r
   test.setTimeout(180000);
   await page.goto("#lab");
   const lab = page.locator(".lab-page");
+  await openData(lab);
   await lab.getByLabel("실험 프리셋", { exact: true }).selectOption("tiny");
   const cases = [
     ["X-Means", "test", "자동 군집 수 결정 · X-Means"],
@@ -212,6 +213,7 @@ test("seven graph engines consume actual connected edges and expose their distin
   test.setTimeout(180000);
   await page.goto("#structured");
   const lab = page.locator(".structured-page");
+  await openData(lab);
   await lab
     .getByRole("button", { name: "연결 커뮤니티 예제", exact: true })
     .click();
@@ -263,6 +265,7 @@ test("six typed engines return actual categories, mixed prototypes, stream CFs, 
   test.setTimeout(180000);
   await page.goto("#structured");
   const lab = page.locator(".structured-page");
+  await openData(lab);
   const cases = [
     [
       "범주형 예제",
@@ -302,6 +305,7 @@ test("six typed engines return actual categories, mixed prototypes, stream CFs, 
     ["시계열 형태 예제", "K-Shape", "align", "실제 시계열 정렬·형태 추출", 12],
   ] as const;
   for (const [example, name, event, heading, rows] of cases) {
+    await openData(lab);
     await lab.getByRole("button", { name: example, exact: true }).click();
     const trace = await choose(page, lab, name, true, rows);
     const end = await inspectTrace(lab, trace, event, heading, rows);
@@ -343,15 +347,18 @@ test("category and mixed table edits alter actual model statistics and Undo/Redo
 }) => {
   await page.goto("#structured");
   const lab = page.locator(".structured-page");
+  await openData(lab);
   await lab.getByRole("button", { name: "범주형 예제", exact: true }).click();
   await choose(page, lab, "K-Modes", true, 12);
   const original = JSON.parse(
     await lab.getByLabel("원본 데이터 JSON", { exact: true }).inputValue(),
   );
   let before = await tracesSoFar(page);
+  await openData(lab);
   await lab
     .getByLabel("원본 1행 1열", { exact: true })
     .fill("새로운 검증 범주");
+  await openData(lab);
   await lab.getByLabel("원본 1행 1열", { exact: true }).press("Enter");
   let trace = await afterRun(page, before, "K-Modes", 12);
   const changed = stateAt(trace, trace.steps.length).analysis;
@@ -363,6 +370,7 @@ test("category and mixed table edits alter actual model statistics and Undo/Redo
       ),
     ).toBe(true);
   before = await tracesSoFar(page);
+  await openData(lab);
   await lab.getByLabel("다중 데이터 Undo", { exact: true }).click();
   await afterRun(page, before, "K-Modes", 12);
   await expect
@@ -373,16 +381,20 @@ test("category and mixed table edits alter actual model statistics and Undo/Redo
     )
     .toEqual(original);
   before = await tracesSoFar(page);
+  await openData(lab);
   await lab.getByLabel("다중 데이터 Redo", { exact: true }).click();
   await afterRun(page, before, "K-Modes", 12);
   await expect(lab.getByLabel("원본 1행 1열", { exact: true })).toHaveValue(
     "새로운 검증 범주",
   );
+  await openData(lab);
   await lab.getByRole("button", { name: "혼합형 예제", exact: true }).click();
   trace = await choose(page, lab, "K-Prototypes", true, 12);
   const old = stateAt(trace, trace.steps.length).analysis;
   before = await tracesSoFar(page);
+  await openData(lab);
   await lab.getByLabel("원본 1행 1열", { exact: true }).fill("1000");
+  await openData(lab);
   await lab.getByLabel("원본 1행 1열", { exact: true }).press("Enter");
   trace = await afterRun(page, before, "K-Prototypes", 12);
   const next = stateAt(trace, trace.steps.length).analysis;
@@ -397,12 +409,15 @@ test("graph weights, matrix cells and time series values are editable mathematic
   test.setTimeout(90000);
   await page.goto("#structured");
   const lab = page.locator(".structured-page");
+  await openData(lab);
   await lab
     .getByRole("button", { name: "연결 커뮤니티 예제", exact: true })
     .click();
   const graph = await choose(page, lab, "Louvain", true, 12);
   let before = await tracesSoFar(page);
+  await openData(lab);
   await lab.getByLabel("간선 1 가중치", { exact: true }).fill("7");
+  await openData(lab);
   await lab.getByLabel("간선 1 가중치", { exact: true }).press("Enter");
   let trace = await afterRun(page, before, "Louvain", 12);
   expect(stateAt(trace, trace.steps.length).analysis).not.toEqual(
@@ -411,12 +426,15 @@ test("graph weights, matrix cells and time series values are editable mathematic
   const ga = stateAt(trace, trace.steps.length).analysis;
   if (ga?.kind === "community")
     expect(ga.inputEdges.some((e) => e.weight === 7)).toBe(true);
+  await openData(lab);
   await lab
     .getByRole("button", { name: "이중군집 행렬 예제", exact: true })
     .click();
   await choose(page, lab, "Bimax", true, 12);
   before = await tracesSoFar(page);
+  await openData(lab);
   await lab.getByLabel("원본 1행 1열", { exact: true }).fill("0");
+  await openData(lab);
   await lab.getByLabel("원본 1행 1열", { exact: true }).press("Enter");
   trace = await afterRun(page, before, "Bimax", 12);
   const ma = stateAt(trace, trace.steps.length).analysis;
@@ -426,6 +444,7 @@ test("graph weights, matrix cells and time series values are editable mathematic
     ma.biclusters.every((b) => !(b.rows.includes(0) && b.columns.includes(0))),
   ).toBe(true);
   const downloadPromise = page.waitForEvent("download");
+  await openData(lab);
   await lab
     .getByRole("button", { name: "전체 계산 결과 내보내기", exact: true })
     .click();
@@ -436,13 +455,16 @@ test("graph weights, matrix cells and time series values are editable mathematic
   expect(result.output.kind).toBe("biclustering");
   expect(result.output.biclusters).toEqual(ma.biclusters);
   expect(result.output.columnMemberships).toHaveLength(8);
+  await openData(lab);
   await lab
     .getByRole("button", { name: "시계열 형태 예제", exact: true })
     .click();
   const shape = await choose(page, lab, "K-Shape", true, 12);
   before = await tracesSoFar(page);
   // First column is the identifier; the second is the first actual observation.
+  await openData(lab);
   await lab.getByLabel("원본 1행 2열", { exact: true }).fill("10");
+  await openData(lab);
   await lab.getByLabel("원본 1행 2열", { exact: true }).press("Enter");
   trace = await afterRun(page, before, "K-Shape", 12);
   const sa = stateAt(shape, shape.steps.length).analysis,
@@ -455,6 +477,7 @@ test("graph weights, matrix cells and time series values are editable mathematic
   expect(sb.series[0]).not.toEqual(sa.series[0]);
   expect(sb.centroids).not.toEqual(sa.centroids);
   const shapeDownloadPromise = page.waitForEvent("download");
+  await openData(lab);
   await lab
     .getByRole("button", { name: "전체 계산 결과 내보내기", exact: true })
     .click();
@@ -474,6 +497,7 @@ test("stream arrivals increase the computed prefix and actual CF time; automatic
 }) => {
   await page.goto("#structured");
   const lab = page.locator(".structured-page");
+  await openData(lab);
   await lab
     .getByRole("button", { name: "개념 드리프트 스트림", exact: true })
     .click();
@@ -507,15 +531,19 @@ test("typed validation reports invalid binary matrices, irregular time grids and
 }) => {
   await page.goto("#structured");
   const lab = page.locator(".structured-page");
+  await openData(lab);
   await lab
     .getByRole("button", { name: "이중군집 행렬 예제", exact: true })
     .click();
   await choose(page, lab, "Bimax", true, 12);
   let before = await tracesSoFar(page);
+  await openData(lab);
   await lab.getByLabel("원본 1행 1열", { exact: true }).fill("0.5");
+  await openData(lab);
   await lab.getByLabel("원본 1행 1열", { exact: true }).press("Enter");
   await expect(lab.getByRole("alert")).toContainText(/이진|0.*1|binary/i);
   expect(await tracesSoFar(page)).toBe(before);
+  await openData(lab);
   await lab
     .getByRole("button", { name: "시계열 형태 예제", exact: true })
     .click();
@@ -523,14 +551,19 @@ test("typed validation reports invalid binary matrices, irregular time grids and
   const raw = JSON.parse(await lab.getByLabel("원본 데이터 JSON").inputValue());
   raw.data.series[0].times[2] += 0.25;
   before = await tracesSoFar(page);
+  await openData(lab);
   await lab.getByLabel("원본 데이터 JSON").fill(JSON.stringify(raw));
+  await openData(lab);
   await lab.getByRole("button", { name: "데이터 적용", exact: true }).click();
   await expect(lab.getByRole("alert")).toContainText(/간격|grid|시간축/);
   expect(await tracesSoFar(page)).toBe(before);
+  await openData(lab);
   await lab.getByLabel("원본 데이터 JSON").fill("{invalid json");
+  await openData(lab);
   await lab.getByRole("button", { name: "데이터 적용", exact: true }).click();
   await expect(lab.getByRole("alert")).toBeVisible();
   expect(await tracesSoFar(page)).toBe(before);
+  await openData(lab);
   await lab.getByRole("button", { name: "범주형 예제", exact: true }).click();
   await choose(page, lab, "K-Modes", true, 12);
   await expect(lab.getByRole("alert")).toHaveCount(0);
@@ -542,6 +575,7 @@ test("a thousand raw rows remain computed and editable through a bounded table a
   test.setTimeout(120000);
   await page.goto("#structured");
   const lab = page.locator(".structured-page");
+  await openData(lab);
   await lab.getByRole("button", { name: "범주형 예제", exact: true }).click();
   await choose(page, lab, "K-Modes", true, 12);
   await lab.getByText("시드 데이터 생성", { exact: true }).click();
@@ -552,6 +586,7 @@ test("a thousand raw rows remain computed and editable through a bounded table a
   await lab.getByLabel("다중 생성 차원", { exact: true }).fill("12");
   await lab.getByLabel("다중 생성 시드", { exact: true }).fill("42");
   let before = await tracesSoFar(page);
+  await openData(lab);
   await lab.getByRole("button", { name: "원본 생성", exact: true }).click();
   const trace = await afterRun(page, before, "K-Modes", 1000);
   expect(stateAt(trace, trace.steps.length).labels).toHaveLength(1000);
@@ -563,12 +598,16 @@ test("a thousand raw rows remain computed and editable through a bounded table a
   await expect(table.locator("tbody tr").first().locator("input")).toHaveCount(
     8,
   );
+  await openData(lab);
   await lab.getByLabel("원본 표 시작 행").fill("1000");
+  await openData(lab);
   await lab.getByLabel("원본 표 시작 열").fill("12");
   before = await tracesSoFar(page);
+  await openData(lab);
   await lab
     .getByLabel("원본 1000행 12열", { exact: true })
     .fill("마지막 원본도 계산");
+  await openData(lab);
   await lab.getByLabel("원본 1000행 12열", { exact: true }).press("Enter");
   const edited = await afterRun(page, before, "K-Modes", 1000);
   const a = stateAt(edited, edited.steps.length).analysis;
@@ -583,7 +622,7 @@ test("a thousand raw rows remain computed and editable through a bounded table a
   for (const width of [1920, 1440, 1024, 800, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
     await expect(
-      lab.getByLabel("다중 데이터 알고리즘", { exact: true }),
+      lab.getByLabel("알고리즘 선택", { exact: true }),
     ).toBeVisible();
     await expect(
       lab.getByLabel("원본 1000행 12열", { exact: true }),
@@ -639,9 +678,10 @@ test("the raw K-Shape guide preserves its dataset, changed parameters and select
     .getByRole("button", { name: "이 단계 실험에서 보기 ↗", exact: true })
     .click();
   const lab = page.locator(".structured-page");
-  await expect(
-    lab.getByLabel("다중 데이터 알고리즘", { exact: true }),
-  ).toHaveValue("K-Shape");
+  await openData(lab);
+  await expect(lab.getByLabel("알고리즘 선택", { exact: true })).toHaveText(
+    "K-Shape",
+  );
   const trace = await afterRun(page, before, "K-Shape", 6);
   await expect(lab.getByLabel("반복 한도", { exact: true })).toHaveValue("7");
   const raw = JSON.parse(

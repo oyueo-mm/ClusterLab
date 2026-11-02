@@ -1,3 +1,4 @@
+import { openData } from "./workspace-helpers";
 import { test, expect, type Page } from "@playwright/test";
 import { algorithms } from "../src/engine/types";
 import { recommendations } from "../src/data/recommendations";
@@ -268,7 +269,7 @@ test("recommendation sizes allow presets and custom counts, retain small sequent
   const originalCount = await page.locator(".point-count").textContent();
   const mobile = (page.viewportSize()?.width ?? 1440) < 801;
   if (mobile) await page.getByLabel("설정 열기", { exact: true }).click();
-  await page.getByRole("tab", { name: "데이터", exact: true }).click();
+  await openData(page);
   await expect(page.getByLabel("추천 데이터 수")).toHaveValue(
     String(recommendations["K-Means"][0].count),
   );
@@ -292,11 +293,14 @@ test("recommendation sizes allow presets and custom counts, retain small sequent
   await page
     .getByRole("button", { name: "이 데이터셋 적용", exact: true })
     .click();
-  if (mobile) await page.getByLabel("설정 닫기", { exact: true }).click();
+  if (mobile)
+    await page.getByLabel("데이터 패널 닫기", { exact: true }).click();
   await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
   await expect(page.locator(".point-count")).toHaveText("321 points");
+  await openData(page);
   await page.getByLabel("실험실 실행 취소", { exact: true }).click();
   await expect(page.locator(".point-count")).toHaveText(originalCount!);
+  await openData(page);
   await page.getByLabel("실험실 다시 실행", { exact: true }).click();
   await expect(page.locator(".point-count")).toHaveText("321 points");
   expect(

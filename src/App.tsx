@@ -140,7 +140,14 @@ export default function App() {
   useEffect(() => {
     writePreference(`params:${algorithm}`, params);
   }, [algorithm, params]);
-  const [labTab, setLabTab] = useState("settings");
+  const [labTab, setLabTab] = useState(() =>
+    readPreference<string>("panel-tab", "settings") === "analysis"
+      ? "analysis"
+      : "settings",
+  );
+  useEffect(() => {
+    writePreference("panel-tab", labTab);
+  }, [labTab]);
   const [dataEditing, setDataEditing] = useState(false);
   const [navHidden, setNavHidden] = useState(() =>
     readPreference("nav-hidden", false),
@@ -353,7 +360,7 @@ export default function App() {
               : { label: source.labels[i] }),
           })),
           preset: "",
-          options: dataOptions,
+          options: { ...dataOptions, count: source.values.length },
         });
       } else {
         setNotice(
@@ -867,13 +874,51 @@ export default function App() {
                     />
                   </div>
                   {labTab === "analysis" && (
-                    <Analysis
-                      algorithm={algorithm}
-                      state={state}
-                      points={points}
-                      next={nextState}
-                      progress={lab.position - stepIndex}
-                    />
+                    <>
+                      <div className="stat-row">
+                        <div>
+                          <small>
+                            {isPrototypeAlgorithm(algorithm)
+                              ? "사용된 BMU"
+                              : "현재 군집"}
+                          </small>
+                          <b>{clusters}</b>
+                        </div>
+                        <div>
+                          <small>{registry[algorithm].unassignedLabel}</small>
+                          <b>
+                            {
+                              state.labels.filter((value) => value === -1)
+                                .length
+                            }
+                            <em>/{points.length}</em>
+                          </b>
+                        </div>
+                        <div>
+                          <small>기록된 이벤트</small>
+                          <b>{lab.trace?.steps.length ?? 0}</b>
+                        </div>
+                      </div>
+                      <p className="small">
+                        연산 {lab.trace?.elapsed.toFixed(1) ?? "—"} ms
+                      </p>
+                      {lab.trace?.recording && (
+                        <p className="small">
+                          기록: {lab.trace.recording.policy} · 추정 저장량{" "}
+                          {(
+                            lab.trace.recording.estimatedBytes / 1048576
+                          ).toFixed(2)}{" "}
+                          MiB
+                        </p>
+                      )}
+                      <Analysis
+                        algorithm={algorithm}
+                        state={state}
+                        points={points}
+                        next={nextState}
+                        progress={lab.position - stepIndex}
+                      />
+                    </>
                   )}
                 </>
               }

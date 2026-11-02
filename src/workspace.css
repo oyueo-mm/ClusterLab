@@ -72,7 +72,7 @@
   padding: 20px 8px;
 }
 .workspace-app:not(.nav-collapsed) .sidebar .nav-label {
-  display: inline;
+  display: inline !important;
   height: auto;
   font-size: 12px;
   margin: 0;
@@ -92,6 +92,7 @@
   z-index: 30;
 }
 .canvas-workspace {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -99,6 +100,28 @@
   position: relative;
   background: #fff;
   color: #172d25;
+}
+@container (max-width: 1100px) {
+  .canvas-workspace .workspace-data {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: var(--dock-height, 130px);
+    z-index: 25;
+    max-width: 88%;
+    box-shadow: 8px 0 24px #18372720;
+  }
+}
+@container (max-width: 900px) {
+  .canvas-workspace .workspace-settings {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: var(--dock-height, 130px);
+    z-index: 25;
+    max-width: 88%;
+    box-shadow: 0 6px 30px #17322630;
+  }
 }
 .workspace-toolbar {
   display: flex;
@@ -459,7 +482,7 @@
     z-index: 69;
   }
   .workspace-app .sidebar.open .nav-label {
-    display: inline;
+    display: inline !important;
   }
   .workspace-app .sidebar.open {
     transform: translateX(0);

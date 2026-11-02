@@ -1,3 +1,4 @@
+import { openData, expectAlgorithm } from "./workspace-helpers";
 import { test, expect } from "@playwright/test";
 import { algorithms } from "../src/engine/types";
 import { structuredAlgorithms } from "../src/engine/registry";
@@ -34,19 +35,19 @@ test("each engine opens by ID and runs its actual recommended original data", as
     await page.goto(`#/lab/${encodeURIComponent(algorithm)}`);
     const structured = structuredAlgorithms.some((a) => a === algorithm);
     const lab = page.locator(structured ? ".structured-page" : ".lab-page");
-    await expect(lab.locator(".lab-header h1")).toContainText(algorithm);
+    await expectAlgorithm(lab, algorithm);
     if (structured && (page.viewportSize()?.width ?? 1440) < 801)
-      await lab.getByRole("button", { name: "설정·데이터·분석 열기" }).click();
+      await lab.getByRole("button", { name: "설정 열기" }).click();
     else if ((page.viewportSize()?.width ?? 1440) < 801)
       await lab.getByLabel("설정 열기", { exact: true }).click();
-    await lab.getByRole("tab", { name: "데이터", exact: true }).click();
+    await openData(lab);
     await lab.getByLabel("추천 데이터셋", { exact: true }).selectOption("0");
     await lab.getByLabel("추천 파라미터도 적용", { exact: true }).check();
     await lab
       .getByRole("button", { name: "이 데이터셋 적용", exact: true })
       .click();
     if ((page.viewportSize()?.width ?? 1440) < 801)
-      await lab.getByLabel("설정 닫기", { exact: true }).click();
+      await lab.getByLabel("데이터 패널 닫기", { exact: true }).click();
     await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled({
       timeout: 20000,
     });
@@ -73,7 +74,7 @@ test("sidebar state, viewport layouts and screenshots", async ({
       ),
     ).toBe(true);
     await page.screenshot({
-      path: `docs/ui-datasets/home-${width}-${info.project.name}.png`,
+      path: `test-results/home-${width}-${info.project.name}.png`,
       fullPage: true,
     });
   }

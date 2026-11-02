@@ -1,3 +1,9 @@
+import {
+  chooseAlgorithm,
+  openData,
+  openSettings,
+  openAnalysis,
+} from "./workspace-helpers";
 import { test, expect, type Page, type Locator } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 import type { Algorithm, Params, Trace } from "../src/engine/types";
@@ -105,15 +111,17 @@ async function source(
 ) {
   const box = scope(page),
     before = await count(page);
+  await openData(box);
   await box
     .getByLabel("원본 데이터 JSON", { exact: true })
     .fill(JSON.stringify(data));
+  await openData(box);
   await box.getByRole("button", { name: "데이터 적용", exact: true }).click();
-  await box
-    .getByLabel("다중 데이터 알고리즘", { exact: true })
-    .selectOption(algorithm);
-  if (k !== undefined)
+  await chooseAlgorithm(box, algorithm);
+  if (k !== undefined) {
+    await openSettings(box);
     await box.getByLabel("군집 수 K", { exact: true }).fill(String(k));
+  }
   return completed(page, before, algorithm, rows, k);
 }
 async function inspected(
@@ -131,6 +139,7 @@ async function inspected(
   expect(reversed).toEqual(trace.initial);
   await expect(box.getByLabel("재생", { exact: true })).toBeEnabled();
   await box.getByLabel("마지막으로", { exact: true }).click();
+  await openAnalysis(box);
   const panel = box.locator("details.analysis-panel");
   if ((await panel.count()) && (await panel.getAttribute("open")) === null)
     await panel.locator(":scope > summary").click();
@@ -160,6 +169,7 @@ async function inspected(
   return end;
 }
 async function exported(page: Page) {
+  await openData(scope(page));
   const download = page.waitForEvent("download");
   await scope(page)
     .getByRole("button", { name: "전체 계산 결과 내보내기", exact: true })
@@ -199,17 +209,14 @@ test("COP real hard constraints edit, undo/redo, contradiction and greedy failur
   test.setTimeout(180000);
   await page.goto("#structured");
   const box = scope(page);
+  await openData(box);
   await box
     .getByRole("button", { name: "하드 제약 예제", exact: true })
     .click();
-  await expect(
-    box.getByLabel("다중 데이터 알고리즘", { exact: true }),
-  ).toHaveValue("COP-KMeans");
-  await expect(
-    box
-      .getByLabel("다중 데이터 알고리즘", { exact: true })
-      .getByRole("option", { name: "COP-KMeans", exact: true }),
-  ).toHaveCount(1);
+  await expect(box.getByLabel("알고리즘 선택", { exact: true })).toHaveText(
+    "COP-KMeans",
+  );
+  await expect(box.getByLabel("알고리즘 선택", { exact: true })).toHaveCount(1);
   const run = await source(page, constrained, "COP-KMeans", 4, 2),
     end = await inspected(box, run.trace, "test", "Hard 제약 · 실제 원본 연산");
   expect(end.analysis?.kind).toBe("constraints");
@@ -222,6 +229,7 @@ test("COP real hard constraints edit, undo/redo, contradiction and greedy failur
   expect(run.request.dataset).toEqual(constrained);
   expect(end.analysis.objective).toBeCloseTo(0.01, 10);
   let before = await count(page);
+  await openData(box);
   const input = box.getByLabel("Must-Link 1 끝 행", { exact: true });
   await input.fill("4");
   await input.press("Enter");
@@ -232,18 +240,21 @@ test("COP real hard constraints edit, undo/redo, contradiction and greedy failur
     [0, 3],
   ]);
   before = await count(page);
+  await openData(box);
   await box.getByLabel("다중 데이터 Undo", { exact: true }).click();
   await completed(page, before, "COP-KMeans", 4, 2);
   expect(((await currentSource(page)) as ConstrainedDataset).mustLink).toEqual([
     [0, 1],
   ]);
   before = await count(page);
+  await openData(box);
   await box.getByLabel("다중 데이터 Redo", { exact: true }).click();
   await completed(page, before, "COP-KMeans", 4, 2);
   expect(((await currentSource(page)) as ConstrainedDataset).mustLink).toEqual([
     [0, 3],
   ]);
   before = await count(page);
+  await openData(box);
   await box
     .getByRole("button", { name: "Must-Link 추가", exact: true })
     .click();
@@ -257,9 +268,11 @@ test("COP real hard constraints edit, undo/redo, contradiction and greedy failur
   for (const [a, b] of addedMustLinks)
     expect(addedMustEnd.labels[a]).toBe(addedMustEnd.labels[b]);
   before = await count(page);
+  await openData(box);
   await box.getByLabel("Must-Link 2 삭제", { exact: true }).click();
   await completed(page, before, "COP-KMeans", 4, 2);
   before = await count(page);
+  await openData(box);
   await box
     .getByRole("button", { name: "Cannot-Link 추가", exact: true })
     .click();
@@ -273,6 +286,7 @@ test("COP real hard constraints edit, undo/redo, contradiction and greedy failur
     ["Cannot-Link 2 시작 행", "1"],
     ["Cannot-Link 2 끝 행", "2"],
   ] as const) {
+    await openData(box);
     const cell = box.getByLabel(label, { exact: true });
     if ((await cell.inputValue()) === value) continue;
     before = await count(page);
@@ -287,6 +301,7 @@ test("COP real hard constraints edit, undo/redo, contradiction and greedy failur
     expect(changedEnd.labels[a]).not.toBe(changedEnd.labels[b]);
   expect(changedEnd.labels[0]).not.toBe(changedEnd.labels[1]);
   before = await count(page);
+  await openData(box);
   await box.getByLabel("Cannot-Link 2 삭제", { exact: true }).click();
   await completed(page, before, "COP-KMeans", 4, 2);
   const native = await exported(page);
@@ -296,9 +311,11 @@ test("COP real hard constraints edit, undo/redo, contradiction and greedy failur
   expect(native.computedRows).toBe(4);
   const contradictory = { ...constrained, cannotLink: [[0, 1]] };
   before = await count(page);
+  await openData(box);
   await box
     .getByLabel("원본 데이터 JSON", { exact: true })
     .fill(JSON.stringify(contradictory));
+  await openData(box);
   await box.getByRole("button", { name: "데이터 적용", exact: true }).click();
   await expect(box.getByRole("alert")).toContainText("모순");
   expect(await count(page)).toBe(before);
@@ -314,9 +331,11 @@ test("COP real hard constraints edit, undo/redo, contradiction and greedy failur
   };
   const errors = await page.evaluate(() => window.constraintModelErrors.length);
   before = await count(page);
+  await openData(box);
   await box
     .getByLabel("원본 데이터 JSON", { exact: true })
     .fill(JSON.stringify(impossibleOrder));
+  await openData(box);
   await box.getByRole("button", { name: "데이터 적용", exact: true }).click();
   await expect
     .poll(() =>
@@ -425,6 +444,7 @@ test("three actual discrete EM Workers expose normalized posteriors, exact bound
   await page.goto("#structured");
   const box = scope(page);
   for (const model of mixtures) {
+    await openData(box);
     await box.getByRole("button", { name: model.button, exact: true }).click();
     const raw: Dataset = { kind: "numeric", values: model.values },
       run = await source(page, raw, model.name, 4, 1),
@@ -480,9 +500,11 @@ test("three actual discrete EM Workers expose normalized posteriors, exact bound
       before = await count(page),
       bad = structuredClone(model.values);
     bad[0][0] = model.bad;
+    await openData(box);
     await box
       .getByLabel("원본 데이터 JSON", { exact: true })
       .fill(JSON.stringify({ kind: "numeric", values: bad }));
+    await openData(box);
     await box.getByRole("button", { name: "데이터 적용", exact: true }).click();
     await expect
       .poll(() =>
@@ -697,6 +719,7 @@ test("1000-row Bernoulli source keeps the last-row-only feature, paged editor, a
     7,
   );
   expect(run.request.dataset).toEqual(raw);
+  await openData(box);
   await box.getByLabel("원본 표 시작 행", { exact: true }).fill("1000");
   await expect(box.getByLabel("원본 1000행 4열", { exact: true })).toHaveValue(
     "1",
@@ -713,6 +736,7 @@ test("1000-row Bernoulli source keeps the last-row-only feature, paged editor, a
   expect(native.output.parameters[0][3]).toBeCloseTo(0.001, 12);
   for (const width of [1920, 1440, 1024, 800, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
+    await openAnalysis(box);
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth + 1,

@@ -1,3 +1,4 @@
+import { openAnalysis } from "./workspace-helpers";
 import { test, expect, type Page } from "@playwright/test";
 import type { Algorithm, Params, Trace } from "../src/engine/types";
 import type { Dataset } from "../src/engine/dataset";
@@ -223,9 +224,9 @@ test("six model guides preserve actual mini source, changed parameters and selec
       .getByRole("button", { name: "이 단계 실험에서 보기 ↗", exact: true })
       .click();
     const lab = page.locator(".structured-page");
-    await expect(
-      lab.getByLabel("다중 데이터 알고리즘", { exact: true }),
-    ).toHaveValue(item.name);
+    await expect(lab.getByLabel("알고리즘 선택", { exact: true })).toHaveText(
+      item.name,
+    );
     const experiment = await completed(page, beforeOpen, item.name, {
       key: item.key,
       value: item.value,
@@ -261,6 +262,7 @@ test("six model guides preserve actual mini source, changed parameters and selec
       await expect(lab.getByLabel("타임라인", { exact: true })).toHaveValue(
         String(experiment.trace.steps.length),
       );
+      await openAnalysis(lab);
       const panel = lab.locator("details.analysis-panel");
       if ((await panel.count()) && (await panel.getAttribute("open")) === null)
         await panel.locator(":scope > summary").click();

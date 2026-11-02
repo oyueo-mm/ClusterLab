@@ -74,7 +74,10 @@ test.describe("v0.6 desktop editing", () => {
     await expect(page.getByLabel("다시 실행", { exact: true })).toBeDisabled();
     await loadPoints(page);
     await tool(page, "점 추가");
-    await page.getByLabel("새 점 클래스", { exact: true }).fill("7");
+    await page
+      .locator(".editor-bottom")
+      .getByLabel("새 점 클래스", { exact: true })
+      .fill("7");
     await canvas(page).click({ position: { x: 100, y: 100 } });
     await count(page, 3);
     const added = await readPoints(page);
@@ -152,7 +155,10 @@ test.describe("v0.6 desktop editing", () => {
       .getByRole("button", { name: "전체 지우기", exact: true })
       .click();
     await tool(page, "점 추가");
-    await page.getByLabel("새 점 클래스", { exact: true }).fill("7");
+    await page
+      .locator(".editor-bottom")
+      .getByLabel("새 점 클래스", { exact: true })
+      .fill("7");
     const { box, scale } = await geometry(page);
     const start = { x: box.x + 80, y: box.y + 100 };
     await page.mouse.move(start.x, start.y);
@@ -289,16 +295,28 @@ test.describe("v0.6 desktop editing", () => {
     await expect(canvas(page)).toHaveCSS("cursor", "grabbing");
     await page.mouse.move(to.x, to.y);
     await page.mouse.up({ button: "right" });
+    const start = {
+      x: Math.round(box.x + box.width / 2),
+      y: Math.round(box.y + box.height / 2),
+    };
     await canvas(page).dispatchEvent("wheel", {
       deltaY: -Math.log(2) * 1000,
       deltaMode: 0,
+      clientX: start.x,
+      clientY: start.y,
     });
-    const start = { x: box.x + box.width / 2, y: box.y + box.height / 2 };
     await drag(page, start, { x: start.x + 60, y: start.y });
     const points = (await readPoints(page)).slice(2);
     expect(points).toHaveLength(6);
-    expect(points[0].x).toBeCloseTo(0.5 - 36 / (scale * 2), 5);
-    expect(points[0].y).toBeCloseTo(0.5 + 24 / (scale * 2), 5);
+    // The world point under the wheel cursor remains fixed through zoom.
+    expect(points[0].x).toBeCloseTo(
+      0.5 + (start.x - box.x - box.width / 2 - 36) / scale,
+      5,
+    );
+    expect(points[0].y).toBeCloseTo(
+      0.5 - (start.y - box.y - box.height / 2 - 24) / scale,
+      5,
+    );
     expect(points[1].x - points[0].x).toBeCloseTo(12 / (scale * 2), 6);
     await page.goto("#lab");
     expect(
@@ -311,7 +329,7 @@ test.describe("v0.6 desktop editing", () => {
             }),
           ),
       ),
-    ).toBe(false);
+    ).toBe(true);
   });
 
   test("preset, regeneration options and CSV/JSON replacements restore matching metadata", async ({
@@ -429,7 +447,9 @@ test.describe("v0.6 desktop editing", () => {
       "test select",
       "test editable",
     ]) {
-      const field = page.getByLabel(label, { exact: true });
+      const field = page
+        .locator(".data-page")
+        .getByLabel(label, { exact: true });
       await field.focus();
       await field.press("Control+z");
       expect(

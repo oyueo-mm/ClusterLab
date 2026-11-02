@@ -1,3 +1,4 @@
+import { chooseAlgorithm, openSettings } from "./workspace-helpers";
 import { test, expect } from "@playwright/test";
 type Audit = {
   requests: { algorithm: string; points: string }[];
@@ -113,9 +114,10 @@ test("four real home Workers share exactly the same source data and stop when no
   await page
     .getByRole("button", { name: "Mean Shift 실험실 열기", exact: true })
     .click();
-  await expect(page.getByLabel("알고리즘 선택")).toHaveValue("Mean Shift");
+  await expect(page.getByLabel("알고리즘 선택")).toHaveText("Mean Shift");
   await expect(page.locator(".point-count")).toHaveText("36 points");
-  await expect(page.locator(".visualization-description")).toHaveText(
+  await expect(page.locator(".lab-page canvas")).toHaveAttribute(
+    "aria-label",
     "Mean Shift 데이터 및 실제 연산 시각화",
   );
 });
@@ -154,20 +156,22 @@ test("simplified chrome, white surfaces, mobile menu and dynamic parameters", as
     await page.getByRole("button", { name: "실험 시작하기" }).click();
   }
   await expect(page.locator(".lab-page>.page-heading")).toHaveCount(0);
-  await expect(page.locator(".stage-heading .family-tag")).toBeVisible();
+  await expect(page.locator(".workspace-toolbar")).toBeVisible();
   await expect(page.getByRole("button", { name: /^(일반|고속)$/ })).toHaveCount(
     0,
   );
   await expect(page.getByLabel("재생 속도")).toHaveAttribute("max", "200");
-  await page.getByLabel("알고리즘 선택").selectOption("Mean Shift");
+  await chooseAlgorithm(page, "Mean Shift");
   if (info.project.name === "mobile")
     await page.getByLabel("설정 열기").click();
-  const panel = page.locator(".settings-panel");
+  const panel = page.locator(".workspace-settings");
   await expect(panel.getByText("PARAMETERS")).toHaveCount(0);
   await expect(panel.getByRole("heading")).toHaveCount(0);
   await expect(panel.getByText("관찰 포인트", { exact: true })).toHaveCount(0);
+  await openSettings(page);
   await panel.getByLabel("Bandwidth", { exact: true }).fill("0");
   await expect(page.getByRole("alert")).toContainText("Bandwidth");
+  await openSettings(page);
   await panel.getByLabel("Bandwidth", { exact: true }).fill("0.2");
   await expect(page.locator(".status")).toHaveText("준비됨");
   await expect(page.locator(".error")).toHaveCount(0);

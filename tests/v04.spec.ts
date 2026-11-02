@@ -126,7 +126,7 @@ test("all executable textbooks render math and real events, switch levels, navig
     .filter({ hasText: "maximization 보기" })
     .getByRole("button", { name: "이 단계 실험에서 보기" })
     .click();
-  await expect(page.getByLabel("알고리즘 선택")).toHaveValue("GMM");
+  await expect(page.getByLabel("알고리즘 선택")).toHaveText("GMM");
   await expect(page.locator(".event-tag")).toHaveText("maximization");
   await expect(page.locator(".toast[role=status]")).toContainText(
     "실제 이벤트",

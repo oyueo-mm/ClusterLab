@@ -1,3 +1,4 @@
+import { chooseAlgorithm, openAnalysis } from "./workspace-helpers";
 import { algorithms } from "../src/engine/types";
 import { registry } from "../src/engine/registry";
 import { test, expect } from "@playwright/test";
@@ -48,12 +49,12 @@ test("catalog distinguishes all candidates from executable engines and filters w
     fullPage: true,
   });
   await page.getByRole("button", { name: "실험실에서 실행" }).click();
-  await expect(page.getByLabel("알고리즘 선택", { exact: true })).toHaveValue(
+  await expect(page.getByLabel("알고리즘 선택", { exact: true })).toHaveText(
     "Fuzzy C-Means",
   );
   await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
   await page.getByLabel("마지막으로", { exact: true }).click();
-  await page.locator(".analysis-panel > summary").click();
+  await openAnalysis(page);
   await expect(
     page.getByText("퍼지 소속도 U · 확률 아님", { exact: true }),
   ).toBeVisible();
@@ -65,7 +66,7 @@ test("new algorithms compute actual events in production workers and reversible 
 }, info) => {
   await page.goto("#lab");
   for (const name of ["Fuzzy C-Means", "Bisecting K-Means"]) {
-    await page.getByLabel("알고리즘 선택", { exact: true }).selectOption(name);
+    await chooseAlgorithm(page, name);
     await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
     await page.getByLabel("마지막으로", { exact: true }).click();
     await expect(page.locator(".status")).toHaveText("완료");
@@ -82,7 +83,7 @@ test("new algorithms compute actual events in production workers and reversible 
       +(await page.getByLabel("타임라인", { exact: true }).inputValue()),
     ).toBe(last);
   }
-  await page.locator(".analysis-panel > summary").click();
+  await openAnalysis(page);
   await expect(
     page.getByRole("img", { name: "이분할 트리 · 높이 = 분할 시점 RMS 반경" }),
   ).toBeVisible();
@@ -123,7 +124,7 @@ test("100k import has no truncation and cancellation actually terminates its wor
     .getByRole("button", { name: "이 데이터로 실험", exact: true })
     .click();
   await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
-  await page.getByLabel("알고리즘 선택", { exact: true }).selectOption("GMM");
+  await chooseAlgorithm(page, "GMM");
   await expect(page.locator(".step-explanation")).toContainText(
     "전체 데이터 계산 중",
   );

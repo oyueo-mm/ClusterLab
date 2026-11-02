@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { readPreference, writePreference } from "./storage";
 import { useState } from "react";
 
@@ -44,6 +44,12 @@ export function ResizeHandle({
     next: number;
     frame: number;
   } | null>(null);
+  useEffect(
+    () => () => {
+      if (drag.current) cancelAnimationFrame(drag.current.frame);
+    },
+    [],
+  );
   return (
     <div
       className="resize-handle"

@@ -81,7 +81,12 @@ export function Sidebar({
     panel.addEventListener("keydown", key);
     return () => {
       panel.removeEventListener("keydown", key);
-      document.querySelector<HTMLElement>(".mobile-menu")?.focus();
+      const labToggle = document.querySelector<HTMLElement>(
+        '.workspace-app .workspace-toolbar [aria-label="탐색 사이드바 전환"]',
+      );
+      (
+        labToggle ?? document.querySelector<HTMLElement>(".mobile-menu")
+      )?.focus();
     };
   }, [mobileNav, narrow]);
   return (

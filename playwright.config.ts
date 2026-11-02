@@ -16,6 +16,7 @@ export default defineConfig({
     ["json", { outputFile: ".local/e2e-results.json" }],
   ],
   use: {
+    actionTimeout: 15000,
     baseURL: url,
     screenshot: "only-on-failure",
     trace: "retain-on-failure",
@@ -39,6 +40,7 @@ export default defineConfig({
               "encyclopedia.spec.ts",
               "lab-state.spec.ts",
               "lab-shell.spec.ts",
+              "workspace.spec.ts",
             ],
             use: { ...devices["Desktop Firefox"] },
           },
@@ -53,6 +55,7 @@ export default defineConfig({
               "encyclopedia.spec.ts",
               "lab-state.spec.ts",
               "lab-shell.spec.ts",
+              "workspace.spec.ts",
             ],
             use: { ...devices["Desktop Safari"] },
           },

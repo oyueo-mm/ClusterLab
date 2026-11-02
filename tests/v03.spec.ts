@@ -268,7 +268,7 @@ test("labeled and categorical home cards transfer the exact original records int
   await page
     .getByRole("button", { name: "LVQ 실험실 열기", exact: true })
     .click();
-  await expect(page.getByLabel("알고리즘 선택")).toHaveValue("LVQ");
+  await expect(page.getByLabel("알고리즘 선택")).toHaveText("LVQ");
   const expected = datasets.get("LVQ") as { label?: number }[];
   expect(expected.every((p) => p.label !== undefined)).toBe(true);
   // Preserve the exact data through the existing JSON export path, without reseeding.
@@ -292,7 +292,7 @@ test("labeled and categorical home cards transfer the exact original records int
   await page
     .getByRole("button", { name: "ROCK 실험실 열기", exact: true })
     .click();
-  await expect(page.getByLabel("알고리즘 선택")).toHaveValue("ROCK");
+  await expect(page.getByLabel("알고리즘 선택")).toHaveText("ROCK");
   await expect(page.locator(".status")).toHaveText("준비됨");
   await page.goto("#data");
   const next = page.waitForEvent("download");

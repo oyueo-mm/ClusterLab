@@ -1,3 +1,4 @@
+import { chooseAlgorithm, openData, openAnalysis } from "./workspace-helpers";
 import { test, expect } from "@playwright/test";
 import type { Trace } from "../src/engine/types";
 import { stateAt } from "../src/engine/trace";
@@ -38,17 +39,20 @@ test("ten new engines expose real events, dedicated analysis and reversible prod
 }, info) => {
   test.setTimeout(120000);
   await page.goto("#lab");
+  await openData(page);
   await page.getByLabel("실험 프리셋", { exact: true }).selectOption("tiny");
   const search = page.getByLabel("실험실 알고리즘 검색", { exact: true });
+  await page.getByLabel("알고리즘 선택", { exact: true }).click();
   await search.fill("스펙트럴");
-  const selector = page.getByLabel("알고리즘 선택", { exact: true });
+  const selector = page.getByRole("listbox", { name: "알고리즘 목록" });
   await expect(
-    selector.getByRole("option", { name: "Spectral Clustering", exact: true }),
+    selector.getByRole("option", { name: /^Spectral Clustering/ }),
   ).toHaveCount(1);
   await expect(
     selector.getByRole("option", { name: "CLARANS", exact: true }),
   ).toHaveCount(0);
   await search.fill("");
+  await page.keyboard.press("Escape");
   const cases = [
     ["Spectral Clustering", "embedding", "스펙트럴 임베딩"],
     ["Affinity Propagation", "messages", "친화도 전파 · 실제 메시지"],
@@ -62,7 +66,7 @@ test("ten new engines expose real events, dedicated analysis and reversible prod
     ["CLARANS", "swap", "실제 Medoid 탐색·전체 데이터 평가"],
   ];
   for (const [name, event, title] of cases) {
-    await page.getByLabel("알고리즘 선택", { exact: true }).selectOption(name);
+    await chooseAlgorithm(page, name);
     await expect
       .poll(() => page.evaluate(() => window.platformTraces.at(-1)?.algorithm))
       .toBe(name);
@@ -74,9 +78,8 @@ test("ten new engines expose real events, dedicated analysis and reversible prod
     expect(end.labels.every((i) => i >= 0)).toBe(true);
     await page.getByLabel("마지막으로", { exact: true }).click();
     await expect(page.locator(".status")).toHaveText("완료");
-    const panel = page.locator(".analysis-panel");
-    if ((await panel.getAttribute("open")) === null)
-      await panel.locator(":scope > summary").click();
+    await openAnalysis(page);
+    const panel = page.locator(".workspace-settings");
     await expect(panel.getByText(title, { exact: true }).first()).toBeVisible();
     await page.getByLabel("한 단계 뒤로", { exact: true }).click();
     await page.getByLabel("한 단계 앞으로", { exact: true }).click();
@@ -95,9 +98,14 @@ test("ND raw computation survives projection changes; weighted graph ignores dis
 }, info) => {
   await page.goto("#structured");
   const workspace = page.locator(".structured-page");
+  await openData(workspace);
   await expect(workspace.getByLabel("재생", { exact: true })).toBeEnabled();
-  await expect(page.getByRole("status")).toContainText("원본 3차원");
+  await openData(workspace);
+  await expect(workspace.locator(".structured-provenance")).toContainText(
+    "원본 3차원",
+  );
   await workspace.getByLabel("마지막으로", { exact: true }).click();
+  await openAnalysis(workspace);
   await expect(
     page.getByRole("img", { name: "스펙트럴 임베딩", exact: true }),
   ).toBeVisible();
@@ -116,12 +124,14 @@ test("ND raw computation survives projection changes; weighted graph ignores dis
   await expect(matrix.locator("tbody tr")).toHaveCount(2);
   await matrix.getByLabel("유사도 인접 행렬 W 시작 행").fill("1");
   await matrix.locator("summary").click();
+  await openData(page);
   await page.getByLabel("표시 Y 차원").fill("3");
   expect(await page.evaluate(() => window.platformJobs)).toBe(before.jobs);
   await page.screenshot({
     path: `test-results/structured-nd-${info.project.name}.png`,
     fullPage: true,
   });
+  await openData(page);
   await page
     .getByRole("button", { name: "가중 그래프 예제", exact: true })
     .click();
@@ -143,7 +153,9 @@ test("ND raw computation survives projection changes; weighted graph ignores dis
     },
   );
   const count = await page.evaluate(() => window.platformTraces.length);
+  await openData(page);
   await page.getByLabel("원본 데이터 JSON").fill(JSON.stringify(raw));
+  await openData(page);
   await page.getByRole("button", { name: "데이터 적용", exact: true }).click();
   await expect
     .poll(() => page.evaluate(() => window.platformTraces.length))
@@ -153,7 +165,9 @@ test("ND raw computation survives projection changes; weighted graph ignores dis
     firstState.analysis,
   );
   raw.data.edges[0].weight = 7;
+  await openData(page);
   await page.getByLabel("원본 데이터 JSON").fill(JSON.stringify(raw));
+  await openData(page);
   await page.getByRole("button", { name: "데이터 적용", exact: true }).click();
   await expect
     .poll(() => page.evaluate(() => window.platformTraces.length))
@@ -165,6 +179,7 @@ test("ND raw computation survives projection changes; weighted graph ignores dis
       weightedState.analysis.adjacency?.[0][1],
   ).toBe(7);
   await workspace.getByLabel("마지막으로", { exact: true }).click();
+  await openAnalysis(workspace);
   await matrix.locator("summary").click();
   await expect(
     matrix.locator("tbody tr").first().locator("td").nth(1),
@@ -187,6 +202,7 @@ test("unsupported structured data and contradictory constraints fail explicitly"
   page,
 }) => {
   await page.goto("#structured");
+  await openData(page);
   await page.getByLabel("원본 데이터 JSON").fill(
     JSON.stringify({
       kind: "graph",
@@ -195,8 +211,10 @@ test("unsupported structured data and contradictory constraints fail explicitly"
       edges: [{ source: "a", target: "b", weight: 1 }],
     }),
   );
+  await openData(page);
   await page.getByRole("button", { name: "데이터 적용", exact: true }).click();
   await expect(page.getByRole("alert")).toContainText("방향");
+  await openData(page);
   await page.getByLabel("원본 데이터 JSON").fill(
     JSON.stringify({
       kind: "constrained",
@@ -211,6 +229,7 @@ test("unsupported structured data and contradictory constraints fail explicitly"
       cannotLink: [[0, 1]],
     }),
   );
+  await openData(page);
   await page.getByRole("button", { name: "데이터 적용", exact: true }).click();
   await expect(page.getByRole("alert")).toContainText("모순");
 });

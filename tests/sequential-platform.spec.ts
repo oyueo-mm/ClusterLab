@@ -1,3 +1,5 @@
+import { openSettings } from "./workspace-helpers";
+import { chooseAlgorithm, openData, openAnalysis } from "./workspace-helpers";
 import { test, expect, type Page, type Locator } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 import type { Algorithm, Params, Trace } from "../src/engine/types";
@@ -96,13 +98,14 @@ async function runSource(
 ) {
   const box = workspace(page),
     before = await count(page);
+  await openData(box);
   await box
     .getByLabel("원본 데이터 JSON", { exact: true })
     .fill(JSON.stringify(data));
+  await openData(box);
   await box.getByRole("button", { name: "데이터 적용", exact: true }).click();
-  await box
-    .getByLabel("다중 데이터 알고리즘", { exact: true })
-    .selectOption(algorithm);
+  await chooseAlgorithm(box, algorithm);
+  await openSettings(box);
   const labels: Partial<Record<keyof Params, string>> =
     algorithm === "TTSAS"
       ? { threshold: "할당 하한 θ₁", upperThreshold: "생성 상한 θ₂" }
@@ -122,6 +125,7 @@ async function showFinal(box: Locator, trace: Trace) {
   await expect(box.getByLabel("타임라인", { exact: true })).toHaveValue(
     String(trace.steps.length),
   );
+  await openAnalysis(box);
   const panel = box.locator("details.analysis-panel");
   if ((await panel.count()) && (await panel.getAttribute("open")) === null)
     await panel.locator(":scope > summary").click();
@@ -144,6 +148,7 @@ async function showFinal(box: Locator, trace: Trace) {
   return final;
 }
 async function nativeExport(page: Page) {
+  await openData(workspace(page));
   const waiting = page.waitForEvent("download");
   await workspace(page)
     .getByRole("button", { name: "전체 계산 결과 내보내기", exact: true })
@@ -286,19 +291,25 @@ test("three sequential Workers use full raw ND and true passes/defer, BSAS sourc
         .filter(Boolean)
         .at(-1)!;
       await seek(box, deferredPosition);
+      await openData(box);
       await box.getByLabel("표시 Y 차원", { exact: true }).fill("3");
+      await openAnalysis(box);
       await box.getByLabel("순차 표시 Y 차원", { exact: true }).fill("3");
       await page.screenshot({
         path: `test-results/sequential-ttsas-defer-${info.project.name}.png`,
         fullPage: true,
       });
+      await openData(box);
       await box.getByLabel("표시 Y 차원", { exact: true }).fill("2");
+      await openAnalysis(box);
       await box.getByLabel("순차 표시 Y 차원", { exact: true }).fill("2");
       await seek(box, run.trace.steps.length);
     }
     const last = await page.evaluate(() => window.sequentialRuns.at(-1)!),
       requests = await page.evaluate(() => window.sequentialRequests.length);
+    await openData(box);
     await box.getByLabel("표시 Y 차원", { exact: true }).fill("3");
+    await openAnalysis(box);
     await box.getByLabel("순차 표시 Y 차원", { exact: true }).fill("3");
     await expect(box.getByLabel("표시 Y 차원", { exact: true })).toHaveValue(
       "3",
@@ -384,6 +395,7 @@ test("three sequential Workers use full raw ND and true passes/defer, BSAS sourc
   );
   for (const width of [1920, 1440, 1024, 800, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
+    await openAnalysis(box);
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth + 1,
@@ -441,9 +453,9 @@ test("three sequential guide minis transfer raw source, changed thresholds and s
       .getByRole("button", { name: "이 단계 실험에서 보기 ↗", exact: true })
       .click();
     const box = workspace(page);
-    await expect(
-      box.getByLabel("다중 데이터 알고리즘", { exact: true }),
-    ).toHaveValue(name);
+    await expect(box.getByLabel("알고리즘 선택", { exact: true })).toHaveText(
+      name,
+    );
     const moved = await completed(page, transferBefore, name, target);
     expect(moved.request.dataset).toEqual(changed.request.dataset);
     expect(moved.request.params).toEqual(changed.request.params);
