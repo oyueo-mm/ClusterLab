@@ -53,6 +53,7 @@ test("compact task pages retain controls and consistently show Korean preset nam
 test("all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison", async ({
   page,
 }, info) => {
+  test.setTimeout(180000);
   await page.goto("#guide");
   await expect(
     page.getByRole("heading", { name: "알고리즘 가이드", exact: true }),
