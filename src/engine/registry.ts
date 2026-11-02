@@ -143,7 +143,6 @@ export const loaders: Record<Algorithm, () => Promise<Engine>> = {
   TTSAS: () => import("./algorithms/ttsas").then((m) => m.ttsas),
 };
 export const structuredAlgorithms = [
-  "Possibilistic C-Means",
   "Spectral Clustering",
   "Affinity Propagation",
   "Density Peaks / CFSFDP",
@@ -176,6 +175,7 @@ export const structuredAlgorithms = [
   "BSAS",
   "MBSAS",
   "TTSAS",
+  "Possibilistic C-Means",
 ] as const;
 export const communityAlgorithms: readonly Algorithm[] = [
   "Louvain",
