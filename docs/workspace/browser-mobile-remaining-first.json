@@ -1,0 +1,463 @@
+{
+  "stats": {
+    "startTime": "2026-11-02T11:56:38.872Z",
+    "duration": 382315.335,
+    "expected": 19,
+    "skipped": 12,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "all 53 real Worker clips survive catalog scrolling and filters, with bounded Workers",
+      "file": "preview-scale.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 28752,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "actual frames loop, stop offscreen/hidden, respect live reduced motion and animate home cards",
+      "file": "preview-scale.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 14572,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recommendation sizes allow presets and custom counts, retain small sequential lessons",
+      "file": "preview-scale.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3454,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home visual evidence and sustained animation frame timings",
+      "file": "quality.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12988,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "real data editing, CSV import, label preservation and JSON download",
+      "file": "quality.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 17249,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three sequential Workers use full raw ND and true passes/defer, BSAS source order matters, projection does not; native all-row and seven-width checks",
+      "file": "sequential-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 84219,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three sequential guide minis transfer raw source, changed thresholds and selected real event to the structured Worker",
+      "file": "sequential-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12701,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home demo, navigation, playback pause/resume/seek and mobile layout",
+      "file": "site.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5268,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all algorithms run to completion in actual Workers with dedicated analyses",
+      "file": "site.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 51704,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "dataset gallery, import/export UI, guide, compare and direct hash routing",
+      "file": "site.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 19054,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "four real home Workers share exactly the same source data and stop when not visible",
+      "file": "v02.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2912,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+      "file": "v02.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4766,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "real bundled display/UI fonts, forest tokens and aligned responsive layout",
+      "file": "v03.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3504,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "font failure uses fallbacks without clipping or disabling navigation",
+      "file": "v03.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1828,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "automatic cycle holds real final results, changes every preset/combination and wraps after exposing all 13",
+      "file": "v03.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 282,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "labeled and categorical home cards transfer the exact original records into the lab",
+      "file": "v03.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 224,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compact task pages retain controls and consistently show Korean preset names",
+      "file": "v04.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3167,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison",
+      "file": "v04.spec.ts",
+      "project": "mobile",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "timedOut",
+          "duration": 76730,
+          "errors": [
+            "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.lesson-header h1')\nExpected: \u001b[32m\"BSAS\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\n\n  66 |       .getByRole(\"button\", { name: algorithm, exact: true })\n  67 |       .click();\n> 68 |     await expect(page.locator(\".lesson-header h1\")).toHaveText(algorithm);\n     |                                                     ^\n  69 |     await expect(page.locator(\".guide-article section[id]\")).toHaveCount(10);\n  70 |     await expect(page.locator(\".katex-mathml math\").first()).toBeAttached();\n  71 |     await expect(page.locator(\".katex-error\")).toHaveCount(0);\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v04.spec.ts:68:53"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "real Worker GMM renders initialization, E/M covariance motion and final ellipses in every home round",
+      "file": "v04.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 329,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home introduction centers beside the demos and stays compact when stacked",
+      "file": "v05.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 165,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3897,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "larger home typography and editor toolbar fit requested viewport widths",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 304,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 152,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 141,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 140,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preset, regeneration options and CSV/JSON replacements restore matching metadata",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 135,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 145,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 156,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 275,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1782,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1787,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2450,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "stats": {
+    "startTime": "2026-11-02T07:45:29.236Z",
+    "duration": 52258.568999999996,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 43458,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

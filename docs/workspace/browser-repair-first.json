@@ -1,0 +1,168 @@
+{
+  "stats": {
+    "startTime": "2026-11-02T07:43:34.997Z",
+    "duration": 68849.986,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 14821,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6122,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "stream arrivals increase the computed prefix and actual CF time; automatic input can pause",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3541,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "ND raw computation survives projection changes; weighted graph ignores display positions",
+      "file": "platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2784,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "unsupported structured data and contradictory constraints fail explicitly",
+      "file": "platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 919,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three sequential Workers use full raw ND and true passes/defer, BSAS source order matters, projection does not; native all-row and seven-width checks",
+      "file": "sequential-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11650,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+      "file": "v02.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2177,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5634,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7225,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 4980,
+          "errors": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeCloseTo\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m, \u001b[22mprecision\u001b[2m)\u001b[22m\n\nExpected: \u001b[32m0.5511522578926336\u001b[39m\nReceived: \u001b[31m0.5515685360330358\u001b[39m\n\nExpected precision:    5\nExpected difference: < \u001b[32m0.000005\u001b[39m\nReceived difference:   \u001b[31m0.00041627814040223754\u001b[39m\n\n  302 |     // The world point under the wheel cursor remains fixed through zoom.\n  303 |     expect(points[0].x).toBeCloseTo(0.5 - 36 / scale, 5);\n> 304 |     expect(points[0].y).toBeCloseTo(0.5 + 24 / scale, 5);\n      |                         ^\n  305 |     expect(points[1].x - points[0].x).toBeCloseTo(12 / (scale * 2), 6);\n  306 |     await page.goto(\"#lab\");\n  307 |     expect(\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts:304:25"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2780,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

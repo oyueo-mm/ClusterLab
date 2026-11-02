@@ -1,0 +1,958 @@
+{
+  "stats": {
+    "startTime": "2026-11-02T07:23:48.283Z",
+    "duration": 1145486.866,
+    "expected": 54,
+    "skipped": 1,
+    "unexpected": 11,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 38918,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 47033,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7992,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 20177,
+          "errors": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.structured-page').getByRole('heading', { name: 'Bernoulli Mixture · 실제 이산 확률 EM', exact: true })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.structured-page').getByRole('heading', { name: 'Bernoulli Mixture · 실제 이산 확률 EM', exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.structured-page').getByRole('heading', { name: 'Bernoulli Mixture · 실제 이산 확률 EM', exact: true })\u001b[22m\n\n\n  755 |         exact: true,\n  756 |       }),\n> 757 |     ).toBeVisible();\n      |       ^\n  758 |   }\n  759 |   await page.screenshot({\n  760 |     path: `test-results/constraints-models-1000-${info.project.name}.png`,\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\constraints-models.spec.ts:757:7"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "home, category sidebar and shareable independent catalog filters",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2046,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "each engine opens by ID and runs its actual recommended original data",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 78370,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "sidebar state, viewport layouts and screenshots",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4841,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog distinguishes all candidates from executable engines and filters without overflow",
+      "file": "expansion.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2449,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "new algorithms compute actual events in production workers and reversible playback",
+      "file": "expansion.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2132,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "100k import has no truncation and cancellation actually terminates its worker",
+      "file": "expansion.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5239,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a fresh lab applies its tailored initial parameters and produces real deferred passes",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1006,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1674,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6063,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "unavailable persistent storage reports the failure while real computation works",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1244,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "legacy saved original data migrates without being replaced by a recommendation",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2305,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "user points restore from IndexedDB even when preference storage is blocked",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2857,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog entry selects the algorithm default until a user owns the point data",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3067,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "untouched native defaults follow each algorithm while explicit source data survives incompatible navigation",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3693,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "an alternate recommendation keeps its seed when regenerated",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4642,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2834,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "native comparison uses shared graph input with independent real results",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2411,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "six model guides preserve actual mini source, changed parameters and selected real event into the structured Worker experiment",
+      "file": "model-guides.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12342,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "six numeric engines run real split, penalty and subspace operations with reversible analysis",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8482,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "seven graph engines consume actual connected edges and expose their distinct operations",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8453,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 16004,
+          "errors": [
+            "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.structured-page').getByRole('button', { name: '범주형 예제', exact: true })\u001b[22m\n\n\n  306 |   ] as const;\n  307 |   for (const [example, name, event, heading, rows] of cases) {\n> 308 |     await lab.getByRole(\"button\", { name: example, exact: true }).click();\n      |                                                                   ^\n  309 |     const trace = await choose(page, lab, name, true, rows);\n  310 |     const end = await inspectTrace(lab, trace, event, heading, rows);\n  311 |     const a = end.analysis!;\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\next-platform.spec.ts:308:67"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "category and mixed table edits alter actual model statistics and Undo/Redo restores original input",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5355,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "graph weights, matrix cells and time series values are editable mathematical inputs",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10244,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "stream arrivals increase the computed prefix and actual CF time; automatic input can pause",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 21790,
+          "errors": [
+            "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.structured-page').getByRole('button', { name: '개념 드리프트 스트림', exact: true })\u001b[22m\n\n\n  504 |   await choose(page, lab, \"DenStream\", true, 48);\n  505 |   const before = await tracesSoFar(page);\n> 506 |   await lab.getByRole(\"button\", { name: \"관측 1개 유입\", exact: true }).click();\n      |      ^\n  507 |   const trace = await afterRun(page, before, \"DenStream\", 49);\n  508 |   const a = stateAt(trace, trace.steps.length).analysis;\n  509 |   if (a?.kind !== \"stream\") throw new Error(\"Missing stream CFs\");\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\next-platform.spec.ts:506:6"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 13337,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a thousand raw rows remain computed and editable through a bounded table at seven viewport widths",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 15845,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5145,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "ten new engines expose real events, dedicated analysis and reversible production traces",
+      "file": "platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 43563,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "ND raw computation survives projection changes; weighted graph ignores display positions",
+      "file": "platform.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 13473,
+          "errors": [
+            "Error: locator.getAttribute: Error: strict mode violation: locator('.workspace-toolbar').getByLabel('데이터셋 편집', { exact: true }) resolved to 2 elements:\n    1) <button title=\"데이터셋 편집\" aria-label=\"데이터셋 편집\" aria-expanded=\"true\">…</button> aka locator('#main').getByRole('button', { name: '데이터셋 편집' })\n    2) <button title=\"데이터셋 편집\" aria-label=\"데이터셋 편집\" aria-expanded=\"false\">…</button> aka getByLabel('데이터셋 편집').nth(3)\n\nCall log:\n\u001b[2m  - waiting for locator('.workspace-toolbar').getByLabel('데이터셋 편집', { exact: true })\u001b[22m\n\n\n   at workspace-helpers.ts:17\n\n  15 |     .locator(\".workspace-toolbar\")\n  16 |     .getByLabel(\"데이터셋 편집\", { exact: true });\n> 17 |   if ((await button.getAttribute(\"aria-expanded\")) !== \"true\")\n     |                     ^\n  18 |     await button.click();\n  19 | }\n  20 | export async function closeData(scope: Scope) {\n    at openData (C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\workspace-helpers.ts:17:21)\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts:126:9"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "unsupported structured data and contradictory constraints fail explicitly",
+      "file": "platform.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 18130,
+          "errors": [
+            "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.workspace-toolbar').getByLabel('데이터셋 편집', { exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button title=\"데이터셋 편집\" aria-label=\"데이터셋 편집\" aria-expanded=\"false\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    27 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n\n   at workspace-helpers.ts:18\n\n  16 |     .getByLabel(\"데이터셋 편집\", { exact: true });\n  17 |   if ((await button.getAttribute(\"aria-expanded\")) !== \"true\")\n> 18 |     await button.click();\n     |                  ^\n  19 | }\n  20 | export async function closeData(scope: Scope) {\n  21 |   const button = scope.locator('.workspace-data:visible').getByLabel(\"데이터 패널 닫기\", { exact: true });\n    at openData (C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\workspace-helpers.ts:18:18)\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\platform.spec.ts:210:3"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "all 53 real Worker clips survive catalog scrolling and filters, with bounded Workers",
+      "file": "preview-scale.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9336,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "actual frames loop, stop offscreen/hidden, respect live reduced motion and animate home cards",
+      "file": "preview-scale.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12369,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recommendation sizes allow presets and custom counts, retain small sequential lessons",
+      "file": "preview-scale.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1803,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home visual evidence and sustained animation frame timings",
+      "file": "quality.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6099,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "real data editing, CSV import, label preservation and JSON download",
+      "file": "quality.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2703,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three sequential Workers use full raw ND and true passes/defer, BSAS source order matters, projection does not; native all-row and seven-width checks",
+      "file": "sequential-platform.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 25562,
+          "errors": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.structured-page').locator('.sequential-analysis')\nExpected: visible\nReceived: hidden\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.structured-page').locator('.sequential-analysis') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.structured-page').locator('.sequential-analysis')\u001b[22m\n\u001b[2m    23 × locator resolved to <section class=\"sequential-analysis\" aria-label=\"실제 순차 군집 연산 분석\">…</section>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  405 |     path: `test-results/sequential-all-source-${info.project.name}.png`,\n  406 |     fullPage: true,\n> 407 |   });\n      |      ^\n  408 | });\n  409 |\n  410 | test(\"three sequential guide minis transfer raw source, changed thresholds and selected real event to the structured Worker\", async ({\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\sequential-platform.spec.ts:407:55"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "three sequential guide minis transfer raw source, changed thresholds and selected real event to the structured Worker",
+      "file": "sequential-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5581,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home demo, navigation, playback pause/resume/seek and mobile layout",
+      "file": "site.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2620,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all algorithms run to completion in actual Workers with dedicated analyses",
+      "file": "site.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 17651,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "dataset gallery, import/export UI, guide, compare and direct hash routing",
+      "file": "site.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5739,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "four real home Workers share exactly the same source data and stop when not visible",
+      "file": "v02.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1723,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+      "file": "v02.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 17058,
+          "errors": [
+            "TimeoutError: locator.getAttribute: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.workspace-settings').getByLabel('설정 열기', { exact: true })\u001b[22m\n\n\n   at workspace-helpers.ts:27\n\n  25 |   const page = \"viewportSize\" in scope ? scope : scope.page();\n  26 |   if ((page.viewportSize()?.width ?? 1440) <= 800) await closeData(scope);\n> 27 |   const button = scope.locator('.workspace-toolbar:visible').getByLabel(\"설정 열기\", { exact: true });\n     |                     ^\n  28 |   if ((await button.getAttribute(\"aria-expanded\")) !== \"true\")\n  29 |     await button.click();\n  30 |   await scope.getByRole(\"tab\", { name: \"설정\", exact: true }).click();\n    at openSettings (C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\workspace-helpers.ts:27:21)\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v02.spec.ts:171:3"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "real bundled display/UI fonts, forest tokens and aligned responsive layout",
+      "file": "v03.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1268,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "font failure uses fallbacks without clipping or disabling navigation",
+      "file": "v03.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1084,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "automatic cycle holds real final results, changes every preset/combination and wraps after exposing all 13",
+      "file": "v03.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 144353,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "labeled and categorical home cards transfer the exact original records into the lab",
+      "file": "v03.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 86230,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compact task pages retain controls and consistently show Korean preset names",
+      "file": "v04.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1569,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison",
+      "file": "v04.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 28993,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "real Worker GMM renders initialization, E/M covariance motion and final ellipses in every home round",
+      "file": "v04.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 144993,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home introduction centers beside the demos and stays compact when stacked",
+      "file": "v05.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 12432,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 103,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "larger home typography and editor toolbar fit requested viewport widths",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6024,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 1513,
+          "errors": [
+            "Error: locator.fill: Error: strict mode violation: getByLabel('새 점 클래스', { exact: true }) resolved to 2 elements:\n    1) <input min=\"0\" max=\"9\" value=\"0\" type=\"number\" aria-label=\"새 점 클래스\"/> aka getByLabel('데이터셋 편집 패널').getByLabel('새 점 클래스')\n    2) <input min=\"0\" max=\"9\" value=\"0\" type=\"number\" aria-label=\"새 점 클래스\"/> aka getByRole('spinbutton', { name: '새 점 클래스' })\n\nCall log:\n\u001b[2m  - waiting for getByLabel('새 점 클래스', { exact: true })\u001b[22m\n\n\n  75 |     await loadPoints(page);\n  76 |     await tool(page, \"점 추가\");\n> 77 |     await page.getByLabel(\"새 점 클래스\", { exact: true }).fill(\"7\");\n     |                                                       ^\n  78 |     await canvas(page).click({ position: { x: 100, y: 100 } });\n  79 |     await count(page, 3);\n  80 |     const added = await readPoints(page);\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts:77:55"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 1556,
+          "errors": [
+            "Error: locator.fill: Error: strict mode violation: getByLabel('새 점 클래스', { exact: true }) resolved to 2 elements:\n    1) <input min=\"0\" max=\"9\" value=\"0\" type=\"number\" aria-label=\"새 점 클래스\"/> aka getByLabel('데이터셋 편집 패널').getByLabel('새 점 클래스')\n    2) <input min=\"0\" max=\"9\" value=\"0\" type=\"number\" aria-label=\"새 점 클래스\"/> aka getByRole('spinbutton', { name: '새 점 클래스' })\n\nCall log:\n\u001b[2m  - waiting for getByLabel('새 점 클래스', { exact: true })\u001b[22m\n\n\n  153 |       .click();\n  154 |     await tool(page, \"점 추가\");\n> 155 |     await page.getByLabel(\"새 점 클래스\", { exact: true }).fill(\"7\");\n      |                                                       ^\n  156 |     const { box, scale } = await geometry(page);\n  157 |     const start = { x: box.x + 80, y: box.y + 100 };\n  158 |     await page.mouse.move(start.x, start.y);\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts:155:55"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 6060,
+          "errors": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeCloseTo\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m, \u001b[22mprecision\u001b[2m)\u001b[22m\n\nExpected: \u001b[32m0.46163580658052483\u001b[39m\nReceived: \u001b[31m-0.5816571200213134\u001b[39m\n\nExpected precision:    5\nExpected difference: < \u001b[32m0.000005\u001b[39m\nReceived difference:   \u001b[31m1.0432929266018383\u001b[39m\n\n  298 |     const points = (await readPoints(page)).slice(2);\n  299 |     expect(points).toHaveLength(6);\n> 300 |     expect(points[0].x).toBeCloseTo(0.5 - 36 / (scale * 2), 5);\n      |                         ^\n  301 |     expect(points[0].y).toBeCloseTo(0.5 + 24 / (scale * 2), 5);\n  302 |     expect(points[1].x - points[0].x).toBeCloseTo(12 / (scale * 2), 6);\n  303 |     await page.goto(\"#lab\");\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts:300:25"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "preset, regeneration options and CSV/JSON replacements restore matching metadata",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4812,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 1654,
+          "errors": [
+            "Error: locator.focus: Error: strict mode violation: getByLabel('새 점 클래스', { exact: true }) resolved to 2 elements:\n    1) <input min=\"0\" max=\"9\" value=\"0\" type=\"number\" aria-label=\"새 점 클래스\"/> aka getByLabel('데이터셋 편집 패널').getByLabel('새 점 클래스')\n    2) <input min=\"0\" max=\"9\" value=\"0\" type=\"number\" aria-label=\"새 점 클래스\"/> aka getByRole('spinbutton', { name: '새 점 클래스' })\n\nCall log:\n\u001b[2m  - waiting for getByLabel('새 점 클래스', { exact: true })\u001b[22m\n\n\n  431 |     ]) {\n  432 |       const field = page.getByLabel(label, { exact: true });\n> 433 |       await field.focus();\n      |                   ^\n  434 |       await field.press(\"Control+z\");\n  435 |       expect(\n  436 |         await page.locator(\"html\").getAttribute(\"data-shortcut-prevented\"),\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\v06.spec.ts:433:19"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3835,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2366,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1080,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1525,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 972,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

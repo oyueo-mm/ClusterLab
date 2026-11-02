@@ -1,0 +1,138 @@
+﻿{
+    "id":  41444492938,
+    "url":  "https://github.com/oyueo-mm/ClusterLab/actions/runs/41444492938",
+    "sha":  "ae1c2cceae92fe64a75deab7165c02d3b7886ec8",
+    "status":  "in_progress",
+    "conclusion":  null,
+    "jobs":  [
+                 {
+                     "id":  125274337280,
+                     "name":  "validate",
+                     "status":  "in_progress",
+                     "conclusion":  null,
+                     "html_url":  "https://github.com/oyueo-mm/ClusterLab/actions/runs/41444492938/job/125274337280",
+                     "steps":  [
+                                   {
+                                       "name":  "Set up job",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  1,
+                                       "started_at":  "2026-11-02T12:25:25Z",
+                                       "completed_at":  "2026-11-02T12:25:27Z"
+                                   },
+                                   {
+                                       "name":  "Run actions/checkout@v4",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  2,
+                                       "started_at":  "2026-11-02T12:25:27Z",
+                                       "completed_at":  "2026-11-02T12:25:30Z"
+                                   },
+                                   {
+                                       "name":  "Run actions/setup-node@v4",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  3,
+                                       "started_at":  "2026-11-02T12:25:30Z",
+                                       "completed_at":  "2026-11-02T12:25:33Z"
+                                   },
+                                   {
+                                       "name":  "Run npm ci",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  4,
+                                       "started_at":  "2026-11-02T12:25:33Z",
+                                       "completed_at":  "2026-11-02T12:26:11Z"
+                                   },
+                                   {
+                                       "name":  "Run npm run lint",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  5,
+                                       "started_at":  "2026-11-02T12:26:11Z",
+                                       "completed_at":  "2026-11-02T12:26:17Z"
+                                   },
+                                   {
+                                       "name":  "Run npm run typecheck",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  6,
+                                       "started_at":  "2026-11-02T12:26:17Z",
+                                       "completed_at":  "2026-11-02T12:26:26Z"
+                                   },
+                                   {
+                                       "name":  "Run npm test",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  7,
+                                       "started_at":  "2026-11-02T12:26:26Z",
+                                       "completed_at":  "2026-11-02T12:26:52Z"
+                                   },
+                                   {
+                                       "name":  "Run npx playwright install --with-deps chromium",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  8,
+                                       "started_at":  "2026-11-02T12:26:52Z",
+                                       "completed_at":  "2026-11-02T12:27:26Z"
+                                   },
+                                   {
+                                       "name":  "Run npm run build",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  9,
+                                       "started_at":  "2026-11-02T12:27:26Z",
+                                       "completed_at":  "2026-11-02T12:27:41Z"
+                                   },
+                                   {
+                                       "name":  "Run npm run test:e2e",
+                                       "status":  "in_progress",
+                                       "conclusion":  null,
+                                       "number":  10,
+                                       "started_at":  "2026-11-02T12:27:41Z",
+                                       "completed_at":  null
+                                   },
+                                   {
+                                       "name":  "Run actions/upload-artifact@v4",
+                                       "status":  "pending",
+                                       "conclusion":  null,
+                                       "number":  11,
+                                       "started_at":  null,
+                                       "completed_at":  null
+                                   },
+                                   {
+                                       "name":  "Run actions/configure-pages@v5",
+                                       "status":  "pending",
+                                       "conclusion":  null,
+                                       "number":  12,
+                                       "started_at":  null,
+                                       "completed_at":  null
+                                   },
+                                   {
+                                       "name":  "Run actions/upload-pages-artifact@v3",
+                                       "status":  "pending",
+                                       "conclusion":  null,
+                                       "number":  13,
+                                       "started_at":  null,
+                                       "completed_at":  null
+                                   },
+                                   {
+                                       "name":  "Post Run actions/setup-node@v4",
+                                       "status":  "pending",
+                                       "conclusion":  null,
+                                       "number":  25,
+                                       "started_at":  null,
+                                       "completed_at":  null
+                                   },
+                                   {
+                                       "name":  "Post Run actions/checkout@v4",
+                                       "status":  "pending",
+                                       "conclusion":  null,
+                                       "number":  26,
+                                       "started_at":  null,
+                                       "completed_at":  null
+                                   }
+                               ]
+                 }
+             ]
+}

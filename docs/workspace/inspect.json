@@ -1,0 +1,80 @@
+[
+  {
+    "width": 1440,
+    "canvas": {
+      "x": 64,
+      "y": 50.4375,
+      "width": 1066,
+      "height": 713.984375
+    },
+    "toolbar": {
+      "x": 64,
+      "y": 0,
+      "width": 1376,
+      "height": 50.4375
+    },
+    "playback": {
+      "x": 64,
+      "y": 788.421875,
+      "width": 1066,
+      "height": 59
+    },
+    "scroll": 900,
+    "body": "본문으로 이동\nK-Means\nCANVAS 2D\n0 FPS\n좌표 초기화 ↺\n군집 1\n군집 2\n군집 3\n휠·핀치로 확대 / 드래그로 이동\n0 / 1448\n속도\n50\nK-Means · initialize\n\n첫 중심점을 시드 난수로 선택합니다.\n\n설정·분석\n설정\n분석\n알고리즘 초기화\n군집 수 K\n찾을 중심점 수\n초기화\nkmeans++\nrandom\n거리 제곱 확률 또는 무작위\n최대 반복\n할당·평균 갱신 반복 한도\n재현성 설정"
+  },
+  {
+    "errors": []
+  },
+  {
+    "width": 390,
+    "canvas": {
+      "x": 0,
+      "y": 48,
+      "width": 390,
+      "height": 672.0625
+    },
+    "toolbar": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 48
+    },
+    "playback": {
+      "x": 0,
+      "y": 744.0625,
+      "width": 390,
+      "height": 105
+    },
+    "scroll": 900,
+    "body": "본문으로 이동\nClusterLab\nK-Means\nCANVAS 2D\n2 FPS\n좌표 초기화 ↺\n군집 1\n군집 2\n군집 3\n0 / 1448\n속도\n50\nK-Means · initialize\n\n첫 중심점을 시드 난수로 선택합니다."
+  },
+  {
+    "errors": []
+  },
+  {
+    "width": 320,
+    "canvas": {
+      "x": 0,
+      "y": 48,
+      "width": 320,
+      "height": 672.0625
+    },
+    "toolbar": {
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 48
+    },
+    "playback": {
+      "x": 0,
+      "y": 744.0625,
+      "width": 320,
+      "height": 105
+    },
+    "scroll": 900,
+    "body": "본문으로 이동\nClusterLab\nK-Means\nCANVAS 2D\n39 FPS\n좌표 초기화 ↺\n군집 1\n군집 2\n군집 3\n0 / 1448\n속도\n50\nK-Means · initialize\n\n첫 중심점을 시드 난수로 선택합니다."
+  },
+  {
+    "errors": []
+  }
+]

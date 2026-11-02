@@ -1,0 +1,1514 @@
+{
+  "base": "http://127.0.0.1:4476/ClusterLab/",
+  "source": "ae1c2cceae92fe64a75deab7165c02d3b7886ec8",
+  "measuredAt": "2026-11-02T12:24:55.292Z",
+  "sizes": [
+    {
+      "label": "default",
+      "width": 1920,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1546,
+        "height": 711.1875
+      },
+      "areaRatio": 0.6362823350694444,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1856,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 788.421875,
+        "width": 1546,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1546,
+        711
+      ]
+    },
+    {
+      "label": "panels",
+      "width": 1920,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 364,
+        "y": 50.4375,
+        "width": 1246,
+        "height": 711.1875
+      },
+      "areaRatio": 0.5128122829861111,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1856,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 364,
+        "y": 788.421875,
+        "width": 1246,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1246,
+        711
+      ]
+    },
+    {
+      "label": "focus",
+      "width": 1920,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 50.4375,
+        "width": 1920,
+        "height": 711.1875
+      },
+      "areaRatio": 0.7902083333333333,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 0,
+        "y": 788.421875,
+        "width": 1920,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1920,
+        711
+      ]
+    },
+    {
+      "label": "default",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 711.1875
+      },
+      "areaRatio": 0.5849736689814815,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 788.421875,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1066,
+        711
+      ]
+    },
+    {
+      "label": "panels",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 364,
+        "y": 50.4375,
+        "width": 766,
+        "height": 711.1875
+      },
+      "areaRatio": 0.4203469328703704,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 364,
+        "y": 788.421875,
+        "width": 766,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        766,
+        711
+      ]
+    },
+    {
+      "label": "focus",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 50.4375,
+        "width": 1440,
+        "height": 711.1875
+      },
+      "areaRatio": 0.7902083333333333,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 0,
+        "y": 788.421875,
+        "width": 1440,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1440,
+        711
+      ]
+    },
+    {
+      "label": "default",
+      "width": 1024,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 650,
+        "height": 711.1875
+      },
+      "areaRatio": 0.5015970865885416,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 960,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 788.421875,
+        "width": 650,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        650,
+        711
+      ]
+    },
+    {
+      "label": "panels",
+      "width": 1024,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 650,
+        "height": 711.1875
+      },
+      "areaRatio": 0.5015970865885416,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 960,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 788.421875,
+        "width": 650,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        650,
+        711
+      ]
+    },
+    {
+      "label": "focus",
+      "width": 1024,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 50.4375,
+        "width": 1024,
+        "height": 711.1875
+      },
+      "areaRatio": 0.7902083333333333,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 1024,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 0,
+        "y": 788.421875,
+        "width": 1024,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1024,
+        711
+      ]
+    },
+    {
+      "label": "default",
+      "width": 800,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 800,
+        "height": 709.28125
+      },
+      "areaRatio": 0.7880902777777777,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 782.421875,
+        "width": 800,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        800,
+        709
+      ]
+    },
+    {
+      "label": "panels",
+      "width": 800,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 800,
+        "height": 709.28125
+      },
+      "areaRatio": 0.7880902777777777,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 782.421875,
+        "width": 800,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        800,
+        709
+      ]
+    },
+    {
+      "label": "focus",
+      "width": 800,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 800,
+        "height": 709.28125
+      },
+      "areaRatio": 0.7880902777777777,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 800,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 782.421875,
+        "width": 800,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        800,
+        709
+      ]
+    },
+    {
+      "label": "default",
+      "width": 768,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 768,
+        "height": 709.28125
+      },
+      "areaRatio": 0.7880902777777777,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 782.421875,
+        "width": 768,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        768,
+        709
+      ]
+    },
+    {
+      "label": "panels",
+      "width": 768,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 768,
+        "height": 709.28125
+      },
+      "areaRatio": 0.7880902777777777,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 782.421875,
+        "width": 768,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        768,
+        709
+      ]
+    },
+    {
+      "label": "focus",
+      "width": 768,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 768,
+        "height": 709.28125
+      },
+      "areaRatio": 0.7880902777777777,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 782.421875,
+        "width": 768,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        768,
+        709
+      ]
+    },
+    {
+      "label": "default",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 672.0625
+      },
+      "areaRatio": 0.7467361111111112,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 744.0625,
+        "width": 390,
+        "height": 105
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        672
+      ]
+    },
+    {
+      "label": "panels",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 672.0625
+      },
+      "areaRatio": 0.7467361111111112,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 744.0625,
+        "width": 390,
+        "height": 105
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        672
+      ]
+    },
+    {
+      "label": "focus",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 672.0625
+      },
+      "areaRatio": 0.7467361111111112,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 744.0625,
+        "width": 390,
+        "height": 105
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        672
+      ]
+    },
+    {
+      "label": "default",
+      "width": 320,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 320,
+        "height": 672.0625
+      },
+      "areaRatio": 0.7467361111111112,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 744.0625,
+        "width": 320,
+        "height": 105
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        320,
+        672
+      ]
+    },
+    {
+      "label": "panels",
+      "width": 320,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 320,
+        "height": 672.0625
+      },
+      "areaRatio": 0.7467361111111112,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 744.0625,
+        "width": 320,
+        "height": 105
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        320,
+        672
+      ]
+    },
+    {
+      "label": "focus",
+      "width": 320,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 320,
+        "height": 672.0625
+      },
+      "areaRatio": 0.7467361111111112,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 744.0625,
+        "width": 320,
+        "height": 105
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        320,
+        672
+      ]
+    }
+  ],
+  "representations": [
+    {
+      "label": "DBSCAN",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 711.1875
+      },
+      "areaRatio": 0.5849736689814815,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 788.421875,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1066,
+        711
+      ],
+      "events": 599,
+      "mid": 299
+    },
+    {
+      "label": "AGNES",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 711.1875
+      },
+      "areaRatio": 0.5849736689814815,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 788.421875,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1066,
+        711
+      ],
+      "events": 120,
+      "mid": 60
+    },
+    {
+      "label": "Growing Neural Gas",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 711.1875
+      },
+      "areaRatio": 0.5849736689814815,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 788.421875,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1066,
+        711
+      ],
+      "events": 6428,
+      "mid": 3214
+    },
+    {
+      "label": "Louvain",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 735.421875
+      },
+      "areaRatio": 0.6049071903935185,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 785.859375,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1066,
+        735
+      ],
+      "events": 59,
+      "mid": 29
+    },
+    {
+      "label": "Bimax",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 92,
+        "y": 78.4375,
+        "width": 1010,
+        "height": 636.78125
+      },
+      "areaRatio": 0.4962569926697531,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 785.859375,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        null,
+        null
+      ],
+      "events": 8,
+      "mid": 4
+    },
+    {
+      "label": "K-Shape",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 92,
+        "y": 78.4375,
+        "width": 1010,
+        "height": 636.78125
+      },
+      "areaRatio": 0.4962569926697531,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 785.859375,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        null,
+        null
+      ],
+      "events": 256,
+      "mid": 128
+    },
+    {
+      "label": "DenStream",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 735.421875
+      },
+      "areaRatio": 0.6049071903935185,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 785.859375,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1066,
+        735
+      ],
+      "events": 11,
+      "mid": 5
+    },
+    {
+      "label": "COP-KMeans",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 735.421875
+      },
+      "areaRatio": 0.6049071903935185,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 785.859375,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1066,
+        735
+      ],
+      "events": 7,
+      "mid": 3
+    },
+    {
+      "label": "CLIQUE",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 735.421875
+      },
+      "areaRatio": 0.6049071903935185,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 785.859375,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1066,
+        735
+      ],
+      "events": 6,
+      "mid": 3
+    },
+    {
+      "label": "K-Prototypes",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 735.421875
+      },
+      "areaRatio": 0.6049071903935185,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 785.859375,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1066,
+        735
+      ],
+      "events": 6,
+      "mid": 3
+    },
+    {
+      "label": "Bernoulli Mixture",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1066,
+        "height": 735.421875
+      },
+      "areaRatio": 0.6049071903935185,
+      "toolbar": {
+        "x": 64,
+        "y": 0,
+        "width": 1376,
+        "height": 50.4375
+      },
+      "playback": {
+        "x": 64,
+        "y": 785.859375,
+        "width": 1066,
+        "height": 59
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        1066,
+        735
+      ],
+      "events": 22,
+      "mid": 11
+    },
+    {
+      "label": "DBSCAN",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 672.0625
+      },
+      "areaRatio": 0.7467361111111112,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 744.0625,
+        "width": 390,
+        "height": 105
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        672
+      ],
+      "events": 599,
+      "mid": 299
+    },
+    {
+      "label": "AGNES",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 644.0625
+      },
+      "areaRatio": 0.715625,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 744.0625,
+        "width": 390,
+        "height": 105
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        644
+      ],
+      "events": 120,
+      "mid": 60
+    },
+    {
+      "label": "Growing Neural Gas",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 672.0625
+      },
+      "areaRatio": 0.7467361111111112,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 744.0625,
+        "width": 390,
+        "height": 105
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        672
+      ],
+      "events": 6428,
+      "mid": 3214
+    },
+    {
+      "label": "Louvain",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 713.859375
+      },
+      "areaRatio": 0.7931770833333334,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 761.859375,
+        "width": 390,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        714
+      ],
+      "events": 59,
+      "mid": 29
+    },
+    {
+      "label": "Bimax",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 28,
+        "y": 76,
+        "width": 334,
+        "height": 597.078125
+      },
+      "areaRatio": 0.5681598112535613,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 743.71875,
+        "width": 390,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        null,
+        null
+      ],
+      "events": 8,
+      "mid": 4
+    },
+    {
+      "label": "K-Shape",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 28,
+        "y": 76,
+        "width": 334,
+        "height": 575.21875
+      },
+      "areaRatio": 0.5473591524216525,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 721.859375,
+        "width": 390,
+        "height": 105
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        null,
+        null
+      ],
+      "events": 256,
+      "mid": 128
+    },
+    {
+      "label": "DenStream",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 695.71875
+      },
+      "areaRatio": 0.7730208333333334,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 743.71875,
+        "width": 390,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        696
+      ],
+      "events": 11,
+      "mid": 5
+    },
+    {
+      "label": "COP-KMeans",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 677.71875
+      },
+      "areaRatio": 0.7530208333333334,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 725.71875,
+        "width": 390,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        678
+      ],
+      "events": 7,
+      "mid": 3
+    },
+    {
+      "label": "CLIQUE",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 695.71875
+      },
+      "areaRatio": 0.7730208333333334,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 743.71875,
+        "width": 390,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        696
+      ],
+      "events": 6,
+      "mid": 3
+    },
+    {
+      "label": "K-Prototypes",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 695.71875
+      },
+      "areaRatio": 0.7730208333333334,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 743.71875,
+        "width": 390,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        696
+      ],
+      "events": 6,
+      "mid": 3
+    },
+    {
+      "label": "Bernoulli Mixture",
+      "width": 390,
+      "height": 900,
+      "dpr": 1,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 681
+      },
+      "areaRatio": 0.7566666666666667,
+      "toolbar": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 48
+      },
+      "playback": {
+        "x": 0,
+        "y": 729,
+        "width": 390,
+        "height": 65
+      },
+      "playbackVisible": true,
+      "overflowX": false,
+      "scrollHeight": 900,
+      "backing": [
+        390,
+        681
+      ],
+      "events": 22,
+      "mid": 11
+    }
+  ],
+  "performance": [
+    {
+      "dpr": 1,
+      "beforeJobs": 1,
+      "frames": 194,
+      "meanMs": 16.66597938144327,
+      "p95Ms": 16.700000000000728,
+      "maxMs": 16.800000000000182,
+      "jobs": 1,
+      "geometry": {
+        "label": "drag",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1,
+        "canvas": {
+          "x": 64,
+          "y": 50.4375,
+          "width": 1136,
+          "height": 711.1875
+        },
+        "areaRatio": 0.623386574074074,
+        "toolbar": {
+          "x": 64,
+          "y": 0,
+          "width": 1376,
+          "height": 50.4375
+        },
+        "playback": {
+          "x": 64,
+          "y": 788.421875,
+          "width": 1136,
+          "height": 59
+        },
+        "playbackVisible": true,
+        "overflowX": false,
+        "scrollHeight": 900,
+        "backing": [
+          1136,
+          711
+        ]
+      }
+    },
+    {
+      "dpr": 2,
+      "beforeJobs": 1,
+      "frames": 288,
+      "meanMs": 16.66597222222222,
+      "p95Ms": 16.700000000000728,
+      "maxMs": 16.800000000000182,
+      "jobs": 1,
+      "geometry": {
+        "label": "drag",
+        "width": 1440,
+        "height": 900,
+        "dpr": 2,
+        "canvas": {
+          "x": 64,
+          "y": 50.4375,
+          "width": 1136,
+          "height": 711.1875
+        },
+        "areaRatio": 0.623386574074074,
+        "toolbar": {
+          "x": 64,
+          "y": 0,
+          "width": 1376,
+          "height": 50.4375
+        },
+        "playback": {
+          "x": 64,
+          "y": 788.421875,
+          "width": 1136,
+          "height": 59
+        },
+        "playbackVisible": true,
+        "overflowX": false,
+        "scrollHeight": 900,
+        "backing": [
+          2272,
+          1422
+        ]
+      }
+    }
+  ],
+  "errors": []
+}

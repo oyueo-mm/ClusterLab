@@ -1,0 +1,436 @@
+{
+  "stats": {
+    "startTime": "2026-11-02T12:09:37.972Z",
+    "duration": 130946.31999999999,
+    "expected": 26,
+    "skipped": 2,
+    "unexpected": 2,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "a fresh lab applies its tailored initial parameters and produces real deferred passes",
+      "file": "lab-shell.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11050,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+      "file": "lab-shell.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3340,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+      "file": "lab-shell.spec.ts",
+      "project": "firefox",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 516,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "unavailable persistent storage reports the failure while real computation works",
+      "file": "lab-shell.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1324,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a fresh lab applies its tailored initial parameters and produces real deferred passes",
+      "file": "lab-shell.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3308,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+      "file": "lab-shell.spec.ts",
+      "project": "webkit",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 22714,
+          "errors": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('.lab-page').locator('.guide-article')\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" locator('.lab-page').locator('.guide-article') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.lab-page').locator('.guide-article')\u001b[22m\n\n\n  64 |   await lab.getByLabel(\"상세 설명·수학 가이드\", { exact: true }).click();\n  65 |   await lab.locator(\".lab-details > summary\").click();\n> 66 |   await expect(lab.locator(\".guide-article\")).toBeVisible();\n     |                                               ^\n  67 |   await expect(lab.locator(\".katex-mathml math\").first()).toBeAttached();\n  68 |   await expect(\n  69 |     lab.locator(\".trace-lesson\").getByLabel(\"재생\", { exact: true }),\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\lab-shell.spec.ts:66:47"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+      "file": "lab-shell.spec.ts",
+      "project": "webkit",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 405,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "unavailable persistent storage reports the failure while real computation works",
+      "file": "lab-shell.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2555,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "legacy saved original data migrates without being replaced by a recommendation",
+      "file": "lab-state.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2121,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "user points restore from IndexedDB even when preference storage is blocked",
+      "file": "lab-state.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2568,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog entry selects the algorithm default until a user owns the point data",
+      "file": "lab-state.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3066,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "untouched native defaults follow each algorithm while explicit source data survives incompatible navigation",
+      "file": "lab-state.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2514,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "an alternate recommendation keeps its seed when regenerated",
+      "file": "lab-state.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2631,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+      "file": "lab-state.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4508,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "native comparison uses shared graph input with independent real results",
+      "file": "lab-state.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1758,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "legacy saved original data migrates without being replaced by a recommendation",
+      "file": "lab-state.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4399,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "user points restore from IndexedDB even when preference storage is blocked",
+      "file": "lab-state.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2164,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog entry selects the algorithm default until a user owns the point data",
+      "file": "lab-state.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3060,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "untouched native defaults follow each algorithm while explicit source data survives incompatible navigation",
+      "file": "lab-state.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2488,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "an alternate recommendation keeps its seed when regenerated",
+      "file": "lab-state.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3699,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+      "file": "lab-state.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3710,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "native comparison uses shared graph input with independent real results",
+      "file": "lab-state.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1879,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3307,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1380,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2685,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1629,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "webkit",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 15099,
+          "errors": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.lab-page').getByRole('separator', { name: '설정 패널 너비' })\nExpected: \u001b[32m\"3\u001b[7m20\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"3\u001b[7m84\u001b[27m\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" locator('.lab-page').getByRole('separator', { name: '설정 패널 너비' }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.lab-page').getByRole('separator', { name: '설정 패널 너비' })\u001b[22m\n\u001b[2m    22 × locator resolved to <div tabindex=\"0\" role=\"separator\" aria-valuemin=\"240\" aria-valuemax=\"560\" aria-valuenow=\"384\" class=\"resize-handle\" aria-label=\"설정 패널 너비\" aria-orientation=\"vertical\"></div>\u001b[22m\n\u001b[2m       - unexpected value \"384\"\u001b[22m\n\n\n  72 |   await page.keyboard.press(\"Escape\");\n  73 |   await expect(lab.locator(\".workspace-data\")).toBeVisible();\n> 74 |   await expect(right).toHaveAttribute(\"aria-valuenow\", rightWidth!);\n     |                       ^\n  75 |   expect(\n  76 |     await page.evaluate(\n  77 |       () => (window as unknown as { workspaceJobs: number }).workspaceJobs,\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\workspace.spec.ts:74:23"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1527,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2408,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1502,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

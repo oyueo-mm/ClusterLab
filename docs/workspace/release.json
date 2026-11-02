@@ -1,0 +1,20 @@
+{
+  "baseline": "fb21bf2",
+  "source": "ae1c2cceae92fe64a75deab7165c02d3b7886ec8",
+  "actions": "https://github.com/oyueo-mm/ClusterLab/actions/runs/41444492938",
+  "public_url": "https://oyueo-mm.github.io/ClusterLab/",
+  "local_unit": {
+    "passed": 651,
+    "files": 46
+  },
+  "cross_browser": {
+    "passed": 28,
+    "skipped": 2
+  },
+  "final_workspace_three_browsers": {
+    "passed": 12
+  },
+  "engine_preserved_files": 198,
+  "public_verified": false,
+  "status": "awaiting_actions"
+}

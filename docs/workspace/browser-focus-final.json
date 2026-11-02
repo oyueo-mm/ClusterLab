@@ -1,0 +1,180 @@
+{
+  "stats": {
+    "startTime": "2026-11-02T12:23:05.760Z",
+    "duration": 59172.45,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3018,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 876,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1247,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 932,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 29984,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1190,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1624,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "firefox",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1353,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10555,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1319,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1688,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "webkit",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1375,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}
