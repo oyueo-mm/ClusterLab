@@ -40,6 +40,7 @@ function pump() {
       { type: "module" },
     ));
     const done = (clip?: PreviewClip, error?: string) => {
+      if (jobs.get(algorithm) !== job || job.worker !== worker) return;
       if (clip) previewCache.set(algorithm, clip);
       worker.terminate();
       job.worker = undefined;

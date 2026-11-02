@@ -40,12 +40,18 @@ describe("actual thumbnail traces", () => {
         expect(frame.focus).toEqual(state.focus);
         expect(frame.responsibilities).toEqual(state.responsibilities);
         expect(frame.roles).toEqual(state.roles);
-      if (state.analysis?.kind === "affinity") {
-        expect(frame.panel?.values[0]).toEqual(state.analysis.responsibility?.map((row, i) => row[i]) ?? []);
-        expect(frame.panel?.values[1]).toEqual(state.analysis.availability?.map((row, i) => row[i]) ?? []);
-      }
-      if (state.analysis?.kind === "density-peaks") expect(frame.density).toEqual(state.analysis.rho);
-      if (algorithm === "Growing Neural Gas") expect(frame.neuronEdges).toBe(true);
+        if (state.analysis?.kind === "affinity") {
+          expect(frame.panel?.values[0]).toEqual(
+            state.analysis.responsibility?.map((row, i) => row[i]) ?? [],
+          );
+          expect(frame.panel?.values[1]).toEqual(
+            state.analysis.availability?.map((row, i) => row[i]) ?? [],
+          );
+        }
+        if (state.analysis?.kind === "density-peaks")
+          expect(frame.density).toEqual(state.analysis.rho);
+        if (algorithm === "Growing Neural Gas")
+          expect(frame.neuronEdges).toBe(true);
         expect(frame.centers).toEqual(
           state.centers.map(({ path: _path, ...c }) => c),
         );

@@ -235,6 +235,7 @@ test.describe("v0.6 desktop editing", () => {
   test("right drag pans every tool without edits/history and zoom/pan coordinates stay correct", async ({
     page,
   }) => {
+    const original = await readPoints(page);
     await loadPoints(page);
     const { box, scale, screen } = await geometry(page);
     const from = screen(fixture[0]),
@@ -259,7 +260,7 @@ test.describe("v0.6 desktop editing", () => {
         .click();
     }
     await undo(page);
-    await count(page, 120); // Pan/tool/reset created no history.
+    expect(await readPoints(page)).toEqual(original); // Pan/tool/reset created no history.
     await redo(page);
     expect(await readPoints(page)).toEqual(fixture);
     expect(
@@ -348,7 +349,7 @@ test.describe("v0.6 desktop editing", () => {
     expect(await readPoints(page)).toEqual(moons);
     await expect(
       page.locator(".generator").getByLabel("데이터 수", { exact: true }),
-    ).toHaveValue("120");
+    ).toHaveValue(String(moons.length));
     await expect(
       page.locator(".generator").getByLabel("난수 시드", { exact: true }),
     ).toHaveValue("42");
@@ -461,6 +462,7 @@ test.describe("v0.6 desktop editing", () => {
   test("cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once", async ({
     page,
   }) => {
+    const original = await readPoints(page);
     await page
       .getByRole("button", { name: "전체 지우기", exact: true })
       .click();
@@ -515,7 +517,7 @@ test.describe("v0.6 desktop editing", () => {
     await page.goto("#data");
     await count(page, 0);
     await undo(page);
-    await count(page, 120);
+    expect(await readPoints(page)).toEqual(original);
     await redo(page);
     await count(page, 0);
     const current = await geometry(page);

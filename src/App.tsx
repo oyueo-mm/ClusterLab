@@ -180,22 +180,23 @@ export default function App() {
     params?: Params;
     event?: EventKind;
   }>();
-  const editor = useEditorHistory(
-    () => ({
-      points: (() => {
-        const data = generateForRecommendation(algorithm);
-        return data.kind === "numeric" && data.display
-          ? data.display
-          : dataset("blobs", dataDefaults);
-      })(),
-      preset:
-        recommendations[algorithm][0].datasetId in presetAliases
-          ? recommendations[algorithm][0].datasetId
-          : "blobs",
-      options: dataDefaults,
-    }),
-    pointsOwned,
-  );
+  const editor = useEditorHistory(() => {
+    const id = recommendations[algorithm][0].datasetId;
+    const data = generateForRecommendation(algorithm);
+    const points =
+      data.kind === "numeric" && data.display
+        ? data.display
+        : dataset("blobs", dataDefaults);
+    return {
+      points,
+      preset: id in presetAliases ? id : "blobs",
+      options: {
+        ...dataDefaults,
+        seed: datasetRegistry[id].seed,
+        count: points.length,
+      },
+    };
+  }, pointsOwned);
   const { points, preset } = editor.value;
   useEffect(() => {
     if (!editor.ready) return;

@@ -255,12 +255,31 @@ test("recommendation sizes allow presets and custom counts, retain small sequent
   page,
 }) => {
   await page.goto("#/lab/K-Means");
+  await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
+  await expect(
+    page.getByLabel("실험실 실행 취소", { exact: true }),
+  ).toBeDisabled();
+  const originalCount = await page.locator(".point-count").textContent();
   const mobile = (page.viewportSize()?.width ?? 1440) < 801;
   if (mobile) await page.getByLabel("설정 열기", { exact: true }).click();
   await page.getByRole("tab", { name: "데이터", exact: true }).click();
   await expect(page.getByLabel("추천 데이터 수")).toHaveValue(
     String(recommendations["K-Means"][0].count),
   );
+  expect(
+    await page.getByLabel("추천 데이터 수").getAttribute("max"),
+  ).toBeNull();
+  await page
+    .locator(".recommendations")
+    .getByRole("button", { name: "50", exact: true })
+    .click();
+  await expect(page.getByLabel("추천 데이터 수")).toHaveValue("50");
+  await page
+    .locator(".recommendations")
+    .getByRole("button", { name: "1,000", exact: true })
+    .click();
+  await expect(page.getByLabel("추천 데이터 수")).toHaveValue("1000");
+  await expect(page.locator(".point-count")).toHaveText(originalCount!);
   await page.getByLabel("추천 데이터 수").fill("321");
   await page.getByLabel("추천 데이터 수").blur();
   await expect(page.getByLabel("추천 데이터 수")).toHaveValue("321");
@@ -269,6 +288,11 @@ test("recommendation sizes allow presets and custom counts, retain small sequent
     .click();
   if (mobile) await page.getByLabel("설정 닫기", { exact: true }).click();
   await expect(page.getByLabel("재생", { exact: true })).toBeEnabled();
+  await expect(page.locator(".point-count")).toHaveText("321 points");
+  await page.getByLabel("실험실 실행 취소", { exact: true }).click();
+  await expect(page.locator(".point-count")).toHaveText(originalCount!);
+  await page.getByLabel("실험실 다시 실행", { exact: true }).click();
+  await expect(page.locator(".point-count")).toHaveText("321 points");
   expect(
     algorithms
       .filter((a) => ["BSAS", "MBSAS", "TTSAS"].includes(a))
