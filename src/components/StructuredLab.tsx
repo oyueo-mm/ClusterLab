@@ -48,7 +48,7 @@ import {
 } from "../data/structuredPresets";
 import { Recommendations } from "./Recommendations";
 import { LabDetails } from "./LabDetails";
-import { generateRecommended, recommendations } from "../data/recommendations";
+import { generateForRecommendation } from "../data/recommendations";
 import {
   readDatasetState,
   writeDatasetState,
@@ -132,9 +132,7 @@ export default function StructuredLab({
       : ((rawOwned.current ? sessionHistory : undefined) ??
         createDatasetHistory(
           requestedAlgorithm
-            ? generateRecommended(
-                recommendations[requestedAlgorithm][0].datasetId,
-              )
+            ? generateForRecommendation(requestedAlgorithm)
             : numericExample,
         )),
   );
@@ -324,7 +322,7 @@ export default function StructuredLab({
   };
   function initializeRaw(a: Algorithm) {
     if (rawOwned.current || legacyLayout) return;
-    const next = generateRecommended(recommendations[a][0].datasetId);
+    const next = generateForRecommendation(a);
     setHistory((h) => commitDatasetHistory(h, next));
     setText(exportDataset(next));
     setAxes([0, 1]);

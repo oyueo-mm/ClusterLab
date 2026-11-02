@@ -1,6 +1,6 @@
 import { expect, it } from "vitest";
 import {
-  generateRecommended,
+  generateForRecommendation,
   recommendationParams,
   recommendations,
 } from "./recommendations";
@@ -13,7 +13,10 @@ async function observe(
   datasetId: string,
   overrides: Partial<Params> = {},
 ) {
-  const data = generateRecommended(datasetId),
+  const data = generateForRecommendation(
+      id,
+      recommendations[id].find((entry) => entry.datasetId === datasetId)!,
+    ),
     points =
       data.kind === "numeric" && data.display
         ? data.display

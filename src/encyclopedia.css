@@ -600,3 +600,23 @@
     padding: 15px;
   }
 }
+.recommendation-count input {
+  width: 7rem;
+}
+.count-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+.count-presets button {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.78rem;
+}
+.preview-status {
+  max-width: calc(100% - 16px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}

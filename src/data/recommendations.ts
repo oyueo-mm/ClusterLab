@@ -32,6 +32,8 @@ export interface DatasetDefinition {
 }
 export interface Recommendation {
   datasetId: string;
+  /** Experiment size; thumbnail size is independently fixed. */
+  count: number;
   role: "default" | "additional" | "limit" | "boundary";
   purpose: string;
   observe: string;
@@ -135,7 +137,10 @@ for (const [kind, [name, nameEn]] of Object.entries(structuredNames)) {
           data.numeric = data.numeric.map((row) =>
             row.map((v) => v * (variant === "boundary" ? 100 : 0.03)),
           );
-          data.categorical = data.categorical.map((_, i) => [i % 2 ? "교차-A" : "교차-B", "공유 속성"]);
+          data.categorical = data.categorical.map((_, i) => [
+            i % 2 ? "교차-A" : "교차-B",
+            "공유 속성",
+          ]);
         } else if (data.kind === "matrix") {
           data.values = data.values.map((row, i) =>
             row.map((v, j) =>
@@ -628,6 +633,48 @@ const specifications: Record<Algorithm, Spec> = {
     { threshold: 0.4, upperThreshold: 1 },
   ],
 };
+/** Sizes reflect exact engine cost, input type and the educational purpose. */
+export function recommendationCount(
+  algorithm: Algorithm,
+  id: string,
+  role: Recommendation["role"],
+): number {
+  const meta = datasetRegistry[id];
+  if (id.startsWith("ordered")) return 12;
+  // Preserve small duplicate/zero/constraint counterexamples for hand inspection.
+  if (id.includes("boundary") && ["numeric", "constrained"].includes(meta.kind))
+    return 24;
+  if (meta.kind === "graph")
+    return algorithm === "Girvan\u2013Newman"
+      ? 32
+      : ["Walktrap", "Markov Clustering (MCL)"].includes(algorithm)
+        ? 40
+        : 48;
+  if (meta.kind === "matrix") return 64;
+  if (meta.kind === "timeseries") return 40;
+  if (meta.kind === "stream") return 300;
+  if (meta.kind === "categorical" || meta.kind === "mixed") return 160;
+  if (meta.kind === "constrained") return role === "limit" ? 24 : 120;
+  const costs: Partial<Record<Algorithm, number>> = {
+    AGNES: 60,
+    DIANA: 80,
+    PAM: 80,
+    ROCK: 80,
+    CURE: 60,
+    "Spectral Clustering": 64,
+    "Affinity Propagation": 64,
+    "Dip-Means": 60,
+    HDBSCAN: 160,
+    OPTICS: 180,
+    DBSCAN: 200,
+    "Density Peaks / CFSFDP": 160,
+    "Mean Shift": 160,
+    "Neural Gas": 200,
+    "Growing Neural Gas": 200,
+    TTSAS: 160,
+  };
+  return costs[algorithm] ?? 240;
+}
 export const recommendations = Object.fromEntries(
   Object.entries(specifications).map(
     ([algorithm, [primary, extra, limit, purpose, observe, params = {}]]) => {
@@ -644,8 +691,16 @@ export const recommendations = Object.fromEntries(
       return [
         algorithm,
         [
-          { datasetId: primary, role: "default", purpose, observe, params },
           {
+            datasetId: primary,
+            role: "default",
+            purpose,
+            observe,
+            params,
+            count: 0,
+          },
+          {
+            count: 0,
             datasetId: extra,
             role: "additional",
             purpose: `${purpose} · 다른 구조 비교`,
@@ -653,6 +708,7 @@ export const recommendations = Object.fromEntries(
             params,
           },
           {
+            count: 0,
             datasetId: alternateId,
             role: "additional",
             purpose: `${purpose} · 표본 안정성`,
@@ -660,6 +716,7 @@ export const recommendations = Object.fromEntries(
             params,
           },
           {
+            count: 0,
             datasetId: limit,
             role: "limit",
             purpose: "가정과 한계 실험",
@@ -671,6 +728,24 @@ export const recommendations = Object.fromEntries(
     },
   ),
 ) as Record<Algorithm, Recommendation[]>;
+for (const [algorithm, entries] of Object.entries(recommendations))
+  for (const entry of entries)
+    entry.count = recommendationCount(
+      algorithm as Algorithm,
+      entry.datasetId,
+      entry.role,
+    );
+
+export function generateForRecommendation(
+  algorithm: Algorithm,
+  entry = recommendations[algorithm][0],
+  options: Partial<{ seed: number; count: number; dimensions: number }> = {},
+): Dataset {
+  return generateRecommended(entry.datasetId, {
+    count: entry.count,
+    ...options,
+  });
+}
 export const recommendedAlgorithms = (datasetId: string) =>
   (Object.keys(recommendations) as Algorithm[]).filter((a) =>
     recommendations[a].some((r) => r.datasetId === datasetId),

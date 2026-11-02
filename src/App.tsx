@@ -72,6 +72,7 @@ import { parseHash, useRoute, labHref, type Page } from "./router";
 import {
   datasetRegistry,
   generateRecommended,
+  generateForRecommendation,
   recommendations,
 } from "./data/recommendations";
 import { readPreference, writePreference } from "./lab/storage";
@@ -182,9 +183,7 @@ export default function App() {
   const editor = useEditorHistory(
     () => ({
       points: (() => {
-        const data = generateRecommended(
-          recommendations[algorithm][0].datasetId,
-        );
+        const data = generateForRecommendation(algorithm);
         return data.kind === "numeric" && data.display
           ? data.display
           : dataset("blobs", dataDefaults);
@@ -309,7 +308,7 @@ export default function App() {
   function initializePoints(a: Algorithm) {
     if (pointsOwned.current) return false;
     const id = recommendations[a][0].datasetId,
-      data = generateRecommended(id);
+      data = generateForRecommendation(a);
     if (data.kind !== "numeric" || !data.display) return false;
     const options = {
       ...dataDefaults,
