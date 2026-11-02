@@ -1,6 +1,94 @@
 import { expect, test } from "@playwright/test";
 import { openData, openSettings } from "./workspace-helpers";
 
+for (const algorithm of ["K-Means", "TTSAS"]) {
+  test(`${algorithm} starts with settings closed and preserves user panel preferences and Trace`, async ({
+    page,
+  }) => {
+    await page.addInitScript(() => {
+      const audit = window as unknown as { panelJobs: number };
+      audit.panelJobs = 0;
+      const NativeWorker = window.Worker;
+      window.Worker = class extends NativeWorker {
+        postMessage(message: unknown, transfer: Transferable[]): void;
+        postMessage(
+          message: unknown,
+          options?: StructuredSerializeOptions,
+        ): void;
+        postMessage(
+          message: unknown,
+          options: Transferable[] | StructuredSerializeOptions = {},
+        ) {
+          if ((message as { algorithm?: string }).algorithm) audit.panelJobs++;
+          if (Array.isArray(options)) super.postMessage(message, options);
+          else super.postMessage(message, options);
+        }
+      };
+    });
+    await page.goto(`#/lab/${algorithm}`);
+    const lab = page.locator(
+        algorithm === "K-Means" ? ".lab-page" : ".structured-page",
+      ),
+      settings = lab.locator(".workspace-settings"),
+      stage = lab.locator(".stage"),
+      mobile = (page.viewportSize()?.width ?? 1440) <= 800;
+    await expect(lab.getByLabel("설정 열기", { exact: true })).toHaveAttribute(
+      "aria-expanded",
+      "false",
+    );
+    await expect(settings).toBeHidden();
+    await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
+    await lab.getByLabel("한 단계 앞으로", { exact: true }).click();
+    const timeline = lab.getByLabel("타임라인", { exact: true }),
+      position = await timeline.inputValue(),
+      jobs = await page.evaluate(
+        () => (window as unknown as { panelJobs: number }).panelJobs,
+      ),
+      wide = (await stage.boundingBox())!.width;
+    expect(jobs).toBeGreaterThan(0);
+    await openSettings(lab);
+    await expect(settings).toBeVisible();
+    if (mobile) {
+      await expect
+        .poll(async () => {
+          const panel = (await settings.boundingBox())!,
+            playback = (await lab.locator(".playback").boundingBox())!;
+          return panel.y + panel.height - playback.y;
+        })
+        .toBeLessThanOrEqual(1);
+    }
+    if (!mobile) {
+      expect((await stage.boundingBox())!.width).toBeLessThan(wide - 240);
+      await lab
+        .getByRole("separator", { name: "설정 패널 너비" })
+        .press("ArrowLeft");
+    }
+    await lab.getByLabel("시각화 집중 모드", { exact: true }).click();
+    await expect(settings).toBeHidden();
+    await page.keyboard.press("Escape");
+    await expect(settings).toBeVisible();
+    await expect(timeline).toHaveValue(position);
+    expect(
+      await page.evaluate(
+        () => (window as unknown as { panelJobs: number }).panelJobs,
+      ),
+    ).toBe(jobs);
+    await page.reload();
+    if (!mobile) {
+      await expect(settings).toBeVisible();
+      await expect(
+        lab.getByRole("separator", { name: "설정 패널 너비" }),
+      ).toHaveAttribute("aria-valuenow", "320");
+      await lab.getByLabel("설정 닫기", { exact: true }).click();
+      await expect
+        .poll(async () => (await stage.boundingBox())!.width)
+        .toBe(wide);
+      await page.reload();
+    }
+    await expect(settings).toBeHidden();
+  });
+}
+
 test("resizing independent panels and focus preserve actual Trace, edits and playback", async ({
   page,
 }, info) => {
@@ -39,6 +127,7 @@ test("resizing independent panels and focus preserve actual Trace, edits and pla
     () => (window as unknown as { workspaceJobs: number }).workspaceJobs,
   );
   expect(jobs).toBeGreaterThan(0);
+  await openSettings(lab);
   await openData(lab);
   const narrow = (await canvas.boundingBox())!;
   const left = lab.getByRole("separator", { name: "데이터 패널 너비" });

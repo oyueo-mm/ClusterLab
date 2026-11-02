@@ -43,8 +43,7 @@ test("keyboard panel tabs, integrated math guide and fullscreen remain usable", 
   await page.goto("#/lab/K-Means");
   const lab = page.locator(".lab-page");
   await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
-  if ((page.viewportSize()?.width ?? 1440) <= 800)
-    await lab.getByLabel("설정 열기", { exact: true }).click();
+  await openSettings(lab);
   const data = lab.getByRole("tab", { name: "설정", exact: true });
   await data.click();
   await data.focus();

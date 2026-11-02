@@ -172,11 +172,6 @@ export function Sidebar({
             );
           })}
         </nav>
-        <p className="sidebar-note nav-label">
-          보고, 바꾸고, 이해하는
-          <br />
-          군집화 알고리즘 백과사전
-        </p>
       </aside>
     </>
   );

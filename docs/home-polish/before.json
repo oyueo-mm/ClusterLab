@@ -1,0 +1,32 @@
+[
+  {
+    "width": 1440,
+    "title": "57.6px",
+    "subtitle": "23.04px"
+  },
+  {
+    "width": 390,
+    "title": "44px",
+    "subtitle": "18px"
+  },
+  {
+    "reference": "https://oyueo-mm.github.io/VizLab/",
+    "headings": [
+      {
+        "text": "VizLab",
+        "font": "Pretendard, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Malgun Gothic\", \"Apple SD Gothic Neo\", sans-serif",
+        "size": "100.8px"
+      },
+      {
+        "text": "대표 시각화",
+        "font": "Pretendard, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Malgun Gothic\", \"Apple SD Gothic Neo\", sans-serif",
+        "size": "20px"
+      },
+      {
+        "text": "카테고리별 탐색",
+        "font": "Pretendard, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Malgun Gothic\", \"Apple SD Gothic Neo\", sans-serif",
+        "size": "20px"
+      }
+    ]
+  }
+]

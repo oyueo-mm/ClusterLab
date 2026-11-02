@@ -66,7 +66,7 @@ test("real bundled display/UI fonts, forest tokens and aligned responsive layout
   expect(result.heightDiff).toBeLessThan(1);
   expect(result.overflow).toBe(false);
   expect(result.titleFits).toBe(true);
-  expect(result.sections).toEqual(["P", "H1", "P", "P", "DIV"]);
+  expect(result.sections).toEqual(["H1", "P", "DIV"]);
   await expect(page.getByText("클러스터링을 이해하는 공간")).toHaveCount(0);
   expect(palette).toEqual([
     "#61ad95",

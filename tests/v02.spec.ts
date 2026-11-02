@@ -44,7 +44,7 @@ test("four real home Workers share exactly the same source data and stop when no
     page.getByRole("heading", { name: "ClusterLab", exact: true }),
   ).toBeVisible();
   await expect(page.locator(".hero-subtitle")).toHaveText(
-    "군집을 발견하고, 계산을 이해하다.",
+    "인터랙티브 군집화 알고리즘 백과사전",
   );
   await page.locator(".home-cycle").scrollIntoViewIfNeeded();
   await page.waitForFunction(

@@ -1,0 +1,404 @@
+{
+  "stats": {
+    "startTime": "2026-11-02T15:28:23.693Z",
+    "duration": 71822.494,
+    "expected": 26,
+    "skipped": 2,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7499,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8159,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3012,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3588,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7640,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9331,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3559,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6444,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a fresh lab applies its tailored initial parameters and produces real deferred passes",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 569,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1459,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4465,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "unavailable persistent storage reports the failure while real computation works",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 580,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a fresh lab applies its tailored initial parameters and produces real deferred passes",
+      "file": "lab-shell.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 643,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+      "file": "lab-shell.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1556,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+      "file": "lab-shell.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 108,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "unavailable persistent storage reports the failure while real computation works",
+      "file": "lab-shell.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 648,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "K-Means starts with settings closed and preserves user panel preferences and Trace",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1114,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "TTSAS starts with settings closed and preserves user panel preferences and Trace",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1081,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2056,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 692,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 831,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 592,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "K-Means starts with settings closed and preserves user panel preferences and Trace",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 986,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "TTSAS starts with settings closed and preserves user panel preferences and Trace",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 956,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 124,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 731,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 853,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 720,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

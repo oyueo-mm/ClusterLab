@@ -33,10 +33,10 @@ export function LabWorkspace({
   active?: boolean;
 }) {
   const [dataOpen, setDataOpen] = useState(false),
-    [rightOpen, setRightOpen] = useState(
+    [rightOpen, setRightOpen] = useState<boolean>(
       () =>
         !matchMedia("(max-width: 800px)").matches &&
-        readPreference("workspace-right", true),
+        readPreference("workspace-right", false),
     );
   const [focus, setFocus] = useState(false),
     [guide, setGuide] = useState(false);
@@ -100,8 +100,9 @@ export function LabWorkspace({
     const stage = node.querySelector(".stage");
     if (stage) {
       observer.observe(stage);
-      const playback = stage.querySelector(".playback");
-      if (playback) observer.observe(playback);
+      // Trace descriptions can move playback without resizing playback itself.
+      // Observe the canvas and description siblings as well as the dock.
+      for (const child of stage.children) observer.observe(child);
     }
     return () => {
       observer.disconnect();
