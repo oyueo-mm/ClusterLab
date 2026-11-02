@@ -1,3 +1,7 @@
+## 2026-11-03 1차 확장 공개 검증 완료
+
+PCKMeans와1993 고정 양수 척도 PCM을 각각 실제 계산·원본 ND·Trace·전용 분석/가이드/미니·4추천·독립 NumPy와 연결했다. 실행55개·추천220구성·미구현77개·엄격 원문 완전 인증0이다. 제품 `32dc4cf`의 Actions41513054284/Pages 성공, 로컬·원격694단위/전체130통과·14기존생략, 공개19통과·1기존중복생략 및 추천16/화면15/대규모재생4조건을 확인했다. [최종 범위·수식·원문과의 차이·검증](../ALGORITHM_EXPANSION_1_REPORT.md)을 우선한다. R 실행과1993 원문 전체 인증은 미실시다. 아래54개/53개/구현 전 상태는 당시 연구 기록이며 FPCM 등 후속 후보를 구현으로 올리지 않는다.
+
 # Possibilistic C-Means — 1993형, 원본 ND와 수치 정책
 
 2026-11-03. PCKMeans 안정 커밋 `bed5b79` 이후 시작한다. 기존 FUZZY_FORMULAS의 검산을 재사용한다. 원논문 [Krishnapuram/Keller1993 DOI](https://doi.org/10.1109/91.227387)는 현재 도구에서 본문 접근 불가이며 전체 열람/원문 완전 인증을 주장하지 않는다. 공저자 Keller를 포함한 [Pal et al.2005 원저자 재서술](https://www.comp.ita.br/~forster/CC-222/material/fuzzyclust/fuzzy01492404.pdf)의 인쇄520–521쪽 Eq8/10/11을 실제 렌더링해 확인했다. [공식 ppclust PCM 문서](https://search.r-project.org/CRAN/refmans/ppclust/html/pcm.html)와1993/1996 구분도 확인했다.

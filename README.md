@@ -6,7 +6,9 @@
 
 VizLab 기반 백과사전 UI와 캔버스 중심 실험실에서 **55개 엔진·220개 추천 구성**을 제공합니다. PCKMeans의 유한 제약 비용과 PCM의 원본 ND 독립 전형성을 실제 Trace·분석·가이드·미니 실험·독립 NumPy 검산과 연결했습니다. [확장 정의·검증·배포 상태](docs/ALGORITHM_EXPANSION_1_REPORT.md) · [알고리즘별 맞춤 데이터셋](docs/DATASET_RECOMMENDATIONS.md) · [디자인 비교](docs/UI_DESIGN_REVIEW.md). UI 개편 완료와 알고리즘 마스터 개발 완료는 별개입니다.
 
-2026-11-02 제품 `c51ea16`의 [Actions](https://github.com/oyueo-mm/ClusterLab/actions/runs/41328815303)에서 타입·ESLint·592개 단위 테스트·빌드·전체 브라우저 **105통과/13조건부 생략/0실패**와 Pages 배포가 성공했습니다. 공개 데스크톱1440px/모바일390px에서 실제 계산과 되감기까지 확인했습니다. [검증 원자료](docs/ui-datasets/release.json). 실제 휴대전화 검사는 수행하지 않았으며 초기/교재 청크 크기 경고가 남습니다.
+2026-11-03 제품 `32dc4cf`의 [Actions/Pages](https://github.com/oyueo-mm/ClusterLab/actions/runs/41513054284)가 성공했습니다. 로컬·원격 타입·ESLint·빌드·Vitest **694/694**, 전체 브라우저 **130통과/14기존생략/0실패**, 공개 **19통과/1기존중복생략**을 확인했습니다. 공개 추천16·화면/리사이즈15·100/1000행 실제 재생4조건도 통과했습니다. [배포/번들 해시](docs/extension-55/release.json), [최종 보고서](docs/ALGORITHM_EXPANSION_1_REPORT.md). 실제 휴대전화·최대 GPU/Worker 메모리·R 실행 비교는 수행하지 않았으며 원문 완전 인증은 별도0입니다.
+
+이전 UI 개편 기록:2026-11-02 제품 `c51ea16`의 [Actions](https://github.com/oyueo-mm/ClusterLab/actions/runs/41328815303)에서 타입·ESLint·592개 단위 테스트·빌드·전체 브라우저105통과/13조건부 생략/0실패와 Pages 배포가 성공했습니다. [당시 검증](docs/ui-datasets/release.json). 초기/교재 청크 크기 경고는 남습니다.
 
 진행 현황: [마스터 계획](docs/MASTER_PLAN.md) · [진행 기록](docs/PROGRESS.md) · [119개 후보 상태](docs/ALGORITHM_REGISTRY.md) · [재개 절차](docs/CONTINUE.md) · [최종 세션 보고서](docs/SESSION_REPORT.md). 실행 가능 수와 완전 인증 수를 구분하며 아래 기존 버전·이전25개 검증 기록을 보존합니다.
 

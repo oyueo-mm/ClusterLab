@@ -1,0 +1,295 @@
+{
+  "scope": "public",
+  "baseURL": "https://oyueo-mm.github.io/ClusterLab/",
+  "stats": {
+    "startTime": "2026-11-02T20:07:44.833Z",
+    "duration": 246514.999,
+    "expected": 19,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "home, category sidebar and shareable independent catalog filters",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4986,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "each engine opens by ID and runs its actual recommended original data",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 71590,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "sidebar state, viewport layouts and screenshots",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4294,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home, category sidebar and shareable independent catalog filters",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3334,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "each engine opens by ID and runs its actual recommended original data",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 67665,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "sidebar state, viewport layouts and screenshots",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11006,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9536,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4439,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8015,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5239,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8539,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4991,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7818,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5453,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "four real home Workers share exactly the same source data and stop when not visible",
+      "file": "v02.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3697,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+      "file": "v02.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4011,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "four real home Workers share exactly the same source data and stop when not visible",
+      "file": "v02.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2943,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+      "file": "v02.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4292,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home introduction centers beside the demos and stays compact when stacked",
+      "file": "v05.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11498,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home introduction centers beside the demos and stays compact when stacked",
+      "file": "v05.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 122,
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "skipsAreExistingBaselineOnly": true
+}

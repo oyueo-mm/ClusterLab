@@ -1,0 +1,20 @@
+{
+  "commit": "32dc4cfa634bc181f27f408ff49dc48d81d014a0",
+  "actions": "https://github.com/oyueo-mm/ClusterLab/actions/runs/41513054284",
+  "site": "https://oyueo-mm.github.io/ClusterLab/",
+  "verifiedAt": "2026-11-02T20:07:34.160Z",
+  "assets": [
+    {
+      "asset": "/ClusterLab/assets/index-BfMleOVM.js",
+      "status": 200,
+      "sha256": "fbd8c2e8d49ff354af570306efb08581a994e5a480efe998f35c88a13044c97c",
+      "matchesLocalBuild": true
+    },
+    {
+      "asset": "/ClusterLab/assets/index-UNtOGhDw.css",
+      "status": 200,
+      "sha256": "0c77871c9076edab3704fb111144c1a95821270db1c39a5f13560552d2c79301",
+      "matchesLocalBuild": true
+    }
+  ]
+}

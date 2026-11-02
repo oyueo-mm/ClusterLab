@@ -327,5 +327,5 @@
   "unimplementedCandidates": 77,
   "recommendations": 220,
   "strictCertification": 0,
-  "worktrees": "worktree C:/Users/hihi9/Desktop/Projects/ClusterLab\nHEAD 926b14eb532d554c07875dfcf93b957e2eb5cd6a\nbranch refs/heads/main\n\nworktree C:/Users/hihi9/Desktop/Projects/ClusterLab/.local/sequential-worktree\nHEAD c4d6a7d5a3be12e9625869a234896bce4176c2ea\nbranch refs/heads/feat/sequential-clustering\n\n"
+  "worktrees": "worktree C:/Users/hihi9/Desktop/Projects/ClusterLab\nHEAD 32dc4cfa634bc181f27f408ff49dc48d81d014a0\nbranch refs/heads/main\n\nworktree C:/Users/hihi9/Desktop/Projects/ClusterLab/.local/sequential-worktree\nHEAD c4d6a7d5a3be12e9625869a234896bce4176c2ea\nbranch refs/heads/feat/sequential-clustering\n\n"
 }
