@@ -34,6 +34,20 @@ await page.waitForFunction(
       (el) => !el.disabled && el.getClientRects().length,
     ),
 );
+const playbackInput = await page.evaluate(() => {
+  const request = window.measureRequest,
+    data =
+      request.dataset.kind === "constrained"
+        ? request.dataset.data
+        : request.dataset;
+  return {
+    rows: data.values.length,
+    dimensions: data.values[0].length,
+    k: request.params.k,
+    seed: request.params.seed,
+    params: request.params,
+  };
+});
 const result = await page.evaluate(
   async ({ algorithm, kind }) => {
     const params = {
@@ -86,6 +100,26 @@ const result = await page.evaluate(
           for (const step of trace.steps)
             for (const change of step.analysisDelta?.changes || [])
               a[change.key] = change.after;
+          const computedRows =
+            kind === "numeric"
+              ? a.typicalities?.length
+              : a.counts?.reduce((sum, v) => sum + v, 0);
+          const typicalityCells =
+            kind === "numeric"
+              ? a.typicalities?.reduce((sum, row) => sum + row.length, 0)
+              : undefined;
+          if (
+            computedRows !== n ||
+            a.dimensions !== 4 ||
+            (kind === "numeric" &&
+              (typicalityCells !== n * 3 ||
+                a.typicalities.some((row) => row.length !== 3)))
+          ) {
+            clearTimeout(timeout);
+            worker.terminate();
+            reject(Error("Actual native output dimensions/rows mismatch"));
+            return;
+          }
           clearTimeout(timeout);
           worker.terminate();
           resolve({
@@ -99,12 +133,13 @@ const result = await page.evaluate(
             events: trace.steps.length,
             traceEstimatedBytes: trace.recording.estimatedBytes,
             policy: trace.recording.policy,
-            computedRows: trace.initial.labels.length,
+            inputRows: trace.initial.labels.length,
+            computedRows,
             finalCounts: a.counts,
             objective: a.objective,
             mustLink: kind === "constrained" ? 2 : undefined,
             cannotLink: kind === "constrained" ? 1 : undefined,
-            typicalityCells: kind === "numeric" ? n * 3 : undefined,
+            typicalityCells,
           });
         };
         worker.postMessage({
@@ -205,6 +240,7 @@ const output = {
   generator: "x[i,j]=(i<n/3?0:i<2*n/3?4:8)+0.1*sin(i*42+j)+j*0.01",
   ...result,
   playback: {
+    input: playbackInput,
     before,
     after,
     frames: sorted.length,

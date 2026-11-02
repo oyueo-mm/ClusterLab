@@ -16,6 +16,7 @@ for (const algorithm of ["PCKMeans", "Possibilistic C-Means"]) {
     errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
   await page.addInitScript(() => {
+    window.extensionLayoutRequests = 0;
     const NativeWorker = window.Worker;
     window.Worker = class extends NativeWorker {
       constructor(url, o) {
@@ -28,6 +29,8 @@ for (const algorithm of ["PCKMeans", "Possibilistic C-Means"]) {
         });
       }
       postMessage(message, ...args) {
+        if (message.algorithm && !message.purpose)
+          window.extensionLayoutRequests++;
         window.extensionLayoutSource = message.dataset;
         return super.postMessage(message, ...args);
       }
@@ -37,6 +40,12 @@ for (const algorithm of ["PCKMeans", "Possibilistic C-Means"]) {
   const lab = page.locator(".structured-page");
   await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
   await lab.getByLabel("마지막으로", { exact: true }).click();
+  const originalPosition = await lab
+      .getByLabel("타임라인", { exact: true })
+      .inputValue(),
+    originalRequests = await page.evaluate(
+      () => window.extensionLayoutRequests,
+    );
   for (const width of [1920, 1440, 1024, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
     await expect(lab.locator(".workspace-settings")).toBeHidden();
@@ -65,8 +74,28 @@ for (const algorithm of ["PCKMeans", "Possibilistic C-Means"]) {
       playback: play,
       settingsDefaultClosed: true,
       noHorizontalOverflow: !overflow,
+      positionPreserved:
+        (await lab.getByLabel("타임라인", { exact: true }).inputValue()) ===
+        originalPosition,
     });
   }
+  // Observe beyond the existing Worker debounce; resizing must not enqueue a new run.
+  await page.waitForTimeout(180);
+  const finalRequests = await page.evaluate(
+    () => window.extensionLayoutRequests,
+  );
+  await expect(lab.getByLabel("타임라인", { exact: true })).toHaveValue(
+    originalPosition,
+  );
+  if (finalRequests !== originalRequests)
+    throw Error(`Resize restarted ${algorithm}`);
+  records.push({
+    algorithm,
+    resizedSixWidthsWithoutNewComputation: true,
+    workerRequestsBefore: originalRequests,
+    workerRequestsAfter: finalRequests,
+    position: originalPosition,
+  });
   if (algorithm === "Possibilistic C-Means") {
     await page.setViewportSize({ width: 1440, height: 900 });
     const canvas = lab.locator("canvas"),

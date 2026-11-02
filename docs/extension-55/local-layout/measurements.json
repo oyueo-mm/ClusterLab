@@ -19,7 +19,8 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
     },
     {
       "algorithm": "PCKMeans",
@@ -38,7 +39,8 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
     },
     {
       "algorithm": "PCKMeans",
@@ -57,7 +59,8 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
     },
     {
       "algorithm": "PCKMeans",
@@ -76,7 +79,8 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
     },
     {
       "algorithm": "PCKMeans",
@@ -95,7 +99,8 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
     },
     {
       "algorithm": "PCKMeans",
@@ -114,7 +119,15 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "PCKMeans",
+      "resizedSixWidthsWithoutNewComputation": true,
+      "workerRequestsBefore": 1,
+      "workerRequestsAfter": 1,
+      "position": "487"
     },
     {
       "algorithm": "Possibilistic C-Means",
@@ -133,7 +146,8 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
     },
     {
       "algorithm": "Possibilistic C-Means",
@@ -152,7 +166,8 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
     },
     {
       "algorithm": "Possibilistic C-Means",
@@ -171,7 +186,8 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
     },
     {
       "algorithm": "Possibilistic C-Means",
@@ -190,7 +206,8 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
     },
     {
       "algorithm": "Possibilistic C-Means",
@@ -209,7 +226,8 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
     },
     {
       "algorithm": "Possibilistic C-Means",
@@ -228,7 +246,15 @@
         "height": 40
       },
       "settingsDefaultClosed": true,
-      "noHorizontalOverflow": true
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "Possibilistic C-Means",
+      "resizedSixWidthsWithoutNewComputation": true,
+      "workerRequestsBefore": 1,
+      "workerRequestsAfter": 1,
+      "position": "54"
     },
     {
       "algorithm": "Possibilistic C-Means",

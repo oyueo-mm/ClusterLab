@@ -1,5 +1,7 @@
 # PCKMeans·Possibilistic C-Means 1차 확장
 
+**최신 로컬 통합 결과: 55엔진·220추천·77미구현·엄격 완전 인증0.** 전체 Vitest694/694·48파일, TypeScript·ESLint·프로덕션 빌드, 전체 Chromium/mobile **130통과·14기존 조건부 생략·0실패/재시도**를 확인했다. 생략14개는 기존 목록과 정확히 같다. main 반영·Actions·Pages·공개 검증은 다음 단계다. 아래54개/검증 중 표기는 개발 중간 기록이다.
+
 기준 main `f615923`, 공개 제품 `96d9bab`(홈/캔버스 UI 개편 완료). 다른 `.local/sequential-worktree`의 `feat/sequential-clustering`/`c4d6a7d`를 보존한다. 기존53개→목표55개, 미구현79→77, 추천212→220이며 엄격한 원문 완전 인증은 별도0이다.
 
 ## 현재 체크포인트 — PCKMeans 세로 단위 완료
@@ -35,6 +37,12 @@ PCM Node엔진+Recorder(생성/투영/Worker/렌더 제외)100/1000/10000행,d4,
 재현: `python scripts/pcm_reference.py`, `npx vitest run src/engine/pcm.test.ts src/engine/expansion.test.ts`, `npx tsx scripts/pcm_performance.ts`, `node scripts/measure-native-extension.mjs "Possibilistic C-Means" numeric pcm`.
 
 ## 통합·배포 진행 중
+
+최종 전체 로컬 회귀는144개 중130통과·14조건부 생략·0실패/재시도,15.9분이었다. [전체 테스트별 결과·동일 생략 목록 확인](extension-55/browser-local.json). 새 테스트를 생략하거나 기존 단언을 낮추지 않았다. 신규 추천8개×데스크톱/모바일16실제 계산·되감기도 통과했다. [추천 UI 검증](extension-55/local-recommendation-browser.json).
+
+최종 반응형 재측정은6개 폭×2엔진, 실제 표본 클릭과 리사이즈 무재계산을 포함한15검사를 통과했다. 각 엔진 Worker요청1→1, 최종 Trace위치 PCK487·PCM54를 유지했다. [최종 측정](extension-55/local-layout/measurements.json). 기존 성능/화면 기록 파일은 기준main 그대로 복원하고 이번 결과를 별도 폴더에 보관했다.
+
+실제 반환 행렬 크기까지 단언한 추가 Worker 실측: PCK100/1000행의 engine17.1/6.8ms·wall45.5/25.8ms, PCM100/1000행의 engine12.4/49.1ms·wall36.4/90.1ms·실제 T300/3000셀. [PCK 최종](research/pckmeans-final-browser-performance.json), [PCM 최종](research/pcm-final-browser-performance.json). UI재생 측정의 실제 입력은 PCK120행·4D·K2, PCM160행·4D·K2이며 각각약60FPS였다. 직접1000행 Worker 측정과 기본 UI재생 측정을 혼동하지 않는다. 기존 측정값도 당시 단일 관측으로 보존한다.
 
 전체 교재 회귀에서 PCK 가이드 참고문헌1개가 기존 공통 기준(2개 이상)에 미달함을 확인했다. 실제 비교 대상인 Wagstaff et al.ICML2001 원저자 COP-KMeans 논문을 추가해 hard 제약과 유한 비용의 차이 근거를 보완했다. 출처 수 단언이나 테스트를 완화하지 않았다. 계산 엔진 변경은 없다.
 

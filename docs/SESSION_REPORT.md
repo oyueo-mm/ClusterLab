@@ -1,3 +1,11 @@
+## 최신 체크포인트 — 55개 로컬 통합 검증 완료, 공개 배포 다음
+
+PCK `bed5b79` → PCM `98b77b3` → 기존 구조형 기본값 복원 `daa6b2e` → 전체 교재/추천 UI 검증 `926b14e` 순서로 커밋했다. 현재55엔진·220추천·77미구현·엄격 원문 완전 인증0. 전체 Vitest694/694·48파일, 타입·ESLint·빌드, 전체 Chromium/mobile130통과/14기존생략/0실패·재시도를 확인했다. 생략14개는 이전 실행과 동일하다. 신규8추천의 실제 UI16검사,6폭×2엔진/표본클릭/리사이즈 무재계산15검사도 통과했다.
+
+실제 Worker의100/1000행 출력과 취소, 기본 UI재생 입력 크기를 구분해 최종 실측했다. [확장 보고서](ALGORITHM_EXPANSION_1_REPORT.md)와 `extension-55/browser-local.json`, `research/*-final-browser-performance.json`을 따른다. 기존53엔진·프리셋/홈 관련63소스,212추천/생성636건,119후보 이름/순서를 보존했다. 다른 `.local/sequential-worktree`/`feat/sequential-clustering`/`c4d6a7d`를 보존했다.
+
+다음은 검증된 main 커밋 푸시, GitHub Actions/Pages 완료 확인, 공개 신규 실험/미니·전체55개 진입·홈·추천/되감기·반응형 확인이다. 현재 공개 배포 완료로 선언하지 않는다. 아래는 과거 체크포인트다.
+
 ## 2026-11-03 PCKMeans·PCM 확장 — 로컬 55개 통합 검증 중
 
 PCKMeans 안정 커밋 `bed5b79` 이후 PCM을 순차 구현했다. 실행 엔진 **55개**, 기존119후보 중42개 연결·**77개 미구현**, 추천 **220구성**(기존212+각4), 엄격 원문 완전 인증 **0개**다. 기존53개 엔진 수학 로직과32프리셋을 보존한다. [이번 확장 보고서](ALGORITHM_EXPANSION_1_REPORT.md)와 [PCKMeans](research/PCKMEANS.md)·[PCM](research/PCM.md)의 범위·수치 정책을 우선한다.
