@@ -17,6 +17,7 @@ export interface PreviewFrame {
   aggregateEdges?: Edge[];
   focus: number[];
   radius: number;
+  activeCenter: number;
   responsibilities: number[][];
   roles: string[];
   density?: number[];
@@ -79,6 +80,7 @@ export function previewFrame(
     edges: edges.slice(0, 192),
     focus: state.focus,
     radius: state.radius,
+    activeCenter: state.activeCenter,
     responsibilities: state.responsibilities,
     roles: state.roles,
     ...(a?.kind === "sequential"

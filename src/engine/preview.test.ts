@@ -38,6 +38,7 @@ describe("actual thumbnail traces", () => {
         const state = stateAt(recorder.trace, frame.index);
         expect(frame.labels).toEqual(state.labels);
         expect(frame.focus).toEqual(state.focus);
+        expect(frame.activeCenter).toBe(state.activeCenter);
         expect(frame.responsibilities).toEqual(state.responsibilities);
         expect(frame.roles).toEqual(state.roles);
         if (state.analysis?.kind === "sequential") {

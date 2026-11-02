@@ -186,8 +186,6 @@ export function previewPainter(canvas: HTMLCanvasElement, data: Dataset) {
         ctx.globalAlpha = 1;
         if (frame.focus.includes(i)) {
           dot(p, 5, frame.kind === "defer" ? "#db8ca9" : "#c08536", true);
-          if (frame.radius > 0)
-            dot(p, Math.min(90, frame.radius * 126), "#dbab65", true);
         }
         if (
           frame.roles[i]?.includes("defer") ||
@@ -195,6 +193,23 @@ export function previewPainter(canvas: HTMLCanvasElement, data: Dataset) {
         )
           dot(p, 4, "#db8ca9", true);
       });
+      const query =
+        (frame.activeCenter >= 0 ? centers[frame.activeCenter] : undefined) ??
+        positions[frame.focus[0]];
+      if (query && frame.radius > 0 && Number.isFinite(frame.radius)) {
+        ctx.beginPath();
+        ctx.ellipse(
+          ...(xy(query) as [number, number]),
+          frame.radius * 276,
+          frame.radius * 126,
+          0,
+          0,
+          Math.PI * 2,
+        );
+        ctx.strokeStyle = "#dbab65";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
       centers.forEach((c, i) => {
         if (c.cov) {
           const [xx, xyy, yy] = c.cov,
