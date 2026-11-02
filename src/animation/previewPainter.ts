@@ -195,7 +195,13 @@ export function previewPainter(canvas: HTMLCanvasElement, data: Dataset) {
       }
       positions.forEach((p, i) => {
         const unseen = data.kind === "stream" && i >= (frame.processed ?? 0);
-        ctx.globalAlpha = unseen ? 0.08 : 0.9;
+        const typicality = frame.pcmMaxima?.[i],
+          previous = from.pcmMaxima?.[i] ?? typicality;
+        ctx.globalAlpha = unseen
+          ? 0.08
+          : typicality === undefined
+            ? 0.9
+            : 0.15 + 0.85 * (previous! + (typicality - previous!) * t);
         dot(
           p,
           frame.density

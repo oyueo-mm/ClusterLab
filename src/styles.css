@@ -2025,3 +2025,45 @@ summary:focus-visible {
     animation: none !important;
   }
 }
+.typicality-open {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  padding: 6px 9px;
+  font-size: 12px;
+}
+.typicality-inspector {
+  position: absolute;
+  right: 12px;
+  bottom: 40px;
+  z-index: 4;
+  background: #fff;
+  border: 1px solid #b8cdc2;
+  border-radius: 8px;
+  padding: 10px;
+  width: min(270px, calc(100% - 24px));
+  max-height: 250px;
+  overflow: auto;
+  font-size: 12px;
+  box-shadow: 0 3px 14px #0001;
+}
+.typicality-inspector > button {
+  float: right;
+}
+.typicality-inspector input {
+  width: 64px;
+  margin-left: 8px;
+}
+.typicality-inspector dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.typicality-inspector dd {
+  margin: 0;
+}
+.typicality-inspector meter {
+  width: 64px;
+  margin-right: 6px;
+}

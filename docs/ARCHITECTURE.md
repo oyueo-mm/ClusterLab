@@ -1,3 +1,11 @@
+## 2026-11-03 PCKMeans·PCM 확장 — 로컬 55개 통합 검증 중
+
+PCKMeans 안정 커밋 `bed5b79` 이후 PCM을 순차 구현했다. 실행 엔진 **55개**, 기존119후보 중42개 연결·**77개 미구현**, 추천 **220구성**(기존212+각4), 엄격 원문 완전 인증 **0개**다. 기존53개 엔진 수학 로직과32프리셋을 보존한다. [이번 확장 보고서](ALGORITHM_EXPANSION_1_REPORT.md)와 [PCKMeans](research/PCKMEANS.md)·[PCM](research/PCM.md)의 범위·수치 정책을 우선한다.
+
+PCM은 원본 전체 ND에서 별도 FCM 초기화·양수 고정 Ω·1993 목적·독립 전형성·로그 가중 평균을 실제 계산한다. NumPy 직접 거듭제곱 oracle14사례(13성공/영분산 자동척도 오류1), 수식 손계산과 전체 중간 AO·최종 결과·Trace 역진/seek를 검산했다. R ppclust 실행 비교와1993 원문 전체 인증은 하지 않았다. 2005 원저자 재서술의 식과 공식 매뉴얼을 대조했으며 제품에 라이브러리 소스를 복사하지 않았다.
+
+현재 전체 Vitest **694/694·48파일**, 타입·ESLint·빌드 통과. 기존212추천 및 생성636건은 `f615923`과 동일하다. Node PCM100/1000/10000행(d4,K3) 실제 계산+Recorder13.37/46.32/193.98ms, Trace46이벤트·347256/2674654/4662828추정바이트를 관측했다(단일 실행, Worker/렌더 제외). 전체 브라우저·Actions·공개 배포는 아직 검증 중이다. 다른 `.local/sequential-worktree`/`feat/sequential-clustering`/`c4d6a7d`를 보존한다. 아래 과거 체크포인트는 당시 결과다.
+
 ## 2026-11-02 캔버스 중심 실험실 — 공개 배포 완료
 
 제품 소스 `ae1c2cceae92fe64a75deab7165c02d3b7886ec8`. [Actions41444492938](https://github.com/oyueo-mm/ClusterLab/actions/runs/41444492938)의 validate125274337280/Pages deploy125283077444가 모두 성공했다. 원격 타입·ESLint·빌드·Vitest **651/651·46파일**, 전체 Chromium/mobile **118통과/14조건부 생략/0실패**다. Firefox/WebKit 별도28통과/2중복생략, 최종 세 브라우저 작업 공간12/12통과를 서로 다른 실행으로 기록한다.

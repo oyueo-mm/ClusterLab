@@ -16,6 +16,7 @@ export const legacyAlgorithms = [
 export const algorithms = [
   ...legacyAlgorithms,
   "Fuzzy C-Means",
+  "Possibilistic C-Means",
   "Bisecting K-Means",
   "Spectral Clustering",
   "Affinity Propagation",
@@ -121,6 +122,7 @@ export type AlgorithmAnalysis =
   | import("./timeseriesTypes").TimeSeriesAnalysis
   | import("./constraintTypes").ConstraintAnalysis
   | import("./pairwiseTypes").PairwiseAnalysis
+  | import("./possibilisticTypes").PossibilisticAnalysis
   | import("./mixtureTypes").DiscreteMixtureAnalysis
   | import("./sequentialTypes").SequentialAnalysis
   | {
@@ -189,6 +191,7 @@ export type AlgorithmAnalysis =
       edgeAges?: { a: number; b: number; age: number }[];
     };
 export type EventKind =
+  | "typicality"
   | "walk"
   | "clique"
   | "percolate"
@@ -259,6 +262,11 @@ export interface Trace {
   algorithm: Algorithm;
 }
 export interface Params {
+  typicalityExponent: number;
+  scaleCoefficient: number;
+  pcmScaleMode: string;
+  pcmScale: number;
+  warmIterations: number;
   constraintPenalty: number;
   upperThreshold: number;
   walkSteps: number;
@@ -328,6 +336,11 @@ export interface Params {
   bandwidth: number;
 }
 export const defaults: Params = {
+  typicalityExponent: 2,
+  scaleCoefficient: 1,
+  pcmScaleMode: "fcm",
+  pcmScale: 1,
+  warmIterations: 50,
   constraintPenalty: 0.5,
   upperThreshold: 2,
   walkSteps: 4,
@@ -399,6 +412,9 @@ export const defaults: Params = {
 export function algorithmDefaults(algorithm: Algorithm): Params {
   return {
     ...defaults,
+    ...(algorithm === "Possibilistic C-Means"
+      ? { k: 2, iterations: 100, tolerance: 1e-6 }
+      : {}),
     ...(algorithm === "Affinity Propagation" ? { iterations: 200 } : {}),
     ...(algorithm === "PAM" ? { initialization: "build" } : {}),
     ...(algorithm === "ROCK" ? { threshold: 0.5 } : {}),
@@ -432,6 +448,8 @@ export const supportsEuclideanSilhouette = (algorithm: Algorithm) =>
   !isPrototypeAlgorithm(algorithm) &&
   ![
     "LVQ",
+    "PCKMeans",
+    "Possibilistic C-Means",
     "ROCK",
     "K-Modes",
     "K-Prototypes",
@@ -458,6 +476,8 @@ export const supportsEuclideanSilhouette = (algorithm: Algorithm) =>
     "Clique Percolation",
   ].includes(algorithm);
 export function clusterCount(state: State) {
+  if (state.analysis?.kind === "possibilistic")
+    return state.analysis.centroids.length;
   if (state.analysis?.kind === "community" && state.analysis.communities)
     return state.analysis.communities.length;
   return new Set(state.labels.filter((label) => label >= 0)).size;

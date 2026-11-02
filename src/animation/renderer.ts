@@ -108,7 +108,9 @@ export function draw(
     }
   }
   const nativeCenters = (state: State) =>
-    state.analysis?.kind === "pairwise" && options.nativeAxes
+    (state.analysis?.kind === "pairwise" ||
+      state.analysis?.kind === "possibilistic") &&
+    options.nativeAxes
       ? projectedCenters(
           state.analysis.centroids,
           state.analysis.dimensionBounds,
@@ -454,7 +456,19 @@ export function draw(
       r = highlighted ? 4.5 + Math.sin(t * Math.PI) * 1.5 : 3.7;
     ctx.beginPath();
     ctx.arc(x, y, r, 0, Math.PI * 2);
+    if (
+      to.analysis?.kind === "possibilistic" &&
+      to.analysis.maxima[i] !== undefined
+    ) {
+      const next = to.analysis.maxima[i],
+        old =
+          from.analysis?.kind === "possibilistic"
+            ? (from.analysis.maxima[i] ?? next)
+            : next;
+      ctx.globalAlpha = 0.15 + 0.85 * (old + (next - old) * e);
+    }
     ctx.fill();
+    ctx.globalAlpha = 1;
     ctx.lineWidth = 1;
     ctx.strokeStyle = "#ffffff";
     ctx.stroke();

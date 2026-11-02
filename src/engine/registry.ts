@@ -27,6 +27,7 @@ const koreanNames: Record<Algorithm, string> = {
   BIRCH: "CF 트리 기반 군집화",
   "Mean Shift": "평균 이동",
   "Fuzzy C-Means": "퍼지 C-평균",
+  "Possibilistic C-Means": "가능성 C-평균 (PCM)",
   "Bisecting K-Means": "이분할 K-평균",
   "Spectral Clustering": "스펙트럴 군집화",
   "Affinity Propagation": "친화도 전파",
@@ -83,6 +84,7 @@ export const loaders: Record<Algorithm, () => Promise<Engine>> = {
   BIRCH: () => import("./algorithms/birch").then((m) => m.birch),
   "Mean Shift": () => import("./algorithms/meanshift").then((m) => m.meanshift),
   "Fuzzy C-Means": () => import("./algorithms/fuzzy").then((m) => m.fuzzy),
+  "Possibilistic C-Means": () => import("./algorithms/pcm").then((m) => m.pcm),
   "Bisecting K-Means": () =>
     import("./algorithms/bisecting").then((m) => m.bisecting),
   "Spectral Clustering": () =>
@@ -141,6 +143,7 @@ export const loaders: Record<Algorithm, () => Promise<Engine>> = {
   TTSAS: () => import("./algorithms/ttsas").then((m) => m.ttsas),
 };
 export const structuredAlgorithms = [
+  "Possibilistic C-Means",
   "Spectral Clustering",
   "Affinity Propagation",
   "Density Peaks / CFSFDP",
@@ -188,6 +191,7 @@ export const communityAlgorithms: readonly Algorithm[] = [
 /** Native matrix/time-series engines cannot consume the point editor input. */
 export function supportsLegacyPoints(algorithm: Algorithm) {
   return ![
+    "Possibilistic C-Means",
     "Bimax",
     "Cheng–Church Biclustering",
     "K-Shape",
@@ -311,11 +315,13 @@ export const registry = Object.fromEntries(
                         ? "stream-summary"
                         : communityAlgorithms.includes(id)
                           ? "communities"
-                          : id === "Fuzzy C-Means"
-                            ? "memberships-and-partition"
-                            : id === "Bisecting K-Means"
-                              ? "partition-and-split-tree"
-                              : "algorithm-state",
+                          : id === "Possibilistic C-Means"
+                            ? "typicalities-and-centers"
+                            : id === "Fuzzy C-Means"
+                              ? "memberships-and-partition"
+                              : id === "Bisecting K-Means"
+                                ? "partition-and-split-tree"
+                                : "algorithm-state",
         capabilities: {
           autoK: [
             "DBSCAN",

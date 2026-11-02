@@ -21,6 +21,10 @@ import {
   registerPairwiseDatasets,
   pairwiseRecommendations,
 } from "./pairwiseRecommendations";
+import {
+  registerPossibilisticDatasets,
+  possibilisticRecommendations,
+} from "./possibilisticRecommendations";
 
 export interface DatasetDefinition {
   id: string;
@@ -76,6 +80,7 @@ const structuredNames: Record<ExperimentPreset, [string, string]> = {
   multinomial: ["문서 구성 카운트", "Multinomial profiles"],
 };
 registerPairwiseDatasets(datasetRegistry);
+registerPossibilisticDatasets(datasetRegistry);
 for (const [kind, [name, nameEn]] of Object.entries(structuredNames)) {
   for (const variant of ["base", "ambiguous", "boundary"] as const) {
     const id = `${kind}-${variant}`;
@@ -260,6 +265,14 @@ datasetRegistry.ordered = {
 // Every runnable engine must explicitly declare its learning goals and examples.
 type Spec = [string, string, string, string, string, Partial<Params>?];
 const specifications: Record<Algorithm, Spec> = {
+  "Possibilistic C-Means": [
+    "pcm-separated",
+    "pcm-outliers",
+    "pcm-coincident",
+    "원본 ND 독립 전형성",
+    "합1 제약과 군집별 양수 척도를 구분합니다.",
+    { k: 2 },
+  ],
   PCKMeans: [
     "pck-separated",
     "pck-overlap",
@@ -653,6 +666,7 @@ export function recommendationCount(
   role: Recommendation["role"],
 ): number {
   const meta = datasetRegistry[id];
+  if (algorithm === "Possibilistic C-Means") return role === "limit" ? 24 : 160;
   if (id.startsWith("ordered")) return 12;
   // Preserve small duplicate/zero/constraint counterexamples for hand inspection.
   if (id.includes("boundary") && ["numeric", "constrained"].includes(meta.kind))
@@ -691,6 +705,9 @@ export function recommendationCount(
 export const recommendations = Object.fromEntries(
   Object.entries(specifications).map(
     ([algorithm, [primary, extra, limit, purpose, observe, params = {}]]) => {
+      if (algorithm === "PCKMeans") return [algorithm, pairwiseRecommendations];
+      if (algorithm === "Possibilistic C-Means")
+        return [algorithm, possibilisticRecommendations];
       const alternateId = `${primary}-alternate`;
       if (!datasetRegistry[alternateId])
         datasetRegistry[alternateId] = {
@@ -741,7 +758,6 @@ export const recommendations = Object.fromEntries(
     },
   ),
 ) as Record<Algorithm, Recommendation[]>;
-recommendations.PCKMeans = pairwiseRecommendations;
 for (const [algorithm, entries] of Object.entries(recommendations))
   for (const entry of entries)
     entry.count = recommendationCount(

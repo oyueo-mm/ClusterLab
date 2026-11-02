@@ -7,6 +7,8 @@ export interface Field {
   max?: number;
   step?: number;
   options?: string[];
+  optionLabels?: Record<string, string>;
+  visibleWhen?: { key: keyof Params; value: string };
   hint: string;
 }
 export const fields: Record<Algorithm, Field[]> = {

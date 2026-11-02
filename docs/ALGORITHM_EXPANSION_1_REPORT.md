@@ -14,8 +14,26 @@
 
 재현: `python scripts/pckmeans_reference.py`, `npx vitest run src/engine/pckmeans.test.ts`, `npx tsx scripts/pckmeans_performance.ts`, `node scripts/measure-native-extension.mjs PCKMeans constrained pckmeans`. 브라우저는 `CLUSTERLAB_BASE_URL=http://127.0.0.1:4476/ClusterLab/`와 `npx playwright test tests/fuzzy-constraints-extension.spec.ts tests/constraints-models.spec.ts`를 사용한다.
 
-## 남은 작업
+## PCM 세로 단위 — 2026-11-03 로컬 구현·검증 완료
 
-PCK 안정 커밋 후 PCM을 순차적으로 구현한다. 기존 FUZZY_FORMULAS의 정의/NumPy 블록 예제에서 출발해 ND FCM warm-start·고정 양수 척도·비정규화 전형성·안정적인 로그 계산·실제 Trace/분석/비교 mini·4추천·독립 전체 AO 검산을 연결한다. 다른 알고리즘은 추가하지 않는다.
+PCK 안정 커밋 `bed5b79` 이후 PCM을 순차 구현했다. 현재 **55개 실행 엔진·220추천 구성·77미구현 후보**, 엄격 원문 완전 인증은 별도 **0개**다. 기존119후보 번호/이름/순서를 유지하며 FPCM·MPCKMeans 등은 구현으로 올리지 않았다. 위 PCK54개 상태는 당시 체크포인트다.
+
+PCM은1993형 `Σt^ηD²+ΣΩ(1−t)^η`, 독립 전형성 `t=1/(1+(D²/Ω)^(1/(η−1)))`, 원본 ND `t^η` 평균을 실제 계산한다. 별도의 ND FCM 준비 U로 군집별 `Ω=κ·가중분산`을 한 번 추정해 고정하거나 양수 수동 Ω를 지정한다. FCM m, PCM η, 계수 κ, 척도 Ω를 구분한다. T의 행/열 합을 정규화하지 않는다. 기존2D FCM 엔진은 변경하지 않았다. [PCM 계약·출처·검증](research/PCM.md).
+
+로그/softplus·상대 로그 가중치·expm1로 수식을 평가하며 epsilon을 더하지 않는다. 자동 영분산 척도는 오류, 양수 수동 척도의 상수/중복은 퇴화 진단이다. 표현 반올림·로그 유효 가중치·중복 중심·점 다양성 부족을 공개한다. 반환 중심에서 T를 재평가하고 평균 고정점 잔차를 표시한다. 1996 entropy·FPCM·PFCM은 포함하지 않는다. 1993 원문 전체는 접근하지 못했고2005 원저자 재서술 Eq8/10/11과 공식 ppclust 매뉴얼을 대조했다. R은 실행하지 않았다.
+
+독립 NumPy2.5.4 직접 power AO14사례(정상13·예상 오류1), FUZZY_FORMULAS 손계산, 전체 warm/main 중간 상태·최종 중심/T/척도/J/가중치·원본 ND·극소/극대·중복/상수/이상치·시드/한도를 검산했다. PCM전용20테스트, 기존FCM8회귀, 전체 **694/694·48파일**과 타입·ESLint·빌드 통과. R ppclust1.1.0.1(GPL>=2)은 문서/버전·설정만 확인했으며 제품에 소스를 복사하지 않았다. 독립 oracle는 NumPy(BSD-3-Clause)이며 실제 버전/설정은 fixture에 기록했다.
+
+PCM 전용 분석은 원본 중심·척도·T/로그T·거리·행합/최대값·유효/로그 가중치·FCM 기준 U·목적·잔차·퇴화 진단을 제공한다. 표본 클릭 또는 검사 버튼/원본 행 입력으로 군집별 독립 [0,1] 값을 확인한다. `typicality` 이벤트를 FCM expectation과 구분한다. 실제 중심·이상치 전형성의 투명도·전체 원본 ND 계산과 표시 투영을 분리한다. 큰 입력도 전체 계산하며 중간 행렬만 바이트 기준 요약, 최종 전체 T/로그T/거리와 FCM 기준 U를 보존한다. 기존64MiB Trace/256MiB 작업 정책 안에서 새 전역 행 상한은 없다.
+
+분리·원거리 이상치·다른 분산·동일 중심 한계의 전용4추천을 등록했다. 미니는 같은 원본의 실제 ND FCM U와 PCM T를 비교하고 선택한 실제 이벤트/원본/파라미터를 실험실로 전달한다. 도감은 실제 Worker Trace·기존 캐시/동시성/화면 밖 중지/reduced-motion·더블클릭을 공유한다. 신규 실험/미니 Chromium/mobile **8/8** 통과(생략0): 실제 Worker·파라미터·되감기·분석·원본 편집/Undo/복원·무재계산 투영/집중 모드·정확한 이벤트 이동을 단언한다. [결과](extension-55/new-algorithms-browser.json).
+
+PCM Node엔진+Recorder(생성/투영/Worker/렌더 제외)100/1000/10000행,d4,K3,seed42:13.37/46.32/193.98ms,46이벤트,347256/2674654/4662828추정Trace바이트였다. [환경·전체 입력·직접 J 재집계](research/pcm-performance.json). 힙 차이는 최대/유지 메모리가 아니다. 실제 Chromium156,1440×900,DPR1에서100/1000행 Worker와wall시간을 별도 관측했고10만행·d4,K8은 실제 computing 이후 terminate/250ms 무응답을 확인했다. 시작→terminate는 취소 호출 지연이 아니다. UI2.2초 재생에서 타임라인0→25.33, RAF약60FPS를 관측했다(GPU/장기보장 아님). [실제 브라우저 측정](research/pcm-browser-performance.json).
+
+기존212추천/원본 생성636건을 다시 비교해 `f615923`과 모두 동일했다. 기존53개 엔진 수학 파일과32프리셋을 수정하지 않았다. 실제 휴대전화 하드웨어, Worker/GPU 최대 메모리, R 결과 일치, 전역 최적, 원문 완전 인증은 미검증이다.
+
+재현: `python scripts/pcm_reference.py`, `npx vitest run src/engine/pcm.test.ts src/engine/expansion.test.ts`, `npx tsx scripts/pcm_performance.ts`, `node scripts/measure-native-extension.mjs "Possibilistic C-Means" numeric pcm`.
+
+## 통합·배포 진행 중
 
 PCM 완료 뒤 기존53개 포함 전체55개·추천220구성·전체 회귀·성능·GitHub Actions·Pages·공개 데스크톱/모바일 확인을 수행한다. 현재 단계만으로 이번 전체 개발 단위를 완료 또는 공개 배포 완료라고 하지 않는다. 기존53개 엔진의 수학 로직을 수정하지 않았다.

@@ -90,6 +90,13 @@
       "GMM"
     ]
   },
+  "Possibilistic C-Means": {
+    "summary": "원본 N차원에서 독립 전형성을 계산하는 1993 Possibilistic C-Means입니다. 전형성은 소속 확률이 아니며 행 합을 1로 정규화하지 않습니다.",
+    "related": [
+      "Fuzzy C-Means",
+      "GMM"
+    ]
+  },
   "Bisecting K-Means": {
     "summary": "큰 SSE를 갖는 잎을 반복 이분할하는 K-Means 변형입니다.",
     "related": [

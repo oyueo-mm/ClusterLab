@@ -31,6 +31,7 @@ export function validateRun(
 ) {
   validateParameters(algorithm, params);
   const minimum = [
+    "Possibilistic C-Means",
     "Bimax",
     "Cheng–Church Biclustering",
     "K-Shape",

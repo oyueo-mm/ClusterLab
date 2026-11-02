@@ -2,6 +2,34 @@ import type { AlgorithmDetail } from "./algorithmDetails";
 export const extensionDetails: Partial<
   Record<import("./types").Algorithm, AlgorithmDetail>
 > = {
+  "Possibilistic C-Means": {
+    timeComplexity:
+      "O((T_FCM+T_PCM)nKd) · 중심 중복 진단 O((T_FCM+T_PCM)K²d), K≤n",
+    spaceComplexity: "O(nd+nK+Kd), 작업256MiB·Trace64MiB 별도 바이트 예산",
+    traceKinds: [
+      "initialize",
+      "expectation",
+      "maximization",
+      "typicality",
+      "distance",
+      "move",
+      "finish",
+    ],
+    visualizations: [
+      "원본 ND FCM 준비",
+      "독립 전형성·FCM 소속도 비교",
+      "고정 군집별 척도",
+      "실제 중심·낮은 전형성·퇴화 진단",
+    ],
+    validation: "independent-numpy",
+    limitations:
+      "1993 제곱거리형 PCM, 전체 ND FCM warm-start·추정 후 고정 양수 Ω 또는 수동 Ω. 행 합 정규화 없음. 1996 entropy/FPCM/PFCM 미지원. 영분산 자동 척도는 오류; 로그 가중치/표현 underflow 진단·동일 중심/서로 다른 점 부족 공개. R ppclust 실행 비교 미실시.",
+    references: [
+      "https://doi.org/10.1109/91.227387",
+      "https://www.comp.ita.br/~forster/CC-222/material/fuzzyclust/fuzzy01492404.pdf",
+      "https://search.r-project.org/CRAN/refmans/ppclust/html/pcm.html",
+    ],
+  },
   PCKMeans: {
     timeComplexity:
       "O(E log E+(n+E)α(n)+TnK(d+최대 성분 CL 차수)); 상세 Trace 목적 재집계 비용 별도",

@@ -234,7 +234,9 @@ export default function StructuredLab({
     () =>
       algorithm === "PCKMeans" && data.kind === "constrained"
         ? { ...data, data: { ...data.data, display: undefined } }
-        : data,
+        : algorithm === "Possibilistic C-Means" && data.kind === "numeric"
+          ? { ...data, display: undefined }
+          : data,
     [algorithm, data],
   );
   const points = useMemo(
@@ -436,7 +438,12 @@ export default function StructuredLab({
                             ? data.data.values
                             : data.values)[0].length
                         }
-                        value={axes[j] + 1}
+                        value={Math.min(
+                          axes[j] + 1,
+                          (data.kind === "constrained"
+                            ? data.data.values
+                            : data.values)[0].length,
+                        )}
                         onChange={(e) =>
                           setAxes(
                             (old) =>
@@ -445,7 +452,9 @@ export default function StructuredLab({
                                   ? Math.max(
                                       0,
                                       Math.min(
-                                        (data.kind==="constrained"?data.data.values:data.values)[0].length - 1,
+                                        (data.kind === "constrained"
+                                          ? data.data.values
+                                          : data.values)[0].length - 1,
                                         Math.trunc(+e.target.value || 1) - 1,
                                       ),
                                     )
@@ -884,7 +893,12 @@ export default function StructuredLab({
           ) : (
             <Canvas
               algorithm={algorithm}
-              nativeAxes={algorithm === "PCKMeans" ? axes : undefined}
+              nativeAxes={
+                algorithm === "PCKMeans" ||
+                algorithm === "Possibilistic C-Means"
+                  ? axes
+                  : undefined
+              }
               points={points}
               trace={lab.traceIsCurrent ? lab.trace : null}
               position={lab.position}

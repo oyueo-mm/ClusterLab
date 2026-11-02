@@ -11,49 +11,59 @@ export function Settings({
 }) {
   return (
     <>
-      {fields[algorithm].map((f) => (
-        <label className="field" key={f.key}>
-          <span>{f.label}</span>
-          {f.options ? (
-            <select
-              aria-label={f.label}
-              value={String(value[f.key])}
-              onChange={(e) => onChange({ ...value, [f.key]: e.target.value })}
-            >
-              {f.options.map((x) => (
-                <option key={x}>{x}</option>
-              ))}
-            </select>
-          ) : (
-            <input
-              aria-label={f.label}
-              type="number"
-              min={f.min}
-              max={f.max}
-              step={f.step ?? 1}
-              value={
-                Number.isFinite(Number(value[f.key]))
-                  ? Number(value[f.key])
-                  : ""
-              }
-              onChange={(e) => {
-                if (e.target.value === "") {
-                  if (f.key === "bandwidth")
-                    onChange({ ...value, bandwidth: NaN });
-                  return;
+      {fields[algorithm]
+        .filter(
+          (f) =>
+            !f.visibleWhen ||
+            String(value[f.visibleWhen.key]) === f.visibleWhen.value,
+        )
+        .map((f) => (
+          <label className="field" key={f.key}>
+            <span>{f.label}</span>
+            {f.options ? (
+              <select
+                aria-label={f.label}
+                value={String(value[f.key])}
+                onChange={(e) =>
+                  onChange({ ...value, [f.key]: e.target.value })
                 }
-                const n = +e.target.value;
-                if (
-                  f.key === "bandwidth" ||
-                  (n >= (f.min ?? 0) && n <= (f.max ?? Infinity))
-                )
-                  onChange({ ...value, [f.key]: n });
-              }}
-            />
-          )}
-          <small>{f.hint}</small>
-        </label>
-      ))}
+              >
+                {f.options.map((x) => (
+                  <option key={x} value={x}>
+                    {f.optionLabels?.[x] ?? x}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <input
+                aria-label={f.label}
+                type="number"
+                min={f.min}
+                max={f.max}
+                step={f.step ?? 1}
+                value={
+                  Number.isFinite(Number(value[f.key]))
+                    ? Number(value[f.key])
+                    : ""
+                }
+                onChange={(e) => {
+                  if (e.target.value === "") {
+                    if (f.key === "bandwidth")
+                      onChange({ ...value, bandwidth: NaN });
+                    return;
+                  }
+                  const n = +e.target.value;
+                  if (
+                    f.key === "bandwidth" ||
+                    (n >= (f.min ?? 0) && n <= (f.max ?? Infinity))
+                  )
+                    onChange({ ...value, [f.key]: n });
+                }}
+              />
+            )}
+            <small>{f.hint}</small>
+          </label>
+        ))}
       {algorithm === "BIRCH" && (
         <label className="check">
           <input

@@ -1,0 +1,44 @@
+export interface PossibilisticAnalysis {
+  kind: "possibilistic";
+  method: "PCM1993";
+  phase: string;
+  dimensions: number;
+  dimensionBounds: [number, number][];
+  centroids: number[][];
+  initialization: number[];
+  warmIteration: number;
+  warmConverged: boolean;
+  warmCenters: number[][];
+  warmMemberships: number[][];
+  warmObjective: number;
+  iteration: number;
+  scales: number[];
+  scaleMode: string;
+  scaleCoefficient: number;
+  fuzziness: number;
+  exponent: number;
+  typicalities: number[][];
+  logTypicalities: number[][];
+  distancesSquared: number[][];
+  matricesRecorded: boolean;
+  maxima: number[];
+  rowSums: number[];
+  effectiveWeights: number[];
+  logEffectiveWeights: number[];
+  weightsBasis: "fcm" | "pcm";
+  /** Display argmax(t) counts, not hard assignments or loss of weighted mass. */
+  counts: number[];
+  distanceCost: number;
+  penaltyCost: number;
+  objective: number;
+  movement: number;
+  fixedPointResidual: number;
+  lowTypicalityCount: number;
+  coincidentCenters: number;
+  nearCenters: number;
+  distinctAtLeastK: boolean;
+  roundedTypicalities: number;
+  underflowWeights: number;
+  converged: boolean;
+  stopReason?: "center-tolerance" | "iteration-limit";
+}

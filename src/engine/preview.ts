@@ -20,6 +20,7 @@ export interface PreviewFrame {
   activeCenter: number;
   responsibilities: number[][];
   roles: string[];
+  pcmMaxima?: number[];
   density?: number[];
   panel?: { title: string; values: number[][] };
   sequential?: { centroids: number[][]; pass: number; unassigned: number };
@@ -87,6 +88,7 @@ export function previewFrame(
     activeCenter: state.activeCenter,
     responsibilities: state.responsibilities,
     roles: state.roles,
+    ...(a?.kind === "possibilistic" ? { pcmMaxima: a.maxima } : {}),
     ...(a?.kind === "sequential"
       ? {
           sequential: {

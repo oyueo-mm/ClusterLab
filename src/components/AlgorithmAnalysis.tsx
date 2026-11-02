@@ -11,6 +11,7 @@ import BiclusterAnalysis from "./BiclusterAnalysis";
 import { TimeSeriesAnalysisView } from "./TimeSeriesAnalysis";
 import ConstraintAnalysisView from "./ConstraintAnalysis";
 import { PairwiseAnalysisView } from "./PairwiseAnalysis";
+import { PossibilisticAnalysisView } from "./PossibilisticAnalysis";
 import { DiscreteMixtureAnalysisView } from "./DiscreteMixtureAnalysis";
 import { SequentialAnalysisView } from "./SequentialAnalysis";
 
@@ -440,6 +441,7 @@ export function AlgorithmAnalysis({
       />
     );
   if (a.kind === "pairwise") return <PairwiseAnalysisView analysis={a} />;
+  if (a.kind === "possibilistic") return <PossibilisticAnalysisView analysis={a}/>;
   if (a.kind === "discrete-mixture")
     return (
       <DiscreteMixtureAnalysisView

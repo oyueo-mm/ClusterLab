@@ -7,6 +7,26 @@ import { Recorder } from "./trace";
 import type { Algorithm, Params, Trace, State } from "./types";
 export function nativeResult(state: State) {
   const a = state.analysis;
+  if (a?.kind === "possibilistic")
+    return {
+      kind: "typicalities-and-centers" as const,
+      centroids: a.centroids,
+      typicalities: a.typicalities,
+      logTypicalities: a.logTypicalities,
+      scales: a.scales,
+      effectiveWeights: a.effectiveWeights,
+      logEffectiveWeights: a.logEffectiveWeights,
+      displayLabels: state.labels,
+      displayCounts: a.counts,
+      objective: a.objective,
+      distanceCost: a.distanceCost,
+      penaltyCost: a.penaltyCost,
+      converged: a.converged,
+      stopReason: a.stopReason,
+      fixedPointResidual: a.fixedPointResidual,
+      coincidentCenters: a.coincidentCenters,
+      distinctAtLeastK: a.distinctAtLeastK,
+    };
   if (a?.kind === "pairwise")
     return {
       kind: "pairwise-partition" as const,

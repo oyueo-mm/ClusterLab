@@ -4,6 +4,7 @@ import { emptyState } from "../engine/types";
 import { stateAt } from "../engine/trace";
 import { draw, unproject, type View } from "../animation/renderer";
 import { PointStroke } from "../editor/stroke";
+import { TypicalityInspector } from "./TypicalityInspector";
 interface Gesture {
   mode:
     | "moving-point"
@@ -40,6 +41,14 @@ interface Props {
   label?: number;
 }
 export function Canvas(props: Props) {
+  const [inspectedRow, setInspectedRow] = useState<number | null>(null);
+  const inspectionPointer = useRef<{ x: number; y: number } | null>(null);
+  const inspection =
+    props.algorithm === "Possibilistic C-Means" &&
+    inspectedRow !== null &&
+    props.trace
+      ? stateAt(props.trace, Math.floor(props.position)).analysis
+      : null;
   const [constraintLines, setConstraintLines] = useState<
     "original" | "violated" | "none"
   >("original");
@@ -230,6 +239,43 @@ export function Canvas(props: Props) {
       )}
       <canvas
         ref={ref}
+        onPointerDownCapture={(e) => {
+          inspectionPointer.current =
+            e.isPrimary && e.button === 0
+              ? { x: e.clientX, y: e.clientY }
+              : null;
+        }}
+        onClick={(e) => {
+          const origin = inspectionPointer.current;
+          inspectionPointer.current = null;
+          if (
+            props.algorithm !== "Possibilistic C-Means" ||
+            props.edit ||
+            !origin ||
+            Math.hypot(e.clientX - origin.x, e.clientY - origin.y) > 6
+          )
+            return;
+          const rect = e.currentTarget.getBoundingClientRect(),
+            q = unproject(
+              e.clientX - rect.left,
+              e.clientY - rect.top,
+              rect.width,
+              rect.height,
+              view.current,
+            ),
+            scale =
+              Math.min(rect.width - 70, rect.height - 60) * view.current.zoom;
+          let best = -1,
+            distance = 12 / scale;
+          props.points.forEach((p, i) => {
+            const d = Math.hypot(p.x - q.x, p.y - q.y);
+            if (d < distance) {
+              best = i;
+              distance = d;
+            }
+          });
+          setInspectedRow(best >= 0 ? best : null);
+        }}
         aria-label={`${props.algorithm} 데이터 및 실제 연산 시각화`}
         role="img"
         data-gesture="idle"
@@ -390,6 +436,25 @@ export function Canvas(props: Props) {
           pinch.current = 0;
         }}
       />
+      {props.algorithm === "Possibilistic C-Means" && !props.minimal && (
+        <button
+          className="typicality-open"
+          onClick={() => setInspectedRow(0)}
+          aria-label="표본 전형성 검사"
+        >
+          전형성 검사
+        </button>
+      )}
+      {inspection?.kind === "possibilistic" &&
+        inspectedRow !== null &&
+        inspectedRow < props.points.length && (
+          <TypicalityInspector
+            analysis={inspection}
+            row={inspectedRow}
+            onRow={setInspectedRow}
+            onClose={() => setInspectedRow(null)}
+          />
+        )}
       {!props.minimal && (
         <div className="canvas-corner">
           <span className="live-dot" /> CANVAS 2D <span>{fps} FPS</span>

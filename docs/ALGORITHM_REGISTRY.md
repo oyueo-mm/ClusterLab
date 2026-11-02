@@ -1,3 +1,11 @@
+## 2026-11-03 PCKMeans·PCM 확장 — 로컬 55개 통합 검증 중
+
+PCKMeans 안정 커밋 `bed5b79` 이후 PCM을 순차 구현했다. 실행 엔진 **55개**, 기존119후보 중42개 연결·**77개 미구현**, 추천 **220구성**(기존212+각4), 엄격 원문 완전 인증 **0개**다. 기존53개 엔진 수학 로직과32프리셋을 보존한다. [이번 확장 보고서](ALGORITHM_EXPANSION_1_REPORT.md)와 [PCKMeans](research/PCKMEANS.md)·[PCM](research/PCM.md)의 범위·수치 정책을 우선한다.
+
+PCM은 원본 전체 ND에서 별도 FCM 초기화·양수 고정 Ω·1993 목적·독립 전형성·로그 가중 평균을 실제 계산한다. NumPy 직접 거듭제곱 oracle14사례(13성공/영분산 자동척도 오류1), 수식 손계산과 전체 중간 AO·최종 결과·Trace 역진/seek를 검산했다. R ppclust 실행 비교와1993 원문 전체 인증은 하지 않았다. 2005 원저자 재서술의 식과 공식 매뉴얼을 대조했으며 제품에 라이브러리 소스를 복사하지 않았다.
+
+현재 전체 Vitest **694/694·48파일**, 타입·ESLint·빌드 통과. 기존212추천 및 생성636건은 `f615923`과 동일하다. Node PCM100/1000/10000행(d4,K3) 실제 계산+Recorder13.37/46.32/193.98ms, Trace46이벤트·347256/2674654/4662828추정바이트를 관측했다(단일 실행, Worker/렌더 제외). 전체 브라우저·Actions·공개 배포는 아직 검증 중이다. 다른 `.local/sequential-worktree`/`feat/sequential-clustering`/`c4d6a7d`를 보존한다. 아래 과거 체크포인트는 당시 결과다.
+
 ## 2026-11-03 PCKMeans 추가 — 로컬54개
 
 PCKMeans 세로 단위를 연결·검증해 기존53+1=54개, 후보119개 중41개 연결·78개 미구현, 추천216개다. 엄격 완전 인증0. PCM은 다음 단계이며 전체55개/공개 배포 미완료. [현재 확장 보고서](ALGORITHM_EXPANSION_1_REPORT.md). 아래53개 설명은 이전 기록이며119개 후보 번호/이름/순서는 유지한다.
@@ -52,7 +60,7 @@ PCKMeans 세로 단위를 연결·검증해 기존53+1=54개, 후보119개 중41
 |   18 | PAMSIL                           | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 미조사                                                                                       |
 |   19 | PAMMEDSIL                        | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 미조사                                                                                       |
 |   20 | Fuzzy C-Means                    | 독립 알고리즘                                            | points2d            | Fuzzy C-Means             | 테스트 완료 · 독립 수치 검산                                                                 |
-|   21 | Possibilistic C-Means            | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 원문·정의 예비 검토 · 엔진 미구현                                                            |
+| 21 | Possibilistic C-Means | 독립 알고리즘 · 1993 고정 척도형 | numeric 원본 ND | Possibilistic C-Means | 제한 범위 구현·독립 NumPy·Trace·브라우저 검증, 완전 인증 아님 |
 |   22 | Fuzzy Possibilistic C-Means      | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 원문·정의 예비 검토 · 엔진 미구현                                                            |
 |   23 | COP-KMeans                       | variant                                                  | constrained         | COP-KMeans                | 독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)                                          |
 | 24 | PCKMeans | 독립 알고리즘 | constrained 원본 ND | PCKMeans | 일관 관계·균일 유한 벌점의 제한 범위, 독립 수치·브라우저 검증; 완전 인증 아님 |

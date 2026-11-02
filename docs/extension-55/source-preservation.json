@@ -1,0 +1,331 @@
+{
+  "baseline": "f615923",
+  "existingEngines": 53,
+  "preservedSources": [
+    {
+      "path": "src/data/presets.ts",
+      "sha256NormalizedLF": "37e9f01670f41169be8bf69c6f39e802dfbb482b6162497112b284b54e4540d8",
+      "identical": true
+    },
+    {
+      "path": "src/data/structuredPresets.ts",
+      "sha256NormalizedLF": "f9ba7b08a22081cc26c67b31fcac84370a6895749243ff7b2202a6b759bd1730",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/affinity.ts",
+      "sha256NormalizedLF": "2699514dbba098fd825b50e589364d73d78377990eca77d724bdd8b117c7ba9c",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/agnes.ts",
+      "sha256NormalizedLF": "d950ea0de60a8da5c373cfddd1c585abd59851deba6f25b66b3b116fae80ee13",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/autoCommon.ts",
+      "sha256NormalizedLF": "fc66a6ac9823645361e6049d8a89c33244262628a8c91a454b4e212c1f133037",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/bernoulli.ts",
+      "sha256NormalizedLF": "1e5c5bac105e8760878eacff5deedaecc392d901679f800da43d00b7c7a6ac7e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/bimax.ts",
+      "sha256NormalizedLF": "77c3c6e75cd1f9f5092f19b7d56431744693822b7bb905fff2c02e91f59ec880",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/birch.ts",
+      "sha256NormalizedLF": "ca6c42090148a72f4ae00d3d24cc678a5d47c4000b5666d182da43dc60e73fec",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/bisecting.ts",
+      "sha256NormalizedLF": "d2da2081a7c847494d40e62e6971bc3f3c2ce0eca2a83309c03de0ab21a075fa",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/bsas.ts",
+      "sha256NormalizedLF": "58f0c931f9157227023580a730a3a13b0b799e5a3ed6e788df13913d6494911e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/chengchurch.ts",
+      "sha256NormalizedLF": "b0115d99e39b08751ef8598a6558a73b5cb10a2e3f0d7c31dba72554e6d9f085",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/clara.ts",
+      "sha256NormalizedLF": "d932e4ebbbf348fb1be1d968faf12ce9bbf696d266b2a7f8c97481f701977b04",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/clarans.ts",
+      "sha256NormalizedLF": "1c81b942f0a181f5b51352cf5fea770254ccea521c9b90936d79e839613fbd34",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/clique.ts",
+      "sha256NormalizedLF": "52de36935a3bfe81ead53e6e97216b111c082fdbd2b3fbf0ef16e18a6ba9b1c1",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/cliquepercolation.ts",
+      "sha256NormalizedLF": "55807af54f6eb7f045a3b04bea7e5c959685fd9ac19a0c3ab26327219f25e21e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/cnm.ts",
+      "sha256NormalizedLF": "01ed1d5e066e093e0663406a844601c94511bcbf979d05c0765b3813da7ca8f1",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/communityCommon.ts",
+      "sha256NormalizedLF": "c9cf2a9deda28ef5871884b5412972e52674c6148cbbff5b05d7bd697de1edd3",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/copkmeans.ts",
+      "sha256NormalizedLF": "7e1bddbad687ba5aa2c2ce9d2dfa9ac8e85bf9ed9fa50382c64903f18f6300f2",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/cure.ts",
+      "sha256NormalizedLF": "c13794dd5b4a682d3c3683143068fec25bcace41d96a1f7a8c48cba329454cc3",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/dataCommon.ts",
+      "sha256NormalizedLF": "ced51bdf195e2857d543b02a6bb32004d8a0c735495845af2af34ea42bc900e1",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/dbscan.ts",
+      "sha256NormalizedLF": "ee172927f02f9a48e8dbf78714070a48c717ebf1a6a6c9a876385ea5c4d893a6",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/densitypeaks.ts",
+      "sha256NormalizedLF": "e0b627cd56e15b4e9771ec107ce5fb27c0a997778674cb30949c6a0609c60050",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/denstream.ts",
+      "sha256NormalizedLF": "ecacdf48f1b8ab7dd8d6f24400cb3f2fbbdd5badb136e161d4e15f3eb9c605a5",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/diana.ts",
+      "sha256NormalizedLF": "fd5a241628f47fd8a086df0fa9b82d0cf17023d1b7fe5d20480d9c78095fff91",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/dipmeans.ts",
+      "sha256NormalizedLF": "05040ee9e53e2d0c29ae4ec74ba39dda0b6584379e5d2870266b459fd30226c8",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/discreteMixtureCommon.ts",
+      "sha256NormalizedLF": "d1454c7b805c98a307dc98a25a7068fde8b91d321ff554bff15eeff82d3c22c0",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/dpmeans.ts",
+      "sha256NormalizedLF": "262aef3b56e808ad55851bea0085066c8fc77a8da39150f4c949c5987cecf191",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/fluid.ts",
+      "sha256NormalizedLF": "4a49e40e98e3fc779c79128ab0c4a889bf0985afae56c6065add0c23811cb0d1",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/fuzzy.ts",
+      "sha256NormalizedLF": "35e56f12b46de94026c1d8bd52d0a0a2030ddfaea71da5ae549d2df858e7dbc2",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/girvannewman.ts",
+      "sha256NormalizedLF": "6819a2d527cab8d7b748c91f14465c0d4a892ab9b30273372ba9cfe6e35b8104",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/gmeans.ts",
+      "sha256NormalizedLF": "da01dcee8bd5179ab0c696be487f39daeaf782534af03d0668082b514d93e95e",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/gmm.ts",
+      "sha256NormalizedLF": "8435db9ed6d396333208e1d584769ec81748adfeb10a2e2a9edfb412ce34fa44",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/growingneuralgas.ts",
+      "sha256NormalizedLF": "a437ba2ee47e392fa503d6d4913c1915a74cd230743e353128a1dc87a60231f3",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/hdbscan.ts",
+      "sha256NormalizedLF": "ed71c7991ae1aa91536d42786c6065b78f7cc58369c6e136035d9d702f1d3ee2",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/kmeans.ts",
+      "sha256NormalizedLF": "897dc5219e019c1b1491c6d206667821d97624180852845905c83c10c847b335",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/kmedians.ts",
+      "sha256NormalizedLF": "903f1ebd7bfdb2e7fa803729badc842808854e9b64a0b9c1521d75b69034466d",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/kmodes.ts",
+      "sha256NormalizedLF": "aafafd7e76ad3c7cbed0624be14fe9af9e866766ed2ffcbf9e565bbdfe89cd10",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/kprototypes.ts",
+      "sha256NormalizedLF": "ababc904daa49b41b76ba453ced859c4504db8f355933ad01ed48f1f5c942b86",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/kshape.ts",
+      "sha256NormalizedLF": "841f24ffadf30735e02405ca5dde6102a575b9be18577efc82a33da4a6d37d10",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/labelpropagation.ts",
+      "sha256NormalizedLF": "75a9cacfcedd7c0a4be4cbd89a3b107edeb7da2c0130312a793f26ee4eb89a9f",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/leiden.ts",
+      "sha256NormalizedLF": "e50df5a9a1e8b27a8fc2964b5bcfda29f69393898c9d8fb3f8b442e88f469700",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/louvain.ts",
+      "sha256NormalizedLF": "f46e86ed2b2d0418dac1c05a9d183b6a96cbd7eaafb335c135f5a1ac064046f9",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/lvq.ts",
+      "sha256NormalizedLF": "f47adb8fdc1540a5266cb9b9a8c9d906cef4affbd07b7b8fa1648c05e980c1c8",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/matrixCommon.ts",
+      "sha256NormalizedLF": "b3dc4d34c42db0ac3a199f785fa71f48396e36603972fa9359ed656e7e0d4c91",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/mbsas.ts",
+      "sha256NormalizedLF": "9ee0116996e74942e4e9664551f767bdd19dc31591df1bf46455057931a3cc22",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/mcl.ts",
+      "sha256NormalizedLF": "2cc47e14daf9ea7d97cc13dea716ca9616be5d15b7a2c0fe120ad81e9fa3df72",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/meanshift.ts",
+      "sha256NormalizedLF": "c2b579b6f20b098b1fde3037d87cc4f32a2fb79aabe248cf3847a5565d8a3e09",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/minibatch.ts",
+      "sha256NormalizedLF": "f6f0542b5c92595e04fdbabc0109eee7501e43fad491a1c370f149de58488f23",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/multinomial.ts",
+      "sha256NormalizedLF": "90fcaaf2e99053c81440aabd79232428a09359e6bb41af30f62e9f3dcac5f064",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/neuralgas.ts",
+      "sha256NormalizedLF": "5e17317e6531c6b6324b15c32d687d9e54febaea2cf01baee12ca0df4686d3ed",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/optics.ts",
+      "sha256NormalizedLF": "520abb41958f06dc4ff712d58d344dbe04bce8ce711a2826ce67d5295b55d6f7",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/pam.ts",
+      "sha256NormalizedLF": "51861744cc323c489d0ca7c9db40dc81ab030b2f97d2cef4d87553c3c5145f91",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/poisson.ts",
+      "sha256NormalizedLF": "c4669e4eaa48d399d9c64a7c17d42e08f3386c5b68998d40be870b224b74b9e3",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/proclus.ts",
+      "sha256NormalizedLF": "191748a82db2a4bfe68e7a38958dcd87fca3230b793ca2e3cf1976fb07f077be",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/rock.ts",
+      "sha256NormalizedLF": "753e62189ae3b1ce4a7d3c750d27f1d14bce7f06c46f570e2a885bf586fc6492",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/sequentialCommon.ts",
+      "sha256NormalizedLF": "dbab2ee3710140e20fe3fe916fbf04042bb9b65ecd02c3e22e2ebb214334c388",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/som.ts",
+      "sha256NormalizedLF": "254d006180a2992fe16c3704d6e779393c0b8b4e39ae0319f46e1af4f889152c",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/spectral.ts",
+      "sha256NormalizedLF": "7692cd67398ba7f274fca0da1868d6a77c71039727afa132cf7abc732ec6a6d3",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/ttsas.ts",
+      "sha256NormalizedLF": "8d7fdae8c1b2e51bca29fc0e28a58e8b0764c3446c96f4dbe8bbd1679c12de47",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/walktrap.ts",
+      "sha256NormalizedLF": "fb78ef32b562e297cd6db2eff60f574d81558eb75a02dccf1d767645e5745aac",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/xi.ts",
+      "sha256NormalizedLF": "12eda22dae48e5a25af4c596e7c8d6bd855559637aab634a0179a244116385d0",
+      "identical": true
+    },
+    {
+      "path": "src/engine/algorithms/xmeans.ts",
+      "sha256NormalizedLF": "d54cbd60d0c3df96fbbd5731b49f15f6919f7577fd9569f56db433004ffb3761",
+      "identical": true
+    },
+    {
+      "path": "src/pages/Home.tsx",
+      "sha256NormalizedLF": "c7a42aad1fc4bd1576a72100bd7d7235671208f58e34f38d4a9ecebafc6bcd15",
+      "identical": true
+    }
+  ],
+  "candidateIdentitiesAndOrderPreserved": 119,
+  "changedCandidateNumbersOnly": [
+    21,
+    24
+  ],
+  "newExecutedEngines": 55,
+  "unimplementedCandidates": 77,
+  "recommendations": 220,
+  "strictCertification": 0,
+  "worktrees": "worktree C:/Users/hihi9/Desktop/Projects/ClusterLab\nHEAD bed5b7991eac41e919fae0f340a143a3df4a447c\nbranch refs/heads/main\n\nworktree C:/Users/hihi9/Desktop/Projects/ClusterLab/.local/sequential-worktree\nHEAD c4d6a7d5a3be12e9625869a234896bce4176c2ea\nbranch refs/heads/feat/sequential-clustering\n\n"
+}

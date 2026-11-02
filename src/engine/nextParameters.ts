@@ -83,6 +83,76 @@ const dimensions = number(
   "CLIQUE 탐색 최대 차원 / PROCLUS 평균 차원 예산",
 );
 export const nextFields = {
+  "Possibilistic C-Means": [
+    k,
+    number(
+      "typicalityExponent",
+      "전형성 지수 η",
+      1 + Number.EPSILON,
+      10,
+      "PCM의 η>1. 전형성 행 합을 정규화하지 않습니다.",
+      0.1,
+    ),
+    number(
+      "fuzziness",
+      "초기 FCM 지수 m",
+      1 + Number.EPSILON,
+      10,
+      "전체 ND FCM 준비 단계의 소속도 지수. PCM η와 다릅니다.",
+      0.1,
+    ),
+    {
+      ...number(
+        "scaleCoefficient",
+        "척도 계수 κ",
+        Number.MIN_VALUE,
+        1000000,
+        "자동 Ω_j=κ·FCM 가중분산. 군집 수 K가 아닙니다.",
+        0.1,
+      ),
+      visibleWhen: { key: "pcmScaleMode", value: "fcm" },
+    },
+    {
+      key: "pcmScaleMode",
+      label: "척도 정책",
+      options: ["fcm", "manual"],
+      optionLabels: { fcm: "FCM 추정 후 고정", manual: "양수 Ω 직접 지정" },
+      hint: "PCM 반복 중에는 군집별 척도를 고정합니다.",
+    },
+    {
+      ...number(
+        "pcmScale",
+        "수동 양수 척도 Ω",
+        Number.MIN_VALUE,
+        1e300,
+        "직접 지정 모드에서 모든 군집에 적용합니다. 자동 모드에서는 사용하지 않습니다.",
+        0.1,
+      ),
+      visibleWhen: { key: "pcmScaleMode", value: "manual" },
+    },
+    number(
+      "warmIterations",
+      "FCM 초기화 반복",
+      1,
+      1000,
+      "원본 ND에서 실행하는 준비 반복의 한도",
+    ),
+    number(
+      "iterations",
+      "PCM 반복 한도",
+      1,
+      1000,
+      "실제 전체 전형성/중심 AO 반복",
+    ),
+    number(
+      "tolerance",
+      "중심 이동 허용오차",
+      0,
+      1e100,
+      "원본 단위의 최대 중심 이동. 한도 종료는 수렴과 다릅니다.",
+      0.000001,
+    ),
+  ],
   BSAS: [
     number(
       "threshold",
