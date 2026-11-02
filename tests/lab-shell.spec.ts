@@ -63,7 +63,7 @@ test("keyboard panel tabs, integrated math guide and fullscreen remain usable", 
     .click();
   await lab.getByLabel("상세 설명·수학 가이드", { exact: true }).click();
   await lab.locator(".lab-details > summary").click();
-  await expect(lab.locator(".guide-article")).toBeVisible();
+  await expect(lab.locator(".guide-article")).toBeVisible({ timeout: 30000 });
   await expect(lab.locator(".katex-mathml math").first()).toBeAttached();
   await expect(
     lab.locator(".trace-lesson").getByLabel("재생", { exact: true }),

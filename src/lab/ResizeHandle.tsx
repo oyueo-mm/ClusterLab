@@ -50,6 +50,14 @@ export function ResizeHandle({
     },
     [],
   );
+  const finish = () => {
+    const current = drag.current;
+    drag.current = null;
+    if (current) {
+      cancelAnimationFrame(current.frame);
+      onChange(current.next);
+    }
+  };
   return (
     <div
       className="resize-handle"
@@ -94,18 +102,19 @@ export function ResizeHandle({
             onChange(d.next);
           });
       }}
-      onLostPointerCapture={() => {
-        const d = drag.current;
-        if (d) {
-          cancelAnimationFrame(d.frame);
-          onChange(d.next);
-        }
-        drag.current = null;
+      onLostPointerCapture={finish}
+      onPointerUp={(e) => {
+        const current = drag.current;
+        if (current)
+          current.next =
+            current.width + (e.clientX - current.x) * (reverse ? -1 : 1);
+        finish();
+        e.currentTarget.releasePointerCapture(e.pointerId);
       }}
-      onPointerUp={(e) => e.currentTarget.releasePointerCapture(e.pointerId)}
-      onPointerCancel={(e) =>
-        e.currentTarget.releasePointerCapture(e.pointerId)
-      }
+      onPointerCancel={(e) => {
+        finish();
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      }}
     />
   );
 }
