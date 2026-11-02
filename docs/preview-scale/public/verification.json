@@ -1,0 +1,2238 @@
+{
+  "url": "https://oyueo-mm.github.io/ClusterLab/",
+  "checkedAt": "2026-11-02T04:53:45.829Z",
+  "evidence": [
+    {
+      "device": "desktop",
+      "width": 1440,
+      "algorithm": "K-Means",
+      "events": 296,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 4,
+          "kind": "distance"
+        },
+        {
+          "index": 5,
+          "kind": "assign"
+        },
+        {
+          "index": 10,
+          "kind": "distance"
+        },
+        {
+          "index": 19,
+          "kind": "assign"
+        },
+        {
+          "index": 29,
+          "kind": "assign"
+        },
+        {
+          "index": 38,
+          "kind": "distance"
+        },
+        {
+          "index": 48,
+          "kind": "distance"
+        },
+        {
+          "index": 57,
+          "kind": "assign"
+        },
+        {
+          "index": 67,
+          "kind": "assign"
+        },
+        {
+          "index": 76,
+          "kind": "distance"
+        },
+        {
+          "index": 86,
+          "kind": "distance"
+        },
+        {
+          "index": 95,
+          "kind": "assign"
+        },
+        {
+          "index": 100,
+          "kind": "move"
+        },
+        {
+          "index": 105,
+          "kind": "distance"
+        },
+        {
+          "index": 115,
+          "kind": "distance"
+        },
+        {
+          "index": 124,
+          "kind": "assign"
+        },
+        {
+          "index": 134,
+          "kind": "assign"
+        },
+        {
+          "index": 143,
+          "kind": "distance"
+        },
+        {
+          "index": 153,
+          "kind": "distance"
+        },
+        {
+          "index": 162,
+          "kind": "assign"
+        },
+        {
+          "index": 172,
+          "kind": "assign"
+        },
+        {
+          "index": 181,
+          "kind": "distance"
+        },
+        {
+          "index": 191,
+          "kind": "distance"
+        },
+        {
+          "index": 201,
+          "kind": "assign"
+        },
+        {
+          "index": 210,
+          "kind": "distance"
+        },
+        {
+          "index": 220,
+          "kind": "distance"
+        },
+        {
+          "index": 229,
+          "kind": "assign"
+        },
+        {
+          "index": 239,
+          "kind": "assign"
+        },
+        {
+          "index": 248,
+          "kind": "distance"
+        },
+        {
+          "index": 258,
+          "kind": "distance"
+        },
+        {
+          "index": 267,
+          "kind": "assign"
+        },
+        {
+          "index": 277,
+          "kind": "assign"
+        },
+        {
+          "index": 286,
+          "kind": "distance"
+        },
+        {
+          "index": 296,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 4,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 54.98324246683244,
+      "maxRafGapMs": 750.1000000000004,
+      "canvasDraws": 398,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        134,
+        296
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "desktop",
+      "width": 1440,
+      "algorithm": "DBSCAN",
+      "events": 141,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "neighbors"
+        },
+        {
+          "index": 2,
+          "kind": "core"
+        },
+        {
+          "index": 5,
+          "kind": "expand"
+        },
+        {
+          "index": 9,
+          "kind": "neighbors"
+        },
+        {
+          "index": 14,
+          "kind": "expand"
+        },
+        {
+          "index": 18,
+          "kind": "core"
+        },
+        {
+          "index": 23,
+          "kind": "neighbors"
+        },
+        {
+          "index": 27,
+          "kind": "core"
+        },
+        {
+          "index": 32,
+          "kind": "neighbors"
+        },
+        {
+          "index": 36,
+          "kind": "core"
+        },
+        {
+          "index": 41,
+          "kind": "neighbors"
+        },
+        {
+          "index": 45,
+          "kind": "core"
+        },
+        {
+          "index": 50,
+          "kind": "neighbors"
+        },
+        {
+          "index": 55,
+          "kind": "expand"
+        },
+        {
+          "index": 59,
+          "kind": "neighbors"
+        },
+        {
+          "index": 64,
+          "kind": "expand"
+        },
+        {
+          "index": 68,
+          "kind": "neighbors"
+        },
+        {
+          "index": 73,
+          "kind": "neighbors"
+        },
+        {
+          "index": 77,
+          "kind": "core"
+        },
+        {
+          "index": 82,
+          "kind": "neighbors"
+        },
+        {
+          "index": 86,
+          "kind": "core"
+        },
+        {
+          "index": 91,
+          "kind": "neighbors"
+        },
+        {
+          "index": 96,
+          "kind": "neighbors"
+        },
+        {
+          "index": 100,
+          "kind": "core"
+        },
+        {
+          "index": 105,
+          "kind": "neighbors"
+        },
+        {
+          "index": 109,
+          "kind": "core"
+        },
+        {
+          "index": 113,
+          "kind": "assign"
+        },
+        {
+          "index": 114,
+          "kind": "neighbors"
+        },
+        {
+          "index": 118,
+          "kind": "core"
+        },
+        {
+          "index": 123,
+          "kind": "neighbors"
+        },
+        {
+          "index": 127,
+          "kind": "core"
+        },
+        {
+          "index": 132,
+          "kind": "neighbors"
+        },
+        {
+          "index": 136,
+          "kind": "core"
+        },
+        {
+          "index": 141,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 1.600000023841858,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 60.05640432568426,
+      "maxRafGapMs": 16.800000000000182,
+      "canvasDraws": 398,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        68,
+        141
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "desktop",
+      "width": 1440,
+      "algorithm": "Spectral Clustering",
+      "events": 21,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "graph"
+        },
+        {
+          "index": 2,
+          "kind": "laplacian"
+        },
+        {
+          "index": 3,
+          "kind": "eigen"
+        },
+        {
+          "index": 4,
+          "kind": "eigen"
+        },
+        {
+          "index": 5,
+          "kind": "eigen"
+        },
+        {
+          "index": 6,
+          "kind": "eigen"
+        },
+        {
+          "index": 7,
+          "kind": "eigen"
+        },
+        {
+          "index": 8,
+          "kind": "eigen"
+        },
+        {
+          "index": 9,
+          "kind": "eigen"
+        },
+        {
+          "index": 10,
+          "kind": "eigen"
+        },
+        {
+          "index": 11,
+          "kind": "eigen"
+        },
+        {
+          "index": 12,
+          "kind": "embedding"
+        },
+        {
+          "index": 13,
+          "kind": "initialize"
+        },
+        {
+          "index": 14,
+          "kind": "assign"
+        },
+        {
+          "index": 15,
+          "kind": "move"
+        },
+        {
+          "index": 16,
+          "kind": "assign"
+        },
+        {
+          "index": 17,
+          "kind": "move"
+        },
+        {
+          "index": 18,
+          "kind": "assign"
+        },
+        {
+          "index": 19,
+          "kind": "move"
+        },
+        {
+          "index": 20,
+          "kind": "assign"
+        },
+        {
+          "index": 21,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 15,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 60.07216336557654,
+      "maxRafGapMs": 16.800000000000182,
+      "canvasDraws": 132,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        11,
+        21
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "desktop",
+      "width": 1440,
+      "algorithm": "GMM",
+      "events": 42,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 2,
+          "kind": "expectation"
+        },
+        {
+          "index": 3,
+          "kind": "maximization"
+        },
+        {
+          "index": 4,
+          "kind": "expectation"
+        },
+        {
+          "index": 5,
+          "kind": "maximization"
+        },
+        {
+          "index": 7,
+          "kind": "maximization"
+        },
+        {
+          "index": 8,
+          "kind": "expectation"
+        },
+        {
+          "index": 9,
+          "kind": "maximization"
+        },
+        {
+          "index": 11,
+          "kind": "maximization"
+        },
+        {
+          "index": 12,
+          "kind": "expectation"
+        },
+        {
+          "index": 13,
+          "kind": "maximization"
+        },
+        {
+          "index": 14,
+          "kind": "expectation"
+        },
+        {
+          "index": 16,
+          "kind": "expectation"
+        },
+        {
+          "index": 17,
+          "kind": "maximization"
+        },
+        {
+          "index": 18,
+          "kind": "expectation"
+        },
+        {
+          "index": 20,
+          "kind": "expectation"
+        },
+        {
+          "index": 21,
+          "kind": "maximization"
+        },
+        {
+          "index": 22,
+          "kind": "expectation"
+        },
+        {
+          "index": 24,
+          "kind": "expectation"
+        },
+        {
+          "index": 25,
+          "kind": "maximization"
+        },
+        {
+          "index": 26,
+          "kind": "expectation"
+        },
+        {
+          "index": 28,
+          "kind": "expectation"
+        },
+        {
+          "index": 29,
+          "kind": "maximization"
+        },
+        {
+          "index": 30,
+          "kind": "expectation"
+        },
+        {
+          "index": 32,
+          "kind": "expectation"
+        },
+        {
+          "index": 33,
+          "kind": "maximization"
+        },
+        {
+          "index": 34,
+          "kind": "expectation"
+        },
+        {
+          "index": 35,
+          "kind": "maximization"
+        },
+        {
+          "index": 37,
+          "kind": "maximization"
+        },
+        {
+          "index": 38,
+          "kind": "expectation"
+        },
+        {
+          "index": 39,
+          "kind": "maximization"
+        },
+        {
+          "index": 41,
+          "kind": "maximization"
+        },
+        {
+          "index": 42,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 4.299999952316284,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 59.064244965428266,
+      "maxRafGapMs": 100,
+      "canvasDraws": 132,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        21,
+        42
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "desktop",
+      "width": 1440,
+      "algorithm": "Growing Neural Gas",
+      "events": 1558,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 2,
+          "kind": "rank"
+        },
+        {
+          "index": 3,
+          "kind": "prototype"
+        },
+        {
+          "index": 4,
+          "kind": "connect"
+        },
+        {
+          "index": 5,
+          "kind": "prototype"
+        },
+        {
+          "index": 54,
+          "kind": "rank"
+        },
+        {
+          "index": 107,
+          "kind": "prototype"
+        },
+        {
+          "index": 121,
+          "kind": "insert"
+        },
+        {
+          "index": 161,
+          "kind": "connect"
+        },
+        {
+          "index": 215,
+          "kind": "prototype"
+        },
+        {
+          "index": 269,
+          "kind": "rank"
+        },
+        {
+          "index": 322,
+          "kind": "prototype"
+        },
+        {
+          "index": 376,
+          "kind": "connect"
+        },
+        {
+          "index": 430,
+          "kind": "prototype"
+        },
+        {
+          "index": 484,
+          "kind": "prototype"
+        },
+        {
+          "index": 537,
+          "kind": "prototype"
+        },
+        {
+          "index": 591,
+          "kind": "connect"
+        },
+        {
+          "index": 645,
+          "kind": "prototype"
+        },
+        {
+          "index": 698,
+          "kind": "rank"
+        },
+        {
+          "index": 752,
+          "kind": "prototype"
+        },
+        {
+          "index": 806,
+          "kind": "connect"
+        },
+        {
+          "index": 860,
+          "kind": "prototype"
+        },
+        {
+          "index": 913,
+          "kind": "rank"
+        },
+        {
+          "index": 967,
+          "kind": "connect"
+        },
+        {
+          "index": 1021,
+          "kind": "connect"
+        },
+        {
+          "index": 1074,
+          "kind": "prototype"
+        },
+        {
+          "index": 1128,
+          "kind": "rank"
+        },
+        {
+          "index": 1182,
+          "kind": "prototype"
+        },
+        {
+          "index": 1236,
+          "kind": "connect"
+        },
+        {
+          "index": 1289,
+          "kind": "prototype"
+        },
+        {
+          "index": 1343,
+          "kind": "rank"
+        },
+        {
+          "index": 1397,
+          "kind": "prototype"
+        },
+        {
+          "index": 1451,
+          "kind": "prototype"
+        },
+        {
+          "index": 1504,
+          "kind": "prototype"
+        },
+        {
+          "index": 1558,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 49.10000002384186,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 60.001543448062975,
+      "maxRafGapMs": 16.800000000000182,
+      "canvasDraws": 134,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        645,
+        1558
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "desktop",
+      "width": 1440,
+      "algorithm": "Bimax",
+      "events": 8,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 2,
+          "kind": "prune"
+        },
+        {
+          "index": 3,
+          "kind": "split"
+        },
+        {
+          "index": 4,
+          "kind": "prune"
+        },
+        {
+          "index": 5,
+          "kind": "extract"
+        },
+        {
+          "index": 6,
+          "kind": "prune"
+        },
+        {
+          "index": 7,
+          "kind": "extract"
+        },
+        {
+          "index": 8,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 1.399999976158142,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 60.002500104171006,
+      "maxRafGapMs": 16.800000000000182,
+      "canvasDraws": 123,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        4,
+        8
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "desktop",
+      "width": 1440,
+      "algorithm": "DenStream",
+      "events": 76,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 2,
+          "kind": "insert"
+        },
+        {
+          "index": 3,
+          "kind": "decay"
+        },
+        {
+          "index": 4,
+          "kind": "insert"
+        },
+        {
+          "index": 5,
+          "kind": "decay"
+        },
+        {
+          "index": 8,
+          "kind": "insert"
+        },
+        {
+          "index": 11,
+          "kind": "decay"
+        },
+        {
+          "index": 14,
+          "kind": "insert"
+        },
+        {
+          "index": 16,
+          "kind": "insert"
+        },
+        {
+          "index": 19,
+          "kind": "decay"
+        },
+        {
+          "index": 22,
+          "kind": "insert"
+        },
+        {
+          "index": 24,
+          "kind": "insert"
+        },
+        {
+          "index": 27,
+          "kind": "decay"
+        },
+        {
+          "index": 30,
+          "kind": "insert"
+        },
+        {
+          "index": 33,
+          "kind": "decay"
+        },
+        {
+          "index": 35,
+          "kind": "decay"
+        },
+        {
+          "index": 38,
+          "kind": "insert"
+        },
+        {
+          "index": 41,
+          "kind": "decay"
+        },
+        {
+          "index": 43,
+          "kind": "decay"
+        },
+        {
+          "index": 44,
+          "kind": "insert"
+        },
+        {
+          "index": 46,
+          "kind": "insert"
+        },
+        {
+          "index": 49,
+          "kind": "decay"
+        },
+        {
+          "index": 52,
+          "kind": "insert"
+        },
+        {
+          "index": 54,
+          "kind": "insert"
+        },
+        {
+          "index": 57,
+          "kind": "decay"
+        },
+        {
+          "index": 60,
+          "kind": "insert"
+        },
+        {
+          "index": 62,
+          "kind": "insert"
+        },
+        {
+          "index": 65,
+          "kind": "decay"
+        },
+        {
+          "index": 68,
+          "kind": "insert"
+        },
+        {
+          "index": 71,
+          "kind": "decay"
+        },
+        {
+          "index": 73,
+          "kind": "decay"
+        },
+        {
+          "index": 75,
+          "kind": "extract"
+        },
+        {
+          "index": 76,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 7.399999976158142,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 60.00127662290687,
+      "maxRafGapMs": 16.800000000000182,
+      "canvasDraws": 134,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        38,
+        76
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "desktop",
+      "width": 1440,
+      "algorithm": "MBSAS",
+      "events": 43,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 2,
+          "kind": "prototype"
+        },
+        {
+          "index": 3,
+          "kind": "distance"
+        },
+        {
+          "index": 4,
+          "kind": "defer"
+        },
+        {
+          "index": 6,
+          "kind": "prototype"
+        },
+        {
+          "index": 7,
+          "kind": "distance"
+        },
+        {
+          "index": 9,
+          "kind": "distance"
+        },
+        {
+          "index": 10,
+          "kind": "defer"
+        },
+        {
+          "index": 12,
+          "kind": "prototype"
+        },
+        {
+          "index": 13,
+          "kind": "distance"
+        },
+        {
+          "index": 15,
+          "kind": "distance"
+        },
+        {
+          "index": 16,
+          "kind": "defer"
+        },
+        {
+          "index": 18,
+          "kind": "defer"
+        },
+        {
+          "index": 19,
+          "kind": "distance"
+        },
+        {
+          "index": 21,
+          "kind": "distance"
+        },
+        {
+          "index": 22,
+          "kind": "defer"
+        },
+        {
+          "index": 24,
+          "kind": "defer"
+        },
+        {
+          "index": 25,
+          "kind": "visit"
+        },
+        {
+          "index": 27,
+          "kind": "assign"
+        },
+        {
+          "index": 28,
+          "kind": "distance"
+        },
+        {
+          "index": 30,
+          "kind": "distance"
+        },
+        {
+          "index": 31,
+          "kind": "assign"
+        },
+        {
+          "index": 33,
+          "kind": "assign"
+        },
+        {
+          "index": 34,
+          "kind": "distance"
+        },
+        {
+          "index": 36,
+          "kind": "distance"
+        },
+        {
+          "index": 37,
+          "kind": "assign"
+        },
+        {
+          "index": 39,
+          "kind": "assign"
+        },
+        {
+          "index": 40,
+          "kind": "distance"
+        },
+        {
+          "index": 42,
+          "kind": "visit"
+        },
+        {
+          "index": 43,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 2.299999952316284,
+      "sequentialFrames": 29,
+      "queryCentersRecorded": true,
+      "rafFPS": 60.1299582969644,
+      "maxRafGapMs": 16.800000000000182,
+      "canvasDraws": 134,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        21,
+        43
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "mobile",
+      "width": 390,
+      "algorithm": "K-Means",
+      "events": 296,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 4,
+          "kind": "distance"
+        },
+        {
+          "index": 5,
+          "kind": "assign"
+        },
+        {
+          "index": 10,
+          "kind": "distance"
+        },
+        {
+          "index": 19,
+          "kind": "assign"
+        },
+        {
+          "index": 29,
+          "kind": "assign"
+        },
+        {
+          "index": 38,
+          "kind": "distance"
+        },
+        {
+          "index": 48,
+          "kind": "distance"
+        },
+        {
+          "index": 57,
+          "kind": "assign"
+        },
+        {
+          "index": 67,
+          "kind": "assign"
+        },
+        {
+          "index": 76,
+          "kind": "distance"
+        },
+        {
+          "index": 86,
+          "kind": "distance"
+        },
+        {
+          "index": 95,
+          "kind": "assign"
+        },
+        {
+          "index": 100,
+          "kind": "move"
+        },
+        {
+          "index": 105,
+          "kind": "distance"
+        },
+        {
+          "index": 115,
+          "kind": "distance"
+        },
+        {
+          "index": 124,
+          "kind": "assign"
+        },
+        {
+          "index": 134,
+          "kind": "assign"
+        },
+        {
+          "index": 143,
+          "kind": "distance"
+        },
+        {
+          "index": 153,
+          "kind": "distance"
+        },
+        {
+          "index": 162,
+          "kind": "assign"
+        },
+        {
+          "index": 172,
+          "kind": "assign"
+        },
+        {
+          "index": 181,
+          "kind": "distance"
+        },
+        {
+          "index": 191,
+          "kind": "distance"
+        },
+        {
+          "index": 201,
+          "kind": "assign"
+        },
+        {
+          "index": 210,
+          "kind": "distance"
+        },
+        {
+          "index": 220,
+          "kind": "distance"
+        },
+        {
+          "index": 229,
+          "kind": "assign"
+        },
+        {
+          "index": 239,
+          "kind": "assign"
+        },
+        {
+          "index": 248,
+          "kind": "distance"
+        },
+        {
+          "index": 258,
+          "kind": "distance"
+        },
+        {
+          "index": 267,
+          "kind": "assign"
+        },
+        {
+          "index": 277,
+          "kind": "assign"
+        },
+        {
+          "index": 286,
+          "kind": "distance"
+        },
+        {
+          "index": 296,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 4.5,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 59.66836074739837,
+      "maxRafGapMs": 50.10000000000002,
+      "canvasDraws": 268,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        134,
+        296
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "mobile",
+      "width": 390,
+      "algorithm": "DBSCAN",
+      "events": 141,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "neighbors"
+        },
+        {
+          "index": 2,
+          "kind": "core"
+        },
+        {
+          "index": 5,
+          "kind": "expand"
+        },
+        {
+          "index": 9,
+          "kind": "neighbors"
+        },
+        {
+          "index": 14,
+          "kind": "expand"
+        },
+        {
+          "index": 18,
+          "kind": "core"
+        },
+        {
+          "index": 23,
+          "kind": "neighbors"
+        },
+        {
+          "index": 27,
+          "kind": "core"
+        },
+        {
+          "index": 32,
+          "kind": "neighbors"
+        },
+        {
+          "index": 36,
+          "kind": "core"
+        },
+        {
+          "index": 41,
+          "kind": "neighbors"
+        },
+        {
+          "index": 45,
+          "kind": "core"
+        },
+        {
+          "index": 50,
+          "kind": "neighbors"
+        },
+        {
+          "index": 55,
+          "kind": "expand"
+        },
+        {
+          "index": 59,
+          "kind": "neighbors"
+        },
+        {
+          "index": 64,
+          "kind": "expand"
+        },
+        {
+          "index": 68,
+          "kind": "neighbors"
+        },
+        {
+          "index": 73,
+          "kind": "neighbors"
+        },
+        {
+          "index": 77,
+          "kind": "core"
+        },
+        {
+          "index": 82,
+          "kind": "neighbors"
+        },
+        {
+          "index": 86,
+          "kind": "core"
+        },
+        {
+          "index": 91,
+          "kind": "neighbors"
+        },
+        {
+          "index": 96,
+          "kind": "neighbors"
+        },
+        {
+          "index": 100,
+          "kind": "core"
+        },
+        {
+          "index": 105,
+          "kind": "neighbors"
+        },
+        {
+          "index": 109,
+          "kind": "core"
+        },
+        {
+          "index": 113,
+          "kind": "assign"
+        },
+        {
+          "index": 114,
+          "kind": "neighbors"
+        },
+        {
+          "index": 118,
+          "kind": "core"
+        },
+        {
+          "index": 123,
+          "kind": "neighbors"
+        },
+        {
+          "index": 127,
+          "kind": "core"
+        },
+        {
+          "index": 132,
+          "kind": "neighbors"
+        },
+        {
+          "index": 136,
+          "kind": "core"
+        },
+        {
+          "index": 141,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 1.5,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 60.002400096003846,
+      "maxRafGapMs": 16.800000000000182,
+      "canvasDraws": 268,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        68,
+        141
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "mobile",
+      "width": 390,
+      "algorithm": "Spectral Clustering",
+      "events": 21,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "graph"
+        },
+        {
+          "index": 2,
+          "kind": "laplacian"
+        },
+        {
+          "index": 3,
+          "kind": "eigen"
+        },
+        {
+          "index": 4,
+          "kind": "eigen"
+        },
+        {
+          "index": 5,
+          "kind": "eigen"
+        },
+        {
+          "index": 6,
+          "kind": "eigen"
+        },
+        {
+          "index": 7,
+          "kind": "eigen"
+        },
+        {
+          "index": 8,
+          "kind": "eigen"
+        },
+        {
+          "index": 9,
+          "kind": "eigen"
+        },
+        {
+          "index": 10,
+          "kind": "eigen"
+        },
+        {
+          "index": 11,
+          "kind": "eigen"
+        },
+        {
+          "index": 12,
+          "kind": "embedding"
+        },
+        {
+          "index": 13,
+          "kind": "initialize"
+        },
+        {
+          "index": 14,
+          "kind": "assign"
+        },
+        {
+          "index": 15,
+          "kind": "move"
+        },
+        {
+          "index": 16,
+          "kind": "assign"
+        },
+        {
+          "index": 17,
+          "kind": "move"
+        },
+        {
+          "index": 18,
+          "kind": "assign"
+        },
+        {
+          "index": 19,
+          "kind": "move"
+        },
+        {
+          "index": 20,
+          "kind": "assign"
+        },
+        {
+          "index": 21,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 14.099999904632568,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 60.002243074507454,
+      "maxRafGapMs": 16.800000000000182,
+      "canvasDraws": 132,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        11,
+        21
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "mobile",
+      "width": 390,
+      "algorithm": "GMM",
+      "events": 42,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 2,
+          "kind": "expectation"
+        },
+        {
+          "index": 3,
+          "kind": "maximization"
+        },
+        {
+          "index": 4,
+          "kind": "expectation"
+        },
+        {
+          "index": 5,
+          "kind": "maximization"
+        },
+        {
+          "index": 7,
+          "kind": "maximization"
+        },
+        {
+          "index": 8,
+          "kind": "expectation"
+        },
+        {
+          "index": 9,
+          "kind": "maximization"
+        },
+        {
+          "index": 11,
+          "kind": "maximization"
+        },
+        {
+          "index": 12,
+          "kind": "expectation"
+        },
+        {
+          "index": 13,
+          "kind": "maximization"
+        },
+        {
+          "index": 14,
+          "kind": "expectation"
+        },
+        {
+          "index": 16,
+          "kind": "expectation"
+        },
+        {
+          "index": 17,
+          "kind": "maximization"
+        },
+        {
+          "index": 18,
+          "kind": "expectation"
+        },
+        {
+          "index": 20,
+          "kind": "expectation"
+        },
+        {
+          "index": 21,
+          "kind": "maximization"
+        },
+        {
+          "index": 22,
+          "kind": "expectation"
+        },
+        {
+          "index": 24,
+          "kind": "expectation"
+        },
+        {
+          "index": 25,
+          "kind": "maximization"
+        },
+        {
+          "index": 26,
+          "kind": "expectation"
+        },
+        {
+          "index": 28,
+          "kind": "expectation"
+        },
+        {
+          "index": 29,
+          "kind": "maximization"
+        },
+        {
+          "index": 30,
+          "kind": "expectation"
+        },
+        {
+          "index": 32,
+          "kind": "expectation"
+        },
+        {
+          "index": 33,
+          "kind": "maximization"
+        },
+        {
+          "index": 34,
+          "kind": "expectation"
+        },
+        {
+          "index": 35,
+          "kind": "maximization"
+        },
+        {
+          "index": 37,
+          "kind": "maximization"
+        },
+        {
+          "index": 38,
+          "kind": "expectation"
+        },
+        {
+          "index": 39,
+          "kind": "maximization"
+        },
+        {
+          "index": 41,
+          "kind": "maximization"
+        },
+        {
+          "index": 42,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 3.6999999284744263,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 59.60238409536381,
+      "maxRafGapMs": 50,
+      "canvasDraws": 133,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        21,
+        42
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "mobile",
+      "width": 390,
+      "algorithm": "Growing Neural Gas",
+      "events": 1558,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 2,
+          "kind": "rank"
+        },
+        {
+          "index": 3,
+          "kind": "prototype"
+        },
+        {
+          "index": 4,
+          "kind": "connect"
+        },
+        {
+          "index": 5,
+          "kind": "prototype"
+        },
+        {
+          "index": 54,
+          "kind": "rank"
+        },
+        {
+          "index": 107,
+          "kind": "prototype"
+        },
+        {
+          "index": 121,
+          "kind": "insert"
+        },
+        {
+          "index": 161,
+          "kind": "connect"
+        },
+        {
+          "index": 215,
+          "kind": "prototype"
+        },
+        {
+          "index": 269,
+          "kind": "rank"
+        },
+        {
+          "index": 322,
+          "kind": "prototype"
+        },
+        {
+          "index": 376,
+          "kind": "connect"
+        },
+        {
+          "index": 430,
+          "kind": "prototype"
+        },
+        {
+          "index": 484,
+          "kind": "prototype"
+        },
+        {
+          "index": 537,
+          "kind": "prototype"
+        },
+        {
+          "index": 591,
+          "kind": "connect"
+        },
+        {
+          "index": 645,
+          "kind": "prototype"
+        },
+        {
+          "index": 698,
+          "kind": "rank"
+        },
+        {
+          "index": 752,
+          "kind": "prototype"
+        },
+        {
+          "index": 806,
+          "kind": "connect"
+        },
+        {
+          "index": 860,
+          "kind": "prototype"
+        },
+        {
+          "index": 913,
+          "kind": "rank"
+        },
+        {
+          "index": 967,
+          "kind": "connect"
+        },
+        {
+          "index": 1021,
+          "kind": "connect"
+        },
+        {
+          "index": 1074,
+          "kind": "prototype"
+        },
+        {
+          "index": 1128,
+          "kind": "rank"
+        },
+        {
+          "index": 1182,
+          "kind": "prototype"
+        },
+        {
+          "index": 1236,
+          "kind": "connect"
+        },
+        {
+          "index": 1289,
+          "kind": "prototype"
+        },
+        {
+          "index": 1343,
+          "kind": "rank"
+        },
+        {
+          "index": 1397,
+          "kind": "prototype"
+        },
+        {
+          "index": 1451,
+          "kind": "prototype"
+        },
+        {
+          "index": 1504,
+          "kind": "prototype"
+        },
+        {
+          "index": 1558,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 46.39999997615814,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 55.633057128930865,
+      "maxRafGapMs": 233.39999999999964,
+      "canvasDraws": 130,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        645,
+        1558
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "mobile",
+      "width": 390,
+      "algorithm": "Bimax",
+      "events": 8,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 2,
+          "kind": "prune"
+        },
+        {
+          "index": 3,
+          "kind": "split"
+        },
+        {
+          "index": 4,
+          "kind": "prune"
+        },
+        {
+          "index": 5,
+          "kind": "extract"
+        },
+        {
+          "index": 6,
+          "kind": "prune"
+        },
+        {
+          "index": 7,
+          "kind": "extract"
+        },
+        {
+          "index": 8,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 3.3000000715255737,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 60.00270108622253,
+      "maxRafGapMs": 16.800000000000182,
+      "canvasDraws": 123,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        4,
+        8
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "mobile",
+      "width": 390,
+      "algorithm": "DenStream",
+      "events": 76,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 2,
+          "kind": "insert"
+        },
+        {
+          "index": 3,
+          "kind": "decay"
+        },
+        {
+          "index": 4,
+          "kind": "insert"
+        },
+        {
+          "index": 5,
+          "kind": "decay"
+        },
+        {
+          "index": 8,
+          "kind": "insert"
+        },
+        {
+          "index": 11,
+          "kind": "decay"
+        },
+        {
+          "index": 14,
+          "kind": "insert"
+        },
+        {
+          "index": 16,
+          "kind": "insert"
+        },
+        {
+          "index": 19,
+          "kind": "decay"
+        },
+        {
+          "index": 22,
+          "kind": "insert"
+        },
+        {
+          "index": 24,
+          "kind": "insert"
+        },
+        {
+          "index": 27,
+          "kind": "decay"
+        },
+        {
+          "index": 30,
+          "kind": "insert"
+        },
+        {
+          "index": 33,
+          "kind": "decay"
+        },
+        {
+          "index": 35,
+          "kind": "decay"
+        },
+        {
+          "index": 38,
+          "kind": "insert"
+        },
+        {
+          "index": 41,
+          "kind": "decay"
+        },
+        {
+          "index": 43,
+          "kind": "decay"
+        },
+        {
+          "index": 44,
+          "kind": "insert"
+        },
+        {
+          "index": 46,
+          "kind": "insert"
+        },
+        {
+          "index": 49,
+          "kind": "decay"
+        },
+        {
+          "index": 52,
+          "kind": "insert"
+        },
+        {
+          "index": 54,
+          "kind": "insert"
+        },
+        {
+          "index": 57,
+          "kind": "decay"
+        },
+        {
+          "index": 60,
+          "kind": "insert"
+        },
+        {
+          "index": 62,
+          "kind": "insert"
+        },
+        {
+          "index": 65,
+          "kind": "decay"
+        },
+        {
+          "index": 68,
+          "kind": "insert"
+        },
+        {
+          "index": 71,
+          "kind": "decay"
+        },
+        {
+          "index": 73,
+          "kind": "decay"
+        },
+        {
+          "index": 75,
+          "kind": "extract"
+        },
+        {
+          "index": 76,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 8.899999976158142,
+      "sequentialFrames": 0,
+      "queryCentersRecorded": true,
+      "rafFPS": 60.03430531732418,
+      "maxRafGapMs": 16.800000000000182,
+      "canvasDraws": 134,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        38,
+        76
+      ],
+      "reducedMotion": "static final"
+    },
+    {
+      "device": "mobile",
+      "width": 390,
+      "algorithm": "MBSAS",
+      "events": 43,
+      "frames": [
+        {
+          "index": 0,
+          "kind": "initial"
+        },
+        {
+          "index": 1,
+          "kind": "initialize"
+        },
+        {
+          "index": 2,
+          "kind": "prototype"
+        },
+        {
+          "index": 3,
+          "kind": "distance"
+        },
+        {
+          "index": 4,
+          "kind": "defer"
+        },
+        {
+          "index": 6,
+          "kind": "prototype"
+        },
+        {
+          "index": 7,
+          "kind": "distance"
+        },
+        {
+          "index": 9,
+          "kind": "distance"
+        },
+        {
+          "index": 10,
+          "kind": "defer"
+        },
+        {
+          "index": 12,
+          "kind": "prototype"
+        },
+        {
+          "index": 13,
+          "kind": "distance"
+        },
+        {
+          "index": 15,
+          "kind": "distance"
+        },
+        {
+          "index": 16,
+          "kind": "defer"
+        },
+        {
+          "index": 18,
+          "kind": "defer"
+        },
+        {
+          "index": 19,
+          "kind": "distance"
+        },
+        {
+          "index": 21,
+          "kind": "distance"
+        },
+        {
+          "index": 22,
+          "kind": "defer"
+        },
+        {
+          "index": 24,
+          "kind": "defer"
+        },
+        {
+          "index": 25,
+          "kind": "visit"
+        },
+        {
+          "index": 27,
+          "kind": "assign"
+        },
+        {
+          "index": 28,
+          "kind": "distance"
+        },
+        {
+          "index": 30,
+          "kind": "distance"
+        },
+        {
+          "index": 31,
+          "kind": "assign"
+        },
+        {
+          "index": 33,
+          "kind": "assign"
+        },
+        {
+          "index": 34,
+          "kind": "distance"
+        },
+        {
+          "index": 36,
+          "kind": "distance"
+        },
+        {
+          "index": 37,
+          "kind": "assign"
+        },
+        {
+          "index": 39,
+          "kind": "assign"
+        },
+        {
+          "index": 40,
+          "kind": "distance"
+        },
+        {
+          "index": 42,
+          "kind": "visit"
+        },
+        {
+          "index": 43,
+          "kind": "finish"
+        }
+      ],
+      "computationMs": 2.399999976158142,
+      "sequentialFrames": 29,
+      "queryCentersRecorded": true,
+      "rafFPS": 57.61785052388205,
+      "maxRafGapMs": 233.20000000000005,
+      "canvasDraws": 132,
+      "usedJSHeapSize": 10000000,
+      "stagesVerified": [
+        0,
+        21,
+        43
+      ],
+      "reducedMotion": "static final"
+    }
+  ]
+}

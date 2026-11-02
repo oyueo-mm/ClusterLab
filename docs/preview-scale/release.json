@@ -1,0 +1,36 @@
+{
+  "source_sha": "4d82687f89658786e304aeb74618629aa5347f4f",
+  "actions_run": 41378959392,
+  "actions_url": "https://github.com/oyueo-mm/ClusterLab/actions/runs/41378959392",
+  "pages": "https://oyueo-mm.github.io/ClusterLab/",
+  "unit": {
+    "passed": 651,
+    "files": 46
+  },
+  "ci_browser": {
+    "passed": 111,
+    "skipped": 13,
+    "failed": 0
+  },
+  "public_visual": {
+    "device_algorithm_combinations": 16,
+    "initial_middle_final_images": 48,
+    "widths": [
+      1440,
+      390
+    ],
+    "reduced_motion": true
+  },
+  "public_browser": {
+    "first_passed": 5,
+    "first_failed": 1,
+    "retry_passed": 1,
+    "retry_failed": 0,
+    "note": "Desktop initial playback was not ready within the 10-second assertion on first cold network load; identical retry passed. No code or timeout setting changed."
+  },
+  "engines": 53,
+  "unimplemented_candidates": 79,
+  "recommendations": 212,
+  "master_complete": false,
+  "physical_phone_tested": false
+}

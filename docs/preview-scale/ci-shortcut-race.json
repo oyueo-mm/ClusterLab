@@ -1,0 +1,13 @@
+{
+  "priorRun": 41375522351,
+  "priorCommit": "ab1e93f",
+  "artifact": "https://github.com/oyueo-mm/ClusterLab/actions/runs/41375522351/artifacts/13111299021",
+  "test": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
+  "traceStack": "tests/v06.spec.ts:457",
+  "expected": "false",
+  "received": "true",
+  "trigger": "Ctrl+Z immediately following page.goto(#lab), before React route transition and passive effect cleanup completed",
+  "fixCommit": "cb362384a53b4634da7023695ec11f8fdfa1c8b4",
+  "fix": "Await visible lab and enabled playback before dispatching the shortcut; no application shortcut implementation change",
+  "localRepeat": "5 passed (14.4s)"
+}

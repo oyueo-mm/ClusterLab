@@ -1,0 +1,1110 @@
+[
+  {
+    "project": "chromium",
+    "kind": "worker-and-memory",
+    "metrics": {
+      "active": 0,
+      "max": 2,
+      "draws": 1420,
+      "perCanvas": {
+        "K-Means 실제 Trace 주요 단계 미리보기": 112,
+        "DBSCAN 실제 Trace 주요 단계 미리보기": 112,
+        "HDBSCAN 실제 Trace 주요 단계 미리보기": 28,
+        "AGNES 실제 Trace 주요 단계 미리보기": 58,
+        "DIANA 실제 Trace 주요 단계 미리보기": 48,
+        "SOM 실제 Trace 주요 단계 미리보기": 10,
+        "LVQ 실제 Trace 주요 단계 미리보기": 139,
+        "OPTICS 실제 Trace 주요 단계 미리보기": 139,
+        "PAM 실제 Trace 주요 단계 미리보기": 16,
+        "ROCK 실제 Trace 주요 단계 미리보기": 14,
+        "GMM 실제 Trace 주요 단계 미리보기": 16,
+        "BIRCH 실제 Trace 주요 단계 미리보기": 6,
+        "Mean Shift 실제 Trace 주요 단계 미리보기": 15,
+        "Fuzzy C-Means 실제 Trace 주요 단계 미리보기": 22,
+        "Bisecting K-Means 실제 Trace 주요 단계 미리보기": 9,
+        "Spectral Clustering 실제 Trace 주요 단계 미리보기": 24,
+        "Affinity Propagation 실제 Trace 주요 단계 미리보기": 21,
+        "Density Peaks / CFSFDP 실제 Trace 주요 단계 미리보기": 14,
+        "CURE 실제 Trace 주요 단계 미리보기": 22,
+        "Neural Gas 실제 Trace 주요 단계 미리보기": 25,
+        "Growing Neural Gas 실제 Trace 주요 단계 미리보기": 19,
+        "K-Medians 실제 Trace 주요 단계 미리보기": 18,
+        "Mini-Batch K-Means 실제 Trace 주요 단계 미리보기": 20,
+        "CLARA 실제 Trace 주요 단계 미리보기": 10,
+        "CLARANS 실제 Trace 주요 단계 미리보기": 47,
+        "X-Means 실제 Trace 주요 단계 미리보기": 13,
+        "G-Means 실제 Trace 주요 단계 미리보기": 14,
+        "Dip-Means 실제 Trace 주요 단계 미리보기": 32,
+        "DP-Means 실제 Trace 주요 단계 미리보기": 31,
+        "Louvain 실제 Trace 주요 단계 미리보기": 8,
+        "Leiden 실제 Trace 주요 단계 미리보기": 20,
+        "Label Propagation 실제 Trace 주요 단계 미리보기": 19,
+        "Girvan–Newman 실제 Trace 주요 단계 미리보기": 12,
+        "Markov Clustering (MCL) 실제 Trace 주요 단계 미리보기": 20,
+        "K-Modes 실제 Trace 주요 단계 미리보기": 11,
+        "K-Prototypes 실제 Trace 주요 단계 미리보기": 11,
+        "CLIQUE 실제 Trace 주요 단계 미리보기": 13,
+        "PROCLUS 실제 Trace 주요 단계 미리보기": 12,
+        "DenStream 실제 Trace 주요 단계 미리보기": 10,
+        "Bimax 실제 Trace 주요 단계 미리보기": 25,
+        "Cheng–Church Biclustering 실제 Trace 주요 단계 미리보기": 23,
+        "K-Shape 실제 Trace 주요 단계 미리보기": 10,
+        "Greedy Modularity (CNM) 실제 Trace 주요 단계 미리보기": 23,
+        "Fluid Communities 실제 Trace 주요 단계 미리보기": 23,
+        "COP-KMeans 실제 Trace 주요 단계 미리보기": 9,
+        "Bernoulli Mixture 실제 Trace 주요 단계 미리보기": 21,
+        "Poisson Mixture 실제 Trace 주요 단계 미리보기": 21,
+        "Multinomial Mixture 실제 Trace 주요 단계 미리보기": 6,
+        "Walktrap 실제 Trace 주요 단계 미리보기": 22,
+        "Clique Percolation 실제 Trace 주요 단계 미리보기": 22,
+        "BSAS 실제 Trace 주요 단계 미리보기": 9,
+        "MBSAS 실제 Trace 주요 단계 미리보기": 8,
+        "TTSAS 실제 Trace 주요 단계 미리보기": 8
+      },
+      "clips": [
+        {
+          "algorithm": "DBSCAN",
+          "frames": 35,
+          "events": 141,
+          "elapsed": 4.5,
+          "bytes": 27232,
+          "hasTrace": false,
+          "finalDescription": "밀도 확장 완료: 군집 4개"
+        },
+        {
+          "algorithm": "K-Means",
+          "frames": 36,
+          "events": 296,
+          "elapsed": 7.800000071525574,
+          "bytes": 36735,
+          "hasTrace": false,
+          "finalDescription": "수렴 또는 최대 반복 조건으로 종료했습니다."
+        },
+        {
+          "algorithm": "HDBSCAN",
+          "frames": 36,
+          "events": 102,
+          "elapsed": 4.300000071525574,
+          "bytes": 57416,
+          "hasTrace": false,
+          "finalDescription": "안정도 기반 EOM 선택: 3개 군집"
+        },
+        {
+          "algorithm": "AGNES",
+          "frames": 35,
+          "events": 96,
+          "elapsed": 13.399999976158142,
+          "bytes": 137514,
+          "hasTrace": false,
+          "finalDescription": "완전한 계층에서 3개 군집으로 자릅니다."
+        },
+        {
+          "algorithm": "DIANA",
+          "frames": 15,
+          "events": 14,
+          "elapsed": 3.700000047683716,
+          "bytes": 14549,
+          "hasTrace": false,
+          "finalDescription": "DIANA 분할 종료"
+        },
+        {
+          "algorithm": "SOM",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 28,
+          "bytes": 97160,
+          "hasTrace": false,
+          "finalDescription": "위상 학습 완료. 색상은 가장 가까운 뉴런의 인덱스이며 별도 군집 추출 결과가 아닙니다."
+        },
+        {
+          "algorithm": "OPTICS",
+          "frames": 36,
+          "events": 179,
+          "elapsed": 10,
+          "bytes": 33108,
+          "hasTrace": false,
+          "finalDescription": "OPTICS ordering 및 ε-cut 추출 완료."
+        },
+        {
+          "algorithm": "LVQ",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 23.5,
+          "bytes": 49145,
+          "hasTrace": false,
+          "finalDescription": "LVQ1 지도학습 완료. 데이터 색상은 정답 클래스입니다."
+        },
+        {
+          "algorithm": "PAM",
+          "frames": 36,
+          "events": 276,
+          "elapsed": 9.099999904632568,
+          "bytes": 37109,
+          "hasTrace": false,
+          "finalDescription": "모든 단일 medoid 교환에 대해 비용이 더 이상 감소하지 않습니다."
+        },
+        {
+          "algorithm": "GMM",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 12.399999976158142,
+          "bytes": 141125,
+          "hasTrace": false,
+          "finalDescription": "최종 Gaussian 파라미터로 소속 확률을 다시 계산합니다."
+        },
+        {
+          "algorithm": "ROCK",
+          "frames": 36,
+          "events": 93,
+          "elapsed": 15.700000047683716,
+          "bytes": 208374,
+          "hasTrace": false,
+          "finalDescription": "군집 3개: 목표에 도달했습니다."
+        },
+        {
+          "algorithm": "BIRCH",
+          "frames": 36,
+          "events": 184,
+          "elapsed": 38.60000002384186,
+          "bytes": 59183,
+          "hasTrace": false,
+          "finalDescription": "CF-Tree 삽입 완료. 트리는 계층형 군집 덴드로그램과 별도 구조입니다."
+        },
+        {
+          "algorithm": "Fuzzy C-Means",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 5.600000023841858,
+          "bytes": 130579,
+          "hasTrace": false,
+          "finalDescription": "반복 한도에 도달했습니다. 수렴을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Mean Shift",
+          "frames": 36,
+          "events": 591,
+          "elapsed": 29.600000023841858,
+          "bytes": 144287,
+          "hasTrace": false,
+          "finalDescription": "Mean Shift 완료: 3개 모드"
+        },
+        {
+          "algorithm": "Bisecting K-Means",
+          "frames": 21,
+          "events": 20,
+          "elapsed": 4,
+          "bytes": 24487,
+          "hasTrace": false,
+          "finalDescription": "목표 잎 수에 도달했습니다."
+        },
+        {
+          "algorithm": "Spectral Clustering",
+          "frames": 22,
+          "events": 21,
+          "elapsed": 29.5,
+          "bytes": 189158,
+          "hasTrace": false,
+          "finalDescription": "고유해 잔차 확인 및 임베딩 K-Means 할당 수렴으로 종료했습니다."
+        },
+        {
+          "algorithm": "Affinity Propagation",
+          "frames": 33,
+          "events": 43,
+          "elapsed": 48,
+          "bytes": 95473,
+          "hasTrace": false,
+          "finalDescription": "Exemplar 상태가 수렴 창 동안 유지되었습니다."
+        },
+        {
+          "algorithm": "Density Peaks / CFSFDP",
+          "frames": 35,
+          "events": 99,
+          "elapsed": 10.299999952316284,
+          "bytes": 82756,
+          "hasTrace": false,
+          "finalDescription": "Density Peaks의 밀도·부모·중심 선택·할당·halo 계산을 마쳤습니다."
+        },
+        {
+          "algorithm": "Neural Gas",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 57.800000071525574,
+          "bytes": 38722,
+          "hasTrace": false,
+          "finalDescription": "학습 종료. 색은 최근접 뉴런의 BMU이며 별도 군집 추출이 아닙니다."
+        },
+        {
+          "algorithm": "CURE",
+          "frames": 35,
+          "events": 137,
+          "elapsed": 55.39999997615814,
+          "bytes": 185688,
+          "hasTrace": false,
+          "finalDescription": "목표 군집 수의 전체 데이터 계층 분할입니다. CURE의 표본·분할 확장 모드는 사용하지 않았습니다."
+        },
+        {
+          "algorithm": "Growing Neural Gas",
+          "frames": 36,
+          "events": 1558,
+          "elapsed": 120.89999997615814,
+          "bytes": 50916,
+          "hasTrace": false,
+          "finalDescription": "학습 종료. 색은 최근접 뉴런 BMU입니다. 연결 성분의 군집 추출을 수행한 결과가 아닙니다."
+        },
+        {
+          "algorithm": "K-Medians",
+          "frames": 10,
+          "events": 9,
+          "elapsed": 2.5,
+          "bytes": 10209,
+          "hasTrace": false,
+          "finalDescription": "할당이 변하지 않아 종료했습니다."
+        },
+        {
+          "algorithm": "Mini-Batch K-Means",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 5.599999904632568,
+          "bytes": 36997,
+          "hasTrace": false,
+          "finalDescription": "지정 epoch를 마쳤습니다. 전체 최종 할당을 반환하며 Lloyd 수렴 또는 전역 최적을 주장하지 않습니다."
+        },
+        {
+          "algorithm": "CLARA",
+          "frames": 26,
+          "events": 25,
+          "elapsed": 14.100000023841858,
+          "bytes": 27170,
+          "hasTrace": false,
+          "finalDescription": "전체 입력에서 비용이 가장 낮았던 표본 해를 반환합니다. 표본 기반 탐색이며 전역 최적성을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "CLARANS",
+          "frames": 36,
+          "events": 243,
+          "elapsed": 14,
+          "bytes": 37328,
+          "hasTrace": false,
+          "finalDescription": "여러 무작위 시작 중 전체 비용이 가장 낮은 medoid 분할을 반환합니다. 전역 최적성을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "G-Means",
+          "frames": 28,
+          "events": 27,
+          "elapsed": 29.90000009536743,
+          "bytes": 25517,
+          "hasTrace": false,
+          "finalDescription": "더 수용할 정규성 분할이 없습니다. 비기각은 정규분포의 증명이 아닙니다."
+        },
+        {
+          "algorithm": "X-Means",
+          "frames": 30,
+          "events": 37,
+          "elapsed": 33.199999928474426,
+          "bytes": 27365,
+          "hasTrace": false,
+          "finalDescription": "탐색 중 전역 X-Means BIC가 가장 높은 실제 분할을 반환합니다. 원문 점수의 알려진 정규화 한계와 사용자 최대 K를 명시합니다."
+        },
+        {
+          "algorithm": "Dip-Means",
+          "frames": 18,
+          "events": 17,
+          "elapsed": 44.89999997615814,
+          "bytes": 16420,
+          "hasTrace": false,
+          "finalDescription": "충분한 split viewer를 가진 분할 후보가 없습니다. bootstrap 비기각은 단봉성의 증명이 아닙니다."
+        },
+        {
+          "algorithm": "DP-Means",
+          "frames": 36,
+          "events": 982,
+          "elapsed": 49.09999990463257,
+          "bytes": 31009,
+          "hasTrace": false,
+          "finalDescription": "사용자가 설정한 최대 군집 수에 도달했습니다. λ 조건의 무제한 DP-Means 수렴 결과가 아닙니다."
+        },
+        {
+          "algorithm": "Louvain",
+          "frames": 33,
+          "events": 59,
+          "elapsed": 15.700000047683716,
+          "bytes": 190008,
+          "hasTrace": false,
+          "finalDescription": "양의 이동이나 추가 집약이 없는 Louvain 분할입니다. 전역 최적·연결성은 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Leiden",
+          "frames": 35,
+          "events": 108,
+          "elapsed": 12.399999976158142,
+          "bytes": 199072,
+          "hasTrace": false,
+          "finalDescription": "Leiden의 실제 한 번의 계층 iteration을 완료했습니다. 비음수 가중 무방향 modularity 조건의 연결성만 다루며 전역 최적/점근 안정은 주장하지 않습니다."
+        },
+        {
+          "algorithm": "Label Propagation",
+          "frames": 36,
+          "events": 141,
+          "elapsed": 37.799999952316284,
+          "bytes": 122786,
+          "hasTrace": false,
+          "finalDescription": "가중 이웃 합의 조건을 만족한 실제 레이블 전파 결과입니다. 중첩·연결성·모듈성 최적은 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Girvan–Newman",
+          "frames": 17,
+          "events": 16,
+          "elapsed": 29.899999976158142,
+          "bytes": 54716,
+          "hasTrace": false,
+          "finalDescription": "남은 그래프의 실제 연결 성분을 반환합니다. 목표 K보다 원래 성분이 많으면 원래 성분을 합치지 않습니다. 최적 모듈성 컷을 자동 선택한 결과가 아닙니다."
+        },
+        {
+          "algorithm": "Markov Clustering (MCL)",
+          "frames": 33,
+          "events": 39,
+          "elapsed": 59.10000002384186,
+          "bytes": 140910,
+          "hasTrace": false,
+          "finalDescription": "실제 MCL 전이 행렬과 attractor 지지를 반환합니다. 화면 색은 지배 흐름 분할이며 중첩 지지 전체와 구분합니다."
+        },
+        {
+          "algorithm": "K-Modes",
+          "frames": 7,
+          "events": 6,
+          "elapsed": 6.100000023841858,
+          "bytes": 6875,
+          "hasTrace": false,
+          "finalDescription": "범주형 할당이 안정되어 종료합니다. 최종 불일치 비용을 전체 원본에서 다시 계산했습니다."
+        },
+        {
+          "algorithm": "K-Prototypes",
+          "frames": 15,
+          "events": 14,
+          "elapsed": 13.200000047683716,
+          "bytes": 15633,
+          "hasTrace": false,
+          "finalDescription": "혼합 할당이 안정되어 종료했습니다. 최종 비용은 원본 전체 수치·범주에서 계산했습니다."
+        },
+        {
+          "algorithm": "CLIQUE",
+          "frames": 7,
+          "events": 6,
+          "elapsed": 17.300000071525574,
+          "bytes": 7127,
+          "hasTrace": false,
+          "finalDescription": "부분공간별 모든 중첩 소속·밀집 격자·비중복 DNF cover를 반환합니다. Canvas는 가장 높은 차원의 첫 소속만 표시하며 단일 partition이 전체 결과가 아닙니다."
+        },
+        {
+          "algorithm": "PROCLUS",
+          "frames": 34,
+          "events": 51,
+          "elapsed": 33.699999928474426,
+          "bytes": 50406,
+          "hasTrace": false,
+          "finalDescription": "선택 축의 최근접 할당을 다시 계산하고 모든 medoid의 influence 범위를 벗어난 점을 실제 outlier로 표시합니다. 목적함수는 outlier 태그 이전 전체 할당 비용이며, 제외 후 비용은 별도로 반환합니다. 연속 미개선 한도 종료는 전역 최적 판정이 아닙니다."
+        },
+        {
+          "algorithm": "DenStream",
+          "frames": 34,
+          "events": 76,
+          "elapsed": 17.59999990463257,
+          "bytes": 55073,
+          "hasTrace": false,
+          "finalDescription": "전체 스트림을 실제 처리했습니다. 결과는 현재 시간의 micro/macro-cluster 요약이며 과거 전체 데이터의 정적 DBSCAN 결과가 아닙니다."
+        },
+        {
+          "algorithm": "Bimax",
+          "frames": 9,
+          "events": 8,
+          "elapsed": 23.90000009536743,
+          "bytes": 10807,
+          "hasTrace": false,
+          "finalDescription": "분할정복을 모두 마쳤습니다. 요청 최소 크기를 만족하는 모든 inclusion-maximal 1-부분행렬과 원본 행·열의 중첩 소속을 반환합니다. Canvas 레이블은 첫 행 소속의 표시 요약입니다."
+        },
+        {
+          "algorithm": "Cheng–Church Biclustering",
+          "frames": 34,
+          "events": 61,
+          "elapsed": 71,
+          "bytes": 41171,
+          "hasTrace": false,
+          "finalDescription": "요청한 탐색 횟수를 마쳤습니다. 실제 원본 행·열·inverse 부호를 포함한 고유 bicluster와 중첩 소속을 반환합니다. 찾은 고유 개수는 요청보다 적을 수 있습니다."
+        },
+        {
+          "algorithm": "K-Shape",
+          "frames": 35,
+          "events": 304,
+          "elapsed": 70.5,
+          "bytes": 214713,
+          "hasTrace": false,
+          "finalDescription": "시계열 소속 변화가 없어 종료했습니다. 전역 최적이나 목적함수의 보편적 단조 감소를 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Fluid Communities",
+          "frames": 36,
+          "events": 213,
+          "elapsed": 21.100000023841858,
+          "bytes": 122544,
+          "hasTrace": false,
+          "finalDescription": "전체 패스에서 이동이 없는 실제 Fluid 분할입니다. K개 비어 있지 않은 유체와 단위 총밀도를 보존합니다."
+        },
+        {
+          "algorithm": "Greedy Modularity (CNM)",
+          "frames": 35,
+          "events": 91,
+          "elapsed": 28.100000023841858,
+          "bytes": 119525,
+          "hasTrace": false,
+          "finalDescription": "양의 greedy 병합이 끝난 실제 분할입니다. 전역 최적이 아니며 원문의 heap 가속 복잡도를 주장하지 않습니다."
+        },
+        {
+          "algorithm": "COP-KMeans",
+          "frames": 35,
+          "events": 199,
+          "elapsed": 18.5,
+          "bytes": 31194,
+          "hasTrace": false,
+          "finalDescription": "실제 hard 제약을 모두 만족하며 동일 할당로 종료했습니다."
+        },
+        {
+          "algorithm": "Poisson Mixture",
+          "frames": 11,
+          "events": 10,
+          "elapsed": 5.300000071525574,
+          "bytes": 29991,
+          "hasTrace": false,
+          "finalDescription": "실제 전체 관측 로그우도 개선이 상대 허용오차 이하여서 종료했습니다. 전역 최적·성분 식별성을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Bernoulli Mixture",
+          "frames": 25,
+          "events": 24,
+          "elapsed": 9.100000023841858,
+          "bytes": 71602,
+          "hasTrace": false,
+          "finalDescription": "실제 전체 관측 로그우도 개선이 상대 허용오차 이하여서 종료했습니다. 전역 최적·성분 식별성을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Multinomial Mixture",
+          "frames": 9,
+          "events": 8,
+          "elapsed": 7,
+          "bytes": 24478,
+          "hasTrace": false,
+          "finalDescription": "실제 전체 관측 로그우도 개선이 상대 허용오차 이하여서 종료했습니다. 전역 최적·성분 식별성을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Clique Percolation",
+          "frames": 36,
+          "events": 99,
+          "elapsed": 18.5,
+          "bytes": 123937,
+          "hasTrace": false,
+          "finalDescription": "모든 clique와 percolation 성분을 계산했습니다. 군집 수 최적화·통계적 noise 검정이 아니며 clique가 없으면 정당한 빈 결과입니다."
+        },
+        {
+          "algorithm": "Walktrap",
+          "frames": 35,
+          "events": 101,
+          "elapsed": 34.700000047683716,
+          "bytes": 120105,
+          "hasTrace": false,
+          "finalDescription": "전체 원본 보행·인접 Ward 계층과 최고Q cut이 완료됐습니다. 모든 분할의 전역 최대Q를 보장하지 않습니다."
+        },
+        {
+          "algorithm": "BSAS",
+          "frames": 27,
+          "events": 26,
+          "elapsed": 6,
+          "bytes": 12255,
+          "hasTrace": false,
+          "finalDescription": "모든 원본 행의 순차 배정을 완료했습니다. 기존 행의 최근접 재배치나 Lloyd 반복은 수행하지 않았습니다."
+        },
+        {
+          "algorithm": "MBSAS",
+          "frames": 31,
+          "events": 43,
+          "elapsed": 5.700000047683716,
+          "bytes": 14308,
+          "hasTrace": false,
+          "finalDescription": "모든 원본 행의 순차 배정을 완료했습니다. 기존 행의 최근접 재배치나 Lloyd 반복은 수행하지 않았습니다."
+        },
+        {
+          "algorithm": "TTSAS",
+          "frames": 33,
+          "events": 52,
+          "elapsed": 12.5,
+          "bytes": 15392,
+          "hasTrace": false,
+          "finalDescription": "모든 원본 행의 순차 배정을 완료했습니다. 기존 행의 최근접 재배치나 Lloyd 반복은 수행하지 않았습니다."
+        }
+      ],
+      "mainThreadUsedJSHeapSize": 27600000
+    }
+  },
+  {
+    "project": "chromium",
+    "kind": "render-performance",
+    "metrics": {
+      "fps": 60.00600060005997,
+      "maxGap": 16.80000000000109,
+      "canvasDrawsInTwoSeconds": 122,
+      "maxWorkers": 2
+    }
+  },
+  {
+    "project": "mobile",
+    "kind": "worker-and-memory",
+    "metrics": {
+      "active": 0,
+      "max": 1,
+      "draws": 620,
+      "perCanvas": {
+        "K-Means 실제 Trace 주요 단계 미리보기": 11,
+        "DBSCAN 실제 Trace 주요 단계 미리보기": 15,
+        "HDBSCAN 실제 Trace 주요 단계 미리보기": 17,
+        "AGNES 실제 Trace 주요 단계 미리보기": 11,
+        "DIANA 실제 Trace 주요 단계 미리보기": 9,
+        "SOM 실제 Trace 주요 단계 미리보기": 17,
+        "LVQ 실제 Trace 주요 단계 미리보기": 18,
+        "OPTICS 실제 Trace 주요 단계 미리보기": 17,
+        "PAM 실제 Trace 주요 단계 미리보기": 5,
+        "ROCK 실제 Trace 주요 단계 미리보기": 11,
+        "GMM 실제 Trace 주요 단계 미리보기": 5,
+        "BIRCH 실제 Trace 주요 단계 미리보기": 7,
+        "Mean Shift 실제 Trace 주요 단계 미리보기": 4,
+        "Fuzzy C-Means 실제 Trace 주요 단계 미리보기": 18,
+        "Bisecting K-Means 실제 Trace 주요 단계 미리보기": 4,
+        "Spectral Clustering 실제 Trace 주요 단계 미리보기": 14,
+        "Affinity Propagation 실제 Trace 주요 단계 미리보기": 5,
+        "Density Peaks / CFSFDP 실제 Trace 주요 단계 미리보기": 18,
+        "CURE 실제 Trace 주요 단계 미리보기": 12,
+        "Neural Gas 실제 Trace 주요 단계 미리보기": 5,
+        "Growing Neural Gas 실제 Trace 주요 단계 미리보기": 5,
+        "K-Medians 실제 Trace 주요 단계 미리보기": 16,
+        "Mini-Batch K-Means 실제 Trace 주요 단계 미리보기": 7,
+        "CLARA 실제 Trace 주요 단계 미리보기": 18,
+        "CLARANS 실제 Trace 주요 단계 미리보기": 9,
+        "X-Means 실제 Trace 주요 단계 미리보기": 8,
+        "G-Means 실제 Trace 주요 단계 미리보기": 18,
+        "Dip-Means 실제 Trace 주요 단계 미리보기": 12,
+        "DP-Means 실제 Trace 주요 단계 미리보기": 4,
+        "Louvain 실제 Trace 주요 단계 미리보기": 18,
+        "Leiden 실제 Trace 주요 단계 미리보기": 19,
+        "Label Propagation 실제 Trace 주요 단계 미리보기": 9,
+        "Girvan–Newman 실제 Trace 주요 단계 미리보기": 17,
+        "Markov Clustering (MCL) 실제 Trace 주요 단계 미리보기": 6,
+        "K-Modes 실제 Trace 주요 단계 미리보기": 5,
+        "K-Prototypes 실제 Trace 주요 단계 미리보기": 6,
+        "CLIQUE 실제 Trace 주요 단계 미리보기": 17,
+        "PROCLUS 실제 Trace 주요 단계 미리보기": 7,
+        "DenStream 실제 Trace 주요 단계 미리보기": 8,
+        "Bimax 실제 Trace 주요 단계 미리보기": 7,
+        "Cheng–Church Biclustering 실제 Trace 주요 단계 미리보기": 16,
+        "K-Shape 실제 Trace 주요 단계 미리보기": 20,
+        "Greedy Modularity (CNM) 실제 Trace 주요 단계 미리보기": 15,
+        "Fluid Communities 실제 Trace 주요 단계 미리보기": 14,
+        "COP-KMeans 실제 Trace 주요 단계 미리보기": 19,
+        "Bernoulli Mixture 실제 Trace 주요 단계 미리보기": 6,
+        "Poisson Mixture 실제 Trace 주요 단계 미리보기": 20,
+        "Multinomial Mixture 실제 Trace 주요 단계 미리보기": 7,
+        "Walktrap 실제 Trace 주요 단계 미리보기": 17,
+        "Clique Percolation 실제 Trace 주요 단계 미리보기": 18,
+        "BSAS 실제 Trace 주요 단계 미리보기": 5,
+        "MBSAS 실제 Trace 주요 단계 미리보기": 7,
+        "TTSAS 실제 Trace 주요 단계 미리보기": 17
+      },
+      "clips": [
+        {
+          "algorithm": "K-Means",
+          "frames": 36,
+          "events": 296,
+          "elapsed": 6.299999952316284,
+          "bytes": 36735,
+          "hasTrace": false,
+          "finalDescription": "수렴 또는 최대 반복 조건으로 종료했습니다."
+        },
+        {
+          "algorithm": "DBSCAN",
+          "frames": 35,
+          "events": 141,
+          "elapsed": 6.700000047683716,
+          "bytes": 27246,
+          "hasTrace": false,
+          "finalDescription": "밀도 확장 완료: 군집 4개"
+        },
+        {
+          "algorithm": "HDBSCAN",
+          "frames": 36,
+          "events": 102,
+          "elapsed": 9,
+          "bytes": 57400,
+          "hasTrace": false,
+          "finalDescription": "안정도 기반 EOM 선택: 3개 군집"
+        },
+        {
+          "algorithm": "AGNES",
+          "frames": 35,
+          "events": 96,
+          "elapsed": 18.700000047683716,
+          "bytes": 137514,
+          "hasTrace": false,
+          "finalDescription": "완전한 계층에서 3개 군집으로 자릅니다."
+        },
+        {
+          "algorithm": "DIANA",
+          "frames": 15,
+          "events": 14,
+          "elapsed": 12.600000023841858,
+          "bytes": 14550,
+          "hasTrace": false,
+          "finalDescription": "DIANA 분할 종료"
+        },
+        {
+          "algorithm": "SOM",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 19.899999976158142,
+          "bytes": 97176,
+          "hasTrace": false,
+          "finalDescription": "위상 학습 완료. 색상은 가장 가까운 뉴런의 인덱스이며 별도 군집 추출 결과가 아닙니다."
+        },
+        {
+          "algorithm": "LVQ",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 12,
+          "bytes": 49143,
+          "hasTrace": false,
+          "finalDescription": "LVQ1 지도학습 완료. 데이터 색상은 정답 클래스입니다."
+        },
+        {
+          "algorithm": "OPTICS",
+          "frames": 36,
+          "events": 179,
+          "elapsed": 2.600000023841858,
+          "bytes": 33123,
+          "hasTrace": false,
+          "finalDescription": "OPTICS ordering 및 ε-cut 추출 완료."
+        },
+        {
+          "algorithm": "PAM",
+          "frames": 36,
+          "events": 276,
+          "elapsed": 5.299999952316284,
+          "bytes": 37109,
+          "hasTrace": false,
+          "finalDescription": "모든 단일 medoid 교환에 대해 비용이 더 이상 감소하지 않습니다."
+        },
+        {
+          "algorithm": "ROCK",
+          "frames": 36,
+          "events": 93,
+          "elapsed": 9.100000023841858,
+          "bytes": 208373,
+          "hasTrace": false,
+          "finalDescription": "군집 3개: 목표에 도달했습니다."
+        },
+        {
+          "algorithm": "GMM",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 4,
+          "bytes": 141108,
+          "hasTrace": false,
+          "finalDescription": "최종 Gaussian 파라미터로 소속 확률을 다시 계산합니다."
+        },
+        {
+          "algorithm": "BIRCH",
+          "frames": 36,
+          "events": 184,
+          "elapsed": 5.100000023841858,
+          "bytes": 59183,
+          "hasTrace": false,
+          "finalDescription": "CF-Tree 삽입 완료. 트리는 계층형 군집 덴드로그램과 별도 구조입니다."
+        },
+        {
+          "algorithm": "Mean Shift",
+          "frames": 36,
+          "events": 591,
+          "elapsed": 10.5,
+          "bytes": 144273,
+          "hasTrace": false,
+          "finalDescription": "Mean Shift 완료: 3개 모드"
+        },
+        {
+          "algorithm": "Fuzzy C-Means",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 2.700000047683716,
+          "bytes": 130579,
+          "hasTrace": false,
+          "finalDescription": "반복 한도에 도달했습니다. 수렴을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Bisecting K-Means",
+          "frames": 21,
+          "events": 20,
+          "elapsed": 1.1999999284744263,
+          "bytes": 24504,
+          "hasTrace": false,
+          "finalDescription": "목표 잎 수에 도달했습니다."
+        },
+        {
+          "algorithm": "Spectral Clustering",
+          "frames": 22,
+          "events": 21,
+          "elapsed": 23.299999952316284,
+          "bytes": 189172,
+          "hasTrace": false,
+          "finalDescription": "고유해 잔차 확인 및 임베딩 K-Means 할당 수렴으로 종료했습니다."
+        },
+        {
+          "algorithm": "Affinity Propagation",
+          "frames": 33,
+          "events": 43,
+          "elapsed": 17.600000023841858,
+          "bytes": 95489,
+          "hasTrace": false,
+          "finalDescription": "Exemplar 상태가 수렴 창 동안 유지되었습니다."
+        },
+        {
+          "algorithm": "Density Peaks / CFSFDP",
+          "frames": 35,
+          "events": 99,
+          "elapsed": 3.1999999284744263,
+          "bytes": 82756,
+          "hasTrace": false,
+          "finalDescription": "Density Peaks의 밀도·부모·중심 선택·할당·halo 계산을 마쳤습니다."
+        },
+        {
+          "algorithm": "CURE",
+          "frames": 35,
+          "events": 137,
+          "elapsed": 138.69999992847443,
+          "bytes": 185689,
+          "hasTrace": false,
+          "finalDescription": "목표 군집 수의 전체 데이터 계층 분할입니다. CURE의 표본·분할 확장 모드는 사용하지 않았습니다."
+        },
+        {
+          "algorithm": "Neural Gas",
+          "frames": 36,
+          "events": 778,
+          "elapsed": 16.600000023841858,
+          "bytes": 38722,
+          "hasTrace": false,
+          "finalDescription": "학습 종료. 색은 최근접 뉴런의 BMU이며 별도 군집 추출이 아닙니다."
+        },
+        {
+          "algorithm": "Growing Neural Gas",
+          "frames": 36,
+          "events": 1558,
+          "elapsed": 83.10000002384186,
+          "bytes": 50915,
+          "hasTrace": false,
+          "finalDescription": "학습 종료. 색은 최근접 뉴런 BMU입니다. 연결 성분의 군집 추출을 수행한 결과가 아닙니다."
+        },
+        {
+          "algorithm": "K-Medians",
+          "frames": 10,
+          "events": 9,
+          "elapsed": 1.3000000715255737,
+          "bytes": 10224,
+          "hasTrace": false,
+          "finalDescription": "할당이 변하지 않아 종료했습니다."
+        },
+        {
+          "algorithm": "Mini-Batch K-Means",
+          "frames": 34,
+          "events": 42,
+          "elapsed": 4.600000023841858,
+          "bytes": 36997,
+          "hasTrace": false,
+          "finalDescription": "지정 epoch를 마쳤습니다. 전체 최종 할당을 반환하며 Lloyd 수렴 또는 전역 최적을 주장하지 않습니다."
+        },
+        {
+          "algorithm": "CLARA",
+          "frames": 26,
+          "events": 25,
+          "elapsed": 6.800000071525574,
+          "bytes": 27169,
+          "hasTrace": false,
+          "finalDescription": "전체 입력에서 비용이 가장 낮았던 표본 해를 반환합니다. 표본 기반 탐색이며 전역 최적성을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "CLARANS",
+          "frames": 36,
+          "events": 243,
+          "elapsed": 5.399999976158142,
+          "bytes": 37343,
+          "hasTrace": false,
+          "finalDescription": "여러 무작위 시작 중 전체 비용이 가장 낮은 medoid 분할을 반환합니다. 전역 최적성을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "X-Means",
+          "frames": 30,
+          "events": 37,
+          "elapsed": 2.799999952316284,
+          "bytes": 27364,
+          "hasTrace": false,
+          "finalDescription": "탐색 중 전역 X-Means BIC가 가장 높은 실제 분할을 반환합니다. 원문 점수의 알려진 정규화 한계와 사용자 최대 K를 명시합니다."
+        },
+        {
+          "algorithm": "G-Means",
+          "frames": 28,
+          "events": 27,
+          "elapsed": 7.100000023841858,
+          "bytes": 25517,
+          "hasTrace": false,
+          "finalDescription": "더 수용할 정규성 분할이 없습니다. 비기각은 정규분포의 증명이 아닙니다."
+        },
+        {
+          "algorithm": "Dip-Means",
+          "frames": 18,
+          "events": 17,
+          "elapsed": 17.799999952316284,
+          "bytes": 16421,
+          "hasTrace": false,
+          "finalDescription": "충분한 split viewer를 가진 분할 후보가 없습니다. bootstrap 비기각은 단봉성의 증명이 아닙니다."
+        },
+        {
+          "algorithm": "DP-Means",
+          "frames": 36,
+          "events": 982,
+          "elapsed": 12.800000071525574,
+          "bytes": 31010,
+          "hasTrace": false,
+          "finalDescription": "사용자가 설정한 최대 군집 수에 도달했습니다. λ 조건의 무제한 DP-Means 수렴 결과가 아닙니다."
+        },
+        {
+          "algorithm": "Louvain",
+          "frames": 33,
+          "events": 59,
+          "elapsed": 7.5,
+          "bytes": 189993,
+          "hasTrace": false,
+          "finalDescription": "양의 이동이나 추가 집약이 없는 Louvain 분할입니다. 전역 최적·연결성은 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Leiden",
+          "frames": 35,
+          "events": 108,
+          "elapsed": 11,
+          "bytes": 199056,
+          "hasTrace": false,
+          "finalDescription": "Leiden의 실제 한 번의 계층 iteration을 완료했습니다. 비음수 가중 무방향 modularity 조건의 연결성만 다루며 전역 최적/점근 안정은 주장하지 않습니다."
+        },
+        {
+          "algorithm": "Label Propagation",
+          "frames": 36,
+          "events": 141,
+          "elapsed": 8.100000023841858,
+          "bytes": 122785,
+          "hasTrace": false,
+          "finalDescription": "가중 이웃 합의 조건을 만족한 실제 레이블 전파 결과입니다. 중첩·연결성·모듈성 최적은 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Girvan–Newman",
+          "frames": 17,
+          "events": 16,
+          "elapsed": 12.800000071525574,
+          "bytes": 54716,
+          "hasTrace": false,
+          "finalDescription": "남은 그래프의 실제 연결 성분을 반환합니다. 목표 K보다 원래 성분이 많으면 원래 성분을 합치지 않습니다. 최적 모듈성 컷을 자동 선택한 결과가 아닙니다."
+        },
+        {
+          "algorithm": "Markov Clustering (MCL)",
+          "frames": 33,
+          "events": 39,
+          "elapsed": 27.5,
+          "bytes": 140897,
+          "hasTrace": false,
+          "finalDescription": "실제 MCL 전이 행렬과 attractor 지지를 반환합니다. 화면 색은 지배 흐름 분할이며 중첩 지지 전체와 구분합니다."
+        },
+        {
+          "algorithm": "K-Modes",
+          "frames": 7,
+          "events": 6,
+          "elapsed": 2.1999999284744263,
+          "bytes": 6876,
+          "hasTrace": false,
+          "finalDescription": "범주형 할당이 안정되어 종료합니다. 최종 불일치 비용을 전체 원본에서 다시 계산했습니다."
+        },
+        {
+          "algorithm": "K-Prototypes",
+          "frames": 15,
+          "events": 14,
+          "elapsed": 6.899999976158142,
+          "bytes": 15632,
+          "hasTrace": false,
+          "finalDescription": "혼합 할당이 안정되어 종료했습니다. 최종 비용은 원본 전체 수치·범주에서 계산했습니다."
+        },
+        {
+          "algorithm": "CLIQUE",
+          "frames": 7,
+          "events": 6,
+          "elapsed": 7.099999904632568,
+          "bytes": 7126,
+          "hasTrace": false,
+          "finalDescription": "부분공간별 모든 중첩 소속·밀집 격자·비중복 DNF cover를 반환합니다. Canvas는 가장 높은 차원의 첫 소속만 표시하며 단일 partition이 전체 결과가 아닙니다."
+        },
+        {
+          "algorithm": "PROCLUS",
+          "frames": 34,
+          "events": 51,
+          "elapsed": 9.100000023841858,
+          "bytes": 50405,
+          "hasTrace": false,
+          "finalDescription": "선택 축의 최근접 할당을 다시 계산하고 모든 medoid의 influence 범위를 벗어난 점을 실제 outlier로 표시합니다. 목적함수는 outlier 태그 이전 전체 할당 비용이며, 제외 후 비용은 별도로 반환합니다. 연속 미개선 한도 종료는 전역 최적 판정이 아닙니다."
+        },
+        {
+          "algorithm": "DenStream",
+          "frames": 34,
+          "events": 76,
+          "elapsed": 10.100000023841858,
+          "bytes": 55074,
+          "hasTrace": false,
+          "finalDescription": "전체 스트림을 실제 처리했습니다. 결과는 현재 시간의 micro/macro-cluster 요약이며 과거 전체 데이터의 정적 DBSCAN 결과가 아닙니다."
+        },
+        {
+          "algorithm": "Bimax",
+          "frames": 9,
+          "events": 8,
+          "elapsed": 4.5,
+          "bytes": 10793,
+          "hasTrace": false,
+          "finalDescription": "분할정복을 모두 마쳤습니다. 요청 최소 크기를 만족하는 모든 inclusion-maximal 1-부분행렬과 원본 행·열의 중첩 소속을 반환합니다. Canvas 레이블은 첫 행 소속의 표시 요약입니다."
+        },
+        {
+          "algorithm": "Cheng–Church Biclustering",
+          "frames": 34,
+          "events": 61,
+          "elapsed": 11.400000095367432,
+          "bytes": 41187,
+          "hasTrace": false,
+          "finalDescription": "요청한 탐색 횟수를 마쳤습니다. 실제 원본 행·열·inverse 부호를 포함한 고유 bicluster와 중첩 소속을 반환합니다. 찾은 고유 개수는 요청보다 적을 수 있습니다."
+        },
+        {
+          "algorithm": "K-Shape",
+          "frames": 35,
+          "events": 304,
+          "elapsed": 193.30000007152557,
+          "bytes": 214727,
+          "hasTrace": false,
+          "finalDescription": "시계열 소속 변화가 없어 종료했습니다. 전역 최적이나 목적함수의 보편적 단조 감소를 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Greedy Modularity (CNM)",
+          "frames": 35,
+          "events": 91,
+          "elapsed": 60.299999952316284,
+          "bytes": 119525,
+          "hasTrace": false,
+          "finalDescription": "양의 greedy 병합이 끝난 실제 분할입니다. 전역 최적이 아니며 원문의 heap 가속 복잡도를 주장하지 않습니다."
+        },
+        {
+          "algorithm": "Fluid Communities",
+          "frames": 36,
+          "events": 213,
+          "elapsed": 186.80000007152557,
+          "bytes": 122544,
+          "hasTrace": false,
+          "finalDescription": "전체 패스에서 이동이 없는 실제 Fluid 분할입니다. K개 비어 있지 않은 유체와 단위 총밀도를 보존합니다."
+        },
+        {
+          "algorithm": "COP-KMeans",
+          "frames": 35,
+          "events": 199,
+          "elapsed": 29.700000047683716,
+          "bytes": 31208,
+          "hasTrace": false,
+          "finalDescription": "실제 hard 제약을 모두 만족하며 동일 할당로 종료했습니다."
+        },
+        {
+          "algorithm": "Bernoulli Mixture",
+          "frames": 25,
+          "events": 24,
+          "elapsed": 10,
+          "bytes": 71587,
+          "hasTrace": false,
+          "finalDescription": "실제 전체 관측 로그우도 개선이 상대 허용오차 이하여서 종료했습니다. 전역 최적·성분 식별성을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Poisson Mixture",
+          "frames": 11,
+          "events": 10,
+          "elapsed": 12.399999976158142,
+          "bytes": 29992,
+          "hasTrace": false,
+          "finalDescription": "실제 전체 관측 로그우도 개선이 상대 허용오차 이하여서 종료했습니다. 전역 최적·성분 식별성을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Multinomial Mixture",
+          "frames": 9,
+          "events": 8,
+          "elapsed": 35.700000047683716,
+          "bytes": 24495,
+          "hasTrace": false,
+          "finalDescription": "실제 전체 관측 로그우도 개선이 상대 허용오차 이하여서 종료했습니다. 전역 최적·성분 식별성을 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Walktrap",
+          "frames": 35,
+          "events": 101,
+          "elapsed": 51,
+          "bytes": 120089,
+          "hasTrace": false,
+          "finalDescription": "전체 원본 보행·인접 Ward 계층과 최고Q cut이 완료됐습니다. 모든 분할의 전역 최대Q를 보장하지 않습니다."
+        },
+        {
+          "algorithm": "Clique Percolation",
+          "frames": 36,
+          "events": 99,
+          "elapsed": 73.10000002384186,
+          "bytes": 123950,
+          "hasTrace": false,
+          "finalDescription": "모든 clique와 percolation 성분을 계산했습니다. 군집 수 최적화·통계적 noise 검정이 아니며 clique가 없으면 정당한 빈 결과입니다."
+        },
+        {
+          "algorithm": "BSAS",
+          "frames": 27,
+          "events": 26,
+          "elapsed": 4.200000047683716,
+          "bytes": 12271,
+          "hasTrace": false,
+          "finalDescription": "모든 원본 행의 순차 배정을 완료했습니다. 기존 행의 최근접 재배치나 Lloyd 반복은 수행하지 않았습니다."
+        },
+        {
+          "algorithm": "MBSAS",
+          "frames": 31,
+          "events": 43,
+          "elapsed": 6,
+          "bytes": 14292,
+          "hasTrace": false,
+          "finalDescription": "모든 원본 행의 순차 배정을 완료했습니다. 기존 행의 최근접 재배치나 Lloyd 반복은 수행하지 않았습니다."
+        },
+        {
+          "algorithm": "TTSAS",
+          "frames": 33,
+          "events": 52,
+          "elapsed": 6.299999952316284,
+          "bytes": 15405,
+          "hasTrace": false,
+          "finalDescription": "모든 원본 행의 순차 배정을 완료했습니다. 기존 행의 최근접 재배치나 Lloyd 반복은 수행하지 않았습니다."
+        }
+      ],
+      "mainThreadUsedJSHeapSize": 21700000
+    }
+  },
+  {
+    "project": "mobile",
+    "kind": "render-performance",
+    "metrics": {
+      "fps": 60.00600060005997,
+      "maxGap": 16.80000000000109,
+      "canvasDrawsInTwoSeconds": 62,
+      "maxWorkers": 1
+    }
+  }
+]

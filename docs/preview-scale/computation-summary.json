@@ -1,15 +1,15 @@
 {
   "recommendations": {
     "count": 212,
-    "medianMs": 5.807649999999967,
-    "p95Ms": 39.72389999999996,
-    "maxMs": 330.01129999999966,
+    "medianMs": 6.903550000000109,
+    "p95Ms": 42.96899999999994,
+    "maxMs": 382.0798,
     "maxTraceEstimateMiB": 45.189910888671875
   },
   "previews": {
     "count": 53,
-    "medianMs": 4.563099999999963,
-    "maxMs": 48.12329999999997,
-    "allClipsRetainedEstimateMiB": 9.87298583984375
+    "medianMs": 4.119599999999991,
+    "maxMs": 46.05430000000001,
+    "allClipsRetainedEstimateMiB": 9.948295593261719
   }
 }

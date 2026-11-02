@@ -59,14 +59,17 @@
 
 ## 검증 및 측정
 
-최종 결과와 배포 증거는 아래에 기록한다. 기존 기준은 단위 592개·브라우저 105통과/13조건부 생략이다.
+기존 기준은 단위 592개·브라우저 105통과/13조건부 생략이다. 최종 제품 커밋은 `4d82687f89658786e304aeb74618629aa5347f4f`다. [Actions 41378959392](https://github.com/oyueo-mm/ClusterLab/actions/runs/41378959392)의 validate/Pages가 모두 성공했고, 원격 전체 단위 **651/651·46파일**, 전체 Chromium/mobile **111통과·13기존 조건부 생략·0실패**다. [공개 사이트](https://oyueo-mm.github.io/ClusterLab/)의 후속 검증도 완료했다. `preview-scale/ci-final.json`, `release.json`에 배포 SHA와 결과를 기록했다.
 
 로컬 최종 결과:
 
-- 전체 단위 **649/649·45파일**, ESLint·TypeScript·프로덕션 build 통과. 기존 큰 초기/교재 번들에 대한 Vite 크기 안내는 남아 있다.
+- 전체 단위 **651/651·46파일**, ESLint·TypeScript·프로덕션 build 통과. 기존 큰 초기/교재 번들에 대한 Vite 크기 안내는 남아 있다.
 - 첫 전체 Chromium/mobile: **108통과·13생략·3실패**. 3개는 편집 테스트의 옛 추천 초기값 120 고정 기대값이었다. 전체 원본 비교와 당시 생성 개수를 사용하도록 바꿨다. 원자료는 `browser-first-full.json/.log`다.
 - 후속 검사에서 초기 옵션 count=120/실제 데이터 240 불일치가 불필요한 Undo 항목을 만드는 문제를 발견하고 App 초기 스냅샷의 count/seed를 실제 데이터와 맞췄다. `browser-initialization-audit.log`에 그 발견을 보존했다.
 - 최종 빌드의 설정 셸·저장/소유권·편집·미리보기 4개 spec: **35통과·9기존 조건부 생략·0실패**. 실패한 3개와 새 초기 Undo 검사, 개수 프리셋·321개 직접 입력·적용 전 데이터 보호·적용 후 Undo/Redo를 포함한다. 서로 다른 실행의 통과 수를 합쳐 하나의 전체 결과로 표시하지 않는다.
+- 순차 대표점을 실제 다차원 분석 상태에서 투영하고 유보 focus·pass·미할당 수를 보완한 뒤, 최신 빌드의 미리보기 spec도 별도로 **6/6 통과**했다. `browser-preview-final.json/.log`에 기록했다. 최종 전체 단위 실행은 대형 벤치마크와 빌드의 동시 부하를 피하도록 `--fileParallelism=false`를 사용해 651개가 모두 통과했다.
+- 조회 반경은 실제 query 한 곳에만 그린다. 가로/세로 표시 배율 276/126을 반영한 타원이며 Mean Shift는 이웃 관측점 대신 실제 activeCenter를 사용한다. 기하 회귀 검사 2개와 53개 실제 프레임 검사가 통과했다.
+- 이전 CI 아티팩트에서 단축키 테스트가 hash 이동 직후 React 화면 전환 완료 전에 Ctrl+Z를 보내는 경합을 확인했다. 실험실 화면/계산 준비를 기다리도록 테스트만 동기화하고 5회 반복 통과했다(`shortcuts-final.log`). 단축키 구현은 바꾸지 않았다.
 - 6개 가시 재생자에서도 4개만 그리기, 슬롯 양도, 탭 숨김/복귀, 공유 Worker, 스크롤 취소, 늦은 응답 무시, 완료 후 중복 슬롯 반환 방지를 별도 생명주기 단위 검사 4개로 확인한다.
 - 기준 main의 기존 엔진/프리셋/이력/홈 파일 **143개 해시 보존**. worker.ts는 thumbnail 응답 투영만 추가하고 새 preview 모듈/검사를 추가했다. 수학 구현 및 Recorder 변경은 없다.
 
@@ -74,20 +77,38 @@
 
 | 계산 | 수 | 실제 시간 |
 | --- | ---: | ---: |
-| K-Means 대표 | 240점 | 12.60 ms |
-| DBSCAN 대표 | 200점 | 7.49 ms |
-| Spectral 대표 | 64점 | 29.72 ms |
-| Growing Neural Gas 대표 | 200점 | 260.06 ms |
-| 추천 전체 212개 | 각 추천 규모 | 중앙값 5.81 / p95 39.72 / 최대 330.01 ms |
-| 썸네일 전체 53개 | 48개, 순차 12개 | 중앙값 4.56 / 최대 48.12 ms |
+| K-Means 대표 | 240점 | 12.69 ms |
+| DBSCAN 대표 | 200점 | 6.93 ms |
+| Spectral 대표 | 64점 | 27.10 ms |
+| Growing Neural Gas 대표 | 200점 | 273.50 ms |
+| 추천 전체 212개 | 각 추천 규모 | 중앙값 6.90 / p95 42.97 / 최대 382.08 ms |
+| 썸네일 전체 53개 | 48개, 순차 12개 | 중앙값 4.12 / 최대 46.05 ms |
 
-확대 추천의 최대 Trace 보존 추정은 **45.19 MiB**로 기존 64 MiB 예산 안에서 모두 성공했다. 53개 클립을 전부 보관한 보수적 합계 추정은 **9.87 MiB**다. 최종 브라우저 순회 뒤 메인 스레드 힙 관측값은 데스크톱 **28.04 MiB**, 모바일 **26.32 MiB**였으며 GC 시점에 따라 달라진다. 각 구성에서 실제 클립 53개를 받아 전체 Trace 미전송, Worker 종료 후 0개 및 필터 복귀 시 재계산 없음도 확인했다.
+확대 추천의 최대 Trace 보존 추정은 **45.19 MiB**로 기존 64 MiB 예산 안에서 모두 성공했다. 53개 클립을 전부 보관한 보수적 합계 추정은 **9.95 MiB**다. 최종 로컬 순회 뒤 메인 스레드 힙 관측값은 데스크톱 **23.37 MiB**, 모바일 **17.36 MiB**였으며 GC 시점에 따라 달라진다. 각 구성에서 실제 클립 53개를 받아 전체 Trace 미전송, Worker 종료 후 0개 및 필터 복귀 시 재계산 없음도 확인했다.
 
-2초간 브라우저 rAF는 데스크톱 **60.00 FPS**, 모바일 **60.00 FPS**, 최대 간격 **16.8 ms**였다. 같은 구간 Canvas draw는 데스크톱 3개 카드 합계 **183회**, 모바일 1개 **60회**로 카드당 약 30Hz다. 썸네일 Worker 관측 최대는 각각 2/1이며 정책 상한은 2다. 원자료는 [브라우저 측정](preview-scale/browser-metrics.json), [계산 요약](preview-scale/computation-summary.json), [환경](preview-scale/environment.json), `unit-final.log`, `browser-final.json/.log`, `build-final.log`에 보존했다.
+약 2초간 로컬 브라우저 rAF는 양쪽 약 **60.00 FPS**, 최대 간격 **16.8 ms**였다. 같은 구간 Canvas draw는 데스크톱 3개 카드 합계 **183회**, 모바일 1개 **61회**로 카드당 약 30Hz다. 썸네일 Worker 관측 최대는 각각 2/1이며 정책 상한은 2다. 원자료는 [브라우저 측정](preview-scale/browser-metrics.json), [계산 요약](preview-scale/computation-summary.json), [환경](preview-scale/environment.json), `unit-final.log`, `browser-final.json/.log`, `build-final.log`에 보존했다.
+
+## 공개 배포 확인
+
+- 1440px 데스크톱·390px 모바일에서 K-Means, DBSCAN, Spectral, GMM, Growing Neural Gas, Bimax, DenStream, MBSAS의 **16개 알고리즘/장치 조합**, **48장 초기·중간·최종 이미지**를 실제 공개 URL에서 확인했다. 실제 query 중심과 순차 대표점 필드가 배포본에 포함된 것도 검사했다. 캡처는 RAF에서 목표 실제 프레임을 관찰해 visibility 경계로 잠깐 멈춘 뒤 수행했다. reduced-motion의 정적 최종 상태도 확인했다. [원자료](preview-scale/public/verification.json)와 `public/*-initial/middle/final.png`를 보존했다.
+- 공개 53개 Worker·최대 2개 제한·캐시 재사용, 실제 루프 완료/재시작, 화면 밖/탭 숨김 정지, reduced-motion 최종 설명, 홈 카드와 개수 프리셋·321개 적용/Undo/Redo를 재검증했다. 첫 실행은 **5통과/1실패**였고 데스크톱 첫 실험실의 재생 준비가 10초 assertion 안에 끝나지 않은 한 건이었다. 코드나 제한 시간을 바꾸지 않은 동일 조건 재검사에서 **1/1 통과**했다. 모바일의 해당 검사는 첫 실행에서 통과했다. `public-browser-first.json/.log`, `public-browser-retry.json/.log`에 이력을 보존했다.
+- 공개 순회 뒤 메인 스레드 힙은 데스크톱 **26.32 MiB**, 모바일 **20.69 MiB**였다. 공개 rAF는 양쪽 약 **60.01 FPS**, 최대 간격 **16.8 ms**이며 측정 구간 Canvas draw 합계는 **122/62회**다. 합계는 당시 재생 중인 카드 수와 리소스 준비 시점에 따라 달라진다. [공개 성능 원자료](preview-scale/public-browser-metrics.json)를 별도로 보존했다.
+
+## 커밋·배포
+
+- `a45488c`: 실제 Trace 클립·Canvas 애니메이션·Worker/재생 시계 제한.
+- `cd999da`: 212추천별 크기와 개수 선택 UI.
+- `a2840f5`: 초기 스냅샷 메타데이터·취소 후 응답 및 이력 검증.
+- `ab1e93f`: 실제 순차 대표점·pass·미할당 표시.
+- `f21e2e0`: 실제 조회 중심과 표시 배율에 맞는 반경 기하.
+- `cb36238`: 페이지 준비를 기다리는 단축키 회귀 검사.
+- `4d82687`: 정적/감소 모션 결과의 실제 최종 단계 설명 동기화. 이 SHA의 전체 CI와 Pages 배포 성공.
+
+main에 강제 푸시 없이 반영했다. 후속 검증 기록 커밋은 문서/이미지/측정치만 갱신하며 `[skip ci]`를 사용한다. 배포 제품 SHA와 문서 기록 SHA를 구분한다.
 
 실제 Worker의 클립 전송·최대 Worker 수·캐시 재사용은 브라우저에서 가로채 검사한다. 초기·중간·최종 및 각 필드와 stateAt의 일치는 53개 엔진 단위 검사로 확인한다. 브라우저 검사에는 루프 완료/재시작, 화면 밖 정지, visibilitychange 경계에서 document.hidden 정지/재개, 동적 reduced-motion, 홈 카드, 빠른 스크롤·검색, 개수 직접 입력을 포함한다.
 
-메모리 수치는 구분한다: `traceRetainedEstimate`와 `clipRetainedEstimate`는 기존 retainedBytes 기반 보수적 객체 추정이며 실제 브라우저 힙과 동일하지 않다. `usedJSHeapSize`는 Chromium의 메인 스레드 관측값으로 종료 전 Worker의 최대 힙을 포함하지 않는다. rAF FPS는 브라우저 렌더링 시계이고 Canvas draw 횟수는 미리보기 자체의 약 30Hz 갱신이다. 자동화는 로컬 Windows Chromium 및 모바일 에뮬레이션이며 실제 휴대전화 하드웨어 측정으로 주장하지 않는다.
+메모리 수치는 구분한다: `traceRetainedEstimate`와 `clipRetainedEstimate`는 기존 retainedBytes 기반 보수적 객체 추정이며 실제 브라우저 힙과 동일하지 않다. `usedJSHeapSize`는 Chromium의 메인 스레드 관측값으로 종료 전 Worker의 최대 힙이나 Canvas/GPU 픽셀 버퍼를 포함하지 않는다. rAF FPS는 브라우저 렌더링 시계이고 Canvas draw 횟수는 미리보기 자체의 약 30Hz 갱신이다. 자동화는 로컬 Windows Chromium 및 모바일 에뮬레이션이며 실제 휴대전화 하드웨어 측정으로 주장하지 않는다.
 
 ## 미완료 및 범위 밖
 

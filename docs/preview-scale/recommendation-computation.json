@@ -7,7 +7,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 12.60469999999998,
+    "computationMs": 12.690600000000018,
     "events": 1448,
     "traceRetainedEstimate": 1085520
   },
@@ -19,7 +19,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 14.894600000000025,
+    "computationMs": 16.490499999999997,
     "events": 3372,
     "traceRetainedEstimate": 2484432
   },
@@ -31,7 +31,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 8.323300000000017,
+    "computationMs": 9.352100000000007,
     "events": 1929,
     "traceRetainedEstimate": 1438314
   },
@@ -43,7 +43,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 22.507499999999993,
+    "computationMs": 22.784099999999967,
     "events": 4815,
     "traceRetainedEstimate": 3535296
   },
@@ -55,7 +55,7 @@
     "after": 200,
     "actual": 200,
     "seed": 42,
-    "computationMs": 7.486400000000003,
+    "computationMs": 6.932900000000018,
     "events": 599,
     "traceRetainedEstimate": 3348332
   },
@@ -67,7 +67,7 @@
     "after": 200,
     "actual": 200,
     "seed": 42,
-    "computationMs": 5.779099999999971,
+    "computationMs": 6.632399999999961,
     "events": 598,
     "traceRetainedEstimate": 3342496
   },
@@ -79,7 +79,7 @@
     "after": 200,
     "actual": 200,
     "seed": 137,
-    "computationMs": 5.8361999999999625,
+    "computationMs": 5.500399999999956,
     "events": 599,
     "traceRetainedEstimate": 3349120
   },
@@ -91,7 +91,7 @@
     "after": 200,
     "actual": 200,
     "seed": 42,
-    "computationMs": 4.829900000000009,
+    "computationMs": 5.118600000000015,
     "events": 598,
     "traceRetainedEstimate": 3357030
   },
@@ -103,7 +103,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 21.59699999999998,
+    "computationMs": 23.25380000000007,
     "events": 332,
     "traceRetainedEstimate": 1612146
   },
@@ -115,7 +115,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 20.249400000000037,
+    "computationMs": 21.073100000000068,
     "events": 330,
     "traceRetainedEstimate": 1610148
   },
@@ -127,7 +127,7 @@
     "after": 160,
     "actual": 160,
     "seed": 137,
-    "computationMs": 16.301300000000083,
+    "computationMs": 16.990299999999934,
     "events": 328,
     "traceRetainedEstimate": 1590022
   },
@@ -139,7 +139,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 13.697700000000054,
+    "computationMs": 14.883600000000001,
     "events": 334,
     "traceRetainedEstimate": 1633914
   },
@@ -151,7 +151,7 @@
     "after": 60,
     "actual": 60,
     "seed": 42,
-    "computationMs": 18.53239999999994,
+    "computationMs": 18.77279999999996,
     "events": 120,
     "traceRetainedEstimate": 1057556
   },
@@ -163,7 +163,7 @@
     "after": 60,
     "actual": 60,
     "seed": 42,
-    "computationMs": 18.804100000000062,
+    "computationMs": 21.060899999999947,
     "events": 120,
     "traceRetainedEstimate": 1059632
   },
@@ -175,7 +175,7 @@
     "after": 60,
     "actual": 60,
     "seed": 137,
-    "computationMs": 15.273199999999974,
+    "computationMs": 16.064399999999978,
     "events": 120,
     "traceRetainedEstimate": 1062016
   },
@@ -187,7 +187,7 @@
     "after": 60,
     "actual": 60,
     "seed": 42,
-    "computationMs": 14.367500000000064,
+    "computationMs": 15.516399999999976,
     "events": 120,
     "traceRetainedEstimate": 1058764
   },
@@ -199,7 +199,7 @@
     "after": 80,
     "actual": 80,
     "seed": 42,
-    "computationMs": 6.288099999999986,
+    "computationMs": 6.177099999999996,
     "events": 23,
     "traceRetainedEstimate": 22564
   },
@@ -211,7 +211,7 @@
     "after": 80,
     "actual": 80,
     "seed": 42,
-    "computationMs": 8.48090000000002,
+    "computationMs": 8.836400000000026,
     "events": 58,
     "traceRetainedEstimate": 48538
   },
@@ -223,7 +223,7 @@
     "after": 80,
     "actual": 80,
     "seed": 137,
-    "computationMs": 6.153300000000058,
+    "computationMs": 5.759299999999939,
     "events": 39,
     "traceRetainedEstimate": 31168
   },
@@ -235,7 +235,7 @@
     "after": 80,
     "actual": 80,
     "seed": 42,
-    "computationMs": 6.6173,
+    "computationMs": 7.732600000000048,
     "events": 40,
     "traceRetainedEstimate": 32656
   },
@@ -247,7 +247,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 38.05020000000002,
+    "computationMs": 40.65989999999999,
     "events": 3850,
     "traceRetainedEstimate": 6522354
   },
@@ -259,7 +259,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 38.13170000000002,
+    "computationMs": 39.70320000000004,
     "events": 3850,
     "traceRetainedEstimate": 6522314
   },
@@ -271,7 +271,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 37.4239,
+    "computationMs": 42.96899999999994,
     "events": 3850,
     "traceRetainedEstimate": 6522310
   },
@@ -283,7 +283,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 37.172000000000025,
+    "computationMs": 40.30370000000005,
     "events": 3850,
     "traceRetainedEstimate": 6522246
   },
@@ -295,7 +295,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 21.970299999999952,
+    "computationMs": 22.139999999999986,
     "events": 3850,
     "traceRetainedEstimate": 4280812
   },
@@ -307,7 +307,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 42.072,
+    "computationMs": 21.90549999999996,
     "events": 3850,
     "traceRetainedEstimate": 4280796
   },
@@ -319,7 +319,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 29.07260000000008,
+    "computationMs": 23.53239999999994,
     "events": 3850,
     "traceRetainedEstimate": 4280812
   },
@@ -331,7 +331,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 21.80219999999997,
+    "computationMs": 20.374900000000025,
     "events": 3850,
     "traceRetainedEstimate": 4280796
   },
@@ -343,7 +343,7 @@
     "after": 180,
     "actual": 180,
     "seed": 42,
-    "computationMs": 14.317900000000009,
+    "computationMs": 16.010999999999967,
     "events": 1182,
     "traceRetainedEstimate": 2405444
   },
@@ -355,7 +355,7 @@
     "after": 180,
     "actual": 180,
     "seed": 42,
-    "computationMs": 12.299099999999953,
+    "computationMs": 12.752999999999929,
     "events": 1486,
     "traceRetainedEstimate": 3053210
   },
@@ -367,7 +367,7 @@
     "after": 180,
     "actual": 180,
     "seed": 137,
-    "computationMs": 12.756800000000112,
+    "computationMs": 9.860799999999927,
     "events": 1293,
     "traceRetainedEstimate": 2634092
   },
@@ -379,7 +379,7 @@
     "after": 180,
     "actual": 180,
     "seed": 42,
-    "computationMs": 12.291999999999916,
+    "computationMs": 9.442499999999882,
     "events": 892,
     "traceRetainedEstimate": 1789770
   },
@@ -391,7 +391,7 @@
     "after": 80,
     "actual": 80,
     "seed": 42,
-    "computationMs": 7.42470000000003,
+    "computationMs": 7.42430000000013,
     "events": 468,
     "traceRetainedEstimate": 295210
   },
@@ -403,7 +403,7 @@
     "after": 80,
     "actual": 80,
     "seed": 42,
-    "computationMs": 7.797600000000102,
+    "computationMs": 7.892499999999927,
     "events": 468,
     "traceRetainedEstimate": 295092
   },
@@ -415,7 +415,7 @@
     "after": 80,
     "actual": 80,
     "seed": 137,
-    "computationMs": 7.7654,
+    "computationMs": 7.227600000000166,
     "events": 468,
     "traceRetainedEstimate": 295088
   },
@@ -427,7 +427,7 @@
     "after": 80,
     "actual": 80,
     "seed": 42,
-    "computationMs": 11.671100000000024,
+    "computationMs": 11.601599999999962,
     "events": 932,
     "traceRetainedEstimate": 589200
   },
@@ -439,7 +439,7 @@
     "after": 80,
     "actual": 80,
     "seed": 42,
-    "computationMs": 17.16039999999998,
+    "computationMs": 19.040500000000065,
     "events": 157,
     "traceRetainedEstimate": 528212
   },
@@ -451,7 +451,7 @@
     "after": 80,
     "actual": 80,
     "seed": 42,
-    "computationMs": 15.554900000000089,
+    "computationMs": 17.15890000000013,
     "events": 157,
     "traceRetainedEstimate": 528212
   },
@@ -463,7 +463,7 @@
     "after": 80,
     "actual": 80,
     "seed": 137,
-    "computationMs": 13.261600000000044,
+    "computationMs": 14.006200000000035,
     "events": 157,
     "traceRetainedEstimate": 528212
   },
@@ -475,7 +475,7 @@
     "after": 80,
     "actual": 80,
     "seed": 42,
-    "computationMs": 11.580399999999827,
+    "computationMs": 13.802400000000034,
     "events": 157,
     "traceRetainedEstimate": 528212
   },
@@ -487,7 +487,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 4.421900000000051,
+    "computationMs": 6.176199999999881,
     "events": 22,
     "traceRetainedEstimate": 182974
   },
@@ -499,7 +499,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 6.642499999999927,
+    "computationMs": 8.608200000000124,
     "events": 42,
     "traceRetainedEstimate": 338474
   },
@@ -511,7 +511,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 2.9815000000000964,
+    "computationMs": 3.2065999999999804,
     "events": 28,
     "traceRetainedEstimate": 229060
   },
@@ -523,7 +523,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 4.7832999999998265,
+    "computationMs": 4.863299999999981,
     "events": 42,
     "traceRetainedEstimate": 338092
   },
@@ -535,7 +535,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 25.817800000000034,
+    "computationMs": 29.901200000000017,
     "events": 1126,
     "traceRetainedEstimate": 3681646
   },
@@ -547,7 +547,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 21.592399999999998,
+    "computationMs": 24.036499999999933,
     "events": 1098,
     "traceRetainedEstimate": 3390542
   },
@@ -559,7 +559,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 26.35979999999995,
+    "computationMs": 29.390199999999822,
     "events": 1170,
     "traceRetainedEstimate": 4127962
   },
@@ -571,7 +571,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 24.957499999999982,
+    "computationMs": 26.53710000000001,
     "events": 1138,
     "traceRetainedEstimate": 3769486
   },
@@ -583,7 +583,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 39.72389999999996,
+    "computationMs": 43.94509999999991,
     "events": 2351,
     "traceRetainedEstimate": 7112380
   },
@@ -595,7 +595,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 51.4543000000001,
+    "computationMs": 61.38619999999992,
     "events": 2816,
     "traceRetainedEstimate": 9574276
   },
@@ -607,7 +607,7 @@
     "after": 160,
     "actual": 160,
     "seed": 137,
-    "computationMs": 38.081500000000005,
+    "computationMs": 35.81549999999993,
     "events": 2163,
     "traceRetainedEstimate": 6230448
   },
@@ -619,7 +619,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 50.09579999999983,
+    "computationMs": 51.90689999999995,
     "events": 2623,
     "traceRetainedEstimate": 8508100
   },
@@ -631,7 +631,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 6.0379999999997835,
+    "computationMs": 6.2228000000000065,
     "events": 42,
     "traceRetainedEstimate": 340056
   },
@@ -643,7 +643,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 3.2285000000001673,
+    "computationMs": 2.5317000000000007,
     "events": 28,
     "traceRetainedEstimate": 223366
   },
@@ -655,7 +655,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 4.628600000000006,
+    "computationMs": 4.692099999999982,
     "events": 42,
     "traceRetainedEstimate": 329864
   },
@@ -667,7 +667,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 3.031800000000203,
+    "computationMs": 2.716899999999896,
     "events": 30,
     "traceRetainedEstimate": 236920
   },
@@ -679,7 +679,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 1.1088999999999487,
+    "computationMs": 1.133100000000013,
     "events": 24,
     "traceRetainedEstimate": 48288
   },
@@ -691,7 +691,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 0.52150000000006,
+    "computationMs": 0.624599999999873,
     "events": 20,
     "traceRetainedEstimate": 47084
   },
@@ -703,7 +703,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 0.533100000000104,
+    "computationMs": 0.42990000000008877,
     "events": 16,
     "traceRetainedEstimate": 37308
   },
@@ -715,7 +715,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 0.6081000000001495,
+    "computationMs": 0.6282000000001062,
     "events": 30,
     "traceRetainedEstimate": 59868
   },
@@ -727,7 +727,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 29.71640000000002,
+    "computationMs": 27.100599999999986,
     "events": 25,
     "traceRetainedEstimate": 275328
   },
@@ -739,7 +739,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 23.97939999999994,
+    "computationMs": 19.05099999999993,
     "events": 20,
     "traceRetainedEstimate": 271750
   },
@@ -751,7 +751,7 @@
     "after": 64,
     "actual": 64,
     "seed": 137,
-    "computationMs": 6.937599999999975,
+    "computationMs": 21.073699999999917,
     "events": 19,
     "traceRetainedEstimate": 271248
   },
@@ -763,7 +763,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 7.225100000000111,
+    "computationMs": 13.244699999999966,
     "events": 19,
     "traceRetainedEstimate": 271250
   },
@@ -775,7 +775,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 20.336399999999912,
+    "computationMs": 24.29410000000007,
     "events": 53,
     "traceRetainedEstimate": 2013976
   },
@@ -787,7 +787,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 17.2195999999999,
+    "computationMs": 18.0150000000001,
     "events": 45,
     "traceRetainedEstimate": 1617990
   },
@@ -799,7 +799,7 @@
     "after": 64,
     "actual": 64,
     "seed": 137,
-    "computationMs": 14.80009999999993,
+    "computationMs": 17.208000000000084,
     "events": 43,
     "traceRetainedEstimate": 1545174
   },
@@ -811,7 +811,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 17.385200000000168,
+    "computationMs": 16.18410000000017,
     "events": 49,
     "traceRetainedEstimate": 1878474
   },
@@ -823,7 +823,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 12.287799999999834,
+    "computationMs": 12.259800000000041,
     "events": 323,
     "traceRetainedEstimate": 2119096
   },
@@ -835,7 +835,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 9.583499999999958,
+    "computationMs": 11.261199999999917,
     "events": 323,
     "traceRetainedEstimate": 2119168
   },
@@ -847,7 +847,7 @@
     "after": 160,
     "actual": 160,
     "seed": 137,
-    "computationMs": 11.312700000000177,
+    "computationMs": 9.934399999999869,
     "events": 323,
     "traceRetainedEstimate": 2119440
   },
@@ -859,7 +859,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 11.592100000000073,
+    "computationMs": 10.26019999999994,
     "events": 323,
     "traceRetainedEstimate": 2118032
   },
@@ -871,7 +871,7 @@
     "after": 60,
     "actual": 60,
     "seed": 42,
-    "computationMs": 21.787399999999934,
+    "computationMs": 23.049600000000055,
     "events": 173,
     "traceRetainedEstimate": 1522850
   },
@@ -883,7 +883,7 @@
     "after": 60,
     "actual": 60,
     "seed": 42,
-    "computationMs": 17.564600000000155,
+    "computationMs": 21.454600000000028,
     "events": 173,
     "traceRetainedEstimate": 1460604
   },
@@ -895,7 +895,7 @@
     "after": 60,
     "actual": 60,
     "seed": 137,
-    "computationMs": 15.182900000000018,
+    "computationMs": 19.29229999999984,
     "events": 173,
     "traceRetainedEstimate": 1527900
   },
@@ -907,7 +907,7 @@
     "after": 60,
     "actual": 60,
     "seed": 42,
-    "computationMs": 15.464800000000196,
+    "computationMs": 15.276200000000017,
     "events": 173,
     "traceRetainedEstimate": 1500978
   },
@@ -919,7 +919,7 @@
     "after": 200,
     "actual": 200,
     "seed": 42,
-    "computationMs": 23.366300000000138,
+    "computationMs": 26.40820000000008,
     "events": 3210,
     "traceRetainedEstimate": 3614552
   },
@@ -931,7 +931,7 @@
     "after": 200,
     "actual": 200,
     "seed": 42,
-    "computationMs": 24.103200000000015,
+    "computationMs": 23.495200000000068,
     "events": 3210,
     "traceRetainedEstimate": 3614552
   },
@@ -943,7 +943,7 @@
     "after": 200,
     "actual": 200,
     "seed": 137,
-    "computationMs": 21.735200000000077,
+    "computationMs": 24.718500000000176,
     "events": 3210,
     "traceRetainedEstimate": 3614552
   },
@@ -955,7 +955,7 @@
     "after": 200,
     "actual": 200,
     "seed": 42,
-    "computationMs": 23.445899999999938,
+    "computationMs": 21.949499999999716,
     "events": 3210,
     "traceRetainedEstimate": 3614552
   },
@@ -967,7 +967,7 @@
     "after": 200,
     "actual": 200,
     "seed": 42,
-    "computationMs": 260.05759999999987,
+    "computationMs": 273.5036,
     "events": 6428,
     "traceRetainedEstimate": 34773506
   },
@@ -979,7 +979,7 @@
     "after": 200,
     "actual": 200,
     "seed": 42,
-    "computationMs": 330.01129999999966,
+    "computationMs": 379.72760000000017,
     "events": 6428,
     "traceRetainedEstimate": 47385056
   },
@@ -991,7 +991,7 @@
     "after": 200,
     "actual": 200,
     "seed": 137,
-    "computationMs": 280.0299,
+    "computationMs": 330.6117999999997,
     "events": 6429,
     "traceRetainedEstimate": 35411370
   },
@@ -1003,7 +1003,7 @@
     "after": 200,
     "actual": 200,
     "seed": 42,
-    "computationMs": 319.60609999999997,
+    "computationMs": 382.0798,
     "events": 6428,
     "traceRetainedEstimate": 44109806
   },
@@ -1015,7 +1015,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 1.1842999999998938,
+    "computationMs": 1.7533000000003085,
     "events": 11,
     "traceRetainedEstimate": 25696
   },
@@ -1027,7 +1027,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 0.876299999999901,
+    "computationMs": 0.783100000000104,
     "events": 17,
     "traceRetainedEstimate": 31350
   },
@@ -1039,7 +1039,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 0.5036000000000058,
+    "computationMs": 0.4513999999999214,
     "events": 11,
     "traceRetainedEstimate": 26180
   },
@@ -1051,7 +1051,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 0.5923999999999978,
+    "computationMs": 0.5674000000003616,
     "events": 15,
     "traceRetainedEstimate": 31848
   },
@@ -1063,7 +1063,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 2.930200000000241,
+    "computationMs": 2.8215000000000146,
     "events": 138,
     "traceRetainedEstimate": 264054
   },
@@ -1075,7 +1075,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 2.0394000000001142,
+    "computationMs": 2.6696999999999207,
     "events": 138,
     "traceRetainedEstimate": 261662
   },
@@ -1087,7 +1087,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 2.046400000000176,
+    "computationMs": 2.6685999999999694,
     "events": 138,
     "traceRetainedEstimate": 262702
   },
@@ -1099,7 +1099,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 3.2432000000003427,
+    "computationMs": 2.6837000000000444,
     "events": 138,
     "traceRetainedEstimate": 265198
   },
@@ -1111,7 +1111,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 4.616299999999683,
+    "computationMs": 4.415199999999913,
     "events": 29,
     "traceRetainedEstimate": 59022
   },
@@ -1123,7 +1123,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 4.843299999999999,
+    "computationMs": 3.1900000000000546,
     "events": 29,
     "traceRetainedEstimate": 59240
   },
@@ -1135,7 +1135,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 2.5961999999999534,
+    "computationMs": 4.354700000000321,
     "events": 25,
     "traceRetainedEstimate": 50180
   },
@@ -1147,7 +1147,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 3.3850000000002183,
+    "computationMs": 3.5725000000002183,
     "events": 31,
     "traceRetainedEstimate": 63440
   },
@@ -1159,7 +1159,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 7.681599999999889,
+    "computationMs": 11.423999999999978,
     "events": 401,
     "traceRetainedEstimate": 529526
   },
@@ -1171,7 +1171,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 6.069700000000012,
+    "computationMs": 13.941100000000006,
     "events": 365,
     "traceRetainedEstimate": 504266
   },
@@ -1183,7 +1183,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 6.026499999999942,
+    "computationMs": 12.120899999999892,
     "events": 385,
     "traceRetainedEstimate": 520042
   },
@@ -1195,7 +1195,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 4.850300000000061,
+    "computationMs": 10.12480000000005,
     "events": 345,
     "traceRetainedEstimate": 480192
   },
@@ -1207,7 +1207,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 2.981999999999971,
+    "computationMs": 4.696399999999812,
     "events": 39,
     "traceRetainedEstimate": 98192
   },
@@ -1219,7 +1219,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 1.629699999999957,
+    "computationMs": 3.9663000000000466,
     "events": 67,
     "traceRetainedEstimate": 173992
   },
@@ -1231,7 +1231,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 1.1597999999999047,
+    "computationMs": 3.265100000000075,
     "events": 37,
     "traceRetainedEstimate": 93832
   },
@@ -1243,7 +1243,7 @@
     "after": 24,
     "actual": 24,
     "seed": 42,
-    "computationMs": 0.32900000000017826,
+    "computationMs": 0.781999999999698,
     "events": 15,
     "traceRetainedEstimate": 19722
   },
@@ -1255,7 +1255,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 5.771299999999883,
+    "computationMs": 6.276799999999639,
     "events": 35,
     "traceRetainedEstimate": 93488
   },
@@ -1267,7 +1267,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 4.390300000000025,
+    "computationMs": 4.295100000000275,
     "events": 56,
     "traceRetainedEstimate": 151268
   },
@@ -1279,7 +1279,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 2.822700000000168,
+    "computationMs": 3.8739000000000487,
     "events": 37,
     "traceRetainedEstimate": 96948
   },
@@ -1291,7 +1291,7 @@
     "after": 24,
     "actual": 24,
     "seed": 42,
-    "computationMs": 0.387000000000171,
+    "computationMs": 0.3876999999997679,
     "events": 15,
     "traceRetainedEstimate": 19880
   },
@@ -1303,7 +1303,7 @@
     "after": 60,
     "actual": 60,
     "seed": 42,
-    "computationMs": 7.490299999999934,
+    "computationMs": 9.376200000000154,
     "events": 17,
     "traceRetainedEstimate": 36316
   },
@@ -1315,7 +1315,7 @@
     "after": 60,
     "actual": 60,
     "seed": 42,
-    "computationMs": 6.081500000000233,
+    "computationMs": 8.124700000000303,
     "events": 17,
     "traceRetainedEstimate": 36316
   },
@@ -1327,7 +1327,7 @@
     "after": 60,
     "actual": 60,
     "seed": 137,
-    "computationMs": 5.645300000000134,
+    "computationMs": 9.150000000000091,
     "events": 17,
     "traceRetainedEstimate": 36316
   },
@@ -1339,7 +1339,7 @@
     "after": 24,
     "actual": 24,
     "seed": 42,
-    "computationMs": 2.128099999999904,
+    "computationMs": 3.485200000000077,
     "events": 15,
     "traceRetainedEstimate": 28514
   },
@@ -1351,7 +1351,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 23.502500000000055,
+    "computationMs": 28.983400000000074,
     "events": 4822,
     "traceRetainedEstimate": 3547300
   },
@@ -1363,7 +1363,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 20.234699999999975,
+    "computationMs": 31.93010000000004,
     "events": 4822,
     "traceRetainedEstimate": 3572186
   },
@@ -1375,7 +1375,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 20.85889999999972,
+    "computationMs": 27.006799999999657,
     "events": 4822,
     "traceRetainedEstimate": 3537034
   },
@@ -1387,7 +1387,7 @@
     "after": 24,
     "actual": 24,
     "seed": 42,
-    "computationMs": 0.33930000000009386,
+    "computationMs": 0.6855999999997948,
     "events": 52,
     "traceRetainedEstimate": 33346
   },
@@ -1399,7 +1399,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 3.9256000000000313,
+    "computationMs": 4.933799999999792,
     "events": 59,
     "traceRetainedEstimate": 227906
   },
@@ -1411,7 +1411,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 2.520400000000336,
+    "computationMs": 4.841099999999642,
     "events": 59,
     "traceRetainedEstimate": 247838
   },
@@ -1423,7 +1423,7 @@
     "after": 48,
     "actual": 48,
     "seed": 137,
-    "computationMs": 2.1999000000000706,
+    "computationMs": 4.746399999999994,
     "events": 59,
     "traceRetainedEstimate": 227906
   },
@@ -1435,7 +1435,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 3.108299999999872,
+    "computationMs": 3.0752000000002226,
     "events": 53,
     "traceRetainedEstimate": 234286
   },
@@ -1447,7 +1447,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 5.154500000000098,
+    "computationMs": 4.895599999999831,
     "events": 108,
     "traceRetainedEstimate": 390646
   },
@@ -1459,7 +1459,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 3.657000000000153,
+    "computationMs": 5.992499999999836,
     "events": 112,
     "traceRetainedEstimate": 430736
   },
@@ -1471,7 +1471,7 @@
     "after": 48,
     "actual": 48,
     "seed": 137,
-    "computationMs": 3.108400000000074,
+    "computationMs": 6.945799999999963,
     "events": 108,
     "traceRetainedEstimate": 390646
   },
@@ -1483,7 +1483,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 2.9278999999996813,
+    "computationMs": 3.292899999999918,
     "events": 99,
     "traceRetainedEstimate": 396218
   },
@@ -1495,7 +1495,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 2.71120000000019,
+    "computationMs": 3.509700000000066,
     "events": 141,
     "traceRetainedEstimate": 229788
   },
@@ -1507,7 +1507,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 2.464599999999791,
+    "computationMs": 3.3738000000003012,
     "events": 148,
     "traceRetainedEstimate": 286642
   },
@@ -1519,7 +1519,7 @@
     "after": 48,
     "actual": 48,
     "seed": 137,
-    "computationMs": 2.1462000000001353,
+    "computationMs": 3.3213000000000648,
     "events": 141,
     "traceRetainedEstimate": 229788
   },
@@ -1531,7 +1531,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 1.2724000000002889,
+    "computationMs": 2.4776999999999134,
     "events": 75,
     "traceRetainedEstimate": 150646
   },
@@ -1543,7 +1543,7 @@
     "after": 32,
     "actual": 32,
     "seed": 42,
-    "computationMs": 5.211900000000242,
+    "computationMs": 5.80639999999994,
     "events": 16,
     "traceRetainedEstimate": 128436
   },
@@ -1555,7 +1555,7 @@
     "after": 32,
     "actual": 32,
     "seed": 42,
-    "computationMs": 11.151600000000144,
+    "computationMs": 15.001800000000003,
     "events": 38,
     "traceRetainedEstimate": 340172
   },
@@ -1567,7 +1567,7 @@
     "after": 32,
     "actual": 32,
     "seed": 137,
-    "computationMs": 2.265100000000075,
+    "computationMs": 2.5455999999994674,
     "events": 16,
     "traceRetainedEstimate": 128436
   },
@@ -1579,7 +1579,7 @@
     "after": 32,
     "actual": 32,
     "seed": 42,
-    "computationMs": 8.750300000000152,
+    "computationMs": 11.203300000000127,
     "events": 38,
     "traceRetainedEstimate": 340184
   },
@@ -1591,7 +1591,7 @@
     "after": 40,
     "actual": 40,
     "seed": 42,
-    "computationMs": 12.243399999999838,
+    "computationMs": 19.036799999999857,
     "events": 35,
     "traceRetainedEstimate": 520258
   },
@@ -1603,7 +1603,7 @@
     "after": 40,
     "actual": 40,
     "seed": 42,
-    "computationMs": 9.520399999999881,
+    "computationMs": 10.827299999999923,
     "events": 43,
     "traceRetainedEstimate": 644592
   },
@@ -1615,7 +1615,7 @@
     "after": 40,
     "actual": 40,
     "seed": 137,
-    "computationMs": 7.808700000000044,
+    "computationMs": 13.85609999999997,
     "events": 35,
     "traceRetainedEstimate": 520258
   },
@@ -1627,7 +1627,7 @@
     "after": 40,
     "actual": 40,
     "seed": 42,
-    "computationMs": 3.759700000000066,
+    "computationMs": 6.248499999999694,
     "events": 17,
     "traceRetainedEstimate": 254444
   },
@@ -1639,7 +1639,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 2.473199999999906,
+    "computationMs": 1.9500000000007276,
     "events": 8,
     "traceRetainedEstimate": 38484
   },
@@ -1651,7 +1651,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 0.7746999999999389,
+    "computationMs": 1.6812999999992826,
     "events": 8,
     "traceRetainedEstimate": 35936
   },
@@ -1663,7 +1663,7 @@
     "after": 160,
     "actual": 160,
     "seed": 137,
-    "computationMs": 0.7617000000000189,
+    "computationMs": 0.7121999999999389,
     "events": 8,
     "traceRetainedEstimate": 37392
   },
@@ -1675,7 +1675,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 0.7586999999998625,
+    "computationMs": 1.4398000000001048,
     "events": 8,
     "traceRetainedEstimate": 36612
   },
@@ -1687,7 +1687,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 2.3025000000002365,
+    "computationMs": 2.676800000000185,
     "events": 6,
     "traceRetainedEstimate": 23224
   },
@@ -1699,7 +1699,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 1.1102999999998246,
+    "computationMs": 1.8203999999996086,
     "events": 8,
     "traceRetainedEstimate": 29482
   },
@@ -1711,7 +1711,7 @@
     "after": 160,
     "actual": 160,
     "seed": 137,
-    "computationMs": 2.495800000000145,
+    "computationMs": 4.956000000000131,
     "events": 28,
     "traceRetainedEstimate": 82798
   },
@@ -1723,7 +1723,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 0.8328000000001339,
+    "computationMs": 0.6311999999998079,
     "events": 6,
     "traceRetainedEstimate": 24442
   },
@@ -1735,7 +1735,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 3.890100000000075,
+    "computationMs": 37.206099999999424,
     "events": 6,
     "traceRetainedEstimate": 274490
   },
@@ -1747,7 +1747,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 2.0138999999999214,
+    "computationMs": 5.274800000000141,
     "events": 6,
     "traceRetainedEstimate": 301028
   },
@@ -1759,7 +1759,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 2.2442000000000917,
+    "computationMs": 48.06910000000062,
     "events": 6,
     "traceRetainedEstimate": 273254
   },
@@ -1771,7 +1771,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 2.00649999999996,
+    "computationMs": 21.73359999999957,
     "events": 6,
     "traceRetainedEstimate": 203720
   },
@@ -1783,7 +1783,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 11.889299999999821,
+    "computationMs": 23.485499999999774,
     "events": 87,
     "traceRetainedEstimate": 513652
   },
@@ -1795,7 +1795,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 9.190399999999954,
+    "computationMs": 12.018500000000131,
     "events": 101,
     "traceRetainedEstimate": 669166
   },
@@ -1807,7 +1807,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 4.48070000000007,
+    "computationMs": 9.006999999999607,
     "events": 59,
     "traceRetainedEstimate": 392752
   },
@@ -1819,7 +1819,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 3.428400000000238,
+    "computationMs": 4.335799999999836,
     "events": 49,
     "traceRetainedEstimate": 323550
   },
@@ -1831,7 +1831,7 @@
     "after": 300,
     "actual": 300,
     "seed": 42,
-    "computationMs": 3.3510999999998603,
+    "computationMs": 6.706400000000031,
     "events": 11,
     "traceRetainedEstimate": 71598
   },
@@ -1843,7 +1843,7 @@
     "after": 300,
     "actual": 300,
     "seed": 42,
-    "computationMs": 2.274199999999837,
+    "computationMs": 4.25380000000041,
     "events": 11,
     "traceRetainedEstimate": 98826
   },
@@ -1855,7 +1855,7 @@
     "after": 300,
     "actual": 300,
     "seed": 137,
-    "computationMs": 1.1738000000000284,
+    "computationMs": 1.3477999999995518,
     "events": 11,
     "traceRetainedEstimate": 65578
   },
@@ -1867,7 +1867,7 @@
     "after": 300,
     "actual": 300,
     "seed": 42,
-    "computationMs": 0.8813999999997577,
+    "computationMs": 1.5043000000005122,
     "events": 11,
     "traceRetainedEstimate": 62406
   },
@@ -1879,7 +1879,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 1.3883999999998196,
+    "computationMs": 2.5499999999992724,
     "events": 8,
     "traceRetainedEstimate": 53048
   },
@@ -1891,7 +1891,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 50.38709999999992,
+    "computationMs": 74.83640000000014,
     "events": 446,
     "traceRetainedEstimate": 11509868
   },
@@ -1903,7 +1903,7 @@
     "after": 64,
     "actual": 64,
     "seed": 137,
-    "computationMs": 0.47759999999971114,
+    "computationMs": 0.4117999999998574,
     "events": 8,
     "traceRetainedEstimate": 53048
   },
@@ -1915,7 +1915,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 0.43540000000029977,
+    "computationMs": 0.3824000000004162,
     "events": 8,
     "traceRetainedEstimate": 53048
   },
@@ -1927,7 +1927,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 7.8969999999999345,
+    "computationMs": 8.855099999999766,
     "events": 73,
     "traceRetainedEstimate": 592562
   },
@@ -1939,7 +1939,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 9.158600000000206,
+    "computationMs": 9.219299999999748,
     "events": 148,
     "traceRetainedEstimate": 1070812
   },
@@ -1951,7 +1951,7 @@
     "after": 64,
     "actual": 64,
     "seed": 137,
-    "computationMs": 6.615200000000186,
+    "computationMs": 5.206900000000132,
     "events": 73,
     "traceRetainedEstimate": 592562
   },
@@ -1963,7 +1963,7 @@
     "after": 64,
     "actual": 64,
     "seed": 42,
-    "computationMs": 5.381000000000313,
+    "computationMs": 7.120899999999892,
     "events": 73,
     "traceRetainedEstimate": 592562
   },
@@ -1975,7 +1975,7 @@
     "after": 40,
     "actual": 40,
     "seed": 42,
-    "computationMs": 22.700800000000072,
+    "computationMs": 25.504500000000007,
     "events": 256,
     "traceRetainedEstimate": 697364
   },
@@ -1987,7 +1987,7 @@
     "after": 40,
     "actual": 40,
     "seed": 42,
-    "computationMs": 56.07199999999966,
+    "computationMs": 40.59189999999944,
     "events": 637,
     "traceRetainedEstimate": 1729660
   },
@@ -1999,7 +1999,7 @@
     "after": 40,
     "actual": 40,
     "seed": 137,
-    "computationMs": 17.97340000000031,
+    "computationMs": 26.418300000000272,
     "events": 383,
     "traceRetainedEstimate": 1031570
   },
@@ -2011,7 +2011,7 @@
     "after": 40,
     "actual": 40,
     "seed": 42,
-    "computationMs": 15.042699999999968,
+    "computationMs": 21.149499999999534,
     "events": 381,
     "traceRetainedEstimate": 1029898
   },
@@ -2023,7 +2023,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 6.89200000000028,
+    "computationMs": 5.631099999999606,
     "events": 91,
     "traceRetainedEstimate": 1197908
   },
@@ -2035,7 +2035,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 6.594699999999648,
+    "computationMs": 6.874200000000201,
     "events": 89,
     "traceRetainedEstimate": 1239620
   },
@@ -2047,7 +2047,7 @@
     "after": 48,
     "actual": 48,
     "seed": 137,
-    "computationMs": 4.764700000000175,
+    "computationMs": 4.768799999999828,
     "events": 91,
     "traceRetainedEstimate": 1197908
   },
@@ -2059,7 +2059,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 7.178299999999581,
+    "computationMs": 6.548700000000281,
     "events": 87,
     "traceRetainedEstimate": 1162110
   },
@@ -2071,7 +2071,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 3.5873999999998887,
+    "computationMs": 5.125299999999697,
     "events": 213,
     "traceRetainedEstimate": 449192
   },
@@ -2083,7 +2083,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 4.302999999999884,
+    "computationMs": 3.263699999999517,
     "events": 230,
     "traceRetainedEstimate": 501754
   },
@@ -2095,7 +2095,7 @@
     "after": 48,
     "actual": 48,
     "seed": 137,
-    "computationMs": 2.9786999999996624,
+    "computationMs": 3.3535000000001673,
     "events": 213,
     "traceRetainedEstimate": 449192
   },
@@ -2107,7 +2107,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 3.024499999999989,
+    "computationMs": 3.4026999999996406,
     "events": 230,
     "traceRetainedEstimate": 501754
   },
@@ -2119,7 +2119,7 @@
     "after": 120,
     "actual": 120,
     "seed": 42,
-    "computationMs": 1.8134000000000015,
+    "computationMs": 3.9483000000000175,
     "events": 7,
     "traceRetainedEstimate": 25460
   },
@@ -2131,7 +2131,7 @@
     "after": 120,
     "actual": 120,
     "seed": 42,
-    "computationMs": 0.5218999999997322,
+    "computationMs": 1.1125999999994747,
     "events": 7,
     "traceRetainedEstimate": 20740
   },
@@ -2143,7 +2143,7 @@
     "after": 120,
     "actual": 120,
     "seed": 137,
-    "computationMs": 0.5268000000005486,
+    "computationMs": 0.6673999999993612,
     "events": 7,
     "traceRetainedEstimate": 25460
   },
@@ -2155,7 +2155,7 @@
     "after": 24,
     "actual": 24,
     "seed": 42,
-    "computationMs": 1.348399999999856,
+    "computationMs": 2.1433999999999287,
     "events": 105,
     "traceRetainedEstimate": 161736
   },
@@ -2167,7 +2167,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 5.389699999999721,
+    "computationMs": 6.586800000000039,
     "events": 22,
     "traceRetainedEstimate": 391666
   },
@@ -2179,7 +2179,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 4.957600000000639,
+    "computationMs": 4.868500000000495,
     "events": 34,
     "traceRetainedEstimate": 586282
   },
@@ -2191,7 +2191,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 4.7598999999991065,
+    "computationMs": 5.179700000000594,
     "events": 20,
     "traceRetainedEstimate": 357086
   },
@@ -2203,7 +2203,7 @@
     "after": 24,
     "actual": 24,
     "seed": 42,
-    "computationMs": 0.2842000000000553,
+    "computationMs": 0.7174999999997453,
     "events": 6,
     "traceRetainedEstimate": 27600
   },
@@ -2215,7 +2215,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 4.184799999999996,
+    "computationMs": 5.6952000000001135,
     "events": 10,
     "traceRetainedEstimate": 193818
   },
@@ -2227,7 +2227,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 2.031600000000253,
+    "computationMs": 3.293699999999262,
     "events": 10,
     "traceRetainedEstimate": 194026
   },
@@ -2239,7 +2239,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 1.5771999999997206,
+    "computationMs": 1.5628999999998996,
     "events": 8,
     "traceRetainedEstimate": 161378
   },
@@ -2251,7 +2251,7 @@
     "after": 24,
     "actual": 24,
     "seed": 42,
-    "computationMs": 0.2524999999995998,
+    "computationMs": 0.24620000000049913,
     "events": 6,
     "traceRetainedEstimate": 27604
   },
@@ -2263,7 +2263,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 3.9921000000003914,
+    "computationMs": 5.091199999999844,
     "events": 8,
     "traceRetainedEstimate": 159944
   },
@@ -2275,7 +2275,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 2.2408000000004904,
+    "computationMs": 2.7910000000001673,
     "events": 8,
     "traceRetainedEstimate": 159944
   },
@@ -2287,7 +2287,7 @@
     "after": 240,
     "actual": 240,
     "seed": 137,
-    "computationMs": 2.011199999999917,
+    "computationMs": 2.1734999999998763,
     "events": 8,
     "traceRetainedEstimate": 159944
   },
@@ -2299,7 +2299,7 @@
     "after": 24,
     "actual": 24,
     "seed": 42,
-    "computationMs": 0.19719999999961146,
+    "computationMs": 0.1981999999998152,
     "events": 4,
     "traceRetainedEstimate": 20418
   },
@@ -2311,7 +2311,7 @@
     "after": 40,
     "actual": 40,
     "seed": 42,
-    "computationMs": 6.955799999999726,
+    "computationMs": 8.374099999999999,
     "events": 85,
     "traceRetainedEstimate": 853870
   },
@@ -2323,7 +2323,7 @@
     "after": 40,
     "actual": 40,
     "seed": 42,
-    "computationMs": 6.183999999999287,
+    "computationMs": 5.867999999999483,
     "events": 85,
     "traceRetainedEstimate": 918762
   },
@@ -2335,7 +2335,7 @@
     "after": 40,
     "actual": 40,
     "seed": 137,
-    "computationMs": 5.564399999999296,
+    "computationMs": 8.164099999999962,
     "events": 85,
     "traceRetainedEstimate": 853870
   },
@@ -2347,7 +2347,7 @@
     "after": 40,
     "actual": 40,
     "seed": 42,
-    "computationMs": 6.786699999999655,
+    "computationMs": 13.075399999999718,
     "events": 85,
     "traceRetainedEstimate": 932244
   },
@@ -2359,7 +2359,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 3.369100000000799,
+    "computationMs": 3.1078999999999724,
     "events": 99,
     "traceRetainedEstimate": 380852
   },
@@ -2371,7 +2371,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 2.3651999999992768,
+    "computationMs": 2.3083000000005995,
     "events": 104,
     "traceRetainedEstimate": 418062
   },
@@ -2383,7 +2383,7 @@
     "after": 48,
     "actual": 48,
     "seed": 137,
-    "computationMs": 2.091699999999946,
+    "computationMs": 4.939800000000105,
     "events": 99,
     "traceRetainedEstimate": 380852
   },
@@ -2395,7 +2395,7 @@
     "after": 48,
     "actual": 48,
     "seed": 42,
-    "computationMs": 2.7051999999994223,
+    "computationMs": 2.207999999999629,
     "events": 104,
     "traceRetainedEstimate": 418062
   },
@@ -2407,7 +2407,7 @@
     "after": 12,
     "actual": 12,
     "seed": 42,
-    "computationMs": 1.206199999999626,
+    "computationMs": 2.6673000000000684,
     "events": 26,
     "traceRetainedEstimate": 58976
   },
@@ -2419,7 +2419,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 16.87169999999969,
+    "computationMs": 18.139000000000124,
     "events": 482,
     "traceRetainedEstimate": 2340542
   },
@@ -2431,7 +2431,7 @@
     "after": 12,
     "actual": 12,
     "seed": 137,
-    "computationMs": 0.5446000000001732,
+    "computationMs": 0.6811999999999898,
     "events": 26,
     "traceRetainedEstimate": 58976
   },
@@ -2443,7 +2443,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 17.313199999999597,
+    "computationMs": 30.10689999999977,
     "events": 482,
     "traceRetainedEstimate": 2512036
   },
@@ -2455,7 +2455,7 @@
     "after": 12,
     "actual": 12,
     "seed": 42,
-    "computationMs": 1.1659999999992579,
+    "computationMs": 1.2953999999999724,
     "events": 43,
     "traceRetainedEstimate": 99754
   },
@@ -2467,7 +2467,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 47.41480000000047,
+    "computationMs": 69.15179999999964,
     "events": 953,
     "traceRetainedEstimate": 6452874
   },
@@ -2479,7 +2479,7 @@
     "after": 12,
     "actual": 12,
     "seed": 137,
-    "computationMs": 1.2182999999995445,
+    "computationMs": 0.9574999999995271,
     "events": 43,
     "traceRetainedEstimate": 99754
   },
@@ -2491,7 +2491,7 @@
     "after": 240,
     "actual": 240,
     "seed": 42,
-    "computationMs": 49.90569999999934,
+    "computationMs": 61.52719999999954,
     "events": 953,
     "traceRetainedEstimate": 6508414
   },
@@ -2503,7 +2503,7 @@
     "after": 12,
     "actual": 12,
     "seed": 42,
-    "computationMs": 1.3188000000000102,
+    "computationMs": 3.2224999999998545,
     "events": 52,
     "traceRetainedEstimate": 122988
   },
@@ -2515,7 +2515,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 1.9709000000002561,
+    "computationMs": 4.130500000000211,
     "events": 36,
     "traceRetainedEstimate": 125466
   },
@@ -2527,7 +2527,7 @@
     "after": 12,
     "actual": 12,
     "seed": 137,
-    "computationMs": 1.0826000000006388,
+    "computationMs": 1.9038999999993393,
     "events": 52,
     "traceRetainedEstimate": 122988
   },
@@ -2539,7 +2539,7 @@
     "after": 160,
     "actual": 160,
     "seed": 42,
-    "computationMs": 26.993899999999485,
+    "computationMs": 39.18960000000061,
     "events": 38,
     "traceRetainedEstimate": 367408
   }
