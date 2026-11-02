@@ -165,6 +165,7 @@ test("mobile drawers keep playback exposed and Escape returns to canvas", async 
   const playback = (await lab.locator(".playback").boundingBox())!;
   expect(panel.y + panel.height).toBeLessThanOrEqual(playback.y + 1);
   expect(playback.y + playback.height).toBeLessThanOrEqual(640);
+  await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
   await lab.getByLabel("한 단계 앞으로", { exact: true }).click();
   await page.keyboard.press("Escape");
   await expect(lab.locator(".workspace-settings")).toBeHidden();

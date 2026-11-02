@@ -2,14 +2,14 @@
     "id":  41444492938,
     "url":  "https://github.com/oyueo-mm/ClusterLab/actions/runs/41444492938",
     "sha":  "ae1c2cceae92fe64a75deab7165c02d3b7886ec8",
-    "status":  "in_progress",
-    "conclusion":  null,
+    "status":  "completed",
+    "conclusion":  "success",
     "jobs":  [
                  {
                      "id":  125274337280,
                      "name":  "validate",
-                     "status":  "in_progress",
-                     "conclusion":  null,
+                     "status":  "completed",
+                     "conclusion":  "success",
                      "html_url":  "https://github.com/oyueo-mm/ClusterLab/actions/runs/41444492938/job/125274337280",
                      "steps":  [
                                    {
@@ -86,51 +86,92 @@
                                    },
                                    {
                                        "name":  "Run npm run test:e2e",
-                                       "status":  "in_progress",
-                                       "conclusion":  null,
+                                       "status":  "completed",
+                                       "conclusion":  "success",
                                        "number":  10,
                                        "started_at":  "2026-11-02T12:27:41Z",
-                                       "completed_at":  null
+                                       "completed_at":  "2026-11-02T12:44:32Z"
                                    },
                                    {
                                        "name":  "Run actions/upload-artifact@v4",
-                                       "status":  "pending",
-                                       "conclusion":  null,
+                                       "status":  "completed",
+                                       "conclusion":  "success",
                                        "number":  11,
-                                       "started_at":  null,
-                                       "completed_at":  null
+                                       "started_at":  "2026-11-02T12:44:32Z",
+                                       "completed_at":  "2026-11-02T12:44:35Z"
                                    },
                                    {
                                        "name":  "Run actions/configure-pages@v5",
-                                       "status":  "pending",
-                                       "conclusion":  null,
+                                       "status":  "completed",
+                                       "conclusion":  "success",
                                        "number":  12,
-                                       "started_at":  null,
-                                       "completed_at":  null
+                                       "started_at":  "2026-11-02T12:44:35Z",
+                                       "completed_at":  "2026-11-02T12:44:36Z"
                                    },
                                    {
                                        "name":  "Run actions/upload-pages-artifact@v3",
-                                       "status":  "pending",
-                                       "conclusion":  null,
+                                       "status":  "completed",
+                                       "conclusion":  "success",
                                        "number":  13,
-                                       "started_at":  null,
-                                       "completed_at":  null
+                                       "started_at":  "2026-11-02T12:44:36Z",
+                                       "completed_at":  "2026-11-02T12:44:38Z"
                                    },
                                    {
                                        "name":  "Post Run actions/setup-node@v4",
-                                       "status":  "pending",
-                                       "conclusion":  null,
+                                       "status":  "completed",
+                                       "conclusion":  "success",
                                        "number":  25,
-                                       "started_at":  null,
-                                       "completed_at":  null
+                                       "started_at":  "2026-11-02T12:44:38Z",
+                                       "completed_at":  "2026-11-02T12:44:38Z"
                                    },
                                    {
                                        "name":  "Post Run actions/checkout@v4",
-                                       "status":  "pending",
-                                       "conclusion":  null,
+                                       "status":  "completed",
+                                       "conclusion":  "success",
                                        "number":  26,
-                                       "started_at":  null,
-                                       "completed_at":  null
+                                       "started_at":  "2026-11-02T12:44:38Z",
+                                       "completed_at":  "2026-11-02T12:44:38Z"
+                                   },
+                                   {
+                                       "name":  "Complete job",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  27,
+                                       "started_at":  "2026-11-02T12:44:38Z",
+                                       "completed_at":  "2026-11-02T12:44:38Z"
+                                   }
+                               ]
+                 },
+                 {
+                     "id":  125283077444,
+                     "name":  "deploy",
+                     "status":  "completed",
+                     "conclusion":  "success",
+                     "html_url":  "https://github.com/oyueo-mm/ClusterLab/actions/runs/41444492938/job/125283077444",
+                     "steps":  [
+                                   {
+                                       "name":  "Set up job",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  1,
+                                       "started_at":  "2026-11-02T12:44:49Z",
+                                       "completed_at":  "2026-11-02T12:44:49Z"
+                                   },
+                                   {
+                                       "name":  "Deploy",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  2,
+                                       "started_at":  "2026-11-02T12:44:49Z",
+                                       "completed_at":  "2026-11-02T12:45:17Z"
+                                   },
+                                   {
+                                       "name":  "Complete job",
+                                       "status":  "completed",
+                                       "conclusion":  "success",
+                                       "number":  3,
+                                       "started_at":  "2026-11-02T12:45:17Z",
+                                       "completed_at":  "2026-11-02T12:45:17Z"
                                    }
                                ]
                  }

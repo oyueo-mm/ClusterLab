@@ -1,0 +1,84 @@
+{
+  "stats": {
+    "startTime": "2026-11-02T12:48:14.322Z",
+    "duration": 25692.497,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "home, category sidebar and shareable independent catalog filters",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2403,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3062,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3389,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3478,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "unexpected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 12046,
+          "errors": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.lab-page').getByLabel('타임라인', { exact: true })\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" locator('.lab-page').getByLabel('타임라인', { exact: true }) with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('.lab-page').getByLabel('타임라인', { exact: true })\u001b[22m\n\u001b[2m    8 × locator resolved to <input min=\"0\" max=\"1\" value=\"0\" step=\"0.01\" type=\"range\" class=\"timeline\" aria-label=\"타임라인\"/>\u001b[22m\n\u001b[2m      - unexpected value \"0\"\u001b[22m\n\u001b[2m    16 × locator resolved to <input min=\"0\" value=\"0\" max=\"1448\" step=\"0.01\" type=\"range\" class=\"timeline\" aria-label=\"타임라인\"/>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  169 |   await page.keyboard.press(\"Escape\");\n  170 |   await expect(lab.locator(\".workspace-settings\")).toBeHidden();\n> 171 |   await expect(lab.getByLabel(\"타임라인\", { exact: true })).toHaveValue(\"1\");\n      |                                                         ^\n  172 | });\n  173 |\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\workspace.spec.ts:171:57"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -15,6 +15,15 @@
     "passed": 12
   },
   "engine_preserved_files": 198,
-  "public_verified": false,
-  "status": "awaiting_actions"
+  "public_verified": true,
+  "status": "deployed_and_verified",
+  "verified_at": "2026-11-02T12:52:30.492739+00:00",
+  "ci_unit_passed": 651,
+  "ci_browser_passed": 118,
+  "ci_browser_skipped": 14,
+  "ci_browser_failed": 0,
+  "public_smoke_passed": 5,
+  "public_layout_configurations": 21,
+  "public_visualizations": 22,
+  "public_errors": 0
 }
