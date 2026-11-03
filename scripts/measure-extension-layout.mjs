@@ -4,11 +4,15 @@ import { mkdir, writeFile } from "node:fs/promises";
 const base =
     process.env.CLUSTERLAB_BASE_URL || "http://127.0.0.1:4476/ClusterLab/",
   scope = process.argv[2] || "local",
-  folder = `docs/extension-55/${scope}-layout`;
+  folder = `${process.argv[3] || "docs/extension-55"}/${scope}-layout`,
+  algorithms = process.argv[4]?.split(",") || [
+    "PCKMeans",
+    "Possibilistic C-Means",
+  ];
 await mkdir(folder, { recursive: true });
 const browser = await chromium.launch(),
   records = [];
-for (const algorithm of ["PCKMeans", "Possibilistic C-Means"]) {
+for (const algorithm of algorithms) {
   const context = await browser.newContext({
       viewport: { width: 1440, height: 900 },
     }),
@@ -64,7 +68,7 @@ for (const algorithm of ["PCKMeans", "Possibilistic C-Means"]) {
     )
       throw Error(`layout failed ${algorithm}/${width}`);
     await page.screenshot({
-      path: `${folder}/${algorithm === "PCKMeans" ? "pck" : "pcm"}-${width}.png`,
+      path: `${folder}/${algorithm.toLowerCase().replaceAll(" ", "-")}-${width}.png`,
     });
     records.push({
       algorithm,

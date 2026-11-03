@@ -5842,5 +5842,11 @@
       "sha256": "e6ccc832c8f802d3b8df5eb1ea6d4452237eef1037cc12935b891c3761f76938",
       "identical": true
     }
-  ]
+  ],
+  "candidateIdsNamesOrderUnchanged": true,
+  "changedCandidateNumbersOnly": [
+    22,
+    25
+  ],
+  "remainingUnimplemented": 75
 }

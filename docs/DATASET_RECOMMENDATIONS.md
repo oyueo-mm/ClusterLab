@@ -1,6 +1,6 @@
 ## 2차 확장 현재 상태
 
-소스57엔진·228추천·75미구현·엄격 인증0。FPCM1997 U행/T열 정규화와 MPCKMeans2004 multiple diagonal을 원본 ND·실제 Trace·독립 NumPy/SciPy로 연결했다. 기존55엔진·220추천은 보존했다. 계약·실제 검증 및 공개 배포 상태는 [2차 보고서](ALGORITHM_EXPANSION_2_REPORT.md)를 따른다. 아래는 이전 기록이다.
+소스57엔진·228추천·75미구현·엄격 인증0. FPCM1997 U행/T열 정규화와 MPCKMeans2004 multiple diagonal을 원본 ND·실제 Trace·독립 NumPy/SciPy로 연결했다. 기존55엔진·220추천은 보존했다. 계약·실제 검증 및 공개 배포 상태는 [2차 보고서](ALGORITHM_EXPANSION_2_REPORT.md)를 따른다. 아래는 이전 기록이다.
 
 ## 2026-11-03 1차 확장 — 55개 엔진·220개 추천 구성
 

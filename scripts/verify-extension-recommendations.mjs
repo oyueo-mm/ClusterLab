@@ -4,10 +4,15 @@ import { mkdir, writeFile } from "node:fs/promises";
 const base =
     process.env.CLUSTERLAB_BASE_URL || "http://127.0.0.1:4476/ClusterLab/",
   scope = process.argv[2] || "local",
+  output = process.argv[3] || "docs/extension-55",
+  algorithms = process.argv[4]?.split(",") || [
+    "PCKMeans",
+    "Possibilistic C-Means",
+  ],
   browser = await chromium.launch(),
   records = [];
 for (const width of [1440, 390])
-  for (const algorithm of ["PCKMeans", "Possibilistic C-Means"]) {
+  for (const algorithm of algorithms) {
     const context = await browser.newContext({
         viewport: { width, height: 900 },
       }),
@@ -26,7 +31,10 @@ for (const width of [1440, 390])
             if (e.data.trace) {
               const trace = e.data.trace,
                 last = trace.snapshots.at(-1),
-                analysis = last?.state.analysis;
+                analysis = {};
+              for (const step of trace.steps)
+                for (const change of step.analysisDelta?.changes || [])
+                  analysis[change.key] = change.after;
               window.extensionRecommendationRuns.push({
                 algorithm: this.request.algorithm,
                 params: this.request.params,
@@ -35,6 +43,11 @@ for (const width of [1440, 390])
                 traceEstimatedBytes: trace.recording.estimatedBytes,
                 finalSnapshot: last?.index,
                 analysisKind: analysis?.kind,
+                outputRows: analysis.counts?.reduce((s, v) => s + v, 0),
+                typicalityRows: analysis.typicalities?.length,
+                uRowSums: analysis.uRowSums,
+                tColumnSums: analysis.tColumnSums,
+                metrics: analysis.metrics,
               });
             }
           });
@@ -86,9 +99,30 @@ for (const width of [1440, 390])
           : actual.source.values;
       if (
         values.length !==
-        (variant === 3 ? 24 : algorithm === "PCKMeans" ? 120 : 160)
+        (variant === 3
+          ? 24
+          : ["PCKMeans", "MPCKMeans", "Fuzzy Possibilistic C-Means"].includes(
+                algorithm,
+              )
+            ? 120
+            : 160)
       )
         throw Error("Recommendation source count mismatch");
+      if (actual.outputRows !== values.length)
+        throw Error("Actual native result does not include every source row");
+      if (
+        algorithm === "Fuzzy Possibilistic C-Means" &&
+        (actual.typicalityRows !== values.length ||
+          actual.uRowSums.some((v) => Math.abs(v - 1) > 1e-8) ||
+          actual.tColumnSums.some((v) => Math.abs(v - 1) > 1e-8))
+      )
+        throw Error("FPCM actual row/column constraints mismatch");
+      if (
+        algorithm === "MPCKMeans" &&
+        (!actual.metrics?.flat().every((v) => v > 0 && Number.isFinite(v)) ||
+          (variant === 3 && actual.params.metricConditioning <= 0))
+      )
+        throw Error("Actual positive metric/explicit conditioning missing");
       if (
         algorithm === "Possibilistic C-Means" &&
         variant === 3 &&
@@ -114,15 +148,22 @@ for (const width of [1440, 390])
         sourceKind: actual.source.kind,
         scaleMode: actual.params.pcmScaleMode,
         fullActualWorker: true,
+        outputRows: actual.outputRows,
+        analysisKind: actual.analysisKind,
+        tColumnSums: actual.tColumnSums,
+        metricConditioning:
+          algorithm === "MPCKMeans"
+            ? actual.params.metricConditioning
+            : undefined,
         rewind: true,
       });
     }
     await context.close();
   }
 await browser.close();
-await mkdir("docs/extension-55", { recursive: true });
+await mkdir(output, { recursive: true });
 await writeFile(
-  `docs/extension-55/${scope}-recommendation-browser.json`,
+  `${output}/${scope}-recommendation-browser.json`,
   JSON.stringify({ base, records }, null, 2),
 );
 console.log(

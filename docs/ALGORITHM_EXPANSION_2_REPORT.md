@@ -1,3 +1,9 @@
+## 2차 확장 — 57엔진 로컬 전체 회귀 완료, 배포·공개 검증 다음
+
+FPCM1997 안정9d09be1 → MPCKMeans2004 대각 metric 안정8086104 순서로 구현했다. **57엔진·228추천·75미구현·엄격 인증0**이다. 전체 TypeScript/ESLint/빌드·Vitest741/741·50파일(동일 단언·maxWorkers2), Chromium/mobile **138통과·14기존조건부생략·0실패/재시도**를 확인했다. 생략14개는55엔진 공개 기준과 동일하다. 57개 실제 Worker 도감/57개 수학가이드·홈·기존편집/복원·신규실험/실제비교/되감기·모바일을 포함한다. 기존55 math·32프리셋·220추천660생성·67소스 및119후보 번호/이름/순서를 보존했고 후보22/25만 갱신했다.
+
+[2차 전체보고](ALGORITHM_EXPANSION_2_REPORT.md), [로컬 전체 브라우저](extension-57/browser-local.json), [검사 결과](extension-57/local-checks.json), [FPCM](research/FPCM.md), [MPCKMeans](research/MPCKMEANS.md), `docs/extension-57/`의 독립검산/실측 근거를 따른다. 두 신규4추천·실제 Trace/분석/가이드·Worker100/1000/10만취소·UI100/1000재생 약60FPS를 확인했다. 아직 공개는55개이며, 다음은 main 푸시→Actions/Pages 성공→공개57개·신규실험/비교·8추천/반응형·번들해시 확인이다. 다른 sequential 작업 트리는c4d6a7d 그대로다. 아래는 과거 기록이다.
+
 ## 2차 확장 — 두 세로 단위 로컬 완료, 통합·공개 검증 진행
 
 FPCM 안정 커밋9d09be1 이후 MPCKMeans2004 multiple diagonal을 순차 구현했다. 소스57엔진·228추천·75미구현·엄격 인증0, 공개는 아직55개다. 원본 ND·정확 전체 최대쌍·거리−logdet·ML/CL 비용·Eq8 양수 대각 학습·명시 특이 처리·실제 Trace/역진·타원·전용분석·4전용추천·수학가이드/실제PCK비교를 연결했다. 독립 NumPy/SciPy17fixture(정상13/오류4), 모든 반복/후보ΔJ·16개배정목적·유한차분, 전용22테스트·전체741/741·50파일·타입·ESLint·빌드가 통과했다. 최초 전체는 신규 도감/교재 요약 불일치1개를 발견해 문구를 맞췄고 같은 전체를 재실행해 통과했다. 단언/시간 제한/기존 생략을 바꾸지 않았다.
@@ -30,6 +36,12 @@ FPCM 안정 커밋 이후 ICML2004 Eq4–8·대각 행렬·양수/특이 처리�
 
 ## MPCKMeans 로컬 세로 단위 결과
 
-[수학적 범위·정책·独립검산·재현](research/MPCKMEANS.md), [17fixture·SciPy기울기/16배정](research/mpck-reference.json), [Node100/1000/10000·d/K/E변화](research/mpck-performance.json), [실제Worker/취소](research/mpck-browser-performance.json), [UI100/1000재생](extension-57/local-mpck-rendering-performance.json), [Chromium/mobile4검증](extension-57/browser-mpck-target.json)을 따른다. NumPy/SciPy 결과와 정상13개 매 반복·후보ΔJ·학습A/중심/목적이 일치하고4오류를 구분했다. 전용22개·전체741개가 통과했다. 엄격 원문 인증/FullSPD/원저자 WekaUT 실행 일치로 확장하지 않는다.
+[수학적 범위·정책·독립검산·재현](research/MPCKMEANS.md), [17fixture·SciPy기울기/16배정](research/mpck-reference.json), [Node100/1000/10000·d/K/E변화](research/mpck-performance.json), [실제Worker/취소](research/mpck-browser-performance.json), [UI100/1000재생](extension-57/local-mpck-rendering-performance.json), [Chromium/mobile4검증](extension-57/browser-mpck-target.json)을 따른다. NumPy/SciPy 결과와 정상13개 매 반복·후보ΔJ·학습A/중심/목적이 일치하고4오류를 구분했다. 전용22개·전체741개가 통과했다. 엄격 원문 인증/FullSPD/원저자 WekaUT 실행 일치로 확장하지 않는다.
 
 초기 전체741 중 도감/교재 요약 문자열1불일치를 기존 단언이 발견했다. 문구를 일치시킨 뒤 같은741/741·50파일을 통과했다. 수치 코드·기존 테스트 시간 제한은 바꾸지 않았다. FPCM 초기 기본 병렬의 기존 graph-followup 시간 초과도 앞 기록에 남아 있다.
+
+## 통합 로컬 회귀
+
+741/741·50파일, 전체 브라우저138통과/14기존생략/0실패/0flaky를 확인했다. [동일 생략·전체 결과](extension-57/browser-local.json), [단위/검사 근거](extension-57/local-checks.json)를 따른다. 후속 공개 검증은 배포 완료 후 별도로 기록한다.
+
+로컬 추가 검증: 신규8추천×데스크톱1440/모바일390의16개 실제 전체 원본 Worker 계산·되감기 및 FPCM U행/T열 제약·MPCK 양수 A/명시조건화가 통과했다. [추천16](extension-57/local-recommendation-browser.json). 두 엔진1920/1440/1024/768/390/320px의 캔버스/재생 노출·가로넘침 없음·6회리사이즈 무재계산/위치 유지14검사도 통과했다. [좌표·스크린샷14](extension-57/local-layout/measurements.json).

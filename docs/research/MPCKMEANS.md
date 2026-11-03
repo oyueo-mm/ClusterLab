@@ -6,13 +6,15 @@ FPCM 안정 커밋 `9d09be1` 이후 순차 구현했다. 현재 소스57개·228
 
 [Bilenko/Basu/Mooney ICML2004 원저자 PDF](https://bilenko.com/papers/04-semi-icml.pdf)8쪽을 다운로드했다. PDF3·4쪽(논문83–84)의 Eq4–8·Figure1·§3.1–3.3을 실제 렌더링해 대조했다.5쪽의 수렴 caveat도 텍스트로 확인했다. [RISC](https://www.cs.utexas.edu/~ml/risc/)는 공식 안내이며 웹 도구의 `risc/code`는 cache miss다. 원저자 실행·버전/라이선스 검증 완료로 주장하지 않는다.
 
-NumPy2.5.4·SciPy1.18.1은 이 작업 공간의 `.local/spectral-reference-runtime`에서 import해 확인했다. 기본 Python에는 SciPy가 없다. 이 확인만으로 oracle를 실행했다고 세지 않는다. 별도 Python 직접 목적/전수 최대쌍·SciPy inv/slogdet/SPD·유한차분 fixture를 제품보다 먼저 작성한다. 외부 구현 코드를 제품에 복사하지 않는다.
+NumPy2.5.4·SciPy1.18.1은 이 작업 공간의 `.local/spectral-reference-runtime`에서 import해 확인했다. 기본 Python에는 SciPy가 없다. 이 확인만으로 oracle를 실행했다고 세지 않는다. 별도 Python 직접 목적/전수 최대쌍·NumPy slogdet·SciPy inv/Cholesky·유한차분 fixture를 제품보다 먼저 작성한다. 외부 구현 코드를 제품에 복사하지 않는다.
 
 공식 RISC code 안내는 Python HTTP200으로 실제 읽었다. WekaUT Java1.4.2 배포 안내와 실행 명령이 있으나 아카이브 다운로드가 지연돼 이 작업의 다운로드만 중지했다. 원저자 소프트웨어의 버전·라이선스·수치 실행 일치를 검증했다고 주장하지 않는다. 제품에 Weka/GPL 소스를 복사하지 않았다.
 
 ## 실제 검증 결과
 
-`scripts/mpck_reference.py`를 제품보다 먼저 실행했다. NumPy2.5.4/SciPy1.18.1의 직접 전체 목적·Floyd 폐쇄·전수 최대쌍·SciPy inverse/Cholesky/slogdet·전진 및 중앙 유한차분을 사용했다. [17개 fixture](mpck-reference.json) 중 정상13개와 모순/특이strict/전체동일/음분모 오류4개다. 정상 모든 반복의 중심·label·대각 A·분모·목적, 작은 입력의 모든 실제 후보 ΔJ가 제품과 일치한다. 작은4행/K2의16개 label 배정 목적도 별도로 대조했다. 탐욕 결과를 전역 최소에 강제로 맞추지 않는다.
+추천 적용은 기존 constrained 크기 정책을 유지해120·120·120·24행이며 네 개 모두 자체 MPCK 생성기를 사용한다. 생성기 자체의 기본80/80/80/12와 추천 적용 수를 구분한다. 상수 축 한계 추천은 α=1e-6을 명시하고 사용자가0으로 바꿔 strict 특이 오류를 확인할 수 있다.
+
+`scripts/mpck_reference.py`를 제품보다 먼저 실행했다. NumPy2.5.4/SciPy1.18.1의 직접 전체 목적·Floyd 폐쇄·전수 최대쌍·NumPy slogdet·SciPy inverse/Cholesky·전진 및 중앙 유한차분을 사용했다. [17개 fixture](mpck-reference.json) 중 정상13개와 모순/특이strict/전체동일/음분모 오류4개다. 정상 모든 반복의 중심·label·대각 A·분모·목적, 작은 입력의 모든 실제 후보 ΔJ가 제품과 일치한다. 작은4행/K2의16개 label 배정 목적도 별도로 대조했다. 탐욕 결과를 전역 최소에 강제로 맞추지 않는다.
 
 전용22테스트는 전체 Trace 전진/역진/stateAt/checkpoint, 전체 원본 최대쌍, native 결과, 표시 좌표를 바꿔도 같은 원본 ND, 빈 군집/동률/중복/시드137/역순/반복한도/자원 오류/요약 전체100행/CL 위반 비용0/4전용추천을 포함한다. 전체741테스트·50파일이 통과했다. Chromium/mobile에서 실제 미리보기→더블클릭, 학습 A·전체 최대쌍·−logdet, 수렴·되감기, resize/focus 무재계산, 상수축strict 오류→선택조건화 ND, Undo·reload, 실제 PCK 비교·설정변경·이벤트 전달4/4가 통과했다. 전체 브라우저 회귀/공개 결과는 통합 보고서에 구분한다.
 
@@ -47,4 +49,4 @@ ConstrainedDataset의 일관된 ML/CL·균일 유한 전역 w≥0만 지원한�
 
 ## 독립 fixture 계획
 
-Floyd ML 폐쇄/직접 전수 cost, NumPy 전수 pair matrix(작은 검산 데이터에만), SciPy 대각 inverse/Cholesky/logdet, 목적의 유한차분과 Eq8 gradient를 비교한다. 없음/ML/CL/유한 위반/모순/중복/동률·빈군집/척도차이/원본ND/순서·시드/특이strict·조건화·음분모·budget를 포함한다. 고정 witness가 바뀌는 경계에서 고전 미분을 거짓으로0이라 단언하지 않는다. 작은 모든 label 배정은 목적 확인용이며 탐욕 결과를 전역 최적으로 맞추지 않는다.
+Floyd ML 폐쇄/직접 전수 cost, NumPy 전수 pair matrix(작은 검산 데이터에만), NumPy slogdet·SciPy 대각 inverse/Cholesky, 목적의 유한차분과 Eq8 gradient를 비교한다. 없음/ML/CL/유한 위반/모순/중복/동률·빈군집/척도차이/원본ND/순서·시드/특이strict·조건화·음분모·budget를 포함한다. 고정 witness가 바뀌는 경계에서 고전 미분을 거짓으로0이라 단언하지 않는다. 작은 모든 label 배정은 목적 확인용이며 탐욕 결과를 전역 최적으로 맞추지 않는다.
