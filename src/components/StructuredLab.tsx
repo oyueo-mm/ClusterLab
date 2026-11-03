@@ -232,7 +232,8 @@ export default function StructuredLab({
   const computePoints = useMemo(() => displayPoints(data), [data]);
   const projectionData = useMemo(
     () =>
-      algorithm === "PCKMeans" && data.kind === "constrained"
+      ["PCKMeans", "MPCKMeans"].includes(algorithm) &&
+      data.kind === "constrained"
         ? { ...data, data: { ...data.data, display: undefined } }
         : ["Possibilistic C-Means", "Fuzzy Possibilistic C-Means"].includes(
               algorithm,
@@ -426,7 +427,8 @@ export default function StructuredLab({
                 · 표시 좌표와 계산 데이터 분리
               </div>
               {(data.kind === "numeric" ||
-                (algorithm === "PCKMeans" && data.kind === "constrained")) && (
+                (["PCKMeans", "MPCKMeans"].includes(algorithm) &&
+                  data.kind === "constrained")) && (
                 <div className="matrix-controls">
                   {[0, 1].map((j) => (
                     <label key={j}>
@@ -897,6 +899,7 @@ export default function StructuredLab({
               algorithm={algorithm}
               nativeAxes={
                 algorithm === "PCKMeans" ||
+                algorithm === "MPCKMeans" ||
                 [
                   "Possibilistic C-Means",
                   "Fuzzy Possibilistic C-Means",

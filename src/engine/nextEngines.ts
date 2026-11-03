@@ -18,6 +18,7 @@ import { kshape } from "./algorithms/kshape";
 import { cnm } from "./algorithms/cnm";
 import { fluid } from "./algorithms/fluid";
 import { copkmeans } from "./algorithms/copkmeans";
+import { mpckmeans } from "./algorithms/mpckmeans";
 import { pckmeans } from "./algorithms/pckmeans";
 import { fpcm } from "./algorithms/fpcm";
 import { pcm } from "./algorithms/pcm";
@@ -55,6 +56,7 @@ export const nextEngines = {
   "Fluid Communities": fluid,
   "COP-KMeans": copkmeans,
   PCKMeans: pckmeans,
+  MPCKMeans: mpckmeans,
   "Possibilistic C-Means": pcm,
   "Fuzzy Possibilistic C-Means": fpcm,
   "Bernoulli Mixture": bernoulli,

@@ -6,6 +6,7 @@ export const algorithmFamilies: Record<Algorithm, string> = {
   TTSAS: "두 임계값·유보 재방문",
   "COP-KMeans": "하드 제약·중심",
   PCKMeans: "유한 벌점·쌍별 제약",
+  MPCKMeans: "학습 메트릭·쌍별 제약",
   "Fuzzy Possibilistic C-Means": "퍼지 U·열 정규화 T",
   "Possibilistic C-Means": "독립 전형성·중심",
   "Bernoulli Mixture": "이진 확률·혼합모델",

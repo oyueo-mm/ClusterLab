@@ -61,6 +61,7 @@ const koreanNames: Record<Algorithm, string> = {
   "Fluid Communities": "유동 커뮤니티",
   "COP-KMeans": "하드 제약 K-평균",
   PCKMeans: "쌍별 제약 K-평균",
+  MPCKMeans: "다중 대각 메트릭·쌍별 제약 K-평균",
   "Bernoulli Mixture": "베르누이 혼합모델",
   "Poisson Mixture": "포아송 혼합모델",
   "Multinomial Mixture": "다항 카운트 혼합모델",
@@ -132,6 +133,7 @@ export const loaders: Record<Algorithm, () => Promise<Engine>> = {
   "Fluid Communities": () => import("./algorithms/fluid").then((m) => m.fluid),
   "COP-KMeans": () => import("./algorithms/copkmeans").then((m) => m.copkmeans),
   PCKMeans: () => import("./algorithms/pckmeans").then((m) => m.pckmeans),
+  MPCKMeans: () => import("./algorithms/mpckmeans").then((m) => m.mpckmeans),
   "Bernoulli Mixture": () =>
     import("./algorithms/bernoulli").then((m) => m.bernoulli),
   "Poisson Mixture": () =>
@@ -180,6 +182,7 @@ export const structuredAlgorithms = [
   "TTSAS",
   "Possibilistic C-Means",
   "Fuzzy Possibilistic C-Means",
+  "MPCKMeans",
 ] as const;
 export const communityAlgorithms: readonly Algorithm[] = [
   "Louvain",
@@ -202,6 +205,7 @@ export function supportsLegacyPoints(algorithm: Algorithm) {
     "K-Shape",
     "COP-KMeans",
     "PCKMeans",
+    "MPCKMeans",
     "Bernoulli Mixture",
     "Poisson Mixture",
     "Multinomial Mixture",
@@ -212,7 +216,11 @@ export function supportsLegacyPoints(algorithm: Algorithm) {
 }
 export function supportsDataset(algorithm: Algorithm, kind: Dataset["kind"]) {
   if (kind === "constrained")
-    return algorithm === "COP-KMeans" || algorithm === "PCKMeans";
+    return (
+      algorithm === "COP-KMeans" ||
+      algorithm === "PCKMeans" ||
+      algorithm === "MPCKMeans"
+    );
   if (kind === "categorical") return algorithm === "K-Modes";
   if (kind === "mixed") return algorithm === "K-Prototypes";
   if (kind === "stream") return algorithm === "DenStream";
@@ -236,6 +244,7 @@ export function supportsDataset(algorithm: Algorithm, kind: Dataset["kind"]) {
       "K-Shape",
       "COP-KMeans",
       "PCKMeans",
+      "MPCKMeans",
     ].includes(algorithm)
   );
 }
@@ -276,7 +285,7 @@ export const registry = Object.fromEntries(
               ? "variant"
               : "algorithm",
         input:
-          id === "COP-KMeans" || id === "PCKMeans"
+          id === "COP-KMeans" || id === "PCKMeans" || id === "MPCKMeans"
             ? "constrained"
             : id === "Bimax" || id === "Cheng–Church Biclustering"
               ? "matrix"
@@ -300,7 +309,7 @@ export const registry = Object.fromEntries(
                             : "points2d",
         output: ["BSAS", "MBSAS", "TTSAS"].includes(id)
           ? "sequential-partition"
-          : id === "COP-KMeans" || id === "PCKMeans"
+          : id === "COP-KMeans" || id === "PCKMeans" || id === "MPCKMeans"
             ? "constrained-partition"
             : [
                   "Bernoulli Mixture",
@@ -390,7 +399,9 @@ export const registry = Object.fromEntries(
           : id === "Clique Percolation"
             ? "미소속"
             : "노이즈",
-        examplePreset: (id === "COP-KMeans" || id === "PCKMeans"
+        examplePreset: (id === "COP-KMeans" ||
+        id === "PCKMeans" ||
+        id === "MPCKMeans"
           ? "constrained"
           : id === "Bernoulli Mixture"
             ? "bernoulli"

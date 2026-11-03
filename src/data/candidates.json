@@ -241,11 +241,13 @@
     "number": 25,
     "name": "MPCKMeans",
     "family": "B 퍼지·제약 기반",
-    "status": "원문·정의 예비 검토 · 엔진 미구현",
-    "classification": "분류 검토 필요",
-    "input": "입력 계약 조사 필요",
-    "engine": null,
-    "research": "docs/research/NEXT_50_QUEUE.md: 부분 열람·정의 비교, oracle 미실행"
+    "status": "제한 범위 구현 · 독립 NumPy/SciPy·Trace 검증",
+    "classification": "독립 알고리즘 · multiple diagonal",
+    "input": "constrained",
+    "engine": "MPCKMeans",
+    "research": "docs/research/MPCKMEANS.md",
+    "validation": "independent-numpy",
+    "notes": "ICML2004 multiple diagonal; 일관 제약·전체 원본 최대쌍; NumPy/SciPy 독립 검증, 엄격 원문 인증과 구분"
   },
   {
     "number": 26,

@@ -2,6 +2,31 @@ import type { AlgorithmDetail } from "./algorithmDetails";
 export const extensionDetails: Partial<
   Record<import("./types").Algorithm, AlgorithmDetail>
 > = {
+  MPCKMeans: {
+    timeComplexity: "O(TK n²d + TnK(d+폐쇄 incident 관계)), 전체 최대쌍 전수",
+    spaceComplexity: "O(nd+E+Kd+nK), N² 행렬 없음·Trace64MiB",
+    traceKinds: [
+      "initialize",
+      "distance",
+      "test",
+      "assign",
+      "move",
+      "maximization",
+      "finish",
+    ],
+    visualizations: [
+      "학습 대각 metric 타원",
+      "정확 최대쌍·ML/CL",
+      "−logdet·목적·갱신 분모",
+    ],
+    validation: "independent-numpy",
+    limitations:
+      "ICML2004 multiple diagonal·일관 제약·균일 w. Full SPD/모순 soft/개별 가중치 미지원. 음수 분모 실패, 선택 trace 조건화는 정확 stationary 갱신과 구분. 최대쌍 변화 시 단조 수렴 보장 없음. 원저자 소프트웨어 실행 비교 미실시.",
+    references: [
+      "https://bilenko.com/papers/04-semi-icml.pdf",
+      "https://www.cs.utexas.edu/~ml/risc/",
+    ],
+  },
   "Fuzzy Possibilistic C-Means": {
     timeComplexity: "O((T_FCM+T_FPCM)nKd), 중심 중복 진단 O(TK²d)",
     spaceComplexity: "O(nd+nK+Kd), 작업256MiB·Trace64MiB 별도",

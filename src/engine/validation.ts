@@ -38,6 +38,7 @@ export function validateRun(
     "K-Shape",
     "COP-KMeans",
     "PCKMeans",
+    "MPCKMeans",
     "Bernoulli Mixture",
     "Poisson Mixture",
     "Multinomial Mixture",

@@ -10,6 +10,7 @@ import { Canvas } from "../Canvas";
 import { Playback } from "../Playback";
 import { Settings } from "../Settings";
 import { Analysis } from "../Analysis";
+import { MetricComparison } from "./MetricComparison";
 import { FpcmComparison } from "./FpcmComparison";
 export function TraceLesson({
   algorithm,
@@ -79,6 +80,14 @@ export function TraceLesson({
             clock={lab.clock}
           />
           <Playback lab={lab} />
+          {algorithm === "MPCKMeans" &&
+            lesson.experimentDataset?.kind === "constrained" && (
+              <MetricComparison
+                data={lesson.experimentDataset}
+                params={params}
+                trace={lab.trace}
+              />
+            )}
           {algorithm === "Fuzzy Possibilistic C-Means" &&
             lesson.experimentDataset?.kind === "numeric" && (
               <FpcmComparison

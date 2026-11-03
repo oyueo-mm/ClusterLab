@@ -42,6 +42,23 @@ export function nativeResult(state: State) {
       coincidentCenters: a.coincidentCenters,
       distinctAtLeastK: a.distinctAtLeastK,
     };
+  if (a?.kind === "metric-pairwise")
+    return {
+      kind: "metric-pairwise-partition" as const,
+      labels: state.labels,
+      centroids: a.centroids,
+      metrics: a.metrics,
+      diameters: a.diameters,
+      objective: a.objective,
+      distanceCost: a.distanceCost,
+      logDetCost: a.logDetCost,
+      mustLinkCost: a.mustLinkCost,
+      cannotLinkCost: a.cannotLinkCost,
+      mustViolations: a.mustViolations,
+      cannotViolations: a.cannotViolations,
+      converged: a.converged,
+      stopReason: a.stopReason,
+    };
   if (a?.kind === "pairwise")
     return {
       kind: "pairwise-partition" as const,

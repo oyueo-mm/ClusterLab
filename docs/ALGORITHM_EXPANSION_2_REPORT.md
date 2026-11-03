@@ -1,3 +1,9 @@
+## 2차 확장 — 두 세로 단위 로컬 완료, 통합·공개 검증 진행
+
+FPCM 안정 커밋9d09be1 이후 MPCKMeans2004 multiple diagonal을 순차 구현했다. 소스57엔진·228추천·75미구현·엄격 인증0, 공개는 아직55개다. 원본 ND·정확 전체 최대쌍·거리−logdet·ML/CL 비용·Eq8 양수 대각 학습·명시 특이 처리·실제 Trace/역진·타원·전용분석·4전용추천·수학가이드/실제PCK비교를 연결했다. 독립 NumPy/SciPy17fixture(정상13/오류4), 모든 반복/후보ΔJ·16개배정목적·유한차분, 전용22테스트·전체741/741·50파일·타입·ESLint·빌드가 통과했다. 최초 전체는 신규 도감/교재 요약 불일치1개를 발견해 문구를 맞췄고 같은 전체를 재실행해 통과했다. 단언/시간 제한/기존 생략을 바꾸지 않았다.
+
+MPCK Chromium/mobile4/4, 실제Worker100/1000·10만행computing이후취소, Node100/1000/10000(1sweep), 실제UI100/1000 약60FPS를 기록했다. 기존55엔진/220추천660생성/67원본math·data·home소스 보존 검증도 통과했다. [전체2차기록](ALGORITHM_EXPANSION_2_REPORT.md), [MPCK계약](research/MPCKMEANS.md), [FPCM계약](research/FPCM.md), `docs/extension-57/`를 따른다. 다음은 전체 Playwright152개 예상(기존14조건부생략 유지)·main커밋/푸시·Actions/Pages·공개검증이다. 공개 배포 완료로 선언하지 않는다. 다른 `.local/sequential-worktree`·feat/sequential-clustering·c4d6a7d는 보존한다. 아래는 과거 체크포인트다.
+
 # 2차 확장 — FPCM1997·MPCKMeans2004 개발 기록
 
 기준 `d2dbf12`, 공개 제품 `32dc4cf`,55엔진·220추천·77미구현·엄격 완전 인증0이다. 첨부 요청의 앞부분은 파일에 없으며 실제 본문은 MPCK 분석 항목부터 시작하지만 최종 지시·기존 연구의 명시 수식·원저자 자료로 범위를 확인했다. FPCM을 완성·검증·안정 커밋한 다음 대각 metric MPCKMeans로 진행한다. Full SPD·PFCM2005·Constrained Spectral·다른 신규 엔진·UI 재설계·영어 지원은 제외한다.
@@ -21,3 +27,9 @@ FPCM 안정 커밋 이후 ICML2004 Eq4–8·대각 행렬·양수/특이 처리�
 ## 회귀·배포 계획
 
 두 엔진 완료 후 기존55 보존,57엔진·228추천·75미구현, 전체 TypeScript/ESLint/Vitest/Playwright/프로덕션 빌드, Actions/Pages 및 공개 실험/미니·편집/복원·추천·320~1920px·성능/취소를 확인한다. 기존14조건부 생략을 늘리거나 단언을 완화하지 않는다. 다른 `.local/sequential-worktree`/`feat/sequential-clustering`/`c4d6a7d`를 보존한다.
+
+## MPCKMeans 로컬 세로 단위 결과
+
+[수학적 범위·정책·独립검산·재현](research/MPCKMEANS.md), [17fixture·SciPy기울기/16배정](research/mpck-reference.json), [Node100/1000/10000·d/K/E변화](research/mpck-performance.json), [실제Worker/취소](research/mpck-browser-performance.json), [UI100/1000재생](extension-57/local-mpck-rendering-performance.json), [Chromium/mobile4검증](extension-57/browser-mpck-target.json)을 따른다. NumPy/SciPy 결과와 정상13개 매 반복·후보ΔJ·학습A/중심/목적이 일치하고4오류를 구분했다. 전용22개·전체741개가 통과했다. 엄격 원문 인증/FullSPD/원저자 WekaUT 실행 일치로 확장하지 않는다.
+
+초기 전체741 중 도감/교재 요약 문자열1불일치를 기존 단언이 발견했다. 문구를 일치시킨 뒤 같은741/741·50파일을 통과했다. 수치 코드·기존 테스트 시간 제한은 바꾸지 않았다. FPCM 초기 기본 병렬의 기존 graph-followup 시간 초과도 앞 기록에 남아 있다.

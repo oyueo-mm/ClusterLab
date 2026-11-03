@@ -1,0 +1,70 @@
+{
+  "scope": "mpck-target",
+  "baseURL": "http://127.0.0.1:4476/ClusterLab/",
+  "stats": {
+    "startTime": "2026-11-03T04:41:45.461Z",
+    "duration": 24193.796,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6698,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3271,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7882,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3705,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

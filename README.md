@@ -1,10 +1,10 @@
 ﻿# ClusterLab — 플랫폼 확장 진행 중
 
-현재 소스는 **55개 실행 엔진**(기존13 + 신규 후보42)의 실제 연산을 계산·기록·재생합니다. 신규119개 후보 중 **77개는 미구현**이며 전체 마스터 목표는 진행 중입니다. 엄격한 전체 기준의 **완전 구현 인증은0개(아직 미인증)**입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다. 공개 배포와 검증의 최종 상태는 [세션 보고서](docs/SESSION_REPORT.md)를 따릅니다.
+현재 소스는 **57개 실행 엔진**(기존13 + 신규 후보44)의 실제 연산을 계산·기록·재생합니다. 신규119개 후보 중 **75개는 미구현**이며 전체 마스터 목표는 진행 중입니다. 엄격한 전체 기준의 **완전 구현 인증은0개(아직 미인증)**입니다. React · TypeScript · Vite · Canvas 2D · SVG · Web Worker를 사용합니다. 공개 배포와 검증의 최종 상태는 [세션 보고서](docs/SESSION_REPORT.md)를 따릅니다.
 
 배포 대상: https://oyueo-mm.github.io/ClusterLab/
 
-VizLab 기반 백과사전 UI와 캔버스 중심 실험실에서 **55개 엔진·220개 추천 구성**을 제공합니다. PCKMeans의 유한 제약 비용과 PCM의 원본 ND 독립 전형성을 실제 Trace·분석·가이드·미니 실험·독립 NumPy 검산과 연결했습니다. [확장 정의·검증·배포 상태](docs/ALGORITHM_EXPANSION_1_REPORT.md) · [알고리즘별 맞춤 데이터셋](docs/DATASET_RECOMMENDATIONS.md) · [디자인 비교](docs/UI_DESIGN_REVIEW.md). UI 개편 완료와 알고리즘 마스터 개발 완료는 별개입니다.
+VizLab 기반 백과사전 UI와 캔버스 중심 실험실에서 **57개 엔진·228개 추천 구성**을 제공합니다. FPCM1997의 U 행/T 열 정규화와 MPCKMeans2004의 다중 대각 메트릭 학습을 실제 Trace·분석·가이드·미니 실험·독립 NumPy/SciPy 검산과 연결했습니다. [2차 확장 정의·검증·배포 상태](docs/ALGORITHM_EXPANSION_2_REPORT.md) · [알고리즘별 맞춤 데이터셋](docs/DATASET_RECOMMENDATIONS.md) · [디자인 비교](docs/UI_DESIGN_REVIEW.md). UI 개편 완료와 알고리즘 마스터 개발 완료는 별개입니다.
 
 2026-11-03 제품 `32dc4cf`의 [Actions/Pages](https://github.com/oyueo-mm/ClusterLab/actions/runs/41513054284)가 성공했습니다. 로컬·원격 타입·ESLint·빌드·Vitest **694/694**, 전체 브라우저 **130통과/14기존생략/0실패**, 공개 **19통과/1기존중복생략**을 확인했습니다. 공개 추천16·화면/리사이즈15·100/1000행 실제 재생4조건도 통과했습니다. [배포/번들 해시](docs/extension-55/release.json), [최종 보고서](docs/ALGORITHM_EXPANSION_1_REPORT.md). 실제 휴대전화·최대 GPU/Worker 메모리·R 실행 비교는 수행하지 않았으며 원문 완전 인증은 별도0입니다.
 

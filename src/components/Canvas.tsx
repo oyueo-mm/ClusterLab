@@ -223,7 +223,7 @@ export function Canvas(props: Props) {
   };
   return (
     <div className="canvas-wrap">
-      {props.algorithm === "PCKMeans" && (
+      {["PCKMeans", "MPCKMeans"].includes(props.algorithm) && (
         <select
           className="canvas-constraint-options"
           aria-label="제약선 표시"

@@ -454,6 +454,35 @@ export const nextFields = {
   "Greedy Modularity (CNM)": [resolution, neighbors],
   "Fluid Communities": [k, neighbors, iterations],
   "COP-KMeans": [k, iterations, tolerance],
+  MPCKMeans: [
+    k,
+    number(
+      "constraintPenalty",
+      "거리 가중 제약 비용 w",
+      0,
+      1000000,
+      "ML/CL 비용은 학습 metric과 전체 원본 최대쌍 거리에 의존합니다.",
+      0.01,
+    ),
+    number(
+      "metricConditioning",
+      "특이 축 trace 조건화 α",
+      0,
+      1,
+      "0은 원래 Eq8. 양수는 비음수 특이 분모에만 α·trace(S)I; 정확 정지점 갱신과 구분합니다.",
+      0.000001,
+    ),
+    number(
+      "metricTolerance",
+      "log metric 허용오차",
+      0,
+      1,
+      "중심 이동과 별개인 대각 log 비율 변화",
+      0.000001,
+    ),
+    iterations,
+    tolerance,
+  ],
   PCKMeans: [
     k,
     number(

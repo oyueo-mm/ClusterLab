@@ -20,6 +20,10 @@ import {
   registerFpcmDatasets,
   fpcmRecommendations,
 } from "./fpcmRecommendations";
+import {
+  registerMpckDatasets,
+  mpckRecommendations,
+} from "./mpckRecommendations";
 import { random } from "../engine/math";
 import {
   registerPairwiseDatasets,
@@ -86,6 +90,7 @@ const structuredNames: Record<ExperimentPreset, [string, string]> = {
 registerPairwiseDatasets(datasetRegistry);
 registerPossibilisticDatasets(datasetRegistry);
 registerFpcmDatasets(datasetRegistry);
+registerMpckDatasets(datasetRegistry);
 for (const [kind, [name, nameEn]] of Object.entries(structuredNames)) {
   for (const variant of ["base", "ambiguous", "boundary"] as const) {
     const id = `${kind}-${variant}`;
@@ -285,6 +290,13 @@ const specifications: Record<Algorithm, Spec> = {
     "원본 ND 독립 전형성",
     "합1 제약과 군집별 양수 척도를 구분합니다.",
     { k: 2 },
+  ],
+  MPCKMeans: [
+    "mpck-anisotropic",
+    "mpck-scaled",
+    "mpck-singular",
+    "대각 metric 학습",
+    "−logdet와 최대쌍 비용",
   ],
   PCKMeans: [
     "pck-separated",
@@ -722,6 +734,7 @@ export const recommendations = Object.fromEntries(
     ([algorithm, [primary, extra, limit, purpose, observe, params = {}]]) => {
       if (algorithm === "Fuzzy Possibilistic C-Means")
         return [algorithm, fpcmRecommendations];
+      if (algorithm === "MPCKMeans") return [algorithm, mpckRecommendations];
       if (algorithm === "PCKMeans") return [algorithm, pairwiseRecommendations];
       if (algorithm === "Possibilistic C-Means")
         return [algorithm, possibilisticRecommendations];

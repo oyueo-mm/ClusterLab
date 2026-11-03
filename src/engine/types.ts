@@ -50,6 +50,7 @@ export const algorithms = [
   "Fluid Communities",
   "COP-KMeans",
   "PCKMeans",
+  "MPCKMeans",
   "Bernoulli Mixture",
   "Poisson Mixture",
   "Multinomial Mixture",
@@ -123,6 +124,7 @@ export type AlgorithmAnalysis =
   | import("./timeseriesTypes").TimeSeriesAnalysis
   | import("./constraintTypes").ConstraintAnalysis
   | import("./pairwiseTypes").PairwiseAnalysis
+  | import("./metricTypes").MetricAnalysis
   | import("./possibilisticTypes").PossibilisticAnalysis
   | import("./fpcmTypes").FpcmAnalysis
   | import("./mixtureTypes").DiscreteMixtureAnalysis
@@ -270,6 +272,8 @@ export interface Params {
   pcmScale: number;
   warmIterations: number;
   constraintPenalty: number;
+  metricConditioning: number;
+  metricTolerance: number;
   upperThreshold: number;
   walkSteps: number;
   cliqueSize: number;
@@ -344,6 +348,8 @@ export const defaults: Params = {
   pcmScale: 1,
   warmIterations: 50,
   constraintPenalty: 0.5,
+  metricConditioning: 0,
+  metricTolerance: 1e-6,
   upperThreshold: 2,
   walkSteps: 4,
   cliqueSize: 3,
@@ -420,6 +426,9 @@ export function algorithmDefaults(algorithm: Algorithm): Params {
       ? { k: 2, iterations: 100, tolerance: 1e-6 }
       : {}),
     ...(algorithm === "Affinity Propagation" ? { iterations: 200 } : {}),
+    ...(algorithm === "MPCKMeans"
+      ? { k: 2, constraintPenalty: 0.01, iterations: 30 }
+      : {}),
     ...(algorithm === "PAM" ? { initialization: "build" } : {}),
     ...(algorithm === "ROCK" ? { threshold: 0.5 } : {}),
     ...(["X-Means", "G-Means", "Dip-Means"].includes(algorithm)
@@ -435,6 +444,7 @@ export function algorithmDefaults(algorithm: Algorithm): Params {
     ...([
       "COP-KMeans",
       "PCKMeans",
+      "MPCKMeans",
       "Bernoulli Mixture",
       "Poisson Mixture",
       "Multinomial Mixture",
@@ -453,6 +463,7 @@ export const supportsEuclideanSilhouette = (algorithm: Algorithm) =>
   ![
     "LVQ",
     "PCKMeans",
+    "MPCKMeans",
     "Possibilistic C-Means",
     "Fuzzy Possibilistic C-Means",
     "ROCK",

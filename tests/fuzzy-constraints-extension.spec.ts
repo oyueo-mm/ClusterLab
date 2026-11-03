@@ -104,6 +104,211 @@ const pairwise: Dataset = {
   cannotLink: [[0, 1]],
 };
 
+test("MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace", async ({
+  page,
+}, info) => {
+  const algorithm = "MPCKMeans" as const;
+  await page.goto("#/catalog?q=MPCKMeans");
+  const card = page
+    .locator(".catalog-grid article")
+    .filter({ has: page.getByText(algorithm, { exact: true }) });
+  await card.locator("canvas").scrollIntoViewIfNeeded();
+  await expect(card.locator(".algorithm-preview")).toHaveAttribute(
+    "data-preview-status",
+    "computed",
+  );
+  await card.locator("h2").dblclick();
+  const lab = page.locator(".structured-page");
+  await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
+  await expect(lab.locator(".workspace-settings")).toBeHidden();
+  const data: Dataset = {
+    kind: "constrained",
+    data: {
+      kind: "numeric",
+      values: [
+        [-3, -1],
+        [-2.8, -0.8],
+        [-3.2, -1.1],
+        [3, 1],
+        [2.8, 0.8],
+        [3.2, 1.1],
+      ],
+    },
+    mustLink: [
+      [0, 2],
+      [3, 5],
+    ],
+    cannotLink: [[0, 1]],
+  };
+  await openData(lab);
+  await lab
+    .getByLabel("원본 데이터 JSON", { exact: true })
+    .fill(JSON.stringify(data));
+  let before = await count(page);
+  await lab.getByRole("button", { name: "데이터 적용", exact: true }).click();
+  const run = await completed(page, before, algorithm),
+    a = stateAt(run.trace, run.trace.steps.length).analysis;
+  if (a?.kind !== "metric-pairwise") throw Error("actual metric");
+  expect(a.metrics.flat().every((v) => v > 0 && Number.isFinite(v))).toBe(true);
+  expect(a.metrics.flat().some((v) => Math.abs(v - 1) > 0.1)).toBe(true);
+  expect(a.cannotViolations).toBeGreaterThan(0);
+  expect(a.cannotLinkCost).toBeGreaterThan(0);
+  expect(
+    a.distanceCost + a.logDetCost + a.mustLinkCost + a.cannotLinkCost,
+  ).toBeCloseTo(a.objective, 7);
+  a.diameters.forEach((v, h) => {
+    let max = 0;
+    for (let i = 0; i < data.data.values.length; i++)
+      for (let j = i + 1; j < data.data.values.length; j++)
+        max = Math.max(
+          max,
+          data.data.values[i].reduce(
+            (s, x, q) =>
+              s + a.metrics[h][q] * (x - data.data.values[j][q]) ** 2,
+            0,
+          ),
+        );
+    expect(v.value).toBeCloseTo(max, 8);
+  });
+  await closeData(lab);
+  await lab.getByLabel("마지막으로", { exact: true }).click();
+  await openAnalysis(lab);
+  await expect(
+    lab.getByLabel("MPCKMeans 전용 분석", { exact: true }),
+  ).toContainText("−logdet");
+  await expect(
+    lab.getByRole("table", { name: "학습 대각 A", exact: true }),
+  ).toBeVisible();
+  await lab.getByLabel("설정 열기", { exact: true }).click();
+  await lab.getByLabel("한 단계 뒤로", { exact: true }).click();
+  await expect(lab.getByLabel("타임라인", { exact: true })).toHaveValue(
+    String(run.trace.steps.length - 1),
+  );
+  await lab.getByLabel("처음으로", { exact: true }).click();
+  await expect(lab.getByLabel("타임라인", { exact: true })).toHaveValue("0");
+  await lab.getByLabel("마지막으로", { exact: true }).click();
+  const position = await lab
+      .getByLabel("타임라인", { exact: true })
+      .inputValue(),
+    requests = await page.evaluate(() => window.extensionRequests);
+  await lab.getByLabel("시각화 집중 모드", { exact: true }).click();
+  await page.keyboard.press("Escape");
+  const size = page.viewportSize()!;
+  await page.setViewportSize({ width: size.width + 12, height: size.height });
+  await page.setViewportSize(size);
+  await expect(lab.getByLabel("타임라인", { exact: true })).toHaveValue(
+    position,
+  );
+  expect(await page.evaluate(() => window.extensionRequests)).toBe(requests);
+  await openSettings(lab);
+  before = await count(page);
+  await lab.getByLabel("거리 가중 제약 비용 w", { exact: true }).fill("0.005");
+  const changed = await completed(page, before, algorithm, 0.005);
+  expect(changed.request.params.constraintPenalty).toBe(0.005);
+  await openData(lab);
+  const nd: Dataset = {
+    kind: "constrained",
+    data: {
+      kind: "numeric",
+      values: data.data.values.map((v) => [0, 0, ...v]),
+    },
+    mustLink: data.mustLink,
+    cannotLink: data.cannotLink,
+  };
+  await lab
+    .getByLabel("원본 데이터 JSON", { exact: true })
+    .fill(JSON.stringify(nd));
+  await lab.getByRole("button", { name: "데이터 적용", exact: true }).click();
+  await expect(lab.getByText(/MPCKMeans 특이 metric 분모/)).toBeVisible();
+  await openSettings(lab);
+  before = await count(page);
+  await lab
+    .getByLabel("특이 축 trace 조건화 α", { exact: true })
+    .fill("0.000001");
+  const conditioned = await completed(page, before, algorithm);
+  const ca = stateAt(
+    conditioned.trace,
+    conditioned.trace.steps.length,
+  ).analysis;
+  if (ca?.kind !== "metric-pairwise") throw Error();
+  expect(ca.dimensions).toBe(4);
+  expect(ca.centroids[0][2]).not.toBe(ca.centroids[1][2]);
+  expect(ca.conditioned.length).toBeGreaterThan(0);
+  await openData(lab);
+  await lab.getByLabel("표시 X 차원", { exact: true }).fill("3");
+  await lab.getByLabel("표시 Y 차원", { exact: true }).fill("4");
+  before = await count(page);
+  await lab.getByLabel("다중 데이터 Undo", { exact: true }).click();
+  const restored = await completed(page, before, algorithm);
+  expect(restored.request.dataset).toEqual(data);
+  await closeData(lab);
+  await lab.getByLabel("마지막으로", { exact: true }).click();
+  await page.screenshot({ path: `test-results/mpck-${info.project.name}.png` });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.reload();
+  const reload = await completed(page, 0, algorithm);
+  expect(reload.request.dataset).toEqual(data);
+  expect(reload.request.params.constraintPenalty).toBe(0.005);
+});
+
+test("MPCKMeans guide compares actual PCK and metric learning and transfers a metric event", async ({
+  page,
+}) => {
+  await page.goto("#guide");
+  const guide = page.locator(".guide-page"),
+    algorithm = "MPCKMeans" as const;
+  await guide
+    .getByRole("navigation", { name: "알고리즘 가이드 목록", exact: true })
+    .getByRole("button", { name: algorithm, exact: true })
+    .click();
+  const mini = guide.locator(".trace-lesson");
+  await expect(mini.getByLabel("재생", { exact: true })).toBeEnabled();
+  await expect(guide.locator(".katex-error")).toHaveCount(0);
+  let before = await count(page);
+  await mini
+    .getByText("같은 데이터의 실제 PCK·MPCK 비교", { exact: true })
+    .click();
+  await completed(page, before, "PCKMeans");
+  await expect(
+    mini.getByLabel("실제 PCK MPCK 비교", { exact: true }),
+  ).toContainText("PCKMeans · 고정 Euclidean");
+  await mini.locator(".lesson-settings > summary").click();
+  before = await count(page);
+  await mini.getByLabel("거리 가중 제약 비용 w", { exact: true }).fill("0.01");
+  const m = await completed(page, before, algorithm, 0.01),
+    p = await completed(page, before, "PCKMeans", 0.01);
+  expect(m.request.dataset).toEqual(p.request.dataset);
+  const ma = stateAt(m.trace, m.trace.steps.length).analysis;
+  if (ma?.kind !== "metric-pairwise") throw Error();
+  expect(ma.metrics.flat().some((v) => Math.abs(v - 1) > 0.1)).toBe(true);
+  const row = mini
+    .locator(".event-links > div")
+    .filter({
+      has: page.getByRole("button", { name: "maximization 보기", exact: true }),
+    });
+  await row
+    .getByRole("button", { name: "maximization 보기", exact: true })
+    .click();
+  const position =
+    m.trace.steps.findIndex((v) => v.kind === "maximization") + 1;
+  await expect(mini.getByLabel("타임라인", { exact: true })).toHaveValue(
+    String(position),
+  );
+  before = await count(page);
+  await row
+    .getByRole("button", { name: "이 단계 실험에서 보기 ↗", exact: true })
+    .click();
+  const opened = await completed(page, before, algorithm, 0.01);
+  expect(opened.request.dataset).toEqual(m.request.dataset);
+  await expect(
+    page.locator(".structured-page").getByLabel("타임라인", { exact: true }),
+  ).toHaveValue(String(position));
+});
+
 test("FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout", async ({
   page,
 }, info) => {

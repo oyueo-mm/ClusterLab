@@ -12,6 +12,7 @@ import { bimax, chengchurch } from "./biclustering";
 import { kshape } from "./timeseries";
 import { cnm, fluid } from "./graphExtra";
 import { copkmeans } from "./constrained";
+import { mpckmeans } from "./metric";
 import { pckmeans } from "./pairwise";
 import { pcm } from "./possibilistic";
 import { fpcm } from "./fpcm";
@@ -22,6 +23,7 @@ export const nextLessons = {
   "Fuzzy Possibilistic C-Means": fpcm,
   "Possibilistic C-Means": pcm,
   PCKMeans: pckmeans,
+  MPCKMeans: mpckmeans,
   BSAS: bsas,
   MBSAS: mbsas,
   TTSAS: ttsas,

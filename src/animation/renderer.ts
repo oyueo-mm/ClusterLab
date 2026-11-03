@@ -109,7 +109,9 @@ export function draw(
   }
   const nativeCenters = (state: State) =>
     (state.analysis?.kind === "pairwise" ||
-      state.analysis?.kind === "possibilistic" || state.analysis?.kind === "fuzzy-possibilistic") &&
+      state.analysis?.kind === "metric-pairwise" ||
+      state.analysis?.kind === "possibilistic" ||
+      state.analysis?.kind === "fuzzy-possibilistic") &&
     options.nativeAxes
       ? projectedCenters(
           state.analysis.centroids,
@@ -313,7 +315,9 @@ export function draw(
     );
   }
   if (
-    (to.analysis?.kind === "constraints" || to.analysis?.kind === "pairwise") &&
+    (to.analysis?.kind === "constraints" ||
+      to.analysis?.kind === "pairwise" ||
+      to.analysis?.kind === "metric-pairwise") &&
     options.constraintLines !== "none"
   ) {
     const a = to.analysis,
@@ -354,6 +358,36 @@ export function draw(
       );
     }
   }
+  if (to.analysis?.kind === "metric-pairwise" && options.nativeAxes) {
+    const a = to.analysis,
+      [ax, ay] = options.nativeAxes;
+    if (ax !== ay && a.dimensions > 1)
+      centers.forEach((center, h) => {
+        const metric = a.metrics[h];
+        if (!metric) return;
+        const [cx, cy] = xy(center),
+          bx = a.dimensionBounds[ax],
+          by = a.dimensionBounds[ay];
+        const rx =
+          (0.8 * scale) / ((bx[1] - bx[0] || 1) * Math.sqrt(metric[ax]));
+        const ry =
+          (0.8 * scale) / ((by[1] - by[0] || 1) * Math.sqrt(metric[ay]));
+        if (![rx, ry].every((v) => Number.isFinite(v) && v > 0)) return;
+        ctx.strokeStyle = palette[h % palette.length] + "88";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+        ctx.stroke();
+      });
+    if (!options.minimal) {
+      ctx.fillStyle = "#34564D";
+      ctx.fillText(
+        "학습 대각 단면 d²=1 · 원본 전체 ND 계산",
+        14,
+        68,
+      );
+    }
+  }
   if (to.analysis?.kind === "cure") {
     ctx.strokeStyle = "#34564D";
     ctx.lineWidth = 1.5;
@@ -370,7 +404,9 @@ export function draw(
     }
   }
   if (
-    (options.algorithm === "K-Means" || options.algorithm === "PCKMeans") &&
+    (options.algorithm === "K-Means" ||
+      options.algorithm === "PCKMeans" ||
+      options.algorithm === "MPCKMeans") &&
     centers.length &&
     focus !== undefined &&
     points[focus]

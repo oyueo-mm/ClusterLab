@@ -1,0 +1,6284 @@
+{
+  "environment": {
+    "python": "3.12.10",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "license": "NumPy/SciPy BSD-3-Clause; independent verification only; no product code copied",
+    "authorSoftwareExecuted": false
+  },
+  "gradient": {
+    "values": [
+      [
+        -2.0,
+        0.0
+      ],
+      [
+        2.0,
+        1.0
+      ],
+      [
+        0.0,
+        -3.0
+      ],
+      [
+        1.0,
+        4.0
+      ]
+    ],
+    "labels": [
+      0,
+      1,
+      1,
+      0
+    ],
+    "centroids": [
+      [
+        -0.5,
+        2.0
+      ],
+      [
+        1.0,
+        -1.0
+      ]
+    ],
+    "metrics": [
+      [
+        2.0,
+        0.6
+      ],
+      [
+        0.4,
+        3.0
+      ]
+    ],
+    "mustLink": [
+      [
+        0,
+        1
+      ]
+    ],
+    "cannotLink": [
+      [
+        0,
+        3
+      ]
+    ],
+    "penalty": 0.2,
+    "denominators": [
+      [
+        7.5,
+        5.1
+      ],
+      [
+        3.6,
+        8.1
+      ]
+    ],
+    "analytic": [
+      [
+        6.5,
+        1.7666666666666662
+      ],
+      [
+        -1.4,
+        7.433333333333333
+      ]
+    ],
+    "finiteDifference": [
+      [
+        6.499999999885411,
+        1.7666666666403876
+      ],
+      [
+        -1.4000000009772162,
+        7.433333333260811
+      ]
+    ],
+    "forwardDifference": [
+      [
+        6.499999980015986,
+        1.7666669558797647
+      ],
+      [
+        -1.3999994052535256,
+        7.433333392101139
+      ]
+    ],
+    "proposal": [
+      [
+        0.26666666666666666,
+        0.3921568627450981
+      ],
+      [
+        0.5555555555555556,
+        0.2469135802469136
+      ]
+    ],
+    "beforePairs": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "afterPairs": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  "enumeration": [
+    {
+      "labels": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "distanceCost": 42.4,
+      "logDetCost": -0.7292862271758183,
+      "mustLinkCost": 0.0,
+      "cannotLinkCost": 1.0,
+      "objective": 42.67071377282418,
+      "mustViolations": 0,
+      "cannotViolations": 1
+    },
+    {
+      "labels": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "distanceCost": 110.5,
+      "logDetCost": -0.7292862271758185,
+      "mustLinkCost": 0.0,
+      "cannotLinkCost": 0.0,
+      "objective": 109.77071377282418,
+      "mustViolations": 0,
+      "cannotViolations": 0
+    },
+    {
+      "labels": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "distanceCost": 39.3,
+      "logDetCost": -0.7292862271758185,
+      "mustLinkCost": 0.0,
+      "cannotLinkCost": 1.0,
+      "objective": 39.57071377282418,
+      "mustViolations": 0,
+      "cannotViolations": 1
+    },
+    {
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "distanceCost": 107.4,
+      "logDetCost": -0.7292862271758187,
+      "mustLinkCost": 0.0,
+      "cannotLinkCost": 0.0,
+      "objective": 106.67071377282419,
+      "mustViolations": 0,
+      "cannotViolations": 0
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "distanceCost": 41.699999999999996,
+      "logDetCost": -0.7292862271758185,
+      "mustLinkCost": 4.2,
+      "cannotLinkCost": 1.0,
+      "objective": 46.17071377282418,
+      "mustViolations": 1,
+      "cannotViolations": 1
+    },
+    {
+      "labels": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "distanceCost": 109.8,
+      "logDetCost": -0.7292862271758187,
+      "mustLinkCost": 4.2,
+      "cannotLinkCost": 0.0,
+      "objective": 113.27071377282418,
+      "mustViolations": 1,
+      "cannotViolations": 0
+    },
+    {
+      "labels": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "distanceCost": 38.6,
+      "logDetCost": -0.7292862271758187,
+      "mustLinkCost": 4.2,
+      "cannotLinkCost": 1.0,
+      "objective": 43.070713772824185,
+      "mustViolations": 1,
+      "cannotViolations": 1
+    },
+    {
+      "labels": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "distanceCost": 106.7,
+      "logDetCost": -0.7292862271758189,
+      "mustLinkCost": 4.2,
+      "cannotLinkCost": 0.0,
+      "objective": 110.17071377282419,
+      "mustViolations": 1,
+      "cannotViolations": 0
+    },
+    {
+      "labels": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "distanceCost": 42.1,
+      "logDetCost": -0.7292862271758185,
+      "mustLinkCost": 4.2,
+      "cannotLinkCost": 0.0,
+      "objective": 45.570713772824185,
+      "mustViolations": 1,
+      "cannotViolations": 0
+    },
+    {
+      "labels": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "distanceCost": 110.2,
+      "logDetCost": -0.7292862271758187,
+      "mustLinkCost": 4.2,
+      "cannotLinkCost": 19.160000000000004,
+      "objective": 132.8307137728242,
+      "mustViolations": 1,
+      "cannotViolations": 1
+    },
+    {
+      "labels": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "distanceCost": 39.0,
+      "logDetCost": -0.7292862271758187,
+      "mustLinkCost": 4.2,
+      "cannotLinkCost": 0.0,
+      "objective": 42.47071377282418,
+      "mustViolations": 1,
+      "cannotViolations": 0
+    },
+    {
+      "labels": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "distanceCost": 107.1,
+      "logDetCost": -0.7292862271758189,
+      "mustLinkCost": 4.2,
+      "cannotLinkCost": 19.160000000000004,
+      "objective": 129.73071377282417,
+      "mustViolations": 1,
+      "cannotViolations": 1
+    },
+    {
+      "labels": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "distanceCost": 41.4,
+      "logDetCost": -0.7292862271758187,
+      "mustLinkCost": 0.0,
+      "cannotLinkCost": 0.0,
+      "objective": 40.67071377282418,
+      "mustViolations": 0,
+      "cannotViolations": 0
+    },
+    {
+      "labels": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "distanceCost": 109.5,
+      "logDetCost": -0.7292862271758189,
+      "mustLinkCost": 0.0,
+      "cannotLinkCost": 19.160000000000004,
+      "objective": 127.93071377282419,
+      "mustViolations": 0,
+      "cannotViolations": 1
+    },
+    {
+      "labels": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "distanceCost": 38.3,
+      "logDetCost": -0.7292862271758189,
+      "mustLinkCost": 0.0,
+      "cannotLinkCost": 0.0,
+      "objective": 37.57071377282418,
+      "mustViolations": 0,
+      "cannotViolations": 0
+    },
+    {
+      "labels": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "distanceCost": 106.4,
+      "logDetCost": -0.7292862271758191,
+      "mustLinkCost": 0.0,
+      "cannotLinkCost": 19.160000000000004,
+      "objective": 124.8307137728242,
+      "mustViolations": 0,
+      "cannotViolations": 1
+    }
+  ],
+  "cases": [
+    {
+      "input": {
+        "name": "unconstrained",
+        "values": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2.8,
+            -0.8
+          ],
+          [
+            -3.2,
+            -1.1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2.8,
+            0.8
+          ],
+          [
+            3.2,
+            1.1
+          ]
+        ]
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              0.06470640122890474,
+              -0.011376077020540871
+            ],
+            [
+              0.2255781078338623,
+              0.03734148911666122
+            ]
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 56.85153600661018,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.0,
+          "objective": 56.85153600661018,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              0,
+              4,
+              3,
+              5,
+              2,
+              1
+            ],
+            "assignments": [
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  56.85153600661018,
+                  57.962164914569314
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  57.78240213336248,
+                  56.85153600661018
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  57.86623784245935,
+                  56.85153600661018
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  57.940330038328774,
+                  56.85153600661018
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  56.85153600661018,
+                  58.03625711043874
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  56.85153600661018,
+                  57.87832920547245
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "iteration": 2,
+            "order": [
+              4,
+              0,
+              5,
+              3,
+              1,
+              2
+            ],
+            "assignments": [
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1424.1310726570282,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1563.8453583713138
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1678.7025012284566,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1563.8453583713138,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1424.1310726570282
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1678.7025012284566
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [],
+        "closedCannotLink": [],
+        "centroids": [
+          [
+            -3.0,
+            -0.9666666666666668
+          ],
+          [
+            3.0,
+            0.9666666666666668
+          ]
+        ],
+        "metrics": [
+          [
+            37.499999999999936,
+            64.28571428571428
+          ],
+          [
+            37.499999999999936,
+            64.28571428571428
+          ]
+        ],
+        "labels": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 12.0,
+        "logDetCost": -46.72607020011249,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 0.0,
+        "objective": -34.72607020011249,
+        "mustViolations": 0,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "natural-ml",
+        "values": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2.8,
+            -0.8
+          ],
+          [
+            -3.2,
+            -1.1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2.8,
+            0.8
+          ],
+          [
+            3.2,
+            1.1
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            2
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              -3.1,
+              -1.05
+            ],
+            [
+              3.1,
+              1.05
+            ]
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 0.35500000000000037,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.0,
+          "objective": 0.35500000000000037,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              1,
+              0,
+              4,
+              5,
+              2,
+              3
+            ],
+            "assignments": [
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  0.35500000000000037,
+                  38.43500000000002
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  0.35500000000000037,
+                  41.75550000000001
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  38.435,
+                  0.35500000000000037
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  44.65550000000002,
+                  0.35500000000000037
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  0.35500000000000037,
+                  44.655500000000025
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  41.755500000000005,
+                  0.35500000000000037
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "iteration": 2,
+            "order": [
+              4,
+              0,
+              5,
+              2,
+              1,
+              3
+            ],
+            "assignments": [
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1424.1310726570282,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1563.8667869427422
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1678.7239297998851,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1678.7239297998851
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1424.1310726570282
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1563.8667869427422,
+                  -34.72607020011249
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [
+          [
+            0,
+            2
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "closedCannotLink": [],
+        "centroids": [
+          [
+            -3.0,
+            -0.9666666666666668
+          ],
+          [
+            3.0,
+            0.9666666666666668
+          ]
+        ],
+        "metrics": [
+          [
+            37.499999999999936,
+            64.28571428571428
+          ],
+          [
+            37.499999999999936,
+            64.28571428571428
+          ]
+        ],
+        "labels": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 12.0,
+        "logDetCost": -46.72607020011249,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 0.0,
+        "objective": -34.72607020011249,
+        "mustViolations": 0,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "finite-ml-violation",
+        "values": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2.8,
+            -0.8
+          ],
+          [
+            -3.2,
+            -1.1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2.8,
+            0.8
+          ],
+          [
+            3.2,
+            1.1
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              -3.0,
+              -0.9500000000000001
+            ]
+          ],
+          "labels": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 30.0575,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.4,
+          "cannotLinkCost": 0.0,
+          "objective": 30.4575,
+          "mustViolations": 1,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              1,
+              0,
+              4,
+              5,
+              2,
+              3
+            ],
+            "assignments": [
+              {
+                "current": 1,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  38.877500000000005,
+                  30.4575
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  40.055,
+                  30.4575
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  30.4575,
+                  58.68
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  30.4575,
+                  61.65
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  41.847500000000004,
+                  30.4575
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  30.4575,
+                  59.86
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                3.0,
+                0.9666666666666668
+              ],
+              [
+                -3.0,
+                -0.9666666666666668
+              ]
+            ],
+            "labels": [
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "metrics": [
+              [
+                11.538461538461533,
+                44.99999999999999
+              ],
+              [
+                11.538461538461533,
+                44.99999999999999
+              ]
+            ],
+            "denominators": [
+              [
+                0.2600000000000001,
+                0.06666666666666668
+              ],
+              [
+                0.2600000000000001,
+                0.06666666666666668
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 690.4153846153845,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 690.4153846153845,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 6.046153846153849,
+            "logDetCost": -37.514090558430226,
+            "mustLinkCost": 5.953846153846151,
+            "cannotLinkCost": 0.0,
+            "objective": -25.514090558430226,
+            "mustViolations": 1,
+            "cannotViolations": 0
+          },
+          {
+            "iteration": 2,
+            "order": [
+              4,
+              0,
+              5,
+              2,
+              1,
+              3
+            ],
+            "assignments": [
+              {
+                "current": 4,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  -25.514090558430226,
+                  501.37821713387723
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  557.9166786723387,
+                  -25.514090558430226
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  -25.514090558430226,
+                  608.9628325184926
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  609.021794056954,
+                  -25.514090558430226
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  501.4371786723387,
+                  -25.514090558430226
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  -25.514090558430226,
+                  557.9166786723388
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                3.0,
+                0.9666666666666668
+              ],
+              [
+                -3.0,
+                -0.9666666666666668
+              ]
+            ],
+            "labels": [
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "metrics": [
+              [
+                11.538461538461533,
+                44.99999999999999
+              ],
+              [
+                11.538461538461533,
+                44.99999999999999
+              ]
+            ],
+            "denominators": [
+              [
+                0.2600000000000001,
+                0.06666666666666668
+              ],
+              [
+                0.2600000000000001,
+                0.06666666666666668
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 690.4153846153845,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 690.4153846153845,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 6.046153846153849,
+            "logDetCost": -37.514090558430226,
+            "mustLinkCost": 5.953846153846151,
+            "cannotLinkCost": 0.0,
+            "objective": -25.514090558430226,
+            "mustViolations": 1,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "closedCannotLink": [],
+        "centroids": [
+          [
+            3.0,
+            0.9666666666666668
+          ],
+          [
+            -3.0,
+            -0.9666666666666668
+          ]
+        ],
+        "metrics": [
+          [
+            11.538461538461533,
+            44.99999999999999
+          ],
+          [
+            11.538461538461533,
+            44.99999999999999
+          ]
+        ],
+        "labels": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 6.046153846153849,
+        "logDetCost": -37.514090558430226,
+        "mustLinkCost": 5.953846153846151,
+        "cannotLinkCost": 0.0,
+        "objective": -25.514090558430226,
+        "mustViolations": 1,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "finite-cl-violation",
+        "values": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2.8,
+            -0.8
+          ],
+          [
+            -3.2,
+            -1.1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2.8,
+            0.8
+          ],
+          [
+            3.2,
+            1.1
+          ]
+        ],
+        "cannotLink": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              0.06470640122890474,
+              -0.011376077020540871
+            ],
+            [
+              0.2255781078338623,
+              0.03734148911666122
+            ]
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 56.85153600661018,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.45720000000000016,
+          "objective": 57.30873600661018,
+          "mustViolations": 0,
+          "cannotViolations": 1
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              0,
+              4,
+              3,
+              5,
+              2,
+              1
+            ],
+            "assignments": [
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  57.30873600661018,
+                  57.962164914569314
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  58.23960213336248,
+                  57.30873600661018
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  58.32343784245935,
+                  57.30873600661018
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  58.397530038328775,
+                  57.30873600661018
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  57.30873600661018,
+                  58.49345711043874
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  57.30873600661018,
+                  57.87832920547245
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                6.13246116107931,
+                31.69014084507042
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.48920000000000025,
+                0.09466666666666668
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 404.56589084794945,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 7.969470132322966,
+            "logDetCost": -39.17184044603938,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 4.030529867677035,
+            "objective": -27.17184044603938,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          },
+          {
+            "iteration": 2,
+            "order": [
+              4,
+              0,
+              5,
+              3,
+              1,
+              2
+            ],
+            "assignments": [
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  277.2649660158707,
+                  -27.17184044603938
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -27.17184044603938,
+                  1564.8871989768418
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  343.78729870373957,
+                  -27.17184044603938
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  318.61383190128953,
+                  -27.17184044603938
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -27.17184044603938,
+                  1427.2968301078636
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -27.17184044603938,
+                  1685.5728328125624
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                6.13246116107931,
+                31.69014084507042
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.48920000000000025,
+                0.09466666666666668
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 404.56589084794945,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 7.969470132322966,
+            "logDetCost": -39.17184044603938,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 4.030529867677035,
+            "objective": -27.17184044603938,
+            "mustViolations": 0,
+            "cannotViolations": 1
+          }
+        ],
+        "closedMustLink": [],
+        "closedCannotLink": [
+          [
+            0,
+            1
+          ]
+        ],
+        "centroids": [
+          [
+            -3.0,
+            -0.9666666666666668
+          ],
+          [
+            3.0,
+            0.9666666666666668
+          ]
+        ],
+        "metrics": [
+          [
+            6.13246116107931,
+            31.69014084507042
+          ],
+          [
+            37.499999999999936,
+            64.28571428571428
+          ]
+        ],
+        "labels": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 7.969470132322966,
+        "logDetCost": -39.17184044603938,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 4.030529867677035,
+        "objective": -27.17184044603938,
+        "mustViolations": 0,
+        "cannotViolations": 1
+      }
+    },
+    {
+      "input": {
+        "name": "mixed",
+        "values": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2.8,
+            -0.8
+          ],
+          [
+            -3.2,
+            -1.1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2.8,
+            0.8
+          ],
+          [
+            3.2,
+            1.1
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            2
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "cannotLink": [
+          [
+            0,
+            1
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "params": {
+          "constraintPenalty": 0.005
+        }
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              -3.1,
+              -1.05
+            ],
+            [
+              3.1,
+              1.05
+            ]
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 0.35500000000000037,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.9127000000000003,
+          "objective": 1.2677000000000007,
+          "mustViolations": 0,
+          "cannotViolations": 4
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              1,
+              0,
+              4,
+              5,
+              2,
+              3
+            ],
+            "assignments": [
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1.2677000000000007,
+                  38.89135000000002
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1.2677000000000007,
+                  42.43935000000001
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  38.89135,
+                  1.2677000000000007
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  45.34020000000002,
+                  1.2677000000000007
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1.2677000000000007,
+                  45.340200000000024
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  42.439350000000005,
+                  1.2677000000000007
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                6.139991813344246,
+                31.774051191526915
+              ],
+              [
+                6.139991813344246,
+                31.774051191526915
+              ]
+            ],
+            "denominators": [
+              [
+                0.4886000000000002,
+                0.09441666666666669
+              ],
+              [
+                0.4886000000000002,
+                0.09441666666666669
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 405.2804724415707,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 405.2804724415707,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 3.947976801344261,
+            "logDetCost": -31.64084019142108,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 8.05202319865574,
+            "objective": -19.64084019142108,
+            "mustViolations": 0,
+            "cannotViolations": 4
+          },
+          {
+            "iteration": 2,
+            "order": [
+              4,
+              0,
+              5,
+              2,
+              1,
+              3
+            ],
+            "assignments": [
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  280.92460482340766,
+                  -19.64084019142108
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -19.64084019142108,
+                  322.2425268435246
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  349.2761011641605,
+                  -19.64084019142108
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -19.64084019142108,
+                  349.2761011641605
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -19.64084019142108,
+                  280.9246048234077
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  322.24252684352456,
+                  -19.64084019142108
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                6.139991813344246,
+                31.774051191526915
+              ],
+              [
+                6.139991813344246,
+                31.774051191526915
+              ]
+            ],
+            "denominators": [
+              [
+                0.4886000000000002,
+                0.09441666666666669
+              ],
+              [
+                0.4886000000000002,
+                0.09441666666666669
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 405.2804724415707,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 405.2804724415707,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 3.947976801344261,
+            "logDetCost": -31.64084019142108,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 8.05202319865574,
+            "objective": -19.64084019142108,
+            "mustViolations": 0,
+            "cannotViolations": 4
+          }
+        ],
+        "closedMustLink": [
+          [
+            0,
+            2
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "closedCannotLink": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "centroids": [
+          [
+            -3.0,
+            -0.9666666666666668
+          ],
+          [
+            3.0,
+            0.9666666666666668
+          ]
+        ],
+        "metrics": [
+          [
+            6.139991813344246,
+            31.774051191526915
+          ],
+          [
+            6.139991813344246,
+            31.774051191526915
+          ]
+        ],
+        "labels": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 3.947976801344261,
+        "logDetCost": -31.64084019142108,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 8.05202319865574,
+        "objective": -19.64084019142108,
+        "mustViolations": 0,
+        "cannotViolations": 4
+      }
+    },
+    {
+      "input": {
+        "name": "scaled",
+        "values": [
+          [
+            -0.03,
+            -100
+          ],
+          [
+            -0.027999999999999997,
+            -80.0
+          ],
+          [
+            -0.032,
+            -110.00000000000001
+          ],
+          [
+            0.03,
+            100
+          ],
+          [
+            0.027999999999999997,
+            80.0
+          ],
+          [
+            0.032,
+            110.00000000000001
+          ]
+        ]
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              0.0006470640122890473,
+              -1.1376077020540811
+            ],
+            [
+              0.002255781078338623,
+              3.7341489116661277
+            ]
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 54220.10036512975,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.0,
+          "objective": 54220.10036512975,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              0,
+              4,
+              3,
+              5,
+              2,
+              1
+            ],
+            "assignments": [
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  54220.10036512975,
+                  55207.10150587739
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  54986.931791932555,
+                  54220.10036512975
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  55181.802062916235,
+                  54220.10036512975
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  55279.2372016255,
+                  54220.10036512975
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  54220.10036512975,
+                  55304.53664458667
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  54220.10036512975,
+                  55012.23123489372
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -0.03,
+                -96.66666666666667
+              ],
+              [
+                0.03,
+                96.66666666666667
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                374999.9999999993,
+                0.006428571428571423
+              ],
+              [
+                374999.9999999993,
+                0.006428571428571423
+              ]
+            ],
+            "denominators": [
+              [
+                8.000000000000015e-06,
+                466.6666666666671
+              ],
+              [
+                8.000000000000015e-06,
+                466.6666666666671
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428542,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428542,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "iteration": 2,
+            "order": [
+              4,
+              0,
+              5,
+              3,
+              1,
+              2
+            ],
+            "assignments": [
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1424.1310726570275,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1563.845358371313
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1678.7025012284562,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1563.845358371313,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1424.1310726570275
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1678.7025012284562
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -0.03,
+                -96.66666666666667
+              ],
+              [
+                0.03,
+                96.66666666666667
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                374999.9999999993,
+                0.006428571428571423
+              ],
+              [
+                374999.9999999993,
+                0.006428571428571423
+              ]
+            ],
+            "denominators": [
+              [
+                8.000000000000015e-06,
+                466.6666666666671
+              ],
+              [
+                8.000000000000015e-06,
+                466.6666666666671
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428542,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428542,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [],
+        "closedCannotLink": [],
+        "centroids": [
+          [
+            -0.03,
+            -96.66666666666667
+          ],
+          [
+            0.03,
+            96.66666666666667
+          ]
+        ],
+        "metrics": [
+          [
+            374999.9999999993,
+            0.006428571428571423
+          ],
+          [
+            374999.9999999993,
+            0.006428571428571423
+          ]
+        ],
+        "labels": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 12.0,
+        "logDetCost": -46.72607020011249,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 0.0,
+        "objective": -34.72607020011249,
+        "mustViolations": 0,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "nd-zero-xy-conditioned",
+        "values": [
+          [
+            0,
+            0,
+            -3,
+            -1
+          ],
+          [
+            0,
+            0,
+            -2.8,
+            -0.8
+          ],
+          [
+            0,
+            0,
+            -3.2,
+            -1.1
+          ],
+          [
+            0,
+            0,
+            3,
+            1
+          ],
+          [
+            0,
+            0,
+            2.8,
+            0.8
+          ],
+          [
+            0,
+            0,
+            3.2,
+            1.1
+          ]
+        ],
+        "params": {
+          "metricConditioning": 1e-06
+        }
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              0.0,
+              0.0,
+              0.2255781078338623,
+              0.03734148911666122
+            ],
+            [
+              0.0,
+              0.0,
+              -0.14513408362865451,
+              0.027443823865614798
+            ]
+          ],
+          "labels": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0,
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 53.35206490094598,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.0,
+          "objective": 53.35206490094598,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              3,
+              1,
+              4,
+              0,
+              2,
+              5
+            ],
+            "assignments": [
+              {
+                "current": 3,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  53.35206490094598,
+                  55.56567057637892
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  55.474352241382014,
+                  53.35206490094598
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  53.35206490094598,
+                  55.41342663369349
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  55.62659618406744,
+                  53.35206490094598
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  55.77686059370265,
+                  53.35206490094598
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  53.35206490094598,
+                  55.71593498601413
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                0.0,
+                0.0,
+                3.0,
+                0.9666666666666668
+              ],
+              [
+                0.0,
+                0.0,
+                -3.0,
+                -0.9666666666666668
+              ]
+            ],
+            "labels": [
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "metrics": [
+              [
+                23684210.52631576,
+                23684210.52631576,
+                37.49994062509394,
+                64.28553979639196
+              ],
+              [
+                23684210.52631576,
+                23684210.52631576,
+                37.49994062509394,
+                64.28553979639196
+              ]
+            ],
+            "denominators": [
+              [
+                0.0,
+                0.0,
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.0,
+                0.0,
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [
+              0,
+              1
+            ],
+            "diameters": [
+              {
+                "value": 1847.1395806183853,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1395806183853,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 11.999974214344958,
+            "logDetCost": -250.48987435317414,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -238.4899001388292,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "iteration": 2,
+            "order": [
+              4,
+              5,
+              3,
+              2,
+              0,
+              1
+            ],
+            "assignments": [
+              {
+                "current": 4,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  -238.4899001388292,
+                  1220.3647079678328
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  -238.4899001388292,
+                  1474.9356491320987
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  -238.4899001388292,
+                  1360.0787162439349
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  1474.9356491320984,
+                  -238.4899001388292
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  1360.0787162439347,
+                  -238.4899001388292
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  1220.3647079678326,
+                  -238.4899001388292
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                0.0,
+                0.0,
+                3.0,
+                0.9666666666666668
+              ],
+              [
+                0.0,
+                0.0,
+                -3.0,
+                -0.9666666666666668
+              ]
+            ],
+            "labels": [
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "metrics": [
+              [
+                23684210.52631576,
+                23684210.52631576,
+                37.49994062509394,
+                64.28553979639196
+              ],
+              [
+                23684210.52631576,
+                23684210.52631576,
+                37.49994062509394,
+                64.28553979639196
+              ]
+            ],
+            "denominators": [
+              [
+                0.0,
+                0.0,
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.0,
+                0.0,
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [
+              0,
+              1
+            ],
+            "diameters": [
+              {
+                "value": 1847.1395806183853,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1395806183853,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 11.999974214344958,
+            "logDetCost": -250.48987435317414,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -238.4899001388292,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [],
+        "closedCannotLink": [],
+        "centroids": [
+          [
+            0.0,
+            0.0,
+            3.0,
+            0.9666666666666668
+          ],
+          [
+            0.0,
+            0.0,
+            -3.0,
+            -0.9666666666666668
+          ]
+        ],
+        "metrics": [
+          [
+            23684210.52631576,
+            23684210.52631576,
+            37.49994062509394,
+            64.28553979639196
+          ],
+          [
+            23684210.52631576,
+            23684210.52631576,
+            37.49994062509394,
+            64.28553979639196
+          ]
+        ],
+        "labels": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 11.999974214344958,
+        "logDetCost": -250.48987435317414,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 0.0,
+        "objective": -238.4899001388292,
+        "mustViolations": 0,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "duplicates",
+        "values": [
+          [
+            -1,
+            -1
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            -0.9,
+            -1.2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            0.9,
+            1.2
+          ]
+        ]
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              0.020220750384032746,
+              -0.012410265840590037
+            ],
+            [
+              0.07049315869808198,
+              0.040736169945448604
+            ]
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 11.88985768597602,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.0,
+          "objective": 11.88985768597602,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              0,
+              4,
+              3,
+              5,
+              2,
+              1
+            ],
+            "assignments": [
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  11.88985768597602,
+                  12.102761201696927
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  12.090629546655466,
+                  11.88985768597602
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  12.090629546655467,
+                  11.88985768597602
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  12.101833639307072,
+                  11.88985768597602
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  11.88985768597602,
+                  12.113965294348532
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  11.88985768597602,
+                  12.102761201696927
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -0.9666666666666667,
+                -1.0666666666666667
+              ],
+              [
+                0.9666666666666667,
+                1.0666666666666667
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                450.00000000000017,
+                112.50000000000004
+              ],
+              [
+                450.00000000000017,
+                112.50000000000004
+              ]
+            ],
+            "denominators": [
+              [
+                0.0066666666666666645,
+                0.026666666666666658
+              ],
+              [
+                0.0066666666666666645,
+                0.026666666666666658
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 2250.000000000001,
+                "pair": [
+                  0,
+                  3
+                ]
+              },
+              {
+                "value": 2250.000000000001,
+                "pair": [
+                  0,
+                  3
+                ]
+              }
+            ],
+            "distanceCost": 11.999999999999998,
+            "logDetCost": -64.99320482645305,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -52.99320482645305,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "iteration": 2,
+            "order": [
+              4,
+              0,
+              5,
+              3,
+              1,
+              2
+            ],
+            "assignments": [
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  2167.0067951735477,
+                  -52.99320482645305
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -52.99320482645305,
+                  2167.0067951735477
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  2089.0067951735477,
+                  -52.99320482645305
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  2167.0067951735477,
+                  -52.99320482645305
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -52.99320482645305,
+                  2167.0067951735477
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -52.99320482645305,
+                  2089.0067951735477
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -0.9666666666666667,
+                -1.0666666666666667
+              ],
+              [
+                0.9666666666666667,
+                1.0666666666666667
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                450.00000000000017,
+                112.50000000000004
+              ],
+              [
+                450.00000000000017,
+                112.50000000000004
+              ]
+            ],
+            "denominators": [
+              [
+                0.0066666666666666645,
+                0.026666666666666658
+              ],
+              [
+                0.0066666666666666645,
+                0.026666666666666658
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 2250.000000000001,
+                "pair": [
+                  0,
+                  3
+                ]
+              },
+              {
+                "value": 2250.000000000001,
+                "pair": [
+                  0,
+                  3
+                ]
+              }
+            ],
+            "distanceCost": 11.999999999999998,
+            "logDetCost": -64.99320482645305,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -52.99320482645305,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [],
+        "closedCannotLink": [],
+        "centroids": [
+          [
+            -0.9666666666666667,
+            -1.0666666666666667
+          ],
+          [
+            0.9666666666666667,
+            1.0666666666666667
+          ]
+        ],
+        "metrics": [
+          [
+            450.00000000000017,
+            112.50000000000004
+          ],
+          [
+            450.00000000000017,
+            112.50000000000004
+          ]
+        ],
+        "labels": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 11.999999999999998,
+        "logDetCost": -64.99320482645305,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 0.0,
+        "objective": -52.99320482645305,
+        "mustViolations": 0,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "empty-tie",
+        "values": [
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            -1,
+            1
+          ],
+          [
+            1,
+            -1
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 8.0,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.0,
+          "objective": 8.0,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              0,
+              3,
+              1,
+              2
+            ],
+            "assignments": [
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  8.0,
+                  8.08
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  8.0,
+                  8.08
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  8.0,
+                  8.08
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  8.0,
+                  8.08
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "metrics": [
+              [
+                1.0,
+                1.0
+              ],
+              [
+                1.0,
+                1.0
+              ]
+            ],
+            "denominators": [
+              [
+                4.0,
+                4.0
+              ],
+              [
+                0.0,
+                0.0
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 8.0,
+                "pair": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "value": 8.0,
+                "pair": [
+                  0,
+                  1
+                ]
+              }
+            ],
+            "distanceCost": 8.0,
+            "logDetCost": 0.0,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": 8.0,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "closedCannotLink": [],
+        "centroids": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "metrics": [
+          [
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "labels": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "iteration": 1,
+        "converged": true,
+        "distanceCost": 8.0,
+        "logDetCost": 0.0,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 0.0,
+        "objective": 8.0,
+        "mustViolations": 0,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "closure-duplicates",
+        "values": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2.8,
+            -0.8
+          ],
+          [
+            -3.2,
+            -1.1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2.8,
+            0.8
+          ],
+          [
+            3.2,
+            1.1
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "cannotLink": [
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            0
+          ]
+        ]
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              -3.0,
+              -0.9666666666666668
+            ],
+            [
+              3.0,
+              0.9666666666666668
+            ]
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 0.25333333333333363,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.0,
+          "objective": 0.25333333333333363,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              1,
+              0,
+              4,
+              5,
+              2,
+              3
+            ],
+            "assignments": [
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  0.25333333333333363,
+                  37.21986666666667
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  0.25333333333333363,
+                  40.297999999999995
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  37.219866666666675,
+                  0.25333333333333363
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  43.001066666666674,
+                  0.25333333333333363
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  0.25333333333333363,
+                  43.00106666666667
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  40.297999999999995,
+                  0.25333333333333363
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "iteration": 2,
+            "order": [
+              4,
+              0,
+              5,
+              2,
+              1,
+              3
+            ],
+            "assignments": [
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1435.7796440855996,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1571.3025012284565
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1682.7139297998851,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1682.7139297998851
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1435.7796440855996
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1571.3025012284565,
+                  -34.72607020011249
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "closedCannotLink": [
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "centroids": [
+          [
+            -3.0,
+            -0.9666666666666668
+          ],
+          [
+            3.0,
+            0.9666666666666668
+          ]
+        ],
+        "metrics": [
+          [
+            37.499999999999936,
+            64.28571428571428
+          ],
+          [
+            37.499999999999936,
+            64.28571428571428
+          ]
+        ],
+        "labels": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 12.0,
+        "logDetCost": -46.72607020011249,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 0.0,
+        "objective": -34.72607020011249,
+        "mustViolations": 0,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "seed-137",
+        "values": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2.8,
+            -0.8
+          ],
+          [
+            -3.2,
+            -1.1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2.8,
+            0.8
+          ],
+          [
+            3.2,
+            1.1
+          ]
+        ],
+        "params": {
+          "seed": 137
+        }
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              0.15017191618680956,
+              -0.03536724335979674
+            ],
+            [
+              -0.2745313036441803,
+              -0.07485484892036771
+            ]
+          ],
+          "labels": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 52.30063332499552,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.0,
+          "objective": 52.30063332499552,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              2,
+              0,
+              5,
+              4,
+              1,
+              3
+            ],
+            "assignments": [
+              {
+                "current": 2,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  55.048438425373746,
+                  52.30063332499552
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  54.870659616329235,
+                  52.30063332499552
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  52.30063332499552,
+                  55.16277490292049
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  52.30063332499552,
+                  54.79931976371935
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  54.68498328617261,
+                  52.30063332499552
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  52.30063332499552,
+                  54.984996093875985
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                3.0,
+                0.9666666666666668
+              ],
+              [
+                -3.0,
+                -0.9666666666666668
+              ]
+            ],
+            "labels": [
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "iteration": 2,
+            "order": [
+              3,
+              5,
+              2,
+              1,
+              4,
+              0
+            ],
+            "assignments": [
+              {
+                "current": 3,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1563.8453583713138
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1678.7025012284566
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  1678.7025012284566,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  1424.1310726570282,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 0,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1424.1310726570282
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 1,
+                "labels": [
+                  1,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "globalCosts": [
+                  1563.8453583713138,
+                  -34.72607020011249
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                3.0,
+                0.9666666666666668
+              ],
+              [
+                -3.0,
+                -0.9666666666666668
+              ]
+            ],
+            "labels": [
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [],
+        "closedCannotLink": [],
+        "centroids": [
+          [
+            3.0,
+            0.9666666666666668
+          ],
+          [
+            -3.0,
+            -0.9666666666666668
+          ]
+        ],
+        "metrics": [
+          [
+            37.499999999999936,
+            64.28571428571428
+          ],
+          [
+            37.499999999999936,
+            64.28571428571428
+          ]
+        ],
+        "labels": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 12.0,
+        "logDetCost": -46.72607020011249,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 0.0,
+        "objective": -34.72607020011249,
+        "mustViolations": 0,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "reversed-input",
+        "values": [
+          [
+            3.2,
+            1.1
+          ],
+          [
+            2.8,
+            0.8
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            -3.2,
+            -1.1
+          ],
+          [
+            -2.8,
+            -0.8
+          ],
+          [
+            -3,
+            -1
+          ]
+        ],
+        "params": {
+          "seed": 137
+        }
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              0.15017191618680956,
+              -0.03536724335979667
+            ],
+            [
+              -0.2745313036441803,
+              -0.07485484892036763
+            ]
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 52.30063332499553,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.0,
+          "objective": 52.30063332499553,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              2,
+              0,
+              5,
+              4,
+              1,
+              3
+            ],
+            "assignments": [
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  52.30063332499553,
+                  54.98499609387598
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  52.30063332499553,
+                  55.16277490292049
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  54.870659616329235,
+                  52.30063332499553
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  54.68498328617261,
+                  52.30063332499553
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  52.30063332499553,
+                  54.79931976371935
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  55.048438425373746,
+                  52.30063332499553
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                3.0,
+                0.9666666666666668
+              ],
+              [
+                -3.0,
+                -0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  0,
+                  3
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  0,
+                  3
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          },
+          {
+            "iteration": 2,
+            "order": [
+              3,
+              5,
+              2,
+              1,
+              4,
+              0
+            ],
+            "assignments": [
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1678.7025012284566,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1563.8453583713138,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1563.8453583713138
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1424.1310726570282
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  1424.1310726570282,
+                  -34.72607020011249
+                ]
+              },
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  -34.72607020011249,
+                  1678.7025012284566
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                3.0,
+                0.9666666666666668
+              ],
+              [
+                -3.0,
+                -0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  0,
+                  3
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  0,
+                  3
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [],
+        "closedCannotLink": [],
+        "centroids": [
+          [
+            3.0,
+            0.9666666666666668
+          ],
+          [
+            -3.0,
+            -0.9666666666666668
+          ]
+        ],
+        "metrics": [
+          [
+            37.499999999999936,
+            64.28571428571428
+          ],
+          [
+            37.499999999999936,
+            64.28571428571428
+          ]
+        ],
+        "labels": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "iteration": 2,
+        "converged": true,
+        "distanceCost": 12.0,
+        "logDetCost": -46.72607020011249,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 0.0,
+        "objective": -34.72607020011249,
+        "mustViolations": 0,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "limit",
+        "values": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2.8,
+            -0.8
+          ],
+          [
+            -3.2,
+            -1.1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2.8,
+            0.8
+          ],
+          [
+            3.2,
+            1.1
+          ]
+        ],
+        "params": {
+          "iterations": 1
+        }
+      },
+      "result": {
+        "initial": {
+          "centroids": [
+            [
+              0.06470640122890474,
+              -0.011376077020540871
+            ],
+            [
+              0.2255781078338623,
+              0.03734148911666122
+            ]
+          ],
+          "labels": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "metrics": [
+            [
+              1.0,
+              1.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "distanceCost": 56.85153600661018,
+          "logDetCost": 0.0,
+          "mustLinkCost": 0.0,
+          "cannotLinkCost": 0.0,
+          "objective": 56.85153600661018,
+          "mustViolations": 0,
+          "cannotViolations": 0
+        },
+        "states": [
+          {
+            "iteration": 1,
+            "order": [
+              0,
+              4,
+              3,
+              5,
+              2,
+              1
+            ],
+            "assignments": [
+              {
+                "current": 0,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  56.85153600661018,
+                  57.962164914569314
+                ]
+              },
+              {
+                "current": 4,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  57.78240213336248,
+                  56.85153600661018
+                ]
+              },
+              {
+                "current": 3,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  57.86623784245935,
+                  56.85153600661018
+                ]
+              },
+              {
+                "current": 5,
+                "chosen": 1,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  57.940330038328774,
+                  56.85153600661018
+                ]
+              },
+              {
+                "current": 2,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  56.85153600661018,
+                  58.03625711043874
+                ]
+              },
+              {
+                "current": 1,
+                "chosen": 0,
+                "labels": [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                "globalCosts": [
+                  56.85153600661018,
+                  57.87832920547245
+                ]
+              }
+            ],
+            "centroids": [
+              [
+                -3.0,
+                -0.9666666666666668
+              ],
+              [
+                3.0,
+                0.9666666666666668
+              ]
+            ],
+            "labels": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "metrics": [
+              [
+                37.499999999999936,
+                64.28571428571428
+              ],
+              [
+                37.499999999999936,
+                64.28571428571428
+              ]
+            ],
+            "denominators": [
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ],
+              [
+                0.08000000000000014,
+                0.046666666666666676
+              ]
+            ],
+            "conditioned": [],
+            "diameters": [
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              },
+              {
+                "value": 1847.1428571428548,
+                "pair": [
+                  2,
+                  5
+                ]
+              }
+            ],
+            "distanceCost": 12.0,
+            "logDetCost": -46.72607020011249,
+            "mustLinkCost": 0.0,
+            "cannotLinkCost": 0.0,
+            "objective": -34.72607020011249,
+            "mustViolations": 0,
+            "cannotViolations": 0
+          }
+        ],
+        "closedMustLink": [],
+        "closedCannotLink": [],
+        "centroids": [
+          [
+            -3.0,
+            -0.9666666666666668
+          ],
+          [
+            3.0,
+            0.9666666666666668
+          ]
+        ],
+        "metrics": [
+          [
+            37.499999999999936,
+            64.28571428571428
+          ],
+          [
+            37.499999999999936,
+            64.28571428571428
+          ]
+        ],
+        "labels": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        "iteration": 1,
+        "converged": false,
+        "distanceCost": 12.0,
+        "logDetCost": -46.72607020011249,
+        "mustLinkCost": 0.0,
+        "cannotLinkCost": 0.0,
+        "objective": -34.72607020011249,
+        "mustViolations": 0,
+        "cannotViolations": 0
+      }
+    },
+    {
+      "input": {
+        "name": "singular-strict",
+        "values": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ]
+        ]
+      },
+      "result": {
+        "error": "singular-denominator"
+      }
+    },
+    {
+      "input": {
+        "name": "constant",
+        "values": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "result": {
+        "error": "singular-denominator"
+      }
+    },
+    {
+      "input": {
+        "name": "negative-denominator",
+        "values": [
+          [
+            -2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            -10
+          ],
+          [
+            0,
+            10
+          ]
+        ],
+        "cannotLink": [
+          [
+            0,
+            1
+          ]
+        ],
+        "params": {
+          "k": 1,
+          "constraintPenalty": 1
+        }
+      },
+      "result": {
+        "error": "negative-denominator"
+      }
+    },
+    {
+      "input": {
+        "name": "contradiction",
+        "values": [
+          [
+            -3,
+            -1
+          ],
+          [
+            -2.8,
+            -0.8
+          ],
+          [
+            -3.2,
+            -1.1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2.8,
+            0.8
+          ],
+          [
+            3.2,
+            1.1
+          ]
+        ],
+        "mustLink": [
+          [
+            0,
+            1
+          ]
+        ],
+        "cannotLink": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "result": {
+        "error": "contradiction"
+      }
+    }
+  ]
+}

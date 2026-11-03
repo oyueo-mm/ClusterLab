@@ -376,5 +376,12 @@
       "K-Means",
       "BSAS"
     ]
+  },
+  "MPCKMeans": {
+    "summary": "일관된 쌍별 감독과 원본 ND를 이용해 군집마다 양수 대각 메트릭을 실제 학습합니다. 거리·−logdet·ML/CL 비용을 함께 계산합니다.",
+    "related": [
+      "PCKMeans",
+      "COP-KMeans"
+    ]
   }
 }

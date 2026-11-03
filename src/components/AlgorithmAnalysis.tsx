@@ -11,6 +11,7 @@ import BiclusterAnalysis from "./BiclusterAnalysis";
 import { TimeSeriesAnalysisView } from "./TimeSeriesAnalysis";
 import ConstraintAnalysisView from "./ConstraintAnalysis";
 import { PairwiseAnalysisView } from "./PairwiseAnalysis";
+import { MetricAnalysisView } from "./MetricAnalysis";
 import { FpcmAnalysisView } from "./FpcmAnalysis";
 import { PossibilisticAnalysisView } from "./PossibilisticAnalysis";
 import { DiscreteMixtureAnalysisView } from "./DiscreteMixtureAnalysis";
@@ -441,6 +442,7 @@ export function AlgorithmAnalysis({
         progress={visualProgress}
       />
     );
+  if (a.kind === "metric-pairwise") return <MetricAnalysisView analysis={a} />;
   if (a.kind === "pairwise") return <PairwiseAnalysisView analysis={a} />;
   if (a.kind === "fuzzy-possibilistic")
     return <FpcmAnalysisView analysis={a} />;

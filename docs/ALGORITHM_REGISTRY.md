@@ -1,3 +1,9 @@
+## 2차 확장 — 두 세로 단위 로컬 완료, 통합·공개 검증 진행
+
+FPCM 안정 커밋9d09be1 이후 MPCKMeans2004 multiple diagonal을 순차 구현했다. 소스57엔진·228추천·75미구현·엄격 인증0, 공개는 아직55개다. 원본 ND·정확 전체 최대쌍·거리−logdet·ML/CL 비용·Eq8 양수 대각 학습·명시 특이 처리·실제 Trace/역진·타원·전용분석·4전용추천·수학가이드/실제PCK비교를 연결했다. 독립 NumPy/SciPy17fixture(정상13/오류4), 모든 반복/후보ΔJ·16개배정목적·유한차분, 전용22테스트·전체741/741·50파일·타입·ESLint·빌드가 통과했다. 최초 전체는 신규 도감/교재 요약 불일치1개를 발견해 문구를 맞췄고 같은 전체를 재실행해 통과했다. 단언/시간 제한/기존 생략을 바꾸지 않았다.
+
+MPCK Chromium/mobile4/4, 실제Worker100/1000·10만행computing이후취소, Node100/1000/10000(1sweep), 실제UI100/1000 약60FPS를 기록했다. 기존55엔진/220추천660생성/67원본math·data·home소스 보존 검증도 통과했다. [전체2차기록](ALGORITHM_EXPANSION_2_REPORT.md), [MPCK계약](research/MPCKMEANS.md), [FPCM계약](research/FPCM.md), `docs/extension-57/`를 따른다. 다음은 전체 Playwright152개 예상(기존14조건부생략 유지)·main커밋/푸시·Actions/Pages·공개검증이다. 공개 배포 완료로 선언하지 않는다. 다른 `.local/sequential-worktree`·feat/sequential-clustering·c4d6a7d는 보존한다. 아래는 과거 체크포인트다.
+
 ## 2차 확장 — FPCM 로컬 세로 단위 완료, MPCKMeans 다음
 
 기준 d2dbf12에서 FPCM1997을 실제 원본 ND·U행/T열 정규화·실제 중심·Trace/역진·전용U/T막대/행렬·4추천·가이드/실제 FCM·PCM 비교·독립 NumPy11AO/손계산/복제 검산으로 완성했다. 현재소스56엔진·224추천·76미구현·엄격 인증0, 공개는55개32dc4cf 그대로다. 전체715/715·49파일은 `npm test -- --maxWorkers=2`로 통과했다. 초기 기본 병렬에서는 기존 graph-followup 성능 관측1개가5초를 넘었으며 단언/시간 제한을 바꾸지 않았다. 타입·ESLint·빌드, 신규/기존 fuzzy 실험·미니12/12와 전체56교재/실제도감4/4가 통과했다.
@@ -88,7 +94,7 @@ PCKMeans 세로 단위를 연결·검증해 기존53+1=54개, 후보119개 중41
 | 22 | Fuzzy Possibilistic C-Means | FPCM1997 | numeric ND | Fuzzy Possibilistic C-Means | independent NumPy / Trace / browser verified, restricted scope |
 |   23 | COP-KMeans                       | variant                                                  | constrained         | COP-KMeans                | 독립 수치·Trace·로컬 브라우저 검증 완료 (제한 범위)                                          |
 | 24 | PCKMeans | 독립 알고리즘 | constrained 원본 ND | PCKMeans | 일관 관계·균일 유한 벌점의 제한 범위, 독립 수치·브라우저 검증; 완전 인증 아님 |
-|   25 | MPCKMeans                        | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 원문·정의 예비 검토 · 엔진 미구현                                                            |
+| 25 | MPCKMeans | ICML2004 multiple diagonal | constrained ND | MPCKMeans | 독립 NumPy/SciPy·Trace·브라우저 검증, 제한 범위 |
 |   26 | Constrained Spectral Clustering  | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 원문·정의 예비 검토 · 엔진 미구현                                                            |
 |   27 | Density Peaks / CFSFDP           | 중심 선택 변형 (명시적 K)                                | numeric-nd          | Density Peaks / CFSFDP    | 독립 수치·Trace·브라우저 검증 완료 (제한 범위)                                               |
 |   28 | SNN Clustering                   | 분류 검토 필요                                           | 입력 계약 조사 필요 | 없음                      | 미조사                                                                                       |

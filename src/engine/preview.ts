@@ -98,7 +98,7 @@ export function previewFrame(
           },
         }
       : {}),
-    ...(a?.kind === "pairwise"
+    ...(a?.kind === "pairwise" || a?.kind === "metric-pairwise"
       ? { constraints: { mustLink: a.mustLink, cannotLink: a.cannotLink } }
       : {}),
     ...(a?.kind === "affinity"

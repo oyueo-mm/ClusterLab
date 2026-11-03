@@ -63,7 +63,7 @@ for (const algorithm of process.argv[3]
         ),
       ),
       dataset =
-        algorithm === "PCKMeans"
+        ["PCKMeans", "MPCKMeans"].includes(algorithm)
           ? {
               kind: "constrained",
               data: { kind: "numeric", values },
