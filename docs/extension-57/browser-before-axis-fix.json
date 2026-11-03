@@ -1,0 +1,2143 @@
+{
+  "scope": "local",
+  "baseURL": "http://127.0.0.1:4476/ClusterLab/",
+  "stats": {
+    "startTime": "2026-11-03T04:46:36.713Z",
+    "duration": 1081232.7589999998,
+    "expected": 138,
+    "skipped": 14,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8658,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9526,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3535,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths",
+      "file": "constraints-models.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4413,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "COP real hard constraints edit, undo/redo, contradiction and greedy failure recover without fake success",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8148,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three actual discrete EM Workers expose normalized posteriors, exact boundary MLE/likelihood, exports and invalid-support recovery",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10411,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "Walktrap computes full P^t and Ward candidates/best original-Q cut; CPM preserves canonical overlapping communities and uncovered nodes",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3681,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "1000-row Bernoulli source keeps the last-row-only feature, paged editor, all native rows and seven responsive widths",
+      "file": "constraints-models.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9440,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home, category sidebar and shareable independent catalog filters",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1549,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "each engine opens by ID and runs its actual recommended original data",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 42706,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "sidebar state, viewport layouts and screenshots",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3627,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home, category sidebar and shareable independent catalog filters",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1240,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "each engine opens by ID and runs its actual recommended original data",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 47608,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "sidebar state, viewport layouts and screenshots",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8529,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog distinguishes all candidates from executable engines and filters without overflow",
+      "file": "expansion.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2373,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "new algorithms compute actual events in production workers and reversible playback",
+      "file": "expansion.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2370,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "100k import has no truncation and cancellation actually terminates its worker",
+      "file": "expansion.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6379,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog distinguishes all candidates from executable engines and filters without overflow",
+      "file": "expansion.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1808,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "new algorithms compute actual events in production workers and reversible playback",
+      "file": "expansion.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1800,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "100k import has no truncation and cancellation actually terminates its worker",
+      "file": "expansion.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5219,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6242,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3440,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5795,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3543,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6308,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3112,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5997,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2424,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5942,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3123,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5786,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3404,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6523,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2786,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5931,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2556,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a fresh lab applies its tailored initial parameters and produces real deferred passes",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 580,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1431,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5348,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "unavailable persistent storage reports the failure while real computation works",
+      "file": "lab-shell.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 644,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a fresh lab applies its tailored initial parameters and produces real deferred passes",
+      "file": "lab-shell.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 645,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "keyboard panel tabs, integrated math guide and fullscreen remain usable",
+      "file": "lab-shell.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1587,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "modern point and original-data panels fit seven viewport widths without covering playback",
+      "file": "lab-shell.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 135,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "unavailable persistent storage reports the failure while real computation works",
+      "file": "lab-shell.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 670,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "legacy saved original data migrates without being replaced by a recommendation",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 994,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "user points restore from IndexedDB even when preference storage is blocked",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1019,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog entry selects the algorithm default until a user owns the point data",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1448,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "untouched native defaults follow each algorithm while explicit source data survives incompatible navigation",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 859,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "an alternate recommendation keeps its seed when regenerated",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1810,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1853,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "native comparison uses shared graph input with independent real results",
+      "file": "lab-state.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1096,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "legacy saved original data migrates without being replaced by a recommendation",
+      "file": "lab-state.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 938,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "user points restore from IndexedDB even when preference storage is blocked",
+      "file": "lab-state.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1062,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog entry selects the algorithm default until a user owns the point data",
+      "file": "lab-state.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1330,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "untouched native defaults follow each algorithm while explicit source data survives incompatible navigation",
+      "file": "lab-state.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1257,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "an alternate recommendation keeps its seed when regenerated",
+      "file": "lab-state.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1882,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "edited data, undo/redo and IndexedDB restoration survive algorithm navigation",
+      "file": "lab-state.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1779,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "native comparison uses shared graph input with independent real results",
+      "file": "lab-state.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1040,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "six model guides preserve actual mini source, changed parameters and selected real event into the structured Worker experiment",
+      "file": "model-guides.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11385,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "six model guides preserve actual mini source, changed parameters and selected real event into the structured Worker experiment",
+      "file": "model-guides.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 13108,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "six numeric engines run real split, penalty and subspace operations with reversible analysis",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7412,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "seven graph engines consume actual connected edges and expose their distinct operations",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7997,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6321,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "category and mixed table edits alter actual model statistics and Undo/Redo restores original input",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2888,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "graph weights, matrix cells and time series values are editable mathematical inputs",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3936,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "stream arrivals increase the computed prefix and actual CF time; automatic input can pause",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3393,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2564,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a thousand raw rows remain computed and editable through a bounded table at seven viewport widths",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5591,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab",
+      "file": "next-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2714,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "six numeric engines run real split, penalty and subspace operations with reversible analysis",
+      "file": "next-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7110,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "seven graph engines consume actual connected edges and expose their distinct operations",
+      "file": "next-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9289,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "six typed engines return actual categories, mixed prototypes, stream CFs, biclusters and shapes",
+      "file": "next-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7824,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "category and mixed table edits alter actual model statistics and Undo/Redo restores original input",
+      "file": "next-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3198,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "graph weights, matrix cells and time series values are editable mathematical inputs",
+      "file": "next-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4243,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "stream arrivals increase the computed prefix and actual CF time; automatic input can pause",
+      "file": "next-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3669,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "typed validation reports invalid binary matrices, irregular time grids and malformed JSON without fake success",
+      "file": "next-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2504,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "a thousand raw rows remain computed and editable through a bounded table at seven viewport widths",
+      "file": "next-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8138,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "the raw K-Shape guide preserves its dataset, changed parameters and selected real event in the structured lab",
+      "file": "next-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2539,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "ten new engines expose real events, dedicated analysis and reversible production traces",
+      "file": "platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9707,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "ND raw computation survives projection changes; weighted graph ignores display positions",
+      "file": "platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3502,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "unsupported structured data and contradictory constraints fail explicitly",
+      "file": "platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1098,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "ten new engines expose real events, dedicated analysis and reversible production traces",
+      "file": "platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10218,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "ND raw computation survives projection changes; weighted graph ignores display positions",
+      "file": "platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3723,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "unsupported structured data and contradictory constraints fail explicitly",
+      "file": "platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 836,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all 57 real Worker clips survive catalog scrolling and filters, with bounded Workers",
+      "file": "preview-scale.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7034,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "actual frames loop, stop offscreen/hidden, respect live reduced motion and animate home cards",
+      "file": "preview-scale.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11291,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recommendation sizes allow presets and custom counts, retain small sequential lessons",
+      "file": "preview-scale.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1420,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all 57 real Worker clips survive catalog scrolling and filters, with bounded Workers",
+      "file": "preview-scale.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10696,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "actual frames loop, stop offscreen/hidden, respect live reduced motion and animate home cards",
+      "file": "preview-scale.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11720,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "recommendation sizes allow presets and custom counts, retain small sequential lessons",
+      "file": "preview-scale.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1624,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home visual evidence and sustained animation frame timings",
+      "file": "quality.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5774,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "real data editing, CSV import, label preservation and JSON download",
+      "file": "quality.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1290,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home visual evidence and sustained animation frame timings",
+      "file": "quality.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6448,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "real data editing, CSV import, label preservation and JSON download",
+      "file": "quality.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1500,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three sequential Workers use full raw ND and true passes/defer, BSAS source order matters, projection does not; native all-row and seven-width checks",
+      "file": "sequential-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11399,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three sequential guide minis transfer raw source, changed thresholds and selected real event to the structured Worker",
+      "file": "sequential-platform.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5283,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three sequential Workers use full raw ND and true passes/defer, BSAS source order matters, projection does not; native all-row and seven-width checks",
+      "file": "sequential-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 19956,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "three sequential guide minis transfer raw source, changed thresholds and selected real event to the structured Worker",
+      "file": "sequential-platform.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5655,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home demo, navigation, playback pause/resume/seek and mobile layout",
+      "file": "site.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2146,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all algorithms run to completion in actual Workers with dedicated analyses",
+      "file": "site.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 15679,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "dataset gallery, import/export UI, guide, compare and direct hash routing",
+      "file": "site.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2755,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home demo, navigation, playback pause/resume/seek and mobile layout",
+      "file": "site.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2469,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all algorithms run to completion in actual Workers with dedicated analyses",
+      "file": "site.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 17518,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "dataset gallery, import/export UI, guide, compare and direct hash routing",
+      "file": "site.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5068,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "four real home Workers share exactly the same source data and stop when not visible",
+      "file": "v02.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1180,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+      "file": "v02.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1680,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "four real home Workers share exactly the same source data and stop when not visible",
+      "file": "v02.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1381,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+      "file": "v02.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2262,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "real bundled display/UI fonts, forest tokens and aligned responsive layout",
+      "file": "v03.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 759,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "font failure uses fallbacks without clipping or disabling navigation",
+      "file": "v03.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 665,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "automatic cycle holds real final results, changes every preset/combination and wraps after exposing all 13",
+      "file": "v03.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 143941,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "labeled and categorical home cards transfer the exact original records into the lab",
+      "file": "v03.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 81562,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "real bundled display/UI fonts, forest tokens and aligned responsive layout",
+      "file": "v03.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2004,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "font failure uses fallbacks without clipping or disabling navigation",
+      "file": "v03.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 778,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "automatic cycle holds real final results, changes every preset/combination and wraps after exposing all 13",
+      "file": "v03.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 120,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "labeled and categorical home cards transfer the exact original records into the lab",
+      "file": "v03.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 121,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compact task pages retain controls and consistently show Korean preset names",
+      "file": "v04.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 922,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison",
+      "file": "v04.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 28122,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "real Worker GMM renders initialization, E/M covariance motion and final ellipses in every home round",
+      "file": "v04.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 144787,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "compact task pages retain controls and consistently show Korean preset names",
+      "file": "v04.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1114,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all executable textbooks render math and real events, switch levels, navigate sections and open lab/comparison",
+      "file": "v04.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 31899,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "real Worker GMM renders initialization, E/M covariance motion and final ellipses in every home round",
+      "file": "v04.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 188,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home introduction centers beside the demos and stays compact when stacked",
+      "file": "v05.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8893,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home introduction centers beside the demos and stays compact when stacked",
+      "file": "v05.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 140,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 91,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "larger home typography and editor toolbar fit requested viewport widths",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3706,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1894,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "larger home typography and editor toolbar fit requested viewport widths",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 195,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4869,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6576,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3635,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preset, regeneration options and CSV/JSON replacements restore matching metadata",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3039,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1660,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2051,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 143,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 163,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 173,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preset, regeneration options and CSV/JSON replacements restore matching metadata",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 147,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 126,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 139,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "K-Means starts with settings closed and preserves user panel preferences and Trace",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1113,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "TTSAS starts with settings closed and preserves user panel preferences and Trace",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1126,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2074,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 692,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 871,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 662,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "K-Means starts with settings closed and preserves user panel preferences and Trace",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1104,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "TTSAS starts with settings closed and preserves user panel preferences and Trace",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1170,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "resizing independent panels and focus preserve actual Trace, edits and playback",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 152,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "search picker supports Korean, keyboard selection and long names",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1012,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog double click enters runnable labs while candidate cards and preview buttons remain independent",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 955,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile drawers keep playback exposed and Escape returns to canvas",
+      "file": "workspace.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 877,
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "sameFourteenExistingConditionalSkips": true
+}

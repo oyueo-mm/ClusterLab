@@ -2,7 +2,7 @@
   {
     "algorithm": "K-Means",
     "count": 48,
-    "computationMs": 3.3713000000000193,
+    "computationMs": 2.9798000000000116,
     "events": 296,
     "frames": 36,
     "clipRetainedEstimate": 113986,
@@ -18,7 +18,7 @@
   {
     "algorithm": "DBSCAN",
     "count": 48,
-    "computationMs": 1.583500000000015,
+    "computationMs": 1.5930999999999926,
     "events": 141,
     "frames": 35,
     "clipRetainedEstimate": 96166,
@@ -34,7 +34,7 @@
   {
     "algorithm": "HDBSCAN",
     "count": 48,
-    "computationMs": 2.9674999999999727,
+    "computationMs": 3.0611000000000104,
     "events": 102,
     "frames": 36,
     "clipRetainedEstimate": 155790,
@@ -51,7 +51,7 @@
   {
     "algorithm": "AGNES",
     "count": 48,
-    "computationMs": 12.1875,
+    "computationMs": 11.64870000000002,
     "events": 96,
     "frames": 35,
     "clipRetainedEstimate": 445584,
@@ -66,7 +66,7 @@
   {
     "algorithm": "DIANA",
     "count": 48,
-    "computationMs": 4.912900000000036,
+    "computationMs": 3.6995000000000005,
     "events": 14,
     "frames": 15,
     "clipRetainedEstimate": 49106,
@@ -80,7 +80,7 @@
   {
     "algorithm": "SOM",
     "count": 48,
-    "computationMs": 14.648200000000031,
+    "computationMs": 9.843899999999962,
     "events": 778,
     "frames": 36,
     "clipRetainedEstimate": 262966,
@@ -95,7 +95,7 @@
   {
     "algorithm": "LVQ",
     "count": 48,
-    "computationMs": 6.159599999999955,
+    "computationMs": 6.621399999999994,
     "events": 778,
     "frames": 36,
     "clipRetainedEstimate": 133432,
@@ -110,7 +110,7 @@
   {
     "algorithm": "OPTICS",
     "count": 48,
-    "computationMs": 2.0153000000000247,
+    "computationMs": 1.8485000000000014,
     "events": 179,
     "frames": 36,
     "clipRetainedEstimate": 107104,
@@ -126,7 +126,7 @@
   {
     "algorithm": "PAM",
     "count": 48,
-    "computationMs": 3.7572999999999865,
+    "computationMs": 3.8208000000000197,
     "events": 276,
     "frames": 36,
     "clipRetainedEstimate": 116994,
@@ -142,7 +142,7 @@
   {
     "algorithm": "ROCK",
     "count": 48,
-    "computationMs": 9.71750000000003,
+    "computationMs": 5.992799999999988,
     "events": 93,
     "frames": 36,
     "clipRetainedEstimate": 699836,
@@ -157,7 +157,7 @@
   {
     "algorithm": "GMM",
     "count": 48,
-    "computationMs": 4.2549999999999955,
+    "computationMs": 3.070100000000025,
     "events": 42,
     "frames": 34,
     "clipRetainedEstimate": 202828,
@@ -172,7 +172,7 @@
   {
     "algorithm": "BIRCH",
     "count": 48,
-    "computationMs": 7.504000000000019,
+    "computationMs": 3.4279999999999973,
     "events": 184,
     "frames": 36,
     "clipRetainedEstimate": 178936,
@@ -188,7 +188,7 @@
   {
     "algorithm": "Mean Shift",
     "count": 48,
-    "computationMs": 7.193100000000072,
+    "computationMs": 7.532700000000034,
     "events": 591,
     "frames": 36,
     "clipRetainedEstimate": 273996,
@@ -208,7 +208,7 @@
   {
     "algorithm": "Fuzzy C-Means",
     "count": 48,
-    "computationMs": 2.229400000000055,
+    "computationMs": 1.9307999999999765,
     "events": 42,
     "frames": 34,
     "clipRetainedEstimate": 196278,
@@ -223,7 +223,7 @@
   {
     "algorithm": "Possibilistic C-Means",
     "count": 48,
-    "computationMs": 7.458000000000084,
+    "computationMs": 9.146400000000028,
     "events": 66,
     "frames": 33,
     "clipRetainedEstimate": 113930,
@@ -241,7 +241,7 @@
   {
     "algorithm": "Fuzzy Possibilistic C-Means",
     "count": 48,
-    "computationMs": 3.4022999999999683,
+    "computationMs": 3.3664000000000556,
     "events": 26,
     "frames": 27,
     "clipRetainedEstimate": 139116,
@@ -259,7 +259,7 @@
   {
     "algorithm": "Bisecting K-Means",
     "count": 48,
-    "computationMs": 1.689799999999991,
+    "computationMs": 0.7844000000000051,
     "events": 20,
     "frames": 21,
     "clipRetainedEstimate": 75928,
@@ -275,7 +275,7 @@
   {
     "algorithm": "Spectral Clustering",
     "count": 48,
-    "computationMs": 16.878499999999917,
+    "computationMs": 16.801500000000033,
     "events": 21,
     "frames": 22,
     "clipRetainedEstimate": 393900,
@@ -294,7 +294,7 @@
   {
     "algorithm": "Affinity Propagation",
     "count": 48,
-    "computationMs": 11.958200000000033,
+    "computationMs": 13.310100000000034,
     "events": 43,
     "frames": 33,
     "clipRetainedEstimate": 134770,
@@ -309,7 +309,7 @@
   {
     "algorithm": "Density Peaks / CFSFDP",
     "count": 48,
-    "computationMs": 2.2053999999999405,
+    "computationMs": 2.1648999999999887,
     "events": 99,
     "frames": 35,
     "clipRetainedEstimate": 202776,
@@ -326,7 +326,7 @@
   {
     "algorithm": "CURE",
     "count": 48,
-    "computationMs": 14.171800000000076,
+    "computationMs": 15.401100000000042,
     "events": 137,
     "frames": 35,
     "clipRetainedEstimate": 508932,
@@ -342,7 +342,7 @@
   {
     "algorithm": "Neural Gas",
     "count": 48,
-    "computationMs": 12.673999999999978,
+    "computationMs": 12.23840000000007,
     "events": 778,
     "frames": 36,
     "clipRetainedEstimate": 115634,
@@ -357,7 +357,7 @@
   {
     "algorithm": "Growing Neural Gas",
     "count": 48,
-    "computationMs": 60.1096,
+    "computationMs": 44.19460000000004,
     "events": 1558,
     "frames": 36,
     "clipRetainedEstimate": 145576,
@@ -374,7 +374,7 @@
   {
     "algorithm": "K-Medians",
     "count": 48,
-    "computationMs": 0.8433999999999742,
+    "computationMs": 0.7504999999999882,
     "events": 9,
     "frames": 10,
     "clipRetainedEstimate": 31808,
@@ -389,7 +389,7 @@
   {
     "algorithm": "Mini-Batch K-Means",
     "count": 48,
-    "computationMs": 1.51400000000001,
+    "computationMs": 1.314300000000003,
     "events": 42,
     "frames": 34,
     "clipRetainedEstimate": 114242,
@@ -404,7 +404,7 @@
   {
     "algorithm": "CLARA",
     "count": 48,
-    "computationMs": 4.045700000000011,
+    "computationMs": 6.0371000000000095,
     "events": 25,
     "frames": 26,
     "clipRetainedEstimate": 84506,
@@ -420,7 +420,7 @@
   {
     "algorithm": "CLARANS",
     "count": 48,
-    "computationMs": 3.2601999999999407,
+    "computationMs": 3.8523999999999887,
     "events": 243,
     "frames": 36,
     "clipRetainedEstimate": 116470,
@@ -437,7 +437,7 @@
   {
     "algorithm": "X-Means",
     "count": 48,
-    "computationMs": 1.9642999999999802,
+    "computationMs": 1.7701000000000704,
     "events": 37,
     "frames": 30,
     "clipRetainedEstimate": 93390,
@@ -455,7 +455,7 @@
   {
     "algorithm": "G-Means",
     "count": 48,
-    "computationMs": 4.558100000000081,
+    "computationMs": 2.4629999999999654,
     "events": 27,
     "frames": 28,
     "clipRetainedEstimate": 87080,
@@ -473,7 +473,7 @@
   {
     "algorithm": "Dip-Means",
     "count": 48,
-    "computationMs": 7.713400000000092,
+    "computationMs": 7.814399999999978,
     "events": 17,
     "frames": 18,
     "clipRetainedEstimate": 55906,
@@ -491,7 +491,7 @@
   {
     "algorithm": "DP-Means",
     "count": 48,
-    "computationMs": 4.8139999999999645,
+    "computationMs": 4.8478999999999814,
     "events": 982,
     "frames": 36,
     "clipRetainedEstimate": 105960,
@@ -507,7 +507,7 @@
   {
     "algorithm": "Louvain",
     "count": 48,
-    "computationMs": 4.149499999999989,
+    "computationMs": 3.963999999999942,
     "events": 59,
     "frames": 33,
     "clipRetainedEstimate": 661624,
@@ -523,7 +523,7 @@
   {
     "algorithm": "Leiden",
     "count": 48,
-    "computationMs": 4.868000000000052,
+    "computationMs": 4.522600000000011,
     "events": 108,
     "frames": 35,
     "clipRetainedEstimate": 692088,
@@ -540,7 +540,7 @@
   {
     "algorithm": "Label Propagation",
     "count": 48,
-    "computationMs": 3.112899999999968,
+    "computationMs": 3.1293000000000575,
     "events": 141,
     "frames": 36,
     "clipRetainedEstimate": 405842,
@@ -556,7 +556,7 @@
   {
     "algorithm": "Girvan–Newman",
     "count": 48,
-    "computationMs": 8.073499999999967,
+    "computationMs": 10.576600000000099,
     "events": 16,
     "frames": 17,
     "clipRetainedEstimate": 182594,
@@ -572,7 +572,7 @@
   {
     "algorithm": "Markov Clustering (MCL)",
     "count": 48,
-    "computationMs": 15.720500000000015,
+    "computationMs": 12.601099999999974,
     "events": 39,
     "frames": 33,
     "clipRetainedEstimate": 389546,
@@ -588,7 +588,7 @@
   {
     "algorithm": "K-Modes",
     "count": 48,
-    "computationMs": 1.6182000000000016,
+    "computationMs": 1.7268000000000256,
     "events": 6,
     "frames": 7,
     "clipRetainedEstimate": 22126,
@@ -603,7 +603,7 @@
   {
     "algorithm": "K-Prototypes",
     "count": 48,
-    "computationMs": 1.7822999999999638,
+    "computationMs": 1.6172000000000253,
     "events": 14,
     "frames": 15,
     "clipRetainedEstimate": 48500,
@@ -618,7 +618,7 @@
   {
     "algorithm": "CLIQUE",
     "count": 48,
-    "computationMs": 2.7445000000000164,
+    "computationMs": 2.7338000000000875,
     "events": 6,
     "frames": 7,
     "clipRetainedEstimate": 23210,
@@ -633,7 +633,7 @@
   {
     "algorithm": "PROCLUS",
     "count": 48,
-    "computationMs": 5.1422000000000025,
+    "computationMs": 4.4681000000000495,
     "events": 51,
     "frames": 34,
     "clipRetainedEstimate": 127308,
@@ -649,7 +649,7 @@
   {
     "algorithm": "DenStream",
     "count": 48,
-    "computationMs": 4.897099999999909,
+    "computationMs": 5.1539000000000215,
     "events": 76,
     "frames": 34,
     "clipRetainedEstimate": 131634,
@@ -665,7 +665,7 @@
   {
     "algorithm": "Bimax",
     "count": 48,
-    "computationMs": 1.2199999999999136,
+    "computationMs": 1.0896000000000186,
     "events": 8,
     "frames": 9,
     "clipRetainedEstimate": 34894,
@@ -681,7 +681,7 @@
   {
     "algorithm": "Cheng–Church Biclustering",
     "count": 48,
-    "computationMs": 6.252200000000016,
+    "computationMs": 6.17470000000003,
     "events": 61,
     "frames": 34,
     "clipRetainedEstimate": 132114,
@@ -699,7 +699,7 @@
   {
     "algorithm": "K-Shape",
     "count": 48,
-    "computationMs": 27.22749999999985,
+    "computationMs": 34.887899999999945,
     "events": 304,
     "frames": 35,
     "clipRetainedEstimate": 195614,
@@ -716,7 +716,7 @@
   {
     "algorithm": "Greedy Modularity (CNM)",
     "count": 48,
-    "computationMs": 6.877499999999827,
+    "computationMs": 6.77150000000006,
     "events": 91,
     "frames": 35,
     "clipRetainedEstimate": 395276,
@@ -732,7 +732,7 @@
   {
     "algorithm": "Fluid Communities",
     "count": 48,
-    "computationMs": 3.784599999999955,
+    "computationMs": 3.9487000000000307,
     "events": 213,
     "frames": 36,
     "clipRetainedEstimate": 406932,
@@ -748,7 +748,7 @@
   {
     "algorithm": "COP-KMeans",
     "count": 48,
-    "computationMs": 4.0957999999998265,
+    "computationMs": 3.897100000000023,
     "events": 199,
     "frames": 35,
     "clipRetainedEstimate": 104042,
@@ -764,7 +764,7 @@
   {
     "algorithm": "PCKMeans",
     "count": 48,
-    "computationMs": 10.238100000000031,
+    "computationMs": 6.4506999999999834,
     "events": 199,
     "frames": 36,
     "clipRetainedEstimate": 124046,
@@ -780,7 +780,7 @@
   {
     "algorithm": "MPCKMeans",
     "count": 48,
-    "computationMs": 9.697300000000041,
+    "computationMs": 11.421199999999999,
     "events": 207,
     "frames": 36,
     "clipRetainedEstimate": 123172,
@@ -798,7 +798,7 @@
   {
     "algorithm": "Bernoulli Mixture",
     "count": 48,
-    "computationMs": 3.282199999999875,
+    "computationMs": 4.350300000000061,
     "events": 24,
     "frames": 25,
     "clipRetainedEstimate": 131856,
@@ -813,7 +813,7 @@
   {
     "algorithm": "Poisson Mixture",
     "count": 48,
-    "computationMs": 1.724999999999909,
+    "computationMs": 1.5272999999999683,
     "events": 10,
     "frames": 11,
     "clipRetainedEstimate": 56690,
@@ -828,7 +828,7 @@
   {
     "algorithm": "Multinomial Mixture",
     "count": 48,
-    "computationMs": 1.633100000000013,
+    "computationMs": 1.3052000000000135,
     "events": 8,
     "frames": 9,
     "clipRetainedEstimate": 45952,
@@ -843,7 +843,7 @@
   {
     "algorithm": "Walktrap",
     "count": 48,
-    "computationMs": 13.140099999999848,
+    "computationMs": 11.198600000000056,
     "events": 101,
     "frames": 35,
     "clipRetainedEstimate": 397158,
@@ -860,7 +860,7 @@
   {
     "algorithm": "Clique Percolation",
     "count": 48,
-    "computationMs": 3.9446999999997843,
+    "computationMs": 3.9590999999999212,
     "events": 99,
     "frames": 36,
     "clipRetainedEstimate": 407884,
@@ -876,7 +876,7 @@
   {
     "algorithm": "BSAS",
     "count": 12,
-    "computationMs": 1.5264999999999418,
+    "computationMs": 1.337500000000091,
     "events": 26,
     "frames": 27,
     "clipRetainedEstimate": 39420,
@@ -893,7 +893,7 @@
   {
     "algorithm": "MBSAS",
     "count": 12,
-    "computationMs": 1.1886000000001786,
+    "computationMs": 1.1287000000000944,
     "events": 43,
     "frames": 31,
     "clipRetainedEstimate": 47600,
@@ -911,7 +911,7 @@
   {
     "algorithm": "TTSAS",
     "count": 12,
-    "computationMs": 1.5054000000000087,
+    "computationMs": 1.4974999999999454,
     "events": 52,
     "frames": 33,
     "clipRetainedEstimate": 51760,

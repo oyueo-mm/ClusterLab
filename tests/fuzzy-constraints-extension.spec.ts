@@ -22,7 +22,11 @@ declare global {
     extensionRequests: number;
   }
 }
+const runtimeErrors = new WeakMap<Page, string[]>();
 test.beforeEach(async ({ page }) => {
+  const errors: string[] = [];
+  runtimeErrors.set(page, errors);
+  page.on("pageerror", (error) => errors.push(error.message));
   await page.addInitScript(() => {
     window.extensionRuns = [];
     window.extensionRequests = 0;
@@ -57,6 +61,9 @@ test.beforeEach(async ({ page }) => {
       }
     };
   });
+});
+test.afterEach(({ page }) => {
+  expect(runtimeErrors.get(page)).toEqual([]);
 });
 const count = (page: Page) => page.evaluate(() => window.extensionRuns.length);
 async function completed(

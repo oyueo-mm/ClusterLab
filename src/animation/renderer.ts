@@ -360,7 +360,9 @@ export function draw(
   }
   if (to.analysis?.kind === "metric-pairwise" && options.nativeAxes) {
     const a = to.analysis,
-      [ax, ay] = options.nativeAxes;
+      [ax, ay] = options.nativeAxes.map((axis) =>
+        Math.max(0, Math.min(axis, a.dimensions - 1)),
+      );
     if (ax !== ay && a.dimensions > 1)
       centers.forEach((center, h) => {
         const metric = a.metrics[h];

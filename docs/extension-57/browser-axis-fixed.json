@@ -1,0 +1,238 @@
+{
+  "scope": "axis-fixed",
+  "baseURL": "http://127.0.0.1:4476/ClusterLab/",
+  "stats": {
+    "startTime": "2026-11-03T05:19:16.492Z",
+    "duration": 73573.44,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6262,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3096,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5376,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3301,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6097,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2720,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5536,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2593,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6185,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3101,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5981,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3836,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6410,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2682,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5791,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2428,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

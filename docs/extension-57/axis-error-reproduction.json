@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "1eee4a18dfd307aa6c5a6d314819c75354520260",
+  "scope": "Before fix: stronger pageerror assertion catches ND axes3/4 to 2D Undo ellipse renderer error; no expected failures skipped",
+  "stats": {
+    "startTime": "2026-11-03T05:17:51.021Z",
+    "duration": 10284.731,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "failures": [
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "project": "chromium",
+      "errors": [
+        "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Cannot read properties of undefined (reading '1')\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  64 | });\n  65 | test.afterEach(({ page }) => {\n> 66 |   expect(runtimeErrors.get(page)).toEqual([]);\n     |                                   ^\n  67 | });\n  68 | const count = (page: Page) => page.evaluate(() => window.extensionRuns.length);\n  69 | async function completed(\n    at C:\\Users\\hihi9\\Desktop\\Projects\\ClusterLab\\tests\\fuzzy-constraints-extension.spec.ts:66:35"
+      ]
+    }
+  ]
+}
