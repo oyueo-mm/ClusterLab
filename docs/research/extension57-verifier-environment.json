@@ -1,0 +1,26 @@
+{
+  "scope": "Installed verification tools only, not product dependencies or redistributed binaries; fixture license strings summarize primary licenses; installed distribution notices remain separate",
+  "python": "3.12.10",
+  "packages": [
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "primaryLicense": "BSD-3-Clause",
+      "installedLicenseExpression": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "bundledLicenseNotices": true,
+      "metadataSHA256": "e2b909d6a37d76c2bc130f528d7fed0c517322bce16dc7846b6a6df30e200403",
+      "evidence": "numpy-2.5.4.dist-info/METADATA and LICENSE.txt"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1",
+      "primaryLicense": "BSD-3-Clause",
+      "installedLicenseExpression": null,
+      "bundledLicenseNotices": true,
+      "metadataSHA256": "c8313d18ca0168ff291fe0a3b50532f3a18b14547695e9aa7ca1c1ce6eca92dc",
+      "evidence": "scipy-1.18.1.dist-info/METADATA and LICENSE.txt"
+    }
+  ],
+  "RExecuted": false,
+  "authorWekaUTExecuted": false
+}

@@ -1,0 +1,107 @@
+{
+  "scope": "Supplemental standalone readiness diagnostics, separate from canonical regression results; original UI-ready assertion5000ms unchanged",
+  "initialFailures": [
+    {
+      "attempt": 1,
+      "stage": "initial UI ready",
+      "timeoutMs": 5000,
+      "algorithm": "not logged",
+      "outcome": "failed"
+    },
+    {
+      "attempt": 2,
+      "stage": "initial UI ready",
+      "timeoutMs": 5000,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "width": 390,
+      "outcome": "failed",
+      "alerts": [],
+      "traceResponsesAtGate": 0,
+      "explanation": "whole-source computation pending, events0",
+      "traceArrivedBySubsequentScreenshot": true
+    }
+  ],
+  "firstObservedWorkerResponses": [
+    {
+      "width": 1440,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "workerElapsedMs": 26.200000047683716,
+      "workerWallMs": 4808.099999904633,
+      "timings": [
+        {
+          "algorithm": "Fuzzy Possibilistic C-Means",
+          "phase": "validated",
+          "wallMs": 1249.5
+        },
+        {
+          "algorithm": "Fuzzy Possibilistic C-Means",
+          "phase": "computing",
+          "wallMs": 4785.699999928474
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "algorithm": "MPCKMeans",
+      "workerElapsedMs": 22,
+      "workerWallMs": 2657.7999999523163,
+      "timings": [
+        {
+          "algorithm": "MPCKMeans",
+          "phase": "validated",
+          "wallMs": 1.2000000476837158
+        },
+        {
+          "algorithm": "MPCKMeans",
+          "phase": "computing",
+          "wallMs": 2639.2000000476837
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "workerElapsedMs": 17.200000047683716,
+      "workerWallMs": 5150.899999976158,
+      "timings": [
+        {
+          "algorithm": "Fuzzy Possibilistic C-Means",
+          "phase": "validated",
+          "wallMs": 1692.5
+        },
+        {
+          "algorithm": "Fuzzy Possibilistic C-Means",
+          "phase": "computing",
+          "wallMs": 5132.800000071526
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "algorithm": "MPCKMeans",
+      "workerElapsedMs": 16.700000047683716,
+      "workerWallMs": 4819.199999928474,
+      "timings": [
+        {
+          "algorithm": "MPCKMeans",
+          "phase": "validated",
+          "wallMs": 758.5999999046326
+        },
+        {
+          "algorithm": "MPCKMeans",
+          "phase": "computing",
+          "wallMs": 4804.799999952316
+        }
+      ]
+    }
+  ],
+  "interpretation": "Observed validated-to-computing preparation dominates engine elapsed; includes dynamic engine module loading and delivery/scheduling, not pure clustering time. No Worker algorithm error observed. Not a sub5s cold-start guarantee.",
+  "functionalVerification": {
+    "actualWorkerResponseDeadlineMs": 30000,
+    "uiEnabledAssertionAfterResponseMs": 5000,
+    "arithmeticInputCountAndRewindAssertions": "unchanged",
+    "cases": 16,
+    "versionedCommand": "node scripts/verify-extension-recommendations.mjs public docs/extension-57 'Fuzzy Possibilistic C-Means,MPCKMeans' --observe-worker-startup"
+  },
+  "regressionTimeoutsChanged": false
+}

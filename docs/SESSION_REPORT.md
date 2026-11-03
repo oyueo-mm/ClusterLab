@@ -1,3 +1,17 @@
+## 2차 확장 — FPCM·MPCKMeans 공개 배포·최종 검증 완료
+
+제품 main `0c3b2cbb2ca41d957c66ac4de8c14659df3a22c2`의 [Actions/Pages](https://github.com/oyueo-mm/ClusterLab/actions/runs/41583432258) validate·deploy가 성공했다. **57엔진·228추천·75미구현·엄격 원문 완전 인증0**이다. FPCM1997 U행/T열 정규화·원본 ND, MPCKMeans2004 multiple diagonal·정확 전체 최대쌍·거리−logdet·ML/CL 비용을 실제 Trace/분석·각4추천·가이드/실제비교·독립 NumPy/SciPy로 연결했다. FPCM9d09be1 완료 후 MPCK8086104를 순차 구현했다.
+
+로컬/CI 모두 타입·ESLint·빌드·Vitest741/741·50파일·전체Chromium/mobile138통과/14기존생략/0실패·재시도다. 공개27통과/1기존중복생략+57실제도감2/2, 신규8추천×2화면16회·6폭/리사이즈14회·실제UI100/1000행4실측·번들해시 일치를 확인했다. 기존55 math·220추천660생성·32프리셋·홈과119후보 번호/이름/순서를 보존했다. 다른 sequential 작업트리c4d6a7d도 그대로다.
+
+[최종2차보고](ALGORITHM_EXPANSION_2_REPORT.md), [배포명세](extension-57/release.json), [CI](extension-57/ci-summary.json), [공개기능](extension-57/browser-public.json), [독립검산·정책](research/MPCKMEANS.md)을 따른다. 원문1997 전체/R/저자WekaUT실행·실물휴대전화/장시간GPU peak는 미검증이며 원문 완전 인증과 구분한다. 후속75후보는 별도 범위다. 아래는 과거 체크포인트다.
+
+## 2차 확장 — 57엔진 로컬 전체 회귀 완료, 배포·공개 검증 다음
+
+FPCM1997 안정9d09be1 → MPCKMeans2004 대각 metric 안정8086104 순서로 구현했다. **57엔진·228추천·75미구현·엄격 인증0**이다. 전체 TypeScript/ESLint/빌드·Vitest741/741·50파일(동일 단언·maxWorkers2), Chromium/mobile **138통과·14기존조건부생략·0실패/재시도**를 확인했다. 생략14개는55엔진 공개 기준과 동일하다. 57개 실제 Worker 도감/57개 수학가이드·홈·기존편집/복원·신규실험/실제비교/되감기·모바일을 포함한다. 기존55 math·32프리셋·220추천660생성·67소스 및119후보 번호/이름/순서를 보존했고 후보22/25만 갱신했다.
+
+[2차 전체보고](ALGORITHM_EXPANSION_2_REPORT.md), [로컬 전체 브라우저](extension-57/browser-local.json), [검사 결과](extension-57/local-checks.json), [FPCM](research/FPCM.md), [MPCKMeans](research/MPCKMEANS.md), `docs/extension-57/`의 독립검산/실측 근거를 따른다. 두 신규4추천·실제 Trace/분석/가이드·Worker100/1000/10만취소·UI100/1000재생 약60FPS를 확인했다. 아직 공개는55개이며, 수정main0c3b2cb의 새Actions41583432258이 실행 중이다. 이전41581911253 validate/deploy는 취소됐다. 축 복원 오류를 재현하고 브라우저 오류 단언을 강화한 수정본 전체를 다시 통과했다. 다음은 새Actions/Pages 성공→공개57개·신규실험/비교·8추천/반응형·번들해시 확인이다. 다른 sequential 작업 트리는c4d6a7d 그대로다. 아래는 과거 기록이다.
+
 ## 2차 확장 — 표시 축 복원 오류 수정, 강화한 전체 회귀 재실행
 
 최초 로컬138통과/14기존생략 이후 추가 코드 검토에서 MPCK의 ND 축3/4 선택→2D 데이터Undo 때 타원이 이전 축을 참조하는 오류를 발견했다. 기존 시나리오에 pageerror 무발생 단언을 추가하자 실제 Cannot read properties of undefined 오류1개가 재현됐다. 원본 점/중심과 같은 범위로 타원 축을 clamp하고 같은 축이면2D단면을 그리지 않도록 수정했다. 계산 엔진은 그대로다. [재현1실패](extension-57/axis-error-reproduction.json), [수정후 실제 fuzzy16/16·모든브라우저오류0](extension-57/browser-axis-fixed.json).

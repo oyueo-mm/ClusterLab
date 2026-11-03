@@ -1,16 +1,18 @@
-/* global process,window,document,innerWidth,console */
+/* global process,window,document,innerWidth,console,performance */
 import { chromium, expect } from "@playwright/test";
 import { mkdir, writeFile } from "node:fs/promises";
 const base =
     process.env.CLUSTERLAB_BASE_URL || "http://127.0.0.1:4476/ClusterLab/",
   scope = process.argv[2] || "local",
   output = process.argv[3] || "docs/extension-55",
+  observeStartup = process.argv[5] === "--observe-worker-startup",
   algorithms = process.argv[4]?.split(",") || [
     "PCKMeans",
     "Possibilistic C-Means",
   ],
   browser = await chromium.launch(),
-  records = [];
+  records = [],
+  startupRecords = [];
 for (const width of [1440, 390])
   for (const algorithm of algorithms) {
     const context = await browser.newContext({
@@ -19,15 +21,25 @@ for (const width of [1440, 390])
       page = await context.newPage();
     await page.addInitScript(() => {
       window.extensionRecommendationRuns = [];
+      window.initialWorkerTimings = [];
+      window.initialWorkerErrors = [];
       const NativeWorker = window.Worker;
       window.Worker = class extends NativeWorker {
         postMessage(message, ...args) {
           this.request = message;
+          this.started = performance.now();
           return super.postMessage(message, ...args);
         }
         constructor(url, o) {
           super(url, o);
           this.addEventListener("message", (e) => {
+            if (e.data.progress)
+              window.initialWorkerTimings.push({
+                algorithm: this.request.algorithm,
+                phase: e.data.progress.phase,
+                wallMs: performance.now() - this.started,
+              });
+            if (e.data.error) window.initialWorkerErrors.push(e.data.error);
             if (e.data.trace) {
               const trace = e.data.trace,
                 last = trace.snapshots.at(-1),
@@ -48,6 +60,8 @@ for (const width of [1440, 390])
                 uRowSums: analysis.uRowSums,
                 tColumnSums: analysis.tColumnSums,
                 metrics: analysis.metrics,
+                workerElapsedMs: trace.elapsed,
+                workerWallMs: performance.now() - this.started,
               });
             }
           });
@@ -56,6 +70,33 @@ for (const width of [1440, 390])
     });
     await page.goto(`${base}#/lab/${encodeURIComponent(algorithm)}`);
     const lab = page.locator(".structured-page");
+    if (observeStartup) {
+      // Optional cold-start observation, not a sub-5s startup claim. Preserve the
+      // existing 5s UI assertion below; first await the original Worker response
+      // using the same 30s bound as the independent Worker measurement tool.
+      await page.waitForFunction(
+        () =>
+          window.extensionRecommendationRuns.length > 0 ||
+          window.initialWorkerErrors.length > 0,
+        undefined,
+        { timeout: 30000 },
+      );
+      const startup = await page.evaluate(() => ({
+        timings: window.initialWorkerTimings,
+        errors: window.initialWorkerErrors,
+        worker: window.extensionRecommendationRuns[0],
+      }));
+      if (startup.errors.length) throw Error(JSON.stringify(startup.errors));
+      const diagnostic = {
+        width,
+        algorithm,
+        workerElapsedMs: startup.worker.workerElapsedMs,
+        workerWallMs: startup.worker.workerWallMs,
+        timings: startup.timings,
+      };
+      startupRecords.push(diagnostic);
+      console.log(JSON.stringify({ startup: diagnostic }));
+    }
     await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
     for (let variant = 0; variant < 4; variant++) {
       const toggle = lab
@@ -164,7 +205,22 @@ await browser.close();
 await mkdir(output, { recursive: true });
 await writeFile(
   `${output}/${scope}-recommendation-browser.json`,
-  JSON.stringify({ base, records }, null, 2),
+  JSON.stringify(
+    {
+      base,
+      records,
+      ...(observeStartup
+        ? {
+            startupRecords,
+            standaloneUiReadyAssertionMs: 5000,
+            precondition:
+              "actual original Worker response, bounded30s; not a sub5s cold-start claim; regression timeouts unchanged",
+          }
+        : {}),
+    },
+    null,
+    2,
+  ),
 );
 console.log(
   `${records.length} recommended dataset computations and rewinds passed`,

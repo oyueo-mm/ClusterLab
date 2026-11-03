@@ -1,0 +1,260 @@
+{
+  "base": "https://oyueo-mm.github.io/ClusterLab/",
+  "scope": "public",
+  "records": [
+    {
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "width": 1920,
+      "height": 900,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1856,
+        "height": 735.421875
+      },
+      "playback": {
+        "x": 148,
+        "y": 795.859375,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "width": 1440,
+      "height": 900,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1376,
+        "height": 735.421875
+      },
+      "playback": {
+        "x": 148,
+        "y": 795.859375,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "width": 1024,
+      "height": 900,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 960,
+        "height": 735.421875
+      },
+      "playback": {
+        "x": 148,
+        "y": 795.859375,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "width": 768,
+      "height": 900,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 768,
+        "height": 731.859375
+      },
+      "playback": {
+        "x": 69,
+        "y": 787.859375,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "width": 390,
+      "height": 900,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 695.71875
+      },
+      "playback": {
+        "x": 69,
+        "y": 751.71875,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "width": 320,
+      "height": 900,
+      "canvas": {
+        "x": 0,
+        "y": 75.421875,
+        "width": 320,
+        "height": 628.296875
+      },
+      "playback": {
+        "x": 69,
+        "y": 711.71875,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "resizedSixWidthsWithoutNewComputation": true,
+      "workerRequestsBefore": 1,
+      "workerRequestsAfter": 1,
+      "position": "22"
+    },
+    {
+      "algorithm": "MPCKMeans",
+      "width": 1920,
+      "height": 900,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1856,
+        "height": 735.421875
+      },
+      "playback": {
+        "x": 148,
+        "y": 795.859375,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "MPCKMeans",
+      "width": 1440,
+      "height": 900,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 1376,
+        "height": 735.421875
+      },
+      "playback": {
+        "x": 148,
+        "y": 795.859375,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "MPCKMeans",
+      "width": 1024,
+      "height": 900,
+      "canvas": {
+        "x": 64,
+        "y": 50.4375,
+        "width": 960,
+        "height": 735.421875
+      },
+      "playback": {
+        "x": 148,
+        "y": 795.859375,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "MPCKMeans",
+      "width": 768,
+      "height": 900,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 768,
+        "height": 731.859375
+      },
+      "playback": {
+        "x": 69,
+        "y": 787.859375,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "MPCKMeans",
+      "width": 390,
+      "height": 900,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 390,
+        "height": 695.71875
+      },
+      "playback": {
+        "x": 69,
+        "y": 751.71875,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "MPCKMeans",
+      "width": 320,
+      "height": 900,
+      "canvas": {
+        "x": 0,
+        "y": 48,
+        "width": 320,
+        "height": 637.71875
+      },
+      "playback": {
+        "x": 69,
+        "y": 693.71875,
+        "width": 40,
+        "height": 40
+      },
+      "settingsDefaultClosed": true,
+      "noHorizontalOverflow": true,
+      "positionPreserved": true
+    },
+    {
+      "algorithm": "MPCKMeans",
+      "resizedSixWidthsWithoutNewComputation": true,
+      "workerRequestsBefore": 1,
+      "workerRequestsAfter": 1,
+      "position": "21"
+    }
+  ]
+}

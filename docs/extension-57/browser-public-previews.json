@@ -1,0 +1,42 @@
+{
+  "scope": "public-previews",
+  "baseURL": "https://oyueo-mm.github.io/ClusterLab/",
+  "stats": {
+    "startTime": "2026-11-03T05:53:54.236Z",
+    "duration": 79255.207,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "all 57 real Worker clips survive catalog scrolling and filters, with bounded Workers",
+      "file": "preview-scale.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 35418,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all 57 real Worker clips survive catalog scrolling and filters, with bounded Workers",
+      "file": "preview-scale.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 41643,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

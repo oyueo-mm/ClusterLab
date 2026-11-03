@@ -1,0 +1,406 @@
+{
+  "scope": "public",
+  "baseURL": "https://oyueo-mm.github.io/ClusterLab/",
+  "stats": {
+    "startTime": "2026-11-03T05:45:55.206Z",
+    "duration": 385088.175,
+    "expected": 27,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "home, category sidebar and shareable independent catalog filters",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11960,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "each engine opens by ID and runs its actual recommended original data",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 83663,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "sidebar state, viewport layouts and screenshots",
+      "file": "encyclopedia.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7276,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home, category sidebar and shareable independent catalog filters",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1537,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "each engine opens by ID and runs its actual recommended original data",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 87985,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "sidebar state, viewport layouts and screenshots",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 20480,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10999,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8389,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 11511,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7056,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 10430,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4545,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9476,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3652,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9431,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4012,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9280,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6907,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 9374,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4230,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8981,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4057,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "four real home Workers share exactly the same source data and stop when not visible",
+      "file": "v02.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3470,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+      "file": "v02.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2681,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "four real home Workers share exactly the same source data and stop when not visible",
+      "file": "v02.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1981,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "simplified chrome, white surfaces, mobile menu and dynamic parameters",
+      "file": "v02.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3033,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home introduction centers beside the demos and stays compact when stacked",
+      "file": "v05.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 27363,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "home introduction centers beside the demos and stays compact when stacked",
+      "file": "v05.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 179,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

@@ -54,6 +54,10 @@ for (const algorithm of process.argv[3]
   });
   await page.goto(`${base}#/lab/${encodeURIComponent(algorithm)}`);
   const lab = page.locator(".structured-page");
+  if (process.argv[5] === "--observe-worker-startup")
+    await page.waitForFunction(() => window.renderRuns.length > 0, undefined, {
+      timeout: 30000,
+    });
   await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
   for (const n of [100, 1000]) {
     const values = Array.from({ length: n }, (_, i) =>
@@ -62,18 +66,17 @@ for (const algorithm of process.argv[3]
           (_, j) => (i < n / 2 ? 0 : 4) + 0.1 * Math.sin(i * 42 + j) + j * 0.01,
         ),
       ),
-      dataset =
-        ["PCKMeans", "MPCKMeans"].includes(algorithm)
-          ? {
-              kind: "constrained",
-              data: { kind: "numeric", values },
-              mustLink: [
-                [0, 1],
-                [Math.floor(n / 2), Math.floor(n / 2) + 1],
-              ],
-              cannotLink: [[0, n - 1]],
-            }
-          : { kind: "numeric", values };
+      dataset = ["PCKMeans", "MPCKMeans"].includes(algorithm)
+        ? {
+            kind: "constrained",
+            data: { kind: "numeric", values },
+            mustLink: [
+              [0, 1],
+              [Math.floor(n / 2), Math.floor(n / 2) + 1],
+            ],
+            cannotLink: [[0, n - 1]],
+          }
+        : { kind: "numeric", values };
     const dataButton = lab
       .locator(".workspace-toolbar")
       .getByLabel("데이터셋 편집", { exact: true });
@@ -144,6 +147,10 @@ const output = {
   browser: await browser.version(),
   scopeNote:
     "Actual UI source/Worker/Canvas rendering at 100 and 1000 rows; side panels closed, 2.2s looping real Trace. RAF cadence is not GPU timing or long-run performance. Worker wall excludes the UI debounce and input editing.",
+  startupObservation:
+    process.argv[5] === "--observe-worker-startup"
+      ? "Original Worker response observed within30s before unchanged5s UI-ready assertion; not a sub5s cold-start claim"
+      : undefined,
   generator:
     "x[i,j]=(i<n/2?0:4)+0.1*sin(i*42+j)+j*0.01; d4; PCK ML(0,1),(floor(n/2),floor(n/2)+1), CL(0,n-1)",
   records,

@@ -2,20 +2,22 @@
   "typecheck": "passed",
   "eslint": "passed",
   "productionBuild": "passed",
+  "sourceCommit": "0c3b2cbb2ca41d957c66ac4de8c14659df3a22c2",
   "vitest": {
     "passed": 741,
     "files": 50,
     "maxWorkers": 2
   },
   "browser": {
-    "startTime": "2026-11-03T04:46:36.713Z",
-    "duration": 1081232.7589999998,
+    "startTime": "2026-11-03T05:21:47.795Z",
+    "duration": 1358490.7750000001,
     "expected": 138,
     "skipped": 14,
     "unexpected": 0,
     "flaky": 0
   },
   "sameFourteenExistingConditionalSkips": true,
+  "axisRestorationCorrection": "Initial138 lacked pageerror assertions; stronger assertion reproduced1 real ellipse axes error; clamp fix passed16 and reran all741 and full138/14",
   "initialIntegrationFailure": "740 passed/1 new catalog summary versus lesson purpose mismatch; corrected product strings, unchanged assertions, reran all741",
   "earlierFpcmCheckpointFailure": "714 passed/1 existing graph-followup performance timeout with default parallel workers; no timeout/assertion changed; all715 passed at maxWorkers2",
   "additionalRecommendationUI": 16,

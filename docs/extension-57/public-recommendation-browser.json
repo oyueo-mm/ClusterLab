@@ -1,0 +1,361 @@
+{
+  "base": "https://oyueo-mm.github.io/ClusterLab/",
+  "records": [
+    {
+      "width": 1440,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "variant": 0,
+      "rows": 120,
+      "dimensions": 4,
+      "events": 22,
+      "traceEstimatedBytes": 294258,
+      "sourceKind": "numeric",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "fuzzy-possibilistic",
+      "tColumnSums": [
+        0.9999999999999997,
+        0.9999999999999994
+      ],
+      "rewind": true
+    },
+    {
+      "width": 1440,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "variant": 1,
+      "rows": 120,
+      "dimensions": 4,
+      "events": 48,
+      "traceEstimatedBytes": 704460,
+      "sourceKind": "numeric",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "fuzzy-possibilistic",
+      "tColumnSums": [
+        1.0000000000000007,
+        0.9999999999999994
+      ],
+      "rewind": true
+    },
+    {
+      "width": 1440,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "variant": 2,
+      "rows": 120,
+      "dimensions": 4,
+      "events": 30,
+      "traceEstimatedBytes": 406986,
+      "sourceKind": "numeric",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "fuzzy-possibilistic",
+      "tColumnSums": [
+        0.9999999999999999,
+        1.0000000000000004
+      ],
+      "rewind": true
+    },
+    {
+      "width": 1440,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "variant": 3,
+      "rows": 24,
+      "dimensions": 4,
+      "events": 36,
+      "traceEstimatedBytes": 147520,
+      "sourceKind": "numeric",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 24,
+      "analysisKind": "fuzzy-possibilistic",
+      "tColumnSums": [
+        0.9999999999999996,
+        1
+      ],
+      "rewind": true
+    },
+    {
+      "width": 1440,
+      "algorithm": "MPCKMeans",
+      "variant": 0,
+      "rows": 120,
+      "dimensions": 2,
+      "events": 21,
+      "traceEstimatedBytes": 66694,
+      "sourceKind": "constrained",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "metric-pairwise",
+      "metricConditioning": 0,
+      "rewind": true
+    },
+    {
+      "width": 1440,
+      "algorithm": "MPCKMeans",
+      "variant": 1,
+      "rows": 120,
+      "dimensions": 4,
+      "events": 21,
+      "traceEstimatedBytes": 68870,
+      "sourceKind": "constrained",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "metric-pairwise",
+      "metricConditioning": 0,
+      "rewind": true
+    },
+    {
+      "width": 1440,
+      "algorithm": "MPCKMeans",
+      "variant": 2,
+      "rows": 120,
+      "dimensions": 2,
+      "events": 28,
+      "traceEstimatedBytes": 86780,
+      "sourceKind": "constrained",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "metric-pairwise",
+      "metricConditioning": 0,
+      "rewind": true
+    },
+    {
+      "width": 1440,
+      "algorithm": "MPCKMeans",
+      "variant": 3,
+      "rows": 24,
+      "dimensions": 2,
+      "events": 108,
+      "traceEstimatedBytes": 359170,
+      "sourceKind": "constrained",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 24,
+      "analysisKind": "metric-pairwise",
+      "metricConditioning": 0.000001,
+      "rewind": true
+    },
+    {
+      "width": 390,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "variant": 0,
+      "rows": 120,
+      "dimensions": 4,
+      "events": 22,
+      "traceEstimatedBytes": 294258,
+      "sourceKind": "numeric",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "fuzzy-possibilistic",
+      "tColumnSums": [
+        0.9999999999999997,
+        0.9999999999999994
+      ],
+      "rewind": true
+    },
+    {
+      "width": 390,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "variant": 1,
+      "rows": 120,
+      "dimensions": 4,
+      "events": 48,
+      "traceEstimatedBytes": 704460,
+      "sourceKind": "numeric",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "fuzzy-possibilistic",
+      "tColumnSums": [
+        1.0000000000000007,
+        0.9999999999999994
+      ],
+      "rewind": true
+    },
+    {
+      "width": 390,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "variant": 2,
+      "rows": 120,
+      "dimensions": 4,
+      "events": 30,
+      "traceEstimatedBytes": 406986,
+      "sourceKind": "numeric",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "fuzzy-possibilistic",
+      "tColumnSums": [
+        0.9999999999999999,
+        1.0000000000000004
+      ],
+      "rewind": true
+    },
+    {
+      "width": 390,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "variant": 3,
+      "rows": 24,
+      "dimensions": 4,
+      "events": 36,
+      "traceEstimatedBytes": 147520,
+      "sourceKind": "numeric",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 24,
+      "analysisKind": "fuzzy-possibilistic",
+      "tColumnSums": [
+        0.9999999999999996,
+        1
+      ],
+      "rewind": true
+    },
+    {
+      "width": 390,
+      "algorithm": "MPCKMeans",
+      "variant": 0,
+      "rows": 120,
+      "dimensions": 2,
+      "events": 21,
+      "traceEstimatedBytes": 66694,
+      "sourceKind": "constrained",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "metric-pairwise",
+      "metricConditioning": 0,
+      "rewind": true
+    },
+    {
+      "width": 390,
+      "algorithm": "MPCKMeans",
+      "variant": 1,
+      "rows": 120,
+      "dimensions": 4,
+      "events": 21,
+      "traceEstimatedBytes": 68870,
+      "sourceKind": "constrained",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "metric-pairwise",
+      "metricConditioning": 0,
+      "rewind": true
+    },
+    {
+      "width": 390,
+      "algorithm": "MPCKMeans",
+      "variant": 2,
+      "rows": 120,
+      "dimensions": 2,
+      "events": 28,
+      "traceEstimatedBytes": 86780,
+      "sourceKind": "constrained",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 120,
+      "analysisKind": "metric-pairwise",
+      "metricConditioning": 0,
+      "rewind": true
+    },
+    {
+      "width": 390,
+      "algorithm": "MPCKMeans",
+      "variant": 3,
+      "rows": 24,
+      "dimensions": 2,
+      "events": 108,
+      "traceEstimatedBytes": 359170,
+      "sourceKind": "constrained",
+      "scaleMode": "fcm",
+      "fullActualWorker": true,
+      "outputRows": 24,
+      "analysisKind": "metric-pairwise",
+      "metricConditioning": 0.000001,
+      "rewind": true
+    }
+  ],
+  "startupRecords": [
+    {
+      "width": 1440,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "workerElapsedMs": 32.5,
+      "workerWallMs": 2345.100000023842,
+      "timings": [
+        {
+          "algorithm": "Fuzzy Possibilistic C-Means",
+          "phase": "validated",
+          "wallMs": 90.90000009536743
+        },
+        {
+          "algorithm": "Fuzzy Possibilistic C-Means",
+          "phase": "computing",
+          "wallMs": 2314
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "algorithm": "MPCKMeans",
+      "workerElapsedMs": 6,
+      "workerWallMs": 2047.3999999761581,
+      "timings": [
+        {
+          "algorithm": "MPCKMeans",
+          "phase": "validated",
+          "wallMs": 433.7999999523163
+        },
+        {
+          "algorithm": "MPCKMeans",
+          "phase": "computing",
+          "wallMs": 2043.1000000238419
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "algorithm": "Fuzzy Possibilistic C-Means",
+      "workerElapsedMs": 17,
+      "workerWallMs": 3352.1999999284744,
+      "timings": [
+        {
+          "algorithm": "Fuzzy Possibilistic C-Means",
+          "phase": "validated",
+          "wallMs": 807.3999999761581
+        },
+        {
+          "algorithm": "Fuzzy Possibilistic C-Means",
+          "phase": "computing",
+          "wallMs": 3332.2999999523163
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "algorithm": "MPCKMeans",
+      "workerElapsedMs": 7.599999904632568,
+      "workerWallMs": 2233.5999999046326,
+      "timings": [
+        {
+          "algorithm": "MPCKMeans",
+          "phase": "validated",
+          "wallMs": 413.59999990463257
+        },
+        {
+          "algorithm": "MPCKMeans",
+          "phase": "computing",
+          "wallMs": 2226.5999999046326
+        }
+      ]
+    }
+  ],
+  "standaloneUiReadyAssertionMs": 5000,
+  "precondition": "actual original Worker response, bounded30s; not a sub5s cold-start claim; regression timeouts unchanged"
+}

@@ -2,8 +2,8 @@
   "scope": "local",
   "baseURL": "http://127.0.0.1:4476/ClusterLab/",
   "stats": {
-    "startTime": "2026-11-03T04:46:36.713Z",
-    "duration": 1081232.7589999998,
+    "startTime": "2026-11-03T05:21:47.795Z",
+    "duration": 1358490.7750000001,
     "expected": 138,
     "skipped": 14,
     "unexpected": 0,
@@ -19,7 +19,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 8658,
+          "duration": 9019,
           "errors": []
         }
       ]
@@ -33,7 +33,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 9526,
+          "duration": 9075,
           "errors": []
         }
       ]
@@ -47,7 +47,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 3535,
+          "duration": 3181,
           "errors": []
         }
       ]
@@ -61,7 +61,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 4413,
+          "duration": 5147,
           "errors": []
         }
       ]
@@ -75,7 +75,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 8148,
+          "duration": 9315,
           "errors": []
         }
       ]
@@ -89,7 +89,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 10411,
+          "duration": 10596,
           "errors": []
         }
       ]
@@ -103,7 +103,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 3681,
+          "duration": 3833,
           "errors": []
         }
       ]
@@ -117,7 +117,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 9440,
+          "duration": 9953,
           "errors": []
         }
       ]
@@ -131,7 +131,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1549,
+          "duration": 1370,
           "errors": []
         }
       ]
@@ -145,7 +145,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 42706,
+          "duration": 39213,
           "errors": []
         }
       ]
@@ -154,356 +154,6 @@
       "title": "sidebar state, viewport layouts and screenshots",
       "file": "encyclopedia.spec.ts",
       "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 3627,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "home, category sidebar and shareable independent catalog filters",
-      "file": "encyclopedia.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 1240,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "each engine opens by ID and runs its actual recommended original data",
-      "file": "encyclopedia.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 47608,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "sidebar state, viewport layouts and screenshots",
-      "file": "encyclopedia.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 8529,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "catalog distinguishes all candidates from executable engines and filters without overflow",
-      "file": "expansion.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 2373,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "new algorithms compute actual events in production workers and reversible playback",
-      "file": "expansion.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 2370,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "100k import has no truncation and cancellation actually terminates its worker",
-      "file": "expansion.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 6379,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "catalog distinguishes all candidates from executable engines and filters without overflow",
-      "file": "expansion.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 1808,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "new algorithms compute actual events in production workers and reversible playback",
-      "file": "expansion.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 1800,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "100k import has no truncation and cancellation actually terminates its worker",
-      "file": "expansion.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 5219,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 6242,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 3440,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 5795,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 3543,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 6308,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 3112,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 5997,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 2424,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 5942,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 3123,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 5786,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 3404,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 6523,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 2786,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 5931,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
-      "file": "fuzzy-constraints-extension.spec.ts",
-      "project": "mobile",
       "status": "expected",
       "expected": "passed",
       "results": [
@@ -515,6 +165,356 @@
       ]
     },
     {
+      "title": "home, category sidebar and shareable independent catalog filters",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1877,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "each engine opens by ID and runs its actual recommended original data",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 93611,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "sidebar state, viewport layouts and screenshots",
+      "file": "encyclopedia.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 16356,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog distinguishes all candidates from executable engines and filters without overflow",
+      "file": "expansion.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1694,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "new algorithms compute actual events in production workers and reversible playback",
+      "file": "expansion.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1667,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "100k import has no truncation and cancellation actually terminates its worker",
+      "file": "expansion.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 4994,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalog distinguishes all candidates from executable engines and filters without overflow",
+      "file": "expansion.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2172,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "new algorithms compute actual events in production workers and reversible playback",
+      "file": "expansion.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2352,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "100k import has no truncation and cancellation actually terminates its worker",
+      "file": "expansion.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5672,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5636,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3025,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5426,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3186,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5909,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2636,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5392,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2425,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans real learned diagonal metrics, global maximum pairs, ND data and stable workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 8225,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "MPCKMeans guide compares actual PCK and metric learning and transfers a metric event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3552,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6537,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3432,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7013,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCM guide mini compares real ND FCM U with unnormalized T and opens its actual typicality event",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3333,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans actual finite penalties, ND projection, editable relations, rewind and persistent canvas workspace",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 5918,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "PCKMeans guide mini computes both penalty regimes and opens the actual selected event with its source",
+      "file": "fuzzy-constraints-extension.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2848,
+          "errors": []
+        }
+      ]
+    },
+    {
       "title": "a fresh lab applies its tailored initial parameters and produces real deferred passes",
       "file": "lab-shell.spec.ts",
       "project": "chromium",
@@ -523,7 +523,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 580,
+          "duration": 565,
           "errors": []
         }
       ]
@@ -537,7 +537,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1431,
+          "duration": 1442,
           "errors": []
         }
       ]
@@ -551,7 +551,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 5348,
+          "duration": 5065,
           "errors": []
         }
       ]
@@ -565,7 +565,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 644,
+          "duration": 589,
           "errors": []
         }
       ]
@@ -579,7 +579,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 645,
+          "duration": 914,
           "errors": []
         }
       ]
@@ -593,7 +593,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1587,
+          "duration": 1738,
           "errors": []
         }
       ]
@@ -607,7 +607,7 @@
       "results": [
         {
           "status": "skipped",
-          "duration": 135,
+          "duration": 160,
           "errors": []
         }
       ]
@@ -621,7 +621,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 670,
+          "duration": 587,
           "errors": []
         }
       ]
@@ -635,7 +635,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 994,
+          "duration": 875,
           "errors": []
         }
       ]
@@ -649,7 +649,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1019,
+          "duration": 1023,
           "errors": []
         }
       ]
@@ -663,7 +663,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1448,
+          "duration": 1584,
           "errors": []
         }
       ]
@@ -677,7 +677,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 859,
+          "duration": 1042,
           "errors": []
         }
       ]
@@ -691,7 +691,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1810,
+          "duration": 1862,
           "errors": []
         }
       ]
@@ -705,7 +705,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1853,
+          "duration": 1647,
           "errors": []
         }
       ]
@@ -719,7 +719,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1096,
+          "duration": 1895,
           "errors": []
         }
       ]
@@ -733,7 +733,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 938,
+          "duration": 979,
           "errors": []
         }
       ]
@@ -747,7 +747,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1062,
+          "duration": 1200,
           "errors": []
         }
       ]
@@ -761,7 +761,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1330,
+          "duration": 1539,
           "errors": []
         }
       ]
@@ -775,7 +775,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1257,
+          "duration": 1404,
           "errors": []
         }
       ]
@@ -789,7 +789,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1882,
+          "duration": 2243,
           "errors": []
         }
       ]
@@ -803,7 +803,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1779,
+          "duration": 1912,
           "errors": []
         }
       ]
@@ -817,7 +817,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1040,
+          "duration": 3750,
           "errors": []
         }
       ]
@@ -831,7 +831,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 11385,
+          "duration": 11993,
           "errors": []
         }
       ]
@@ -845,7 +845,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 13108,
+          "duration": 12706,
           "errors": []
         }
       ]
@@ -859,7 +859,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 7412,
+          "duration": 6801,
           "errors": []
         }
       ]
@@ -873,7 +873,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 7997,
+          "duration": 8224,
           "errors": []
         }
       ]
@@ -887,7 +887,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 6321,
+          "duration": 5867,
           "errors": []
         }
       ]
@@ -901,7 +901,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2888,
+          "duration": 2778,
           "errors": []
         }
       ]
@@ -915,7 +915,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 3936,
+          "duration": 3913,
           "errors": []
         }
       ]
@@ -929,7 +929,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 3393,
+          "duration": 3549,
           "errors": []
         }
       ]
@@ -943,7 +943,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2564,
+          "duration": 2328,
           "errors": []
         }
       ]
@@ -957,7 +957,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 5591,
+          "duration": 5294,
           "errors": []
         }
       ]
@@ -971,7 +971,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2714,
+          "duration": 3428,
           "errors": []
         }
       ]
@@ -985,7 +985,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 7110,
+          "duration": 10905,
           "errors": []
         }
       ]
@@ -999,7 +999,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 9289,
+          "duration": 9914,
           "errors": []
         }
       ]
@@ -1013,7 +1013,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 7824,
+          "duration": 8905,
           "errors": []
         }
       ]
@@ -1027,7 +1027,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 3198,
+          "duration": 4920,
           "errors": []
         }
       ]
@@ -1041,7 +1041,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 4243,
+          "duration": 5200,
           "errors": []
         }
       ]
@@ -1055,7 +1055,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 3669,
+          "duration": 6437,
           "errors": []
         }
       ]
@@ -1069,7 +1069,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2504,
+          "duration": 2433,
           "errors": []
         }
       ]
@@ -1083,7 +1083,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 8138,
+          "duration": 9139,
           "errors": []
         }
       ]
@@ -1097,7 +1097,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2539,
+          "duration": 2494,
           "errors": []
         }
       ]
@@ -1111,7 +1111,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 9707,
+          "duration": 10982,
           "errors": []
         }
       ]
@@ -1125,7 +1125,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 3502,
+          "duration": 4737,
           "errors": []
         }
       ]
@@ -1139,7 +1139,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1098,
+          "duration": 1497,
           "errors": []
         }
       ]
@@ -1153,7 +1153,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 10218,
+          "duration": 14022,
           "errors": []
         }
       ]
@@ -1167,7 +1167,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 3723,
+          "duration": 5096,
           "errors": []
         }
       ]
@@ -1181,7 +1181,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 836,
+          "duration": 985,
           "errors": []
         }
       ]
@@ -1195,7 +1195,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 7034,
+          "duration": 16017,
           "errors": []
         }
       ]
@@ -1209,7 +1209,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 11291,
+          "duration": 14790,
           "errors": []
         }
       ]
@@ -1223,7 +1223,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1420,
+          "duration": 1741,
           "errors": []
         }
       ]
@@ -1237,7 +1237,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 10696,
+          "duration": 18476,
           "errors": []
         }
       ]
@@ -1251,7 +1251,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 11720,
+          "duration": 13584,
           "errors": []
         }
       ]
@@ -1265,7 +1265,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1624,
+          "duration": 1903,
           "errors": []
         }
       ]
@@ -1279,7 +1279,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 5774,
+          "duration": 6327,
           "errors": []
         }
       ]
@@ -1293,7 +1293,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1290,
+          "duration": 2214,
           "errors": []
         }
       ]
@@ -1307,7 +1307,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 6448,
+          "duration": 7836,
           "errors": []
         }
       ]
@@ -1321,7 +1321,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1500,
+          "duration": 2058,
           "errors": []
         }
       ]
@@ -1335,7 +1335,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 11399,
+          "duration": 26962,
           "errors": []
         }
       ]
@@ -1349,7 +1349,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 5283,
+          "duration": 12374,
           "errors": []
         }
       ]
@@ -1363,7 +1363,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 19956,
+          "duration": 31251,
           "errors": []
         }
       ]
@@ -1377,7 +1377,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 5655,
+          "duration": 8872,
           "errors": []
         }
       ]
@@ -1391,7 +1391,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2146,
+          "duration": 2918,
           "errors": []
         }
       ]
@@ -1405,7 +1405,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 15679,
+          "duration": 25806,
           "errors": []
         }
       ]
@@ -1419,7 +1419,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2755,
+          "duration": 3634,
           "errors": []
         }
       ]
@@ -1433,7 +1433,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2469,
+          "duration": 2597,
           "errors": []
         }
       ]
@@ -1447,7 +1447,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 17518,
+          "duration": 33009,
           "errors": []
         }
       ]
@@ -1461,7 +1461,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 5068,
+          "duration": 6112,
           "errors": []
         }
       ]
@@ -1475,7 +1475,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1180,
+          "duration": 2358,
           "errors": []
         }
       ]
@@ -1489,7 +1489,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1680,
+          "duration": 2598,
           "errors": []
         }
       ]
@@ -1503,7 +1503,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1381,
+          "duration": 2043,
           "errors": []
         }
       ]
@@ -1517,7 +1517,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2262,
+          "duration": 3126,
           "errors": []
         }
       ]
@@ -1531,7 +1531,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 759,
+          "duration": 1438,
           "errors": []
         }
       ]
@@ -1545,7 +1545,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 665,
+          "duration": 1166,
           "errors": []
         }
       ]
@@ -1559,7 +1559,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 143941,
+          "duration": 145739,
           "errors": []
         }
       ]
@@ -1573,7 +1573,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 81562,
+          "duration": 84483,
           "errors": []
         }
       ]
@@ -1587,7 +1587,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2004,
+          "duration": 3242,
           "errors": []
         }
       ]
@@ -1601,7 +1601,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 778,
+          "duration": 1386,
           "errors": []
         }
       ]
@@ -1615,7 +1615,7 @@
       "results": [
         {
           "status": "skipped",
-          "duration": 120,
+          "duration": 174,
           "errors": []
         }
       ]
@@ -1629,7 +1629,7 @@
       "results": [
         {
           "status": "skipped",
-          "duration": 121,
+          "duration": 293,
           "errors": []
         }
       ]
@@ -1643,7 +1643,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 922,
+          "duration": 1151,
           "errors": []
         }
       ]
@@ -1657,7 +1657,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 28122,
+          "duration": 48651,
           "errors": []
         }
       ]
@@ -1671,7 +1671,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 144787,
+          "duration": 149374,
           "errors": []
         }
       ]
@@ -1685,7 +1685,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1114,
+          "duration": 1777,
           "errors": []
         }
       ]
@@ -1699,7 +1699,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 31899,
+          "duration": 55661,
           "errors": []
         }
       ]
@@ -1713,7 +1713,7 @@
       "results": [
         {
           "status": "skipped",
-          "duration": 188,
+          "duration": 198,
           "errors": []
         }
       ]
@@ -1727,7 +1727,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 8893,
+          "duration": 14691,
           "errors": []
         }
       ]
@@ -1735,202 +1735,6 @@
     {
       "title": "home introduction centers beside the demos and stays compact when stacked",
       "file": "v05.spec.ts",
-      "project": "mobile",
-      "status": "skipped",
-      "expected": "skipped",
-      "results": [
-        {
-          "status": "skipped",
-          "duration": 140,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit",
-      "file": "v06.spec.ts",
-      "project": "chromium",
-      "status": "skipped",
-      "expected": "skipped",
-      "results": [
-        {
-          "status": "skipped",
-          "duration": 91,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "larger home typography and editor toolbar fit requested viewport widths",
-      "file": "v06.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 3706,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit",
-      "file": "v06.spec.ts",
-      "project": "mobile",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 1894,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "larger home typography and editor toolbar fit requested viewport widths",
-      "file": "v06.spec.ts",
-      "project": "mobile",
-      "status": "skipped",
-      "expected": "skipped",
-      "results": [
-        {
-          "status": "skipped",
-          "duration": 195,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
-      "file": "v06.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 4869,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
-      "file": "v06.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 6576,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
-      "file": "v06.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 3635,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "preset, regeneration options and CSV/JSON replacements restore matching metadata",
-      "file": "v06.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 3039,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
-      "file": "v06.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 1660,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once",
-      "file": "v06.spec.ts",
-      "project": "chromium",
-      "status": "expected",
-      "expected": "passed",
-      "results": [
-        {
-          "status": "passed",
-          "duration": 2051,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
-      "file": "v06.spec.ts",
-      "project": "mobile",
-      "status": "skipped",
-      "expected": "skipped",
-      "results": [
-        {
-          "status": "skipped",
-          "duration": 143,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
-      "file": "v06.spec.ts",
-      "project": "mobile",
-      "status": "skipped",
-      "expected": "skipped",
-      "results": [
-        {
-          "status": "skipped",
-          "duration": 163,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
-      "file": "v06.spec.ts",
-      "project": "mobile",
-      "status": "skipped",
-      "expected": "skipped",
-      "results": [
-        {
-          "status": "skipped",
-          "duration": 173,
-          "errors": []
-        }
-      ]
-    },
-    {
-      "title": "preset, regeneration options and CSV/JSON replacements restore matching metadata",
-      "file": "v06.spec.ts",
       "project": "mobile",
       "status": "skipped",
       "expected": "skipped",
@@ -1943,6 +1747,202 @@
       ]
     },
     {
+      "title": "native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 112,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "larger home typography and editor toolbar fit requested viewport widths",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6607,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "native touch add, cancelled drawing on second finger, pinch zoom and toolbar fit",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2862,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "larger home typography and editor toolbar fit requested viewport widths",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 214,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 6423,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 7357,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3880,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preset, regeneration options and CSV/JSON replacements restore matching metadata",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3437,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 2523,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "cancel, capture loss, button chords, resize and navigation discard previews; outside release commits once",
+      "file": "v06.spec.ts",
+      "project": "chromium",
+      "status": "expected",
+      "expected": "passed",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 3487,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "single add/move/delete, multi-delete and clear undo/redo exact records; no-op keeps redo",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 206,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "50 points from one stroke form one transaction; slow/fast density and no 600 cap",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 150,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "right drag pans every tool without edits/history and zoom/pan coordinates stay correct",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 144,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "preset, regeneration options and CSV/JSON replacements restore matching metadata",
+      "file": "v06.spec.ts",
+      "project": "mobile",
+      "status": "skipped",
+      "expected": "skipped",
+      "results": [
+        {
+          "status": "skipped",
+          "duration": 176,
+          "errors": []
+        }
+      ]
+    },
+    {
       "title": "shortcuts are page-scoped, skip editable controls and preserve native text undo",
       "file": "v06.spec.ts",
       "project": "mobile",
@@ -1951,7 +1951,7 @@
       "results": [
         {
           "status": "skipped",
-          "duration": 126,
+          "duration": 262,
           "errors": []
         }
       ]
@@ -1965,7 +1965,7 @@
       "results": [
         {
           "status": "skipped",
-          "duration": 139,
+          "duration": 1144,
           "errors": []
         }
       ]
@@ -1979,7 +1979,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1113,
+          "duration": 2041,
           "errors": []
         }
       ]
@@ -1993,7 +1993,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1126,
+          "duration": 1202,
           "errors": []
         }
       ]
@@ -2007,7 +2007,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 2074,
+          "duration": 2293,
           "errors": []
         }
       ]
@@ -2021,7 +2021,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 692,
+          "duration": 940,
           "errors": []
         }
       ]
@@ -2035,7 +2035,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 871,
+          "duration": 1092,
           "errors": []
         }
       ]
@@ -2049,7 +2049,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 662,
+          "duration": 827,
           "errors": []
         }
       ]
@@ -2063,7 +2063,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1104,
+          "duration": 1254,
           "errors": []
         }
       ]
@@ -2077,7 +2077,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1170,
+          "duration": 1132,
           "errors": []
         }
       ]
@@ -2091,7 +2091,7 @@
       "results": [
         {
           "status": "skipped",
-          "duration": 152,
+          "duration": 162,
           "errors": []
         }
       ]
@@ -2105,7 +2105,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 1012,
+          "duration": 956,
           "errors": []
         }
       ]
@@ -2119,7 +2119,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 955,
+          "duration": 1211,
           "errors": []
         }
       ]
@@ -2133,7 +2133,7 @@
       "results": [
         {
           "status": "passed",
-          "duration": 877,
+          "duration": 1161,
           "errors": []
         }
       ]

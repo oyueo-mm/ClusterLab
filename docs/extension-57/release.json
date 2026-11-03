@@ -1,0 +1,62 @@
+{
+  "commit": "0c3b2cbb2ca41d957c66ac4de8c14659df3a22c2",
+  "actions": "https://github.com/oyueo-mm/ClusterLab/actions/runs/41583432258",
+  "site": "https://oyueo-mm.github.io/ClusterLab/",
+  "verifiedAt": "2026-11-03T06:12:18.902Z",
+  "assets": [
+    {
+      "asset": "/ClusterLab/assets/index-CWfI-Oj-.js",
+      "status": 200,
+      "sha256": "2e871e4aba94fa821d963ea76f209cf625326e3277f3f559d18e551ab619b341",
+      "matchesLocalBuild": true
+    },
+    {
+      "asset": "/ClusterLab/assets/index-UNtOGhDw.css",
+      "status": 200,
+      "sha256": "0c77871c9076edab3704fb111144c1a95821270db1c39a5f13560552d2c79301",
+      "matchesLocalBuild": true
+    },
+    {
+      "asset": "/ClusterLab/assets/fpcm-Cx-rnEzz.js",
+      "status": 200,
+      "sha256": "9b382347d59fa14b2fc2cf59d2544f97aafc680e79d1452d325c692ad80ee2d5",
+      "matchesLocalBuild": true
+    },
+    {
+      "asset": "/ClusterLab/assets/fpcm-ehdhFmoc.js",
+      "status": 200,
+      "sha256": "ec0c90952183f4f4ed7b52dc45024622082a05728444e2155bf2e4291af31f74",
+      "matchesLocalBuild": true
+    },
+    {
+      "asset": "/ClusterLab/assets/GuidePage-DoF9e-CU.js",
+      "status": 200,
+      "sha256": "3735c198e8e5a9f9b54f717b6e815925eee0cdeef6d0f868153ab1376c607c24",
+      "matchesLocalBuild": true
+    },
+    {
+      "asset": "/ClusterLab/assets/mpckmeans-C_xhKtkM.js",
+      "status": 200,
+      "sha256": "893c1260dd0e08da9abd0b353b04e9681383d1471fa7a86651ebf30992621a1e",
+      "matchesLocalBuild": true
+    },
+    {
+      "asset": "/ClusterLab/assets/mpckmeans-D5NJIUDk.js",
+      "status": 200,
+      "sha256": "86aa83a51daa0e88bab365f68b9676303490335801c89051e9c91f3c80f62c48",
+      "matchesLocalBuild": true
+    },
+    {
+      "asset": "/ClusterLab/assets/StructuredLab-Bg4g47kc.js",
+      "status": 200,
+      "sha256": "37b217ac4d868b927f57fafacabc1720c8f34e8039c868288f6e486483688e3a",
+      "matchesLocalBuild": true
+    },
+    {
+      "asset": "/ClusterLab/assets/worker-HhEtCy7u.js",
+      "status": 200,
+      "sha256": "1c452ec76f71893e58e8d4a7da1726d127b59c1c1a27824096bd3b8b4b001d9f",
+      "matchesLocalBuild": true
+    }
+  ]
+}
