@@ -97,6 +97,13 @@
       "GMM"
     ]
   },
+  "Fuzzy Possibilistic C-Means": {
+    "summary": "원본 ND에서 퍼지 소속도 U의 행 합1과 전형성 T의 열 합1을 함께 만족시키는 FPCM1997입니다. PCM의 독립 전형성, PFCM2005와 구분합니다.",
+    "related": [
+      "Fuzzy C-Means",
+      "Possibilistic C-Means"
+    ]
+  },
   "Bisecting K-Means": {
     "summary": "큰 SSE를 갖는 잎을 반복 이분할하는 K-Means 변형입니다.",
     "related": [

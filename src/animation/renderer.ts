@@ -109,7 +109,7 @@ export function draw(
   }
   const nativeCenters = (state: State) =>
     (state.analysis?.kind === "pairwise" ||
-      state.analysis?.kind === "possibilistic") &&
+      state.analysis?.kind === "possibilistic" || state.analysis?.kind === "fuzzy-possibilistic") &&
     options.nativeAxes
       ? projectedCenters(
           state.analysis.centroids,

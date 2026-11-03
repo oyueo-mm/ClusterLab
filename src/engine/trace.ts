@@ -80,6 +80,7 @@ export class Recorder {
         "dimensionScores",
         "numericCenters",
         "centroids",
+        "memberships",
         "typicalities",
         "logTypicalities",
         "distancesSquared",

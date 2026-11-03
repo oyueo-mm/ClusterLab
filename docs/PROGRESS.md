@@ -1,3 +1,11 @@
+## 2차 확장 — FPCM 로컬 세로 단위 완료, MPCKMeans 다음
+
+기준 d2dbf12에서 FPCM1997을 실제 원본 ND·U행/T열 정규화·실제 중심·Trace/역진·전용U/T막대/행렬·4추천·가이드/실제 FCM·PCM 비교·독립 NumPy11AO/손계산/복제 검산으로 완성했다. 현재소스56엔진·224추천·76미구현·엄격 인증0, 공개는55개32dc4cf 그대로다. 전체715/715·49파일은 `npm test -- --maxWorkers=2`로 통과했다. 초기 기본 병렬에서는 기존 graph-followup 성능 관측1개가5초를 넘었으며 단언/시간 제한을 바꾸지 않았다. 타입·ESLint·빌드, 신규/기존 fuzzy 실험·미니12/12와 전체56교재/실제도감4/4가 통과했다.
+
+Node100/1000/10000·d/K변화, 실제Worker100/1000/10만행취소, UI100/1000행2.2초 반복재생 약60FPS를 측정했다. 기존220추천/660생성·67math/data/home소스는 d2dbf12와 동일하다. [2차 기록](ALGORITHM_EXPANSION_2_REPORT.md), [FPCM 계약](research/FPCM.md), `docs/extension-57/`의 실제 근거를 따른다. 원문 전체/R실행/실물휴대전화/최대GPU메모리는 미검증이다.
+
+이 안정 체크포인트 이후 MPCKMeans2004 대각 metric을 순차 개발한다. 먼저 원문 Eq4–8과 최대쌍·logdet·제약 계약을 확정하고 독립 NumPy/SciPy/유한차분을 작성한다. MPCK 제품/fixture는 아직 미작성이다. Full SPD/PFCM2005/Constrained Spectral/다른신규엔진/UI재설계/영어지원은 제외한다. 완료 후57엔진·228추천·75미구현·전체회귀·Actions/Pages/공개 검증까지 이어간다. 다른 `.local/sequential-worktree`/`feat/sequential-clustering`/c4d6a7d와 기존 서버를 보존했다. 이번 preview4476은 session75894다. 아래는 과거 체크포인트다.
+
 ## 2026-11-03 1차 확장 — 55개 엔진 공개 배포·최종 검증 완료
 
 제품 main `32dc4cfa634bc181f27f408ff49dc48d81d014a0`의 [Actions/Pages](https://github.com/oyueo-mm/ClusterLab/actions/runs/41513054284) validate·deploy가 성공했다. **55엔진·220추천·77미구현·엄격 원문 완전 인증0**이다. 로컬과 원격 모두 타입·ESLint·빌드·Vitest694/694·48파일, 전체 Chromium/mobile130통과/14기존조건부생략/0실패다. 공개 사이트19통과/1기존중복생략, 신규8추천×2화면16계산/되감기,6폭×2엔진·표본 클릭·리사이즈 무재계산15검사를 확인했다. 공개 HTML/JS/CSS 해시도 로컬 빌드와 동일하다.

@@ -10,6 +10,7 @@ import { Canvas } from "../Canvas";
 import { Playback } from "../Playback";
 import { Settings } from "../Settings";
 import { Analysis } from "../Analysis";
+import { FpcmComparison } from "./FpcmComparison";
 export function TraceLesson({
   algorithm,
   lesson,
@@ -78,6 +79,14 @@ export function TraceLesson({
             clock={lab.clock}
           />
           <Playback lab={lab} />
+          {algorithm === "Fuzzy Possibilistic C-Means" &&
+            lesson.experimentDataset?.kind === "numeric" && (
+              <FpcmComparison
+                data={lesson.experimentDataset}
+                params={params}
+                trace={lab.trace}
+              />
+            )}
           <p className="trace-description" aria-live="polite">
             {lab.busy
               ? "Worker 계산 중"

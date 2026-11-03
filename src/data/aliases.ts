@@ -1,5 +1,6 @@
 import type { Algorithm } from "../engine/types";
 export const algorithmAliases: Partial<Record<Algorithm, string>> = {
+  "Fuzzy Possibilistic C-Means": "FPCM 퍼지 가능성 혼합 씨 평균 mixed c means",
   "Possibilistic C-Means": "PCM 가능성 전형성 씨 평균 possibilistic c means",
   PCKMeans: "Pairwise Constrained K-Means 쌍별 제약 벌점 K 평균",
   "K-Means": "kmeans Lloyd k averages 케이 평균",

@@ -17,6 +17,7 @@ export const algorithms = [
   ...legacyAlgorithms,
   "Fuzzy C-Means",
   "Possibilistic C-Means",
+  "Fuzzy Possibilistic C-Means",
   "Bisecting K-Means",
   "Spectral Clustering",
   "Affinity Propagation",
@@ -123,6 +124,7 @@ export type AlgorithmAnalysis =
   | import("./constraintTypes").ConstraintAnalysis
   | import("./pairwiseTypes").PairwiseAnalysis
   | import("./possibilisticTypes").PossibilisticAnalysis
+  | import("./fpcmTypes").FpcmAnalysis
   | import("./mixtureTypes").DiscreteMixtureAnalysis
   | import("./sequentialTypes").SequentialAnalysis
   | {
@@ -412,7 +414,9 @@ export const defaults: Params = {
 export function algorithmDefaults(algorithm: Algorithm): Params {
   return {
     ...defaults,
-    ...(algorithm === "Possibilistic C-Means"
+    ...(["Possibilistic C-Means", "Fuzzy Possibilistic C-Means"].includes(
+      algorithm,
+    )
       ? { k: 2, iterations: 100, tolerance: 1e-6 }
       : {}),
     ...(algorithm === "Affinity Propagation" ? { iterations: 200 } : {}),
@@ -450,6 +454,7 @@ export const supportsEuclideanSilhouette = (algorithm: Algorithm) =>
     "LVQ",
     "PCKMeans",
     "Possibilistic C-Means",
+    "Fuzzy Possibilistic C-Means",
     "ROCK",
     "K-Modes",
     "K-Prototypes",
@@ -476,6 +481,8 @@ export const supportsEuclideanSilhouette = (algorithm: Algorithm) =>
     "Clique Percolation",
   ].includes(algorithm);
 export function clusterCount(state: State) {
+  if (state.analysis?.kind === "fuzzy-possibilistic")
+    return state.analysis.centroids.length;
   if (state.analysis?.kind === "possibilistic")
     return state.analysis.centroids.length;
   if (state.analysis?.kind === "community" && state.analysis.communities)

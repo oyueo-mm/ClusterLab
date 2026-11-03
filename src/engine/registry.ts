@@ -28,6 +28,7 @@ const koreanNames: Record<Algorithm, string> = {
   "Mean Shift": "평균 이동",
   "Fuzzy C-Means": "퍼지 C-평균",
   "Possibilistic C-Means": "가능성 C-평균 (PCM)",
+  "Fuzzy Possibilistic C-Means": "퍼지 가능성 C-평균 (FPCM)",
   "Bisecting K-Means": "이분할 K-평균",
   "Spectral Clustering": "스펙트럴 군집화",
   "Affinity Propagation": "친화도 전파",
@@ -85,6 +86,8 @@ export const loaders: Record<Algorithm, () => Promise<Engine>> = {
   "Mean Shift": () => import("./algorithms/meanshift").then((m) => m.meanshift),
   "Fuzzy C-Means": () => import("./algorithms/fuzzy").then((m) => m.fuzzy),
   "Possibilistic C-Means": () => import("./algorithms/pcm").then((m) => m.pcm),
+  "Fuzzy Possibilistic C-Means": () =>
+    import("./algorithms/fpcm").then((m) => m.fpcm),
   "Bisecting K-Means": () =>
     import("./algorithms/bisecting").then((m) => m.bisecting),
   "Spectral Clustering": () =>
@@ -176,6 +179,7 @@ export const structuredAlgorithms = [
   "MBSAS",
   "TTSAS",
   "Possibilistic C-Means",
+  "Fuzzy Possibilistic C-Means",
 ] as const;
 export const communityAlgorithms: readonly Algorithm[] = [
   "Louvain",
@@ -192,6 +196,7 @@ export const communityAlgorithms: readonly Algorithm[] = [
 export function supportsLegacyPoints(algorithm: Algorithm) {
   return ![
     "Possibilistic C-Means",
+    "Fuzzy Possibilistic C-Means",
     "Bimax",
     "Cheng–Church Biclustering",
     "K-Shape",
@@ -315,13 +320,15 @@ export const registry = Object.fromEntries(
                         ? "stream-summary"
                         : communityAlgorithms.includes(id)
                           ? "communities"
-                          : id === "Possibilistic C-Means"
-                            ? "typicalities-and-centers"
-                            : id === "Fuzzy C-Means"
-                              ? "memberships-and-partition"
-                              : id === "Bisecting K-Means"
-                                ? "partition-and-split-tree"
-                                : "algorithm-state",
+                          : id === "Fuzzy Possibilistic C-Means"
+                            ? "memberships-typicalities-centers"
+                            : id === "Possibilistic C-Means"
+                              ? "typicalities-and-centers"
+                              : id === "Fuzzy C-Means"
+                                ? "memberships-and-partition"
+                                : id === "Bisecting K-Means"
+                                  ? "partition-and-split-tree"
+                                  : "algorithm-state",
         capabilities: {
           autoK: [
             "DBSCAN",

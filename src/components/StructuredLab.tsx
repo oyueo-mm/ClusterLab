@@ -234,7 +234,9 @@ export default function StructuredLab({
     () =>
       algorithm === "PCKMeans" && data.kind === "constrained"
         ? { ...data, data: { ...data.data, display: undefined } }
-        : algorithm === "Possibilistic C-Means" && data.kind === "numeric"
+        : ["Possibilistic C-Means", "Fuzzy Possibilistic C-Means"].includes(
+              algorithm,
+            ) && data.kind === "numeric"
           ? { ...data, display: undefined }
           : data,
     [algorithm, data],
@@ -895,7 +897,10 @@ export default function StructuredLab({
               algorithm={algorithm}
               nativeAxes={
                 algorithm === "PCKMeans" ||
-                algorithm === "Possibilistic C-Means"
+                [
+                  "Possibilistic C-Means",
+                  "Fuzzy Possibilistic C-Means",
+                ].includes(algorithm)
                   ? axes
                   : undefined
               }

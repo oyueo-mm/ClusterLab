@@ -1,0 +1,13 @@
+{
+  "typecheck": "passed",
+  "eslint": "passed",
+  "build": "passed",
+  "vitest": {
+    "passed": 715,
+    "files": 49,
+    "maxWorkers": 2
+  },
+  "initialDefaultParallelResult": "714 passed, 1 existing graph-followup performance timeout at unchanged 5000ms; no assertion or timeout changed",
+  "browserNewAndExistingFuzzy": 12,
+  "browserAllGuidesAndPreviews": 4
+}

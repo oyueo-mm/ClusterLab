@@ -1,0 +1,38 @@
+export interface FpcmAnalysis {
+  kind: "fuzzy-possibilistic";
+  method: "FPCM1997";
+  phase: string;
+  dimensions: number;
+  dimensionBounds: [number, number][];
+  centroids: number[][];
+  initialization: number[];
+  memberships: number[][];
+  typicalities: number[][];
+  distancesSquared: number[][];
+  warmCenters: number[][];
+  warmMemberships: number[][];
+  warmObjective: number;
+  warmIteration: number;
+  warmConverged: boolean;
+  iteration: number;
+  fuzziness: number;
+  exponent: number;
+  matricesRecorded: boolean;
+  weightsReady: boolean;
+  uRowSums: number[];
+  tColumnSums: number[];
+  tRowSums: number[];
+  effectiveWeights: number[];
+  logEffectiveWeights: number[];
+  counts: number[];
+  fuzzyCost: number;
+  typicalityCost: number;
+  objective: number;
+  movement: number;
+  fixedPointResidual: number;
+  coincidentCenters: number;
+  distinctAtLeastK: boolean;
+  roundedWeights: number;
+  converged: boolean;
+  stopReason?: "center-tolerance" | "iteration-limit";
+}

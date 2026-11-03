@@ -19,6 +19,7 @@ import { cnm } from "./algorithms/cnm";
 import { fluid } from "./algorithms/fluid";
 import { copkmeans } from "./algorithms/copkmeans";
 import { pckmeans } from "./algorithms/pckmeans";
+import { fpcm } from "./algorithms/fpcm";
 import { pcm } from "./algorithms/pcm";
 import { bernoulli } from "./algorithms/bernoulli";
 import { poisson } from "./algorithms/poisson";
@@ -55,6 +56,7 @@ export const nextEngines = {
   "COP-KMeans": copkmeans,
   PCKMeans: pckmeans,
   "Possibilistic C-Means": pcm,
+  "Fuzzy Possibilistic C-Means": fpcm,
   "Bernoulli Mixture": bernoulli,
   "Poisson Mixture": poisson,
   "Multinomial Mixture": multinomial,

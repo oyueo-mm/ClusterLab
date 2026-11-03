@@ -16,6 +16,10 @@ import {
   makeExperimentPreset,
   type ExperimentPreset,
 } from "./structuredPresets";
+import {
+  registerFpcmDatasets,
+  fpcmRecommendations,
+} from "./fpcmRecommendations";
 import { random } from "../engine/math";
 import {
   registerPairwiseDatasets,
@@ -81,6 +85,7 @@ const structuredNames: Record<ExperimentPreset, [string, string]> = {
 };
 registerPairwiseDatasets(datasetRegistry);
 registerPossibilisticDatasets(datasetRegistry);
+registerFpcmDatasets(datasetRegistry);
 for (const [kind, [name, nameEn]] of Object.entries(structuredNames)) {
   for (const variant of ["base", "ambiguous", "boundary"] as const) {
     const id = `${kind}-${variant}`;
@@ -265,6 +270,14 @@ datasetRegistry.ordered = {
 // Every runnable engine must explicitly declare its learning goals and examples.
 type Spec = [string, string, string, string, string, Partial<Params>?];
 const specifications: Record<Algorithm, Spec> = {
+  "Fuzzy Possibilistic C-Means": [
+    "fpcm-separated",
+    "fpcm-overlap",
+    "fpcm-replicated",
+    "행 U·열 T",
+    "전체 원본 정규화와 표본 복제 영향",
+    { k: 2 },
+  ],
   "Possibilistic C-Means": [
     "pcm-separated",
     "pcm-outliers",
@@ -666,6 +679,8 @@ export function recommendationCount(
   role: Recommendation["role"],
 ): number {
   const meta = datasetRegistry[id];
+  if (algorithm === "Fuzzy Possibilistic C-Means")
+    return role === "limit" ? 24 : 120;
   if (algorithm === "Possibilistic C-Means") return role === "limit" ? 24 : 160;
   if (id.startsWith("ordered")) return 12;
   // Preserve small duplicate/zero/constraint counterexamples for hand inspection.
@@ -705,6 +720,8 @@ export function recommendationCount(
 export const recommendations = Object.fromEntries(
   Object.entries(specifications).map(
     ([algorithm, [primary, extra, limit, purpose, observe, params = {}]]) => {
+      if (algorithm === "Fuzzy Possibilistic C-Means")
+        return [algorithm, fpcmRecommendations];
       if (algorithm === "PCKMeans") return [algorithm, pairwiseRecommendations];
       if (algorithm === "Possibilistic C-Means")
         return [algorithm, possibilisticRecommendations];

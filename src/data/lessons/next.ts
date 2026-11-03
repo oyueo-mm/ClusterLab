@@ -14,10 +14,12 @@ import { cnm, fluid } from "./graphExtra";
 import { copkmeans } from "./constrained";
 import { pckmeans } from "./pairwise";
 import { pcm } from "./possibilistic";
+import { fpcm } from "./fpcm";
 import { bernoulli, poisson, multinomial } from "./discreteMixtures";
 import { walktrap, cliquepercolation } from "./graphFollowup";
 import { bsas, mbsas, ttsas } from "./sequential";
 export const nextLessons = {
+  "Fuzzy Possibilistic C-Means": fpcm,
   "Possibilistic C-Means": pcm,
   PCKMeans: pckmeans,
   BSAS: bsas,

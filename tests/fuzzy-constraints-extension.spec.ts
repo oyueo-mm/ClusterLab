@@ -104,6 +104,189 @@ const pairwise: Dataset = {
   cannotLink: [[0, 1]],
 };
 
+test("FPCM real ND row U and column T, reversible trace, editable data and stable canvas layout", async ({
+  page,
+}, info) => {
+  await page.goto("#/catalog?q=FPCM");
+  const card = page.locator(".catalog-grid article").filter({
+    has: page.getByText("Fuzzy Possibilistic C-Means", { exact: true }),
+  });
+  await expect(card).toHaveCount(1);
+  await card.locator("canvas").scrollIntoViewIfNeeded();
+  await expect(card.locator(".algorithm-preview")).toHaveAttribute(
+    "data-preview-status",
+    "computed",
+  );
+  await card.locator("h2").dblclick();
+  const lab = page.locator(".structured-page"),
+    algorithm = "Fuzzy Possibilistic C-Means" as const;
+  await expect(lab.getByLabel("재생", { exact: true })).toBeEnabled();
+  await expect(lab.locator(".workspace-settings")).toBeHidden();
+  const data: Dataset = {
+    kind: "numeric",
+    values: [
+      [0, 0, 0],
+      [0, 0, 1],
+      [0, 0, 4],
+      [0, 0, 5],
+    ],
+  };
+  await openData(lab);
+  await lab
+    .getByLabel("원본 데이터 JSON", { exact: true })
+    .fill(JSON.stringify(data));
+  let before = await count(page);
+  await lab.getByRole("button", { name: "데이터 적용", exact: true }).click();
+  const run = await completed(page, before, algorithm),
+    a = stateAt(run.trace, run.trace.steps.length).analysis;
+  if (a?.kind !== "fuzzy-possibilistic") throw Error("missing FPCM");
+  expect(a.dimensions).toBe(3);
+  a.uRowSums.forEach((v) => expect(v).toBeCloseTo(1, 10));
+  a.tColumnSums.forEach((v) => expect(v).toBeCloseTo(1, 10));
+  expect(a.tRowSums.some((v) => Math.abs(v - 1) > 0.1)).toBe(true);
+  expect(a.centroids[0][2]).not.toBe(a.centroids[1][2]);
+  await closeData(lab);
+  await lab.getByLabel("마지막으로", { exact: true }).click();
+  await openAnalysis(lab);
+  await expect(
+    lab.getByRole("heading", {
+      name: "FPCM · U 행 / T 열 정규화",
+      exact: true,
+    }),
+  ).toBeVisible();
+  expect(
+    Number(
+      await lab
+        .getByLabel("FPCM 표본1 군집1 T", { exact: true })
+        .getAttribute("value"),
+    ),
+  ).toBeCloseTo(a.typicalities[0][0], 10);
+  await lab.getByLabel("설정 열기", { exact: true }).click();
+  await lab.getByLabel("한 단계 뒤로", { exact: true }).click();
+  await expect(lab.getByLabel("타임라인", { exact: true })).toHaveValue(
+    String(run.trace.steps.length - 1),
+  );
+  await lab.getByLabel("처음으로", { exact: true }).click();
+  await expect(lab.getByLabel("타임라인", { exact: true })).toHaveValue("0");
+  await lab.getByLabel("마지막으로", { exact: true }).click();
+  const position = await lab
+      .getByLabel("타임라인", { exact: true })
+      .inputValue(),
+    requests = await page.evaluate(() => window.extensionRequests);
+  await openData(lab);
+  await lab.getByLabel("표시 X 차원", { exact: true }).fill("3");
+  await closeData(lab);
+  await lab.getByLabel("시각화 집중 모드", { exact: true }).click();
+  await page.keyboard.press("Escape");
+  const width = page.viewportSize()!.width;
+  await page.setViewportSize({ width: width + 10, height: 900 });
+  await page.setViewportSize({ width, height: 900 });
+  await expect(lab.getByLabel("타임라인", { exact: true })).toHaveValue(
+    position,
+  );
+  expect(await page.evaluate(() => window.extensionRequests)).toBe(requests);
+  await openSettings(lab);
+  before = await count(page);
+  await lab.getByLabel("전형성 지수 η", { exact: true }).fill("3");
+  const changed = await completed(page, before, algorithm);
+  expect(changed.request.params.typicalityExponent).toBe(3);
+  const ca = stateAt(changed.trace, changed.trace.steps.length).analysis;
+  if (ca?.kind !== "fuzzy-possibilistic") throw Error("missing T");
+  expect(ca.typicalities).not.toEqual(a.typicalities);
+  await openData(lab);
+  await lab.getByLabel("원본 데이터 JSON", { exact: true }).fill(
+    JSON.stringify({
+      kind: "numeric",
+      values: [
+        [2, 2, 2],
+        [2, 2, 2],
+        [2, 2, 2],
+        [2, 2, 2],
+      ],
+    }),
+  );
+  before = await count(page);
+  await lab.getByRole("button", { name: "데이터 적용", exact: true }).click();
+  const constant = await completed(page, before, algorithm),
+    co = stateAt(constant.trace, constant.trace.steps.length).analysis;
+  if (co?.kind !== "fuzzy-possibilistic") throw Error("constant");
+  expect(co.objective).toBe(0);
+  expect(co.coincidentCenters).toBe(1);
+  before = await count(page);
+  await lab.getByLabel("다중 데이터 Undo", { exact: true }).click();
+  const undone = await completed(page, before, algorithm);
+  expect(undone.request.dataset).toEqual(data);
+  await closeData(lab);
+  await lab.getByLabel("마지막으로", { exact: true }).click();
+  await page.screenshot({ path: `test-results/fpcm-${info.project.name}.png` });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.reload();
+  const restored = await completed(page, 0, algorithm);
+  expect(restored.request.dataset).toEqual(data);
+  expect(restored.request.params.typicalityExponent).toBe(3);
+});
+
+test("FPCM guide compares actual ND FCM PCM and FPCM and transfers the real typicality event", async ({
+  page,
+}) => {
+  await page.goto("#guide");
+  const guide = page.locator(".guide-page"),
+    algorithm = "Fuzzy Possibilistic C-Means" as const;
+  await guide
+    .getByRole("navigation", { name: "알고리즘 가이드 목록", exact: true })
+    .getByRole("button", { name: algorithm, exact: true })
+    .click();
+  const mini = guide.locator(".trace-lesson");
+  await expect(mini.getByLabel("재생", { exact: true })).toBeEnabled();
+  await expect(guide.locator(".katex-error")).toHaveCount(0);
+  let before = await count(page);
+  await mini.locator(".fpcm-comparison > summary").click();
+  const pcm = await completed(page, before, "Possibilistic C-Means");
+  expect(pcm.request.dataset?.kind).toBe("numeric");
+  await expect(
+    mini.getByLabel("실제 FCM PCM FPCM 비교", { exact: true }),
+  ).toContainText("PCM1993 · 독립 T");
+  await mini.locator(".lesson-settings > summary").click();
+  before = await count(page);
+  await mini.getByLabel("전형성 지수 η", { exact: true }).fill("3");
+  const changed = await completed(page, before, algorithm),
+    other = await completed(page, before, "Possibilistic C-Means"),
+    a = stateAt(changed.trace, changed.trace.steps.length).analysis,
+    p = stateAt(other.trace, other.trace.steps.length).analysis;
+  if (a?.kind !== "fuzzy-possibilistic" || p?.kind !== "possibilistic")
+    throw Error("missing actual comparison");
+  expect(changed.request.dataset).toEqual(other.request.dataset);
+  expect(other.request.params.typicalityExponent).toBe(3);
+  expect(a.warmMemberships).toEqual(p.warmMemberships);
+  a.tColumnSums.forEach((v) => expect(v).toBeCloseTo(1, 10));
+  expect(p.rowSums.some((v) => Math.abs(v - 1) > 0.1)).toBe(true);
+  const row = mini.locator(".event-links > div").filter({
+    has: page.getByRole("button", { name: "typicality 보기", exact: true }),
+  });
+  await row
+    .getByRole("button", { name: "typicality 보기", exact: true })
+    .click();
+  const position =
+    changed.trace.steps.findIndex((s) => s.kind === "typicality") + 1;
+  await expect(mini.getByLabel("타임라인", { exact: true })).toHaveValue(
+    String(position),
+  );
+  before = await count(page);
+  await row
+    .getByRole("button", { name: "이 단계 실험에서 보기 ↗", exact: true })
+    .click();
+  const opened = await completed(page, before, algorithm);
+  expect(opened.request.dataset).toEqual(changed.request.dataset);
+  expect(opened.request.params.typicalityExponent).toBe(3);
+  await expect(
+    page.locator(".structured-page").getByLabel("타임라인", { exact: true }),
+  ).toHaveValue(String(position));
+});
+
 test("PCM actual ND typicalities, scale controls, reversible trace, projection and data restoration", async ({
   page,
 }, info) => {
@@ -267,11 +450,9 @@ test("PCM guide mini compares real ND FCM U with unnormalized T and opens its ac
   a.warmMemberships.forEach((row) =>
     expect(row.reduce((s, v) => s + v, 0)).toBeCloseTo(1, 12),
   );
-  const row = mini
-    .locator(".event-links > div")
-    .filter({
-      has: page.getByRole("button", { name: "typicality 보기", exact: true }),
-    });
+  const row = mini.locator(".event-links > div").filter({
+    has: page.getByRole("button", { name: "typicality 보기", exact: true }),
+  });
   await row
     .getByRole("button", { name: "typicality 보기", exact: true })
     .click();

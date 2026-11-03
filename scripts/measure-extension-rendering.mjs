@@ -6,7 +6,9 @@ const base =
   scope = process.argv[2] || "local",
   browser = await chromium.launch(),
   records = [];
-for (const algorithm of ["PCKMeans", "Possibilistic C-Means"]) {
+for (const algorithm of process.argv[3]
+  ? [process.argv[3]]
+  : ["PCKMeans", "Possibilistic C-Means"]) {
   const page = await browser.newPage({
     viewport: { width: 1440, height: 900 },
   });
@@ -147,9 +149,10 @@ const output = {
   records,
 };
 await browser.close();
-await mkdir("docs/extension-55", { recursive: true });
+const outputFolder = process.argv[4] || "docs/extension-55";
+await mkdir(outputFolder, { recursive: true });
 await writeFile(
-  `docs/extension-55/${scope}-rendering-performance.json`,
+  `${outputFolder}/${scope}-rendering-performance.json`,
   JSON.stringify(output, null, 2),
 );
 console.log(

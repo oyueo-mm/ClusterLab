@@ -83,6 +83,41 @@ const dimensions = number(
   "CLIQUE 탐색 최대 차원 / PROCLUS 평균 차원 예산",
 );
 export const nextFields = {
+  "Fuzzy Possibilistic C-Means": [
+    k,
+    number(
+      "fuzziness",
+      "퍼지 지수 m",
+      1 + Number.EPSILON,
+      10,
+      "U 행 정규화와 U^m 가중치",
+      0.1,
+    ),
+    number(
+      "typicalityExponent",
+      "전형성 지수 η",
+      1 + Number.EPSILON,
+      10,
+      "T 열 정규화와 T^η 가중치. PCM 독립 T와 다릅니다.",
+      0.1,
+    ),
+    number(
+      "warmIterations",
+      "FCM 초기화 반복",
+      1,
+      1000,
+      "같은 원본의 ND FCM 비교 기준을 실제 계산합니다.",
+    ),
+    iterations,
+    number(
+      "tolerance",
+      "중심 이동 허용오차",
+      0,
+      1e100,
+      "원본 ND 중심 이동. 정확 고정점 잔차는 별도 표시",
+      0.000001,
+    ),
+  ],
   "Possibilistic C-Means": [
     k,
     number(

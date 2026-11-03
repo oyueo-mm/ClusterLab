@@ -7,6 +7,21 @@ import { Recorder } from "./trace";
 import type { Algorithm, Params, Trace, State } from "./types";
 export function nativeResult(state: State) {
   const a = state.analysis;
+  if (a?.kind === "fuzzy-possibilistic")
+    return {
+      kind: "memberships-typicalities-centers" as const,
+      centroids: a.centroids,
+      memberships: a.memberships,
+      typicalities: a.typicalities,
+      effectiveWeights: a.effectiveWeights,
+      objective: a.objective,
+      fuzzyCost: a.fuzzyCost,
+      typicalityCost: a.typicalityCost,
+      converged: a.converged,
+      stopReason: a.stopReason,
+      fixedPointResidual: a.fixedPointResidual,
+      coincidentCenters: a.coincidentCenters,
+    };
   if (a?.kind === "possibilistic")
     return {
       kind: "typicalities-and-centers" as const,

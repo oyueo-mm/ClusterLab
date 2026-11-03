@@ -2,6 +2,32 @@ import type { AlgorithmDetail } from "./algorithmDetails";
 export const extensionDetails: Partial<
   Record<import("./types").Algorithm, AlgorithmDetail>
 > = {
+  "Fuzzy Possibilistic C-Means": {
+    timeComplexity: "O((T_FCM+T_FPCM)nKd), 중심 중복 진단 O(TK²d)",
+    spaceComplexity: "O(nd+nK+Kd), 작업256MiB·Trace64MiB 별도",
+    traceKinds: [
+      "initialize",
+      "expectation",
+      "maximization",
+      "distance",
+      "typicality",
+      "move",
+      "finish",
+    ],
+    visualizations: [
+      "원본 ND 중심·퍼지 U",
+      "T 열 정규화·표본 복제 효과",
+      "실제 FCM·PCM 비교",
+    ],
+    validation: "independent-numpy",
+    limitations:
+      "FPCM1997 제곱거리형, 별도 ND FCM 초기화. U 행/T 열 정규화, 영거리 균등 최적해. 표본 복제/수 의존·중복 중심 공개. PCM/PFCM2005 아님. 1997 전체 본문·R 실행 비교 미실시.",
+    references: [
+      "https://doi.org/10.1109/FUZZY.1997.616338",
+      "https://www.comp.ita.br/~forster/CC-222/material/fuzzyclust/fuzzy01492404.pdf",
+      "https://search.r-project.org/CRAN/refmans/ppclust/html/fpcm.html",
+    ],
+  },
   "Possibilistic C-Means": {
     timeComplexity:
       "O((T_FCM+T_PCM)nKd) · 중심 중복 진단 O((T_FCM+T_PCM)K²d), K≤n",

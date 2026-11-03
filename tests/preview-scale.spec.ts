@@ -85,7 +85,7 @@ async function metrics(page: Page) {
   );
 }
 
-test("all 55 real Worker clips survive catalog scrolling and filters, with bounded Workers", async ({
+test("all 56 real Worker clips survive catalog scrolling and filters, with bounded Workers", async ({
   page,
 }, info) => {
   test.setTimeout(180000);
@@ -93,10 +93,10 @@ test("all 55 real Worker clips survive catalog scrolling and filters, with bound
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("#/catalog");
-  await expect(page.locator(".candidate-preview")).toHaveCount(77);
+  await expect(page.locator(".candidate-preview")).toHaveCount(76);
   const previews = page.locator(".catalog-grid .algorithm-preview");
-  await expect(previews).toHaveCount(55);
-  for (let i = 0; i < 55; i++) {
+  await expect(previews).toHaveCount(56);
+  for (let i = 0; i < 56; i++) {
     await previews.nth(i).scrollIntoViewIfNeeded();
     await expect(previews.nth(i)).toHaveAttribute(
       "data-preview-status",
@@ -105,7 +105,7 @@ test("all 55 real Worker clips survive catalog scrolling and filters, with bound
     );
   }
   const complete = await metrics(page);
-  expect(complete.clips).toHaveLength(55);
+  expect(complete.clips).toHaveLength(56);
   expect(complete.max).toBeLessThanOrEqual(2);
   expect(complete.active).toBe(0);
   expect(
@@ -131,7 +131,7 @@ test("all 55 real Worker clips survive catalog scrolling and filters, with bound
     "computed",
   );
   const cached = await metrics(page);
-  expect(cached.clips.length).toBe(55);
+  expect(cached.clips.length).toBe(56);
   expect(errors).toEqual([]);
   await info.attach("worker-and-memory", {
     body: JSON.stringify({ ...cached, mainThreadUsedJSHeapSize: heap }),
